@@ -192,7 +192,7 @@ window.GDO.xhr = function(url, verb, data) {
 		headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify(data),
 	}).catch(function(res){
-		debugger;
+		console.error('GDO.xhr request failed', res);
 		window.GDO.responseError();
 	});
 };
@@ -213,7 +213,9 @@ window.GDO.gdoxhr = function(module, method, append, verb, data) {
 
 var origOpen = window.XMLHttpRequest.prototype.open;
 window.XMLHttpRequest.prototype.open = function () {
-	let result = window.origOpen.apply(this, arguments);
+	// Keep the original native XMLHttpRequest method. It is held in this
+	// module scope, not on window; otherwise every XHR fails before sending.
+	let result = origOpen.apply(this, arguments);
 	let token = document.querySelector('meta[name="csrf-token"]');
 	token = token ? token.getAttribute('content') : 'not-there';
 	this.setRequestHeader('X-CSRF-TOKEN', token);
