@@ -86,8 +86,8 @@ return [
 
 	'link_edit_room_comments' => 'Edit comments',
 
-	'graph_usercount' => 'User count',
-	'graph_messagecount' => 'Message count',
+	'graph_usercount' => 'Venue visits',
+	'graph_messagecount' => 'LinkUUp chat activity',
 
 	# 6.10.6
 	'lup_room' => 'Room',
@@ -98,6 +98,7 @@ return [
 	# 6.11.0
 	'box_content_lup_main' => 'LinkUUp Staff Area',
 	'link_rooms' => 'Rooms',
+	'link_statistics' => 'Statistics',
 	'link_add_room' => 'Add Room',
 	'link_cats' => 'Categories',
 	'link_add_cat' => 'Add Category',
@@ -137,6 +138,26 @@ return [
 	'enum_lup_drink_sometimes' => 'sometimes',
 	'enum_lup_drink_never' => 'never',
 
+	'enum_religion_christian' => 'Christian',
+	'enum_religion_muslim' => 'Muslim',
+	'enum_religion_jewish' => 'Jewish',
+	'enum_religion_egyptian' => 'Egyptian',
+	'enum_religion_hindi' => 'Hindu',
+	'enum_religion_romanian' => 'Roman',
+	'enum_religion_vikings' => 'Vikings',
+	'enum_religion_buddhism' => 'Buddhism',
+	'enum_religion_atheist' => 'Atheist',
+	'enum_religion_other' => 'other religion',
+	'enum_pet_cat' => 'Cat',
+	'enum_pet_dog' => 'Dog',
+	'enum_pet_fish' => 'Fish',
+	'enum_pet_reptile' => 'Reptile',
+	'enum_pet_bird' => 'Bird',
+	'enum_pet_other_mammal' => 'Other mammal',
+	'enum_pet_other' => 'Other pet',
+	'enum_pet_none' => 'No pet',
+	'enum_pet_wished' => 'I wish I had one',
+
 	# Eye color
 	'enum_amber' => 'braun',
 	'enum_green' => 'grün',
@@ -175,6 +196,7 @@ return [
 
 	'person_height' => 'Height',
 	'lup_status' => 'Currently Doing',
+	'lup_religion' => 'Religion',
 	'lup_sexual_orientation' => 'Sexual Orientation',
 	'lup_icq' => 'ICQ Number',
 	'lup_eyecolor' => 'Eye Color',

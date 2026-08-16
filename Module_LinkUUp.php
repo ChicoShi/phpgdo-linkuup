@@ -6,6 +6,7 @@ use GDO\Address\GDT_Phone;
 use GDO\Core\Application;
 use GDO\Core\GDO_Exception;
 use GDO\Core\GDO_Module;
+use GDO\Core\CSS;
 use GDO\Core\GDO_RedirectError;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_Enum;
@@ -101,7 +102,7 @@ final class Module_LinkUUp extends GDO_Module
 	public function getConfig(): array
 	{
 		return [
-			GDT_Url::make('lup_app_url')->initial('https://app.linkuup.gizmore.org/')->allowAll(),
+			GDT_Url::make('lup_app_url')->initial('https://app.www.linkuup.de/')->allowAll(),
 			GDT_Checkbox::make('lup_guest_query')->initial('0'), # Allow guest querie messages
 			GDT_Checkbox::make('lup_open_query')->initial('1'), # No near check for queries
 			GDT_Checkbox::make('lup_only_one_chat')->initial('1'), # Auto part all channels before join another room?
@@ -141,6 +142,7 @@ final class Module_LinkUUp extends GDO_Module
 			'lup_drinks' => [GDT_ACLRelation::MEMBERS, '0', null],
 			'lup_smokes' => [GDT_ACLRelation::MEMBERS, '0', null],
 			'lup_sporty' => [GDT_ACLRelation::MEMBERS, '0', null],
+			'lup_religion' => [GDT_ACLRelation::MEMBERS, '0', null],
 		];
 	}
 
@@ -149,6 +151,7 @@ final class Module_LinkUUp extends GDO_Module
 		return [
 			GDT_Divider::make('div_general'),
 			GDT_String::make('lup_status'),
+			GDT_Checkbox::make('lup_profile_outside_visible')->initial('1'),
 
 			GDT_Divider::make('div_location'),
 			GDT_String::make('lup_state'),
@@ -165,10 +168,11 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_SexualOrientation::make('lup_sexo'),
 
 			GDT_Divider::make('div_habits'),
-			GDT_Enum::make('lup_has_pet')->enumValues('yes', 'no')->emptyLabel('not_specified'),
+			GDT_Pet::make('lup_has_pet'),
 			GDT_Enum::make('lup_drinks')->enumValues('lup_drink_yes', 'lup_drink_sometimes', 'lup_drink_never')->emptyLabel('not_specified'),
 			GDT_Enum::make('lup_smokes')->enumValues('lup_smokes_yes', 'lup_smokes_no_care', 'lup_smokes_no', 'lup_smokes_no_way')->emptyLabel('not_specified'),
 			GDT_Enum::make('lup_sporty')->enumValues('lup_sporty', 'lup_unsporty')->emptyLabel('not_specified'),
+			GDT_Religion::make('lup_religion'),
 		];
 	}
 
@@ -176,7 +180,16 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function onIncludeScripts(): void
 	{
-		$this->addCSS('css/lup.css');
+		$this->addCSS('css/lup.css?lup_skin=20260816_032');
+		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260816_032');
+		$this->addJS('js/lup-welcome.js?lup_nav=20260816_004');
+		$this->addJS('js/lup-admin-sidebar.js?lup_nav=20260816_007');
+		// Bootstrap5 owns the current sidebar. The legacy drawer helper targets
+		// an older theme and can create a competing toggle on mixed backend pages.
+		// A separate revision is used for the visual back-office polish so
+		// browsers do not keep an older stylesheet after a local cache clear.
+		CSS::addFile($this->wwwPath('css/lup.css?lup_skin=20260816_032'));
+		CSS::addFile($this->wwwPath('css/lup-arrival-flow.css?lup_skin=20260816_032'));
 	}
 
 	/**
@@ -240,6 +253,7 @@ final class Module_LinkUUp extends GDO_Module
 				$allowed = [
 					"GDO\\Login\\Method\\Form",
 					"GDO\\Avatar\\Method\\Image",
+					"GDO\\Avatar\\Method\\ForUser",
 					"GDO\\Avatar\\Method\\ImageUser",
 					"GDO\\Captcha\\Method\\Image",
 					"GDO\\Country\\Method\\AjaxList",
@@ -253,6 +267,7 @@ final class Module_LinkUUp extends GDO_Module
 					"GDO\\File\\Method\\GetFile",
 
 					"GDO\\Register\\Method\\Form",
+					"GDO\\Register\\Method\\TOS",
 					"GDO\\Recovery\\Method\\Form",
 					"GDO\\Recovery\\Method\\Change",
 					"GDO\\Websocket\\Method\\GetSecret",
@@ -353,6 +368,16 @@ final class Module_LinkUUp extends GDO_Module
 		$a->removeFieldNamed('link_instagram_auth');
 		$a->removeFieldNamed('link_register');
 		$a->removeFieldNamed('link_register_guest');
+		// The stripped-down backend sign-in screen still needs an obvious exit.
+		$a->addField(GDT_Link::make('lup_back_to_backend')
+			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend'));
+	}
+
+	/** Keep registration from becoming a dead-end in the back office as well. */
+	public function hookRegisterForm(GDT_Form $form)
+	{
+		$form->actions()->addField(GDT_Link::make('lup_back_to_backend')
+			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend'));
 	}
 
 	public function hookRecoveryForm(GDT_Form $form)
