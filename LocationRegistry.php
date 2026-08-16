@@ -289,6 +289,24 @@ final class LocationRegistry
             'note' => 'Arabisches Restaurant in der Innenstadt. Live-Chat nur direkt im Lokal.',
             'source_checked' => '2026-08-16',
         ],
+        'ueberland-bs-willy-brandt-18' => [
+            'status' => 'approved',
+            'room_id' => 235,
+            'address_id' => 235,
+            'name' => 'ÜBERLAND · Rooftop Bar & Restaurant',
+            'category' => 3,
+            'color' => '#D66B75',
+            'city' => 'Braunschweig',
+            'street' => 'Willy-Brandt-Platz 18',
+            'zip' => '38102',
+            'lat' => 52.255768,
+            'lng' => 10.539922,
+            'view_km' => 32.0,
+            'chat_radius_km' => 0.100,
+            'website' => 'https://www.ueberland-bs.de/',
+            'note' => 'Sky-Restaurant mit Rooftop-Bar und Terrasse im BraWoPark. Live-Chat nur im Gebäude.',
+            'source_checked' => '2026-08-16',
+        ],
     ];
 
     public static function draft(string $key): array
