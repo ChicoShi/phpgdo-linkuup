@@ -27,6 +27,13 @@ return [
 	'lup_course_visible' => 'Show visited places',
 
 	'room_name' => 'Room',
+	'public_location' => 'Publish in the public location directory?',
+	'link_public_locations' => 'Public locations',
+	'mt_linkuup_publiclocations' => 'Public locations on LinkUUp',
+	'mt_linkuup_publiclocations_room' => '%s on LinkUUp',
+	'md_linkuup_publiclocations' => 'Discover verified public places and local venues on LinkUUp.',
+	'link_open_linkuup_location' => 'Open in LinkUUp',
+	'lup_public_locations_empty' => 'There are no public locations yet.',
 	'room_show_distance' => 'Display distance?',
 	'room_view' => 'View radius',
 	'room_radius' => 'Chat radius',

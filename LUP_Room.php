@@ -97,6 +97,15 @@ final class LUP_Room extends GDO
 		return $query->exec();
 	}
 
+	/** Public, explicitly approved locations for the searchable directory. */
+	public static function queryPublicRooms()
+	{
+		return self::table()->select()
+			->where('room_enabled=1 AND room_active=1 AND room_public=1')
+			->order('room_name ASC')
+			->exec();
+	}
+
 	#############
 	### Votes ###
 	#############
@@ -128,6 +137,7 @@ final class LUP_Room extends GDO
 			GDT_User::make('room_owner')->label('lup_owner')->cascadeNull()->withCompletion(),
 			GDT_Checkbox::make('room_enabled')->notNull()->initial('1')->label('enabled'),
 			GDT_Checkbox::make('room_active')->notNull()->initial('1')->label('active'),
+			GDT_Checkbox::make('room_public')->notNull()->initial('0')->label('public_location'),
 			GDT_UInt::make('room_sort')->notNull()->initial('1000')->label('sort'),
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),
@@ -158,6 +168,13 @@ final class LUP_Room extends GDO
 	}
 
 	public function isDisabled(): bool { return !$this->gdoValue('room_enabled'); }
+
+	public function isPublic(): bool
+	{
+		return $this->gdoValue('room_enabled') &&
+			$this->gdoValue('room_active') &&
+			$this->gdoValue('room_public');
+	}
 
 	###############
 	### Getters ###
@@ -211,7 +228,7 @@ final class LUP_Room extends GDO
         return href('LinkUUp', 'EditRoom', '&room=' . $this->getID());
     }
 
-    public function href_qrcode()
+	public function href_qrcode()
     {
         return href('LinkUUp', 'QRForRoom', '&room_id=' . $this->getID());
     }
@@ -233,6 +250,11 @@ final class LUP_Room extends GDO
 	public function href_coworkers()
 	{
 		return href('LinkUUp', 'AddCoworker', '&room=' . $this->getID());
+	}
+
+	public function href_public(): string
+	{
+		return href('LinkUUp', 'PublicLocations', '&room=' . $this->getID());
 	}
 
 	public function href_comments()

@@ -27,6 +27,13 @@ return [
 	'lup_course_visible' => 'Besuchte Orte zeigen',
 
 	'room_name' => 'Raum',
+	'public_location' => 'Im öffentlichen Ortsverzeichnis veröffentlichen?',
+	'link_public_locations' => 'Öffentliche Orte',
+	'mt_linkuup_publiclocations' => 'Öffentliche Orte bei LinkUUp',
+	'mt_linkuup_publiclocations_room' => '%s bei LinkUUp',
+	'md_linkuup_publiclocations' => 'Entdecke geprüfte öffentliche Orte und lokale Anlaufstellen bei LinkUUp.',
+	'link_open_linkuup_location' => 'In LinkUUp öffnen',
+	'lup_public_locations_empty' => 'Es gibt noch keine öffentlichen Orte.',
 	'room_show_distance' => 'Entfernung anzeigen?',
 	'room_view' => 'Sichtbarkeitsradius',
 	'room_radius' => 'Chatradius',

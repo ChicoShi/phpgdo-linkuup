@@ -39,6 +39,22 @@ final class LUPTest extends TestCase
 		assertGreaterThanOrEqual(1, LUP_Room::table()->countWhere());
 	}
 
+	/** Only explicitly published, enabled and active rooms are public. */
+	public function testPublicRoomRequiresEveryFlag(): void
+	{
+		$room = LUP_Room::blank([
+			'room_enabled' => '1',
+			'room_active' => '1',
+			'room_public' => '1',
+		]);
+		assertTrue($room->isPublic());
+		$room->setVar('room_public', '0');
+		assertFalse($room->isPublic());
+		$room->setVar('room_public', '1');
+		$room->setVar('room_active', '0');
+		assertFalse($room->isPublic());
+	}
+
 	public function testQueryThreadsSplitAfterAnHour(): void
 	{
 		$gizmore = GDO_User::getByName('gizmore');
