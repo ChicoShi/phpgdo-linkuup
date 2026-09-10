@@ -31,6 +31,7 @@ final class InstallPeine
 		self::seedMarketSquare($icons);
 		self::seedStation($icons);
 		self::seedSilberkampGymnasium($icons);
+		self::seedLandmarks($icons);
 		self::seedRestaurants($icons);
 	}
 
@@ -499,6 +500,51 @@ final class InstallPeine
 			'room_image' => $image->getID(),
 			'room_show_distance' => '1',
 		])->softReplace();
+	}
+
+	/** Public cultural, event, and outdoor landmarks beyond the core centre. */
+	private static function seedLandmarks(array $icons): void
+	{
+		$landmarks = [
+			['Kreismuseum Peine', 'Das Kreismuseum mit Dauer- und Sonderausstellungen.', '12', 52.3248575, 10.2253998, 'Stederdorfer Straße 17', '31224', '#835DC2', '0.075', 'https://www.landkreis-peine.de/Themen-Projekte/Kreismuseum/'],
+			['Stadtbücherei Peine', 'Stadtbücherei im Zentrum von Peine.', '12', 52.3207687, 10.2263743, 'Winkel 30A', '31224', '#835DC2', '0.075', null],
+			['Stadttheater Peiner Festsäle', 'Veranstaltungs- und Theaterhaus am Friedrich-Ebert-Platz.', '12', 52.3164848, 10.2326568, 'Friedrich-Ebert-Platz 12', '31226', '#835DC2', '0.125', null],
+			['Schützenplatz Peine', 'Veranstaltungsfläche am Stadtpark.', '13', 52.3217776, 10.2337168, 'Kantstraße', '31224', '#2D946A', '0.150', null],
+			['Eixer See', 'See und Naherholungsgebiet bei Eixe.', '20', 52.3476947, 10.1994790, null, '31228', '#2D946A', '0.350', null],
+		];
+
+		$image = $icons[3];
+		foreach ($landmarks as $index => [$name, $info, $category, $lat, $lng, $street, $zip, $color, $radius, $www])
+		{
+			$id = 1041 + $index;
+			$address = GDO_Address::blank([
+				'address_id' => (string)$id,
+				'address_name' => $name,
+				'address_street' => $street,
+				'address_zip' => $zip,
+				'address_city' => 'Peine',
+				'address_country' => 'DE',
+			])->softReplace();
+
+			LUP_Room::blank([
+				'room_id' => (string)$id,
+				'room_owner' => null,
+				'room_name' => $name,
+				'room_info' => $info,
+				'room_color' => $color,
+				'room_category' => $category,
+				'room_active' => '1',
+				'room_pos_lat' => (string)$lat,
+				'room_pos_lng' => (string)$lng,
+				'room_view' => '10.0',
+				'room_radius' => $radius,
+				'room_www' => $www,
+				'room_address' => $address->getID(),
+				'room_icon' => $image->getID(),
+				'room_image' => $image->getID(),
+				'room_show_distance' => '1',
+			])->softReplace();
+		}
 	}
 
 	/**
