@@ -64,7 +64,7 @@ final class Module_LinkUUp extends GDO_Module
 			'Licenses', 'Login', 'Logs',
 			'Maps', 'Markdown',
 			'News', 'OpenTimes', 'Perf',
-			'PaymentCredits',
+			'PaymentBank', 'PaymentCredits', 'PaymentPaypal',
 			'QRCode', 'Recovery', 'Register',
             'Session', 'Websocket',
 		];
