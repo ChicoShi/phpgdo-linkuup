@@ -95,11 +95,9 @@ VALUES JSON / GDT_PerfBar::data
  PARAM string langaugeIso
 VALUES -none- 200 OK
 
-0x0111 Facebook login
  PARAM uint32 fbExpire, string fbAccessToken, string fbCookie
 VALUES 200 OK
 
-0x0112 Instagram Login
 VALUES string accessToken
 
 0x0121 Wrapper for the account form. Change Email etc.

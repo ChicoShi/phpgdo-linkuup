@@ -224,7 +224,9 @@ final class Install
 		{
 			return;
 		}
-		$file = GDO_File::fromPath(
+		// Reuse the original upload across reinstallations. Otherwise every
+		// LinkUUp install creates another source image and reconverts its variants.
+		$file = GDO_File::getByName('linkuup_favicon.png') ?? GDO_File::fromPath(
 			'linkuup_favicon.png',
 			Module_LinkUUp::instance()->filePath('data/linkuup_favicon.png'),
 		)->insert();

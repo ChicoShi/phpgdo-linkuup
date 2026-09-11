@@ -1,6 +1,7 @@
 <?php
 
 use GDO\Form\GDT_Form;
+use GDO\GoogleAuth\Module_GoogleAuth;
 
 /** @var $form GDT_Form * */
 $name = $form->name;
@@ -22,6 +23,9 @@ $name = $form->name;
                 <a class="button-forgot-pw gdt-button" href="index.php?mo=Recovery&amp;me=Form">Passwort Vergessen?</a>
                 <input type="submit" class="md-button md-primary md-raised login-button" name="<?=$name?>[submit]" value="Einloggen">
             </div>
+			<?php if (Module_GoogleAuth::instance()->isConfigured()) : ?>
+				<a class="button-google-auth" href="<?=href('GoogleAuth', 'Auth')?>">Mit Google fortfahren</a>
+			<?php endif; ?>
 			<?php
 			#echo $form->getField('xsrf')->renderForm()?>
         </form>

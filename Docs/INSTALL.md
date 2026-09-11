@@ -26,8 +26,6 @@ First we need to download the gdo6 core and clone the dependant modules to insta
     git clone --recursive https://github.com/gizmore/gdo6-register Register
     git clone --recursive https://github.com/gizmore/gdo6-websocket Websocket
     git clone --recursive https://github.com/gizmore/gdo6-maps Maps
-    git clone --recursive https://github.com/gizmore/gdo6-facebook Facebook
-    git clone --recursive https://github.com/gizmore/gdo6-instagram Instagram
     git clone --recursive https://github.com/gizmore/gdo6-captcha Captcha
     git clone --recursive https://github.com/gizmore/gdo6-qrcode QRCode
     git clone --recursive https://github.com/gizmore/gdo6-jpgraph JPGraph
@@ -100,7 +98,7 @@ LinkUUp gdo6 backend requires a user to login to proceed.
     
 ### Configuration of the modules
 
-You should have an almost working site now, but some modules need configuration. For example Facebook App tokens etc.
+You should have an almost working site now, but some modules still need configuration.
 
 Login as your admin user and goto the admin panel.
 
