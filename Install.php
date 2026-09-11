@@ -169,6 +169,9 @@ final class Install
         Module_Register::instance()->saveConfigVar('captcha', '0');
         Module_Register::instance()->saveConfigVar('email_activation', '0');
         Module_LinkUUp::instance()->saveConfigVar('lup_only_one_chat', '0');
+		$module->saveConfigVar('room_cost', '500');
+		$module->saveConfigVar('room_cost_view', '200');
+		$module->saveConfigVar('room_cost_view_unit', '0.5');
         if (GDO_ENV === 'dev' || GDO_ENV === 'tes')
         {
             Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'app.lup.localhost');
