@@ -64,3 +64,11 @@ body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow p { font-size:14
  body.lup-arrival-refresh .lup-journey-stage .lup-world-intro { margin-top:8px; }
 }
 @media(prefers-reduced-motion:reduce) { .lup-world-invitation::before,.lup-world-invitation i { transition:none; } }
+/* Shared route docks with the existing symbols without changing any action. */
+.lup-scroll-traveller { width:24px!important; height:32px!important; transform-origin:center; }
+.lup-scroll-traveller .lup-route-symbol { width:100%; height:100%; display:block; }
+.lup-route-dock { --dock:0; position:relative; }
+.lup-route-dock::after { content:''; position:absolute; inset:-9px; border:1px solid #ada2f9; border-radius:inherit; opacity:var(--dock); transform:scale(calc(.8 + var(--dock) * .25)); pointer-events:none; box-shadow:0 0 24px #7e77e425; }
+.lup-story-orbit.lup-route-dock::after { border-radius:50%; }
+body.lup-arrival-refresh .lup-arrival-principle-flow > div > i.lup-route-dock { transform:scale(calc(1 + var(--dock) * .1))!important; }
+.lup-connected-static .lup-route-dock::after { display:none; }

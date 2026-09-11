@@ -12,7 +12,6 @@
         const pin = chapter.querySelector('.lup-world-pin');
         const halo = chapter.querySelector('.lup-world-halo');
         const orbits = [...chapter.querySelectorAll('.lup-world-orbit')];
-        const traveller = document.querySelector('.lup-scroll-traveller');
         const steps = [...chapter.querySelectorAll('.lup-arrival-flow li')];
         const reduced = matchMedia('(prefers-reduced-motion: reduce)');
         const clamp = x => Math.max(0, Math.min(1,x));
@@ -55,7 +54,7 @@
             sphere.style.transform=`scale(${1-morph*.60})`;
             sphere.style.opacity=String(1-ease((morph-.72)/.28));
             sphere.style.visibility=morph>.99?'hidden':'visible';
-            pin.style.opacity=String(ease((morph-.1)/.7));
+            pin.style.opacity=String(ease((morph-.1)/.7)*(1-ease((p-.88)/.02)));
             pin.style.transform=`translate(-50%,-37%) scale(${.7+morph*.3})`;
             halo.style.opacity=String(.8-morph*.25);
             orbits.forEach((el,i)=>{el.style.opacity=String((1-morph)*.65);el.style.transform=`rotate(${-28+i*70+p*50}deg) scale(${1-morph*.35})`;});
@@ -65,7 +64,7 @@
             carrier.style.opacity='1';
             const invitation=chapter.querySelector('.lup-world-invitation');
             invitation.classList.toggle('is-arrived',p>.79 && !staticMode);
-            traveller.style.opacity=staticMode?'0':String(ease((targetProgress-.98)/.02));
+            document.dispatchEvent(new CustomEvent('lup:world-progress',{detail:{progress:p,staticMode}}));
             const current=Math.min(2,Math.floor(p*3));
             steps.forEach((li,i)=>li.classList.toggle('lup-step-current',staticMode||i===current));
             if(!staticMode && Math.abs(targetProgress-shown)>.0001)frame=requestAnimationFrame(draw);
