@@ -389,9 +389,9 @@ final class Module_LinkUUp extends GDO_Module
 		$a->removeFieldNamed('link_instagram_auth');
 		$a->removeFieldNamed('link_register');
 		$a->removeFieldNamed('link_register_guest');
-		// The stripped-down backend sign-in screen still needs an obvious exit.
+		// Retain the routing field without rendering an extra login-form action.
 		$a->addField(GDT_Link::make('lup_back_to_backend')
-			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend'));
+			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend')->hidden());
 	}
 
 	/** Keep registration from becoming a dead-end in the back office as well. */
