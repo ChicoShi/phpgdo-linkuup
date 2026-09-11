@@ -174,6 +174,7 @@ final class Install
 		$module->saveConfigVar('room_cost_view_unit', '0.5');
 		$module->saveConfigVar('shout_cost', '137');
 		$module->saveConfigVar('room_tolerance', '0.064');
+		$module->saveConfigVar('room_leave_tolerance', '0.64');
         if (GDO_ENV === 'dev' || GDO_ENV === 'tes')
         {
             Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'app.lup.localhost');

@@ -205,13 +205,23 @@ final class LUP_Room extends GDO
 	 */
 	public function isInChatRange($lat, $lng): bool
 	{
+		return $this->isInChatRangeWithTolerance($lat, $lng, Module_LinkUUp::instance()->cfgRoomTolerance());
+	}
+
+	/** Is a position still close enough that an active chat membership is retained? */
+	public function isInChatLeaveRange($lat, $lng): bool
+	{
+		return $this->isInChatRangeWithTolerance($lat, $lng, Module_LinkUUp::instance()->cfgRoomLeaveTolerance());
+	}
+
+	private function isInChatRangeWithTolerance($lat, $lng, float $tolerance): bool
+	{
 		$polygon = trim((string)$this->gdoVar('room_polygon'));
 		if ($polygon !== '' && $polygon !== 'null')
 		{
-			return GDT_Polygon::containsOrNear($polygon, (float)$lat, (float)$lng,
-				Module_LinkUUp::instance()->cfgRoomTolerance());
+			return GDT_Polygon::containsOrNear($polygon, (float)$lat, (float)$lng, $tolerance);
 		}
-		return $this->isNearLatLng($lat, $lng, $this->getRadius());
+		return $this->isNearLatLng($lat, $lng, $this->getRadius() + $tolerance);
 	}
 
 	public function isNearLatLng($lat, $lng, $dist = 20) { return Position::distanceCalculation($this->getLat(), $this->getLng(), $lat, $lng) <= $dist; }
