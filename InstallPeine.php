@@ -69,6 +69,16 @@ final class InstallPeine
 
 			$lat = $room->getLat();
 			$lng = $room->getLng();
+			if ((int)$room->gdoVar('room_category') === 21)
+			{
+				// Doctors are discoverable throughout Peine; presence stays polygon-local.
+				$polygon = GDT_Polygon::fromSquare($lat, $lng, $room->getRadius());
+				$room->saveVars([
+					'room_polygon' => $polygon,
+					'room_view' => '0.777',
+				]);
+				continue;
+			}
 			if ($room->getID() >= 1017 && $room->getID() <= 1099)
 			{
 				// Smaller venues receive a consistent 65 × 65 metre location square.
@@ -701,6 +711,7 @@ final class InstallPeine
 			['HNO-Praxis Dr. Christian Rockel', 'Hals-, Nasen- und Ohrenheilkunde.', 52.3329758, 10.2352724, 'Kastanienallee 1', '31224', '05171 488404', null],
 			['Urologie Buse & Kistenbrügge', 'Fachärzte für Urologie im Ärztezentrum.', 52.3290188, 10.2334404, 'Duttenstedter Straße 13', '31224', '05171 50880', 'https://www.urologe-peine.de/'],
 			['Allgemeinmedizin Dr. Brigitte Sauer', 'Fachärztin für Allgemeinmedizin.', 52.3418793, 10.1858126, 'Kirchvordener Straße 42', '31228', '05171 587871', null],
+			// Kept as an ID placeholder: its services are part of Praxisklinik Peine.
 			['Allgemeinmedizin & Phlebologie Wawrzyniak-Schulz', 'Allgemeinmedizin und Phlebologie.', 52.3329758, 10.2352724, 'Kastanienallee 1', '31224', '05171 3004', null],
 			['Frauenärztin Dr. Dorothea Marhenke', 'Gynäkologie und Geburtshilfe.', 52.3194927, 10.2307352, 'Bahnhofstraße 5', '31224', '05171 14144', null],
 			['Frauenärztin Christine Rückum-Savas', 'Gynäkologie und Geburtshilfe.', 52.3264211, 10.2345083, 'Gunzelinstraße 1', '31224', '05171 71441', 'https://www.frauenaerztin-peine.de/'],
@@ -745,6 +756,11 @@ final class InstallPeine
 		foreach ($doctors as $index => [$name, $info, $lat, $lng, $street, $zip, $phone, $www])
 		{
 			$id = 1100 + $index;
+			// Same address and phone as Praxisklinik Peine (#1147): one venue.
+			if ($id === 1114)
+			{
+				continue;
+			}
 			$address = GDO_Address::blank([
 				'address_id' => (string)$id,
 				'address_name' => $name,
@@ -774,6 +790,12 @@ final class InstallPeine
 				'room_image' => $image->getID(),
 				'room_show_distance' => '1',
 			])->softReplace();
+		}
+
+		// Remove the former standalone seed record on upgrades as well.
+		if ($room = LUP_Room::getById('1114'))
+		{
+			$room->delete();
 		}
 	}
 
