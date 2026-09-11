@@ -138,3 +138,27 @@ Offen: Google-Maps-CORS-/Konfigurationsmeldungen bleiben bestehen. Ein vorhanden
 Authentifizierungshinweis enthält teilweise einen %s-Platzhalter. Keine Formulare
 mit Konto-/Nachrichtenwirkung abgeschickt. Echtes iPhone, angemeldete Unterseiten
 und Bildrate nicht geprüft. Keine öffentliche Veröffentlichung oder Nachrichten.
+
+
+## Weltkugel statt Kartenkapitel
+
+Auf Bauherren-/Nutzerfeedback ersetzt durch eine räumliche Weltkugel in den
+App-Farben mit stilisierten Kontinenten und einer Schrittspur auf der Oberfläche.
+Scrollfortschritt dreht die Kugel, verkleinert sie zum Kopf einer GPS-Nadel und
+blendet deren Spitze ein. Anschließend wandert die Nadel außerhalb der Texte zur
+bestehenden Seitenroute. Beim Zurückscrollen ist der Ablauf umkehrbar.
+Stilisierte Illustration, keine Standortdaten, keine externe Bibliothek/Medien.
+419 feste Landpunkte; nur Transform/Opacity bewegen sich. Keine dauerhafte
+Animationsschleife für die Kugel; ein Frame je Scroll-/Resize-Ereignis.
+
+Zusätzlich Zugangsmeldung repariert: Der LinkUUp-Redirect übergab bislang keine
+URL für den %s-Platzhalter. Neuer DE/EN-Text mit funktionierendem Login-Link.
+Die Berechtigungen/Whitelist bleiben unverändert. News als Gast → Login mit
+Hinweis geprüft; anschließende Welcome-Navigation enthält keine Fehleranzeige.
+
+Prüfung: Syntax PHP/JS und Diff; Firefox bei 390 und 1440 px, mehrere
+Scrollpositionen bis zur Routenübergabe und zurück. Kein horizontaler Überlauf.
+Reduced Motion und kurze Fenster verwenden eine statische Kugel und natürlichen
+Inhaltsfluss. Keine neue pageerror-Ausnahme. Screenshots world-*.png im bisherigen
+Artefaktordner. Echte Geräte-/Bildratenprüfung steht weiter aus.
+Der zuvor offene Auth-Platzhalter ist damit behoben; Maps-Meldungen bleiben separat.
