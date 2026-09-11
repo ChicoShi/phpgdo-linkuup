@@ -38,6 +38,7 @@ final class InstallPeine
 		self::seedSilberkampGymnasium($icons);
 		self::seedLandmarks($icons);
 		self::seedRestaurants($icons);
+		self::seedDoctors($icons);
 		self::normalizeGeometry();
 	}
 
@@ -667,6 +668,107 @@ final class InstallPeine
 				'room_pos_lng' => (string)$lng,
 				'room_view' => '10.0',
 				'room_radius' => '0.075',
+				'room_address' => $address->getID(),
+				'room_icon' => $image->getID(),
+				'room_image' => $image->getID(),
+				'room_show_distance' => '1',
+			])->softReplace();
+		}
+	}
+
+	/**
+	 * Publicly listed human-medicine practices in Peine.
+	 *
+	 * One room represents one public practice location. This intentionally does
+	 * not duplicate doctors who share a practice, and does not include dental,
+	 * veterinary or therapy-only offices. Coordinates are address pins; the
+	 * normalizer supplies a compact four-point building polygon around each pin.
+	 */
+	private static function seedDoctors(array $icons): void
+	{
+		$doctors = [
+			['Allgemeinmedizin Dr. Alexander Weimann', 'Allgemeinmedizinische Praxis.', 52.3375723, 10.1672425, 'Weißdornstraße 65a', '31228', '05171 2811', null],
+			['Allgemeinmedizin Dr. Reinhold-Dünow', 'Allgemeinmedizinische Praxis.', 52.3238999, 10.2279235, 'Werderstraße 28', '31224', '05171 297115', null],
+			['Nervenärztliche Gemeinschaftspraxis', 'Neurologie, Psychiatrie und Psychotherapie.', 52.3245897, 10.2338981, 'Kantstraße 40', '31224', '05171 15687', 'https://www.nervenarztpraxis-peine.de/'],
+			['Allgemeinmedizin Dr. Liane Stropp', 'Allgemeinmedizinische Praxis.', 52.3431545, 10.2468864, 'Regerstraße 25', '31228', '05171 15429', null],
+			['Allgemeinmedizin Katherine Knabe', 'Allgemeinmedizinische Praxis.', 52.3226616, 10.2297407, 'Bodenstedtstraße 7', '31224', '05171 905709', 'https://www.praxiskatherineknabe.de/'],
+			['Hausärzte Peine Wöhnke & Miehe', 'Hausärztliche Gemeinschaftspraxis.', 52.3245897, 10.2338981, 'Kantstraße 40', '31224', '05171 3551', 'https://www.hausaerzte-peine.de/'],
+			['MVZ Kardiologie Peine', 'Kardiologie im Ärztezentrum.', 52.3288932, 10.2330939, 'Duttenstedter Straße 11', '31224', '05171 76730', 'https://www.kardiologie-peine.de/'],
+			['Anästhesiepraxis Peine', 'Anästhesiologische Praxis im Ärztezentrum.', 52.3288932, 10.2330939, 'Duttenstedter Straße 11', '31224', '05171 588008', 'https://www.aerztezentrum-peine.de/'],
+			['Augenärzte Peine', 'Augenärztliche Gemeinschaftspraxis.', 52.3232550, 10.2335819, 'Kantstraße 18', '31224', '05171 15358', 'https://augenaerzte-peine.de/'],
+			['Dr. med. Frank Seidling', 'Orthopädie und Unfallchirurgie.', 52.3141167, 10.2103986, 'Werner-Nordmeyer-Straße 37', '31226', '05171 5455356', 'https://www.dr-seidling.de/'],
+			['HNO-Praxis Peine', 'Hals-, Nasen- und Ohrenheilkunde sowie Allergologie.', 52.3288932, 10.2330939, 'Duttenstedter Straße 11', '31224', '05171 15239', 'https://www.hno-peine.de/'],
+			['HNO-Praxis Dr. Christian Rockel', 'Hals-, Nasen- und Ohrenheilkunde.', 52.3329758, 10.2352724, 'Kastanienallee 1', '31224', '05171 488404', null],
+			['Urologie Buse & Kistenbrügge', 'Fachärzte für Urologie im Ärztezentrum.', 52.3290188, 10.2334404, 'Duttenstedter Straße 13', '31224', '05171 50880', 'https://www.urologe-peine.de/'],
+			['Allgemeinmedizin Dr. Brigitte Sauer', 'Fachärztin für Allgemeinmedizin.', 52.3418793, 10.1858126, 'Kirchvordener Straße 42', '31228', '05171 587871', null],
+			['Allgemeinmedizin & Phlebologie Wawrzyniak-Schulz', 'Allgemeinmedizin und Phlebologie.', 52.3329758, 10.2352724, 'Kastanienallee 1', '31224', '05171 3004', null],
+			['Frauenärztin Dr. Dorothea Marhenke', 'Gynäkologie und Geburtshilfe.', 52.3194927, 10.2307352, 'Bahnhofstraße 5', '31224', '05171 14144', null],
+			['Frauenärztin Christine Rückum-Savas', 'Gynäkologie und Geburtshilfe.', 52.3264211, 10.2345083, 'Gunzelinstraße 1', '31224', '05171 71441', 'https://www.frauenaerztin-peine.de/'],
+			['Hausarzt Stefan Schmidtke', 'Facharzt für Allgemeinmedizin.', 52.3228995, 10.2268313, 'Echternplatz 2-3', '31224', '05171 582258', 'https://www.hausarzt-schmidtke.de/'],
+			['Anästhesie Jens Krupke', 'Facharzt für Anästhesiologie.', 52.2894931, 10.2692026, 'Am Erlenbruch 6', '31226', '05171 989510', null],
+			['Augenarzt Walter Diegel', 'Facharzt für Augenheilkunde.', 52.3194927, 10.2307352, 'Bahnhofstraße 5', '31224', '05171 71145', null],
+			['Chirurgie Dr. Kevork Kalatas', 'Facharzt für Chirurgie.', 52.3290188, 10.2334404, 'Duttenstedter Straße 13a', '31224', '05171 2948333', null],
+			['Dermatologie Dr. Michael D. Lütgemeier', 'Allergologie, Dermatologie und Umweltmedizin.', 52.3217776, 10.2337168, 'Am Schützenplatz 1', '31224', '05171 6822', null],
+			['Innere Medizin Irwan Iskandar', 'Facharzt für Innere Medizin.', 52.3222925, 10.2277831, 'St.-Jakobi-Kirchplatz 4', '31224', '05171 6974', null],
+			['Psychotherapie Dr. Harald Walter', 'Facharzt für Psychotherapie.', 52.3141167, 10.2103986, 'Werner-Nordmeyer-Straße 37', '31226', null, 'https://haraldwalter.de/'],
+			['Frauenarztpraxis Inka Dagmar Groke', 'Frauenheilkunde und Geburtshilfe.', 52.3258149, 10.2337117, 'Schwarzer Weg 1', '31224', '05171 6886', 'https://www.praxis-groke.de/'],
+			['Urologie Ellen Leukefeld', 'Facharztpraxis für Urologie.', 52.3225283, 10.2302823, 'Bodenstedtstraße 8', '31224', '05171 5808222', 'https://www.urologie-leukefeld.de/'],
+			['Frauenarztpraxis Johannes Neimann', 'Gynäkologie und Geburtshilfe.', 52.3294777, 10.1953436, 'Falkenberger Straße 31a', '31224', '05171 508780', 'https://neimann-gyn.de/'],
+			['Gemeinschaftspraxis Ritter & von Müller', 'Allgemeinmedizinische Gemeinschaftspraxis.', 52.3488970, 10.2480383, 'Hesebergweg 1a', '31228', '05171 10440', null],
+			['Hausarztpraxis Hauptmann & Herbst', 'Innere Medizin, Allgemeinmedizin und Palliativmedizin.', 52.3227674, 10.2298296, 'Werderstraße 44', '31224', '05171 6601', 'https://www.hauptmann-hausarztpraxis.de/'],
+			['Orthopädie Peine Cuntze & Mintrop', 'Orthopädische Gemeinschaftspraxis.', 52.3260626, 10.2296877, 'Sedanstraße 26', '31224', '05171 77500', 'https://www.orthopaediepeine.de/'],
+			['Dermatologie Kortenacker & Peters', 'Gemeinschaftspraxis für Dermatologie.', 52.3197001, 10.2301645, 'Bahnhofstraße 24', '31224', '05171 14121', null],
+			['Frauenheilkunde Eichler-Pajunk & Müter', 'Gynäkologische Gemeinschaftspraxis.', 52.3197488, 10.2334782, 'Beethovenstraße 9', '31224', '05171 3635', 'https://www.frauenheilkunde-peine.de/'],
+			['Gastroenterologie Peine', 'Gastroenterologie und Onkologie im Ärztezentrum.', 52.3290188, 10.2334404, 'Duttenstedter Straße 13', '31224', '05171 54576', 'https://www.gastro-peine.de/'],
+			['Kinderarztpraxis Köhler & Weidner', 'Kinder- und Jugendmedizin.', 52.3259204, 10.2277116, 'Bleicherwiesen 13', '31224', '05171 17142', 'https://www.ab-zum-kinderarzt.de/'],
+			['Onkologie & Hämatologie Peine', 'Praxis für Onkologie und Hämatologie.', 52.3225283, 10.2302823, 'Bodenstedtstraße 8', '31224', '05171 769600', 'https://www.onkologie-peine.de/'],
+			['Ortho Team Peine', 'Orthopädie und Unfallchirurgie.', 52.3194322, 10.2318584, 'Glockenstraße 8', '31224', '05171 40000', 'https://www.orthoteampeine.de/'],
+			['Hausarzt Zentrum Peine', 'Hausärztliches Zentrum.', 52.3302952, 10.2459463, 'Eichendorffstraße 15', '31224', '05171 6009', 'https://www.hausarzt-peine.de/'],
+			['Hausarztpraxis Dr. Constantin de Curtis', 'Allgemeinmedizinische Praxis.', 52.3352174, 10.1763452, 'Rilkestraße 49', '31228', '05171 90060', null],
+			['Hausarztpraxis Dr. Thomas Roy', 'Allgemeinmedizinische Praxis.', 52.3094279, 10.1562317, 'Birkenweg 19', '31226', '05171 580355', 'https://www.praxis-dr-roy.de/'],
+			['Hausarztpraxis in der Südstadt', 'Gemeinschaftspraxis für Allgemeinmedizin.', 52.3136533, 10.2355118, 'Feldstraße 20', '31226', '05171 905660', null],
+			['Hausarztpraxis Dr. Kahraman', 'Allgemeinmedizinische Praxis.', 52.3318901, 10.1949015, 'Falkenberger Straße 31b', '31228', '05171 4579700', 'https://www.hausarztpraxispeine.de/'],
+			['Kinder- und Jugendarztpraxis Simone Fritz', 'Kinder- und Jugendmedizin.', 52.3245443, 10.2341382, 'Am Silberkamp 2a', '31224', '05171 48288', 'https://kinder-jugend-arztpraxis.de/'],
+			['Kinderarztpraxis Brigitte Ridder', 'Kinder- und Jugendmedizin.', 52.3319257, 10.2608137, 'Kunzendorfer Straße 10', '31224', '05171 77950', 'https://www.kinderaerzte-im-netz.de/aerzte/peine/ridder/startseite.html'],
+			['Kinderarztpraxis Peine Ilsede', 'Kinder- und Jugendmedizin.', 52.3135569, 10.2346434, 'Berliner Ring 4', '31226', '05171 545990', 'https://www.kap-peine-ilsede.de/'],
+			['MKG am Marktplatz', 'Mund-, Kiefer- und Gesichtschirurgie.', 52.3233697, 10.2267095, 'Echternplatz 1', '31224', '05171 585996', 'https://www.mkg-peine.de/'],
+			['Neurozentrum Peine', 'Neurologie, Psychiatrie und Psychotherapie.', 52.3288932, 10.2330939, 'Duttenstedter Straße 11', '31224', '05171 7909030', 'https://neurozentrum-peine.de/'],
+			['Orthopädische Praxis Stephan Quast', 'Orthopädie und Unfallchirurgie.', 52.3194840, 10.2314555, 'Senator-Voges-Straße 3', '31224', '05171 6183', 'https://www.orthopaedische-praxis-peine.de/'],
+			['Praxisklinik Peine', 'Gefäßchirurgie, Phlebologie, Chirurgie und Sportmedizin.', 52.3329758, 10.2352724, 'Kastanienallee 1', '31224', '05171 3004', 'https://www.praxisklinik-peine.de/'],
+			['Radiologie Zentrum Peine', 'Radiologie.', 52.3258149, 10.2337117, 'Schwarzer Weg 1', '31224', '05171 5833660', 'https://www.peine-radiologie.de/'],
+			['Urologie Hagemann & Reese', 'Urologische Gemeinschaftspraxis.', 52.3258149, 10.2337117, 'Schwarzer Weg 1', '31224', '05171 13331', 'https://www.urologie-peine.de/'],
+			['Schönheits- und Privatchirurgie Sabine Burkert', 'Privatpraxis für Chirurgie.', 52.3406173, 10.2473531, 'Wilhelm-Rausch-Straße 19', '31228', '05171 5876833', 'https://www.schoenheitschirurgie-burkert.de/'],
+			['Pränataldiagnostik & Humangenetik Peine', 'Zentrum für Pränataldiagnostik und Humangenetik.', 52.3205282, 10.2234310, 'Hermann-Ehlers-Straße 9', '31224', '05171 3775', 'https://www.humgenpeine.de/'],
+		];
+
+		$image = $icons[3];
+		foreach ($doctors as $index => [$name, $info, $lat, $lng, $street, $zip, $phone, $www])
+		{
+			$id = 1100 + $index;
+			$address = GDO_Address::blank([
+				'address_id' => (string)$id,
+				'address_name' => $name,
+				'address_street' => $street,
+				'address_zip' => $zip,
+				'address_city' => 'Peine',
+				'address_country' => 'DE',
+				'address_phone' => $phone,
+			])->softReplace();
+
+			LUP_Room::blank([
+				'room_id' => (string)$id,
+				'room_owner' => null,
+				'room_name' => $name,
+				'room_info' => $info,
+				'room_color' => '#B64368',
+				'room_category' => '21',
+				'room_active' => '1',
+				'room_pos_lat' => (string)$lat,
+				'room_pos_lng' => (string)$lng,
+				'room_view' => '0.050',
+				'room_radius' => '0.025',
+				'room_www' => $www,
+				'room_phone' => $phone,
 				'room_address' => $address->getID(),
 				'room_icon' => $image->getID(),
 				'room_image' => $image->getID(),

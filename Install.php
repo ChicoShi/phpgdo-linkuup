@@ -75,7 +75,8 @@ final class Install
 		'17' => ['Hochschulen', null],
 		'18' => ['Gesundheit', null],
 		'19' => ['Übernachten', null],
-		'20' => ['Erholung', null],
+        '20' => ['Erholung', null],
+        '21' => ['Arzt', null],
 	];
 
 
