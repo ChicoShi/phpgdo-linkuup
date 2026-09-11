@@ -271,6 +271,8 @@ final class Module_LinkUUp extends GDO_Module
 
 				$allowed = [
 					"GDO\\Login\\Method\\Form",
+					"GDO\\GoogleAuth\\Method\\Auth",
+					"GDO\\GoogleAuth\\Method\\Callback",
 					"GDO\\Avatar\\Method\\Image",
 					"GDO\\Avatar\\Method\\ForUser",
 					"GDO\\Avatar\\Method\\ImageUser",
