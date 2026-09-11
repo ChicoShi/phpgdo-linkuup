@@ -3,6 +3,7 @@
     'use strict';
     const run = () => {
         const normalizeAccountGrid = () => {
+            if (document.documentElement.classList.contains('lup-backend-ui')) return;
             /* The arrival page uses Bootstrap's native overlay unchanged.
              * Repositioning its legacy links after a tap made the panel flash
              * and immediately collapse on some phone browsers. */
@@ -43,6 +44,7 @@
             });
         }
         const animateArrivalPin = () => {
+            if (document.body.classList.contains('lup-arrival-refresh')) return;
             const pin = document.querySelector('.lup-arrival-world-pin > i');
             if (!pin || pin.dataset.lupPinAnimated === '1' ||
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||

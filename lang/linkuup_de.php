@@ -5,6 +5,8 @@ return [
 
 	'lup_welcome' => 'Willkommen!',
 	'lup_home' => 'LinkUUp',
+	'lup_login_required' => 'Dieser Bereich ist für angemeldete Mitglieder. <a href="%s">Jetzt anmelden</a>.',
+	'lup_back_to_backend' => 'Zurück zu LinkUUp',
 	'lup_staff' => 'Team-Bereich',
 	'lup_landing_kicker' => 'Lokale Verbindung, zu deinen Bedingungen',
 	'lup_landing_title' => 'In der Nähe treffen. Gemeinsam planen.',

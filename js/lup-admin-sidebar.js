@@ -38,6 +38,8 @@
     }
 
     function initialiseBootstrapDrawer() {
+        // The refreshed welcome view owns its accessible, initially closed menu.
+        if (document.body.classList.contains('lup-arrival-refresh')) return;
         var trigger = document.getElementById('sidebarToggle');
         var drawer = document.getElementById('sidebar-wrapper');
         var page = document.getElementById('page-content-wrapper');
@@ -114,6 +116,7 @@
     }
 
     function initialise() {
+        if (document.documentElement.classList.contains('lup-backend-ui')) return;
         initialiseLegacyDrawer();
         initialiseBootstrapDrawer();
     }
