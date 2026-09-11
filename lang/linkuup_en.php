@@ -114,6 +114,10 @@ return [
 	'link_add_room' => 'Add Room',
 	'link_cats' => 'Categories',
 	'link_add_cat' => 'Add Category',
+	'mt_linkuup_roomflyer' => 'A5 room flyer',
+	'room_flyer' => 'Room flyer',
+	'room_flyer_cta' => 'Scan the code and join the local chat.',
+	'room_flyer_copy' => 'LinkUUp connects people at real places. Discover who is here, chat directly, and make plans with ease.',
 
 	'mt_linkuup_welcome' => 'Welcome!',
 
@@ -213,6 +217,7 @@ return [
 	'mt_linkuup_coworkers' => 'Coworkers',
 
 	'person_height' => 'Height',
+	'metres' => '%s metres',
 	'lup_status' => 'Currently Doing',
 	'lup_religion' => 'Religion',
 	'lup_sexual_orientation' => 'Sexual Orientation',

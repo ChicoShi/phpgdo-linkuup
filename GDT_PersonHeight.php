@@ -25,7 +25,7 @@ final class GDT_PersonHeight extends GDT_Float
 	public function renderHTML(): string
 	{
 		$var = $this->getVar();
-		return $var === null ? self::none() : t('metres', [$var]);
+		return $var === null ? self::none() : t('metres', [$this->displayVar($var)]);
 	}
 
 }

@@ -1,0 +1,24 @@
+@page { size: A5 portrait; margin: 0; }
+
+.lup-room-flyer { box-sizing: border-box; max-width: 148mm; margin: 1rem auto; color: #151515; font-family: Arial, sans-serif; }
+.lup-room-flyer *, .lup-room-flyer *::before, .lup-room-flyer *::after { box-sizing: inherit; }
+.lup-room-flyer-sheet { position: relative; min-height: 210mm; overflow: hidden; padding: 16mm 14mm 12mm; background: #fff; border: 1px solid #e2e2e2; text-align: center; }
+.lup-room-flyer-brand { color: #1c1c1c; font-size: 15pt; font-weight: 800; letter-spacing: .16em; }
+.lup-room-flyer-brand b { color: #6251cf; }
+.lup-room-flyer-accent { width: 34mm; height: 2.5mm; margin: 6mm auto 10mm; border-radius: 4mm; }
+.lup-room-flyer h1 { margin: 0; font-size: 28pt; line-height: 1.08; overflow-wrap: anywhere; }
+.lup-room-flyer-info { min-height: 10mm; margin: 5mm 0 6mm; color: #4b4b4b; font-size: 11.5pt; line-height: 1.38; }
+.lup-room-flyer-qr { display: inline-block; padding: 3mm; background: #fff; border: 1.5mm solid #151515; border-radius: 2mm; }
+.lup-room-flyer-qr img { display: block; width: 67mm; height: 67mm; image-rendering: pixelated; }
+.lup-room-flyer-cta { margin: 7mm 0 3mm; font-size: 14pt; font-weight: 700; line-height: 1.25; }
+.lup-room-flyer-copy { max-width: 104mm; margin: 0 auto; color: #3d3d3d; font-size: 10.5pt; line-height: 1.42; }
+.lup-room-flyer-address { margin: 6mm auto 0; color: #333; font-size: 9.5pt; line-height: 1.35; }
+.lup-room-flyer-url { margin: 6mm 0 0; color: #6d6d6d; font-size: 7.5pt; overflow-wrap: anywhere; }
+.lup-room-flyer-print { display: block; margin: 1rem auto; padding: .65rem 1rem; border: 0; border-radius: .4rem; background: #6251cf; color: #fff; font-weight: 700; cursor: pointer; }
+
+@media print {
+	body { margin: 0; background: #fff; }
+	.lup-room-flyer { width: 148mm; max-width: none; margin: 0; }
+	.lup-room-flyer-sheet { border: 0; }
+	.lup-room-flyer-print { display: none; }
+}
