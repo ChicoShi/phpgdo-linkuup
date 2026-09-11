@@ -199,7 +199,20 @@ final class LUP_Room extends GDO
 
 	public function getView() { return (float)$this->gdoVar('room_view'); }
 
-	public function isInChatRange($lat, $lng) { return $this->isNearLatLng($lat, $lng, $this->getRadius()); }
+	/**
+	 * Chat access follows the maintained location polygon. Existing rows without
+	 * one retain the legacy radius behaviour until they have been migrated.
+	 */
+	public function isInChatRange($lat, $lng): bool
+	{
+		$polygon = trim((string)$this->gdoVar('room_polygon'));
+		if ($polygon !== '' && $polygon !== 'null')
+		{
+			return GDT_Polygon::containsOrNear($polygon, (float)$lat, (float)$lng,
+				Module_LinkUUp::instance()->cfgRoomTolerance());
+		}
+		return $this->isNearLatLng($lat, $lng, $this->getRadius());
+	}
 
 	public function isNearLatLng($lat, $lng, $dist = 20) { return Position::distanceCalculation($this->getLat(), $this->getLng(), $lat, $lng) <= $dist; }
 

@@ -117,6 +117,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Credits::make('room_cost')->initial('0'), # One-time cost for creating a room
 			GDT_Credits::make('room_cost_view')->initial('0'), # Cost per additional visibility unit
 			GDT_Length::make('room_cost_view_unit')->initial('0.500'), # Visibility billing unit in km
+			GDT_Length::make('room_tolerance')->initial('0.064'), # GPS tolerance around room polygons in km
 			GDT_Length::make('lup_cuddle_range')->initial('0.100'), # Cuddle range in km
 			GDT_Duration::make('lup_cuddle_token_ttl')->initial('2m')->min(30)->max(900),
 			GDT_UInt::make('lup_num_top_comments')->initial('3')->max(100), # Num Top comments in Room detail.
@@ -242,6 +243,7 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgRoomCost(): int { return (int)$this->getConfigValue('room_cost'); }
 	public function cfgRoomCostView(): int { return (int)$this->getConfigValue('room_cost_view'); }
 	public function cfgRoomCostViewUnit(): float { return (float)$this->getConfigValue('room_cost_view_unit'); }
+	public function cfgRoomTolerance(): float { return (float)$this->getConfigValue('room_tolerance'); }
 
 	public function cfgNumTopComments(): int { return $this->getConfigValue('lup_num_top_comments'); }
 
