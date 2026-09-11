@@ -313,7 +313,8 @@ final class Module_LinkUUp extends GDO_Module
 				$class = $method->gdoClassName();
 				if (!in_array($class, $allowed, true))
 				{
-					throw new GDO_RedirectError('err_members_only', null, href('Login', 'Form'), GDT_Redirect::CODE);
+					$hrefLogin = href('Login', 'Form');
+					throw new GDO_RedirectError('err_members_only', [$hrefLogin], $hrefLogin, GDT_Redirect::CODE);
 				}
 			}
 		}
