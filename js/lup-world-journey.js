@@ -34,53 +34,43 @@
         const feet=[];
         for(let i=0;i<12;i++){const foot=document.createElement('span');foot.className='lup-world-foot';foot.innerHTML='<svg viewBox="0 0 14 28"><ellipse cx="7" cy="9" rx="5" ry="8"/><ellipse cx="7" cy="23" rx="3.5" ry="4"/></svg>';foot.style.transform=`rotateY(${-45+i*11}deg) rotateX(${-21+(i%2?3:-3)}deg) translateZ(calc(var(--globe-size) / 2 + 6px)) rotateZ(76deg)`;feet.push(foot);fragment.append(foot);}
         rotation.append(fragment);
-        let frame=0;
-        const draw=()=>{
+        let frame=0, shown=0, lastTime=0, started=false;
+        const draw=(time)=>{
             frame=0;
             if(document.hidden)return;
             const rect=chapter.getBoundingClientRect();
             const top=innerWidth<761?76:90;
-            const p=clamp((top-rect.top)/Math.max(1,chapter.offsetHeight-stage.offsetHeight));
+            const targetProgress=clamp((top-rect.top)/Math.max(1,chapter.offsetHeight-stage.offsetHeight));
+            const dt=lastTime?Math.min(64,time-lastTime):16;
+            lastTime=time;
+            if(!started){shown=targetProgress;started=true;}
+            shown+=(targetProgress-shown)*(1-Math.exp(-dt/220));
+            if(Math.abs(targetProgress-shown)<.0001)shown=targetProgress;
+            const p=shown;
             const staticMode=reduced.matches || innerHeight<700;
             chapter.classList.toggle('lup-world-static',staticMode);
-            const morph=staticMode?0:ease((p-.44)/.31);
-            const travel=staticMode?0:ease((p-.8)/.19);
-            rotation.style.transform=`rotateZ(-16deg) rotateY(${staticMode?-12:25-p*210}deg)`;
-            sphere.style.transform=`scale(${1-morph*.76})`;
-            sphere.style.opacity=String(1-ease((morph-.65)/.35));
+            const morph=staticMode?0:ease((p-.48)/.34);
+            const travel=staticMode?0:ease((p-.82)/.14);
+            rotation.style.transform=`rotateZ(-16deg) rotateY(${staticMode?-12:-12-ease(p/.62)*100}deg)`;
+            sphere.style.transform=`scale(${1-morph*.60})`;
+            sphere.style.opacity=String(1-ease((morph-.72)/.28));
             sphere.style.visibility=morph>.99?'hidden':'visible';
             pin.style.opacity=String(ease((morph-.1)/.7));
             pin.style.transform=`translate(-50%,-37%) scale(${.7+morph*.3})`;
-            halo.style.opacity=String(.8*(1-travel));
+            halo.style.opacity=String(.8-morph*.25);
             orbits.forEach((el,i)=>{el.style.opacity=String((1-morph)*.65);el.style.transform=`rotate(${-28+i*70+p*50}deg) scale(${1-morph*.35})`;});
-            feet.forEach((foot,i)=>{const age=(p*.75+.05)-i*.032;foot.style.opacity=staticMode?(i<6?'.8':'0'):String(clamp(age/.035)*(1-ease((p-.43)/.18)));});
-            // Handoff uses the actual page route position, so the pin does not jump.
-            const source=space.getBoundingClientRect();
-            const target=traveller.getBoundingClientRect();
-            const cx=source.left+source.width/2, cy=source.top+source.height*.47;
-            const dx=target.left+target.width/2-cx;
-            const dy=target.top+target.height/2-cy;
-            const safeY=stage.getBoundingClientRect().top-38-cy;
-            let tx=0,ty=0;
-            if(innerWidth<761){
-                const right=innerWidth-16-cx;
-                if(travel<.2){tx=right*ease(travel/.2);}
-                else if(travel<.5){tx=right;ty=safeY*ease((travel-.2)/.3);}
-                else if(travel<.8){tx=right+(dx-right)*ease((travel-.5)/.3);ty=safeY;}
-                else{tx=dx;ty=safeY+(dy-safeY)*ease((travel-.8)/.2);}
-            }else{
-                if(travel<.28)ty=safeY*ease(travel/.28);
-                else if(travel<.78){tx=dx*ease((travel-.28)/.5);ty=safeY;}
-                else{tx=dx;ty=safeY+(dy-safeY)*ease((travel-.78)/.22);}
-            }
-            carrier.style.transform=`translate3d(${tx}px,${ty}px,0) scale(${1-Math.min(1,travel*4)*.83})`;
-            carrier.style.opacity=String(1-ease((p-.975)/.025));
-            if(staticMode)carrier.style.opacity='1';
-            traveller.style.opacity=staticMode?'0':String(ease((p-.975)/.025));
+            feet.forEach((foot,i)=>{const age=(p*.68+.02)-i*.032;foot.style.opacity=staticMode?(i<6?'.8':'0'):String(clamp(age/.035)*(1-ease((p-.5)/.2)));});
+            // Settle at the invitation instead of flying across the page/text.
+            carrier.style.transform=`translate3d(0,${travel*-12}px,0) scale(${1-travel*.08})`;
+            carrier.style.opacity='1';
+            const invitation=chapter.querySelector('.lup-world-invitation');
+            invitation.classList.toggle('is-arrived',p>.79 && !staticMode);
+            traveller.style.opacity=staticMode?'0':String(ease((targetProgress-.98)/.02));
             const current=Math.min(2,Math.floor(p*3));
             steps.forEach((li,i)=>li.classList.toggle('lup-step-current',staticMode||i===current));
+            if(!staticMode && Math.abs(targetProgress-shown)>.0001)frame=requestAnimationFrame(draw);
         };
-        const schedule=()=>{if(!frame)frame=requestAnimationFrame(draw);};
+        const schedule=()=>{if(!frame){lastTime=0;frame=requestAnimationFrame(draw);}};
         window.addEventListener('scroll',schedule,{passive:true});
         window.addEventListener('resize',schedule,{passive:true});
         document.addEventListener('visibilitychange',schedule);
