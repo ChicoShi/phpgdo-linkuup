@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace GDO\LinkUUp;
 
 use GDO\AboutMe\Module_AboutMe;
-use GDO\Address\GDO_Address;
 use GDO\Avatar\GDO_Avatar;
 use GDO\Avatar\GDO_UserAvatar;
 use GDO\Category\GDO_Category;
@@ -565,14 +564,13 @@ final class Install
 
         foreach ($places as $index => [$name, $category, $lat, $lng, $street, $zip])
         {
-            $address = GDO_Address::blank([
-				'address_id' => (string)(2000 + $index),
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)(2000 + $index), [
+				                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip ?: null,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
 				'room_id' => (string)(2000 + $index),
@@ -611,14 +609,13 @@ final class Install
         foreach ($places as $index => [$name, $category, $lat, $lng, $street, $zip, $website])
         {
 			$id = 2100 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -695,14 +692,13 @@ final class Install
         foreach ($places as $index => [$name, $category, $lat, $lng, $street, $zip, $radius])
         {
 			$id = 2200 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -749,14 +745,13 @@ final class Install
         {
             // Keep these IDs isolated from the original seed catalogue.
 			$id = 2300 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -802,14 +797,13 @@ final class Install
         foreach ($cafes as $index => [$name, $lat, $lng, $street, $zip, $website])
         {
 			$id = 2400 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -857,14 +851,13 @@ final class Install
         foreach ($clubs as $index => [$name, $city, $lat, $lng, $street, $zip, $website])
         {
             $id = self::regionalVenueId($city, 500, $index);
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => $city,
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -911,14 +904,13 @@ final class Install
         foreach ($places as $index => [$name, $category, $city, $lat, $lng, $street, $zip, $website])
         {
             $id = self::regionalVenueId($city, 600, $index);
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => $city,
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,

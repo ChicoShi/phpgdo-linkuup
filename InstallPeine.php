@@ -2,7 +2,6 @@
 declare(strict_types=1);
 namespace GDO\LinkUUp;
 
-use GDO\Address\GDO_Address;
 use GDO\Maps\GDT_Polygon;
 use GDO\User\GDO_User;
 
@@ -101,9 +100,8 @@ final class InstallPeine
 
 	private static function seedGarage(array $icons): void
 	{
-		$garage = GDO_Address::blank([
-			'address_id' => '1000',
-			'address_company' => null,
+		$garage = LocationRegistry::seedAddress('1000', [
+						'address_company' => null,
 			'address_vat' => null,
 			'address_name' => 'Garage Peine',
 			'address_street' => 'Pulverturmval 68',
@@ -114,7 +112,7 @@ final class InstallPeine
 			'address_phone_fax' => null,
 			'address_phone_mobile' => null,
 			'address_email' => 'garage-peine@gmx.de',
-		])->softReplace();
+		]);
 
 		LUP_Room::blank([
 			'room_id' => '1000',
@@ -167,15 +165,14 @@ final class InstallPeine
 	/** Rathaus, Bürgerbüro share this single physical location. */
 	private static function seedTownHall(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1001',
-			'address_name' => 'Rathaus & Bürgerbüro Peine',
+		$address = LocationRegistry::seedAddress('1001', [
+						'address_name' => 'Rathaus & Bürgerbüro Peine',
 			'address_street' => 'Kantstraße 5',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
 			'address_phone' => '+49 5171 49-0',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -203,14 +200,13 @@ final class InstallPeine
 	private static function seedMogwai(array $icons): void
 	{
 		$owner = GDO_User::getByName('gizmore');
-		$address = GDO_Address::blank([
-			'address_id' => '1002',
-			'address_name' => 'LinkUUp Dev-Standort',
+		$address = LocationRegistry::seedAddress('1002', [
+						'address_name' => 'LinkUUp Dev-Standort',
 			'address_street' => 'Am Bauhof 15',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -236,14 +232,13 @@ final class InstallPeine
 	/** Local LinkUUp test point near the Woltorfer Straße business area. */
 	private static function seedStandesamt(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1003',
-			'address_name' => 'Standesamt',
+		$address = LocationRegistry::seedAddress('1003', [
+						'address_name' => 'Standesamt',
 			'address_street' => 'Woltorfer Straße 77 B',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -269,15 +264,14 @@ final class InstallPeine
 	/** Agentur für Arbeit Peine, Im Schleusenteich 1. */
 	private static function seedEmploymentAgency(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1004',
-			'address_name' => 'Agentur für Arbeit Peine',
+		$address = LocationRegistry::seedAddress('1004', [
+						'address_name' => 'Agentur für Arbeit Peine',
 			'address_street' => 'Im Schleusenteich 1',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
 			'address_phone' => '+49 5171 7740-62',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -305,14 +299,13 @@ final class InstallPeine
 	/** Public skate and inline park at the Unternehmenspark Peine II. */
 	private static function seedSkatepark(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1005',
-			'address_name' => 'Skatepark Peine',
+		$address = LocationRegistry::seedAddress('1005', [
+						'address_name' => 'Skatepark Peine',
 			'address_street' => 'Hans-Gallinis-Straße',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -337,15 +330,14 @@ final class InstallPeine
 	/** Evangelischer St.-Jakobi-Friedhof, Gunzelinstraße 31. */
 	private static function seedCemetery(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1006',
-			'address_name' => 'St.-Jakobi-Friedhof Peine',
+		$address = LocationRegistry::seedAddress('1006', [
+						'address_name' => 'St.-Jakobi-Friedhof Peine',
 			'address_street' => 'Gunzelinstraße 31',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
 			'address_phone' => '+49 5171 6116',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -372,15 +364,14 @@ final class InstallPeine
 	/** Gunzelin-Realschule, Gunzelinstraße 42. */
 	private static function seedGunzelinSchool(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1007',
-			'address_name' => 'Gunzelin-Realschule',
+		$address = LocationRegistry::seedAddress('1007', [
+						'address_name' => 'Gunzelin-Realschule',
 			'address_street' => 'Gunzelinstraße 42',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
 			'address_phone' => '+49 5171 7902710',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -407,14 +398,13 @@ final class InstallPeine
 	/** Stadtpark Peine, including the pond and minigolf grounds. */
 	private static function seedCityPark(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1008',
-			'address_name' => 'Stadtpark Peine',
+		$address = LocationRegistry::seedAddress('1008', [
+						'address_name' => 'Stadtpark Peine',
 			'address_street' => 'Kantstraße',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -441,14 +431,13 @@ final class InstallPeine
 	/** Peine city centre, centred at St.-Jakobi-Kirche. */
 	private static function seedCityCentre(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1009',
-			'address_name' => 'St.-Jakobi-Kirche',
+		$address = LocationRegistry::seedAddress('1009', [
+						'address_name' => 'St.-Jakobi-Kirche',
 			'address_street' => 'Breite Straße 14',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -474,14 +463,13 @@ final class InstallPeine
 	/** Historic market square in the pedestrian zone. */
 	private static function seedMarketSquare(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1010',
-			'address_name' => 'Marktplatz Peine',
+		$address = LocationRegistry::seedAddress('1010', [
+						'address_name' => 'Marktplatz Peine',
 			'address_street' => 'Am Markt',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -506,14 +494,13 @@ final class InstallPeine
 	/** Deutsche Bahn station at Bahnhofsplatz 1. */
 	private static function seedStation(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1011',
-			'address_name' => 'Bahnhof Peine',
+		$address = LocationRegistry::seedAddress('1011', [
+						'address_name' => 'Bahnhof Peine',
 			'address_street' => 'Bahnhofsplatz 1',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -539,15 +526,14 @@ final class InstallPeine
 	/** Gymnasium am Silberkamp, the larger local school campus. */
 	private static function seedSilberkampGymnasium(array $icons): void
 	{
-		$address = GDO_Address::blank([
-			'address_id' => '1012',
-			'address_name' => 'Gymnasium am Silberkamp',
+		$address = LocationRegistry::seedAddress('1012', [
+						'address_name' => 'Gymnasium am Silberkamp',
 			'address_street' => 'Am Silberkamp 30',
 			'address_zip' => '31224',
 			'address_city' => 'Peine',
 			'address_country' => 'DE',
 			'address_phone' => '+49 5171 4019500',
-		])->softReplace();
+		]);
 
 		$image = $icons[3];
 		LUP_Room::blank([
@@ -586,14 +572,13 @@ final class InstallPeine
 		foreach ($landmarks as $index => [$name, $info, $category, $lat, $lng, $street, $zip, $color, $radius, $www])
 		{
 			$id = 1041 + $index;
-			$address = GDO_Address::blank([
-				'address_id' => (string)$id,
-				'address_name' => $name,
+			$address = LocationRegistry::seedAddress((string)$id, [
+								'address_name' => $name,
 				'address_street' => $street,
 				'address_zip' => $zip,
 				'address_city' => 'Peine',
 				'address_country' => 'DE',
-			])->softReplace();
+			]);
 
 			LUP_Room::blank([
 				'room_id' => (string)$id,
@@ -657,14 +642,13 @@ final class InstallPeine
 		foreach ($restaurants as $index => [$name, $lat, $lng, $street, $zip])
 		{
 			$id = 1013 + $index;
-			$address = GDO_Address::blank([
-				'address_id' => (string)$id,
-				'address_name' => $name,
+			$address = LocationRegistry::seedAddress((string)$id, [
+								'address_name' => $name,
 				'address_street' => $street,
 				'address_zip' => $zip,
 				'address_city' => 'Peine',
 				'address_country' => 'DE',
-			])->softReplace();
+			]);
 
 			LUP_Room::blank([
 				'room_id' => (string)$id,
@@ -761,15 +745,14 @@ final class InstallPeine
 			{
 				continue;
 			}
-			$address = GDO_Address::blank([
-				'address_id' => (string)$id,
-				'address_name' => $name,
+			$address = LocationRegistry::seedAddress((string)$id, [
+								'address_name' => $name,
 				'address_street' => $street,
 				'address_zip' => $zip,
 				'address_city' => 'Peine',
 				'address_country' => 'DE',
 				'address_phone' => $phone,
-			])->softReplace();
+			]);
 
 			LUP_Room::blank([
 				'room_id' => (string)$id,
