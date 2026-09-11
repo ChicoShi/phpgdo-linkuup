@@ -19,6 +19,7 @@ use GDO\Gallery\GDO_Gallery;
 use GDO\Gallery\Module_Gallery;
 use GDO\LinkUUp\Method\Welcome;
 use GDO\Net\GDT_Url;
+use GDO\PaymentCredits\GDT_Credits;
 use GDO\UI\GDT_Bar;
 use GDO\UI\GDT_Divider;
 use GDO\UI\GDT_Length;
@@ -63,6 +64,7 @@ final class Module_LinkUUp extends GDO_Module
 			'Licenses', 'Login', 'Logs',
 			'Maps', 'Markdown',
 			'News', 'OpenTimes', 'Perf',
+			'PaymentCredits',
 			'QRCode', 'Recovery', 'Register',
             'Session', 'Websocket',
 		];
@@ -112,6 +114,9 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
 			GDT_Checkbox::make('lup_ticket_engine')->initial('0'), # Need to purchase tickets for a room first?
 			GDT_Checkbox::make('lup_profile_likes_guests')->initial('0'), # Guests may not like users
+			GDT_Credits::make('room_cost')->initial('0'), # One-time cost for creating a room
+			GDT_Credits::make('room_cost_view')->initial('0'), # Cost per additional visibility unit
+			GDT_Length::make('room_cost_view_unit')->initial('0.500'), # Visibility billing unit in km
 			GDT_Length::make('lup_cuddle_range')->initial('0.100'), # Cuddle range in km
 			GDT_Duration::make('lup_cuddle_token_ttl')->initial('2m')->min(30)->max(900),
 			GDT_UInt::make('lup_num_top_comments')->initial('3')->max(100), # Num Top comments in Room detail.
@@ -234,6 +239,9 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgTicketEngine(): bool { return $this->getConfigValue('lup_ticket_engine'); }
 
 	public function cfgProfileLikeGuests(): bool { return $this->getConfigValue('lup_profile_likes_guests'); }
+	public function cfgRoomCost(): int { return (int)$this->getConfigValue('room_cost'); }
+	public function cfgRoomCostView(): int { return (int)$this->getConfigValue('room_cost_view'); }
+	public function cfgRoomCostViewUnit(): float { return (float)$this->getConfigValue('room_cost_view_unit'); }
 
 	public function cfgNumTopComments(): int { return $this->getConfigValue('lup_num_top_comments'); }
 
