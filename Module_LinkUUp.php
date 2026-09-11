@@ -194,8 +194,8 @@ final class Module_LinkUUp extends GDO_Module
 		$this->addJS('js/lup-backend-shell.js?rev=20260911_2');
 		$this->addCSS('css/lup.css?lup_skin=20260816_051');
 		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260816_053');
-		$this->addJS('js/lup-welcome.js?lup_nav=20260816_008');
-		$this->addJS('js/lup-admin-sidebar.js?lup_nav=20260816_013');
+		$this->addJS('js/lup-welcome.js?lup_nav=20260911_009');
+		$this->addJS('js/lup-admin-sidebar.js?lup_nav=20260911_014');
 		// Bootstrap5 owns the current sidebar. The legacy drawer helper targets
 		// an older theme and can create a competing toggle on mixed backend pages.
 		// A separate revision is used for the visual back-office polish so
