@@ -23,14 +23,14 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 	<section id="lup-arrival-journey" class="lup-arrival-journey">
 		<div class="lup-journey-stage">
         <header><p>DEINE WELT. DEIN NÄCHSTER SCHRITT.</p><h2>Eine ganze Welt.<br><em>Ein Ort für dich.</em></h2><p class="lup-world-intro">Aus Möglichkeiten wird ein Ziel. Und aus einem Ort wird eine echte Begegnung.</p></header>
-        <div class="lup-journey-space" aria-hidden="true">
+        <div class="lup-journey-space">
             <div class="lup-world-halo"></div>
             <div class="lup-world-orbit orbit-a"></div><div class="lup-world-orbit orbit-b"></div>
-            <div class="lup-world-carrier">
+            <div class="lup-world-carrier" aria-hidden="true">
                 <svg class="lup-world-pin" viewBox="0 0 200 270"><defs><linearGradient id="lup-pin-gradient" x2="1" y2="1"><stop stop-color="#b3a0ff"/><stop offset="1" stop-color="#45bbeb"/></linearGradient></defs><path fill="url(#lup-pin-gradient)" d="M100 10C50 10 10 50 10 100c0 68 90 155 90 155s90-87 90-155c0-50-40-90-90-90Z"/><circle cx="100" cy="98" r="39" fill="#171b35"/></svg>
                 <div class="lup-world-sphere"><div class="lup-world-rotation"></div><div class="lup-world-shade"></div><div class="lup-world-rim"></div></div>
             </div>
-            <span class="lup-world-label">Von überall <span>zu deinem Lieblingsort.</span></span>
+            <a class="lup-world-invitation" href="#lup-arrival-categories" data-lup-scroll><span>DEIN NÄCHSTER MOMENT</span><strong>Was möchtest du entdecken? <i class="fas fa-arrow-down"></i></strong><small>Café, Kultur oder einfach raus.</small></a>
         </div>
         <ol class="lup-arrival-flow"><li><i class="fas fa-globe-europe"></i><div><h3>Entdecke deine Welt</h3><p>Was gibt es direkt um dich herum?</p></div></li><li><i class="fas fa-shoe-prints"></i><div><h3>Mach den ersten Schritt</h3><p>Finde einen Ort, der zu dir passt.</p></div></li><li><i class="fas fa-map-marker-alt"></i><div><h3>Komm wirklich an</h3><p>Dein Ziel führt ins echte Leben.</p></div></li></ol>
 		<a class="lup-arrival-next" href="#lup-arrival-categories" data-lup-scroll><span>Kategorien ansehen</span><i class="fas fa-arrow-down"></i></a>

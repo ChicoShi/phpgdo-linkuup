@@ -3,18 +3,18 @@ body.lup-arrival-refresh .lup-journey-stage { gap:24px 42px; }
 body.lup-arrival-refresh .lup-journey-stage header h2 { font-size:clamp(36px,4.4vw,64px)!important; letter-spacing:-.055em; line-height:1.06!important; }
 .lup-journey-stage header h2 em { font-style:normal; color:#b4a4f6; }
 body.lup-arrival-refresh .lup-journey-stage .lup-world-intro { max-width:380px; margin-top:25px; font-size:17px!important; font-weight:400!important; line-height:1.7!important; letter-spacing:0!important; text-transform:none!important; color:#afb7d1!important; }
-body.lup-arrival-refresh .lup-journey-space { --globe-size:300px; height:400px; perspective:1100px; isolation:isolate; }
-.lup-world-carrier { position:absolute; width:var(--globe-size); height:var(--globe-size); left:50%; top:47%; margin-left:calc(var(--globe-size) / -2); margin-top:calc(var(--globe-size) / -2); transform-origin:center; z-index:3; }
+body.lup-arrival-refresh .lup-journey-space { --globe-size:320px; height:440px; perspective:1100px; isolation:isolate; }
+.lup-world-carrier { position:absolute; width:var(--globe-size); height:var(--globe-size); left:50%; top:42%; margin-left:calc(var(--globe-size) / -2); margin-top:calc(var(--globe-size) / -2); transform-origin:center; z-index:3; }
 .lup-world-sphere { position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 28% 22%,#424574 0,#26284a 38%,#141a31 72%,#0c1123 100%); box-shadow:inset -22px -12px 48px #030714b8,inset 8px 4px 25px #9c96ef18,0 0 58px #8364dd16; }
 .lup-world-rotation { position:absolute; inset:0; transform-style:preserve-3d; }
 .lup-world-meridian { position:absolute; inset:0; border:1px solid #94b9ee2d; border-radius:50%; transform-style:preserve-3d; }
 .lup-world-latitude { position:absolute; left:50%; top:50%; border:1px solid #a2b8f036; border-radius:50%; transform-style:preserve-3d; }
-.lup-world-land { position:absolute; left:50%; top:50%; width:5px; height:5px; margin:-2.5px; background:#ad9df1; border-radius:1px; backface-visibility:hidden; }
+.lup-world-land { position:absolute; left:50%; top:50%; width:5px; height:5px; margin:-2.5px; background:#ad9df1; border-radius:50%; backface-visibility:hidden; }
 .lup-world-shade { position:absolute; inset:-1px; border-radius:50%; background:linear-gradient(115deg,#acbdff0d 0,transparent 32%,#070b1c05 50%,#040816c9 100%); pointer-events:none; }
 .lup-world-rim { position:absolute; inset:-1px; border:1px solid #b9b8f364; border-radius:50%; box-shadow:inset 4px 0 8px #a7caff18; }
 .lup-world-foot { position:absolute; left:50%; top:50%; width:11px; height:23px; margin:-12px -5px; backface-visibility:hidden; opacity:0; }
 .lup-world-foot svg { width:100%; height:100%; fill:#a2eeff; filter:drop-shadow(0 0 3px #61bbec88); }
-.lup-world-pin { position:absolute; width:110px; height:148px; left:50%; top:50%; opacity:0; filter:drop-shadow(0 10px 18px #0a0c2599); }
+.lup-world-pin { position:absolute; width:145px; height:195px; left:50%; top:50%; opacity:0; filter:drop-shadow(0 10px 18px #0a0c2599); }
 .lup-world-halo { position:absolute; inset:0; background:radial-gradient(ellipse,#8364dc22,transparent 62%); pointer-events:none; }
 .lup-world-orbit { position:absolute; left:7%; right:7%; top:28%; height:38%; border:1px solid #99b5ed30; border-radius:50%; transform:rotate(-28deg); }
 .lup-world-orbit::after { content:''; position:absolute; top:8%; left:16%; width:6px; height:6px; background:#b6a5f9; border-radius:50%; box-shadow:0 0 15px #9581e866; }
@@ -24,9 +24,9 @@ body.lup-arrival-refresh .lup-journey-space { --globe-size:300px; height:400px; 
 body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow { gap:28px!important; }
 body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow h3 { font-size:17px!important; }
 body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow p { font-size:14px!important; }
-@media(min-height:700px) and (prefers-reduced-motion:no-preference) { body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:235svh!important; } }
+@media(min-height:700px) and (prefers-reduced-motion:no-preference) { body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:330svh!important; } }
 @media(max-width:760px) {
- body.lup-arrival-refresh .lup-journey-space { --globe-size:216px; height:270px; }
+ body.lup-arrival-refresh .lup-journey-space { --globe-size:216px; height:310px; }
  body.lup-arrival-refresh .lup-journey-stage { gap:12px; }
  body.lup-arrival-refresh .lup-journey-stage header h2 { font-size:36px!important; }
  body.lup-arrival-refresh .lup-journey-stage .lup-world-intro { font-size:14px!important; line-height:1.5!important; margin:10px 0 0; }
@@ -35,7 +35,7 @@ body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow p { font-size:14
  body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow p { font-size:11px!important; line-height:1.5!important; }
  .lup-world-land { width:4px; height:4px; margin:-2px; }
  .lup-world-label { font-size:10px; letter-spacing:.04em; }
- .lup-world-pin { width:90px; height:122px; }
+ .lup-world-pin { width:118px; height:160px; }
 }
 @media(prefers-reduced-motion:reduce),(max-height:699px) {
  body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:auto!important; }
@@ -43,3 +43,24 @@ body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow p { font-size:14
  .lup-world-carrier,.lup-world-sphere { transform:none!important; }
  .lup-world-pin { opacity:0!important; }
 }
+
+/* Keep the destination present long enough to choose it. */
+.lup-world-invitation { position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:min(100%,360px); padding:17px 20px; border:1px solid #9c8cdb35; border-radius:20px; background:linear-gradient(115deg,#30264688,#172c4288); color:#f3f0ff!important; text-decoration:none!important; z-index:5; }
+.lup-world-invitation::before { content:''; position:absolute; inset:-1px; border:1px solid #b8a4ff; border-radius:20px; opacity:0; transition:opacity .8s ease; pointer-events:none; }
+.lup-world-invitation.is-arrived::before,.lup-world-invitation:hover::before { opacity:.7; }
+.lup-world-invitation > span { display:block; font-size:9px; letter-spacing:.16em; color:#ada2d5; margin-bottom:6px; }
+.lup-world-invitation strong { display:block; font-size:16px; font-weight:600; }
+.lup-world-invitation small { display:block; font-size:12px; color:#a7b2cd; margin-top:5px; }
+.lup-world-invitation i { margin-left:8px; font-size:12px; transition:transform .5s ease; }
+.lup-world-invitation:hover i { transform:translateY(3px); }
+.lup-world-sphere { background:radial-gradient(circle at 24% 20%,#697295 0,#3d4469 25%,#202d49 51%,#10192f 76%,#080f20 100%); box-shadow:inset -32px -15px 45px #030715b8,inset 7px 3px 12px #b6d6ff30,0 0 0 1px #a8bfff33,0 20px 65px #0005; }
+.lup-world-meridian { border-color:#a0c0ef16; }
+.lup-world-latitude { border-color:#a0c0ef20; }
+.lup-world-land { background:#b6b0e8; }
+@media(max-width:760px) {
+ .lup-world-invitation { width:100%; padding:12px 16px; }
+ .lup-world-invitation strong { font-size:14px; }
+ .lup-world-invitation small { font-size:11px; }
+ body.lup-arrival-refresh .lup-journey-stage .lup-world-intro { margin-top:8px; }
+}
+@media(prefers-reduced-motion:reduce) { .lup-world-invitation::before,.lup-world-invitation i { transition:none; } }

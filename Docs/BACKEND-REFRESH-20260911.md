@@ -162,3 +162,17 @@ Reduced Motion und kurze Fenster verwenden eine statische Kugel und natürlichen
 Inhaltsfluss. Keine neue pageerror-Ausnahme. Screenshots world-*.png im bisherigen
 Artefaktordner. Echte Geräte-/Bildratenprüfung steht weiter aus.
 Der zuvor offene Auth-Platzhalter ist damit behoben; Maps-Meldungen bleiben separat.
+
+
+## Ruhigerer Ablauf und sichtbares Ziel
+
+Feedback: Die Nadel zog zu schnell vorbei. Den langen Flug zum Rand ersetzt
+jetzt ein ruhiges Ankommen über einer anklickbaren Einladung zu den Kategorien.
+Scrollstrecke 330 statt 235 svh; Drehung 100 statt 210 Grad. Zeitabhängiges
+Nachlaufen mit 220-ms-Zeitkonstante glättet sprunghafte Scrollereignisse. Die
+Frame-Schleife endet nach dem Auslaufen. Beleuchtung/Schattierung der Kugel
+vertieft. Nadel größer und länger sichtbar, Texte bleiben ortsfest.
+
+390/1440 px geprüft, Einladung sichtbar und Sprung zu den Kategorien ausgelöst.
+Reduced Motion behält statischen Inhaltsfluss. Die Darstellung ist weiterhin
+stilisiert und keine fotorealistische Erdkugel. Keine Conversion-/FPS-Messung.
