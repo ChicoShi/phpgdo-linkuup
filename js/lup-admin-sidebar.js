@@ -116,6 +116,7 @@
     }
 
     function initialise() {
+        if (document.documentElement.classList.contains('lup-backend-ui')) return;
         initialiseLegacyDrawer();
         initialiseBootstrapDrawer();
     }

@@ -5,6 +5,7 @@ return [
 
 	'lup_welcome' => 'Welcome!',
 	'lup_home' => 'LinkUUp',
+	'lup_back_to_backend' => 'Back to LinkUUp',
 	'lup_landing_kicker' => 'Local connection, on your terms',
 	'lup_landing_title' => 'Meet nearby. Make plans together.',
 	'lup_landing_lead' => 'LinkUUp helps people discover places, conversations and plans that are close to everyday life.',

@@ -102,3 +102,39 @@ Cookie-Hinweis nicht mit einer offenen Navigation konkurriert. Größere mobile
 Texte, eine räumliche Ortskarte und ein einheitlicher Footer verbessern die
 Lesbarkeit; reduzierte Bewegung und Tastaturbedienung bleiben unterstützt.
 Validierung und verbleibende Integrationspunkte stehen oben.
+
+
+## Dritter Durchgang: gemeinsame Backend-Oberfläche und Scrollkapitel
+
+Die oben beschriebenen Einschränkungen zur App-URL und zum jQuery-Fehler
+sind in diesem Durchgang lokal behoben. Die früheren Abschnitte dokumentieren
+den damaligen Stand.
+
+- Gemeinsame Navigation mit geschlossenem Startzustand, Sprachauswahl,
+  Schließen-Schaltfläche, Hintergrund-Abdeckung und Tastatur-Fokusführung.
+  Die alten konkurrierenden Sidebar-/Konto-Layoutcontroller greifen hier nicht mehr.
+- Einheitliche App-Farben, Formulare, Buttons und Footer auch außerhalb Welcome.
+  Fehlenden DE/EN-Rücklink ergänzt und doppelte Submit-Flächen bereinigt.
+- Scrollkapitel: perspektivische Karte klappt mit echtem Scrollfortschritt zusammen;
+  drei Ortsmarker ordnen sich zum Ablauf. Kein erzwungenes Scrollen.
+  Reduced Motion zeigt den Inhalt statisch ohne lange Sticky-Strecke.
+- Lokale App-Konfiguration auf http://app.localhost/ gesetzt und Ziel geöffnet.
+  Keine Produktionskonfiguration geändert.
+- Bootstrap5Theme separat auf Branch simion/backend-init-fix-20260911:
+  installErrorDialog und initSubmitClickAreas erhalten das benötigte jQuery-Argument.
+  Dieser Fix gehört als eigene Abhängigkeit zur späteren PR-Integration.
+
+Geprüft in Firefox: Login, Passwort-Rücksetzung, Kontakt, Datenschutz,
+Nutzungsbedingungen, Impressum, Welcome. Bei 390 px kein horizontaler Überlauf,
+Menü beim Laden geschlossen. Escape schließt und gibt Fokus an sidebarToggle zurück.
+Keine pageerror-Ereignisse auf diesen Routen. Gallery/Avatar/News/Lizenzen führen
+in dieser Gastsitzung zur Anmeldung; deren geschützte Inhalte sind nicht abgenommen.
+Scrollkapitel bei 390 und 1440 px: Sticky-Position 76/90 px, veränderliche
+Karten-Transformation, kein horizontaler Überlauf. Reduced Motion entfernt
+Scroll-Story-Klasse und Inline-Transformationen. Vergleichsbilder liegen unter
+output/playwright/linkuup-refresh/v3-chapter-* im Simion-Arbeitsverzeichnis.
+
+Offen: Google-Maps-CORS-/Konfigurationsmeldungen bleiben bestehen. Ein vorhandener
+Authentifizierungshinweis enthält teilweise einen %s-Platzhalter. Keine Formulare
+mit Konto-/Nachrichtenwirkung abgeschickt. Echtes iPhone, angemeldete Unterseiten
+und Bildrate nicht geprüft. Keine öffentliche Veröffentlichung oder Nachrichten.

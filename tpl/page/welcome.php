@@ -21,9 +21,12 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 	</section>
 
 	<section id="lup-arrival-journey" class="lup-arrival-journey">
+		<div class="lup-journey-stage">
 		<header><p>VOM BLICK ZUM MOMENT</p><h2>Weniger suchen.<br>Mehr ankommen.</h2><details class="lup-arrival-more"><summary>Mehr erfahren <i class="fas fa-plus"></i></summary><p>LinkUUp führt nicht in den nächsten Feed, sondern zum nächsten echten Ort – klar, lokal und auf deine Art.</p></details></header>
+		<div class="lup-journey-space" aria-hidden="true"><div class="lup-journey-floor"><span></span><span></span><span></span><span></span><b></b></div><i class="lup-journey-pin fas fa-map-marker-alt"></i><span class="lup-journey-stop stop-1"><i class="fas fa-compass"></i></span><span class="lup-journey-stop stop-2"><i class="fas fa-coffee"></i></span><span class="lup-journey-stop stop-3"><i class="fas fa-users"></i></span></div>
 		<ol class="lup-arrival-flow"><li><i class="fas fa-compass"></i><div><h3>Entdecke</h3><p>Orte in deiner Nähe.</p></div></li><li><i class="fas fa-check"></i><div><h3>Wähle</h3><p>Was jetzt passt.</p></div></li><li><i class="fas fa-walking"></i><div><h3>Geh hin</h3><p>Echt erleben.</p></div></li></ol>
 		<a class="lup-arrival-next" href="#lup-arrival-categories" data-lup-scroll><span>Kategorien ansehen</span><i class="fas fa-arrow-down"></i></a>
+		</div>
 	</section>
 
 	<section id="lup-arrival-categories" class="lup-arrival-categories">

@@ -191,6 +191,7 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function onIncludeScripts(): void
 	{
+		$this->addJS('js/lup-backend-shell.js?rev=20260911_2');
 		$this->addCSS('css/lup.css?lup_skin=20260816_051');
 		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260816_053');
 		$this->addJS('js/lup-welcome.js?lup_nav=20260816_008');
@@ -201,8 +202,9 @@ final class Module_LinkUUp extends GDO_Module
 		// browsers do not keep an older stylesheet after a local cache clear.
 		CSS::addFile($this->wwwPath('css/lup.css?lup_skin=20260816_051'));
 		CSS::addFile($this->wwwPath('css/lup-arrival-flow.css?lup_skin=20260816_053'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260911_3'));
-		$this->addJS('js/lup-arrival-refresh.js?rev=20260911_3');
+		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260911_4'));
+		$this->addJS('js/lup-arrival-refresh.js?rev=20260911_4');
+		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260911_2'));
 	}
 
 	/**
