@@ -182,6 +182,9 @@ return [
 	'enum_blue_green' => 'blau/grün',
 
 	# Sex
+	'enum_men' => 'Men',
+	'enum_women' => 'Women',
+	'enum_both' => 'Men and women',
 	'enum_hetero' => 'Hetero',
 	'enum_homo' => 'Homo',
 	'enum_bisexual' => 'Bi',
