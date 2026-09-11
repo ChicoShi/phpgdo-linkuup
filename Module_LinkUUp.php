@@ -201,8 +201,8 @@ final class Module_LinkUUp extends GDO_Module
 		// browsers do not keep an older stylesheet after a local cache clear.
 		CSS::addFile($this->wwwPath('css/lup.css?lup_skin=20260816_051'));
 		CSS::addFile($this->wwwPath('css/lup-arrival-flow.css?lup_skin=20260816_053'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260911_2'));
-		$this->addJS('js/lup-arrival-refresh.js?rev=20260911_2');
+		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260911_3'));
+		$this->addJS('js/lup-arrival-refresh.js?rev=20260911_3');
 	}
 
 	/**

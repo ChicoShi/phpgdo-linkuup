@@ -1,5 +1,40 @@
 # Welcome-Überarbeitung, 11.09.2026
 
+## Zweiter Durchgang: App-Farben und durchgehende Bewegung
+
+Der erste Gestaltungsstand wurde vom Nutzer verworfen. Der aktuelle Stand
+orientiert sich an der tatsächlich geöffneten App-Anmeldeseite und deren
+Design-Tokens (`#10121d`, `#191c2a`, `#7a5cff`, `#2b9df4`). Die App wurde dabei
+nicht verändert. Die nachfolgende Dokumentation des ersten Durchgangs ist
+historisch; die rechteckige Ortskarte und die Kategorie-Karten sind ersetzt.
+
+- Neue SVG-Ortslandschaft mit kontinuierlichem Lichtpunkt, schwebender Nadel
+  und begrenzter Perspektivbewegung beim Scrollen.
+- Seitenlange GPS-Route: Pfad wird aus tatsächlicher Abschnittslage berechnet,
+  Nadel folgt dem Lesefortschritt im seitlichen Freiraum. Keine echten GPS-Daten.
+- Acht eigens gezeichnete Linienicons statt der Karten. Antippen wählt genau
+  eine Kategorie; Beschreibung und Farbakzent wechseln. Semantik: Buttons mit
+  `aria-pressed`, normale Tastaturbedienung und `aria-live` für die Beschreibung.
+- Gestaffelte Icon-Bewegung beim Eintritt, zusätzliche Hover-/Fokusreaktion,
+  ruhende Texte. RAF-Schleife pausiert bei unsichtbarer Seite, unsichtbarer
+  Hero-Szene oder reduzierter Bewegung; CSS-Dauerbewegung pausiert offscreen.
+- Footer mit LinkUUp-Wortzeichen, frei stehenden Rechtstext-Links und Zurück-nach-
+  oben-Aktion; keine Link-Leisten mehr.
+- Keine zusätzlichen Pakete, externen Animationsdienste oder gekauften Medien.
+
+Erneut geprüft: PHP-/JS-Syntax und Diff, kein horizontaler Überlauf bei
+320/390/414/768/1440 Pixeln. Kategorie-Überläufe bei 320/768 im Test erkannt und
+mit 3-/4-spaltiger Anordnung korrigiert; anschließend alle geprüft ohne Überlauf.
+Kategorie Café ausgewählt: genau ein aktiver Button, Beschreibung aktualisiert,
+korrekter eigener SVG-Farbwert. GPS-Nadel verändert nach echtem Scrollen ihre
+Position. Reduced Motion blendet die wandernde Nadel aus und setzt alle vier
+geprüften Daueranimationen auf `none`. Nach-oben-Aktion bringt den Anfang auf
+79 Pixel unter die Navigation. Keine neue JavaScript-Fehlerart gegenüber den
+vorher bereits vorhandenen Theme-/Maps-Meldungen festgestellt.
+
+Aktuelle Screenshots: `output/playwright/linkuup-refresh/v2-*` im Simion-Ordner.
+Die unten genannten App-Link-/Theme-Integrationspunkte bleiben offen.
+
 Die bestehende Welcome-Seite erhält eine konsistente mobile Gestaltung, größere
 Texte, eine lokale räumliche Ortsillustration, klarere Aktionen und einen ruhigen
 Footer. Das Menü startet unabhängig vom gespeicherten Bootstrap-Zustand
