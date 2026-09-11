@@ -42,7 +42,11 @@ Sometimes, on lists, new items are transmitted until stream ends (terminated by 
 Some structures are re-used:
 
 - GDT_Pagemenu (@TODO Needs docs)
-- fullUserPayload (@TODO Needs docs)
+- fullUserPayload: `int32 id, int16 type, int32 level, string name, string guestName,
+  int32 avatar, int16 gender, int16 orientation, int16 interest, int16 relation,
+  int8 relationPending, int8 relationIncoming, string country, int32 friends,
+  string status, int8 vip, int32 likes, int32 chatSent, int32 querySent,
+  int32 queryReceived, int32 visits, int32 cuddles, int32 credits, string role`
 - all GDO can be auto encoded, like LUP_Notification
 - MethodForm / GWS_CommandForm auto encode as well
 
