@@ -5,7 +5,7 @@
         if (!document.body.classList.contains('lup-arrival-refresh')) return;
         const trigger = document.getElementById('sidebarToggle');
         const drawer = document.getElementById('sidebar-wrapper');
-        if (trigger && drawer) {
+        if (trigger && drawer && !document.documentElement.classList.contains('lup-backend-ui')) {
             const shade = document.createElement('button');
             shade.className = 'lup-menu-shade';
             shade.setAttribute('aria-label', 'Menü schließen');
@@ -55,6 +55,13 @@
         const traveller = document.querySelector('.lup-scroll-traveller');
         const heroPath = document.querySelector('.lup-hero-route');
         const runner = document.querySelector('.lup-map-runner');
+        const chapter = document.querySelector('#lup-arrival-journey');
+        const stage = chapter.querySelector('.lup-journey-stage');
+        const space = chapter.querySelector('.lup-journey-space');
+        const floor = chapter.querySelector('.lup-journey-floor');
+        const chapterPin = chapter.querySelector('.lup-journey-pin');
+        const stops = [...chapter.querySelectorAll('.lup-journey-stop')];
+        let currentStep = -1;
         const heroLength = heroPath.getTotalLength();
         let trackLength = 0;
         let frame = 0;
@@ -83,6 +90,26 @@
             const progress = Math.max(0, Math.min(1, (innerHeight * .55 - mainRect.top) / main.offsetHeight));
             const point = track.getPointAtLength(trackLength * progress);
             traveller.style.transform = `translate3d(${point.x - 9}px,${point.y - 24}px,0)`;
+            const chapterRect = chapter.getBoundingClientRect();
+            const range = Math.max(1, chapter.offsetHeight - stage.offsetHeight);
+            const chapterProgress = Math.max(0, Math.min(1, (80 - chapterRect.top) / range));
+            const p = chapterProgress * chapterProgress * (3 - 2 * chapterProgress);
+            floor.style.transform = `rotateX(${58 * (1 - p)}deg) rotateZ(${-22 * (1 - p)}deg) scale(${1 - p * .65})`;
+            floor.style.opacity = String(1 - p * .9);
+            chapterPin.style.transform = `translate(-50%,-50%) translateY(${-p * 75}px) scale(${1 - p * .55})`;
+            chapterPin.style.opacity = String(1 - p);
+            const w = space.clientWidth;
+            stops.forEach((stop, i) => {
+                const initialX = [-.32,.31,.05][i] * w;
+                const initialY = [40,-60,90][i];
+                const finalX = (i - 1) * w * .31;
+                stop.style.transform = `translate(-50%,-50%) translate3d(${initialX + (finalX - initialX) * p}px,${initialY * (1 - p)}px,0) scale(${.8 + p * .2})`;
+            });
+            const step = Math.min(2, Math.floor(chapterProgress * 3));
+            if (step !== currentStep) {
+                chapter.querySelectorAll('.lup-arrival-flow li').forEach((li, i) => li.classList.toggle('lup-step-current', i === step));
+                currentStep = step;
+            }
             const rect = scene.getBoundingClientRect();
             if (rect.bottom < 0 || rect.top > innerHeight) return;
             const depth = Math.max(-1, Math.min(1, (innerHeight / 2 - rect.top) / innerHeight));
@@ -98,12 +125,18 @@
             ambient = requestAnimationFrame(animate);
         };
         const resume = () => {
+            main.classList.toggle('lup-scroll-story', !reduced.matches);
             if (ambient) cancelAnimationFrame(ambient);
             ambient = 0;
             if (!reduced.matches && !document.hidden && sceneVisible) ambient = requestAnimationFrame(animate);
             if (reduced.matches) {
                 scene.querySelector('.lup-neighbourhood').style.transform = '';
                 runner.style.transform = '';
+                floor.style.transform = '';
+                floor.style.opacity = '';
+                chapterPin.style.transform = '';
+                chapterPin.style.opacity = '';
+                stops.forEach(stop => stop.style.transform = '');
             }
             schedule();
         };
