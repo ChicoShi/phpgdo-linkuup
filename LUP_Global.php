@@ -408,6 +408,40 @@ final class LUP_Global
 		$message->replyBinary($message->cmd(), $payload);
 	}
 
+	/**
+	 * Deliver a paid broadcast to every currently occupied location. A shout is
+	 * deliberately not a normal chat event: recipients must not see its sender
+	 * as having joined their room.
+	 *
+	 * @return array{0:int,1:int} Number of reached locations and recipients.
+	 */
+	public static function shout(GDO_User $user, string $text): array
+	{
+		$locations = 0;
+		$recipients = 0;
+		foreach (self::$ROOM_USERS as $roomId => $users)
+		{
+			if (!$users)
+			{
+				continue;
+			}
+			$payload = GWS_Message::payload(0x1167);
+			$payload .= GWS_Message::wr32(time());
+			$payload .= GWS_Message::wr32($user->getID());
+			$payload .= GWS_Message::wr32($roomId);
+			$payload .= GWS_Message::wrS($text);
+			$locations++;
+			foreach ($users as $recipient)
+			{
+				if (GWS_Global::sendBinary($recipient, $payload))
+				{
+					$recipients++;
+				}
+			}
+		}
+		return [$locations, $recipients];
+	}
+
 	public static function updateGPS(GDO_User $user, $lat, $lng)
 	{
 		self::$POSITIONS[$user->getID()] = [$lat, $lng];

@@ -270,6 +270,13 @@ VALUES List of fullUserPayload
   PARAM int32 userId
 VALUES -none- / 200 OK
 
+0x1166 Send a paid shout to every currently occupied location.
+ PARAM string text
+VALUES int32 remainingCredits, int32 reachedLocations, int32 reachedRecipients
+
+0x1167 Incoming shout event.
+VALUES int32 timestamp, int32 userId, int32 roomId, string text
+
 0x1190 Get help topic marks. What help topics have been shown?
  PARAM -none-
 VALUES JSON array of help topics.

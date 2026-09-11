@@ -43,6 +43,8 @@ return [
 	'err_lup_room_view' => 'The visibility radius is invalid.',
 	'err_lup_room_category' => 'Please choose a valid category.',
 	'err_lup_room_credits' => 'Creating this room requires %s Credits; you currently have %s Credits.',
+	'err_lup_shout_text' => 'Please enter a shout between 1 and 512 characters.',
+	'err_lup_shout_credits' => 'This shout requires %s Credits; you currently have %s Credits.',
 	'err_room_not_near' => 'This room is not in chat distance.',
 	'err_not_in_room' => 'You did not join this chatroom.',
 	'err_user_not_near' => 'This user is not near you.',

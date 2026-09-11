@@ -43,6 +43,8 @@ return [
 	'err_lup_room_view' => 'Der Sichtbarkeitsradius ist ungültig.',
 	'err_lup_room_category' => 'Bitte wähle eine gültige Kategorie.',
 	'err_lup_room_credits' => 'Für diesen Raum werden %s Credits benötigt; Du hast aktuell %s Credits.',
+	'err_lup_shout_text' => 'Bitte gib einen Shout mit 1 bis 512 Zeichen ein.',
+	'err_lup_shout_credits' => 'Für diesen Shout werden %s Credits benötigt; Du hast aktuell %s Credits.',
 	'err_room_not_near' => 'Dieser Raum ist nicht in Chatreichweite.',
 	'err_not_in_room' => 'Sie befinden sich nicht in diesem Chatraum.',
 	'err_user_not_near' => 'Dieser Nutzer befindet sich nicht in Ihrer Nähe.',
