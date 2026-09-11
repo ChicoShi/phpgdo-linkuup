@@ -188,6 +188,8 @@ return [
 	'enum_asexual' => 'Asexuell',
 
 	'mt_linkuup_categorylist' => 'Categories',
+	'mt_linkuup_locationmap' => 'Location Map',
+	'md_linkuup_locationmap' => 'Map for reviewing and editing locations, visibility radii, and geofences.',
 	'mt_linkuup_rooms' => 'Rooms',
 	'list_linkuup_rooms' => '%s Rooms',
 
