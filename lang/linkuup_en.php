@@ -39,6 +39,8 @@ return [
 	'err_lup_room_info' => 'The description is too long.',
 	'err_lup_room_position' => 'A valid GPS position is required for this room.',
 	'err_lup_room_radius' => 'The chat radius must be between 150 and 500 metres.',
+	'err_lup_room_polygon' => 'The location area is invalid.',
+	'err_lup_room_view' => 'The visibility radius is invalid.',
 	'err_lup_room_category' => 'Please choose a valid category.',
 	'err_room_not_near' => 'This room is not in chat distance.',
 	'err_not_in_room' => 'You did not join this chatroom.',

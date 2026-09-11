@@ -39,6 +39,8 @@ return [
 	'err_lup_room_info' => 'Die Beschreibung ist zu lang.',
 	'err_lup_room_position' => 'Für den Raum wird eine gültige GPS-Position benötigt.',
 	'err_lup_room_radius' => 'Der Chatradius muss zwischen 150 und 500 Metern liegen.',
+	'err_lup_room_polygon' => 'Die Ortsfläche ist ungültig.',
+	'err_lup_room_view' => 'Der Sichtbarkeitsradius ist ungültig.',
 	'err_lup_room_category' => 'Bitte wähle eine gültige Kategorie.',
 	'err_room_not_near' => 'Dieser Raum ist nicht in Chatreichweite.',
 	'err_not_in_room' => 'Sie befinden sich nicht in diesem Chatraum.',
