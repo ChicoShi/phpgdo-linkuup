@@ -22,9 +22,17 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 
 	<section id="lup-arrival-journey" class="lup-arrival-journey">
 		<div class="lup-journey-stage">
-		<header><p>VOM BLICK ZUM MOMENT</p><h2>Weniger suchen.<br>Mehr ankommen.</h2><details class="lup-arrival-more"><summary>Mehr erfahren <i class="fas fa-plus"></i></summary><p>LinkUUp führt nicht in den nächsten Feed, sondern zum nächsten echten Ort – klar, lokal und auf deine Art.</p></details></header>
-		<div class="lup-journey-space" aria-hidden="true"><div class="lup-journey-floor"><span></span><span></span><span></span><span></span><b></b></div><i class="lup-journey-pin fas fa-map-marker-alt"></i><span class="lup-journey-stop stop-1"><i class="fas fa-compass"></i></span><span class="lup-journey-stop stop-2"><i class="fas fa-coffee"></i></span><span class="lup-journey-stop stop-3"><i class="fas fa-users"></i></span></div>
-		<ol class="lup-arrival-flow"><li><i class="fas fa-compass"></i><div><h3>Entdecke</h3><p>Orte in deiner Nähe.</p></div></li><li><i class="fas fa-check"></i><div><h3>Wähle</h3><p>Was jetzt passt.</p></div></li><li><i class="fas fa-walking"></i><div><h3>Geh hin</h3><p>Echt erleben.</p></div></li></ol>
+        <header><p>DEINE WELT. DEIN NÄCHSTER SCHRITT.</p><h2>Eine ganze Welt.<br><em>Ein Ort für dich.</em></h2><p class="lup-world-intro">Aus Möglichkeiten wird ein Ziel. Und aus einem Ort wird eine echte Begegnung.</p></header>
+        <div class="lup-journey-space" aria-hidden="true">
+            <div class="lup-world-halo"></div>
+            <div class="lup-world-orbit orbit-a"></div><div class="lup-world-orbit orbit-b"></div>
+            <div class="lup-world-carrier">
+                <svg class="lup-world-pin" viewBox="0 0 200 270"><defs><linearGradient id="lup-pin-gradient" x2="1" y2="1"><stop stop-color="#b3a0ff"/><stop offset="1" stop-color="#45bbeb"/></linearGradient></defs><path fill="url(#lup-pin-gradient)" d="M100 10C50 10 10 50 10 100c0 68 90 155 90 155s90-87 90-155c0-50-40-90-90-90Z"/><circle cx="100" cy="98" r="39" fill="#171b35"/></svg>
+                <div class="lup-world-sphere"><div class="lup-world-rotation"></div><div class="lup-world-shade"></div><div class="lup-world-rim"></div></div>
+            </div>
+            <span class="lup-world-label">Von überall <span>zu deinem Lieblingsort.</span></span>
+        </div>
+        <ol class="lup-arrival-flow"><li><i class="fas fa-globe-europe"></i><div><h3>Entdecke deine Welt</h3><p>Was gibt es direkt um dich herum?</p></div></li><li><i class="fas fa-shoe-prints"></i><div><h3>Mach den ersten Schritt</h3><p>Finde einen Ort, der zu dir passt.</p></div></li><li><i class="fas fa-map-marker-alt"></i><div><h3>Komm wirklich an</h3><p>Dein Ziel führt ins echte Leben.</p></div></li></ol>
 		<a class="lup-arrival-next" href="#lup-arrival-categories" data-lup-scroll><span>Kategorien ansehen</span><i class="fas fa-arrow-down"></i></a>
 		</div>
 	</section>
