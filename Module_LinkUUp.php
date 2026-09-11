@@ -58,7 +58,7 @@ final class Module_LinkUUp extends GDO_Module
 			'Contact', 'CORS', 'Country',
 			'CSS', 'Currency',
             'DBMS', 'DSGVO',
-			'Facebook', 'Favicon', 'Friends', 'Gallery',
+			'Facebook', 'Favicon', 'Friends', 'Gallery', 'GoogleAuth',
 			'Instagram',
 			'Javascript', 'JPGraph', 'JQueryAutocomplete',
 			'Licenses', 'Login', 'Logs',
