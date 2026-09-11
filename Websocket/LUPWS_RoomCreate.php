@@ -104,7 +104,7 @@ final class LUPWS_RoomCreate extends LUPWS_Command
 		$unit = $module->cfgRoomCostViewUnit();
 		if ($perUnit > 0 && $viewRadiusKm > 0 && $unit > 0)
 		{
-			$cost += (int)ceil($viewRadiusKm / $unit) * $perUnit;
+			$cost += (int)ceil($viewRadiusKm * $perUnit / $unit);
 		}
 		return $cost;
 	}
