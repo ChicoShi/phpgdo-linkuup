@@ -4,6 +4,7 @@ namespace GDO\LinkUUp\Method;
 
 use GDO\Core\GDT;
 use GDO\Core\GDT_Array;
+use GDO\Core\GDT_Float;
 use GDO\Core\GDT_Object;
 use GDO\Core\MethodAjax;
 use GDO\LinkUUp\LUP_Room;
@@ -21,6 +22,9 @@ final class LocationPolygonSave extends MethodAjax
 		return [
 			GDT_Object::make('room')->table(LUP_Room::table())->notNull(),
 			GDT_Polygon::make('polygon')->notNull(),
+			GDT_Float::make('view')->min(0.010)->max(42000.0),
+			GDT_Float::make('lat')->min(-90)->max(90),
+			GDT_Float::make('lng')->min(-180)->max(180),
 		];
 	}
 
@@ -29,12 +33,25 @@ final class LocationPolygonSave extends MethodAjax
 		/** @var LUP_Room $room */
 		$room = $this->gdoParameterValue('room');
 		$polygon = $this->gdoParameterValue('polygon');
+		$view = $this->gdoParameterValue('view');
+		$lat = $this->gdoParameterValue('lat');
+		$lng = $this->gdoParameterValue('lng');
 		if (!$this->isPolygon($polygon))
 		{
 			return $this->error('err_parameter');
 		}
 
-		$room->saveVar('room_polygon', GDT_Polygon::encode($polygon));
+		$values = ['room_polygon' => GDT_Polygon::encode($polygon)];
+		if ($view !== null)
+		{
+			$values['room_view'] = (string)$view;
+		}
+		if ($lat !== null && $lng !== null)
+		{
+			$values['room_pos_lat'] = (string)$lat;
+			$values['room_pos_lng'] = (string)$lng;
+		}
+		$room->saveVars($values);
 		return GDT_Array::make()->value([
 			'ok' => true,
 			'room_id' => (int)$room->getID(),

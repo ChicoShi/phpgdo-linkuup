@@ -32,6 +32,7 @@ final class LocationMap extends \GDO\Core\Method
 				'lat' => $room->getLat(),
 				'lng' => $room->getLng(),
 				'radius_km' => $room->getRadius(),
+				'view_km' => (float)$room->gdoVar('room_view'),
 				'color' => $room->getColor(),
 				'polygon' => $polygon,
 			];

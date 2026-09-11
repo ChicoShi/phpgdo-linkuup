@@ -17,11 +17,13 @@
 	const map = new google.maps.Map(canvas, {
 		center: {lat: 52.264, lng: 10.526},
 		zoom: 10,
+		mapTypeId: google.maps.MapTypeId.HYBRID,
 		mapTypeControl: false,
 		streetViewControl: false,
 		disableDoubleClickZoom: true,
 	});
 	const layers = new Map();
+	const sessionKey = 'lup-location-map-active-room';
 	let active = null;
 	let saveTimer = null;
 
@@ -92,18 +94,21 @@
 			active.polygon.setDraggable(false);
 			active.polygon.setMap(null);
 			active.marker.setMap(null);
+			active.viewCircle.setMap(null);
 		}
 		active = layer;
 		active.polygon.setMap(map);
 		active.marker.setMap(map);
+		active.viewCircle.setMap(map);
 		saveButton.disabled = !active.dirty;
 		active.polygon.setEditable(true);
 		// Moving a whole geofence is too easy by accident. Its vertices remain
 		// editable, but the polygon itself always stays anchored.
 		active.polygon.setDraggable(false);
-		selectedLabel.textContent = active.location.name + ' – Eckpunkte ziehen, Doppelklick fügt ein, Rechtsklick entfernt';
+		selectedLabel.textContent = active.location.name + ' – Marker verschiebt den Ursprung; Eckpunkte ziehen, Doppelklick fügt ein, Rechtsklick entfernt; Kreisrand zieht den Sichtradius';
 		map.fitBounds(polygonBounds(active.polygon));
 		locationSelect.value = String(active.location.id);
+		try { sessionStorage.setItem(sessionKey, String(active.location.id)); } catch (_) { /* private browser mode */ }
 		setStatus('Bearbeitung aktiv.');
 	}
 
@@ -123,7 +128,7 @@
 		layer.saving = true;
 		let saved = false;
 		saveButton.disabled = true;
-		setStatus('Speichere Polygon …');
+		setStatus('Speichere Fläche …');
 		try {
 			const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
 			const response = await fetch(config.saveUrl, {
@@ -133,11 +138,18 @@
 					'Content-Type': 'application/json',
 					'X-CSRF-TOKEN': token || '',
 				},
-				body: JSON.stringify({room: layer.location.id+'', polygon: polygon}),
+				body: JSON.stringify({
+					room: layer.location.id + '',
+					polygon: polygon,
+					view: layer.viewCircle.getRadius() / 1000,
+					lat: layer.location.lat,
+					lng: layer.location.lng,
+				}),
 			});
 			if (!response.ok) { throw new Error('HTTP ' + response.status); }
 			saved = true;
 			layer.location.polygon = polygon;
+			layer.location.view_km = layer.viewCircle.getRadius() / 1000;
 			layer.dirty = layer.revision !== revision;
 			if (active === layer) {
 				saveButton.disabled = !layer.dirty;
@@ -163,18 +175,31 @@
 		const polygon = new google.maps.Polygon({
 			paths: path,
 			strokeColor: location.color,
-			strokeOpacity: 0.9,
-			strokeWeight: 2,
+			strokeOpacity: 1,
+			strokeWeight: 4,
 			fillColor: location.color,
-			fillOpacity: 0.16,
+			fillOpacity: 0.42,
 			map: null,
 		});
 		const marker = new google.maps.Marker({
 			position: {lat: location.lat, lng: location.lng},
+			draggable: true,
 			map: null,
 			title: location.name,
 		});
-		const layer = {location, polygon, marker, dirty: false, saving: false, revision: 0};
+		const viewCircle = new google.maps.Circle({
+			center: {lat: location.lat, lng: location.lng},
+			radius: Math.max(0.010, Number(location.view_km || 1)) * 1000,
+			strokeColor: location.color,
+			strokeOpacity: 1,
+			strokeWeight: 3,
+			fillColor: location.color,
+			fillOpacity: 0.24,
+			editable: true,
+			draggable: false,
+			map: null,
+		});
+		const layer = {location, polygon, marker, viewCircle, dirty: false, saving: false, revision: 0};
 		layers.set(location.id, layer);
 		polygon.addListener('click', () => select(location.id));
 		polygon.addListener('dblclick', (event) => {
@@ -200,16 +225,37 @@
 			path.removeAt(event.vertex);
 		});
 		marker.addListener('click', () => select(location.id));
+		marker.addListener('dragend', (event) => {
+			if (active !== layer || !event.latLng) { return; }
+			location.lat = event.latLng.lat();
+			location.lng = event.latLng.lng();
+			viewCircle.setCenter(event.latLng);
+			markDirty();
+		});
 		polygon.getPath().addListener('set_at', markDirty);
 		polygon.getPath().addListener('insert_at', markDirty);
 		polygon.getPath().addListener('remove_at', markDirty);
 		polygon.addListener('dragend', markDirty);
+		viewCircle.addListener('center_changed', () => {
+			if (active !== layer) { return; }
+			const center = viewCircle.getCenter();
+			if (center && (center.lat() !== location.lat || center.lng() !== location.lng)) {
+				location.lat = center.lat();
+				location.lng = center.lng();
+				marker.setPosition(center);
+				markDirty();
+			}
+		});
+		viewCircle.addListener('radius_changed', markDirty);
 		addOption(location);
 	});
 
 	locationSelect.addEventListener('change', () => select(Number(locationSelect.value)));
 	saveButton.addEventListener('click', () => save(active));
-	const first = config.locations.find((location) => layers.has(location.id));
+	let rememberedID = null;
+	try { rememberedID = Number(sessionStorage.getItem(sessionKey)); } catch (_) { /* private browser mode */ }
+	const first = config.locations.find((location) => location.id === rememberedID && layers.has(location.id)) ||
+		config.locations.find((location) => layers.has(location.id));
 	if (first) { select(first.id); }
 	else { setStatus('Keine Locations mit Polygon geladen.'); }
 })();
