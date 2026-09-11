@@ -41,6 +41,8 @@ use phpDocumentor\Reflection\Types\Self_;
  */
 final class Install
 {
+	/** GeoJSON geometry curated in the LocationMap for the national room. */
+	private const GERMANY_POLYGON = '{"type":"Polygon","coordinates":[[[7.3494543,47.4709942],[12.2536152,47.2186489],[14.2948297,48.8269403],[12.7691005,50.0284054],[15.2818549,51.0549097],[14.4706109,54.6533593],[8.3272375,54.9572954],[6.017866,51.8176315],[5.1147445,49.5385908],[7.6287581,48.9243698],[7.3494543,47.4709942]]]}';
 
 	private static array $ICONS = [
 		'germany.png', # 0
@@ -417,6 +419,8 @@ final class Install
             'room_sort' => '40',
             'room_pos_lat' => '51.1093728415025',
             'room_pos_lng' => '10.398766823981518',
+			// Curated national boundary from the LocationMap database record.
+			'room_polygon' => self::GERMANY_POLYGON,
             'room_view' => '42000.0',
             'room_radius' => '800.0',
             'room_www' => 'https://de.wikipedia.org/wiki/Deutschland',

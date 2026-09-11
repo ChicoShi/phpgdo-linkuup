@@ -25,6 +25,7 @@ use GDO\Core\Method;
 use GDO\File\GDO_File;
 use GDO\File\GDT_ImageFile;
 use GDO\Maps\GDT_Position;
+use GDO\Maps\GDT_Polygon;
 use GDO\Maps\Position;
 use GDO\Net\GDT_Url;
 use GDO\OpenTimes\GDT_OpenHour;
@@ -47,6 +48,24 @@ final class LUP_Room extends GDO
 {
 
 	final public const MAX_ROOM_NAME_LEN = 64;
+
+	/**
+	 * Keep every seeded and newly created radius room polygon-ready.
+	 * Existing callers only need to provide centre and radius.
+	 */
+	public static function blank(?array $initial = null): static
+	{
+		if ($initial !== null && !isset($initial['room_polygon']) &&
+			isset($initial['room_pos_lat'], $initial['room_pos_lng'], $initial['room_radius']))
+		{
+			$initial['room_polygon'] = GDT_Polygon::fromRadius(
+				(float)$initial['room_pos_lat'],
+				(float)$initial['room_pos_lng'],
+				(float)$initial['room_radius'],
+			);
+		}
+		return parent::blank($initial);
+	}
 
 	################
 	### Comments ###
@@ -134,6 +153,7 @@ final class LUP_Room extends GDO
 			GDT_Color::make('room_color')->notNull(),
 			GDT_ObjectSelect::make('room_category')->table(LUP_Category::table())->notNull()->label('category'),
 			GDT_Position::make('room_pos')->notNull()->initialCurrent(),
+			GDT_Polygon::make('room_polygon'),
 			GDT_Float::make('room_view')->min(0.010)->max(42000.0)->initial('1.500')->step(0.001)->notNull()->tooltip('tt_radius_in_km'),  // Visibility radius
 			GDT_Float::make('room_radius')->min(0.001)->max(42000.0)->initial('0.150')->step(0.001)->notNull()->tooltip('tt_radius_in_km'), // Chat radius
 			GDT_Url::make('room_www')->allowAll()->reachable(),
