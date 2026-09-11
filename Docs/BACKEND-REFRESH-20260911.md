@@ -176,3 +176,19 @@ vertieft. Nadel größer und länger sichtbar, Texte bleiben ortsfest.
 390/1440 px geprüft, Einladung sichtbar und Sprung zu den Kategorien ausgelöst.
 Reduced Motion behält statischen Inhaltsfluss. Die Darstellung ist weiterhin
 stilisiert und keine fotorealistische Erdkugel. Keine Conversion-/FPS-Messung.
+
+
+## Durchgängige Ortsnadel über die Abschnitte
+
+Eine einzige Routensteuerung ersetzt die getrennte Positionierung des Seitenpins.
+Nach der Kugel schrumpft die Nadel und verlässt das Kapitel nach unten durch freie
+Flächen. Die Seitenroute führt in das Symbol der Ortsauswahl, dann durch Vor Ort,
+Deine Wahl und Respekt und zurück zur Leiste. Zum Abschluss betont sie den
+App-Button. Am Symbol blendet die Nadel in dessen Hervorhebung über und taucht
+anschließend wieder auf. Keine automatische Auswahl-/Konto-/Privatsphäreänderung.
+
+Prüfung Firefox 390/1440: Docking an den Kontrollsymbolen, kein horizontaler
+Überlauf, keine pageerror-Ausnahmen. Mobile Route unterhalb der Überschrift
+geführt. Große Scrollsprünge überspringen die aus dem Blick geratene Kugelphase.
+Sport-Auswahl bleibt bedienbar; Reduced Motion blendet Reise und Dockeffekte aus.
+Sichtkontrolle unter output/playwright/linkuup-refresh/connected-mobile.png.
