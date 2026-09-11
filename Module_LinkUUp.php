@@ -398,7 +398,7 @@ final class Module_LinkUUp extends GDO_Module
 	public function hookRegisterForm(GDT_Form $form)
 	{
 		$form->actions()->addField(GDT_Link::make('lup_back_to_backend')
-			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend'));
+			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend')->hidden());
 	}
 
 	public function hookRecoveryForm(GDT_Form $form)
