@@ -43,6 +43,7 @@
             });
         }
         const animateArrivalPin = () => {
+            if (document.body.classList.contains('lup-arrival-refresh')) return;
             const pin = document.querySelector('.lup-arrival-world-pin > i');
             if (!pin || pin.dataset.lupPinAnimated === '1' ||
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches ||

@@ -8,7 +8,7 @@ use GDO\LinkUUp\Module_LinkUUp;
 $module = Module_LinkUUp::instance();
 $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 ?>
-<script>document.body.classList.add('lup-arrival-active');</script>
+<script>document.body.classList.add('lup-arrival-active', 'lup-arrival-refresh');</script>
 <main class="lup-arrival">
 	<div class="lup-arrival-world" aria-hidden="true"><span class="lup-arrival-world-pin"><i class="fas fa-map-marker-alt"></i><b class="lup-arrival-world-ripple ripple-one"></b><b class="lup-arrival-world-ripple ripple-two"></b></span><span class="lup-arrival-world-signal"></span><b class="lup-arrival-world-dot dot-one"></b><b class="lup-arrival-world-dot dot-two"></b><b class="lup-arrival-world-dot dot-three"></b><b class="lup-arrival-world-dot dot-four"></b></div>
 	<section class="lup-arrival-hero">
@@ -24,7 +24,11 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 			<span class="lup-arrival-float-card card-two"><i></i> LIVE · LOKAL</span>
 		</div>
 		<div class="lup-arrival-brand"><b>LINKUUP</b><small>BEGEGNUNGEN IN DEINER NÄHE</small></div>
-		<div class="lup-arrival-copy"><p class="lup-arrival-kicker"><i class="fas fa-map-marker-alt"></i> ENTDECKEN · HINGEHEN · VERBINDEN</p><h1>Das Leben findet<br><em>nicht im Feed</em> statt.</h1><details class="lup-arrival-more"><summary>Was bedeutet das? <i class="fas fa-plus"></i></summary><p>LinkUUp zeigt dir Orte, die du wirklich besuchen kannst. Damit aus einem Impuls ein echter Abend, ein Gespräch oder ein neues Gesicht wird.</p></details><div class="lup-arrival-actions"><a href="<?=$appURL?>"><i class="fas fa-map-marker-alt"></i> LinkUUp öffnen</a><a href="#lup-arrival-journey" data-lup-scroll>Die Idee ansehen <i class="fas fa-arrow-down"></i></a></div></div>
+		<div class="lup-arrival-copy"><p class="lup-arrival-kicker"><i class="fas fa-map-marker-alt"></i> DEIN NÄCHSTER MOMENT IST NAH</p><h1>Das Leben findet<br><em>nicht im Feed</em> statt.</h1><p class="lup-intro">Entdecke Orte in deiner Nähe. Finde, was zu dir passt. Und mach aus einem freien Abend eine echte Begegnung.</p><div class="lup-arrival-actions"><a href="<?=$appURL?>"><i class="fas fa-map-marker-alt"></i> LinkUUp öffnen</a><a href="#lup-arrival-journey" data-lup-scroll>So funktioniert’s <i class="fas fa-arrow-down"></i></a></div></div>
+		<div class="lup-place-scene" role="img" aria-label="Illustration: Café, Kultur und Musik sind über Wege in einem Viertel verbunden.">
+			<div class="lup-place-plane"><span class="lup-place-block block-a"></span><span class="lup-place-block block-b"></span><span class="lup-place-block block-c"></span><span class="lup-place-block block-d"></span><span class="lup-place-road road-a"></span><span class="lup-place-road road-b"></span><span class="lup-place-route"></span><i class="lup-place-signal"></i></div>
+			<span class="lup-place-label place-cafe"><i class="fas fa-coffee"></i> Café</span><span class="lup-place-label place-music"><i class="fas fa-music"></i> Musik</span><span class="lup-place-label place-culture"><i class="fas fa-theater-masks"></i> Kultur</span><span class="lup-place-center"><i class="fas fa-map-marker-alt"></i></span><span class="lup-place-caption">Ein Ort. Viele Möglichkeiten.</span>
+		</div>
 	</section>
 
 	<section id="lup-arrival-journey" class="lup-arrival-journey">
@@ -50,5 +54,6 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 
 	<section id="lup-arrival-principles" class="lup-arrival-principles"><div class="lup-arrival-principles-copy"><p>DEIN RAUM. DEINE ENTSCHEIDUNG.</p><h2>Echte Orte.<br>Klare Kontrolle.</h2></div><div class="lup-arrival-principles-list lup-arrival-principle-flow"><div><i class="fas fa-map-pin"></i><span><b>Vor Ort</b><small>Nur, wo du bist.</small></span></div><div><i class="fas fa-user-shield"></i><span><b>Deine Wahl</b><small>Du bestimmst.</small></span></div><div><i class="fas fa-heart"></i><span><b>Respekt</b><small>Echt. Freiwillig.</small></span></div></div></section>
 
-	<footer class="lup-arrival-footer"><div><span class="lup-arrival-mark"><i class="fas fa-link"></i></span><p><b>LinkUUp</b><br><small>Echte Begegnungen beginnen in deiner Nähe.</small></p></div><nav><a href="<?=href('Register', 'TOS')?>">Nutzungsbedingungen <i class="fas fa-arrow-up"></i></a><a href="<?=href('Core', 'Privacy')?>">Datenschutz <i class="fas fa-arrow-up"></i></a><a href="<?=href('Core', 'Impressum')?>">Impressum <i class="fas fa-arrow-up"></i></a></nav></footer>
+	<section class="lup-arrival-invitation"><p>RAUS AUS DEM FEED</p><h2>Dein nächster Ort<br>wartet schon.</h2><a href="<?=$appURL?>">LinkUUp öffnen <i class="fas fa-arrow-right"></i></a></section>
+	<footer class="lup-arrival-footer"><div><span class="lup-arrival-mark"><i class="fas fa-link"></i></span><p><b>LinkUUp</b><br><small>Echte Begegnungen beginnen in deiner Nähe.</small></p></div><nav aria-label="Rechtliche Informationen"><a href="<?=href('Register', 'TOS')?>">Nutzungsbedingungen</a><a href="<?=href('Core', 'Privacy')?>">Datenschutz</a><a href="<?=href('Core', 'Impressum')?>">Impressum</a></nav></footer>
 </main>
