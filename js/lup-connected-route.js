@@ -17,6 +17,7 @@
             map.querySelectorAll('path').forEach(path=>path.setAttribute('d',`M${rail} 70 V${main.offsetHeight}`));
         };
         new ResizeObserver(layout).observe(main);
+        document.addEventListener('lup:earth-presence',e=>{pin.style.opacity=String(.8*(1-e.detail.presence));});
         layout();
     };
     document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init):init();

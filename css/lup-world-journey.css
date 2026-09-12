@@ -91,3 +91,14 @@ body.lup-arrival-refresh .lup-world-surface path { fill:#979abb!important; strok
 .lup-world-shade { background:radial-gradient(circle at 35% 30%,#c8d8ff13,transparent 40%,#030a2088 90%),linear-gradient(90deg,#0a142b66,transparent 24%,transparent 62%,#040a1bd9); }
 .lup-world-rim { border-color:#c2ccea29; box-shadow:none; }
 @media(prefers-reduced-motion:reduce),(max-height:699px) { .lup-route-layer { display:none; } }
+/* Natural Earth atlas: one shared image, two compositor-only crossfade layers. */
+body.lup-arrival-refresh .lup-world-sphere.lup-earth-real { overflow:visible; background:none; box-shadow:none; }
+.lup-earth-scene { position:absolute; inset:0; isolation:isolate; }
+.lup-earth-crop { position:absolute; inset:0; overflow:hidden; z-index:2; border-radius:50%; pointer-events:none; }
+.lup-earth-atlas { position:absolute; left:0; top:0; width:800%!important; height:800%!important; max-width:none!important; max-height:none!important; pointer-events:none; }
+.lup-earth-orbiter { position:absolute; left:calc(50% - 14px); top:calc(50% - 19px); width:28px; height:38px; pointer-events:none; transform-origin:center; }
+.lup-earth-orbiter.orbit-back { z-index:1; }
+.lup-earth-orbiter.orbit-front { z-index:3; }
+.lup-earth-pin { display:block; width:100%; height:100%; filter:drop-shadow(0 3px 4px #030b2477); }
+@media(min-height:700px) and (prefers-reduced-motion:no-preference) { body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:230svh!important; } }
+@media(prefers-reduced-motion:reduce),(max-height:699px) { .lup-earth-orbiter { display:none; } }
