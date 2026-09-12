@@ -202,6 +202,7 @@ final class Module_LinkUUp extends GDO_Module
 		$this->addJS('js/lup-connected-route.js?rev=20260912_8');
 		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260912_8'));
 		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260912_5'));
+		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260912_1'));
 	}
 
 	/**
