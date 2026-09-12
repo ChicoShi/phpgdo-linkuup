@@ -30,14 +30,7 @@
         for(let i=0;i<8;i++){const ring=document.createElement('span');ring.className='lup-world-meridian';ring.style.transform=`rotateY(${i*22.5}deg)`;fragment.append(ring);}
         for(const lat of [-60,-30,0,30,60]){const ring=document.createElement('span');ring.className='lup-world-latitude';const rad=lat*Math.PI/180;ring.style.width=ring.style.height=`${Math.cos(rad)*100}%`;ring.style.transform=`translate(-50%,-50%) translateY(calc(var(--globe-size) * ${-Math.sin(rad)/2})) rotateX(90deg)`;fragment.append(ring);}
         for(let lat=-54;lat<=78;lat+=6){for(let lon=-174;lon<180;lon+=6){if(!land.some(p=>inside(lon,lat,p)))continue;const dot=document.createElement('b');dot.className='lup-world-land';dot.style.transform=`rotateY(${lon}deg) rotateX(${-lat}deg) translateZ(calc(var(--globe-size) / 2))`;fragment.append(dot);}}
-        const feet=[];
-        for(let i=0;i<12;i++){const foot=document.createElement('span');foot.className='lup-world-foot';foot.innerHTML='<svg viewBox="0 0 14 28"><ellipse cx="7" cy="9" rx="5" ry="8"/><ellipse cx="7" cy="23" rx="3.5" ry="4"/></svg>';foot.style.transform=`rotateY(${-45+i*11}deg) rotateX(${-21+(i%2?3:-3)}deg) translateZ(calc(var(--globe-size) / 2 + 6px)) rotateZ(76deg)`;feet.push(foot);fragment.append(foot);}
         rotation.append(fragment);
-        const clock=document.createElement('div');
-        clock.className='lup-world-clock';clock.setAttribute('aria-hidden','true');
-        const clockLabels=steps.map(li=>li.querySelector('h3').textContent);
-        clockLabels.forEach(text=>{const label=document.createElement('span');label.textContent=text;clock.append(label);});
-        space.append(clock);
         let frame=0, shown=0, lastTime=0, started=false;
         const draw=(time)=>{
             frame=0;
@@ -48,34 +41,18 @@
             const dt=lastTime?Math.min(64,time-lastTime):16;
             lastTime=time;
             if(!started){shown=targetProgress;started=true;}
-            shown+=(targetProgress-shown)*(1-Math.exp(-dt/220));
+            shown+=(targetProgress-shown)*(1-Math.exp(-dt/100));
             if(Math.abs(targetProgress-shown)<.0001)shown=targetProgress;
             const p=shown;
             const staticMode=reduced.matches || innerHeight<700;
             chapter.classList.toggle('lup-world-static',staticMode);
-            const morph=0;
-            const travel=0;
-            rotation.style.transform=`rotateZ(-16deg) rotateY(${staticMode?-12:-12-p*260}deg)`;
-            sphere.style.transform=`scale(${1-morph*.60})`;
-            sphere.style.opacity=String(1-ease((morph-.72)/.28));
-            sphere.style.visibility=morph>.99?'hidden':'visible';
-            pin.style.opacity='0';
-            pin.style.transform=`translate(-50%,-37%) scale(${.7+morph*.3})`;
-            halo.style.opacity=String(.8-morph*.25);
-            orbits.forEach((el,i)=>{el.style.opacity=String((1-morph)*.65);el.style.transform=`rotate(${-28+i*70+p*50}deg) scale(${1-morph*.35})`;});
-            feet.forEach((foot,i)=>{const age=(p*.68+.02)-i*.032;foot.style.opacity=staticMode?(i<6?'.8':'0'):String(clamp(age/.035)*(1-ease((p-.5)/.2)));});
-            // Settle at the invitation instead of flying across the page/text.
-            carrier.style.transform=`translate3d(0,${travel*-12}px,0) scale(${1-travel*.08})`;
-            carrier.style.opacity='1';
-            const invitation=chapter.querySelector('.lup-world-invitation');
-            invitation.classList.toggle('is-arrived',p>.79 && !staticMode);
+            rotation.style.transform=`rotateZ(-12deg) rotateY(${staticMode?-12:-12-p*120}deg)`;
+            sphere.style.transform='none';sphere.style.opacity='1';sphere.style.visibility='visible';
+            pin.style.opacity='0';halo.style.opacity='0';
+            orbits.forEach(el=>el.style.opacity='0');
+            carrier.style.transform='none';carrier.style.opacity='1';
             document.dispatchEvent(new CustomEvent('lup:world-progress',{detail:{progress:p,staticMode}}));
             const current=Math.min(2,Math.floor(p*3));
-            [...clock.children].forEach((label,i)=>{
-                const offset=i-p*2;
-                label.style.opacity=staticMode?(i===0?'1':'0'):String(clamp(1-Math.abs(offset)*1.6));
-                label.style.transform=staticMode?'none':`translateY(${offset*26}px) rotateX(${offset*-65}deg)`;
-            });
             steps.forEach((li,i)=>li.classList.toggle('lup-step-current',staticMode||i===current));
             if(!staticMode && Math.abs(targetProgress-shown)>.0001)frame=requestAnimationFrame(draw);
         };

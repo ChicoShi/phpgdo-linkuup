@@ -24,7 +24,7 @@ body.lup-arrival-refresh .lup-journey-space { --globe-size:320px; height:440px; 
 body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow { gap:28px!important; }
 body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow h3 { font-size:17px!important; }
 body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow p { font-size:14px!important; }
-@media(min-height:700px) and (prefers-reduced-motion:no-preference) { body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:330svh!important; } }
+@media(min-height:700px) and (prefers-reduced-motion:no-preference) { body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:190svh!important; } }
 @media(max-width:760px) {
  body.lup-arrival-refresh .lup-journey-space { --globe-size:216px; height:310px; }
  body.lup-arrival-refresh .lup-journey-stage { gap:12px; }
@@ -72,54 +72,10 @@ body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow p { font-size:14
 .lup-story-orbit.lup-route-dock::after { border-radius:50%; }
 body.lup-arrival-refresh .lup-arrival-principle-flow > div > i.lup-route-dock { transform:scale(calc(1 + var(--dock) * .1))!important; }
 .lup-connected-static .lup-route-dock::after { display:none; }
-/* A readable, native-scroll journey with deliberate stops. */
-.lup-world-clock { position:absolute; left:0; right:0; bottom:102px; height:28px; perspective:500px; text-align:center; pointer-events:none; }
-.lup-world-clock span { position:absolute; inset:0; color:#cfc5f3; font-size:12px; line-height:28px; backface-visibility:hidden; }
-.lup-scroll-traveller { z-index:8; pointer-events:none!important; }
-body.lup-arrival-refresh .lup-arrival-flow li > i.lup-route-dock { display:block!important; position:relative; width:28px; height:28px; font-size:21px; }
-.lup-destination-icon.lup-route-dock::after { border-color:var(--place-color); }
-.lup-destination-icon.lup-route-dock svg { transform:scale(calc(1 + var(--dock) * .16)); }
-.lup-world-orbit { display:none; }
-@media(min-height:700px) and (prefers-reduced-motion:no-preference) {
- body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:480svh!important; }
- body.lup-arrival-refresh .lup-scroll-story #lup-arrival-categories { height:420svh!important; padding-block:0!important; }
- .lup-category-stage { position:sticky; top:90px; padding:24px 0; }
-}
-@media(max-width:760px) and (min-height:700px) and (prefers-reduced-motion:no-preference) {
- body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:560svh!important; }
- body.lup-arrival-refresh .lup-scroll-story #lup-arrival-categories { height:500svh!important; }
- .lup-category-stage { top:76px; padding:14px 0; }
- body.lup-arrival-refresh .lup-journey-space { height:270px; --globe-size:184px; }
- .lup-world-clock { bottom:91px; }
- .lup-category-stage .lup-destinations { margin:22px 0 16px; gap:12px 8px; }
- .lup-category-stage .lup-destination-story { min-height:128px; padding:14px 0; }
-}
-@media(prefers-reduced-motion:reduce),(max-height:699px) {
- .lup-category-stage { position:static; }
- .lup-world-clock span:not(:first-child) { display:none; }
- .lup-world-clock span { transform:none!important; opacity:1!important; }
-}
-.lup-route-legs { position:absolute; left:-2px; bottom:-12px; width:28px; height:20px; opacity:0; pointer-events:none; }
-.lup-route-legs svg { width:28px; height:20px; overflow:visible; }
-.lup-route-legs path { fill:none!important; stroke:#d9d0ff!important; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; transform-origin:14px 1px; }
-.lup-route-footprint { position:absolute; left:0; top:0; width:8px; height:15px; opacity:0; pointer-events:none; z-index:7; }
-.lup-route-footprint svg { width:100%; height:100%; fill:#acbcef; }
-@media(prefers-reduced-motion:reduce),(max-height:699px) { .lup-route-footprint,.lup-route-legs { display:none; } }
-@media(max-width:760px) and (min-height:700px) and (prefers-reduced-motion:no-preference) {
- body.lup-arrival-refresh .lup-journey-stage .lup-journey-space { height:310px; }
- .lup-world-carrier { top:30%; }
- .lup-world-clock { bottom:88px; }
- body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow li > i.lup-route-dock { display:block!important; }
-}
-.lup-world-clock { overflow:hidden; }
-.lup-world-clock span { color:#cfc5f3!important; }
-body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow li > i.lup-route-dock { min-width:24px!important; min-height:24px!important; width:24px!important; height:24px!important; padding:0!important; border:0!important; border-radius:0!important; background:none!important; box-shadow:none!important; }
-@media(max-width:760px) { .lup-world-clock { top:190px; bottom:auto; } }
-body.lup-arrival-refresh .lup-scroll-story #lup-arrival-categories { overflow:visible!important; }
-@media(min-width:761px) {
- body.lup-arrival-refresh .lup-journey-stage .lup-journey-space { height:500px; }
- .lup-world-carrier { top:34%; }
- .lup-world-clock { bottom:110px; }
-}
-/* The shared walker owns the trail; remove the old independent footprint layer. */
-.lup-world-foot { display:none; }
+
+/* Short, quiet version after review: no walker, orbit, or category scroll stops. */
+.lup-world-orbit,.lup-world-halo,.lup-world-pin { display:none!important; }
+.lup-scroll-traveller { width:18px!important; height:24px!important; filter:none; }
+.lup-route-dock::after { box-shadow:none; }
+@media(min-width:761px) { .lup-world-carrier { top:35%; } }
+@media(max-width:760px) { .lup-world-carrier { top:34%; } }

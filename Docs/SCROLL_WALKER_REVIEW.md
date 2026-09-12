@@ -1,11 +1,7 @@
-# Scroll-Nadel – lokaler Prüfstand
+# Scrollbewegung – vereinfachter aktueller Stand
 
-Die gemeinsame Nadel beginnt vor dem Globus, springt auf seine stilisierte Oberfläche und durchläuft zwei Umläufe. Beine und 36 begrenzte Fußspur-Elemente sind aus dem Scrollfortschritt abgeleitet; keine Endlosschleife. Danach führt die Nadel über die drei Schritte und die acht Kategorie-Symbole in die vorhandene Route. Längere native Scrollabschnitte geben mobilen Lesern mehr Zeit. Eine dekorative Beschriftung wechselt an der Kugel; die eigentlichen Texte bleiben ruhig.
+Nach Nutzerfeedback wurde die laufende Figur zurückgenommen: keine Beine, Fußspuren, zwei Umläufe, Uhrwerk-Beschriftung oder angeheftete Kategorie-Stationen mehr. Die Kugel dreht sich insgesamt nur 120 Grad mit dem Scrollen; eine kleine Nadel begleitet den Weg am Rand. Texte und Aktionen bleiben ruhig. Der Weltabschnitt wurde von mobil 560 auf 190 Bildschirmhöhen-Prozent verkürzt; Kategorien haben wieder ihre normale Inhaltshöhe. Die Nadel reagiert mit kürzerer Glättung.
 
-Die Kugel ist eine CSS-3D-Illustration. Der Läufer nutzt projizierte Positionen, Größen und Deckkraft für räumliche Wirkung, kein physikalisches 3D-Figurmodell. Die Kategorieauswahl per Klick bleibt eigenständig; Scrollen aktiviert nur die dekorativen Zielmarkierungen.
+Geprüft: JS-/PHP-Syntax, Diff sowie Chromium bei 390×844 und 1280×900. Keine Läufer-/Fußspur-Elemente im DOM; keine Überlagerung von Kugel und Einladung in diesen Ansichten. Abschließender Desktopdurchgang ohne JS-Fehler, bestehende externe Ladewarnungen. Native Scrollbewegung und Reduced-Motion-Regeln bleiben erhalten.
 
-Geprüft: JavaScript-/PHP-Syntax und Diff. Chromium 390×844 und 1280×900 visuell; Kategorien bleiben angeheftet und bedienbar. Vorwärts .30 → .50 → rückwärts .30: identische Nadelposition und Beinstellung; acht sichtbare Spurstücke an dieser Testposition. Café-Klick setzt aria-pressed und Beschreibung korrekt. Reduced Motion blendet Läufer/Spuren aus und entfernt die angehefteten Kategorien. Im abschließenden Browserdurchgang keine JS-Fehler, bestehende Google-Maps-Ladewarnung.
-
-Behoben während Prüfung: altes zwischengespeichertes Template ohne Kategorien-Wrapper abgefangen, overflow:hidden am Kategorienabschnitt entfernt, doppelte Fußspur-Schicht entfernt, Überlagerung von Kugel/Beschriftung/Einladung korrigiert.
-
-Noch offen: echtes iPhone/Safari, FPS-Messung und vollständige Navigation-/Tastaturabnahme vor Merge. Keine Installation, Datenbankänderung oder Veröffentlichung.
+Offen vor Merge: echter iPhone-/Safari-Test und FPS-Messung. Kein Deployment.
