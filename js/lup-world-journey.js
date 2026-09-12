@@ -33,6 +33,11 @@
         const feet=[];
         for(let i=0;i<12;i++){const foot=document.createElement('span');foot.className='lup-world-foot';foot.innerHTML='<svg viewBox="0 0 14 28"><ellipse cx="7" cy="9" rx="5" ry="8"/><ellipse cx="7" cy="23" rx="3.5" ry="4"/></svg>';foot.style.transform=`rotateY(${-45+i*11}deg) rotateX(${-21+(i%2?3:-3)}deg) translateZ(calc(var(--globe-size) / 2 + 6px)) rotateZ(76deg)`;feet.push(foot);fragment.append(foot);}
         rotation.append(fragment);
+        const clock=document.createElement('div');
+        clock.className='lup-world-clock';clock.setAttribute('aria-hidden','true');
+        const clockLabels=steps.map(li=>li.querySelector('h3').textContent);
+        clockLabels.forEach(text=>{const label=document.createElement('span');label.textContent=text;clock.append(label);});
+        space.append(clock);
         let frame=0, shown=0, lastTime=0, started=false;
         const draw=(time)=>{
             frame=0;
@@ -48,13 +53,13 @@
             const p=shown;
             const staticMode=reduced.matches || innerHeight<700;
             chapter.classList.toggle('lup-world-static',staticMode);
-            const morph=staticMode?0:ease((p-.48)/.34);
-            const travel=staticMode?0:ease((p-.82)/.14);
-            rotation.style.transform=`rotateZ(-16deg) rotateY(${staticMode?-12:-12-ease(p/.62)*100}deg)`;
+            const morph=0;
+            const travel=0;
+            rotation.style.transform=`rotateZ(-16deg) rotateY(${staticMode?-12:-12-p*260}deg)`;
             sphere.style.transform=`scale(${1-morph*.60})`;
             sphere.style.opacity=String(1-ease((morph-.72)/.28));
             sphere.style.visibility=morph>.99?'hidden':'visible';
-            pin.style.opacity=String(ease((morph-.1)/.7)*(1-ease((p-.88)/.02)));
+            pin.style.opacity='0';
             pin.style.transform=`translate(-50%,-37%) scale(${.7+morph*.3})`;
             halo.style.opacity=String(.8-morph*.25);
             orbits.forEach((el,i)=>{el.style.opacity=String((1-morph)*.65);el.style.transform=`rotate(${-28+i*70+p*50}deg) scale(${1-morph*.35})`;});
@@ -66,6 +71,11 @@
             invitation.classList.toggle('is-arrived',p>.79 && !staticMode);
             document.dispatchEvent(new CustomEvent('lup:world-progress',{detail:{progress:p,staticMode}}));
             const current=Math.min(2,Math.floor(p*3));
+            [...clock.children].forEach((label,i)=>{
+                const offset=i-p*2;
+                label.style.opacity=staticMode?(i===0?'1':'0'):String(clamp(1-Math.abs(offset)*1.6));
+                label.style.transform=staticMode?'none':`translateY(${offset*26}px) rotateX(${offset*-65}deg)`;
+            });
             steps.forEach((li,i)=>li.classList.toggle('lup-step-current',staticMode||i===current));
             if(!staticMode && Math.abs(targetProgress-shown)>.0001)frame=requestAnimationFrame(draw);
         };

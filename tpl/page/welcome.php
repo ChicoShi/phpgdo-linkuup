@@ -37,7 +37,7 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 		</div>
 	</section>
 
-	<section id="lup-arrival-categories" class="lup-arrival-categories">
+	<section id="lup-arrival-categories" class="lup-arrival-categories"><div class="lup-category-stage">
 		<header class="lup-arrival-section-head"><p>ORTE MIT KONTEXT</p><h2>Finde den Ort,<br>der zu dir passt.</h2><details class="lup-arrival-more"><summary>Mehr erfahren <i class="fas fa-plus"></i></summary><p>Die Kategorien zeigen nicht nur einen Namen: Sie machen auf einen Blick klar, welche Art von Begegnung dich dort erwartet.</p></details></header>
 		<div class="lup-destinations" aria-label="Ortskategorien">
 		<?php
@@ -57,7 +57,7 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 		</div>
 		<div class="lup-destination-story" aria-live="polite"><span class="lup-story-orbit" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span><p><small>WORAUF HAST DU LUST?</small><strong>Bar</strong><span>Anstoßen. Reden. Bleiben.</span></p><a href="<?=$appURL?>" aria-label="Orte in LinkUUp entdecken"><i class="fas fa-arrow-right"></i></a></div>
 		<a class="lup-arrival-next" href="#lup-arrival-principles" data-lup-scroll><span>Weiter zu „Auf deine Art“</span><i class="fas fa-arrow-down"></i></a>
-	</section>
+	</div></section>
 
 	<section id="lup-arrival-principles" class="lup-arrival-principles"><div class="lup-arrival-principles-copy"><p>DEIN RAUM. DEINE ENTSCHEIDUNG.</p><h2>Echte Orte.<br>Klare Kontrolle.</h2></div><div class="lup-arrival-principles-list lup-arrival-principle-flow"><div><i class="fas fa-map-pin"></i><span><b>Vor Ort</b><small>Nur, wo du bist.</small></span></div><div><i class="fas fa-user-shield"></i><span><b>Deine Wahl</b><small>Du bestimmst.</small></span></div><div><i class="fas fa-heart"></i><span><b>Respekt</b><small>Echt. Freiwillig.</small></span></div></div></section>
 
