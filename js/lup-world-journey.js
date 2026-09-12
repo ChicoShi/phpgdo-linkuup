@@ -25,12 +25,27 @@
             [[111,-12],[135,-11],[154,-25],[145,-40],[114,-34]],
             [[-53,60],[-22,66],[-25,82],[-55,82]]
         ];
-        const inside = (x,y,poly) => {let yes=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[i],b=poly[j];if(((a[1]>y)!==(b[1]>y))&&(x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0]))yes=!yes;}return yes;};
-        const fragment=document.createDocumentFragment();
-        for(let i=0;i<8;i++){const ring=document.createElement('span');ring.className='lup-world-meridian';ring.style.transform=`rotateY(${i*22.5}deg)`;fragment.append(ring);}
-        for(const lat of [-60,-30,0,30,60]){const ring=document.createElement('span');ring.className='lup-world-latitude';const rad=lat*Math.PI/180;ring.style.width=ring.style.height=`${Math.cos(rad)*100}%`;ring.style.transform=`translate(-50%,-50%) translateY(calc(var(--globe-size) * ${-Math.sin(rad)/2})) rotateX(90deg)`;fragment.append(ring);}
-        for(let lat=-54;lat<=78;lat+=6){for(let lon=-174;lon<180;lon+=6){if(!land.some(p=>inside(lon,lat,p)))continue;const dot=document.createElement('b');dot.className='lup-world-land';dot.style.transform=`rotateY(${lon}deg) rotateX(${-lat}deg) translateZ(calc(var(--globe-size) / 2))`;fragment.append(dot);}}
-        rotation.append(fragment);
+        // A single clipped vector surface replaces hundreds of separate 3-D dots.
+        const ns='http://www.w3.org/2000/svg';
+        const surface=document.createElementNS(ns,'svg');
+        surface.setAttribute('viewBox','0 0 720 360');
+        surface.setAttribute('preserveAspectRatio','none');
+        surface.classList.add('lup-world-surface');
+        surface.setAttribute('aria-hidden','true');
+        land.forEach(outline=>{
+            const shape=document.createElementNS(ns,'path');
+            const points=outline.map(([lon,lat])=>[(lon+180)*2,(90-lat)*2]);
+            let d='';
+            points.forEach((v,i)=>{
+                const prev=points[(i+points.length-1)%points.length],next=points[(i+1)%points.length];
+                const a=[v[0]+(prev[0]-v[0])*.18,v[1]+(prev[1]-v[1])*.18];
+                const b=[v[0]+(next[0]-v[0])*.18,v[1]+(next[1]-v[1])*.18];
+                d+=`${i?'L':'M'}${a} Q${v} ${b} `;
+            });
+            shape.setAttribute('d',d+'Z');
+            surface.append(shape);
+        });
+        rotation.append(surface);
         let frame=0, shown=0, lastTime=0, started=false;
         const draw=(time)=>{
             frame=0;
@@ -46,12 +61,11 @@
             const p=shown;
             const staticMode=reduced.matches || innerHeight<700;
             chapter.classList.toggle('lup-world-static',staticMode);
-            rotation.style.transform=`rotateZ(-12deg) rotateY(${staticMode?-12:-12-p*120}deg)`;
+            surface.style.transform=`translate3d(${-20-(staticMode?.35:p)*12}%,0,0)`;
             sphere.style.transform='none';sphere.style.opacity='1';sphere.style.visibility='visible';
             pin.style.opacity='0';halo.style.opacity='0';
             orbits.forEach(el=>el.style.opacity='0');
             carrier.style.transform='none';carrier.style.opacity='1';
-            document.dispatchEvent(new CustomEvent('lup:world-progress',{detail:{progress:p,staticMode}}));
             const current=Math.min(2,Math.floor(p*3));
             steps.forEach((li,i)=>li.classList.toggle('lup-step-current',staticMode||i===current));
             if(!staticMode && Math.abs(targetProgress-shown)>.0001)frame=requestAnimationFrame(draw);
