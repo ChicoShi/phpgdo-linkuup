@@ -185,7 +185,7 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function onIncludeScripts(): void
 	{
-		$this->addJS('js/lup-backend-shell.js?rev=20260911_2');
+		$this->addJS('js/lup-backend-shell.js?rev=20260912_5');
 		$this->addCSS('css/lup.css?lup_skin=20260816_051');
 		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260816_053');
 		$this->addJS('js/lup-welcome.js?lup_nav=20260911_009');
@@ -201,7 +201,7 @@ final class Module_LinkUUp extends GDO_Module
 		$this->addJS('js/lup-world-journey.js?rev=20260912_8');
 		$this->addJS('js/lup-connected-route.js?rev=20260912_8');
 		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260912_8'));
-		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260912_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260912_5'));
 	}
 
 	/**

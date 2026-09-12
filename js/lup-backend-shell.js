@@ -52,7 +52,9 @@ document.documentElement.classList.add('lup-backend-ui');
         trigger.setAttribute('aria-controls', drawer.id);
         const page = document.getElementById('page-content-wrapper');
         const footer = document.querySelector('body > footer');
+        let focusTimer;
         const setOpen = (open, restore = false) => {
+            clearTimeout(focusTimer);
             document.body.classList.toggle('lup-arrival-menu-open', open);
             trigger.setAttribute('aria-expanded', String(open));
             trigger.setAttribute('aria-label', open ? labels.close : labels.open);
@@ -60,7 +62,9 @@ document.documentElement.classList.add('lup-backend-ui');
             if (page) page.inert = open;
             if (footer) footer.inert = open;
             shade.hidden = !open;
-            if (open) closeButton.focus();
+            if (open) focusTimer = setTimeout(() => {
+                if (document.body.classList.contains('lup-arrival-menu-open')) closeButton.focus();
+            }, 280);
             else if (restore) trigger.focus();
         };
         trigger.addEventListener('click', event => {
@@ -74,12 +78,39 @@ document.documentElement.classList.add('lup-backend-ui');
             if (event.key === 'Escape') setOpen(false, true);
             if (event.key === 'Tab') {
                 const items = [...drawer.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled])')].filter(el => el.getClientRects().length);
-                if (event.shiftKey && document.activeElement === items[0]) { event.preventDefault(); items.at(-1)?.focus(); }
+                if (!drawer.contains(document.activeElement)) { event.preventDefault(); closeButton.focus(); }
+                else if (event.shiftKey && document.activeElement === items[0]) { event.preventDefault(); items.at(-1)?.focus(); }
                 else if (!event.shiftKey && document.activeElement === items.at(-1)) { event.preventDefault(); items[0]?.focus(); }
             }
         });
         window.addEventListener('pageshow', () => setOpen(false));
         setOpen(false);
+        const content = document.getElementById('content-wrap');
+        if (content) {
+            content.querySelectorAll('.gdt-bar').forEach(bar => {
+                if (bar.closest('form,.gdt-form,.gdt-list-item')) return;
+                if (bar.querySelectorAll('a[href]').length > 1) bar.classList.add('lup-section-nav');
+            });
+            if (/\/friends[.;]/i.test(location.pathname)) {
+                content.querySelectorAll('a[href]').forEach(link => {
+                    const match = new URL(link.href).pathname.match(/friends[.;](requesting|requests|request|friendlist)\.html/i);
+                    if (!match || !link.closest('.lup-section-nav')) return;
+                    const names = {request:'Freund hinzufügen',friendlist:'Meine Freunde',requests:'Eingehende Anfragen',requesting:'Gesendete Anfragen'};
+                    link.textContent = de ? names[match[1].toLowerCase()] : link.textContent.replace(/\s*\(%[ds]\)/g,'');
+                    if (new URL(link.href).pathname === location.pathname) link.setAttribute('aria-current','page');
+                });
+            }
+            content.querySelectorAll('table').forEach(table => {
+                if (table.closest('.lup-table-scroll,.editormd')) return;
+                const wrap=document.createElement('div');wrap.className='lup-table-scroll';
+                wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label',de?'Tabelle horizontal scrollen':'Scroll table horizontally');
+                table.before(wrap);wrap.append(table);
+            });
+        }
+        const accountPanel=document.getElementById('navbarSupportedContent');
+        const closeAccount=()=>window.bootstrap?.Collapse?.getInstance(accountPanel)?.hide();
+        document.addEventListener('keydown',e=>{if(e.key==='Escape' && accountPanel?.classList.contains('show')) {closeAccount();document.querySelector('.navbar-toggler')?.focus();}});
+        document.addEventListener('click',e=>{if(accountPanel?.classList.contains('show')&&!e.target.closest('#navbarSupportedContent,.navbar-toggler'))closeAccount();});
         const account = document.querySelector('.navbar-toggler');
         account?.setAttribute('aria-label', labels.account);
         // Correct labels only on the login view; no form fields or validation change.

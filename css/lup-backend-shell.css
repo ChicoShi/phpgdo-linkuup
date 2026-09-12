@@ -122,3 +122,83 @@ html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedConte
 html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .navbar-nav,
 html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-link,
 html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a { max-width:none!important; flex-basis:auto!important; align-self:stretch!important; box-sizing:border-box!important; }
+
+/* Backend review: isolate navigation above content; keep subnavigation in flow. */
+html.lup-backend-ui body.lup-backend #page-content-wrapper > nav.navbar { position:relative!important; z-index:1045!important; isolation:isolate; }
+html.lup-backend-ui body.lup-backend #content-wrap { position:relative!important; z-index:0!important; min-width:0!important; overflow-wrap:anywhere; }
+html.lup-backend-ui body.lup-backend #content-wrap > * { min-width:0; max-width:100%; }
+html.lup-backend-ui body.lup-backend #content-wrap .card { margin-bottom:18px; }
+html.lup-backend-ui body.lup-backend #content-wrap .card-body,
+html.lup-backend-ui body.lup-backend #content-wrap .card-header { background:transparent!important; color:#ecebf7; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav { display:flex!important; flex-wrap:wrap!important; gap:8px!important; width:100%!important; padding:0!important; margin:0!important; position:static!important; background:none!important; border:0!important; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav .gdt-link { flex:1 1 145px; margin:0!important; min-width:0; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a { display:flex!important; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:10px 12px!important; border:1px solid #b0a3df29!important; border-radius:12px; background:#aba0e909; color:#c4c0dd; text-decoration:none; font-size:13px; line-height:1.4; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a[aria-current=page] { background:#a58aee24; border-color:#a58aee66!important; color:#f3ecff; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-fields > * { margin-bottom:22px; min-width:0; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form label { display:block; margin-bottom:9px; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .card-title { line-height:1.25; }
+html.lup-backend-ui .lup-table-scroll { width:100%; max-width:100%; overflow:auto; overscroll-behavior:contain; border-radius:14px; }
+html.lup-backend-ui .lup-table-scroll table { margin:0; }
+html.lup-backend-ui #content-wrap dl { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:10px 14px; }
+html.lup-backend-ui #content-wrap dt,html.lup-backend-ui #content-wrap dd { min-width:0; max-width:100%; margin:0; white-space:normal; overflow-wrap:anywhere; }
+/* Keep the editor toolbar on one scrollable row so it cannot cover text. */
+html.lup-backend-ui #content-wrap .editormd { border:1px solid #77759155; border-radius:12px; background:#111421; }
+html.lup-backend-ui #content-wrap .editormd-toolbar { height:38px!important; min-height:38px!important; overflow-x:auto; overflow-y:hidden; background:#24283c; border-color:#77759155; z-index:12; }
+html.lup-backend-ui #content-wrap .editormd-menu { display:flex; flex-wrap:nowrap; width:max-content; }
+html.lup-backend-ui #content-wrap .editormd-menu > li { flex:none; }
+html.lup-backend-ui #content-wrap .editormd-menu a { min-width:32px; height:32px; color:#d0c9ef; }
+html.lup-backend-ui #content-wrap .CodeMirror,html.lup-backend-ui #content-wrap .CodeMirror-gutters,
+html.lup-backend-ui #content-wrap .editormd-preview { background:#111421; color:#e2e2f1; border-color:#77759155; }
+html.lup-backend-ui #content-wrap .CodeMirror { margin-top:38px!important; }
+html.lup-backend-ui #content-wrap .CodeMirror-cursor { border-left-color:#fff; }
+html.lup-backend-ui #content-wrap .gdo-logs-columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:24px; }
+html.lup-backend-ui #content-wrap .gdo-logs-files,html.lup-backend-ui #content-wrap .gdo-logs-viewer { min-width:0; }
+html.lup-backend-ui #content-wrap .gdo-logs-files ul { padding:0; list-style:none; }
+html.lup-backend-ui #content-wrap .gdo-logs-files li a { display:block; padding:10px 0; border-bottom:1px solid #aca0d423; font-size:13px; }
+html.lup-backend-ui #content-wrap .gdo-logs-search { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
+html.lup-backend-ui #content-wrap .gdo-logs-search label { flex-basis:100%; }
+html.lup-backend-ui #content-wrap .gdo-logs input { min-width:0; max-width:100%; min-height:44px; padding:8px 12px; border:1px solid #77759155; border-radius:10px; background:#171b2b; color:#eee; }
+html.lup-backend-ui #content-wrap .gdo-logs-content { max-width:100%; overflow:auto; }
+/* Sidebar: one consistent rhythm, clear current page, quiet icons. */
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper { background:#171a2b!important; border-right-color:#afa3df33!important; }
+html.lup-backend-ui .lup-drawer-head { padding:30px 24px 24px; border-bottom:1px solid #afa3df20; }
+html.lup-backend-ui .lup-drawer-head b { font-size:34px; }
+html.lup-backend-ui #sidebar-wrapper #leftnav { padding:16px 12px!important; }
+html.lup-backend-ui #sidebar-wrapper #leftnav > li a { min-height:50px!important; border-radius:12px!important; padding:10px 14px!important; }
+html.lup-backend-ui #sidebar-wrapper #leftnav > li a[aria-current=page] { background:#a494e921!important; border-color:#b3a1ed45!important; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a .gdo-icon { width:34px; height:34px; background:#aaa0da10; }
+@media(max-width:760px) {
+ html.lup-backend-ui #content-wrap .gdo-logs-columns { grid-template-columns:minmax(0,1fr); }
+ html.lup-backend-ui body.lup-backend #content-wrap dl { grid-template-columns:minmax(0,1fr); }
+ html.lup-backend-ui #content-wrap dd { padding-bottom:10px; }
+ html.lup-backend-ui #content-wrap .editormd .CodeMirror { width:100%!important; }
+ html.lup-backend-ui #content-wrap .editormd-preview { top:38px!important; width:100%!important; z-index:11; }
+}
+html.lup-backend-ui #content-wrap .gdt-card-middle { min-width:0; display:block; }
+html.lup-backend-ui #content-wrap .gdt-card-fields { width:100%; min-width:0; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); }
+html.lup-backend-ui #content-wrap .gdt-card-fields > * { min-width:0; max-width:100%; overflow-wrap:anywhere; white-space:normal; }
+html.lup-backend-ui #content-wrap .CodeMirror,
+html.lup-backend-ui #content-wrap .CodeMirror-scroll,
+html.lup-backend-ui #content-wrap .CodeMirror-gutters,
+html.lup-backend-ui #content-wrap .editormd-preview,
+html.lup-backend-ui #content-wrap .editormd-preview-container { background:#111421!important; color:#e2e2f1!important; }
+html.lup-backend-ui #content-wrap .gdo-logs-search button { min-height:44px; padding:8px 16px; border:1px solid #b3a1ed45; border-radius:10px; color:#eee9ff; background:#40365c; }
+@media(max-width:760px) {
+ html.lup-backend-ui #content-wrap .gdt-card-fields { grid-template-columns:minmax(0,1fr); gap:6px; }
+ html.lup-backend-ui #content-wrap .gdt-card-fields > * { grid-column:1!important; text-align:left!important; }
+ html.lup-backend-ui #content-wrap .gdt-card-fields label { margin-top:12px; color:#aeb2cc; font-size:12px; }
+}
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper { overflow-x:hidden!important; }
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper::before,
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper::after { display:none!important; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav { min-width:0!important; max-width:100%!important; box-sizing:border-box; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav::before { content:'ENTDECKEN'; display:block; padding:10px 14px 12px; font-size:10px; letter-spacing:.14em; color:#918baa; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a,
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a span:not(.gdo-icon) { font-size:14px!important; font-weight:500!important; color:#d6d3e8!important; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a::before,
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a::after { display:none!important; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a[aria-current=page] { box-shadow:inset 3px 0 #ac94ee!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper .navbar-toggler { display:block!important; }
+html.lup-backend-ui body.lup-backend #navbarSupportedContent.collapse:not(.show) { display:none!important; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form > form { max-height:none!important; height:auto!important; overflow:visible!important; }
+html.lup-backend-ui #content-wrap .CodeMirror-activeline-background { background:#b6a5f51a!important; }
