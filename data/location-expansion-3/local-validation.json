@@ -1,0 +1,28 @@
+{
+  "new_locations": 100,
+  "before": 428,
+  "after": 528,
+  "previous_public_fields_unchanged": true,
+  "repeat_import_existing": 100,
+  "cities": {
+    "Braunschweig": 8,
+    "Wolfsburg": 8,
+    "Peine": 8,
+    "Hannover": 8,
+    "Hildesheim": 8,
+    "Salzgitter": 8,
+    "Wolfenbüttel": 8,
+    "Celle": 8,
+    "Goslar": 8,
+    "Helmstedt": 8,
+    "Gifhorn": 7,
+    "Königslutter am Elm": 6,
+    "Lehrte": 7
+  },
+  "serialized_room_and_address_payloads": 100,
+  "max_source_to_wire_position_error_m": 0.2109,
+  "min_circle_to_building_margin_m": 3.1156,
+  "min_gap_to_existing_circle_m": 17.4187,
+  "polygon_activation": "OSM contours prepared; no tenant boundary approval",
+  "gps_tolerance": "Upstream configurable tolerance is additional to geometric area; live configuration and mobile GPS require field review"
+}

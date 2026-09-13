@@ -210,12 +210,12 @@ final class Module_LinkUUp extends GDO_Module
 		$this->addJS('js/lup-connected-route.js?rev=20260912_16');
 		$this->addJS('js/lup-scroll-finale.js?rev=20260912_9');
 		$this->addJS('js/lup-living-background.js?rev=20260912_1');
-		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260912_8'));
-		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260912_7'));
-		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260912_4'));
-		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260912_3'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260912_7'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260912_6'));
+		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260913_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260913_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260913_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260913_2'));
+		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260913_2'));
+		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260913_2'));
 	}
 
 	/**
