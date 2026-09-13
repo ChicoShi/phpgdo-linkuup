@@ -103,7 +103,36 @@ final class LUP_Global
 			GWS_Message::wr8(self::friendshipPendingPayload($user)) .
 			GWS_Message::wr8(self::friendshipIncomingPayload($user)) .
 			GWS_Message::wrS(self::countryPayload($user)) .
-			self::trophyDataForUser($user);
+			self::trophyDataForUser($user) .
+			GWS_Message::wr32($user->getCredits()) .
+			GWS_Message::wrS(self::profileRolePayload($user));
+	}
+
+	/** A compact public role label for the app profile header. */
+	public static function profileRolePayload(GDO_User $user): string
+	{
+		if ($user->isAdmin())
+		{
+			return 'PROFILE_ROLE_ADMIN';
+		}
+		if ($user->isStaff())
+		{
+			return 'PROFILE_ROLE_STAFF';
+		}
+		$userId = (int)$user->getID();
+		if (LUP_Room::table()->select('room_id')->where("room_owner={$userId}")->first()->exec()->fetchVar())
+		{
+			return 'PROFILE_ROLE_BOSS';
+		}
+		if (LUP_RoomWorker::table()->select('lrw_room')->where("lrw_user={$userId}")->first()->exec()->fetchVar())
+		{
+			return 'PROFILE_ROLE_CREW';
+		}
+		if (self::isVIP($user))
+		{
+			return 'PROFILE_ROLE_VIP';
+		}
+		return $user->isGuest() ? 'PROFILE_ROLE_GUEST' : 'PROFILE_ROLE_MEMBER';
 	}
 
     public static function trophyDataForUser(GDO_User $user)
@@ -378,6 +407,40 @@ final class LUP_Global
 
 		# Payload1 goes sync back
 		$message->replyBinary($message->cmd(), $payload);
+	}
+
+	/**
+	 * Deliver a paid broadcast to every currently occupied location. A shout is
+	 * deliberately not a normal chat event: recipients must not see its sender
+	 * as having joined their room.
+	 *
+	 * @return array{0:int,1:int} Number of reached locations and recipients.
+	 */
+	public static function shout(GDO_User $user, string $text): array
+	{
+		$locations = 0;
+		$recipients = 0;
+		foreach (self::$ROOM_USERS as $roomId => $users)
+		{
+			if (!$users)
+			{
+				continue;
+			}
+			$payload = GWS_Message::payload(0x1167);
+			$payload .= GWS_Message::wr32(time());
+			$payload .= GWS_Message::wr32($user->getID());
+			$payload .= GWS_Message::wr32($roomId);
+			$payload .= GWS_Message::wrS($text);
+			$locations++;
+			foreach ($users as $recipient)
+			{
+				if (GWS_Global::sendBinary($recipient, $payload))
+				{
+					$recipients++;
+				}
+			}
+		}
+		return [$locations, $recipients];
 	}
 
 	public static function updateGPS(GDO_User $user, $lat, $lng)

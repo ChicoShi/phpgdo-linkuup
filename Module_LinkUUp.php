@@ -19,6 +19,7 @@ use GDO\Gallery\GDO_Gallery;
 use GDO\Gallery\Module_Gallery;
 use GDO\LinkUUp\Method\Welcome;
 use GDO\Net\GDT_Url;
+use GDO\PaymentCredits\GDT_Credits;
 use GDO\UI\GDT_Bar;
 use GDO\UI\GDT_Divider;
 use GDO\UI\GDT_Length;
@@ -57,12 +58,12 @@ final class Module_LinkUUp extends GDO_Module
 			'Contact', 'CORS', 'Country',
 			'CSS', 'Currency',
             'DBMS', 'DSGVO',
-			'Facebook', 'Favicon', 'Friends', 'Gallery',
-			'Instagram',
+			'Favicon', 'Friends', 'Gallery', 'GoogleAuth',
 			'Javascript', 'JPGraph', 'JQueryAutocomplete',
 			'Licenses', 'Login', 'Logs',
 			'Maps', 'Markdown',
 			'News', 'OpenTimes', 'Perf',
+			'PaymentBank', 'PaymentCredits', 'PaymentPaypal',
 			'QRCode', 'Recovery', 'Register',
             'Session', 'Websocket',
 		];
@@ -112,6 +113,12 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
 			GDT_Checkbox::make('lup_ticket_engine')->initial('0'), # Need to purchase tickets for a room first?
 			GDT_Checkbox::make('lup_profile_likes_guests')->initial('0'), # Guests may not like users
+			GDT_Credits::make('room_cost')->initial('0'), # One-time cost for creating a room
+			GDT_Credits::make('room_cost_view')->initial('0'), # Cost per additional visibility unit
+			GDT_Length::make('room_cost_view_unit')->initial('0.500'), # Visibility billing unit in km
+			GDT_Credits::make('shout_cost')->initial('0'), # One shout to all occupied locations
+			GDT_Length::make('room_tolerance')->initial('0.064'), # GPS tolerance around room polygons in km
+			GDT_Length::make('room_leave_tolerance')->initial('0.640'), # GPS tolerance before automatically leaving a room in km
 			GDT_Length::make('lup_cuddle_range')->initial('0.100'), # Cuddle range in km
 			GDT_Duration::make('lup_cuddle_token_ttl')->initial('2m')->min(30)->max(900),
 			GDT_UInt::make('lup_num_top_comments')->initial('3')->max(100), # Num Top comments in Room detail.
@@ -248,6 +255,12 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgTicketEngine(): bool { return $this->getConfigValue('lup_ticket_engine'); }
 
 	public function cfgProfileLikeGuests(): bool { return $this->getConfigValue('lup_profile_likes_guests'); }
+	public function cfgRoomCost(): int { return (int)$this->getConfigValue('room_cost'); }
+	public function cfgRoomCostView(): int { return (int)$this->getConfigValue('room_cost_view'); }
+	public function cfgRoomCostViewUnit(): float { return (float)$this->getConfigValue('room_cost_view_unit'); }
+	public function cfgShoutCost(): int { return (int)$this->getConfigValue('shout_cost'); }
+	public function cfgRoomTolerance(): float { return (float)$this->getConfigValue('room_tolerance'); }
+	public function cfgRoomLeaveTolerance(): float { return (float)$this->getConfigValue('room_leave_tolerance'); }
 
 	public function cfgNumTopComments(): int { return $this->getConfigValue('lup_num_top_comments'); }
 
@@ -274,6 +287,8 @@ final class Module_LinkUUp extends GDO_Module
 
 				$allowed = [
 					"GDO\\Login\\Method\\Form",
+					"GDO\\GoogleAuth\\Method\\Auth",
+					"GDO\\GoogleAuth\\Method\\Callback",
 					"GDO\\Avatar\\Method\\Image",
 					"GDO\\Avatar\\Method\\ForUser",
 					"GDO\\Avatar\\Method\\ImageUser",
@@ -314,7 +329,8 @@ final class Module_LinkUUp extends GDO_Module
 				$class = $method->gdoClassName();
 				if (!in_array($class, $allowed, true))
 				{
-					throw new GDO_RedirectError('lup_login_required', [href('Login', 'Form')], href('Login', 'Form'), GDT_Redirect::CODE);
+					$hrefLogin = href('Login', 'Form');
+					throw new GDO_RedirectError('lup_login_required', [$hrefLogin], $hrefLogin, GDT_Redirect::CODE);
 				}
 			}
 		}
@@ -390,16 +406,16 @@ final class Module_LinkUUp extends GDO_Module
 		$a->removeFieldNamed('link_instagram_auth');
 		$a->removeFieldNamed('link_register');
 		$a->removeFieldNamed('link_register_guest');
-		// The stripped-down backend sign-in screen still needs an obvious exit.
+		// Retain the routing field without rendering an extra login-form action.
 		$a->addField(GDT_Link::make('lup_back_to_backend')
-			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend'));
+			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend')->hidden());
 	}
 
 	/** Keep registration from becoming a dead-end in the back office as well. */
 	public function hookRegisterForm(GDT_Form $form)
 	{
 		$form->actions()->addField(GDT_Link::make('lup_back_to_backend')
-			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend'));
+			->href(href('LinkUUp', 'Welcome'))->text('lup_back_to_backend')->hidden());
 	}
 
 	public function hookRecoveryForm(GDT_Form $form)

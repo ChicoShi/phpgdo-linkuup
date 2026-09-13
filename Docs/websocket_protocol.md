@@ -42,7 +42,11 @@ Sometimes, on lists, new items are transmitted until stream ends (terminated by 
 Some structures are re-used:
 
 - GDT_Pagemenu (@TODO Needs docs)
-- fullUserPayload (@TODO Needs docs)
+- fullUserPayload: `int32 id, int16 type, int32 level, string name, string guestName,
+  int32 avatar, int16 gender, int16 orientation, int16 interest, int16 relation,
+  int8 relationPending, int8 relationIncoming, string country, int32 friends,
+  string status, int8 vip, int32 likes, int32 chatSent, int32 querySent,
+  int32 queryReceived, int32 visits, int32 cuddles, int32 credits, string role`
 - all GDO can be auto encoded, like LUP_Notification
 - MethodForm / GWS_CommandForm auto encode as well
 
@@ -91,11 +95,9 @@ VALUES JSON / GDT_PerfBar::data
  PARAM string langaugeIso
 VALUES -none- 200 OK
 
-0x0111 Facebook login
  PARAM uint32 fbExpire, string fbAccessToken, string fbCookie
 VALUES 200 OK
 
-0x0112 Instagram Login
 VALUES string accessToken
 
 0x0121 Wrapper for the account form. Change Email etc.
@@ -269,6 +271,13 @@ VALUES List of fullUserPayload
 0x1162 Is user course visible for you?
   PARAM int32 userId
 VALUES -none- / 200 OK
+
+0x1166 Send a paid shout to every currently occupied location.
+ PARAM string text
+VALUES int32 remainingCredits, int32 reachedLocations, int32 reachedRecipients
+
+0x1167 Incoming shout event.
+VALUES int32 timestamp, int32 userId, int32 roomId, string text
 
 0x1190 Get help topic marks. What help topics have been shown?
  PARAM -none-

@@ -28,8 +28,12 @@ final class LUP_Websocket extends GWS_Commands
 	{
 		try
 		{
-			# Keep mysql connection alive
-			Database::instance()->queryRead('SELECT 1 FROM DUAL');
+			# Keep mysql connection alive after one idle minute
+			$db = Database::instance();
+			if ((microtime(true) - $db->lastQueryTime) > 60)
+			{
+				$db->queryRead('SELECT 1 FROM DUAL');
+			}
 		}
 		catch (Exception $e)
 		{

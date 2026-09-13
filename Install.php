@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace GDO\LinkUUp;
 
 use GDO\AboutMe\Module_AboutMe;
-use GDO\Address\GDO_Address;
 use GDO\Avatar\GDO_Avatar;
 use GDO\Avatar\GDO_UserAvatar;
 use GDO\Category\GDO_Category;
@@ -41,6 +40,8 @@ use phpDocumentor\Reflection\Types\Self_;
  */
 final class Install
 {
+	/** GeoJSON geometry curated in the LocationMap for the national room. */
+	private const GERMANY_POLYGON = '{"type":"Polygon","coordinates":[[[7.3494543,47.4709942],[12.2536152,47.2186489],[14.2948297,48.8269403],[12.7691005,50.0284054],[15.2818549,51.0549097],[14.4706109,54.6533593],[8.3272375,54.9572954],[6.017866,51.8176315],[5.1147445,49.5385908],[7.6287581,48.9243698],[7.3494543,47.4709942]]]}';
 
 	private static array $ICONS = [
 		'germany.png', # 0
@@ -73,7 +74,8 @@ final class Install
 		'17' => ['Hochschulen', null],
 		'18' => ['Gesundheit', null],
 		'19' => ['Übernachten', null],
-		'20' => ['Erholung', null],
+        '20' => ['Erholung', null],
+        '21' => ['Arzt', null],
 	];
 
 
@@ -84,7 +86,7 @@ final class Install
             'user_id' => '2',
             'user_type' => GDT_UserType::MEMBER,
             'user_name' => 'gizmore',
-            'user_level' => '65535',
+            'user_level' => '0',
         ])->softReplace();
         $passwords = require Module_LinkUUp::instance()->filePath('secret.php');
 		$emails = $passwords['emails'];
@@ -101,7 +103,7 @@ final class Install
             'user_id' => '3',
             'user_type' => GDT_UserType::MEMBER,
             'user_name' => 'shqiprim',
-            'user_level' => '65535',
+            'user_level' => '0',
         ])->softReplace();
         $shqiprimPassword = $passwords['shqiprim'][0] ?? $passwords['squiprim'][0];
         $shqiprim->saveSettingVar('Login', 'password', BCrypt::create($shqiprimPassword)->__toString());
@@ -119,7 +121,7 @@ final class Install
             'user_id' => '5',
             'user_type' => GDT_UserType::MEMBER,
             'user_name' => 'mira',
-            'user_level' => '65535',
+            'user_level' => '0',
         ])->softReplace();
         $mira->saveSettingVar('Login', 'password', BCrypt::create($passwords['mira'][0])->__toString());
 		$mira->saveSettingVar('Mail', 'email', $emails['mira']);
@@ -133,16 +135,17 @@ final class Install
 		LUP_Trophy::getOrCreate($mira)->saveVar('lt_vip', '1');
 		self::installAvatar('mira', 'mira.png');
 
-        # Peter is a normal seeded member. His secret deliberately aliases
+        # Peter is a seeded VIP member. His secret deliberately aliases
         # gizmore's installer password without duplicating it in secret.php.
         $peter = GDO_User::blank([
             'user_id' => '6',
             'user_type' => GDT_UserType::MEMBER,
             'user_name' => 'Peter',
-            'user_level' => '1',
+            'user_level' => '0',
         ])->softReplace();
         $peterPasswordKey = $passwords['peter'][0];
         $peter->saveSettingVar('Login', 'password', BCrypt::create($passwords[$peterPasswordKey][0])->__toString());
+		LUP_Trophy::getOrCreate($peter)->saveVar('lt_vip', '1');
 
         # Settings
 		Module_Core::instance()->saveConfigVar('allow_guests', '1');
@@ -166,6 +169,12 @@ final class Install
         Module_Register::instance()->saveConfigVar('captcha', '0');
         Module_Register::instance()->saveConfigVar('email_activation', '0');
         Module_LinkUUp::instance()->saveConfigVar('lup_only_one_chat', '0');
+		$module->saveConfigVar('room_cost', '500');
+		$module->saveConfigVar('room_cost_view', '200');
+		$module->saveConfigVar('room_cost_view_unit', '0.5');
+		$module->saveConfigVar('shout_cost', '137');
+		$module->saveConfigVar('room_tolerance', '0.064');
+		$module->saveConfigVar('room_leave_tolerance', '0.64');
         if (GDO_ENV === 'dev' || GDO_ENV === 'tes')
         {
             Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'app.lup.localhost');
@@ -215,7 +224,9 @@ final class Install
 		{
 			return;
 		}
-		$file = GDO_File::fromPath(
+		// Reuse the original upload across reinstallations. Otherwise every
+		// LinkUUp install creates another source image and reconverts its variants.
+		$file = GDO_File::getByName('linkuup_favicon.png') ?? GDO_File::fromPath(
 			'linkuup_favicon.png',
 			Module_LinkUUp::instance()->filePath('data/linkuup_favicon.png'),
 		)->insert();
@@ -344,7 +355,8 @@ final class Install
 			['Birthday', 'announce_my_birthday', '1'],
 			['Birthday', 'announce_me_birthdays', '1'],
 			['Country', 'country_of_living', 'DE'],
-			['Country', 'country_of_origin', 'DE'],
+            ['Country', 'country_of_origin', 'DE'],
+            ['Country', 'city_of_origin', 'Peine'],
 			['Language', 'language', 'de'],
 			['Date', 'timezone', $berlin],
 			['Date', 'activity_accuracy', '5m'],
@@ -415,6 +427,8 @@ final class Install
             'room_sort' => '40',
             'room_pos_lat' => '51.1093728415025',
             'room_pos_lng' => '10.398766823981518',
+			// Curated national boundary from the LocationMap database record.
+			'room_polygon' => self::GERMANY_POLYGON,
             'room_view' => '42000.0',
             'room_radius' => '800.0',
             'room_www' => 'https://de.wikipedia.org/wiki/Deutschland',
@@ -551,14 +565,13 @@ final class Install
 
         foreach ($places as $index => [$name, $category, $lat, $lng, $street, $zip])
         {
-            $address = GDO_Address::blank([
-				'address_id' => (string)(2000 + $index),
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)(2000 + $index), [
+				                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip ?: null,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
 				'room_id' => (string)(2000 + $index),
@@ -597,14 +610,13 @@ final class Install
         foreach ($places as $index => [$name, $category, $lat, $lng, $street, $zip, $website])
         {
 			$id = 2100 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -681,14 +693,13 @@ final class Install
         foreach ($places as $index => [$name, $category, $lat, $lng, $street, $zip, $radius])
         {
 			$id = 2200 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -735,14 +746,13 @@ final class Install
         {
             // Keep these IDs isolated from the original seed catalogue.
 			$id = 2300 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -788,14 +798,13 @@ final class Install
         foreach ($cafes as $index => [$name, $lat, $lng, $street, $zip, $website])
         {
 			$id = 2400 + $index;
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => 'Braunschweig',
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -843,14 +852,13 @@ final class Install
         foreach ($clubs as $index => [$name, $city, $lat, $lng, $street, $zip, $website])
         {
             $id = self::regionalVenueId($city, 500, $index);
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => $city,
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,
@@ -897,14 +905,13 @@ final class Install
         foreach ($places as $index => [$name, $category, $city, $lat, $lng, $street, $zip, $website])
         {
             $id = self::regionalVenueId($city, 600, $index);
-            $address = GDO_Address::blank([
-                'address_id' => (string)$id,
-                'address_name' => $name,
+            $address = LocationRegistry::seedAddress((string)$id, [
+                                'address_name' => $name,
                 'address_street' => $street,
                 'address_zip' => $zip,
                 'address_city' => $city,
                 'address_country' => 'DE',
-            ])->softReplace();
+            ]);
 
             LUP_Room::blank([
                 'room_id' => (string)$id,

@@ -41,7 +41,12 @@ return [
 	'err_lup_room_info' => 'Die Beschreibung ist zu lang.',
 	'err_lup_room_position' => 'Für den Raum wird eine gültige GPS-Position benötigt.',
 	'err_lup_room_radius' => 'Der Chatradius muss zwischen 150 und 500 Metern liegen.',
+	'err_lup_room_polygon' => 'Die Ortsfläche ist ungültig.',
+	'err_lup_room_view' => 'Der Sichtbarkeitsradius ist ungültig.',
 	'err_lup_room_category' => 'Bitte wähle eine gültige Kategorie.',
+	'err_lup_room_credits' => 'Für diesen Raum werden %s Credits benötigt; Du hast aktuell %s Credits.',
+	'err_lup_shout_text' => 'Bitte gib einen Shout mit 1 bis 512 Zeichen ein.',
+	'err_lup_shout_credits' => 'Für diesen Shout werden %s Credits benötigt; Du hast aktuell %s Credits.',
 	'err_room_not_near' => 'Dieser Raum ist nicht in Chatreichweite.',
 	'err_not_in_room' => 'Sie befinden sich nicht in diesem Chatraum.',
 	'err_user_not_near' => 'Dieser Nutzer befindet sich nicht in Ihrer Nähe.',
@@ -111,6 +116,10 @@ return [
 	'link_add_room' => 'Neuer Raum',
 	'link_cats' => 'Kategorien',
 	'link_add_cat' => 'Neue Kategorie',
+	'mt_linkuup_roomflyer' => 'A5-Raumflyer',
+	'room_flyer' => 'Raum-Flyer',
+	'room_flyer_cta' => 'Scanne den Code und tritt dem lokalen Chat bei.',
+	'room_flyer_copy' => 'LinkUUp verbindet Menschen an echten Orten. Entdecke, wer gerade hier ist, chatte direkt und verabrede dich unkompliziert.',
 
 	'mt_linkuup_welcome' => 'Willkommen!',
 
@@ -179,12 +188,17 @@ return [
 	'enum_blue_green' => 'blau/grün',
 
 	# Sex
+	'enum_men' => 'Männer',
+	'enum_women' => 'Frauen',
+	'enum_both' => 'Männer und Frauen',
 	'enum_hetero' => 'Hetero',
 	'enum_homo' => 'Homo',
 	'enum_bisexual' => 'Bi',
 	'enum_asexual' => 'Asexuell',
 
 	'mt_linkuup_categorylist' => 'Kategorien',
+	'mt_linkuup_locationmap' => 'Location-Karte',
+	'md_linkuup_locationmap' => 'Karte zum Prüfen und Bearbeiten von Locations, Sichtbarkeitsradien und Ortsflächen.',
 	'mt_linkuup_rooms' => 'Räume',
 	'list_linkuup_rooms' => '%s Räume',
 
@@ -205,6 +219,7 @@ return [
 	'mt_linkuup_coworkers' => 'Mitarbeiter',
 
 	'person_height' => 'Körpergröße',
+	'metres' => '%s m',
 	'lup_status' => 'Gerade beschäftigt mit',
 	'lup_religion' => 'Religion',
 	'lup_sexual_orientation' => 'Sexuelle Orientierung',
@@ -219,6 +234,7 @@ return [
 	'lup_state' => 'Living State',
 	'lup_city' => 'Living City',
 	'lup_cuddle_token_ttl' => 'Gültigkeit des Cuddle-QR-Codes',
+	'lup_cuddles' => 'High Fives',
 	'err_lup_cuddle_token' => 'Dieser Cuddle-Code ist ungültig.',
 	'err_lup_cuddle_qr' => 'Bitte nutze den Cuddle-QR-Code.',
 	'err_lup_cuddle_used' => 'Dieser Cuddle-Code wurde bereits verwendet.',

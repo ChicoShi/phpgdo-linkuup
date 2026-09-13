@@ -534,6 +534,43 @@ final class LocationRegistry
     }
 
     /**
+     * Store a seed address exactly once per stable room ID.
+     *
+     * Seed data is installed repeatedly during local development. Once a room
+     * exists, its linked address is the canonical record and must be updated
+     * in place rather than creating another address row.
+     *
+     * @param array<string, string|null> $vars
+     */
+    public static function seedAddress(string $roomID, array $vars): GDO_Address
+    {
+        unset($vars['address_id']);
+        if (($room = LUP_Room::getById($roomID)) && ($address = $room->getAddress()))
+        {
+            return $address->saveVars($vars);
+        }
+
+        $identity = [
+            'address_name' => $vars['address_name'],
+            'address_city' => $vars['address_city'],
+            'address_country' => $vars['address_country'],
+        ];
+        foreach (['address_street', 'address_zip'] as $field)
+        {
+            if (($vars[$field] ?? null) !== null)
+            {
+                $identity[$field] = $vars[$field];
+            }
+        }
+        if ($address = GDO_Address::getByVars($identity))
+        {
+            return $address->saveVars($vars);
+        }
+
+        return GDO_Address::blank($vars)->insert();
+    }
+
+    /**
      * Explicitly import one approved record. Drafts are blocked by design.
      * The stable IDs make the import safe to repeat without duplicate rooms.
      */
@@ -546,14 +583,13 @@ final class LocationRegistry
         }
 
         $owner = GDO_User::getByName('shqiprim');
-        $address = GDO_Address::blank([
-            'address_id' => (string)$entry['address_id'],
+        $address = self::seedAddress((string)$entry['room_id'], [
             'address_name' => $entry['name'],
             'address_street' => $entry['street'],
             'address_zip' => $entry['zip'],
             'address_city' => $entry['city'],
             'address_country' => 'DE',
-        ])->softReplace();
+        ]);
 
         return LUP_Room::blank([
             'room_id' => (string)$entry['room_id'],

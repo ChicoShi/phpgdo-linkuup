@@ -22,7 +22,7 @@ final class GDT_Pet extends GDT_Enum
 	protected function __construct()
 	{
 		parent::__construct();
-		$this->icon('pets');
+		$this->icon('dog');
 		$this->label('lup_has_pet');
 		$this->enumValues(...self::VALUES);
 		$this->emptyLabel('PLEASE_SELECT');

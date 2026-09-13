@@ -1598,6 +1598,26 @@ body.sb-sidenav-toggled #sidebarToggle { animation:lup-admin-menu-return .36s cu
   color:#fff !important;
 }
 
+.login-form .button-google-auth {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	min-height:40px;
+	margin-top:10px;
+	border:1px solid rgba(166,197,255,.24);
+	border-radius:11px;
+	background:rgba(40,52,91,.48);
+	color:#dbe8ff !important;
+	font-size:12px;
+	font-weight:760;
+	text-decoration:none;
+}
+.login-form .button-google-auth:hover {
+	border-color:rgba(174,211,255,.50);
+	background:rgba(78,101,174,.42);
+	color:#fff !important;
+}
+
 /* Authentication is part of the back office, not a leftover white Bootstrap card. */
 #content-wrap > #form.gdt-form.gdt-form-compact { /*width:min(100%,520px);*/ margin:clamp(26px,8vh,105px) auto 40px; overflow:hidden; border:1px solid rgba(166,193,255,.19) !important; border-radius:22px !important; background:radial-gradient(circle at 88% 4%,rgba(106,143,232,.24),transparent 34%),linear-gradient(145deg,#1d2942,#111725 75%) !important; box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 24px 52px rgba(0,0,0,.34) !important; color:#eaf0ff !important; }
 #content-wrap > #form.gdt-form.gdt-form-compact .card-header { padding:24px 27px 18px !important; border:0 !important; border-bottom:1px solid rgba(178,203,255,.12) !important; background:transparent !important; }
@@ -1858,7 +1878,7 @@ body:has(#content-wrap > #form.gdt-form.gdt-form-compact) #content-wrap {
   box-shadow:0 0 0 3px rgba(99,158,217,.11),inset 0 1px 0 rgba(255,255,255,.04) !important;
 }
 #content-wrap > #form.gdt-form.gdt-form-compact .gdt-form-actions.card-footer { padding:13px 31px 29px !important; background:transparent !important; }
-#content-wrap > #form.gdt-form.gdt-form-compact .gdt-form-actions .gdt-menu { display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center; }
+/*#content-wrap > #form.gdt-form.gdt-form-compact .gdt-form-actions .gdt-menu { display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center; }*/
 #content-wrap > #form.gdt-form.gdt-form-compact .gdt-submit { display:flex; grid-column:1 / -1; grid-row:1; align-items:center; justify-content:center; min-height:48px; border:1px solid rgba(195,222,255,.31) !important; border-radius:11px !important; background:linear-gradient(110deg,rgba(83,141,200,.92),rgba(105,91,188,.92)) !important; box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 12px 25px rgba(42,72,142,.22) !important; }
 #content-wrap > #form.gdt-form.gdt-form-compact .gdt-submit::after { display:none; }
 #content-wrap > #form.gdt-form.gdt-form-compact .gdt-submit input { min-height:48px; color:#fff !important; font-size:13px; font-weight:780; letter-spacing:.01em; }
