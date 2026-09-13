@@ -14,6 +14,7 @@ $loader = \GDO\Core\ModuleLoader::instance();
 $loader->loadModulesCache();
 $loader->initModules();
 $entries = json_decode(file_get_contents(dirname(__DIR__) . '/data/location-expansion-3/locations.json'), true, 512, JSON_THROW_ON_ERROR)['entries'];
+$includeBinary = in_array('--binary', $argv, true);
 $rows = [];
 foreach ($entries as $entry) {
     $room = \GDO\LinkUUp\LUP_Room::table()->select()
@@ -28,7 +29,7 @@ foreach ($entries as $entry) {
     $command = new \GDO\LinkUUp\Websocket\LUPWS_Room();
     $payload = $command->gdoToBinary($room) . $command->gdoToBinary($address);
     if (!$payload) { throw new RuntimeException('Empty room payload.'); }
-    $rows[] = [
+    $row = [
         'key' => $entry['key'], 'room_id' => $room->getID(),
         'lat' => $room->getLat(), 'lng' => $room->getLng(),
         'binary_lat' => $binary['lat'], 'binary_lng' => $binary['lng'],
@@ -37,5 +38,7 @@ foreach ($entries as $entry) {
         'info' => $room->getInfo(), 'address' => $address->getGDOVars(),
         'payload_bytes' => strlen($payload),
     ];
+    if ($includeBinary) { $row['payload_base64'] = base64_encode($payload); }
+    $rows[] = $row;
 }
 echo json_encode(['count' => count($rows), 'rows' => $rows], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) . PHP_EOL;
