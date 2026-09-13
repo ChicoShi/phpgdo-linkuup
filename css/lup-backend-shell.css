@@ -137,7 +137,7 @@ html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a[aria-curre
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-fields > * { margin-bottom:22px; min-width:0; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form label { display:block; margin-bottom:9px; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .card-title { line-height:1.25; }
-html.lup-backend-ui .lup-table-scroll { width:100%; max-width:100%; overflow:auto; overscroll-behavior:contain; border-radius:14px; }
+html.lup-backend-ui .lup-table-scroll { width:100%; max-width:100%; overflow-x:auto; overflow-y:visible; overscroll-behavior-x:contain; overscroll-behavior-y:auto; border-radius:14px; }
 html.lup-backend-ui .lup-table-scroll table { margin:0; }
 html.lup-backend-ui #content-wrap dl { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:10px 14px; }
 html.lup-backend-ui #content-wrap dt,html.lup-backend-ui #content-wrap dd { min-width:0; max-width:100%; margin:0; white-space:normal; overflow-wrap:anywhere; }
@@ -202,3 +202,7 @@ html.lup-backend-ui body.lup-backend #page-content-wrapper .navbar-toggler { dis
 html.lup-backend-ui body.lup-backend #navbarSupportedContent.collapse:not(.show) { display:none!important; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form > form { max-height:none!important; height:auto!important; overflow:visible!important; }
 html.lup-backend-ui #content-wrap .CodeMirror-activeline-background { background:#b6a5f51a!important; }
+/* Non-modal notice: location permission failures do not trap table scrolling. */
+html.lup-backend-ui .lup-location-status {display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;margin:0 0 20px;border:1px solid var(--shell-line);border-radius:12px;background:var(--shell-panel);color:var(--shell-text);font-size:14px;}
+html.lup-backend-ui .lup-location-status span {flex:1 1 240px;}
+html.lup-backend-ui .lup-location-status button {padding:8px 12px;border:1px solid var(--shell-line);border-radius:8px;background:#b6a6ff15;color:inherit;cursor:pointer;}

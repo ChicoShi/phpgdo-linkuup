@@ -59,3 +59,40 @@ html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #bottom a { font:4
  html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap :is(.card-header,.card-body,.gdt-card-middle,.card-footer) { padding:16px!important; }
  html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap .accordion-body { padding:16px!important; }
 }
+
+/* One table surface; vertical wheel/touch scrolling always reaches the page. */
+html.lup-backend-ui {scrollbar-gutter:stable;}
+html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap .gdt-table {overflow:visible!important;background:none!important;border:0!important;box-shadow:none!important;}
+html.lup-backend-ui body.lup-backend #content-wrap .lup-table-scroll {overscroll-behavior-y:auto!important;max-height:none;min-width:0;border:1px solid var(--shell-line);background:var(--shell-panel);}
+html.lup-backend-ui body.lup-backend #content-wrap .lup-table-scroll table {width:100%;border-collapse:separate;border-spacing:0;table-layout:auto;}
+html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap :is(th,td) {vertical-align:middle!important;text-align:left;white-space:normal;overflow-wrap:normal;min-width:110px;border:0!important;border-bottom:1px solid var(--view-line)!important;}
+html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap th {font-size:12px!important;font-weight:500!important;text-transform:none!important;letter-spacing:0!important;background:var(--view-raised)!important;}
+html.lup-backend-ui body.lup-backend #content-wrap th :is(label,a) {margin:0;line-height:1.5;color:inherit!important;text-decoration:none;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-table-order a {display:inline-flex;align-items:center;gap:7px;min-height:36px;}
+html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap tbody tr:nth-child(even) td {background:#202230!important;}
+html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap tbody tr:hover td {background:#29273a!important;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdo-table-caption {padding:18px 0 12px;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdo-table-caption h3 {margin:0!important;font-size:20px!important;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdo-pagemenu ul {display:flex;align-items:center;flex-wrap:wrap;gap:6px;list-style:none;margin:16px 0;padding:0;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdo-pagemenu li {padding:0;margin:0;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdo-pagemenu a {display:grid;place-items:center;min-width:40px;min-height:40px;padding:7px 12px;border:1px solid var(--shell-line);border-radius:10px;background:var(--shell-panel);color:var(--shell-text);text-decoration:none;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdo-pagemenu :is(.active,.selected,.current) a {background:#c6b5ee;color:#272039;}
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav {gap:4px!important;padding:6px!important;margin-bottom:22px!important;background:#1c1e2b!important;border:1px solid var(--shell-line)!important;border-radius:14px;}
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a {border-color:transparent!important;background:transparent;box-shadow:none!important;}
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a[aria-current=page] {background:#c6b5ee22;border-color:#c6b5ee44!important;}
+html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap :is(.card,.gdt-form,.lup-section-nav a,.gdo-pagemenu a,table,tr,th,td) {animation:none!important;transform:none!important;transition:background-color 140ms ease,border-color 140ms ease!important;}
+@media(max-width:760px){html.lup-backend-ui body.lup-backend #content-wrap :is(th,td){padding:11px 12px!important;}html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav .gdt-link{flex:1 1 120px;}}
+html.lup-backend-ui body.lup-backend #content-wrap .lup-table-scroll :is(table,th,td,button) {font-family:Ubuntu,'Segoe UI',sans-serif!important;}
+html.lup-backend-ui body.lup-backend #content-wrap .lup-table-scroll td :is(button,.btn) {min-height:38px;padding:7px 12px;border:1px solid #c6b5ee44;border-radius:9px;background:#c6b5ee15;color:#e3d9f7;box-shadow:none;white-space:nowrap;font-size:13px;}
+
+/* Native GDO, Bootstrap and asynchronously inserted tables share this class. */
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table {display:table!important;width:100%!important;margin:0!important;border-collapse:separate!important;border-spacing:0!important;border:0!important;border-radius:0!important;background:#1c1e2b!important;color:#e3deef!important;font:400 14px/1.5 Ubuntu,'Segoe UI',sans-serif!important;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table :is(thead,tbody,tfoot,tr) {background:transparent!important;color:inherit!important;box-shadow:none!important;animation:none!important;transform:none!important;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table th {background:#252637!important;color:#d7cce9!important;font-weight:500!important;text-align:left!important;text-transform:none!important;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table td {background:#1c1e2b!important;color:#e3deef!important;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table tbody tr:nth-child(even) td {background:#212330!important;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table tbody tr:hover td {background:#2b283c!important;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table :is(th,td) {padding:12px 15px!important;border:0!important;border-bottom:1px solid #c6b5ee20!important;font:inherit!important;vertical-align:middle!important;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table a {color:#cfc0f3!important;text-decoration:none;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]),select) {min-height:38px;max-width:100%;padding:7px 10px;border:1px solid #c6b5ee40!important;border-radius:8px!important;background:#151823!important;color:#ebe5f5!important;box-sizing:border-box;font:inherit;}
+html.lup-backend-ui body.lup-backend #content-wrap table.lup-data-table :is(button,.btn,input[type=submit]) {min-height:38px;padding:7px 12px;border:1px solid #c6b5ee44!important;border-radius:9px!important;background:#c6b5ee15!important;color:#e3d9f7!important;box-shadow:none!important;font:500 13px/1.5 Ubuntu,'Segoe UI',sans-serif!important;}

@@ -14,7 +14,7 @@
 <p>Place data, availability and place content are guidance, not guarantees. LinkUUp does not act on behalf of displayed places. Content may be removed, features restricted or accounts blocked in case of violations, security risks or justified complaints. Reports: <a href="mailto:info@linkuup.de">info@linkuup.de</a>.</p>
 
 <h2>5. Liability</h2>
-<p>LinkUUp has unlimited liability for intent, gross negligence, injury to life, body or health, and where liability is mandatory. Otherwise, for negligent breach of essential obligations, liability is limited to foreseeable typical damage. Continuous error-free availability, accuracy of third-party content and a particular meeting are not guaranteed.</p>
+<p>LinkUUp has unlimited liability for intent, gross negligence, injury to life, body or health, and where liability is mandatory. Otherwise, for a slightly negligent breach of essential obligations, liability is limited to foreseeable typical damage. Continuous error-free availability, accuracy of third-party content and a particular meeting are not guaranteed.</p>
 
 <h2>6. Changes</h2>
 <p>These terms may be adjusted for future use where objectively necessary. Material changes will be announced in the app in advance. Privacy details are set out in the privacy notice.</p>
