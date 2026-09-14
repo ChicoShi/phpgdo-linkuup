@@ -11,6 +11,14 @@ use GDO\Websocket\Server\GWS_Commands;
 
 final class LUP_Websocket extends GWS_Commands
 {
+	/**
+	 * Timestamp of the last database keepalive attempt.
+	 *
+	 * The database abstraction exposes cumulative query time, not a
+	 * last-query timestamp.  Keeping the timer state here avoids touching
+	 * that shared abstraction and prevents a warning on every websocket tick.
+	 */
+	private ?float $lastKeepaliveAt = null;
 
 	public function init() {}
 
@@ -26,14 +34,18 @@ final class LUP_Websocket extends GWS_Commands
 
 	public function timer()
 	{
+		$now = microtime(true);
+		if ($this->lastKeepaliveAt !== null && (($now - $this->lastKeepaliveAt) <= 60))
+		{
+			return;
+		}
+		$this->lastKeepaliveAt = $now;
+
 		try
 		{
 			# Keep mysql connection alive after one idle minute
 			$db = Database::instance();
-			if ((microtime(true) - $db->lastQueryTime) > 60)
-			{
-				$db->queryRead('SELECT 1 FROM DUAL');
-			}
+			$db->queryRead('SELECT 1 FROM DUAL');
 		}
 		catch (Exception $e)
 		{
