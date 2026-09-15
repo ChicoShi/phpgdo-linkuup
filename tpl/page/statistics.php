@@ -6,10 +6,13 @@ use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\Method\GraphMessagecount;
 use GDO\LinkUUp\Method\GraphUsercount;
 use GDO\UI\GDT_Link;
+use GDO\User\GDO_User;
 
 /**
  * @var LUP_Room[] $rooms
  */
+$canPrintFlyers = GDO_User::current()->isStaff();
+
 foreach ($rooms as $room) :
 
 	$inputs = [
@@ -38,6 +41,9 @@ foreach ($rooms as $room) :
 				echo $room->gdoDisplay('room_name'); ?></h2>
 			<a class="lup-stat-qrcode" href="<?=$room->href_qrcode()?>" title="QR-Code für <?=$room->gdoDisplay('room_name')?>"><i class="fas fa-qrcode"></i><span>QR</span></a>
             <div><?=GDT_Link::make()->href($room->url_chat())->render()?></div>
+			<?php if ($canPrintFlyers): ?>
+				<a class="lup-stat-flyer" href="<?=href('LinkUUp', 'RoomFlyer', '&room=' . $room->getID() . '&_ajax=1')?>"><i class="fas fa-print"></i><span><?=t('room_flyer')?></span></a>
+			<?php endif; ?>
         </div>
         <div class="col-xs-12 col-sm-9 grapics">
 			<?=GDT_GraphDateselect::make('date')->initial('this_year')->addClass('lup-graph-select')->withToday(false)->withYesterday(false)->render()?>

@@ -3923,3 +3923,26 @@ body.lup-arrival-active #navbarSupportedContent.show .gdt-link > a > .gdo-utf8-i
     border: none;
     box-shadow: none;
 }
+
+/* Staff shortcut from the room statistics card to the printable A5 flyer. */
+.lup-stat-flyer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 7px 10px;
+    border: 1px solid rgba(174, 203, 255, .22);
+    border-radius: 10px;
+    color: #e9edff;
+    background: rgba(97, 81, 207, .20);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.lup-stat-flyer:hover,
+.lup-stat-flyer:focus {
+    color: #fff;
+    background: rgba(111, 165, 245, .34);
+    text-decoration: none;
+}
