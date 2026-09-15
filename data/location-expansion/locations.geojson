@@ -1,0 +1,7619 @@
+{
+  "type": "FeatureCollection",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL-1.0",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5264058,
+              52.2747247
+            ],
+            [
+              10.5264212,
+              52.2745489
+            ],
+            [
+              10.5265728,
+              52.2745538
+            ],
+            [
+              10.5267275,
+              52.2745588
+            ],
+            [
+              10.5267214,
+              52.2746294
+            ],
+            [
+              10.5267123,
+              52.2747346
+            ],
+            [
+              10.5266263,
+              52.2747318
+            ],
+            [
+              10.5265166,
+              52.2747282
+            ],
+            [
+              10.5264058,
+              52.2747247
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-50807370",
+        "name": "360°",
+        "city": "Braunschweig",
+        "street": "Katharinenstraße 1",
+        "zip": "38106",
+        "category": 14,
+        "lat": 52.27464175,
+        "lng": 10.5265676151,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/50807370",
+        "source_version": 19,
+        "source_timestamp": "2026-06-16T17:05:14Z",
+        "website": "https://stw-on.de/braunschweig/essen/mensen-cafeterien/360",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0067,
+        "boundary_clearance_m": 9.79559274255729,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7171022,
+              52.4168974
+            ],
+            [
+              10.7169909,
+              52.4165427
+            ],
+            [
+              10.7172215,
+              52.4165158
+            ],
+            [
+              10.7173328,
+              52.4168705
+            ],
+            [
+              10.7171022,
+              52.4168974
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-25653766",
+        "name": "Altes Brauhaus zu Fallersleben",
+        "city": "Wolfsburg",
+        "street": "Am Alten Brauhaus 9",
+        "zip": "38442",
+        "category": 14,
+        "lat": 52.4167066,
+        "lng": 10.71716185,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/25653766",
+        "source_version": 8,
+        "source_timestamp": "2026-03-29T10:11:05Z",
+        "website": "https://www.brauhaus-fallersleben.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004900000000000001,
+        "boundary_clearance_m": 7.970263635894444,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.2329996,
+              52.319576
+            ],
+            [
+              10.2325143,
+              52.3196595
+            ],
+            [
+              10.2326037,
+              52.3198537
+            ],
+            [
+              10.2327132,
+              52.3198616
+            ],
+            [
+              10.2330679,
+              52.3198033
+            ],
+            [
+              10.2329996,
+              52.319576
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-163257037",
+        "name": "Bürger-Jäger-Heim",
+        "city": "Peine",
+        "street": "Beethovenstraße 6",
+        "zip": "31224",
+        "category": 14,
+        "lat": 52.319720228,
+        "lng": 10.232852272799999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/163257037",
+        "source_version": 10,
+        "source_timestamp": "2024-07-10T05:02:25Z",
+        "website": "https://www.bjc-peine.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.009699999999999999,
+        "boundary_clearance_m": 12.738580294073904,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.8056527,
+              52.3504975
+            ],
+            [
+              9.8057609,
+              52.3505809
+            ],
+            [
+              9.8059106,
+              52.3505084
+            ],
+            [
+              9.8058898,
+              52.3504925
+            ],
+            [
+              9.8062409,
+              52.3503225
+            ],
+            [
+              9.8061535,
+              52.3502551
+            ],
+            [
+              9.8056527,
+              52.3504975
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-191076903",
+        "name": "Alte Hahnenburg",
+        "city": "Hannover",
+        "street": "Bemeroder Straße 63",
+        "zip": "30559",
+        "category": 14,
+        "lat": 52.350501893499995,
+        "lng": 9.8057838686,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/191076903",
+        "source_version": 6,
+        "source_timestamp": "2026-08-26T13:50:40Z",
+        "website": "https://www.alte-hahnenburg.com",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0029,
+        "boundary_clearance_m": 5.921367055437555,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.8941786,
+              52.1046933
+            ],
+            [
+              9.8943521,
+              52.1046238
+            ],
+            [
+              9.8942138,
+              52.1044935
+            ],
+            [
+              9.8940402,
+              52.104563
+            ],
+            [
+              9.8941786,
+              52.1046933
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-29216896",
+        "name": "Hildesheimer Aussichtsturm",
+        "city": "Hildesheim",
+        "street": "Turmweg 1",
+        "zip": "31139",
+        "category": 14,
+        "lat": 52.1045925009,
+        "lng": 9.8941952143,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/29216896",
+        "source_version": 7,
+        "source_timestamp": "2026-07-12T09:47:22Z",
+        "website": "https://www.aussichtsturm-hi.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004,
+        "boundary_clearance_m": 7.082597610609454,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3349868,
+              52.1530852
+            ],
+            [
+              10.3355298,
+              52.1530879
+            ],
+            [
+              10.3355381,
+              52.1530879
+            ],
+            [
+              10.3355399,
+              52.1529524
+            ],
+            [
+              10.33554,
+              52.1529474
+            ],
+            [
+              10.3349887,
+              52.1529446
+            ],
+            [
+              10.3349868,
+              52.1530852
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-201800555",
+        "name": "Asia Star",
+        "city": "Salzgitter",
+        "street": "Konrad-Adenauer-Straße 31",
+        "zip": "38226",
+        "category": 14,
+        "lat": 52.15301625,
+        "lng": 10.335256484999999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/201800555",
+        "source_version": 3,
+        "source_timestamp": "2019-03-31T16:44:07Z",
+        "website": "www.asiastar-salzgitter.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0048,
+        "boundary_clearance_m": 7.824408672818084,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5402391,
+              52.1615891
+            ],
+            [
+              10.5403749,
+              52.1615848
+            ],
+            [
+              10.5403732,
+              52.1615645
+            ],
+            [
+              10.540563,
+              52.1615624
+            ],
+            [
+              10.5405352,
+              52.1613572
+            ],
+            [
+              10.5404376,
+              52.1613316
+            ],
+            [
+              10.540408,
+              52.1613316
+            ],
+            [
+              10.540361,
+              52.1613669
+            ],
+            [
+              10.5402182,
+              52.1613786
+            ],
+            [
+              10.5402391,
+              52.1615891
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-395796835",
+        "name": "Filmpalast",
+        "city": "Wolfenbüttel",
+        "street": "Lange Straße 5",
+        "zip": "38300",
+        "category": 12,
+        "lat": 52.1614652425,
+        "lng": 10.5403881864,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/395796835",
+        "source_version": 7,
+        "source_timestamp": "2022-04-25T09:47:25Z",
+        "website": "https://filmpalast-wf.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.008,
+        "boundary_clearance_m": 11.000191606781913,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.0600551,
+              52.5984157
+            ],
+            [
+              10.0601363,
+              52.5983098
+            ],
+            [
+              10.0600853,
+              52.5982948
+            ],
+            [
+              10.0600588,
+              52.598328
+            ],
+            [
+              10.0599506,
+              52.5982962
+            ],
+            [
+              10.0599778,
+              52.5982621
+            ],
+            [
+              10.0598686,
+              52.59823
+            ],
+            [
+              10.0597841,
+              52.5983358
+            ],
+            [
+              10.0600551,
+              52.5984157
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-244605287",
+        "name": "Asialand",
+        "city": "Celle",
+        "street": "Neues Land 1",
+        "zip": "29227",
+        "category": 14,
+        "lat": 52.59831495775,
+        "lng": 10.0598832443,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/244605287",
+        "source_version": 4,
+        "source_timestamp": "2019-03-11T14:03:13Z",
+        "website": "https://www.asialandrestaurant.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.002,
+        "boundary_clearance_m": 5.01017725062307,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4170503,
+              51.9244069
+            ],
+            [
+              10.4164902,
+              51.9243731
+            ],
+            [
+              10.4164933,
+              51.9244188
+            ],
+            [
+              10.4164593,
+              51.9246001
+            ],
+            [
+              10.4168363,
+              51.9246195
+            ],
+            [
+              10.4168419,
+              51.9245844
+            ],
+            [
+              10.4170204,
+              51.9245951
+            ],
+            [
+              10.4170503,
+              51.9244069
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-821115922",
+        "name": "Asia Gourmet",
+        "city": "Goslar",
+        "street": "Bornhardtstraße 3-5",
+        "zip": "38644",
+        "category": 14,
+        "lat": 51.9244974088,
+        "lng": 10.416667922999999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/821115922",
+        "source_version": 15,
+        "source_timestamp": "2025-08-20T15:59:03Z",
+        "website": "https://www.asiagourmetgoslar.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0095,
+        "boundary_clearance_m": 12.582931831755392,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.0630429,
+              52.2367182
+            ],
+            [
+              11.0630362,
+              52.2364989
+            ],
+            [
+              11.0636709,
+              52.2364916
+            ],
+            [
+              11.0636777,
+              52.2367145
+            ],
+            [
+              11.0634832,
+              52.2367167
+            ],
+            [
+              11.0634842,
+              52.2367519
+            ],
+            [
+              11.0632793,
+              52.2367542
+            ],
+            [
+              11.0632782,
+              52.2367155
+            ],
+            [
+              11.0630429,
+              52.2367182
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-163790286",
+        "name": "Brunnentheater",
+        "city": "Helmstedt",
+        "street": "Brunnenweg 7",
+        "zip": "38350",
+        "category": 12,
+        "lat": 52.2366144968,
+        "lng": 11.063382289249999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/163790286",
+        "source_version": 7,
+        "source_timestamp": "2024-09-02T17:38:48Z",
+        "website": "https://www.brunnentheater.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.010199999999999999,
+        "boundary_clearance_m": 13.295392679550142,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5476448,
+              52.4866404
+            ],
+            [
+              10.5477083,
+              52.4865281
+            ],
+            [
+              10.5479264,
+              52.4865738
+            ],
+            [
+              10.547863,
+              52.4866861
+            ],
+            [
+              10.5476448,
+              52.4866404
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-212231682",
+        "name": "Brasserie Paula's",
+        "city": "Gifhorn",
+        "street": "Steinweg 21-25",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.486604967000005,
+        "lng": 10.5477754624,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/212231682",
+        "source_version": 14,
+        "source_timestamp": "2026-07-08T09:08:24Z",
+        "website": "https://www.brasserie-paulas.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0036,
+        "boundary_clearance_m": 6.6098590320474635,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8182494,
+              52.2610892
+            ],
+            [
+              10.8184099,
+              52.2610083
+            ],
+            [
+              10.8183251,
+              52.2609453
+            ],
+            [
+              10.8183216,
+              52.2609471
+            ],
+            [
+              10.8182683,
+              52.2609074
+            ],
+            [
+              10.8182084,
+              52.2608629
+            ],
+            [
+              10.8181989,
+              52.2608677
+            ],
+            [
+              10.8181031,
+              52.2607966
+            ],
+            [
+              10.8177206,
+              52.2609895
+            ],
+            [
+              10.8177383,
+              52.2610026
+            ],
+            [
+              10.8176662,
+              52.2610389
+            ],
+            [
+              10.8177517,
+              52.2611024
+            ],
+            [
+              10.8178555,
+              52.2610501
+            ],
+            [
+              10.8178715,
+              52.2610619
+            ],
+            [
+              10.8179828,
+              52.2610058
+            ],
+            [
+              10.8179591,
+              52.2609882
+            ],
+            [
+              10.8180511,
+              52.2609419
+            ],
+            [
+              10.8182494,
+              52.2610892
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-115577388",
+        "name": "Kärntner Stub'n",
+        "city": "Königslutter am Elm",
+        "street": "Fallersleber Straße 23",
+        "zip": "38154",
+        "category": 14,
+        "lat": 52.260999651199995,
+        "lng": 10.8182633911,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/115577388",
+        "source_version": 14,
+        "source_timestamp": "2026-08-31T20:15:52Z",
+        "website": "https://www.kaerntner-stubn.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004,
+        "boundary_clearance_m": 7.067687973450554,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.1295693,
+              52.374303
+            ],
+            [
+              10.129776,
+              52.3743661
+            ],
+            [
+              10.1298658,
+              52.3742561
+            ],
+            [
+              10.1297961,
+              52.3742348
+            ],
+            [
+              10.1297371,
+              52.3742168
+            ],
+            [
+              10.1296596,
+              52.3741931
+            ],
+            [
+              10.129639,
+              52.3742184
+            ],
+            [
+              10.1296169,
+              52.3742116
+            ],
+            [
+              10.1296045,
+              52.3742269
+            ],
+            [
+              10.1295991,
+              52.3742253
+            ],
+            [
+              10.1295758,
+              52.3742538
+            ],
+            [
+              10.1296027,
+              52.374262
+            ],
+            [
+              10.1295693,
+              52.374303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-183762990",
+        "name": "Antikriegshaus Sievershausen",
+        "city": "Lehrte",
+        "street": "Kirchweg 4",
+        "zip": "31275",
+        "category": 12,
+        "lat": 52.3742808975,
+        "lng": 10.129721997499999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/183762990",
+        "source_version": 4,
+        "source_timestamp": "2026-03-03T10:16:33Z",
+        "website": "https://www.antikriegshaus.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0038,
+        "boundary_clearance_m": 6.841540854448725,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.517883,
+              52.2668029
+            ],
+            [
+              10.5178821,
+              52.2667867
+            ],
+            [
+              10.5171557,
+              52.2668208
+            ],
+            [
+              10.5171563,
+              52.2668462
+            ],
+            [
+              10.5170993,
+              52.2668276
+            ],
+            [
+              10.5170408,
+              52.2668167
+            ],
+            [
+              10.5169834,
+              52.2668156
+            ],
+            [
+              10.5169195,
+              52.2668217
+            ],
+            [
+              10.5168879,
+              52.2668334
+            ],
+            [
+              10.5168282,
+              52.2668562
+            ],
+            [
+              10.51679,
+              52.2668853
+            ],
+            [
+              10.5167666,
+              52.2669312
+            ],
+            [
+              10.5167847,
+              52.2669729
+            ],
+            [
+              10.5168262,
+              52.2670069
+            ],
+            [
+              10.5168977,
+              52.2670335
+            ],
+            [
+              10.5169776,
+              52.2670459
+            ],
+            [
+              10.5170646,
+              52.2670395
+            ],
+            [
+              10.5171162,
+              52.2670307
+            ],
+            [
+              10.5171617,
+              52.2670183
+            ],
+            [
+              10.51721,
+              52.2670391
+            ],
+            [
+              10.5171737,
+              52.2670823
+            ],
+            [
+              10.5178863,
+              52.2673111
+            ],
+            [
+              10.5182218,
+              52.2669066
+            ],
+            [
+              10.517883,
+              52.2668029
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-30712431",
+        "name": "Astor Filmtheater",
+        "city": "Braunschweig",
+        "street": "Lange Straße 60",
+        "zip": "38100",
+        "category": 12,
+        "lat": 52.26701376519999,
+        "lng": 10.5177313976,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/30712431",
+        "source_version": 36,
+        "source_timestamp": "2026-05-31T07:09:01Z",
+        "website": "https://braunschweig.premiumkino.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0213,
+        "boundary_clearance_m": 24.391428230309156,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7932842,
+              52.4559225
+            ],
+            [
+              10.7930053,
+              52.4556376
+            ],
+            [
+              10.7936634,
+              52.4553984
+            ],
+            [
+              10.7938107,
+              52.4555488
+            ],
+            [
+              10.7936743,
+              52.4555984
+            ],
+            [
+              10.7938059,
+              52.4557328
+            ],
+            [
+              10.7933877,
+              52.4558849
+            ],
+            [
+              10.7932842,
+              52.4559225
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-407743729",
+        "name": "Bao Bao",
+        "city": "Wolfsburg",
+        "street": "Franz-Marc-Straße 4",
+        "zip": "38448",
+        "category": 14,
+        "lat": 52.4556824622,
+        "lng": 10.793413235100001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/407743729",
+        "source_version": 7,
+        "source_timestamp": "2025-08-14T07:23:42Z",
+        "website": "https://www.baobao-wolfsburg.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0154,
+        "boundary_clearance_m": 18.463069199109587,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.2170308,
+              52.3417377
+            ],
+            [
+              10.216956,
+              52.3416522
+            ],
+            [
+              10.2170344,
+              52.3416266
+            ],
+            [
+              10.2168977,
+              52.3414704
+            ],
+            [
+              10.2170234,
+              52.3414294
+            ],
+            [
+              10.2171655,
+              52.3415918
+            ],
+            [
+              10.2171839,
+              52.3415857
+            ],
+            [
+              10.2171993,
+              52.3416034
+            ],
+            [
+              10.2173149,
+              52.3415656
+            ],
+            [
+              10.2173278,
+              52.3415804
+            ],
+            [
+              10.2173828,
+              52.3415625
+            ],
+            [
+              10.2174437,
+              52.3416321
+            ],
+            [
+              10.2172733,
+              52.3416878
+            ],
+            [
+              10.2172533,
+              52.341665
+            ],
+            [
+              10.2170308,
+              52.3417377
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-332261116",
+        "name": "Gasthaus Zum Sundern",
+        "city": "Peine",
+        "street": "Sundern 1",
+        "zip": "31228",
+        "category": 14,
+        "lat": 52.3416427436,
+        "lng": 10.217123743999998,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/332261116",
+        "source_version": 5,
+        "source_timestamp": "2021-10-12T09:32:08Z",
+        "website": "https://www.gasthauszumsundern.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0033,
+        "boundary_clearance_m": 6.336567550501336,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7289566,
+              52.3423786
+            ],
+            [
+              9.7287863,
+              52.3423722
+            ],
+            [
+              9.7286418,
+              52.3423667
+            ],
+            [
+              9.7286281,
+              52.3425037
+            ],
+            [
+              9.728936,
+              52.3425152
+            ],
+            [
+              9.728943,
+              52.3424458
+            ],
+            [
+              9.7289566,
+              52.3423786
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-100605700",
+        "name": "Alte Ricklinger Bierquelle",
+        "city": "Hannover",
+        "street": "Beekestraße 71",
+        "zip": "30459",
+        "category": 14,
+        "lat": 52.34244095,
+        "lng": 9.728787422499998,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/100605700",
+        "source_version": 10,
+        "source_timestamp": "2026-05-27T20:19:36Z",
+        "website": "https://alte-ricklinger-bierquelle.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0046,
+        "boundary_clearance_m": 7.633505958213195,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.9760534,
+              52.1418481
+            ],
+            [
+              9.9759067,
+              52.1417737
+            ],
+            [
+              9.9762594,
+              52.1415261
+            ],
+            [
+              9.9764117,
+              52.141604
+            ],
+            [
+              9.9764456,
+              52.1415763
+            ],
+            [
+              9.9768688,
+              52.1417962
+            ],
+            [
+              9.9767785,
+              52.1418533
+            ],
+            [
+              9.9766628,
+              52.1417771
+            ],
+            [
+              9.9761691,
+              52.1417668
+            ],
+            [
+              9.9760534,
+              52.1418481
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-206188029",
+        "name": "LewensLust",
+        "city": "Hildesheim",
+        "street": "Galgenberg 2",
+        "zip": "31141",
+        "category": 14,
+        "lat": 52.14166745039999,
+        "lng": 9.97627758955,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/206188029",
+        "source_version": 6,
+        "source_timestamp": "2025-11-17T10:41:41Z",
+        "website": "https://www.lewenslust-hildesheim.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.008199999999999999,
+        "boundary_clearance_m": 11.291831013580737,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3514417,
+              52.1720594
+            ],
+            [
+              10.3514699,
+              52.1719449
+            ],
+            [
+              10.3513153,
+              52.1719296
+            ],
+            [
+              10.3511728,
+              52.1719156
+            ],
+            [
+              10.3511445,
+              52.1720304
+            ],
+            [
+              10.3514417,
+              52.1720594
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-1527458965",
+        "name": "Café Engelke, Hildesheimer Stadtbäckerei",
+        "city": "Salzgitter",
+        "street": "Peiner Straße 246",
+        "zip": "38229",
+        "category": 5,
+        "lat": 52.1719866372,
+        "lng": 10.3512979261,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/1527458965",
+        "source_version": 2,
+        "source_timestamp": "2026-07-13T05:53:58Z",
+        "website": "https://www.cafe-engelke.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0034,
+        "boundary_clearance_m": 6.457021538815829,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5121184,
+              52.1560715
+            ],
+            [
+              10.5125403,
+              52.1560898
+            ],
+            [
+              10.5125591,
+              52.1560235
+            ],
+            [
+              10.5124586,
+              52.1560182
+            ],
+            [
+              10.5124586,
+              52.1559888
+            ],
+            [
+              10.5122631,
+              52.1559805
+            ],
+            [
+              10.5122392,
+              52.1559795
+            ],
+            [
+              10.512238,
+              52.1560196
+            ],
+            [
+              10.5121259,
+              52.1560153
+            ],
+            [
+              10.5121184,
+              52.1560715
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-1255285909",
+        "name": "Gaststätte Weiße Schanze",
+        "city": "Wolfenbüttel",
+        "street": "Ernst-Moritz-Arndt-Straße 128a",
+        "zip": "38304",
+        "category": 14,
+        "lat": 52.15603415365,
+        "lng": 10.51237995545,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/1255285909",
+        "source_version": 3,
+        "source_timestamp": "2025-11-17T10:51:34Z",
+        "website": "https://weisse-schanze.de/de/vereinshaus/speisekarte/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0024,
+        "boundary_clearance_m": 5.406827485546227,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.0798293,
+              52.6214555
+            ],
+            [
+              10.0799859,
+              52.6214958
+            ],
+            [
+              10.080013,
+              52.6214531
+            ],
+            [
+              10.0800361,
+              52.6214602
+            ],
+            [
+              10.0800658,
+              52.6214183
+            ],
+            [
+              10.0800457,
+              52.6214122
+            ],
+            [
+              10.080084,
+              52.621358
+            ],
+            [
+              10.07992,
+              52.621315
+            ],
+            [
+              10.0799145,
+              52.6213244
+            ],
+            [
+              10.0798662,
+              52.6213109
+            ],
+            [
+              10.079837,
+              52.6213549
+            ],
+            [
+              10.079856,
+              52.6213596
+            ],
+            [
+              10.0798404,
+              52.6213829
+            ],
+            [
+              10.079828,
+              52.6214014
+            ],
+            [
+              10.0798574,
+              52.6214096
+            ],
+            [
+              10.0798293,
+              52.6214555
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-67013017",
+        "name": "Café Müller",
+        "city": "Celle",
+        "street": "Südwall 33",
+        "zip": "29221",
+        "category": 5,
+        "lat": 52.6213898523,
+        "lng": 10.079952288,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/67013017",
+        "source_version": 10,
+        "source_timestamp": "2025-08-06T06:55:25Z",
+        "website": "http://www.cafe-mueller-celle.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0037,
+        "boundary_clearance_m": 6.778879750325241,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3396764,
+              51.8585218
+            ],
+            [
+              10.3393534,
+              51.8585469
+            ],
+            [
+              10.3393725,
+              51.8586402
+            ],
+            [
+              10.3396955,
+              51.858615
+            ],
+            [
+              10.3396764,
+              51.8585218
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-187200279",
+        "name": "BLACKCOMS's Erika",
+        "city": "Goslar",
+        "street": "Parkstraße 12",
+        "zip": "38644",
+        "category": 5,
+        "lat": 51.8585820656,
+        "lng": 10.339510423899998,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/187200279",
+        "source_version": 8,
+        "source_timestamp": "2024-01-06T14:23:33Z",
+        "website": "https://www.blackcoms-erika.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0022,
+        "boundary_clearance_m": 5.231729428956144,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.0083713,
+              52.229416
+            ],
+            [
+              11.0089418,
+              52.2293424
+            ],
+            [
+              11.0088873,
+              52.229184
+            ],
+            [
+              11.0088155,
+              52.2291932
+            ],
+            [
+              11.0086489,
+              52.229215
+            ],
+            [
+              11.008564,
+              52.2292249
+            ],
+            [
+              11.0083168,
+              52.2292575
+            ],
+            [
+              11.0083713,
+              52.229416
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-29094777",
+        "name": "Juleum",
+        "city": "Helmstedt",
+        "street": "Collegienplatz 1",
+        "zip": "38350",
+        "category": 12,
+        "lat": 52.229307772,
+        "lng": 11.008566174999999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/29094777",
+        "source_version": 21,
+        "source_timestamp": "2023-11-29T06:30:09Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.006,
+        "boundary_clearance_m": 9.049852247327033,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5400062,
+              52.5099025
+            ],
+            [
+              10.5400531,
+              52.5097593
+            ],
+            [
+              10.5402947,
+              52.5097886
+            ],
+            [
+              10.5402449,
+              52.5099409
+            ],
+            [
+              10.5402254,
+              52.5099385
+            ],
+            [
+              10.5402015,
+              52.5100114
+            ],
+            [
+              10.5402967,
+              52.510023
+            ],
+            [
+              10.5402674,
+              52.5101123
+            ],
+            [
+              10.5399814,
+              52.5100777
+            ],
+            [
+              10.5400375,
+              52.5099063
+            ],
+            [
+              10.5400062,
+              52.5099025
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-263679367",
+        "name": "Gasthaus Schaper",
+        "city": "Gifhorn",
+        "street": "Hamburger Straße 29",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.509857787,
+        "lng": 10.54014645955,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/263679367",
+        "source_version": 8,
+        "source_timestamp": "2024-03-25T16:41:48Z",
+        "website": "https://www.gasthaus-schaper.com/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0053,
+        "boundary_clearance_m": 8.346508034273965,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8184548,
+              52.2540076
+            ],
+            [
+              10.8186754,
+              52.2539996
+            ],
+            [
+              10.8186639,
+              52.2538727
+            ],
+            [
+              10.818451,
+              52.2538993
+            ],
+            [
+              10.8184538,
+              52.2539118
+            ],
+            [
+              10.8184151,
+              52.2539171
+            ],
+            [
+              10.8184548,
+              52.2540076
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-253260860",
+        "name": "Pinusa",
+        "city": "Königslutter am Elm",
+        "street": "Am Pastorenkamp 10",
+        "zip": "38154",
+        "category": 14,
+        "lat": 52.2539454111,
+        "lng": 10.818558265,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/253260860",
+        "source_version": 7,
+        "source_timestamp": "2024-05-12T00:21:04Z",
+        "website": "https://www.pinusa-koenigslutteramelm.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0034,
+        "boundary_clearance_m": 6.491160385428122,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.0591298,
+              52.3953037
+            ],
+            [
+              10.0590451,
+              52.3953331
+            ],
+            [
+              10.0589776,
+              52.3952615
+            ],
+            [
+              10.0589662,
+              52.3952637
+            ],
+            [
+              10.0588225,
+              52.395018
+            ],
+            [
+              10.0588399,
+              52.3949356
+            ],
+            [
+              10.0590319,
+              52.3949514
+            ],
+            [
+              10.0590121,
+              52.3950217
+            ],
+            [
+              10.0589068,
+              52.3950134
+            ],
+            [
+              10.058934,
+              52.395052
+            ],
+            [
+              10.0590517,
+              52.3950286
+            ],
+            [
+              10.0590815,
+              52.395083
+            ],
+            [
+              10.0593206,
+              52.3950149
+            ],
+            [
+              10.0593503,
+              52.3950565
+            ],
+            [
+              10.0593243,
+              52.3950626
+            ],
+            [
+              10.0594184,
+              52.3951986
+            ],
+            [
+              10.0593144,
+              52.3952349
+            ],
+            [
+              10.059328,
+              52.3952531
+            ],
+            [
+              10.0591298,
+              52.3953037
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-229221777",
+        "name": "Landgasthaus Scheuer's Hof",
+        "city": "Lehrte",
+        "street": "Lehrter Straße 4",
+        "zip": "31275",
+        "category": 14,
+        "lat": 52.39519,
+        "lng": 10.059113299200002,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/229221777",
+        "source_version": 4,
+        "source_timestamp": "2026-01-21T13:40:26Z",
+        "website": "https://www.scheuershof.com/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0091,
+        "boundary_clearance_m": 12.105518799915084,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4828645,
+              52.2745588
+            ],
+            [
+              10.4831338,
+              52.2745029
+            ],
+            [
+              10.4831826,
+              52.2745909
+            ],
+            [
+              10.4829137,
+              52.2746473
+            ],
+            [
+              10.4828645,
+              52.2745588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-75616650",
+        "name": "Bücherei",
+        "city": "Braunschweig",
+        "street": "Saarstraße 125",
+        "zip": "38116",
+        "category": 16,
+        "lat": 52.274577915799995,
+        "lng": 10.483009553599999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/75616650",
+        "source_version": 6,
+        "source_timestamp": "2026-09-06T19:56:48Z",
+        "website": "https://www.buecherei-lehndorf.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0021000000000000003,
+        "boundary_clearance_m": 5.189287287007523,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7535725,
+              52.4234456
+            ],
+            [
+              10.753588,
+              52.4233102
+            ],
+            [
+              10.7535679,
+              52.4233093
+            ],
+            [
+              10.753424,
+              52.4233032
+            ],
+            [
+              10.7534085,
+              52.4234386
+            ],
+            [
+              10.7535725,
+              52.4234456
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-121987596",
+        "name": "Hageberg-Krug",
+        "city": "Wolfsburg",
+        "street": "Grauhorststraße 12",
+        "zip": "38440",
+        "category": 14,
+        "lat": 52.4233744,
+        "lng": 10.75349825,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/121987596",
+        "source_version": 4,
+        "source_timestamp": "2013-03-19T08:18:12Z",
+        "website": "http://www.hagebergkrug.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0025,
+        "boundary_clearance_m": 5.580219051098111,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.238812,
+              52.3152949
+            ],
+            [
+              10.2389172,
+              52.3152969
+            ],
+            [
+              10.2389191,
+              52.3152582
+            ],
+            [
+              10.2389982,
+              52.3152597
+            ],
+            [
+              10.2390069,
+              52.315083
+            ],
+            [
+              10.2388148,
+              52.3150795
+            ],
+            [
+              10.238812,
+              52.3151365
+            ],
+            [
+              10.2387804,
+              52.3151359
+            ],
+            [
+              10.2387771,
+              52.3152028
+            ],
+            [
+              10.2386826,
+              52.3152011
+            ],
+            [
+              10.2386819,
+              52.3152136
+            ],
+            [
+              10.2386817,
+              52.3152357
+            ],
+            [
+              10.2387711,
+              52.3152373
+            ],
+            [
+              10.2387697,
+              52.3152658
+            ],
+            [
+              10.2388134,
+              52.3152666
+            ],
+            [
+              10.238812,
+              52.3152949
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-166095046",
+        "name": "Hotel und Gaststätte Löns Krug Geffers",
+        "city": "Peine",
+        "street": "Braunschweiger Straße 72",
+        "zip": "31226",
+        "category": 14,
+        "lat": 52.3151870043,
+        "lng": 10.238889828,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/166095046",
+        "source_version": 6,
+        "source_timestamp": "2026-06-05T13:38:15Z",
+        "website": "https://www.loenskrug-peine.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0046,
+        "boundary_clearance_m": 7.614863352558561,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7393212,
+              52.3719579
+            ],
+            [
+              9.7394558,
+              52.371978
+            ],
+            [
+              9.7394329,
+              52.3720433
+            ],
+            [
+              9.7394328,
+              52.372065
+            ],
+            [
+              9.7394544,
+              52.372092
+            ],
+            [
+              9.7394892,
+              52.3721051
+            ],
+            [
+              9.7395254,
+              52.3721084
+            ],
+            [
+              9.7395596,
+              52.3721072
+            ],
+            [
+              9.7395998,
+              52.3720917
+            ],
+            [
+              9.7396266,
+              52.3720651
+            ],
+            [
+              9.7396843,
+              52.3719058
+            ],
+            [
+              9.7394148,
+              52.3718665
+            ],
+            [
+              9.739408,
+              52.3718771
+            ],
+            [
+              9.7393511,
+              52.3718704
+            ],
+            [
+              9.7393212,
+              52.3719579
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-553716690",
+        "name": "Bavarium",
+        "city": "Hannover",
+        "street": "Windmühlenstraße 6",
+        "zip": "30159",
+        "category": 14,
+        "lat": 52.371954672550004,
+        "lng": 9.73955630725,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/553716690",
+        "source_version": 10,
+        "source_timestamp": "2026-07-23T17:42:51Z",
+        "website": "http://www.bavarium.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0043,
+        "boundary_clearance_m": 7.30787238128369,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.957831,
+              52.1526886
+            ],
+            [
+              9.9582387,
+              52.1527104
+            ],
+            [
+              9.9582711,
+              52.1524822
+            ],
+            [
+              9.958277,
+              52.1524398
+            ],
+            [
+              9.9584309,
+              52.152448
+            ],
+            [
+              9.9584493,
+              52.1523179
+            ],
+            [
+              9.9583691,
+              52.152315
+            ],
+            [
+              9.9582499,
+              52.1523072
+            ],
+            [
+              9.958281,
+              52.152088
+            ],
+            [
+              9.9579192,
+              52.1520687
+            ],
+            [
+              9.957492,
+              52.1520415
+            ],
+            [
+              9.9574753,
+              52.1521876
+            ],
+            [
+              9.9577987,
+              52.1522035
+            ],
+            [
+              9.957785,
+              52.1522771
+            ],
+            [
+              9.9574071,
+              52.1522576
+            ],
+            [
+              9.9573762,
+              52.1524527
+            ],
+            [
+              9.9575921,
+              52.1524706
+            ],
+            [
+              9.9575915,
+              52.1524434
+            ],
+            [
+              9.9577477,
+              52.1524561
+            ],
+            [
+              9.9577588,
+              52.152422
+            ],
+            [
+              9.9578647,
+              52.1524261
+            ],
+            [
+              9.957831,
+              52.1526886
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-37995592",
+        "name": "TfN - Theater für Niedersachsen",
+        "city": "Hildesheim",
+        "street": "Theaterstraße 6",
+        "zip": "31141",
+        "category": 12,
+        "lat": 52.1523124045,
+        "lng": 9.95801415795,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/37995592",
+        "source_version": 15,
+        "source_timestamp": "2023-05-05T19:31:20Z",
+        "website": "https://www.tfn-online.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.013099999999999999,
+        "boundary_clearance_m": 16.112073211740885,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3072328,
+              52.1655452
+            ],
+            [
+              10.3077602,
+              52.165448
+            ],
+            [
+              10.3076624,
+              52.1652483
+            ],
+            [
+              10.307135,
+              52.1653455
+            ],
+            [
+              10.3072328,
+              52.1655452
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-260346158",
+        "name": "Café del Lago",
+        "city": "Salzgitter",
+        "street": "Westfalenstraße 61",
+        "zip": "38226",
+        "category": 5,
+        "lat": 52.16539675,
+        "lng": 10.3074476,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/260346158",
+        "source_version": 8,
+        "source_timestamp": "2026-04-05T19:23:48Z",
+        "website": "https://www.cafedellago.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0086,
+        "boundary_clearance_m": 11.605979746572844,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5384213,
+              52.1626941
+            ],
+            [
+              10.5384834,
+              52.1625927
+            ],
+            [
+              10.5385286,
+              52.1625167
+            ],
+            [
+              10.5387084,
+              52.1625497
+            ],
+            [
+              10.5386645,
+              52.1626443
+            ],
+            [
+              10.5386343,
+              52.1626961
+            ],
+            [
+              10.538703,
+              52.1627122
+            ],
+            [
+              10.5386735,
+              52.1627577
+            ],
+            [
+              10.538618,
+              52.1627439
+            ],
+            [
+              10.5384213,
+              52.1626941
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-393342491",
+        "name": "Hotel Bayrischer Hof",
+        "city": "Wolfenbüttel",
+        "street": "Brauergildenstraße 5",
+        "zip": "38300",
+        "category": 14,
+        "lat": 52.162658769500005,
+        "lng": 10.538549777250001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/393342491",
+        "source_version": 7,
+        "source_timestamp": "2023-11-03T14:44:45Z",
+        "website": "https://www.bayrischer-hof-wf.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0038,
+        "boundary_clearance_m": 6.82964463756642,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.0894954,
+              52.6166368
+            ],
+            [
+              10.0896734,
+              52.6166541
+            ],
+            [
+              10.0896862,
+              52.6166055
+            ],
+            [
+              10.0897041,
+              52.6165376
+            ],
+            [
+              10.089526,
+              52.6165202
+            ],
+            [
+              10.0894954,
+              52.6166368
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-94419050",
+        "name": "Das Esszimmer",
+        "city": "Celle",
+        "street": "Hostmannstraße 37",
+        "zip": "29221",
+        "category": 14,
+        "lat": 52.616583467750004,
+        "lng": 10.08960068915,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/94419050",
+        "source_version": 6,
+        "source_timestamp": "2023-11-09T04:11:02Z",
+        "website": "https://dasesszimmer-celle.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.003,
+        "boundary_clearance_m": 6.093389363593835,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4280615,
+              51.931588
+            ],
+            [
+              10.4281835,
+              51.9315865
+            ],
+            [
+              10.4283489,
+              51.9315844
+            ],
+            [
+              10.428344,
+              51.9314356
+            ],
+            [
+              10.4282922,
+              51.9314363
+            ],
+            [
+              10.4282403,
+              51.9314369
+            ],
+            [
+              10.4280565,
+              51.9314392
+            ],
+            [
+              10.4280575,
+              51.9314706
+            ],
+            [
+              10.4280613,
+              51.9315834
+            ],
+            [
+              10.4280615,
+              51.931588
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-1191299476",
+        "name": "Bäcker Wolf",
+        "city": "Goslar",
+        "street": "Im Fliegerhorst 5",
+        "zip": "38642",
+        "category": 5,
+        "lat": 51.931511799999996,
+        "lng": 10.4282037234,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/1191299476",
+        "source_version": 3,
+        "source_timestamp": "2023-12-07T05:50:04Z",
+        "website": "https://baeckerwolf.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0052,
+        "boundary_clearance_m": 8.285210265531319,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.0034801,
+              52.2270163
+            ],
+            [
+              11.0035789,
+              52.226947
+            ],
+            [
+              11.0037248,
+              52.2269523
+            ],
+            [
+              11.0037162,
+              52.2270311
+            ],
+            [
+              11.0035532,
+              52.2270732
+            ],
+            [
+              11.0034801,
+              52.2270163
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-30372073",
+        "name": "King Döner Imbiss Pizzeria",
+        "city": "Helmstedt",
+        "street": "Gustav-Steinbrecher-Straße 1",
+        "zip": "38350",
+        "category": 14,
+        "lat": 52.22700057189999,
+        "lng": 11.0036154191,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/30372073",
+        "source_version": 14,
+        "source_timestamp": "2024-07-02T20:12:35Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0027,
+        "boundary_clearance_m": 5.798318668764085,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.540614,
+              52.5043318
+            ],
+            [
+              10.5403378,
+              52.5042534
+            ],
+            [
+              10.5405305,
+              52.5040021
+            ],
+            [
+              10.5408067,
+              52.5040806
+            ],
+            [
+              10.540614,
+              52.5043318
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-262746439",
+        "name": "Mr. Lee",
+        "city": "Gifhorn",
+        "street": "Hamburger Straße 68",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.5041672797,
+        "lng": 10.54057201555,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/262746439",
+        "source_version": 2,
+        "source_timestamp": "2014-10-04T11:27:39Z",
+        "website": "http://www.restaurant-lee.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0073,
+        "boundary_clearance_m": 10.326354037543478,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7898776,
+              52.2973731
+            ],
+            [
+              10.7900652,
+              52.2973618
+            ],
+            [
+              10.7900486,
+              52.2972442
+            ],
+            [
+              10.7898589,
+              52.2972564
+            ],
+            [
+              10.7898776,
+              52.2973731
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-524758427",
+        "name": "Gemeindekrug",
+        "city": "Königslutter am Elm",
+        "street": "Im Kirchwinkel 1",
+        "zip": "38154",
+        "category": 14,
+        "lat": 52.297308134400005,
+        "lng": 10.7899624626,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/524758427",
+        "source_version": 3,
+        "source_timestamp": "2024-08-06T10:34:33Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0034,
+        "boundary_clearance_m": 6.454569697783543,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5700447,
+              52.2631679
+            ],
+            [
+              10.5701947,
+              52.2632317
+            ],
+            [
+              10.5703013,
+              52.2631378
+            ],
+            [
+              10.5701513,
+              52.263074
+            ],
+            [
+              10.5700447,
+              52.2631679
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-146059492",
+        "name": "Da Rocco",
+        "city": "Braunschweig",
+        "street": "Riddagshäuser Weg 3",
+        "zip": "38104",
+        "category": 14,
+        "lat": 52.26315285,
+        "lng": 10.570173,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/146059492",
+        "source_version": 2,
+        "source_timestamp": "2019-08-06T07:44:05Z",
+        "website": "https://www.darocco-bs.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0032,
+        "boundary_clearance_m": 6.222644755076632,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7165466,
+              52.4215071
+            ],
+            [
+              10.7165036,
+              52.421505
+            ],
+            [
+              10.716391,
+              52.4214997
+            ],
+            [
+              10.7160077,
+              52.4214816
+            ],
+            [
+              10.7160152,
+              52.4214224
+            ],
+            [
+              10.7160227,
+              52.4213638
+            ],
+            [
+              10.7161161,
+              52.4213683
+            ],
+            [
+              10.7164109,
+              52.4213822
+            ],
+            [
+              10.7165616,
+              52.4213893
+            ],
+            [
+              10.7165545,
+              52.4214454
+            ],
+            [
+              10.7165466,
+              52.4215071
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-47006761",
+        "name": "Metropol",
+        "city": "Wolfsburg",
+        "street": "Bahnhofstraße 33",
+        "zip": "38442",
+        "category": 12,
+        "lat": 52.421435593300004,
+        "lng": 10.7162874195,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/47006761",
+        "source_version": 13,
+        "source_timestamp": "2024-01-20T15:50:08Z",
+        "website": "https://www.metropol-fallersleben.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0035,
+        "boundary_clearance_m": 6.572193730453624,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.2336403,
+              52.3265109
+            ],
+            [
+              10.2336049,
+              52.3263724
+            ],
+            [
+              10.2338382,
+              52.3263501
+            ],
+            [
+              10.2338737,
+              52.3264886
+            ],
+            [
+              10.2336403,
+              52.3265109
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-332140324",
+        "name": "Restaurant Peking",
+        "city": "Peine",
+        "street": "Lessingstraße 5",
+        "zip": "31224",
+        "category": 14,
+        "lat": 52.3264304196,
+        "lng": 10.233740106399999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/332140324",
+        "source_version": 4,
+        "source_timestamp": "2025-07-05T17:02:53Z",
+        "website": "https://www.restaurant-peking-peine.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0048,
+        "boundary_clearance_m": 7.802558619535143,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7225707,
+              52.353883
+            ],
+            [
+              9.7229272,
+              52.3538507
+            ],
+            [
+              9.723056,
+              52.3538388
+            ],
+            [
+              9.7230439,
+              52.3537954
+            ],
+            [
+              9.7229796,
+              52.3535372
+            ],
+            [
+              9.7230387,
+              52.3534905
+            ],
+            [
+              9.7224165,
+              52.3535462
+            ],
+            [
+              9.7225184,
+              52.3539296
+            ],
+            [
+              9.7225707,
+              52.353883
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-20169019",
+        "name": "Bibliothek der Hochschule Hannover, Zentralbibliothek",
+        "city": "Hannover",
+        "street": "Ricklinger Stadtweg 118",
+        "zip": "30459",
+        "category": 16,
+        "lat": 52.35368941230001,
+        "lng": 9.72273625,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/20169019",
+        "source_version": 27,
+        "source_timestamp": "2021-01-06T22:16:20Z",
+        "website": "https://f4.hs-hannover.de/service/formulare-und-informationen/sonstiges/bibliothek/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0159,
+        "boundary_clearance_m": 18.90516322451993,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.982881,
+              52.1170255
+            ],
+            [
+              9.9829845,
+              52.116958
+            ],
+            [
+              9.983129,
+              52.1170414
+            ],
+            [
+              9.9832218,
+              52.1169808
+            ],
+            [
+              9.9833171,
+              52.1170359
+            ],
+            [
+              9.9834468,
+              52.1169512
+            ],
+            [
+              9.9835633,
+              52.1170185
+            ],
+            [
+              9.9832373,
+              52.1172313
+            ],
+            [
+              9.982881,
+              52.1170255
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-121503105",
+        "name": "Zur Scharfen Ecke",
+        "city": "Hildesheim",
+        "street": "Itzumer Hauptstraße 1",
+        "zip": "31141",
+        "category": 14,
+        "lat": 52.1171063754,
+        "lng": 9.98323067875,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/121503105",
+        "source_version": 8,
+        "source_timestamp": "2025-09-15T14:27:34Z",
+        "website": "https://www.zur-scharfen-ecke.com",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0068,
+        "boundary_clearance_m": 9.819368485498801,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3404722,
+              52.1457049
+            ],
+            [
+              10.3407429,
+              52.1455667
+            ],
+            [
+              10.3406043,
+              52.1454644
+            ],
+            [
+              10.3406448,
+              52.1454437
+            ],
+            [
+              10.3405532,
+              52.1453761
+            ],
+            [
+              10.3405238,
+              52.1453911
+            ],
+            [
+              10.3405069,
+              52.1453787
+            ],
+            [
+              10.3403494,
+              52.1454591
+            ],
+            [
+              10.3402857,
+              52.145412
+            ],
+            [
+              10.3402712,
+              52.1454194
+            ],
+            [
+              10.3402476,
+              52.145402
+            ],
+            [
+              10.3401859,
+              52.1454336
+            ],
+            [
+              10.3401941,
+              52.1454397
+            ],
+            [
+              10.3401312,
+              52.1454718
+            ],
+            [
+              10.3402206,
+              52.1455377
+            ],
+            [
+              10.3402726,
+              52.1455112
+            ],
+            [
+              10.3404054,
+              52.1456092
+            ],
+            [
+              10.3403682,
+              52.1456282
+            ],
+            [
+              10.3404722,
+              52.1457049
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-202036882",
+        "name": "Flora-Klause",
+        "city": "Salzgitter",
+        "street": "Swindonstraße 98a",
+        "zip": "38226",
+        "category": 14,
+        "lat": 52.1455447744,
+        "lng": 10.34051565345,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/202036882",
+        "source_version": 2,
+        "source_timestamp": "2018-05-07T19:10:09Z",
+        "website": "http://flora-klause.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0073,
+        "boundary_clearance_m": 10.3765761562464,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5311715,
+              52.1638965
+            ],
+            [
+              10.5311572,
+              52.1637351
+            ],
+            [
+              10.5316525,
+              52.1637186
+            ],
+            [
+              10.5316668,
+              52.1638799
+            ],
+            [
+              10.5311715,
+              52.1638965
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-126413576",
+        "name": "Bürger Museum Wolfenbüttel",
+        "city": "Wolfenbüttel",
+        "street": "Prof.-Paul-Raabe-Platz 1",
+        "zip": "38304",
+        "category": 12,
+        "lat": 52.16380674945,
+        "lng": 10.5314351868,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/126413576",
+        "source_version": 14,
+        "source_timestamp": "2026-02-27T22:46:13Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.005900000000000001,
+        "boundary_clearance_m": 8.993655122535142,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.1095288,
+              52.6394017
+            ],
+            [
+              10.1097122,
+              52.6393211
+            ],
+            [
+              10.1096232,
+              52.6392389
+            ],
+            [
+              10.1094335,
+              52.6393129
+            ],
+            [
+              10.1095288,
+              52.6394017
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-209534362",
+        "name": "Erkan's Grillhouse",
+        "city": "Celle",
+        "street": "Am Reiherpfahl 1",
+        "zip": "29223",
+        "category": 14,
+        "lat": 52.6393249398,
+        "lng": 10.1095591937,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/209534362",
+        "source_version": 7,
+        "source_timestamp": "2025-09-01T10:16:50Z",
+        "website": "https://erkans-grillhouse.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0027,
+        "boundary_clearance_m": 5.716365548738499,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4268927,
+              51.9078419
+            ],
+            [
+              10.4270759,
+              51.907884
+            ],
+            [
+              10.4271292,
+              51.907803
+            ],
+            [
+              10.4270655,
+              51.9077849
+            ],
+            [
+              10.4271029,
+              51.9077343
+            ],
+            [
+              10.4269802,
+              51.907701
+            ],
+            [
+              10.4269477,
+              51.9077583
+            ],
+            [
+              10.4268927,
+              51.9078419
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-304822784",
+        "name": "Jakob Restaurant & Café",
+        "city": "Goslar",
+        "street": "Jakobikirchhof 7",
+        "zip": "38640",
+        "category": 14,
+        "lat": 51.907813087499996,
+        "lng": 10.4269988885,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/304822784",
+        "source_version": 9,
+        "source_timestamp": "2026-04-07T12:57:04Z",
+        "website": "https://www.jakob-goslar.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0025,
+        "boundary_clearance_m": 5.54737406156566,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.010519,
+              52.2246312
+            ],
+            [
+              11.0108202,
+              52.224641
+            ],
+            [
+              11.0109527,
+              52.2246457
+            ],
+            [
+              11.0109856,
+              52.2246485
+            ],
+            [
+              11.010972,
+              52.2247719
+            ],
+            [
+              11.010934,
+              52.224772
+            ],
+            [
+              11.0109113,
+              52.2247748
+            ],
+            [
+              11.0105077,
+              52.2247617
+            ],
+            [
+              11.0105051,
+              52.2247592
+            ],
+            [
+              11.0105126,
+              52.2246705
+            ],
+            [
+              11.010519,
+              52.2246312
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-29201024",
+        "name": "Zonengrenzmuseum",
+        "city": "Helmstedt",
+        "street": "Südertor 1",
+        "zip": "38350",
+        "category": 12,
+        "lat": 52.224702928199996,
+        "lng": 11.010712676,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/29201024",
+        "source_version": 14,
+        "source_timestamp": "2024-07-05T07:12:55Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004200000000000001,
+        "boundary_clearance_m": 7.272895827934414,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5366718,
+              52.4865431
+            ],
+            [
+              10.5367065,
+              52.4864529
+            ],
+            [
+              10.5366448,
+              52.4864441
+            ],
+            [
+              10.5366517,
+              52.4864262
+            ],
+            [
+              10.5366258,
+              52.4864225
+            ],
+            [
+              10.5366302,
+              52.4864111
+            ],
+            [
+              10.5364907,
+              52.4863912
+            ],
+            [
+              10.5365066,
+              52.4863498
+            ],
+            [
+              10.5362433,
+              52.4863122
+            ],
+            [
+              10.5362022,
+              52.4864189
+            ],
+            [
+              10.5363762,
+              52.4864437
+            ],
+            [
+              10.5363553,
+              52.486498
+            ],
+            [
+              10.5366718,
+              52.4865431
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-321495161",
+        "name": "Ristorante La Fontana",
+        "city": "Gifhorn",
+        "street": "Celler Straße 28",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.486453164450005,
+        "lng": 10.536483095100001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/321495161",
+        "source_version": 5,
+        "source_timestamp": "2025-07-18T19:01:43Z",
+        "website": "http://www.lafontana-gifhorn.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0038,
+        "boundary_clearance_m": 6.833645679610936,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8340937,
+              52.2383363
+            ],
+            [
+              10.8340738,
+              52.2383471
+            ],
+            [
+              10.8338529,
+              52.2382145
+            ],
+            [
+              10.833824,
+              52.2382004
+            ],
+            [
+              10.8337362,
+              52.238249
+            ],
+            [
+              10.8339766,
+              52.2383898
+            ],
+            [
+              10.8341619,
+              52.2384984
+            ],
+            [
+              10.8343795,
+              52.2383781
+            ],
+            [
+              10.8342461,
+              52.2383079
+            ],
+            [
+              10.8341423,
+              52.2383633
+            ],
+            [
+              10.8340937,
+              52.2383363
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-240731003",
+        "name": "Parthenon",
+        "city": "Königslutter am Elm",
+        "street": "Berliner Straße 21",
+        "zip": "38154",
+        "category": 14,
+        "lat": 52.23841048999999,
+        "lng": 10.83418747495,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/240731003",
+        "source_version": 9,
+        "source_timestamp": "2025-11-17T10:44:25Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.003,
+        "boundary_clearance_m": 6.0893149711961625,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5107409,
+              52.3330381
+            ],
+            [
+              10.5107982,
+              52.3329447
+            ],
+            [
+              10.510793,
+              52.3329435
+            ],
+            [
+              10.510931,
+              52.332719
+            ],
+            [
+              10.5109653,
+              52.3326632
+            ],
+            [
+              10.5108942,
+              52.3326469
+            ],
+            [
+              10.5108284,
+              52.3326318
+            ],
+            [
+              10.5106565,
+              52.3329115
+            ],
+            [
+              10.5106316,
+              52.3329058
+            ],
+            [
+              10.5105734,
+              52.3330005
+            ],
+            [
+              10.5106698,
+              52.3330227
+            ],
+            [
+              10.5107409,
+              52.3330381
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-123536835",
+        "name": "Dalmacija Am Kanal",
+        "city": "Braunschweig",
+        "street": "Am Kanal 4",
+        "zip": "38110",
+        "category": 14,
+        "lat": 52.332967403800005,
+        "lng": 10.5106890105,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/123536835",
+        "source_version": 11,
+        "source_timestamp": "2024-04-21T09:46:50Z",
+        "website": "https://www.dalmacija-am-kanal.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.003,
+        "boundary_clearance_m": 6.067000940230823,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7057543,
+              52.4078356
+            ],
+            [
+              10.7060231,
+              52.4077486
+            ],
+            [
+              10.7062094,
+              52.4079627
+            ],
+            [
+              10.7059722,
+              52.4080395
+            ],
+            [
+              10.7058864,
+              52.4079409
+            ],
+            [
+              10.7058657,
+              52.4079171
+            ],
+            [
+              10.705834,
+              52.4079273
+            ],
+            [
+              10.7057543,
+              52.4078356
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-180360665",
+        "name": "OCCHIPINTI",
+        "city": "Wolfsburg",
+        "street": "Ehmer Straße 17",
+        "zip": "38442",
+        "category": 14,
+        "lat": 52.407863505499996,
+        "lng": 10.705969334750002,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/180360665",
+        "source_version": 10,
+        "source_timestamp": "2019-03-11T14:21:10Z",
+        "website": "https://www.occhipinti-restaurant.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0062,
+        "boundary_clearance_m": 9.22231890617409,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.2321534,
+              52.31664
+            ],
+            [
+              10.232232,
+              52.3163548
+            ],
+            [
+              10.2324099,
+              52.3163732
+            ],
+            [
+              10.2324306,
+              52.3162982
+            ],
+            [
+              10.2324877,
+              52.3163041
+            ],
+            [
+              10.2324955,
+              52.3162756
+            ],
+            [
+              10.2329537,
+              52.3163228
+            ],
+            [
+              10.2329445,
+              52.3163563
+            ],
+            [
+              10.233141,
+              52.3163775
+            ],
+            [
+              10.2331317,
+              52.3164201
+            ],
+            [
+              10.233099,
+              52.3165691
+            ],
+            [
+              10.2330797,
+              52.3166481
+            ],
+            [
+              10.2329647,
+              52.3167494
+            ],
+            [
+              10.2328947,
+              52.3167361
+            ],
+            [
+              10.2329196,
+              52.316646
+            ],
+            [
+              10.232737,
+              52.3166273
+            ],
+            [
+              10.2327293,
+              52.3166556
+            ],
+            [
+              10.2326345,
+              52.3166458
+            ],
+            [
+              10.2326533,
+              52.3165776
+            ],
+            [
+              10.2323801,
+              52.3165494
+            ],
+            [
+              10.2323496,
+              52.3166602
+            ],
+            [
+              10.2321534,
+              52.31664
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-321097290",
+        "name": "Stadttheater Peiner Festsäle",
+        "city": "Peine",
+        "street": "Friedrich-Ebert-Platz 12",
+        "zip": "31226",
+        "category": 12,
+        "lat": 52.316489757599996,
+        "lng": 10.2328452138,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/321097290",
+        "source_version": 6,
+        "source_timestamp": "2021-10-15T09:46:28Z",
+        "website": "https://www.kulturring-peine.de/kulturring-peine/vermietungen/festsaele.php",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.013300000000000001,
+        "boundary_clearance_m": 16.314937120555467,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7224675,
+              52.3776931
+            ],
+            [
+              9.7226664,
+              52.3775741
+            ],
+            [
+              9.7226173,
+              52.3775333
+            ],
+            [
+              9.7225675,
+              52.3774919
+            ],
+            [
+              9.7224791,
+              52.3774176
+            ],
+            [
+              9.7223214,
+              52.377485
+            ],
+            [
+              9.722301,
+              52.3774948
+            ],
+            [
+              9.7224119,
+              52.377584
+            ],
+            [
+              9.7223506,
+              52.3776203
+            ],
+            [
+              9.7224675,
+              52.3776931
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-127045676",
+        "name": "Cafe Extrablatt",
+        "city": "Hannover",
+        "street": "Königsworther Straße 2",
+        "zip": "30167",
+        "category": 5,
+        "lat": 52.37756637,
+        "lng": 9.7225191438,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/127045676",
+        "source_version": 17,
+        "source_timestamp": "2025-05-17T20:07:55Z",
+        "website": "https://cafe-extrablatt.de/standorte/details/cafe-extrablatt-hannover-koenigsworther-platz",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0045,
+        "boundary_clearance_m": 7.547477056445768,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4460198,
+              52.14497
+            ],
+            [
+              10.4458481,
+              52.1447825
+            ],
+            [
+              10.445657,
+              52.1448484
+            ],
+            [
+              10.4457854,
+              52.1449888
+            ],
+            [
+              10.4458776,
+              52.144957
+            ],
+            [
+              10.4459208,
+              52.1450042
+            ],
+            [
+              10.4460198,
+              52.14497
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-149988986",
+        "name": "Kammerkrug",
+        "city": "Salzgitter",
+        "street": "Seesener Straße 21",
+        "zip": "38239",
+        "category": 14,
+        "lat": 52.1448937934,
+        "lng": 10.4458242508,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/149988986",
+        "source_version": 3,
+        "source_timestamp": "2019-10-14T09:29:07Z",
+        "website": "http://www.gasthauskammerkrug.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0044,
+        "boundary_clearance_m": 7.489782411153442,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5490426,
+              52.1760697
+            ],
+            [
+              10.548925,
+              52.1760521
+            ],
+            [
+              10.5489344,
+              52.1760241
+            ],
+            [
+              10.5489142,
+              52.1760208
+            ],
+            [
+              10.5488927,
+              52.1760176
+            ],
+            [
+              10.5488981,
+              52.1760025
+            ],
+            [
+              10.5488852,
+              52.1760007
+            ],
+            [
+              10.5488718,
+              52.1759989
+            ],
+            [
+              10.5488678,
+              52.1760093
+            ],
+            [
+              10.5487937,
+              52.1759967
+            ],
+            [
+              10.5487803,
+              52.1759944
+            ],
+            [
+              10.5486656,
+              52.1759737
+            ],
+            [
+              10.5485296,
+              52.1759492
+            ],
+            [
+              10.5484087,
+              52.1759275
+            ],
+            [
+              10.5484187,
+              52.1759071
+            ],
+            [
+              10.5484301,
+              52.1758838
+            ],
+            [
+              10.5484376,
+              52.1758672
+            ],
+            [
+              10.5484517,
+              52.1758697
+            ],
+            [
+              10.5485191,
+              52.1758817
+            ],
+            [
+              10.5485446,
+              52.1758863
+            ],
+            [
+              10.5485537,
+              52.1758878
+            ],
+            [
+              10.5486299,
+              52.1759014
+            ],
+            [
+              10.5487117,
+              52.1759171
+            ],
+            [
+              10.5487311,
+              52.1758755
+            ],
+            [
+              10.5487655,
+              52.1758019
+            ],
+            [
+              10.5489405,
+              52.1758326
+            ],
+            [
+              10.5489462,
+              52.1758209
+            ],
+            [
+              10.5489512,
+              52.1758103
+            ],
+            [
+              10.548994,
+              52.175818
+            ],
+            [
+              10.549022,
+              52.1758231
+            ],
+            [
+              10.5490015,
+              52.1758659
+            ],
+            [
+              10.5491141,
+              52.1758827
+            ],
+            [
+              10.5491038,
+              52.1759086
+            ],
+            [
+              10.5490681,
+              52.1759959
+            ],
+            [
+              10.5490571,
+              52.1760285
+            ],
+            [
+              10.5490524,
+              52.1760418
+            ],
+            [
+              10.5490426,
+              52.1760697
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-92917415",
+        "name": "E Cafeteria",
+        "city": "Wolfenbüttel",
+        "street": "Salzdahlumer Straße 46/48",
+        "zip": "38302",
+        "category": 5,
+        "lat": 52.1759108946,
+        "lng": 10.5488643884,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/92917415",
+        "source_version": 12,
+        "source_timestamp": "2025-11-27T15:00:22Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0068,
+        "boundary_clearance_m": 9.808660050386337,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.0767092,
+              52.6267964
+            ],
+            [
+              10.0768104,
+              52.6267649
+            ],
+            [
+              10.0767118,
+              52.6266483
+            ],
+            [
+              10.0765926,
+              52.6266854
+            ],
+            [
+              10.0766266,
+              52.6267255
+            ],
+            [
+              10.0765918,
+              52.6267364
+            ],
+            [
+              10.0766405,
+              52.626794
+            ],
+            [
+              10.0766932,
+              52.6267775
+            ],
+            [
+              10.0767092,
+              52.6267964
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-463634508",
+        "name": "Garnison-Museum",
+        "city": "Celle",
+        "street": "Hafenstraße 4",
+        "zip": "29221",
+        "category": 12,
+        "lat": 52.626732642949996,
+        "lng": 10.0766997884,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/463634508",
+        "source_version": 6,
+        "source_timestamp": "2025-01-28T07:49:10Z",
+        "website": "http://www.garnison-museum.celle.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.002,
+        "boundary_clearance_m": 5.008988771409757,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5397408,
+              51.9579097
+            ],
+            [
+              10.5399153,
+              51.9579369
+            ],
+            [
+              10.5399862,
+              51.9577642
+            ],
+            [
+              10.5397384,
+              51.9577256
+            ],
+            [
+              10.5397013,
+              51.957816
+            ],
+            [
+              10.5397746,
+              51.9578274
+            ],
+            [
+              10.5397408,
+              51.9579097
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-181439586",
+        "name": "Klosterkrug Wöltingerode",
+        "city": "Goslar",
+        "street": "Wöltingerode 30",
+        "zip": "38690",
+        "category": 14,
+        "lat": 51.95780790135,
+        "lng": 10.539867254249998,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/181439586",
+        "source_version": 8,
+        "source_timestamp": "2025-01-08T16:43:04Z",
+        "website": "https://klosterkrug-woeltingerode.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0037,
+        "boundary_clearance_m": 6.716157733846231,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5480568,
+              52.4895612
+            ],
+            [
+              10.5480618,
+              52.4895724
+            ],
+            [
+              10.5480745,
+              52.4895887
+            ],
+            [
+              10.5480949,
+              52.4896018
+            ],
+            [
+              10.5481209,
+              52.4896104
+            ],
+            [
+              10.5481265,
+              52.489611
+            ],
+            [
+              10.54815,
+              52.4896137
+            ],
+            [
+              10.5481794,
+              52.4896114
+            ],
+            [
+              10.5482061,
+              52.4896037
+            ],
+            [
+              10.5482277,
+              52.4895913
+            ],
+            [
+              10.5482418,
+              52.4895754
+            ],
+            [
+              10.5482473,
+              52.4895577
+            ],
+            [
+              10.5482435,
+              52.4895398
+            ],
+            [
+              10.5482308,
+              52.4895235
+            ],
+            [
+              10.5482104,
+              52.4895104
+            ],
+            [
+              10.5481844,
+              52.4895018
+            ],
+            [
+              10.5481553,
+              52.4894984
+            ],
+            [
+              10.5481259,
+              52.4895008
+            ],
+            [
+              10.5481014,
+              52.4895069
+            ],
+            [
+              10.5480696,
+              52.4894751
+            ],
+            [
+              10.5480136,
+              52.4894189
+            ],
+            [
+              10.5479135,
+              52.4893192
+            ],
+            [
+              10.5479196,
+              52.4893168
+            ],
+            [
+              10.5479249,
+              52.4892949
+            ],
+            [
+              10.5478874,
+              52.4892893
+            ],
+            [
+              10.5478599,
+              52.4892994
+            ],
+            [
+              10.547858,
+              52.4892973
+            ],
+            [
+              10.5478299,
+              52.4893083
+            ],
+            [
+              10.5478366,
+              52.4893152
+            ],
+            [
+              10.5478111,
+              52.4893258
+            ],
+            [
+              10.547919,
+              52.4894157
+            ],
+            [
+              10.5480297,
+              52.4895337
+            ],
+            [
+              10.5480367,
+              52.4895482
+            ],
+            [
+              10.5480568,
+              52.4895612
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-653585712",
+        "name": "Schlossrestaurant Zentgraf",
+        "city": "Gifhorn",
+        "street": "Schloßplatz 1",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.489556119,
+        "lng": 10.5481526446,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/653585712",
+        "source_version": 2,
+        "source_timestamp": "2024-03-03T16:26:01Z",
+        "website": "http://www.schlossrestaurant-zentgraf.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0033,
+        "boundary_clearance_m": 6.332006650296682,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4930415,
+              52.2014035
+            ],
+            [
+              10.4929529,
+              52.2012797
+            ],
+            [
+              10.4928039,
+              52.2013197
+            ],
+            [
+              10.4928317,
+              52.2013585
+            ],
+            [
+              10.4927978,
+              52.2013676
+            ],
+            [
+              10.492835,
+              52.2014195
+            ],
+            [
+              10.4928689,
+              52.2014104
+            ],
+            [
+              10.4928926,
+              52.2014435
+            ],
+            [
+              10.4930415,
+              52.2014035
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-138957597",
+        "name": "Friedrichshöhe",
+        "city": "Braunschweig",
+        "street": "Friedrichshöhe 1",
+        "zip": "38124",
+        "category": 14,
+        "lat": 52.2013660226,
+        "lng": 10.492918675200002,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/138957597",
+        "source_version": 5,
+        "source_timestamp": "2019-03-11T12:55:34Z",
+        "website": "https://www.friedrichshoehe.eu/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0029,
+        "boundary_clearance_m": 5.992829410267259,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7815791,
+              52.4152761
+            ],
+            [
+              10.7815373,
+              52.4152675
+            ],
+            [
+              10.7815058,
+              52.415261
+            ],
+            [
+              10.7812525,
+              52.415072
+            ],
+            [
+              10.7812192,
+              52.4150948
+            ],
+            [
+              10.7813297,
+              52.4151768
+            ],
+            [
+              10.7812838,
+              52.4151996
+            ],
+            [
+              10.7812174,
+              52.4151543
+            ],
+            [
+              10.780803,
+              52.4153614
+            ],
+            [
+              10.7808325,
+              52.4153788
+            ],
+            [
+              10.780743,
+              52.4154712
+            ],
+            [
+              10.7806562,
+              52.4155519
+            ],
+            [
+              10.7804604,
+              52.4156022
+            ],
+            [
+              10.7804547,
+              52.4156961
+            ],
+            [
+              10.7805099,
+              52.4157019
+            ],
+            [
+              10.780568,
+              52.4157356
+            ],
+            [
+              10.7804714,
+              52.41581
+            ],
+            [
+              10.7803813,
+              52.4157778
+            ],
+            [
+              10.7802887,
+              52.4158609
+            ],
+            [
+              10.7800467,
+              52.4159265
+            ],
+            [
+              10.7799978,
+              52.4158796
+            ],
+            [
+              10.779767,
+              52.4159731
+            ],
+            [
+              10.7798224,
+              52.4160235
+            ],
+            [
+              10.7796826,
+              52.4160874
+            ],
+            [
+              10.7799083,
+              52.4162972
+            ],
+            [
+              10.7799667,
+              52.41635
+            ],
+            [
+              10.7795545,
+              52.4165585
+            ],
+            [
+              10.7796222,
+              52.4166072
+            ],
+            [
+              10.7806747,
+              52.4160972
+            ],
+            [
+              10.7806242,
+              52.4159659
+            ],
+            [
+              10.7807083,
+              52.4158985
+            ],
+            [
+              10.7806739,
+              52.4158831
+            ],
+            [
+              10.7807864,
+              52.4158087
+            ],
+            [
+              10.7809011,
+              52.415836
+            ],
+            [
+              10.7809136,
+              52.4157459
+            ],
+            [
+              10.7809468,
+              52.4156967
+            ],
+            [
+              10.7810334,
+              52.4155727
+            ],
+            [
+              10.7811732,
+              52.4154976
+            ],
+            [
+              10.781156,
+              52.4154547
+            ],
+            [
+              10.781461,
+              52.415286
+            ],
+            [
+              10.7814998,
+              52.415295
+            ],
+            [
+              10.7815632,
+              52.4153097
+            ],
+            [
+              10.7815791,
+              52.4152761
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-25858961",
+        "name": "Scharoun-Theater Wolfsburg",
+        "city": "Wolfsburg",
+        "street": "Klieverhagen 50",
+        "zip": "38440",
+        "category": 12,
+        "lat": 52.4161028868,
+        "lng": 10.780161880000001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/25858961",
+        "source_version": 17,
+        "source_timestamp": "2024-01-17T17:26:14Z",
+        "website": "https://theater.wolfsburg.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0181,
+        "boundary_clearance_m": 21.135411129621197,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.2333189,
+              52.3227397
+            ],
+            [
+              10.2337282,
+              52.3227023
+            ],
+            [
+              10.2337419,
+              52.3227582
+            ],
+            [
+              10.2336969,
+              52.3227623
+            ],
+            [
+              10.2337123,
+              52.3228252
+            ],
+            [
+              10.2335566,
+              52.3228395
+            ],
+            [
+              10.233348,
+              52.3228585
+            ],
+            [
+              10.2333189,
+              52.3227397
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-529607062",
+        "name": "Cyrano",
+        "city": "Peine",
+        "street": "Kantstraße 12",
+        "zip": "31224",
+        "category": 14,
+        "lat": 52.3227900063,
+        "lng": 10.23343311,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/529607062",
+        "source_version": 3,
+        "source_timestamp": "2023-02-19T15:38:02Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0036,
+        "boundary_clearance_m": 6.687512960915752,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7085206,
+              52.3834552
+            ],
+            [
+              9.7087958,
+              52.3833973
+            ],
+            [
+              9.7087782,
+              52.3833662
+            ],
+            [
+              9.7089272,
+              52.3833348
+            ],
+            [
+              9.7088838,
+              52.3832582
+            ],
+            [
+              9.7087391,
+              52.3832886
+            ],
+            [
+              9.7087121,
+              52.3832408
+            ],
+            [
+              9.7083761,
+              52.3833115
+            ],
+            [
+              9.7083295,
+              52.3833214
+            ],
+            [
+              9.7083989,
+              52.3834441
+            ],
+            [
+              9.7085021,
+              52.3834224
+            ],
+            [
+              9.7085206,
+              52.3834552
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-120664229",
+        "name": "Cafe Steintormasch",
+        "city": "Hannover",
+        "street": "In der Steintormasch 5",
+        "zip": "30167",
+        "category": 14,
+        "lat": 52.3833476784,
+        "lng": 9.70861789025,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/120664229",
+        "source_version": 15,
+        "source_timestamp": "2025-06-16T10:15:29Z",
+        "website": "https://steintormasch-cafe.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0060999999999999995,
+        "boundary_clearance_m": 9.161686103486051,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4241355,
+              52.1215965
+            ],
+            [
+              10.4241213,
+              52.1215736
+            ],
+            [
+              10.4240543,
+              52.1214653
+            ],
+            [
+              10.4238391,
+              52.1215154
+            ],
+            [
+              10.4239203,
+              52.1216467
+            ],
+            [
+              10.4241355,
+              52.1215965
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-150864589",
+        "name": "Pizzeria La Vita",
+        "city": "Salzgitter",
+        "street": "Harzstraße 26",
+        "zip": "38229",
+        "category": 14,
+        "lat": 52.1215559093,
+        "lng": 10.4239875964,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/150864589",
+        "source_version": 7,
+        "source_timestamp": "2021-10-17T07:12:58Z",
+        "website": "https://www.lavita-salzgitter.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0048,
+        "boundary_clearance_m": 7.814307456398937,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5184563,
+              52.1660109
+            ],
+            [
+              10.5182846,
+              52.1660331
+            ],
+            [
+              10.518129,
+              52.1660532
+            ],
+            [
+              10.5181476,
+              52.1661074
+            ],
+            [
+              10.5181707,
+              52.1661745
+            ],
+            [
+              10.5182312,
+              52.1663503
+            ],
+            [
+              10.5182487,
+              52.166348
+            ],
+            [
+              10.5184184,
+              52.166326
+            ],
+            [
+              10.5185585,
+              52.1663079
+            ],
+            [
+              10.5184563,
+              52.1660109
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-244527983",
+        "name": "Heinrich’s",
+        "city": "Wolfenbüttel",
+        "street": "Frankfurter Straße 4",
+        "zip": "38304",
+        "category": 14,
+        "lat": 52.166180600000004,
+        "lng": 10.51834375,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/244527983",
+        "source_version": 4,
+        "source_timestamp": "2022-07-19T19:37:29Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.008400000000000001,
+        "boundary_clearance_m": 11.420635949234532,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.0588089,
+              52.6496441
+            ],
+            [
+              10.0590143,
+              52.6496542
+            ],
+            [
+              10.0590437,
+              52.6494342
+            ],
+            [
+              10.0588384,
+              52.6494241
+            ],
+            [
+              10.0588089,
+              52.6496441
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-223158464",
+        "name": "Gasthaus zur Riete",
+        "city": "Celle",
+        "street": "Riete 1",
+        "zip": "29229",
+        "category": 14,
+        "lat": 52.6495384597,
+        "lng": 10.058926417399999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/223158464",
+        "source_version": 4,
+        "source_timestamp": "2025-11-17T10:44:25Z",
+        "website": "https://gasthaus-zur-riete.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0039,
+        "boundary_clearance_m": 6.957058467203972,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4711094,
+              51.8591373
+            ],
+            [
+              10.4712404,
+              51.8591371
+            ],
+            [
+              10.4712411,
+              51.8592639
+            ],
+            [
+              10.471243,
+              51.8596128
+            ],
+            [
+              10.4711782,
+              51.8596107
+            ],
+            [
+              10.4710749,
+              51.8593954
+            ],
+            [
+              10.4710642,
+              51.8593481
+            ],
+            [
+              10.4709563,
+              51.8593473
+            ],
+            [
+              10.4707979,
+              51.8593531
+            ],
+            [
+              10.4707853,
+              51.8591947
+            ],
+            [
+              10.4711104,
+              51.8591888
+            ],
+            [
+              10.4711094,
+              51.8591373
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-225828516",
+        "name": "Königreich Romkerhall",
+        "city": "Goslar",
+        "street": "Okertal 24",
+        "zip": "38644",
+        "category": 14,
+        "lat": 51.8592707717,
+        "lng": 10.4711084362,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/225828516",
+        "source_version": 9,
+        "source_timestamp": "2025-10-20T20:38:02Z",
+        "website": "https://www.koenigreich-romkerhall.eu/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0060999999999999995,
+        "boundary_clearance_m": 9.11718675204551,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5423804,
+              52.4640478
+            ],
+            [
+              10.5426095,
+              52.4640423
+            ],
+            [
+              10.5425976,
+              52.463858
+            ],
+            [
+              10.5424745,
+              52.463861
+            ],
+            [
+              10.5423685,
+              52.4638635
+            ],
+            [
+              10.5423741,
+              52.4639501
+            ],
+            [
+              10.5423804,
+              52.4640478
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-89590030",
+        "name": "Tang Dynasty",
+        "city": "Gifhorn",
+        "street": "Braunschweiger Straße 139b",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.4639528051,
+        "lng": 10.542489,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/89590030",
+        "source_version": 12,
+        "source_timestamp": "2024-02-25T10:19:06Z",
+        "website": "https://www.tang-dynasty.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0047,
+        "boundary_clearance_m": 7.77472368697373,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5562208,
+              52.278017
+            ],
+            [
+              10.555996,
+              52.2779842
+            ],
+            [
+              10.5559599,
+              52.2780769
+            ],
+            [
+              10.5558419,
+              52.2780577
+            ],
+            [
+              10.5558624,
+              52.278141
+            ],
+            [
+              10.5558651,
+              52.2781521
+            ],
+            [
+              10.5558778,
+              52.2782037
+            ],
+            [
+              10.5561343,
+              52.2782438
+            ],
+            [
+              10.5562208,
+              52.278017
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-87714958",
+        "name": "Gliesmaroder Thurm",
+        "city": "Braunschweig",
+        "street": "Berliner Straße 105",
+        "zip": "38104",
+        "category": 14,
+        "lat": 52.2781441136,
+        "lng": 10.556035328450003,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/87714958",
+        "source_version": 14,
+        "source_timestamp": "2026-07-28T12:13:54Z",
+        "website": "https://www.gliesmaroder-thurm.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.006,
+        "boundary_clearance_m": 9.0761141176735,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7128803,
+              52.3933448
+            ],
+            [
+              10.7128969,
+              52.3932807
+            ],
+            [
+              10.7129202,
+              52.393283
+            ],
+            [
+              10.7131442,
+              52.3933047
+            ],
+            [
+              10.7131164,
+              52.3934118
+            ],
+            [
+              10.7130839,
+              52.3934086
+            ],
+            [
+              10.7130541,
+              52.3935236
+            ],
+            [
+              10.7129516,
+              52.3935137
+            ],
+            [
+              10.7128419,
+              52.3935031
+            ],
+            [
+              10.7127604,
+              52.3934952
+            ],
+            [
+              10.7127069,
+              52.3933731
+            ],
+            [
+              10.7128803,
+              52.3933448
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-151688843",
+        "name": "Zur Riede",
+        "city": "Wolfsburg",
+        "street": "Mörser Straße 57",
+        "zip": "38442",
+        "category": 14,
+        "lat": 52.3934244968,
+        "lng": 10.712936045200001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/151688843",
+        "source_version": 4,
+        "source_timestamp": "2026-04-10T18:41:25Z",
+        "website": "https://www.zur-riede-ehmen.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0066,
+        "boundary_clearance_m": 9.642648764919768,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.1514157,
+              52.3080928
+            ],
+            [
+              10.1515967,
+              52.307942
+            ],
+            [
+              10.1515226,
+              52.3079088
+            ],
+            [
+              10.1515804,
+              52.3078607
+            ],
+            [
+              10.1516544,
+              52.3078939
+            ],
+            [
+              10.1517584,
+              52.3078072
+            ],
+            [
+              10.1515243,
+              52.3077022
+            ],
+            [
+              10.1514236,
+              52.3077862
+            ],
+            [
+              10.151395,
+              52.3077733
+            ],
+            [
+              10.1513571,
+              52.3078049
+            ],
+            [
+              10.1514224,
+              52.3078342
+            ],
+            [
+              10.1512184,
+              52.3080043
+            ],
+            [
+              10.1514157,
+              52.3080928
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-172231779",
+        "name": "Emmis Erbe",
+        "city": "Peine",
+        "street": "Bürgerhausstraße 3",
+        "zip": "31226",
+        "category": 14,
+        "lat": 52.3079601913,
+        "lng": 10.151423059999999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/172231779",
+        "source_version": 6,
+        "source_timestamp": "2021-10-12T09:20:58Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0053,
+        "boundary_clearance_m": 8.32983757783669,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7977365,
+              52.4166878
+            ],
+            [
+              9.7978797,
+              52.4167453
+            ],
+            [
+              9.7978658,
+              52.4167582
+            ],
+            [
+              9.7979472,
+              52.4167908
+            ],
+            [
+              9.797961,
+              52.416778
+            ],
+            [
+              9.7980729,
+              52.4168229
+            ],
+            [
+              9.7981822,
+              52.416721
+            ],
+            [
+              9.7978458,
+              52.416586
+            ],
+            [
+              9.7977884,
+              52.4166394
+            ],
+            [
+              9.7977365,
+              52.4166878
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-188444085",
+        "name": "China Restaurant Panda",
+        "city": "Hannover",
+        "street": "Sutelstraße 46",
+        "zip": "30659",
+        "category": 14,
+        "lat": 52.416713807549996,
+        "lng": 9.79797205245,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/188444085",
+        "source_version": 13,
+        "source_timestamp": "2026-03-03T15:34:43Z",
+        "website": "https://panda-hannover.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0040999999999999995,
+        "boundary_clearance_m": 7.173784573290574,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.312833,
+              52.1510285
+            ],
+            [
+              10.3129233,
+              52.1507987
+            ],
+            [
+              10.3132625,
+              52.1508489
+            ],
+            [
+              10.3131722,
+              52.1510787
+            ],
+            [
+              10.312833,
+              52.1510285
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-93274811",
+        "name": "Seeterrasse",
+        "city": "Salzgitter",
+        "street": "Zum Salzgittersee 48",
+        "zip": "38226",
+        "category": 14,
+        "lat": 52.1509387,
+        "lng": 10.313047749999999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/93274811",
+        "source_version": 4,
+        "source_timestamp": "2016-01-16T20:28:45Z",
+        "website": "http://www.seeterrasse-salzgitter.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0089,
+        "boundary_clearance_m": 11.916583047784144,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.529951,
+              52.1634842
+            ],
+            [
+              10.5299267,
+              52.1637009
+            ],
+            [
+              10.5299564,
+              52.1637023
+            ],
+            [
+              10.5299528,
+              52.1637273
+            ],
+            [
+              10.5299232,
+              52.1637254
+            ],
+            [
+              10.5299172,
+              52.1637607
+            ],
+            [
+              10.5299742,
+              52.1637637
+            ],
+            [
+              10.5299761,
+              52.1637451
+            ],
+            [
+              10.5300535,
+              52.1637476
+            ],
+            [
+              10.5300775,
+              52.1637673
+            ],
+            [
+              10.5301375,
+              52.1637693
+            ],
+            [
+              10.5301612,
+              52.1637528
+            ],
+            [
+              10.5302398,
+              52.1637562
+            ],
+            [
+              10.5302382,
+              52.1637726
+            ],
+            [
+              10.5302903,
+              52.1637746
+            ],
+            [
+              10.5302934,
+              52.1637401
+            ],
+            [
+              10.5302416,
+              52.1637383
+            ],
+            [
+              10.5302439,
+              52.1637137
+            ],
+            [
+              10.5302958,
+              52.1637152
+            ],
+            [
+              10.5303062,
+              52.1636227
+            ],
+            [
+              10.5303202,
+              52.1634993
+            ],
+            [
+              10.5301849,
+              52.1634938
+            ],
+            [
+              10.5301793,
+              52.1635369
+            ],
+            [
+              10.53022,
+              52.1635389
+            ],
+            [
+              10.5302039,
+              52.1636665
+            ],
+            [
+              10.5300307,
+              52.1636591
+            ],
+            [
+              10.5300455,
+              52.1635315
+            ],
+            [
+              10.5300827,
+              52.1635329
+            ],
+            [
+              10.530088,
+              52.1634902
+            ],
+            [
+              10.529951,
+              52.1634842
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-24249340",
+        "name": "Lessinghaus",
+        "city": "Wolfenbüttel",
+        "street": "Lessingplatz 2",
+        "zip": "38304",
+        "category": 12,
+        "lat": 52.1637127448,
+        "lng": 10.5301120505,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/24249340",
+        "source_version": 15,
+        "source_timestamp": "2026-02-22T19:24:22Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0025,
+        "boundary_clearance_m": 5.5713245395565325,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.1096789,
+              52.5977735
+            ],
+            [
+              10.1097647,
+              52.5976671
+            ],
+            [
+              10.1096265,
+              52.597626
+            ],
+            [
+              10.1096627,
+              52.597581
+            ],
+            [
+              10.1096294,
+              52.5975711
+            ],
+            [
+              10.1094767,
+              52.5975257
+            ],
+            [
+              10.1093547,
+              52.5976771
+            ],
+            [
+              10.1096789,
+              52.5977735
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-208859358",
+        "name": "Hotel-Restaurant Schaperkrug",
+        "city": "Celle",
+        "street": "Braunschweiger Heerstraße 85",
+        "zip": "29227",
+        "category": 14,
+        "lat": 52.5976442723,
+        "lng": 10.109512550000002,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/208859358",
+        "source_version": 5,
+        "source_timestamp": "2023-11-09T04:10:50Z",
+        "website": "https://www.schaperkrug.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004900000000000001,
+        "boundary_clearance_m": 7.968896653764757,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4395266,
+              51.9081375
+            ],
+            [
+              10.4390095,
+              51.907901
+            ],
+            [
+              10.4392703,
+              51.907684
+            ],
+            [
+              10.439495,
+              51.9077868
+            ],
+            [
+              10.4395291,
+              51.9077584
+            ],
+            [
+              10.4398215,
+              51.9078921
+            ],
+            [
+              10.4395266,
+              51.9081375
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-98777790",
+        "name": "Lindenhof Goslar",
+        "city": "Goslar",
+        "street": "Schützenallee 1",
+        "zip": "38640",
+        "category": 14,
+        "lat": 51.90793274475,
+        "lng": 10.439477212,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/98777790",
+        "source_version": 10,
+        "source_timestamp": "2026-02-22T18:04:10Z",
+        "website": "https://www.lindenhof-gastro.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0132,
+        "boundary_clearance_m": 16.290478115167115,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5436139,
+              52.4719084
+            ],
+            [
+              10.5435881,
+              52.4719096
+            ],
+            [
+              10.5434625,
+              52.4719153
+            ],
+            [
+              10.5433869,
+              52.4719188
+            ],
+            [
+              10.5434004,
+              52.4720284
+            ],
+            [
+              10.5436274,
+              52.472018
+            ],
+            [
+              10.5436158,
+              52.4719243
+            ],
+            [
+              10.5436139,
+              52.4719084
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-211287159",
+        "name": "ARAS Lounge",
+        "city": "Gifhorn",
+        "street": "Braunschweiger Straße 91",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.47196834,
+        "lng": 10.54350823225,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/211287159",
+        "source_version": 8,
+        "source_timestamp": "2024-07-07T04:01:12Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0031,
+        "boundary_clearance_m": 6.118493023431328,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5411917,
+              52.2541004
+            ],
+            [
+              10.5415591,
+              52.2543411
+            ],
+            [
+              10.5419138,
+              52.2541383
+            ],
+            [
+              10.5418933,
+              52.2541248
+            ],
+            [
+              10.5420869,
+              52.2540141
+            ],
+            [
+              10.5420532,
+              52.253992
+            ],
+            [
+              10.5421542,
+              52.2539343
+            ],
+            [
+              10.5418184,
+              52.253716
+            ],
+            [
+              10.541686,
+              52.2537918
+            ],
+            [
+              10.5416477,
+              52.2538137
+            ],
+            [
+              10.5416688,
+              52.2538275
+            ],
+            [
+              10.5411917,
+              52.2541004
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-229497783",
+        "name": "IntercityHotel Braunschweig",
+        "city": "Braunschweig",
+        "street": "Willy-Brandt-Platz 3",
+        "zip": "38102",
+        "category": 14,
+        "lat": 52.25410012395,
+        "lng": 10.541586325,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/229497783",
+        "source_version": 17,
+        "source_timestamp": "2026-05-21T15:48:39Z",
+        "website": "https://www.intercityhotel.com/hotels/alle-hotels/deutschland/braunschweig/intercityhotel-braunschweig",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.015300000000000001,
+        "boundary_clearance_m": 18.33755925142658,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7780774,
+              52.4244653
+            ],
+            [
+              10.7783,
+              52.4244653
+            ],
+            [
+              10.7783094,
+              52.424323
+            ],
+            [
+              10.7780868,
+              52.4243222
+            ],
+            [
+              10.7780774,
+              52.4244653
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-1021982805",
+        "name": "Chris Inn",
+        "city": "Wolfsburg",
+        "street": "Goethestraße 9a",
+        "zip": "38440",
+        "category": 4,
+        "lat": 52.42439396465,
+        "lng": 10.7781934,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/1021982805",
+        "source_version": 4,
+        "source_timestamp": "2025-07-27T22:06:14Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0045,
+        "boundary_clearance_m": 7.550175154269826,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.2871412,
+              52.3448359
+            ],
+            [
+              10.2873243,
+              52.3446103
+            ],
+            [
+              10.2875624,
+              52.3446824
+            ],
+            [
+              10.2875099,
+              52.344747
+            ],
+            [
+              10.2876573,
+              52.3447917
+            ],
+            [
+              10.2874928,
+              52.3449943
+            ],
+            [
+              10.287326,
+              52.3449438
+            ],
+            [
+              10.2873599,
+              52.3449021
+            ],
+            [
+              10.2871412,
+              52.3448359
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-290855269",
+        "name": "Mehrzweckhalle",
+        "city": "Peine",
+        "street": "Am Berge 15",
+        "zip": "31224",
+        "category": 14,
+        "lat": 52.344790587999995,
+        "lng": 10.287361832750001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/290855269",
+        "source_version": 4,
+        "source_timestamp": "2014-08-20T17:32:40Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0081,
+        "boundary_clearance_m": 11.17761116687748,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7263075,
+              52.3550133
+            ],
+            [
+              9.7259548,
+              52.3549662
+            ],
+            [
+              9.725927,
+              52.3550441
+            ],
+            [
+              9.7260124,
+              52.3550555
+            ],
+            [
+              9.7259889,
+              52.3551211
+            ],
+            [
+              9.7259242,
+              52.3551125
+            ],
+            [
+              9.7259027,
+              52.3551724
+            ],
+            [
+              9.7259674,
+              52.355181
+            ],
+            [
+              9.7262348,
+              52.3552167
+            ],
+            [
+              9.7262797,
+              52.3550912
+            ],
+            [
+              9.7263075,
+              52.3550133
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-154241787",
+        "name": "Clubgaststätte 1897 Linden",
+        "city": "Hannover",
+        "street": "Stammestraße 106",
+        "zip": "30459",
+        "category": 4,
+        "lat": 52.3550791755,
+        "lng": 9.7261439608,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/154241787",
+        "source_version": 4,
+        "source_timestamp": "2018-11-14T23:42:40Z",
+        "website": "http://www.1897linden.de/clubgaststaette-1897.html",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0063,
+        "boundary_clearance_m": 9.301495456084156,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3643737,
+              52.0430223
+            ],
+            [
+              10.3643667,
+              52.0427709
+            ],
+            [
+              10.3641728,
+              52.042773
+            ],
+            [
+              10.3641776,
+              52.0429443
+            ],
+            [
+              10.3641348,
+              52.0429447
+            ],
+            [
+              10.364137,
+              52.0430248
+            ],
+            [
+              10.3643737,
+              52.0430223
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-176279994",
+        "name": "Sportheim SC Gitter",
+        "city": "Salzgitter",
+        "street": "Im Osterfeld 6",
+        "zip": "38259",
+        "category": 4,
+        "lat": 52.04296221364999,
+        "lng": 10.3642726453,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/176279994",
+        "source_version": 1,
+        "source_timestamp": "2012-08-16T07:06:14Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0038,
+        "boundary_clearance_m": 6.803628187592395,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5401542,
+              52.1595317
+            ],
+            [
+              10.5401767,
+              52.1594712
+            ],
+            [
+              10.5401423,
+              52.1594664
+            ],
+            [
+              10.540194,
+              52.1593278
+            ],
+            [
+              10.5402218,
+              52.1593317
+            ],
+            [
+              10.5402458,
+              52.1592674
+            ],
+            [
+              10.540388,
+              52.1592874
+            ],
+            [
+              10.540404,
+              52.1592445
+            ],
+            [
+              10.5405925,
+              52.159271
+            ],
+            [
+              10.5405755,
+              52.1593165
+            ],
+            [
+              10.5406767,
+              52.1593307
+            ],
+            [
+              10.5406698,
+              52.1593491
+            ],
+            [
+              10.5407489,
+              52.1593602
+            ],
+            [
+              10.5406675,
+              52.1595782
+            ],
+            [
+              10.5405684,
+              52.1595643
+            ],
+            [
+              10.5405594,
+              52.1595883
+            ],
+            [
+              10.5404499,
+              52.1595729
+            ],
+            [
+              10.5404277,
+              52.1596323
+            ],
+            [
+              10.5402601,
+              52.1596088
+            ],
+            [
+              10.5402821,
+              52.1595497
+            ],
+            [
+              10.5401542,
+              52.1595317
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-28876081",
+        "name": "Lessingtheater Wolfenbüttel",
+        "city": "Wolfenbüttel",
+        "street": "Lange Straße 16",
+        "zip": "38300",
+        "category": 12,
+        "lat": 52.1594304501,
+        "lng": 10.54041527,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/28876081",
+        "source_version": 20,
+        "source_timestamp": "2025-10-24T14:58:55Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.013,
+        "boundary_clearance_m": 16.032862059675036,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.1353087,
+              52.6576978
+            ],
+            [
+              10.1352331,
+              52.6576944
+            ],
+            [
+              10.1352051,
+              52.6579202
+            ],
+            [
+              10.1352104,
+              52.6579204
+            ],
+            [
+              10.1352044,
+              52.6579809
+            ],
+            [
+              10.1352237,
+              52.6580488
+            ],
+            [
+              10.1354851,
+              52.6580251
+            ],
+            [
+              10.1354705,
+              52.6579592
+            ],
+            [
+              10.1353316,
+              52.6579705
+            ],
+            [
+              10.1353359,
+              52.6579275
+            ],
+            [
+              10.1355412,
+              52.6579411
+            ],
+            [
+              10.135541,
+              52.657942
+            ],
+            [
+              10.1355345,
+              52.6579771
+            ],
+            [
+              10.1356296,
+              52.6579836
+            ],
+            [
+              10.1356362,
+              52.657945
+            ],
+            [
+              10.1358392,
+              52.657957
+            ],
+            [
+              10.1358475,
+              52.6578962
+            ],
+            [
+              10.1356564,
+              52.6578866
+            ],
+            [
+              10.1356943,
+              52.6576764
+            ],
+            [
+              10.1353171,
+              52.6576514
+            ],
+            [
+              10.1353087,
+              52.6576978
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-217646165",
+        "name": "Landgasthaus Zum Lindenhof",
+        "city": "Celle",
+        "street": "Gersnethe 29",
+        "zip": "29229",
+        "category": 14,
+        "lat": 52.657800425000005,
+        "lng": 10.135450064199999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/217646165",
+        "source_version": 4,
+        "source_timestamp": "2025-04-14T09:31:49Z",
+        "website": "http://www.lindenhof-garssen.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.011800000000000001,
+        "boundary_clearance_m": 14.887187404161407,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4246175,
+              51.8914
+            ],
+            [
+              10.4247498,
+              51.8914982
+            ],
+            [
+              10.4246841,
+              51.8915325
+            ],
+            [
+              10.4247626,
+              51.8915901
+            ],
+            [
+              10.4248309,
+              51.8916403
+            ],
+            [
+              10.4248763,
+              51.8916167
+            ],
+            [
+              10.4250095,
+              51.8917146
+            ],
+            [
+              10.4249397,
+              51.8917508
+            ],
+            [
+              10.4249627,
+              51.8917676
+            ],
+            [
+              10.4248655,
+              51.8918179
+            ],
+            [
+              10.4248166,
+              51.8918105
+            ],
+            [
+              10.4246572,
+              51.8916942
+            ],
+            [
+              10.4246232,
+              51.891712
+            ],
+            [
+              10.4245426,
+              51.891653
+            ],
+            [
+              10.424581,
+              51.891633
+            ],
+            [
+              10.424468,
+              51.8915503
+            ],
+            [
+              10.4244379,
+              51.891566
+            ],
+            [
+              10.4243811,
+              51.8915244
+            ],
+            [
+              10.4246175,
+              51.8914
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-98707525",
+        "name": "Maltermeister Turm",
+        "city": "Goslar",
+        "street": "Rammelsberger Straße 99",
+        "zip": "38644",
+        "category": 14,
+        "lat": 51.89171321605,
+        "lng": 10.424838261,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/98707525",
+        "source_version": 14,
+        "source_timestamp": "2026-07-30T14:52:41Z",
+        "website": "https://www.maltermeister-turm.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0050999999999999995,
+        "boundary_clearance_m": 8.128414410592555,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.542892,
+              52.468105
+            ],
+            [
+              10.542896,
+              52.468132
+            ],
+            [
+              10.542923,
+              52.46813
+            ],
+            [
+              10.542928,
+              52.468166
+            ],
+            [
+              10.543111,
+              52.468156
+            ],
+            [
+              10.543106,
+              52.468122
+            ],
+            [
+              10.543155,
+              52.46812
+            ],
+            [
+              10.543146,
+              52.468061
+            ],
+            [
+              10.543097,
+              52.468064
+            ],
+            [
+              10.543097,
+              52.468059
+            ],
+            [
+              10.542913,
+              52.468068
+            ],
+            [
+              10.542919,
+              52.468104
+            ],
+            [
+              10.542892,
+              52.468105
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-106300001",
+        "name": "Balkan Grillhaus",
+        "city": "Gifhorn",
+        "street": "Braunschweiger Straße 125",
+        "zip": "38518",
+        "category": 14,
+        "lat": 52.4681125535,
+        "lng": 10.543006404999998,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/106300001",
+        "source_version": 5,
+        "source_timestamp": "2026-04-20T08:18:05Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0024,
+        "boundary_clearance_m": 5.450744894616659,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5882501,
+              52.2853318
+            ],
+            [
+              10.5884067,
+              52.2853777
+            ],
+            [
+              10.5885143,
+              52.2852404
+            ],
+            [
+              10.5885788,
+              52.2852593
+            ],
+            [
+              10.5886567,
+              52.2851597
+            ],
+            [
+              10.5884356,
+              52.2850949
+            ],
+            [
+              10.5882501,
+              52.2853318
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-110852214",
+        "name": "Jägerhof",
+        "city": "Braunschweig",
+        "street": "Volkmarsweg 16",
+        "zip": "38104",
+        "category": 14,
+        "lat": 52.285179598599996,
+        "lng": 10.5884843016,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/110852214",
+        "source_version": 7,
+        "source_timestamp": "2024-01-04T23:26:53Z",
+        "website": "https://www.jaegerhof-bs.de/",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004,
+        "boundary_clearance_m": 7.064233037162052,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8443153,
+              52.4480032
+            ],
+            [
+              10.8442314,
+              52.4480039
+            ],
+            [
+              10.8440675,
+              52.4480053
+            ],
+            [
+              10.8440695,
+              52.448096
+            ],
+            [
+              10.8443173,
+              52.448094
+            ],
+            [
+              10.8443153,
+              52.4480032
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-46011375",
+        "name": "Gaststätte Alte Mühle",
+        "city": "Wolfsburg",
+        "street": "Mühlenweg 5",
+        "zip": "38448",
+        "category": 4,
+        "lat": 52.448049600000004,
+        "lng": 10.844194898000001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/46011375",
+        "source_version": 8,
+        "source_timestamp": "2026-08-01T11:21:22Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.002,
+        "boundary_clearance_m": 5.0521191168372654,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.2411649,
+              52.3150168
+            ],
+            [
+              10.2411699,
+              52.3147937
+            ],
+            [
+              10.2411916,
+              52.3147937
+            ],
+            [
+              10.2411916,
+              52.3147688
+            ],
+            [
+              10.2411608,
+              52.3147667
+            ],
+            [
+              10.2411668,
+              52.3145916
+            ],
+            [
+              10.2414532,
+              52.3145953
+            ],
+            [
+              10.2414471,
+              52.3147984
+            ],
+            [
+              10.2415286,
+              52.3147992
+            ],
+            [
+              10.241527,
+              52.3150188
+            ],
+            [
+              10.2411649,
+              52.3150168
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-79630947",
+        "name": "PTG Werksgasthaus",
+        "city": "Peine",
+        "street": "Gerhard-Lucas-Meyer-Straße 14",
+        "zip": "31226",
+        "category": 14,
+        "lat": 52.3148914944,
+        "lng": 10.2413478263,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/79630947",
+        "source_version": 5,
+        "source_timestamp": "2026-01-23T22:44:55Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0092,
+        "boundary_clearance_m": 12.2561816114811,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.6903045,
+              52.3904344
+            ],
+            [
+              9.6906417,
+              52.3903893
+            ],
+            [
+              9.6906022,
+              52.3902791
+            ],
+            [
+              9.6904827,
+              52.3902951
+            ],
+            [
+              9.6904902,
+              52.390316
+            ],
+            [
+              9.690469,
+              52.3903188
+            ],
+            [
+              9.6903571,
+              52.3903338
+            ],
+            [
+              9.6902725,
+              52.3903451
+            ],
+            [
+              9.6903045,
+              52.3904344
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-605305883",
+        "name": "Culinar",
+        "city": "Hannover",
+        "street": "Am Großen Garten 3",
+        "zip": "30419",
+        "category": 14,
+        "lat": 52.390351780399996,
+        "lng": 9.6905455234,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/605305883",
+        "source_version": 6,
+        "source_timestamp": "2024-08-21T08:35:55Z",
+        "website": "https://www.mtv-herrenhausen.de/vereinsheim",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0024,
+        "boundary_clearance_m": 5.476396374956384,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3722832,
+              52.0714695
+            ],
+            [
+              10.3724296,
+              52.0714661
+            ],
+            [
+              10.3724168,
+              52.0712591
+            ],
+            [
+              10.3722704,
+              52.0712625
+            ],
+            [
+              10.3722832,
+              52.0714695
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-175517351",
+        "name": "Sportheim TSV Fortuna Salzgitter",
+        "city": "Salzgitter",
+        "street": "Paracelsusstraße 36",
+        "zip": "38259",
+        "category": 14,
+        "lat": 52.0713643,
+        "lng": 10.37235,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/175517351",
+        "source_version": 4,
+        "source_timestamp": "2017-06-18T10:39:00Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.002,
+        "boundary_clearance_m": 5.012365745021853,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5508122,
+              52.1512842
+            ],
+            [
+              10.5509845,
+              52.1513385
+            ],
+            [
+              10.550993,
+              52.1513283
+            ],
+            [
+              10.5513073,
+              52.1514272
+            ],
+            [
+              10.5514425,
+              52.1512656
+            ],
+            [
+              10.5511142,
+              52.1511623
+            ],
+            [
+              10.5510851,
+              52.151197
+            ],
+            [
+              10.551026,
+              52.1511784
+            ],
+            [
+              10.5510394,
+              52.1511624
+            ],
+            [
+              10.5508585,
+              52.1511054
+            ],
+            [
+              10.5508104,
+              52.151163
+            ],
+            [
+              10.5508921,
+              52.1511887
+            ],
+            [
+              10.5508122,
+              52.1512842
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-302646256",
+        "name": "MTV Club Center Sportbar & Restaurant",
+        "city": "Wolfenbüttel",
+        "street": "Halberstädter Straße 1b",
+        "zip": "38300",
+        "category": 14,
+        "lat": 52.1512994454,
+        "lng": 10.5512256897,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/302646256",
+        "source_version": 6,
+        "source_timestamp": "2023-09-06T14:12:17Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0070999999999999995,
+        "boundary_clearance_m": 10.110027628403834,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.0771202,
+              52.6039088
+            ],
+            [
+              10.0769894,
+              52.6038706
+            ],
+            [
+              10.0770242,
+              52.6038266
+            ],
+            [
+              10.0769249,
+              52.6037956
+            ],
+            [
+              10.07689,
+              52.6037289
+            ],
+            [
+              10.0767792,
+              52.6037525
+            ],
+            [
+              10.0767522,
+              52.603745
+            ],
+            [
+              10.0767001,
+              52.6038132
+            ],
+            [
+              10.0767168,
+              52.6038177
+            ],
+            [
+              10.0766139,
+              52.6039496
+            ],
+            [
+              10.0768304,
+              52.6040146
+            ],
+            [
+              10.0769299,
+              52.603896
+            ],
+            [
+              10.0770913,
+              52.6039457
+            ],
+            [
+              10.0771202,
+              52.6039088
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-151611269",
+        "name": "Stadtarchiv",
+        "city": "Celle",
+        "street": "Westerceller Straße 6",
+        "zip": "29227",
+        "category": 12,
+        "lat": 52.6038868921,
+        "lng": 10.076799205799999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/151611269",
+        "source_version": 3,
+        "source_timestamp": "2017-09-10T16:27:24Z",
+        "website": "https://www.celle.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0053,
+        "boundary_clearance_m": 8.332648370967648,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3646027,
+              51.8546695
+            ],
+            [
+              10.3646546,
+              51.854789
+            ],
+            [
+              10.3646686,
+              51.8547867
+            ],
+            [
+              10.3646999,
+              51.8548589
+            ],
+            [
+              10.3647579,
+              51.8548492
+            ],
+            [
+              10.3647623,
+              51.8548593
+            ],
+            [
+              10.3648778,
+              51.8548401
+            ],
+            [
+              10.3648424,
+              51.8547588
+            ],
+            [
+              10.3649152,
+              51.8547467
+            ],
+            [
+              10.3649106,
+              51.8547362
+            ],
+            [
+              10.3650156,
+              51.8547187
+            ],
+            [
+              10.3649737,
+              51.8546223
+            ],
+            [
+              10.3649367,
+              51.8546285
+            ],
+            [
+              10.3649309,
+              51.8546151
+            ],
+            [
+              10.3646027,
+              51.8546695
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-207535630",
+        "name": "Monster-Bike Auerhahn",
+        "city": "Goslar",
+        "street": "Auerhahn 2",
+        "zip": "38644",
+        "category": 14,
+        "lat": 51.854720106,
+        "lng": 10.364744737599999,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/207535630",
+        "source_version": 5,
+        "source_timestamp": "2026-05-03T20:49:41Z",
+        "website": "https://www.monster-bike-auerhahn.de",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004900000000000001,
+        "boundary_clearance_m": 7.972207237195213,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.540503,
+              52.4688987
+            ],
+            [
+              10.540482,
+              52.4687466
+            ],
+            [
+              10.5405278,
+              52.4687443
+            ],
+            [
+              10.5405194,
+              52.4686835
+            ],
+            [
+              10.5403127,
+              52.468694
+            ],
+            [
+              10.540335,
+              52.4688716
+            ],
+            [
+              10.5403421,
+              52.4689069
+            ],
+            [
+              10.540503,
+              52.4688987
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-147576104",
+        "name": "Georgia's Taverne",
+        "city": "Gifhorn",
+        "street": "Am Sportplatz Eyßelheide 1",
+        "zip": "38518",
+        "category": 4,
+        "lat": 52.4688229016,
+        "lng": 10.540410678049998,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/147576104",
+        "source_version": 8,
+        "source_timestamp": "2026-04-13T13:31:38Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0025,
+        "boundary_clearance_m": 5.530650431077151,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.4672132,
+              52.3055994
+            ],
+            [
+              10.4672131,
+              52.3055995
+            ],
+            [
+              10.4673421,
+              52.3055206
+            ],
+            [
+              10.4671916,
+              52.3054286
+            ],
+            [
+              10.4670628,
+              52.3055074
+            ],
+            [
+              10.4672132,
+              52.3055994
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-76211911",
+        "name": "Ortsbücherei Watenbüttel",
+        "city": "Braunschweig",
+        "street": "Am Grasplatz 4a",
+        "zip": "38112",
+        "category": 16,
+        "lat": 52.305507470349994,
+        "lng": 10.467191696950001,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/76211911",
+        "source_version": 7,
+        "source_timestamp": "2024-12-23T13:14:40Z",
+        "website": "http://m.braunschweig.de/kultur/bibliotheken_archive/stadtbibliothek/ortsbuechereien.html",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0031,
+        "boundary_clearance_m": 6.19960434489778,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7573434,
+              52.4248847
+            ],
+            [
+              10.7574072,
+              52.4247717
+            ],
+            [
+              10.7570993,
+              52.4247071
+            ],
+            [
+              10.7570356,
+              52.4248201
+            ],
+            [
+              10.7573434,
+              52.4248847
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-166540611",
+        "name": "Gaststätte Sonnenschein - bei Otto",
+        "city": "Wolfsburg",
+        "street": "Heinrich-Nordhoff-Straße 131",
+        "zip": "38440",
+        "category": 14,
+        "lat": 52.4247962552,
+        "lng": 10.7572230722,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/166540611",
+        "source_version": 5,
+        "source_timestamp": "2016-01-25T16:32:54Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0036,
+        "boundary_clearance_m": 6.651278328652481,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.226159,
+              52.3208207
+            ],
+            [
+              10.2261809,
+              52.3206909
+            ],
+            [
+              10.2265897,
+              52.3207167
+            ],
+            [
+              10.2265677,
+              52.3208465
+            ],
+            [
+              10.226159,
+              52.3208207
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-46259186",
+        "name": "Stadtbücherei Peine",
+        "city": "Peine",
+        "street": "Winkel 30a",
+        "zip": "31224",
+        "category": 16,
+        "lat": 52.3207687,
+        "lng": 10.22637435,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/46259186",
+        "source_version": 10,
+        "source_timestamp": "2022-06-16T10:32:58Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.004200000000000001,
+        "boundary_clearance_m": 7.262985730982383,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7032538,
+              52.3796958
+            ],
+            [
+              9.7032721,
+              52.3796327
+            ],
+            [
+              9.7033634,
+              52.3796426
+            ],
+            [
+              9.7033725,
+              52.3796109
+            ],
+            [
+              9.7036277,
+              52.3796385
+            ],
+            [
+              9.703585,
+              52.3797867
+            ],
+            [
+              9.703456,
+              52.3797727
+            ],
+            [
+              9.7034714,
+              52.3797194
+            ],
+            [
+              9.7034183,
+              52.3797149
+            ],
+            [
+              9.7033885,
+              52.3798147
+            ],
+            [
+              9.7033139,
+              52.3798064
+            ],
+            [
+              9.7033451,
+              52.3797057
+            ],
+            [
+              9.7032538,
+              52.3796958
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-159114386",
+        "name": "Dornröschen",
+        "city": "Hannover",
+        "street": "In den Kämpen 54",
+        "zip": "30167",
+        "category": 5,
+        "lat": 52.37968070150001,
+        "lng": 9.7035286165,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/159114386",
+        "source_version": 15,
+        "source_timestamp": "2025-11-17T10:41:41Z",
+        "website": "https://dornroeschen.cafe",
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0028,
+        "boundary_clearance_m": 5.800433742475423,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3260031,
+              52.1563755
+            ],
+            [
+              10.3260109,
+              52.1561572
+            ],
+            [
+              10.3256148,
+              52.1561622
+            ],
+            [
+              10.3256045,
+              52.1562497
+            ],
+            [
+              10.3255319,
+              52.1562505
+            ],
+            [
+              10.3255313,
+              52.1562306
+            ],
+            [
+              10.3254675,
+              52.1562314
+            ],
+            [
+              10.325468,
+              52.1562455
+            ],
+            [
+              10.3253972,
+              52.1562462
+            ],
+            [
+              10.3253999,
+              52.1563359
+            ],
+            [
+              10.3254185,
+              52.1563357
+            ],
+            [
+              10.3254192,
+              52.156361
+            ],
+            [
+              10.3253702,
+              52.1563615
+            ],
+            [
+              10.3253729,
+              52.1564512
+            ],
+            [
+              10.3253915,
+              52.156451
+            ],
+            [
+              10.3253923,
+              52.1564793
+            ],
+            [
+              10.3253513,
+              52.1564798
+            ],
+            [
+              10.325354,
+              52.1565725
+            ],
+            [
+              10.3254717,
+              52.1565711
+            ],
+            [
+              10.325472,
+              52.1565805
+            ],
+            [
+              10.3255335,
+              52.1565798
+            ],
+            [
+              10.3255318,
+              52.1565213
+            ],
+            [
+              10.3255753,
+              52.1565208
+            ],
+            [
+              10.325576,
+              52.1565441
+            ],
+            [
+              10.3257771,
+              52.1565418
+            ],
+            [
+              10.325774,
+              52.1564398
+            ],
+            [
+              10.3257935,
+              52.1564232
+            ],
+            [
+              10.3258529,
+              52.1563756
+            ],
+            [
+              10.3260031,
+              52.1563755
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "key": "osm-way-103029703",
+        "name": "Stadtbibliothek Salzgitter-Lebenstedt",
+        "city": "Salzgitter",
+        "street": "Joachim-Campe-Straße 4",
+        "zip": "38226",
+        "category": 16,
+        "lat": 52.1563696966,
+        "lng": 10.3256148102,
+        "pin_method": "INTERIOR_MAX_CLEARANCE_GRID",
+        "source_url": "https://www.openstreetmap.org/way/103029703",
+        "source_version": 7,
+        "source_timestamp": "2025-06-07T12:24:31Z",
+        "website": null,
+        "polygon_status": "OSM_CONTOUR_REVIEW_REQUIRED",
+        "status": "OSM_SOURCED_NOT_OPERATOR_VERIFIED",
+        "chat_radius_km": 0.0103,
+        "boundary_clearance_m": 13.376567430666528,
+        "boundary_margin_m": 3,
+        "radius_status": "CIRCLE_INSIDE_OSM_BUILDING_NOT_GPS_GUARANTEE",
+        "view_km": 32.0
+      }
+    }
+  ]
+}

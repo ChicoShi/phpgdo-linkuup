@@ -1,0 +1,469 @@
+{
+  "method": "HEAD, timeout 7s; HTTP reachability is not an operator or opening-hours confirmation",
+  "counts": {
+    "reachable": 50,
+    "not_confirmed": 5,
+    "no_website_in_source": 42,
+    "http_response": 3
+  },
+  "rows": [
+    {
+      "key": "osm-node-299530291",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-696371744",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-293399026",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-4756278498",
+      "status": "not_confirmed",
+      "reason": "URLError"
+    },
+    {
+      "key": "osm-node-264136726",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-441937680",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-309906984",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-294226984",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-940676287",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-260472134",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3618281370",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-7152254653",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-940735501",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3210112071",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-4443425877",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-9672133811",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-12393840445",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3450010602",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-310662005",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-304561670",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-2529688841",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-321656754",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-2561084991",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-8926232699",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-363778528",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-2525786459",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-348233689",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3652337825",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-299312713",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-5036180753",
+      "status": "http_response",
+      "http": 400
+    },
+    {
+      "key": "osm-node-859535878",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-6531807247",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-315506607",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-12183840706",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-10921288933",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-8869914901",
+      "status": "not_confirmed",
+      "reason": "URLError"
+    },
+    {
+      "key": "osm-node-1540733194",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-4792062773",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-1369983462",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-5236655244",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-266021857",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-13595947508",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-8261473142",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-1351713514",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-456152795",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-13529628971",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-10560262317",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-11522859869",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-1564295550",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-5933606151",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-1911567253",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-2616639670",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-1695895524",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-287614592",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-6577210744",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-1051484409",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-13556245905",
+      "status": "not_confirmed",
+      "reason": "URLError"
+    },
+    {
+      "key": "osm-node-4250229689",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-13786850749",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-4434343205",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-10924035657",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-679446834",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-232513086",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-2394376806",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-12272570974",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-9046048393",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-5739484724",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-11148531460",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-253238389",
+      "status": "not_confirmed",
+      "reason": "URLError"
+    },
+    {
+      "key": "osm-node-677909318",
+      "status": "not_confirmed",
+      "reason": "URLError"
+    },
+    {
+      "key": "osm-node-129969302",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-304565041",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-2529311343",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-1700805111",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-619072737",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-8335030486",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3655755232",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-448138789",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-345828654",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-344277447",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-13585059416",
+      "status": "http_response",
+      "http": 403
+    },
+    {
+      "key": "osm-node-998020244",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3920678657",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-450164445",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-3460383617",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3920395030",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-11218186437",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-1137585768",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-289790639",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-670501894",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-1515106042",
+      "status": "http_response",
+      "http": 403
+    },
+    {
+      "key": "osm-node-10678397546",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-501855397",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-9876651900",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-1439724955",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-1435011845",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-314387513",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-3918916247",
+      "status": "no_website_in_source"
+    },
+    {
+      "key": "osm-node-11494509910",
+      "status": "reachable",
+      "http": 200
+    },
+    {
+      "key": "osm-node-1578172983",
+      "status": "no_website_in_source"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+OSM-Key,Name,Stadt,Adresse,PLZ,Latitude,Longitude,Radius_m,Quelle,Gebaeudequelle
+osm-node-10728221424,Hans im Glück,Braunschweig,Bohlweg 19,38100,52.263771055700005,10.526049480000001,3.3,https://www.openstreetmap.org/node/10728221424,https://www.openstreetmap.org/way/116132643
+osm-way-233744031,Hasenwinkel Stuben,Wolfsburg,Neue Straße 52,38444,52.353157687300005,10.7693198672,3.1,https://www.openstreetmap.org/way/233744031,https://www.openstreetmap.org/way/233744031
+osm-node-3782285156,Eiscafe Gondola,Peine,Schützenstraße 1,31224,52.3203524309,10.230442669350001,3.5,https://www.openstreetmap.org/node/3782285156,https://www.openstreetmap.org/way/374848526
+osm-node-5894420290,Atrium,Hannover,Karmarschstraße 42,30159,52.3712353,9.7360212,13.3,https://www.openstreetmap.org/node/5894420290,https://www.openstreetmap.org/way/5121356
+osm-node-3782401686,Qvevri,Hildesheim,Scheelenstraße 21,31134,52.1514533,9.9519578,2.0,https://www.openstreetmap.org/node/3782401686,https://www.openstreetmap.org/way/197704761
+osm-node-535435693,China Restaurant Wan Bao,Wolfenbüttel,Kommißstraße 9a,38300,52.16128334,10.5348058444,3.9,https://www.openstreetmap.org/node/535435693,https://www.openstreetmap.org/way/394372631
+osm-node-501928353,Familienbibliothek,Celle,Rundestraße 14,29221,52.6236743825,10.0817064127,3.3,https://www.openstreetmap.org/node/501928353,https://www.openstreetmap.org/way/126270808
+osm-node-11683825312,Brauhaus Goslar,Goslar,Marktkirchhof 2,38640,51.905272698199994,10.42817515665,4.2,https://www.openstreetmap.org/node/11683825312,https://www.openstreetmap.org/way/135963088
+osm-node-2136360548,Chili,Gifhorn,Braunschweiger Straße 5,38518,52.481341390000004,10.5448104565,4.1,https://www.openstreetmap.org/node/2136360548,https://www.openstreetmap.org/way/169064380
+osm-node-1971814563,China Imbiss Shanghai,Lehrte,Burgdorfer Straße 15,31275,52.3773204,9.9755465,2.5,https://www.openstreetmap.org/node/1971814563,https://www.openstreetmap.org/way/1475556985
+osm-way-56060598,Panoramic Veranstaltungshaus und Restaurant,Braunschweig,Borsigstraße 3,38126,52.24560260155,10.545132085,7.9,https://www.openstreetmap.org/way/56060598,https://www.openstreetmap.org/way/56060598
+osm-way-375434927,Hotel Restaurant Conni,Wolfsburg,Neuhäuser Straße 19,38448,52.43126060000001,10.848484981599999,3.9,https://www.openstreetmap.org/way/375434927,https://www.openstreetmap.org/way/375434927
+osm-node-3862834857,Café Anna Leine,Hannover,Am Hohen Ufer 3,30159,52.372612,9.7308621,2.1,https://www.openstreetmap.org/node/3862834857,https://www.openstreetmap.org/way/186605152
+osm-node-9919985534,Sogno Mio,Hildesheim,Friesenstraße 5,31134,52.1501385022,9.9521171154,4.3,https://www.openstreetmap.org/node/9919985534,https://www.openstreetmap.org/way/201333137
+osm-node-535435702,Lavi Cafe & Bar,Wolfenbüttel,Krambuden 15,38300,52.162896127050004,10.534034735499999,3.8,https://www.openstreetmap.org/node/535435702,https://www.openstreetmap.org/way/392725688
+osm-way-67013002,Stadtbibliothek Celle - Hauptstelle,Celle,Arno-Schmidt-Platz 1,29221,52.62158017305,10.07894391665,5.1,https://www.openstreetmap.org/way/67013002,https://www.openstreetmap.org/way/67013002
+osm-way-794569138,Pizza Roma,Goslar,Bahnhofstraße 26,38642,51.901960822599996,10.4820617526,2.0,https://www.openstreetmap.org/way/794569138,https://www.openstreetmap.org/way/794569138
+osm-way-314485834,Konditorei Pöthig,Gifhorn,Braunschweiger Straße 88,38518,52.471514885,10.542757846,2.0,https://www.openstreetmap.org/way/314485834,https://www.openstreetmap.org/way/314485834
+osm-way-154250063,Velanidia,Braunschweig,Brinkstraße 5,38122,52.235819262700005,10.4751062114,2.8,https://www.openstreetmap.org/way/154250063,https://www.openstreetmap.org/way/154250063
+osm-way-32395674,Lou's,Wolfsburg,Friederikenring 5,38448,52.4390353353,10.829183739999998,7.6,https://www.openstreetmap.org/way/32395674,https://www.openstreetmap.org/way/32395674
+osm-node-335497413,Paulaner am Thielenplatz,Hannover,Prinzenstraße 1,30159,52.3741178,9.7440479,2.4,https://www.openstreetmap.org/node/335497413,https://www.openstreetmap.org/way/185852898
+osm-node-275601557,India Haus,Hildesheim,Schuhstraße 52,31134,52.1503041189,9.953325617,3.0,https://www.openstreetmap.org/node/275601557,https://www.openstreetmap.org/way/201333086
+osm-node-535435694,"Familiencafe ""Kleine Auszeit""",Wolfenbüttel,Kommißstraße 9b,38300,52.161450520799995,10.534796797,3.9,https://www.openstreetmap.org/node/535435694,https://www.openstreetmap.org/way/394372632
+osm-way-217407122,Die 7 Brüder,Celle,Altenceller Schneede 3,29221,52.6066663,10.100650850000001,4.8,https://www.openstreetmap.org/way/217407122,https://www.openstreetmap.org/way/217407122
+osm-way-187199245,Ratsstuben,Goslar,Rathausstraße 1a,38644,51.85803772239999,10.3400426129,3.2,https://www.openstreetmap.org/way/187199245,https://www.openstreetmap.org/way/187199245
+osm-way-198138841,Saustall,Gifhorn,Wittkopsweg 18,38518,52.484975686300004,10.52082940915,4.3,https://www.openstreetmap.org/way/198138841,https://www.openstreetmap.org/way/198138841
+osm-way-148399532,Zum Eichenwald,Braunschweig,Salzdahlumer Straße 313,38126,52.22253061,10.564665675599999,4.2,https://www.openstreetmap.org/way/148399532,https://www.openstreetmap.org/way/148399532
+osm-way-96931430,Mediterran,Wolfsburg,Mecklenburger Straße 100,38440,52.411797399899996,10.7451658326,6.4,https://www.openstreetmap.org/way/96931430,https://www.openstreetmap.org/way/96931430
+osm-node-137980116,Schauspielhaus,Hannover,Prinzenstraße 9,30159,52.3734568,9.7439211,6.5,https://www.openstreetmap.org/node/137980116,https://www.openstreetmap.org/way/553781822
+osm-way-270107207,Kalimera,Celle,Mummenhofstraße 40,29229,52.650340153900004,10.099675052999999,3.5,https://www.openstreetmap.org/way/270107207,https://www.openstreetmap.org/way/270107207
+osm-way-186605459,Seerose,Goslar,Parkstraße 4-6,38644,51.8578144896,10.33873033345,8.1,https://www.openstreetmap.org/way/186605459,https://www.openstreetmap.org/way/186605459
+osm-way-278782504,Zum Isetal,Gifhorn,Im Winkel 4,38518,52.519626724999995,10.541376767,3.0,https://www.openstreetmap.org/way/278782504,https://www.openstreetmap.org/way/278782504
+osm-way-34103193,Zur Freundschaft,Braunschweig,Georg-Westermann-Allee 36,38104,52.264606278799995,10.561481209050001,4.3,https://www.openstreetmap.org/way/34103193,https://www.openstreetmap.org/way/34103193
+osm-way-46965878,Oniro,Wolfsburg,Hofekamp 7,38442,52.4159624918,10.7161368825,2.3,https://www.openstreetmap.org/way/46965878,https://www.openstreetmap.org/way/46965878
+osm-node-51309038,Stadtbibliothek Linden,Hannover,Lindener Marktplatz 1,30449,52.3669072,9.7142682,2.0,https://www.openstreetmap.org/node/51309038,https://www.openstreetmap.org/way/237417738
+osm-way-238887302,Landgasthof Sohnemann,Celle,Straßenkamp 4,29229,52.645855099100004,10.133481764899999,2.8,https://www.openstreetmap.org/way/238887302,https://www.openstreetmap.org/way/238887302
+osm-way-248181945,Sportklause VfL Oker,Goslar,Försterwiese 13a,38642,51.8977438468,10.487611270250001,4.0,https://www.openstreetmap.org/way/248181945,https://www.openstreetmap.org/way/248181945
+osm-way-111081348,Adriatic-Grill,Braunschweig,Berliner Heerstraße 59,38104,52.29098330125,10.597361043749999,2.5,https://www.openstreetmap.org/way/111081348,https://www.openstreetmap.org/way/111081348
+osm-way-118710908,Pizza & Coffee Meynum,Wolfsburg,Detmeroder Markt 19,38444,52.392217086,10.7542612586,9.4,https://www.openstreetmap.org/way/118710908,https://www.openstreetmap.org/way/118710908
+osm-node-7066027627,bona'me,Hannover,Am Hohen Ufer 5,30159,52.3735106,9.7301401,2.7,https://www.openstreetmap.org/node/7066027627,https://www.openstreetmap.org/way/549778535
+osm-way-217478400,Vereinsheim Friedrichslust,Celle,Zum Kiebitzsee 1000,29225,52.59868145,10.0526829,3.6,https://www.openstreetmap.org/way/217478400,https://www.openstreetmap.org/way/217478400
+osm-way-124781353,"Steinberg Alm ""Zum Rösner""",Goslar,Nonnenberg 11,38644,51.89893811475,10.397818950849999,6.4,https://www.openstreetmap.org/way/124781353,https://www.openstreetmap.org/way/124781353
+osm-way-118906270,Gewürz Küche,Braunschweig,Ruhfäutchenplatz 2,38100,52.265787379,10.523719034749998,2.3,https://www.openstreetmap.org/way/118906270,https://www.openstreetmap.org/way/118906270
+osm-way-216604991,Zeus,Wolfsburg,Unter den Eichen 2a-b,38446,52.41726145,10.804485249999999,2.0,https://www.openstreetmap.org/way/216604991,https://www.openstreetmap.org/way/216604991
+osm-node-539069162,Alexander,Hannover,Prinzenstraße 10,30159,52.3733640797,9.7445069178,4.6,https://www.openstreetmap.org/node/539069162,https://www.openstreetmap.org/way/124426752
+osm-way-122869807,Vinsanto zum Förderturm,Goslar,Bergtal 4,38644,51.888970549999996,10.418969494199999,5.4,https://www.openstreetmap.org/way/122869807,https://www.openstreetmap.org/way/122869807
+osm-way-159932727,Hanoi Phô,Braunschweig,Leipziger Straße 85,38124,52.22971795,10.5199614,2.4,https://www.openstreetmap.org/way/159932727,https://www.openstreetmap.org/way/159932727
+osm-node-268810378,Corner,Hannover,Velberstraße 10,30451,52.372829286,9.7062278392,3.4,https://www.openstreetmap.org/node/268810378,https://www.openstreetmap.org/way/175083902
+osm-node-11683825313,Cafe am Markt,Goslar,Markt 4,38640,51.9057019586,10.4293976712,3.0,https://www.openstreetmap.org/node/11683825313,https://www.openstreetmap.org/way/135962222
+osm-way-30819589,Kantina Kreativa (Mensa HBK),Braunschweig,Pippelweg 77,38118,52.25726323279999,10.501413193500001,9.4,https://www.openstreetmap.org/way/30819589,https://www.openstreetmap.org/way/30819589
+osm-node-11065641820,Eckis Wirtshaus,Hannover,Egestorffstraße 10,30449,52.36707878540001,9.7123395345,2.5,https://www.openstreetmap.org/node/11065641820,https://www.openstreetmap.org/way/237305767
+osm-way-192009861,Der Kuhstall Am Finkenherd,Goslar,Osterwiecker Straße 75,38690,51.95115525999999,10.5917332385,3.8,https://www.openstreetmap.org/way/192009861,https://www.openstreetmap.org/way/192009861
+osm-way-31287012,Kantine im Thünen-Institut,Braunschweig,Bundesallee 46,38116,52.289237653,10.43866966225,4.9,https://www.openstreetmap.org/way/31287012,https://www.openstreetmap.org/way/31287012
+osm-way-95428122,El Chileno,Hannover,Langenforther Straße 20,30657,52.419534150000004,9.79254125,2.0,https://www.openstreetmap.org/way/95428122,https://www.openstreetmap.org/way/95428122
+osm-way-972894237,Flösser Stube,Goslar,Talstraße 30,38642,51.8945606646,10.479744635849999,5.6,https://www.openstreetmap.org/way/972894237,https://www.openstreetmap.org/way/972894237
+osm-way-176974326,Restaurant Pfälzer Hof (15),Braunschweig,Ernst-Böhme-Straße 15,38112,52.30988883169999,10.493018972900002,2.0,https://www.openstreetmap.org/way/176974326,https://www.openstreetmap.org/way/176974326
+osm-node-322834673,Enchilada,Hannover,Knochenhauerstraße 36,30159,52.372324688999996,9.73363744535,2.5,https://www.openstreetmap.org/node/322834673,https://www.openstreetmap.org/way/186605161
+osm-way-156783634,Gasthaus Weißes Roß,Goslar,Osterwiecker Straße 105,38690,51.952695840649994,10.609270994100001,3.2,https://www.openstreetmap.org/way/156783634,https://www.openstreetmap.org/way/156783634
+osm-way-146059203,Vereinsgaststätte Kleingärtnerverein Mückenburg,Braunschweig,Georg-Westermann-Allee 45,38104,52.2623376506,10.56051834,2.4,https://www.openstreetmap.org/way/146059203,https://www.openstreetmap.org/way/146059203
+osm-node-7434993113,Forum im [ka:punkt],Hannover,Grupenstraße 8,30159,52.37225903430001,9.73647490315,2.6,https://www.openstreetmap.org/node/7434993113,https://www.openstreetmap.org/way/553133376
+osm-way-794576292,Grillhaus Istanbul,Goslar,Bahnhofstraße 25,38642,51.9025323831,10.4813558108,2.5,https://www.openstreetmap.org/way/794576292,https://www.openstreetmap.org/way/794576292
+osm-way-77356173,Waldschänke,Braunschweig,Rüningenstraße 20,38122,52.21165814374999,10.476198181600001,2.4,https://www.openstreetmap.org/way/77356173,https://www.openstreetmap.org/way/77356173
+osm-way-371660116,HONEY'S,Hannover,Asternstraße 15,30167,52.38500581299999,9.7226166578,2.0,https://www.openstreetmap.org/way/371660116,https://www.openstreetmap.org/way/371660116
+osm-way-308431627,Maharaja Palast,Goslar,Goslarer Straße 78,38690,51.9533213128,10.5489646019,2.4,https://www.openstreetmap.org/way/308431627,https://www.openstreetmap.org/way/308431627
+osm-way-154244835,Weng,Braunschweig,Steinbrink 28,38122,52.237239203250006,10.47809809695,2.5,https://www.openstreetmap.org/way/154244835,https://www.openstreetmap.org/way/154244835
+osm-node-717810387,Heiser,Hannover,Hannoversche Straße 7,30629,52.389808338,9.853531796,3.2,https://www.openstreetmap.org/node/717810387,https://www.openstreetmap.org/way/190451513
+osm-way-793625945,Schnellrestaurant Öz-Tat,Goslar,Bahnhofstraße 18,38642,51.9011857448,10.482350698200001,2.4,https://www.openstreetmap.org/way/793625945,https://www.openstreetmap.org/way/793625945
+osm-way-152166518,ZUM ROTHENBURG,Braunschweig,Lichtenberger Straße 53,38120,52.240094798899996,10.479117528,5.5,https://www.openstreetmap.org/way/152166518,https://www.openstreetmap.org/way/152166518
+osm-way-638421631,Hoflokal,Hannover,Adenauerallee 3,30175,52.3823517592,9.769915775249999,4.6,https://www.openstreetmap.org/way/638421631,https://www.openstreetmap.org/way/638421631
+osm-way-140867631,Ichiban,Hannover,Friedrichswall 10,30159,52.3679081488,9.740870279149998,2.4,https://www.openstreetmap.org/way/140867631,https://www.openstreetmap.org/way/140867631
+osm-node-2389802411,Ischia,Hannover,Hannoversche Straße 2,30629,52.390265381,9.8533974339,3.4,https://www.openstreetmap.org/node/2389802411,https://www.openstreetmap.org/way/153361799
+osm-node-2485180726,KAFFEE KANN ICH,Hannover,Voßstraße 41,30161,52.389900773099995,9.7433300024,2.5,https://www.openstreetmap.org/node/2485180726,https://www.openstreetmap.org/way/1376728404
+osm-node-1482020070,Konditorei Mönikes,Hannover,Falkenstraße 13,30449,52.367000147,9.71784872225,3.3,https://www.openstreetmap.org/node/1482020070,https://www.openstreetmap.org/way/187005789
+osm-node-3305902586,MarktCafè,Hannover,Lindener Marktplatz 5,30449,52.367363232749994,9.714078898699999,3.1,https://www.openstreetmap.org/node/3305902586,https://www.openstreetmap.org/way/229832029
+osm-node-380880718,Menagerie,Hannover,Kötnerholzweg 47a,30451,52.375594208,9.704066191199999,3.7,https://www.openstreetmap.org/node/380880718,https://www.openstreetmap.org/way/186636940
+osm-way-38207713,Mensa/Zentralküche/Schule für Diätassistentinnen,Hannover,Carl-Neuberg-Straße 1,30625,52.3822793184,9.801435900400001,22.4,https://www.openstreetmap.org/way/38207713,https://www.openstreetmap.org/way/38207713
+osm-node-12567876305,My Way Altstadt Bar & Bistro,Hannover,Knochenhauerstraße 30,30159,52.372589986499996,9.7334136126,2.1,https://www.openstreetmap.org/node/12567876305,https://www.openstreetmap.org/way/1296935062
+osm-way-4816458,Opernhaus,Hannover,Opernplatz 1,30159,52.3733641,9.7409029676,28.1,https://www.openstreetmap.org/way/4816458,https://www.openstreetmap.org/way/4816458
+osm-way-208261639,Palios,Hannover,Kurze-Kamp-Straße 1,30659,52.420033563000004,9.7985403022,2.6,https://www.openstreetmap.org/way/208261639,https://www.openstreetmap.org/way/208261639
+osm-node-600299658,Pfefferkorn,Hannover,Waldstraße 3,30163,52.39170975665,9.755052073549999,2.3,https://www.openstreetmap.org/node/600299658,https://www.openstreetmap.org/way/1374699034
+osm-way-191088889,Rembetiko,Hannover,Brabeckstraße 168,30539,52.34278682475001,9.8267585718,5.5,https://www.openstreetmap.org/way/191088889,https://www.openstreetmap.org/way/191088889
+osm-way-190595939,Restaurant Oikos,Hannover,Mardalstraße 12,30559,52.363719949499995,9.825903704,3.7,https://www.openstreetmap.org/way/190595939,https://www.openstreetmap.org/way/190595939
+osm-node-1440320284,Restaurant Otts,Hannover,Köbelingerstraße 1,30159,52.3710396749,9.73559949765,3.0,https://www.openstreetmap.org/node/1440320284,https://www.openstreetmap.org/way/529204865
+osm-node-84450585,Restaurante Fellini,Hannover,Voßstraße 42,30161,52.3894081586,9.743143737599997,3.3,https://www.openstreetmap.org/node/84450585,https://www.openstreetmap.org/way/351706363
+osm-node-288173604,Salentino,Hannover,Sedanstraße 52,30161,52.3814492188,9.7473159575,2.7,https://www.openstreetmap.org/node/288173604,https://www.openstreetmap.org/way/166529820
+osm-way-10142063,Schlossküche Herrenhausen,Hannover,Alte Herrenhäuser Straße 3,30419,52.39123623900001,9.696867304,4.7,https://www.openstreetmap.org/way/10142063,https://www.openstreetmap.org/way/10142063
+osm-way-23913511,Stadtbibliothek Herrenhausen,Hannover,Herrenhäuser Straße 52,30419,52.393034723,9.687735681500001,6.2,https://www.openstreetmap.org/way/23913511,https://www.openstreetmap.org/way/23913511
+osm-way-159762792,Steuerndieb,Hannover,Steuerndieb 1,30655,52.390728415,9.784505501000002,5.5,https://www.openstreetmap.org/way/159762792,https://www.openstreetmap.org/way/159762792
+osm-node-5659481836,Tante Franz,Hannover,Hahnenstraße 1,30167,52.3866234636,9.720227534200001,2.2,https://www.openstreetmap.org/node/5659481836,https://www.openstreetmap.org/way/124842029
+osm-node-6548522788,Taste of India,Hannover,Schwarzer Bär 5,30449,52.367748256999995,9.720304025250002,5.1,https://www.openstreetmap.org/node/6548522788,https://www.openstreetmap.org/way/1126016004
+osm-way-530821845,Theater am Aegi,Hannover,Aegidientorplatz 2,30169,52.3677115256,9.74316883375,17.9,https://www.openstreetmap.org/way/530821845,https://www.openstreetmap.org/way/530821845
+osm-way-174786697,Vier Jahreszeiten,Hannover,Waldhausenstraße 1,30519,52.3466948907,9.7614373996,4.0,https://www.openstreetmap.org/way/174786697,https://www.openstreetmap.org/way/174786697
+osm-node-7616718041,grüpchen,Hannover,Grupenstraße 10,30159,52.3721573881,9.736322015999999,2.6,https://www.openstreetmap.org/node/7616718041,https://www.openstreetmap.org/way/553133378
+osm-way-103699285,41,Hannover,Kugelfangtrift 1,30179,52.42267424399999,9.737683583,4.7,https://www.openstreetmap.org/way/103699285,https://www.openstreetmap.org/way/103699285
+osm-node-10183414928,Asia Luong,Hannover,Deisterstraße 20,30449,52.36650508380001,9.719348687800002,2.5,https://www.openstreetmap.org/node/10183414928,https://www.openstreetmap.org/way/1192929775
+osm-node-3410377179,Cafe & Bar Celona,Hannover,Knochenhauerstraße 42,30159,52.37191132000001,9.7340285366,3.5,https://www.openstreetmap.org/node/3410377179,https://www.openstreetmap.org/way/527942702
+osm-node-12681388907,Café Pico Greek Evros,Hannover,Engelbosteler Damm 111,30167,52.39252734500001,9.719155135000001,2.3,https://www.openstreetmap.org/node/12681388907,https://www.openstreetmap.org/way/145407272
+osm-way-87951396,Döner Chef,Hannover,Holzwiesen 42,30179,52.410450356999995,9.763204025,2.3,https://www.openstreetmap.org/way/87951396,https://www.openstreetmap.org/way/87951396
+osm-node-667761387,Gaston,Hannover,Posthornstraße 10,30449,52.3639293144,9.71553607825,3.3,https://www.openstreetmap.org/node/667761387,https://www.openstreetmap.org/way/1097303193
+osm-way-164948162,Gaststätte u. Vereinsheim SV Odin,Hannover,An der Graft 1,30167,52.38346577185,9.700669434400002,4.7,https://www.openstreetmap.org/way/164948162,https://www.openstreetmap.org/way/164948162

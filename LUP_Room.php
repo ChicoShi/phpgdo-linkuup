@@ -67,6 +67,22 @@ final class LUP_Room extends GDO
 		return parent::blank($initial);
 	}
 
+	/**
+	 * MySQL/MariaDB's text protocol prints FLOAT columns with fewer significant
+	 * digits than are stored. A 52.x latitude can shift by several metres.
+	 * Return seven decimal places before GDO/binary serialization; no schema or
+	 * geofence expansion. Explicit projections/count queries stay unchanged.
+	 */
+	public function select(string $columns = '*', bool $withHooks = true): \GDO\DB\Query
+	{
+		if ($columns === '*')
+		{
+			$columns = 'lup_room.*, CAST(lup_room.room_pos_lat AS DECIMAL(10,7)) AS room_pos_lat, ' .
+				'CAST(lup_room.room_pos_lng AS DECIMAL(10,7)) AS room_pos_lng';
+		}
+		return parent::select($columns, $withHooks);
+	}
+
 	################
 	### Comments ###
 	################
