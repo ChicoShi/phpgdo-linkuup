@@ -1475,6 +1475,29 @@ body.sb-sidenav-toggled #sidebarToggle { animation:lup-admin-menu-return .36s cu
 #content-wrap .lup-contact-composer #cmsg_message .editormd-preview,
 #content-wrap .lup-contact-composer #cmsg_message .editormd-mask,
 #content-wrap .lup-contact-composer #cmsg_message .editormd-preview-close-btn { display:none !important; }
+
+/* Contact::Form is rendered by the core form theme and has no app wrapper.
+ * Target the message editor itself as well, otherwise editor.md leaves the
+ * actual CodeMirror input at its default one-line half-width geometry. */
+#content-wrap #cmsg_message.wysiwyg.editormd { min-height:190px !important; height:190px !important; border:1px solid rgba(174,203,255,.17) !important; border-radius:14px !important; background:#191f31 !important; overflow:hidden; }
+#content-wrap #cmsg_message .editormd-toolbar,
+#content-wrap #cmsg_message .editormd-toolbar-container,
+#content-wrap #cmsg_message .editormd-preview,
+#content-wrap #cmsg_message .editormd-mask,
+#content-wrap #cmsg_message .editormd-preview-close-btn { display:none !important; }
+#content-wrap #cmsg_message .CodeMirror,
+#content-wrap #cmsg_message .CodeMirror-scroll,
+#content-wrap #cmsg_message .CodeMirror-sizer,
+#content-wrap #cmsg_message .CodeMirror-lines { width:100% !important; height:100% !important; background:#191f31 !important; color:#f3f5ff !important; }
+#content-wrap #cmsg_message .CodeMirror { margin-top:0 !important; border:0 !important; font:14px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif !important; }
+#content-wrap #cmsg_message .CodeMirror-gutters,
+#content-wrap #cmsg_message .CodeMirror-gutter-wrapper,
+#content-wrap #cmsg_message .CodeMirror-linenumber,
+#content-wrap #cmsg_message .CodeMirror-measure { display:none !important; }
+#content-wrap #cmsg_message .CodeMirror-sizer { margin-left:0 !important; }
+#content-wrap #cmsg_message .CodeMirror pre,
+#content-wrap #cmsg_message .CodeMirror-line { color:#f3f5ff !important; }
+#content-wrap #cmsg_message:focus-within { border-color:rgba(132,191,255,.52) !important; box-shadow:0 0 0 3px rgba(111,165,245,.12) !important; }
 #content-wrap .lup-contact-composer #form.lup-contact-desk .gdt-captcha { display:flex; align-items:center; gap:11px; margin:23px 0 0; padding:13px; border:1px solid rgba(174,203,255,.12); border-radius:13px; background:#151b2a !important; }
 #content-wrap .lup-contact-composer #form.lup-contact-desk .gdt-captcha label { margin:0; color:#bfcce6 !important; font-size:10px; font-weight:800; }
 #content-wrap .lup-contact-composer #form.lup-contact-desk .gdt-captcha > div { display:flex; align-items:center; gap:8px; min-width:0; }
