@@ -1,36 +1,36 @@
 /* Shared shell, forms and legal pages. Does not alter field semantics. */
-html.lup-backend-ui body { --shell-bg:#10121d; --shell-panel:#191c2a; --shell-text:#f5f6ff; --shell-muted:#afb4ce; --shell-line:#a59aca2b; background:var(--shell-bg)!important; color:var(--shell-text); }
+html.lup-backend-ui body { --shell-bg:#10161d; --shell-panel:#191c2a; --shell-text:#f5f6ff; --shell-muted:#afbdce; --shell-line:#9ab0ca2b; background:var(--shell-bg)!important; color:var(--shell-text); }
 html.lup-backend-ui #wrapper,html.lup-backend-ui #page-content-wrapper { background:var(--shell-bg)!important; }
 html.lup-backend-ui #page-content-wrapper { width:100%!important; min-width:0!important; margin-left:0!important; }
-html.lup-backend-ui body #wrapper #sidebar-wrapper { position:fixed!important; inset:0 auto 0 0!important; width:min(310px,88vw)!important; height:100dvh!important; margin:0!important; display:flex!important; flex-direction:column; transform:translateX(-100%)!important; visibility:hidden!important; pointer-events:none!important; z-index:1060!important; background:radial-gradient(ellipse at 0 0,#4a387344,transparent 65%),#171b2b!important; border-right:1px solid var(--shell-line)!important; box-shadow:16px 0 60px #0005!important; overflow:auto; transition:transform .25s ease,visibility .25s!important; }
+html.lup-backend-ui body #wrapper #sidebar-wrapper { position:fixed!important; inset:0 auto 0 0!important; width:min(310px,88vw)!important; height:100dvh!important; margin:0!important; display:flex!important; flex-direction:column; transform:translateX(-100%)!important; visibility:hidden!important; pointer-events:none!important; z-index:1060!important; background:radial-gradient(ellipse at 0 0,#38537344,transparent 65%),#171b2b!important; border-right:1px solid var(--shell-line)!important; box-shadow:16px 0 60px #0005!important; overflow:auto; transition:transform .25s ease,visibility .25s!important; }
 html.lup-backend-ui body.lup-arrival-menu-open #wrapper #sidebar-wrapper { transform:translateX(0)!important; visibility:visible!important; pointer-events:auto!important; }
-html.lup-backend-ui .lup-menu-shade { position:fixed; inset:0; z-index:1050; background:#090b17a6; border:0; padding:0; }
+html.lup-backend-ui .lup-menu-shade { position:fixed; inset:0; z-index:1050; background:#090f17a6; border:0; padding:0; }
 html.lup-backend-ui .lup-menu-shade[hidden] { display:none!important; }
 html.lup-backend-ui .lup-drawer-head { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:28px 22px; flex-shrink:0; }
-.lup-drawer-head b { font:450 38px/1.1 Ubuntu,'Segoe UI',sans-serif; letter-spacing:-.055em; color:#f5f6ff; }.lup-drawer-head b span { font-weight:750; color:#b2a7ef; }.lup-drawer-head small { display:block; margin-top:9px; font-size:12px; color:#b2b7d0; }
-html.lup-backend-ui .lup-menu-close { display:grid; place-items:center; width:44px!important; height:44px!important; min-width:44px!important; padding:0!important; margin:0!important; border:1px solid var(--shell-line)!important; border-radius:50%!important; background:#23273a!important; color:#e5e3fa!important; font:300 29px/1 sans-serif!important; }
+.lup-drawer-head b { font:450 38px/1.1 Ubuntu,'Segoe UI',sans-serif; letter-spacing:-.055em; color:#f5f6ff; }.lup-drawer-head b span { font-weight:750; color:#a7c7ef; }.lup-drawer-head small { display:block; margin-top:9px; font-size:12px; color:#b2b7d0; }
+html.lup-backend-ui .lup-menu-close { display:grid; place-items:center; width:44px!important; height:44px!important; min-width:44px!important; padding:0!important; margin:0!important; border:1px solid var(--shell-line)!important; border-radius:50%!important; background:#23273a!important; color:#e3edfa!important; font:300 29px/1 sans-serif!important; }
 html.lup-backend-ui #sidebar-wrapper #leftnav { flex:1; width:100%!important; margin:0!important; padding:12px!important; background:transparent!important; }
 html.lup-backend-ui #sidebar-wrapper #leftnav > li { border:0!important; padding:3px 0!important; margin:0!important; background:none!important; }
 html.lup-backend-ui #sidebar-wrapper #leftnav > li[hidden] { display:none!important; }
 html.lup-backend-ui #sidebar-wrapper #leftnav > li .gdt-link { display:block; }
 html.lup-backend-ui #sidebar-wrapper #leftnav > li a { display:flex!important; align-items:center; gap:14px; padding:13px 16px!important; min-height:52px!important; border:1px solid transparent!important; border-radius:14px!important; background:none!important; font-size:15px!important; font-weight:500!important; color:#bec3db!important; text-decoration:none; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a[aria-current=page] { border-color:#a694ee44!important; background:linear-gradient(110deg,#7554c930,#418aca20)!important; color:#eeeaff!important; }
+html.lup-backend-ui #sidebar-wrapper #leftnav > li a[aria-current=page] { border-color:#94bcee44!important; background:linear-gradient(110deg,#5489c930,#418aca20)!important; color:#eeeaff!important; }
 html.lup-backend-ui #sidebar-wrapper #leftnav > li a:hover { background:#ffffff09!important; }
-html.lup-backend-ui #sidebar-wrapper #leftnav a .gdo-icon { display:grid; place-items:center; width:32px; height:32px; flex-shrink:0; border-radius:10px; background:#a090e612; color:#bab2ee; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a .gdo-icon { display:grid; place-items:center; width:32px; height:32px; flex-shrink:0; border-radius:10px; background:#90b7e612; color:#b2cdee; }
 html.lup-backend-ui #sidebar-wrapper #leftnav a i { background:none!important; color:inherit!important; font-size:17px!important; transition:transform .2s; }
 html.lup-backend-ui #sidebar-wrapper #leftnav a:hover i { transform:translateY(-2px) rotate(-7deg); }
 .lup-drawer-languages { margin-top:auto; padding:18px 20px 26px; border-top:1px solid var(--shell-line); }
 html.lup-backend-ui .lup-drawer-languages .gdo-lang-switch { display:flex!important; justify-content:space-between; gap:5px; padding:0!important; border:0!important; background:none!important; }
 html.lup-backend-ui .lup-drawer-languages a { display:grid!important; place-items:center; min-width:44px; min-height:44px; border-radius:10px; background:#ffffff05; }
-html.lup-backend-ui #page-content-wrapper > .navbar { min-height:68px!important; background:linear-gradient(110deg,#20233a,#171b2b)!important; border-bottom:1px solid var(--shell-line)!important; box-shadow:none!important; }
+html.lup-backend-ui #page-content-wrapper > .navbar { min-height:68px!important; background:linear-gradient(110deg,#202c3a,#171b2b)!important; border-bottom:1px solid var(--shell-line)!important; box-shadow:none!important; }
 html.lup-backend-ui body #page-content-wrapper > nav.navbar #sidebarToggle,
-html.lup-backend-ui body #page-content-wrapper > nav.navbar .navbar-toggler { width:44px!important; height:44px!important; min-height:44px!important; min-width:44px!important; margin:0!important; padding:0!important; border:1px solid var(--shell-line)!important; border-radius:14px!important; background:#262b4044!important; box-shadow:none!important; color:#dbd8f5!important; }
+html.lup-backend-ui body #page-content-wrapper > nav.navbar .navbar-toggler { width:44px!important; height:44px!important; min-height:44px!important; min-width:44px!important; margin:0!important; padding:0!important; border:1px solid var(--shell-line)!important; border-radius:14px!important; background:#262b4044!important; box-shadow:none!important; color:#d8e5f5!important; }
 html.lup-backend-ui body #page-content-wrapper > nav.navbar #sidebarToggle > * { display:none!important; }
-html.lup-backend-ui body #page-content-wrapper > nav.navbar #sidebarToggle::after { content:'☰'; display:block!important; position:static!important; font-size:22px!important; width:auto!important; height:auto!important; border:0!important; border-radius:0!important; background:none!important; box-shadow:none!important; color:#d4d0ee; }
-html.lup-backend-ui #navbarSupportedContent { border-color:var(--shell-line)!important; background:#1b1e30!important; }
-html.lup-backend-ui #navbarSupportedContent a { font-size:14px!important; min-height:44px; color:#e1def5!important; }
+html.lup-backend-ui body #page-content-wrapper > nav.navbar #sidebarToggle::after { content:'☰'; display:block!important; position:static!important; font-size:22px!important; width:auto!important; height:auto!important; border:0!important; border-radius:0!important; background:none!important; box-shadow:none!important; color:#d0deee; }
+html.lup-backend-ui #navbarSupportedContent { border-color:var(--shell-line)!important; background:#1b2430!important; }
+html.lup-backend-ui #navbarSupportedContent a { font-size:14px!important; min-height:44px; color:#dee8f5!important; }
 html.lup-backend-ui a:focus-visible,html.lup-backend-ui button:focus-visible,html.lup-backend-ui input:focus-visible,html.lup-backend-ui select:focus-visible { outline:3px solid #b6a6ff!important; outline-offset:3px; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap { width:min(100%,1000px)!important; margin:0 auto!important; padding:56px 32px 80px!important; min-height:calc(100vh - 180px); background:none!important; color:#d9dcee!important; }
+html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap { width:min(100%,1000px)!important; margin:0 auto!important; padding:56px 32px 80px!important; min-height:calc(100vh - 180px); background:none!important; color:#d9e2ee!important; }
 html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap h1 { font-size:clamp(30px,5vw,46px)!important; line-height:1.15; letter-spacing:-.035em; margin:20px 0 30px; color:#f5f6ff!important; }
 html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap h2 { font-size:23px!important; margin:32px 0 14px; color:#f5f6ff!important; }
 html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap p,
@@ -41,21 +41,21 @@ html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap .gdt-form { max-
 html.lup-backend-ui .gdt-form .card-header,html.lup-backend-ui .gdt-form .card-body { background:none!important; border:0!important; padding:12px!important; }
 html.lup-backend-ui .gdt-form .card-header::before { display:none!important; }
 html.lup-backend-ui .gdt-form .card-title { font-size:30px!important; letter-spacing:-.03em; color:#f4f3ff!important; }
-html.lup-backend-ui .gdt-form label { font-size:13px!important; line-height:1.5; color:#c0c4d9!important; text-transform:none!important; letter-spacing:0!important; }
+html.lup-backend-ui .gdt-form label { font-size:13px!important; line-height:1.5; color:#c0cbd9!important; text-transform:none!important; letter-spacing:0!important; }
 html.lup-backend-ui .gdt-form input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]),
-html.lup-backend-ui .gdt-form textarea,html.lup-backend-ui .gdt-form select { min-height:48px!important; background:#111421!important; color:#f3f3ff!important; border:1px solid #77759155!important; border-radius:12px!important; box-shadow:none!important; font-size:16px!important; }
+html.lup-backend-ui .gdt-form textarea,html.lup-backend-ui .gdt-form select { min-height:48px!important; background:#111421!important; color:#f3f3ff!important; border:1px solid #75829155!important; border-radius:12px!important; box-shadow:none!important; font-size:16px!important; }
 html.lup-backend-ui .gdt-form .gdt-submit { background:none!important; border:0!important; box-shadow:none!important; padding:0!important; }
-html.lup-backend-ui .gdt-form input[type=submit],html.lup-backend-ui .gdt-form button[type=submit] { width:100%; min-height:48px!important; padding:12px 20px!important; background:linear-gradient(110deg,#7a5cff,#2b9df4)!important; border:1px solid #b7adf64d!important; border-radius:12px!important; color:white!important; font-size:15px!important; }
+html.lup-backend-ui .gdt-form input[type=submit],html.lup-backend-ui .gdt-form button[type=submit] { width:100%; min-height:48px!important; padding:12px 20px!important; background:linear-gradient(110deg,#378bd3,#2b9df4)!important; border:1px solid #b7adf64d!important; border-radius:12px!important; color:white!important; font-size:15px!important; }
 html.lup-backend-ui .gdt-form .gdt-checkbox { min-height:44px; }
-html.lup-backend-ui .gdt-table,html.lup-backend-ui table { color:#d7daec; border-color:#aca0d42b; }
+html.lup-backend-ui .gdt-table,html.lup-backend-ui table { color:#d7e0ec; border-color:#a0b7d42b; }
 html.lup-backend-ui .gdt-error,html.lup-backend-ui .alert-danger { color:#ffd4dd!important; background:#48243477!important; border-color:#d7889d55!important; }
-html.lup-backend-ui body > footer { background:#10121d!important; border:0!important; }
+html.lup-backend-ui body > footer { background:#10161d!important; border:0!important; }
 html.lup-backend-ui #bottom { justify-content:center; gap:20px; padding:22px!important; }
 html.lup-backend-ui #bottom > .gdt-link a { display:inline-flex; align-items:center; min-height:44px; font-size:13px; color:#aeb4d0!important; }
 html.lup-backend-ui #gdo_dsgvo_panel { position:relative; z-index:1100; }
-html.lup-backend-ui #gdo_dsgvo_panel .gdo_dsgvo_info { background:#191c2af5!important; border:1px solid #aca0d449!important; border-radius:20px!important; color:#e0def0!important; max-width:calc(100vw - 28px); max-height:80dvh; overflow:auto; }
+html.lup-backend-ui #gdo_dsgvo_panel .gdo_dsgvo_info { background:#191c2af5!important; border:1px solid #a0b7d449!important; border-radius:20px!important; color:#dee6f0!important; max-width:calc(100vw - 28px); max-height:80dvh; overflow:auto; }
 html.lup-backend-ui #gdo_dsgvo_panel .gdo_dsgvo_info p { font-size:14px!important; line-height:1.6!important; }
-html.lup-backend-ui #gdo-dsgvo-accept-button { min-height:44px; display:inline-flex; align-items:center; padding:12px 20px; background:linear-gradient(110deg,#7a5cff,#2b9df4)!important; border-radius:12px; color:#fff!important; }
+html.lup-backend-ui #gdo-dsgvo-accept-button { min-height:44px; display:inline-flex; align-items:center; padding:12px 20px; background:linear-gradient(110deg,#378bd3,#2b9df4)!important; border-radius:12px; color:#fff!important; }
 @media(max-width:760px) {
  html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap { padding:28px 16px 44px!important; }
  html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap .gdt-form { padding:18px 8px!important; }
@@ -76,8 +76,133 @@ html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .card-footer { back
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions > .gdt-container { display:flex!important; flex-wrap:wrap!important; align-items:center; gap:16px!important; padding:0!important; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions .gdt-submit { flex:1 0 100%; display:block!important; padding:0!important; margin:0!important; min-height:0!important; background:none!important; border:0!important; box-shadow:none!important; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-submit > .gdo-icon { display:none!important; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-submit input { display:block!important; position:static!important; transform:none!important; width:100%!important; margin:0!important; padding:14px 20px!important; text-align:center!important; background:linear-gradient(110deg,#7a5cff,#2b9df4)!important; border-radius:12px!important; }
-html.lup-backend-ui body.lup-backend #content-wrap .inner-form-input > .gdo-icon { color:#a8a1d4!important; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-submit input { display:block!important; position:static!important; transform:none!important; width:100%!important; margin:0!important; padding:14px 20px!important; text-align:center!important; background:linear-gradient(110deg,#378bd3,#2b9df4)!important; border-radius:12px!important; }
+html.lup-backend-ui body.lup-backend #content-wrap .inner-form-input > .gdo-icon { color:#a1b8d4!important; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions .gdt-button,
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions .gdt-link { flex:1 1 140px; padding:0!important; background:none!important; border:0!important; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions a { display:inline-flex!important; align-items:center; min-height:44px; font-size:13px!important; line-height:1.5!important; gap:8px; }
+
+/* Account/view popover: one readable list, shared by signed-in backend pages. */
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) {
+ position:absolute!important; inset:calc(100% + 8px) 12px auto auto!important;
+ width:min(340px,calc(100vw - 24px))!important; max-height:calc(100dvh - 110px)!important;
+ overflow:auto!important; overscroll-behavior:contain; padding:16px!important; margin:0!important;
+ background:#1b2430!important; background-image:none!important; backdrop-filter:none!important;
+ border:1px solid #a1b8d536!important; border-radius:20px!important;
+ box-shadow:0 18px 48px #05071066!important; z-index:1040!important;
+}
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing)::before {
+ content:'Konto & Bereiche'!important; display:block!important; padding:4px 12px 14px!important;
+ color:#b3c3d7!important; font:500 12px/1.4 Ubuntu,'Segoe UI',sans-serif!important;
+ letter-spacing:.025em!important; text-transform:none!important; border-bottom:1px solid #a1b4cb20;
+}
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .navbar-nav {
+ display:flex!important; flex-direction:column!important; gap:2px!important;
+ width:100%!important; padding:8px 0 0!important; margin:0!important;
+}
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .nav-item,
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .nav-item > .nav-link,
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-container,
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-menu { display:contents!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-link { display:block!important; width:100%!important; margin:0!important; padding:0!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a {
+ display:flex!important; align-items:center!important; justify-content:space-between!important;
+ gap:12px!important; width:100%!important; min-height:46px!important; padding:11px 12px!important;
+ border:0!important; border-radius:10px!important; background:transparent!important; box-shadow:none!important;
+ color:#edf2f8!important; font-size:14px!important; font-weight:500!important; line-height:1.4!important;
+ white-space:normal!important; text-decoration:none!important; text-transform:none!important;
+}
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a::before,
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a > .gdo-icon { display:none!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a::after { content:'›'!important; position:static!important; display:block!important; border:0!important; background:none!important; color:#96a6ba!important; font:400 20px/1 sans-serif!important; margin-left:auto!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a:hover,
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a:focus-visible { background:#a0c4ef16!important; color:#fff!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-nickname { font-size:14px!important; color:inherit!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) { transform:none!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .navbar-nav,
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-link,
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a { max-width:none!important; flex-basis:auto!important; align-self:stretch!important; box-sizing:border-box!important; }
+
+/* Backend review: isolate navigation above content; keep subnavigation in flow. */
+html.lup-backend-ui body.lup-backend #page-content-wrapper > nav.navbar { position:relative!important; z-index:1045!important; isolation:isolate; }
+html.lup-backend-ui body.lup-backend #content-wrap { position:relative!important; z-index:0!important; min-width:0!important; overflow-wrap:anywhere; }
+html.lup-backend-ui body.lup-backend #content-wrap > * { min-width:0; max-width:100%; }
+html.lup-backend-ui body.lup-backend #content-wrap .card { margin-bottom:18px; }
+html.lup-backend-ui body.lup-backend #content-wrap .card-body,
+html.lup-backend-ui body.lup-backend #content-wrap .card-header { background:transparent!important; color:#ebf0f7; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav { display:flex!important; flex-wrap:wrap!important; gap:8px!important; width:100%!important; padding:0!important; margin:0!important; position:static!important; background:none!important; border:0!important; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav .gdt-link { flex:1 1 145px; margin:0!important; min-width:0; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a { display:flex!important; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:10px 12px!important; border:1px solid #a3bedf29!important; border-radius:12px; background:#a0c1e909; color:#c0cddd; text-decoration:none; font-size:13px; line-height:1.4; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a[aria-current=page] { background:#8ab7ee24; border-color:#8ab7ee66!important; color:#f3ecff; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-fields > * { margin-bottom:22px; min-width:0; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form label { display:block; margin-bottom:9px; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .card-title { line-height:1.25; }
+html.lup-backend-ui .lup-table-scroll { width:100%; max-width:100%; overflow-x:auto; overflow-y:visible; overscroll-behavior-x:contain; overscroll-behavior-y:auto; border-radius:14px; }
+html.lup-backend-ui .lup-table-scroll table { margin:0; }
+html.lup-backend-ui #content-wrap dl { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:10px 14px; }
+html.lup-backend-ui #content-wrap dt,html.lup-backend-ui #content-wrap dd { min-width:0; max-width:100%; margin:0; white-space:normal; overflow-wrap:anywhere; }
+/* Keep the editor toolbar on one scrollable row so it cannot cover text. */
+html.lup-backend-ui #content-wrap .editormd { border:1px solid #75829155; border-radius:12px; background:#111421; }
+html.lup-backend-ui #content-wrap .editormd-toolbar { height:38px!important; min-height:38px!important; overflow-x:auto; overflow-y:hidden; background:#24283c; border-color:#75829155; z-index:12; }
+html.lup-backend-ui #content-wrap .editormd-menu { display:flex; flex-wrap:nowrap; width:max-content; }
+html.lup-backend-ui #content-wrap .editormd-menu > li { flex:none; }
+html.lup-backend-ui #content-wrap .editormd-menu a { min-width:32px; height:32px; color:#c9daef; }
+html.lup-backend-ui #content-wrap .CodeMirror,html.lup-backend-ui #content-wrap .CodeMirror-gutters,
+html.lup-backend-ui #content-wrap .editormd-preview { background:#111421; color:#e2e9f1; border-color:#75829155; }
+html.lup-backend-ui #content-wrap .CodeMirror { margin-top:38px!important; }
+html.lup-backend-ui #content-wrap .CodeMirror-cursor { border-left-color:#fff; }
+html.lup-backend-ui #content-wrap .gdo-logs-columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:24px; }
+html.lup-backend-ui #content-wrap .gdo-logs-files,html.lup-backend-ui #content-wrap .gdo-logs-viewer { min-width:0; }
+html.lup-backend-ui #content-wrap .gdo-logs-files ul { padding:0; list-style:none; }
+html.lup-backend-ui #content-wrap .gdo-logs-files li a { display:block; padding:10px 0; border-bottom:1px solid #a0b7d423; font-size:13px; }
+html.lup-backend-ui #content-wrap .gdo-logs-search { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
+html.lup-backend-ui #content-wrap .gdo-logs-search label { flex-basis:100%; }
+html.lup-backend-ui #content-wrap .gdo-logs input { min-width:0; max-width:100%; min-height:44px; padding:8px 12px; border:1px solid #75829155; border-radius:10px; background:#171b2b; color:#eee; }
+html.lup-backend-ui #content-wrap .gdo-logs-content { max-width:100%; overflow:auto; }
+/* Sidebar: one consistent rhythm, clear current page, quiet icons. */
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper { background:#17202b!important; border-right-color:#a3bedf33!important; }
+html.lup-backend-ui .lup-drawer-head { padding:30px 24px 24px; border-bottom:1px solid #a3bedf20; }
+html.lup-backend-ui .lup-drawer-head b { font-size:34px; }
+html.lup-backend-ui #sidebar-wrapper #leftnav { padding:16px 12px!important; }
+html.lup-backend-ui #sidebar-wrapper #leftnav > li a { min-height:50px!important; border-radius:12px!important; padding:10px 14px!important; }
+html.lup-backend-ui #sidebar-wrapper #leftnav > li a[aria-current=page] { background:#94bae921!important; border-color:#a1c3ed45!important; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a .gdo-icon { width:34px; height:34px; background:#a0bada10; }
+@media(max-width:760px) {
+ html.lup-backend-ui #content-wrap .gdo-logs-columns { grid-template-columns:minmax(0,1fr); }
+ html.lup-backend-ui body.lup-backend #content-wrap dl { grid-template-columns:minmax(0,1fr); }
+ html.lup-backend-ui #content-wrap dd { padding-bottom:10px; }
+ html.lup-backend-ui #content-wrap .editormd .CodeMirror { width:100%!important; }
+ html.lup-backend-ui #content-wrap .editormd-preview { top:38px!important; width:100%!important; z-index:11; }
+}
+html.lup-backend-ui #content-wrap .gdt-card-middle { min-width:0; display:block; }
+html.lup-backend-ui #content-wrap .gdt-card-fields { width:100%; min-width:0; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); }
+html.lup-backend-ui #content-wrap .gdt-card-fields > * { min-width:0; max-width:100%; overflow-wrap:anywhere; white-space:normal; }
+html.lup-backend-ui #content-wrap .CodeMirror,
+html.lup-backend-ui #content-wrap .CodeMirror-scroll,
+html.lup-backend-ui #content-wrap .CodeMirror-gutters,
+html.lup-backend-ui #content-wrap .editormd-preview,
+html.lup-backend-ui #content-wrap .editormd-preview-container { background:#111421!important; color:#e2e9f1!important; }
+html.lup-backend-ui #content-wrap .gdo-logs-search button { min-height:44px; padding:8px 16px; border:1px solid #a1c3ed45; border-radius:10px; color:#eee9ff; background:#36475c; }
+@media(max-width:760px) {
+ html.lup-backend-ui #content-wrap .gdt-card-fields { grid-template-columns:minmax(0,1fr); gap:6px; }
+ html.lup-backend-ui #content-wrap .gdt-card-fields > * { grid-column:1!important; text-align:left!important; }
+ html.lup-backend-ui #content-wrap .gdt-card-fields label { margin-top:12px; color:#aebccc; font-size:12px; }
+}
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper { overflow-x:hidden!important; }
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper::before,
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper::after { display:none!important; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav { min-width:0!important; max-width:100%!important; box-sizing:border-box; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav::before { content:'ENTDECKEN'; display:block; padding:10px 14px 12px; font-size:10px; letter-spacing:.14em; color:#8b99aa; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a,
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a span:not(.gdo-icon) { font-size:14px!important; font-weight:500!important; color:#d3dce8!important; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a::before,
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a::after { display:none!important; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a[aria-current=page] { box-shadow:inset 3px 0 #94bcee!important; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper .navbar-toggler { display:block!important; }
+html.lup-backend-ui body.lup-backend #navbarSupportedContent.collapse:not(.show) { display:none!important; }
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form > form { max-height:none!important; height:auto!important; overflow:visible!important; }
+html.lup-backend-ui #content-wrap .CodeMirror-activeline-background { background:#b6a5f51a!important; }
+/* Non-modal notice: location permission failures do not trap table scrolling. */
+html.lup-backend-ui .lup-location-status {display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;margin:0 0 20px;border:1px solid var(--shell-line);border-radius:12px;background:var(--shell-panel);color:var(--shell-text);font-size:14px;}
+html.lup-backend-ui .lup-location-status span {flex:1 1 240px;}
+html.lup-backend-ui .lup-location-status button {padding:8px 12px;border:1px solid var(--shell-line);border-radius:8px;background:#b6a6ff15;color:inherit;cursor:pointer;}
