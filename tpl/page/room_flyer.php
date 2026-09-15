@@ -34,7 +34,6 @@ use GDO\LinkUUp\LUP_Room;
 			<?php if ($room->getAddress()): ?>
 				<div class="lup-room-flyer-address"><?=$room->displayAddress()?></div>
 			<?php endif; ?>
-			<p class="lup-room-flyer-url"><?=html($url)?></p>
 		</section>
 		<button class="lup-room-flyer-print" type="button" onclick="window.print()">Drucken (A5)</button>
 	</main>
