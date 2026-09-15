@@ -22,10 +22,6 @@ use GDO\LinkUUp\LUP_Room;
 <body class="lup-room-flyer-page">
 	<main class="lup-room-flyer">
 		<section class="lup-room-flyer-sheet">
-			<header class="lup-room-flyer-brand">
-				<span>LINK</span><b>U</b><span>UP</span>
-			</header>
-			<div class="lup-room-flyer-accent" style="background-color: <?=html($room->getColor())?>"></div>
 			<h1><?=html($room->getName())?></h1>
 			<?php if ($room->getInfo()): ?>
 				<p class="lup-room-flyer-info"><?=html($room->getInfo())?></p>
