@@ -20,18 +20,23 @@ class LUPWS_Notifications extends LUPWS_Command
 	{
 		$uid = $msg->user()->getID();
 		$time = $msg->read32u();
+        $beforeId = $msg->hasMore(4) ? $msg->read32u() : 0;
 		$table = LUP_Notification::table();
 
 		$count = $table->countWhere("note_user=$uid");
 
 		$query = $table->select('*');
 		$query->where('note_user=' . $uid);
-		if ($time)
+		if ($beforeId)
+        {
+            $query->where('note_id<' . $beforeId);
+        }
+        elseif ($time)
 		{
 			$cut = Time::getDate($time);
 			$query->where('note_created<=' . GDO::quoteS($cut));
 		}
-		$query->order('note_created DESC');
+		$query->order('note_id DESC');
 		$query->limit(21);
 		$result = $query->exec();
 

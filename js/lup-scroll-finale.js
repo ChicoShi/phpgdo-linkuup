@@ -36,7 +36,7 @@
    globe.style.left=(viewport.left+viewport.width/2-diameter/2)+'px';globe.style.top=mix(-diameter-32,innerHeight*.43-diameter/2,falling)+'px';
    globe.style.opacity=String(carried?1-reveal:0);
    street.style.transform=`scale(${mix(.12,1,reveal)*(1+inside*.65)})`;street.style.opacity=String(reveal*(1-inside));
-   route.style.opacity=String(still?0:1-ease((p-.46)/.04));
+   route.style.opacity='0'; // Geometry only: the café approach must not leave a visible line.
    blocks.forEach((block,i)=>{
     const visit=visits[i],active=ease(clamp(1-Math.abs(p-visit)/.13));
     const cx=Number(block.dataset.centerX),cy=Number(block.dataset.centerY),size=still?1:1+active*.24;
@@ -55,11 +55,13 @@
    if(still||s<top||s>top+length||!pin)return;
    // Use the transformed SVG path itself, so street and pin cannot drift apart.
    const point=route.getPointAtLength(routeLength*walking),matrix=route.getScreenCTM();if(!matrix)return;
-   const target=new DOMPoint(point.x,point.y).matrixTransform(matrix),r=globe.getBoundingClientRect();
-   const join=ease((p-.28)/.08),x=mix(r.left+r.width/2,target.x,join),y=mix(innerHeight*.42,target.y-16,join);
-   const exit=ease((p-.975)/.025),main=document.querySelector('main.lup-arrival').getBoundingClientRect(),rail=main.left+Math.max(18,(main.width-1160)/2+14);
+   const target=new DOMPoint(point.x,point.y).matrixTransform(matrix);
+   const main=document.querySelector('main.lup-arrival').getBoundingClientRect(),rail=main.left+Math.max(18,(main.width-1160)/2+14);
+   // Wait beside the descending earth, then enter from the street edge.
+   const join=ease((p-.28)/.08),x=mix(rail,target.x,join),y=mix(innerHeight*.55,target.y-16,join);
+   const exit=ease((p-.975)/.025);
    pin.style.transform=`translate3d(${mix(x,rail,exit)-12}px,${mix(y,innerHeight*.55,exit)-16}px,0) scale(${mix(1.3,1,exit)})`;
-   pin.style.opacity=String(ease(p/.07)*(1-inside));pin.style.setProperty('--walking',String(join*(1-exit)*(1-inside)*((1-ease((p-.47)/.03))+ease((p-.9)/.025))));pin.style.setProperty('--step',Math.sin(walking*90)*1.5+'px');
+   pin.style.opacity=String(ease(p/.07)*(1-inside));pin.style.setProperty('--walking',String(1-inside));
   });
  };
  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init):init();

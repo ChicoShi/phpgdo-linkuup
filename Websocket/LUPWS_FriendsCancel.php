@@ -1,7 +1,6 @@
 <?php
 namespace GDO\LinkUUp\Websocket;
 
-use GDO\Date\Time;
 use GDO\Friends\GDO_FriendRequest;
 use GDO\Websocket\Server\GWS_Command;
 use GDO\Websocket\Server\GWS_Commands;
@@ -13,10 +12,10 @@ final class LUPWS_FriendsCancel extends GWS_Command
 	public function execute(GWS_Message $msg)
 	{
 		$friendId = $msg->read32u();
-		$request = GDO_FriendRequest::findById($msg->user()->getID(), $friendId);
+		$request = GDO_FriendRequest::getById($msg->user()->getID(), $friendId);
 		if ($request && !$request->isDenied())
 		{
-			$request->saveVar('frq_denied', Time::getDate());
+			$request->delete();
 		}
 		return $msg->replyBinary($msg->cmd());
 	}

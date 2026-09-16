@@ -232,13 +232,13 @@ final class LUP_Global
 	private static function friendshipPendingPayload(GDO_User $user)
 	{
 		$pending = GDO_FriendRequest::table()->getPendingFor(GDO_User::current(), $user);
-		return $pending ? 1 : 0;
+		return $pending && !$pending->isDenied() ? 1 : 0;
 	}
 
 	private static function friendshipIncomingPayload(GDO_User $user)
 	{
 		$pending = GDO_FriendRequest::table()->getPendingFor($user, GDO_User::current());
-		return $pending ? 1 : 0;
+		return $pending && !$pending->isDenied() ? 1 : 0;
 	}
 
 	private static function countryPayload(GDO_User $user)

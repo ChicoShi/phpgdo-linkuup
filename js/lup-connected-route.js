@@ -13,35 +13,49 @@
   shell.append(morphSVG);const outline=morphSVG.querySelector('path'),eye=morphSVG.querySelector('circle'),label=document.createElement('span');label.className='lup-morph-label';label.innerHTML=cta.innerHTML;shell.append(label);
   const targetPath=source.querySelector('path'),targetLength=targetPath.getTotalLength();
   const targetPoints=Array.from({length:80},(_,i)=>{const q=targetPath.getPointAtLength(targetLength*i/80);return {x:(q.x-100)*32/270,y:(q.y-135)*32/270};});
-  let buttonPoints=[];
+  let buttonPoints=[],finalPoints=[],labelAtFinal=null,firstFont,finalFont;
+  const finalCTA=main.querySelector('.lup-arrival-invitation > a');
   const feet=document.createElement('span');feet.className='lup-pin-feet';pin.append(feet);document.body.append(pin);pin.classList.add('lup-unified-pin');
-  const trail=document.createElement('div');trail.className='lup-adventure-trail';trail.setAttribute('aria-hidden','true');document.body.append(trail);
-  const marks=Array.from({length:14},()=>{const e=document.createElement('span');trail.append(e);return e;});
+  // The old trail put frozen soles directly underneath the animated feet.
+  // Keep one pair on the traveller; planted footprints belong to the globe.
   const globeSteps=document.createElement('div');globeSteps.className='lup-globe-steps';globeSteps.setAttribute('aria-hidden','true');sphere.append(globeSteps);
   const prints=Array.from({length:48},()=>{const e=document.createElement('i');globeSteps.append(e);return e;});
   const icons=[...main.querySelectorAll('.lup-arrival-principle-flow > div > i')];
   const explanations=['Entdecke, welche Orte sich in deiner Nähe befinden.','Wähle den Ort und die Begegnung, die zu dir passen.','Begegne anderen aufmerksam und respektvoll.'];
   const notes=icons.map((el,i)=>{el.classList.add('lup-route-dock');const n=document.createElement('small');n.className='lup-principle-note';n.textContent=explanations[i];el.parentElement.append(n);return n;});
-  const caption=document.createElement('p');caption.className='lup-tour-caption';caption.setAttribute('aria-hidden','true');categorySection.querySelector('.lup-destinations').after(caption);
-  let manualCategory=false;categories.forEach(b=>b.addEventListener('click',()=>{manualCategory=true;caption.textContent=b.dataset.description;caption.style.setProperty('--tour-color',b.style.getPropertyValue('--place-color'));schedule();}));
+  const story=categorySection.querySelector('.lup-destination-story');
+  story.setAttribute('aria-live','off'); // Scroll previews must not announce every category.
+  let manualCategory=false,lastCategory=-1;categories.forEach(b=>b.addEventListener('click',()=>{manualCategory=true;schedule();}));
   const reduced=matchMedia('(prefers-reduced-motion: reduce)'),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x);},mix=(a,b,t)=>a+(b-a)*t;
   // Shared tilted-sphere projection for the traveller and every planted footprint.
   const surface=(longitude,latitude=0)=>{const c=Math.cos(latitude),z=Math.cos(longitude)*c;return {x:Math.sin(longitude)*c*.46,y:(Math.sin(latitude)*.94-z*.342)*.46,front:z*.94+Math.sin(latitude)*.342};};
   let raf=0,shown=scrollY,last=0,g;
   const center=el=>{const r=el.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+scrollY+r.height/2};};
+  const measureFinalAnchor=()=>{
+   // The carried earth and responsive copy can move this target without
+   // resizing the whole main element. Read its real position before painting.
+   g.finalButton=center(finalCTA);
+   g.finalEnd=Math.min(document.documentElement.scrollHeight-innerHeight-12,g.finalButton.y-innerHeight*.58);
+   g.finalStart=g.finalEnd-Math.min(440,innerHeight*.52);
+  };
   const layout=()=>{
    const r=main.getBoundingClientRect(),c=chapter.getBoundingClientRect(),button=cta.getBoundingClientRect(),hr=hero.getBoundingClientRect(),cr=categorySection.getBoundingClientRect();
    const sample=document.createElementNS(ns,'path'),w=button.width/2,h=button.height/2,corner=Math.min(h,16);
    sample.setAttribute('d',`M0 ${-h} H${w-corner} Q${w} ${-h} ${w} ${-h+corner} V${h-corner} Q${w} ${h} ${w-corner} ${h} H${-w+corner} Q${-w} ${h} ${-w} ${h-corner} V${-h+corner} Q${-w} ${-h} ${-w+corner} ${-h} Z`);
    const perimeter=sample.getTotalLength();buttonPoints=targetPoints.map((_,i)=>sample.getPointAtLength(perimeter*i/80));
-   label.style.font=getComputedStyle(cta).font;label.style.gap=getComputedStyle(cta).gap;
+   const endRect=finalCTA.getBoundingClientRect(),fw=endRect.width/2,fh=endRect.height/2,fc=Math.min(fh,16);
+   sample.setAttribute('d',`M0 ${-fh} H${fw-fc} Q${fw} ${-fh} ${fw} ${-fh+fc} V${fh-fc} Q${fw} ${fh} ${fw-fc} ${fh} H${-fw+fc} Q${-fw} ${fh} ${-fw} ${fh-fc} V${-fh+fc} Q${-fw} ${-fh} ${-fw+fc} ${-fh} Z`);
+   const finalLength=sample.getTotalLength();finalPoints=targetPoints.map((_,i)=>sample.getPointAtLength(finalLength*i/80));
+   firstFont=getComputedStyle(cta).font;finalFont=getComputedStyle(finalCTA).font;label.style.font=firstFont;label.style.gap=getComputedStyle(cta).gap;
    const rail=r.left+Math.max(18,(r.width-1160)/2+14);
    g={rail,start:c.top+scrollY-(innerWidth<761?76:90),length:Math.max(1,chapter.offsetHeight-stage.offsetHeight),bottom:r.bottom+scrollY,top:r.top+scrollY,button:center(cta),buttonWidth:button.width,buttonHeight:button.height,heroStart:Math.max(0,button.top+scrollY-innerHeight*.77),heroEnd:hr.bottom+scrollY-innerHeight*.35,buildings:buildings.map(center),catStart:cr.top+scrollY-innerHeight*.5,catLength:Math.max(360,cr.height*.7),stops:icons.map(el=>({...center(el),el,t:center(el).y-innerHeight*.55}))};
+   measureFinalAnchor();
    const x=rail-r.left,mapHeight=main.offsetHeight;let path=`M ${x} 0`;for(let y=0;y<mapHeight;y+=320)path+=` C ${x+10} ${y+100},${x-10} ${y+220},${x} ${y+320}`;
    map.setAttribute('viewBox',`0 0 ${r.width} ${mapHeight}`);map.querySelectorAll('path').forEach(p=>p.setAttribute('d',path));schedule();
   };
   const pose=(s,b)=>{
    const p=clamp((s-g.start)/g.length),hp=clamp((s-g.heroStart)/Math.max(1,g.heroEnd-g.heroStart));
+   let final=false,finalProgress=0;
    let x=g.rail+6*Math.sin(s/210),y=Math.min(innerHeight*.55,100+s*.45),scale=1,rotation=6*Math.cos(s/210),opacity=1,walk=0,morph=1;
    if(s<g.heroEnd&&g.buildings.length){
     // Reserve the first quarter for the handoff, then visit each doorway.
@@ -82,27 +96,42 @@
      rotation=mix(rotation,Math.sin(angle)*12,join);scale=1+join*.12;
     });
    }
-   opacity*=ease((g.bottom-scrollY-90)/160);return {x,y,scale,rotation,opacity,walk,morph,p,hp};
+   if(s>=g.finalStart){
+    final=true;finalProgress=clamp((s-g.finalStart)/Math.max(1,g.finalEnd-g.finalStart));
+    const travel=ease((finalProgress-.28)/.52),arc=Math.sin(finalProgress*Math.PI);
+    // Descend beside the heading first, then turn into the button's own row.
+    // Expand only after arrival so neither the label nor its shell cover copy.
+    x=mix(g.rail,g.finalButton.x,travel)+Math.sin(finalProgress*Math.PI*2)*18*(1-travel);
+    y=mix(innerHeight*.55,g.finalButton.y-scrollY,ease(finalProgress/.28));
+    rotation=360*ease(finalProgress/.8);scale=1+arc*.12*(1-travel);
+    morph=1-ease((finalProgress-.8)/.2);opacity=finalProgress>=1?0:1;
+   }
+   opacity*=ease((g.bottom-scrollY-90)/160);return {x,y,scale,rotation,opacity,walk,morph,p,hp,final,finalProgress};
   };
   const draw=time=>{
    raf=0;if(document.hidden||!g)return;const still=reduced.matches||innerHeight<=480,dt=last?Math.min(48,time-last):16;last=time;
    shown=still?scrollY:shown+(scrollY-shown)*(1-Math.exp(-dt/160));if(Math.abs(shown-scrollY)<.03)shown=scrollY;
-   const b=sphere.getBoundingClientRect(),v=pose(shown,b);
+   const b=sphere.getBoundingClientRect();measureFinalAnchor();const v=pose(shown,b);
    document.dispatchEvent(new CustomEvent('lup:route-frame',{detail:{progress:still?.3:v.p,still}}));
    pin.style.transform=`translate3d(${v.x-12}px,${v.y-16}px,0) rotate(${v.rotation}deg) scale(${v.scale})`;pin.style.opacity=String(still?0:v.opacity);
    // One continuous outline, not a squeezed label crossfading with another icon.
    const m=v.morph,finish=ease((m-.96)/.04);
-   outline.setAttribute('d',buttonPoints.map((pt,i)=>`${i?'L':'M'}${mix(pt.x,targetPoints[i].x,m).toFixed(2)} ${mix(pt.y,targetPoints[i].y,m).toFixed(2)}`).join(' ')+' Z');
+   if(labelAtFinal!==v.final){label.innerHTML=v.final?finalCTA.innerHTML:cta.innerHTML;label.style.font=v.final?finalFont:firstFont;label.style.color=v.final?'#fff':'#202935';labelAtFinal=v.final;}
+   finalCTA.style.opacity=still||!v.final||v.finalProgress>=1?'1':'0';
+   outline.setAttribute('d',(v.final?finalPoints:buttonPoints).map((pt,i)=>`${i?'L':'M'}${mix(pt.x,targetPoints[i].x,m).toFixed(2)} ${mix(pt.y,targetPoints[i].y,m).toFixed(2)}`).join(' ')+' Z');
    eye.setAttribute('cx','0');eye.setAttribute('cy',String((98-135)*32/270));eye.setAttribute('r',String(39*32/270*ease((m-.48)/.4)));
    eye.style.opacity=String(ease((m-.48)/.4));
    const stops=morphSVG.querySelectorAll('stop'),tint=ease((m-.35)/.65);
    const color=(a,b)=>'#'+a.map((v,i)=>Math.round(mix(v,b[i],tint)).toString(16).padStart(2,'0')).join('');
-   stops[0].setAttribute('stop-color',color([211,196,239],[179,160,255]));stops[1].setAttribute('stop-color',color([211,196,239],[69,187,235]));
+   stops[0].setAttribute('stop-color',color(v.final?[122,92,255]:[211,196,239],[179,160,255]));stops[1].setAttribute('stop-color',color(v.final?[43,157,244]:[211,196,239],[69,187,235]));
    shell.style.opacity=String(1-finish);symbol.style.opacity=String(finish);
    label.style.opacity=String(1-ease(m/.3));label.style.transform=`translate(-50%,-50%) translateY(${-m*5}px)`;
    cta.style.opacity=still||shown<=g.heroStart?'1':'0';
 
-   pin.style.setProperty('--walking',String(v.walk));pin.style.setProperty('--step',Math.sin(clamp((v.p-.14)/.7)*Math.PI*48)*1.5+'px');
+   // One reversible stride clock from the first houses through the finale.
+   // Previously the globe-only progress froze the feet in all later sections.
+   pin.style.setProperty('--walking',String(still?0:ease((v.morph-.8)/.2)));
+   pin.style.setProperty('--step',Math.sin(shown * Math.PI / 26)*2.1+'px');
    buildings.forEach((el,i)=>{
     const contact=still?0:ease(Math.max(0,1-Math.abs((v.hp-.32)/.46*g.buildings.length-(i+.83))*1.65));
     el.parentElement.style.setProperty('--landed',String(contact));
@@ -110,7 +139,6 @@
     // Enlarge around the doorway: the pin landing point stays fixed.
     body.setAttribute('transform',`translate(82 ${doorY}) scale(${1+contact*.22}) translate(-82 ${-doorY})`);
    });
-   marks.forEach((el,i)=>{const at=shown-8*(i+1),q=pose(at,b);el.style.opacity=String(still||(v.p>0&&v.p<1)||at<g.heroStart||q.morph<.95?0:q.opacity*(1-i/14)*.32);el.style.transform=`translate(${q.x+(i%2?3:-3)}px,${q.y+16}px) rotate(${q.rotation}deg)`;});
    const globeQ=clamp((v.p-.14)/.7);
    prints.forEach((el,i)=>{
     const birth=(i+1)/49,birthProgress=.14+birth*.7;
@@ -120,10 +148,17 @@
     el.style.transform=`translate3d(${(point.x+.5)*b.width}px,${(point.y+.5)*b.height}px,0) translate(-50%,-50%) rotate(${Math.sin(longitude)*20}deg) scale(${Math.max(.12,Math.abs(point.front))},1)`;
     el.style.opacity=String(still?0:ease(age/.018)*ease((point.front-.02)/.18)*.7*(1-ease((age-.3)/.3)));
    });
-   const arrival=ease((v.p-.78)/.18);invitation.style.setProperty('--arrival',String(still?1:arrival));invitation.classList.toggle('is-arrived',arrival>.6);
+   const arrival=ease((v.p-.2)/.24);invitation.style.setProperty('--arrival',String(still?1:arrival));invitation.inert=!still&&arrival<.1;
    const cp=clamp((shown-g.catStart)/g.catLength),chosen=Math.min(categories.length-1,Math.floor(cp*categories.length));
    categories.forEach((el,i)=>el.classList.toggle('is-tour-active',!still&&!manualCategory&&cp>0&&cp<1&&i===chosen));
-   if(!manualCategory){const selected=categories[chosen];caption.textContent=selected.dataset.description;caption.style.setProperty('--tour-color',selected.style.getPropertyValue('--place-color'));}
+   if(!manualCategory&&lastCategory!==chosen){
+    lastCategory=chosen;const selected=categories[chosen];
+    categories.forEach(el=>{el.classList.toggle('is-selected',el===selected);el.setAttribute('aria-pressed',String(el===selected));});
+    story.querySelector('strong').textContent=selected.lastElementChild.textContent;
+    story.querySelector('p > span').textContent=selected.dataset.description;
+    story.style.setProperty('--story-color',selected.style.getPropertyValue('--place-color'));
+    story.querySelector('.lup-story-orbit').innerHTML=selected.querySelector('svg').outerHTML;
+   }
    g.stops.forEach((stop,i)=>{const t=clamp(1-Math.abs(shown-stop.t)/160);stop.el.style.setProperty('--dock',String(still?0:ease(t)));notes[i].style.setProperty('--note',String(still?1:ease((shown-stop.t+120)/150)));});
    document.dispatchEvent(new CustomEvent('lup:finale-frame',{detail:{scroll:shown,still}}));
    if(!still&&shown!==scrollY)raf=requestAnimationFrame(draw);
