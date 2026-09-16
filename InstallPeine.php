@@ -22,6 +22,7 @@ final class InstallPeine
 		self::seedMogwai($icons);
 		self::seedStandesamt($icons);
 		self::seedEmploymentAgency($icons);
+		self::seedHospital($icons);
 		self::seedJobcenter($icons);
 		self::seedSkatepark($icons);
 		self::seedCemetery($icons);
@@ -225,6 +226,41 @@ final class InstallPeine
 			'room_radius' => '0.177',
 			'room_www' => 'https://www.arbeitsagentur.de/vor-ort/hildesheim/peine',
 			'room_phone' => '05171 7740-62',
+			'room_address' => $address->getID(),
+			'room_icon' => $image->getID(),
+			'room_image' => $image->getID(),
+			'room_show_distance' => '1',
+		])->softReplace();
+	}
+
+	/** Klinikum Peine, Virchowstraße 8h. OSM way/26989261. */
+	private static function seedHospital(array $icons): void
+	{
+		$address = LocationRegistry::seedAddress('1201', [
+			'address_name' => 'Klinikum Peine',
+			'address_street' => 'Virchowstraße 8h',
+			'address_zip' => '31226',
+			'address_city' => 'Peine',
+			'address_country' => 'DE',
+			'address_phone' => '+49 5171 93-0',
+		]);
+
+		$image = $icons[3];
+		LUP_Room::blank([
+			'room_id' => '1201',
+			'room_owner' => null,
+			'room_name' => 'Klinikum Peine',
+			'room_info' => 'Krankenhaus und medizinisches Zentrum in Peine.',
+			'room_color' => '#B64368',
+			'room_category' => '18',
+			'room_enabled' => '1',
+			'room_pos_lat' => '52.301381',
+			'room_pos_lng' => '10.239061',
+			'room_view' => '0.250',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2357708,52.3033867],[10.2368866,52.3034234],[10.239686,52.3035307],[10.240187,52.303533],[10.242306,52.3032181],[10.2423562,52.3023833],[10.2400556,52.3023289],[10.2399614,52.3023267],[10.2401466,52.2992319],[10.2359958,52.2998406],[10.2357708,52.3033867]]]}',
+			'room_radius' => '0.250',
+			'room_www' => 'https://www.klinikum-peine.de/',
+			'room_phone' => '05171 93-0',
 			'room_address' => $address->getID(),
 			'room_icon' => $image->getID(),
 			'room_image' => $image->getID(),
