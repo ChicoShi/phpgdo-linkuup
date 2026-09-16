@@ -103,11 +103,8 @@ final class EditRoom extends MethodForm
 		$form->addField($address->gdoColumn('address_city'));
 		$form->addField($address->gdoColumn('address_street'));
 
-		if ($owner)
-		{
-            $form->addField($room->gdoColumn('room_icon')->previewHREF(href('LinkUUp', 'RoomIcon', '&id=' . $room->getID() . '&file={id}')));
-            $form->addField($room->gdoColumn('room_image')->previewHREF(href('LinkUUp', 'RoomImage', '&id=' . $room->getID() . '&file={id}')));
-		}
+		$form->addField($room->gdoColumn('room_icon')->previewHREF(href('LinkUUp', 'RoomIcon', '&id=' . $room->getID() . '&file={id}')));
+		$form->addField($room->gdoColumn('room_image')->previewHREF(href('LinkUUp', 'RoomImage', '&id=' . $room->getID() . '&file={id}')));
 
 		$form->addField(GDT_AntiCSRF::make());
 

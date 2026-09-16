@@ -10,8 +10,8 @@ use GDO\UI\GDT_Link;
 
 $bar = GDT_Bar::make('bar_links')->horizontal();
 
-$bar->addField(GDT_Link::make('link_edit_room')->href($room->href_edit()));
 $bar->addField(GDT_Link::make('link_edit_room_map')->href(href('LinkUUp', 'LocationMap', '&room=' . $room->getID())));
+$bar->addField(GDT_Link::make('link_edit_room')->href($room->href_edit()));
 $bar->addField(GDT_Link::make('link_edit_room_workers')->href($room->href_coworkers()));
 $bar->addField(GDT_Link::make('link_edit_room_comments')->href($room->href_comments()));
 
