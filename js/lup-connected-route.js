@@ -102,7 +102,10 @@
    label.style.opacity=String(1-ease(m/.3));label.style.transform=`translate(-50%,-50%) translateY(${-m*5}px)`;
    cta.style.opacity=still||shown<=g.heroStart?'1':'0';
 
-   pin.style.setProperty('--walking',String(v.walk));pin.style.setProperty('--step',Math.sin(clamp((v.p-.14)/.7)*Math.PI*48)*1.5+'px');
+   // One reversible stride clock from the first houses through the finale.
+   // Previously the globe-only progress froze the feet in all later sections.
+   pin.style.setProperty('--walking',String(still?0:ease((v.morph-.8)/.2)));
+   pin.style.setProperty('--step',Math.sin(shown * Math.PI / 26)*2.1+'px');
    buildings.forEach((el,i)=>{
     const contact=still?0:ease(Math.max(0,1-Math.abs((v.hp-.32)/.46*g.buildings.length-(i+.83))*1.65));
     el.parentElement.style.setProperty('--landed',String(contact));

@@ -195,30 +195,30 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function onIncludeScripts(): void
 	{
-		$this->addJS('js/lup-backend-shell.js?rev=20260916_1');
+		$this->addJS('js/lup-backend-shell.js?rev=20260916_2');
 		$this->addJS('js/lup-backend-location-status.js?rev=20260912_1');
-		$this->addCSS('css/lup.css?lup_skin=20260816_051');
-		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260816_053');
+		$this->addCSS('css/lup.css?lup_skin=20260916_2');
+		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260916_2');
 		$this->addJS('js/lup-welcome.js?lup_nav=20260911_009');
 		$this->addJS('js/lup-admin-sidebar.js?lup_nav=20260911_014');
 		// Bootstrap5 owns the current sidebar. The legacy drawer helper targets
 		// an older theme and can create a competing toggle on mixed backend pages.
 		// A separate revision is used for the visual back-office polish so
 		// browsers do not keep an older stylesheet after a local cache clear.
-		CSS::addFile($this->wwwPath('css/lup.css?lup_skin=20260816_051'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-flow.css?lup_skin=20260816_053'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260916_1'));
+		CSS::addFile($this->wwwPath('css/lup.css?lup_skin=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-arrival-flow.css?lup_skin=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260916_2'));
 		$this->addJS('js/lup-arrival-refresh.js?rev=20260911_6');
-		$this->addJS('js/lup-world-journey.js?rev=20260916_1');
-		$this->addJS('js/lup-connected-route.js?rev=20260916_1');
-		$this->addJS('js/lup-scroll-finale.js?rev=20260912_9');
+		$this->addJS('js/lup-world-journey.js?rev=20260916_2');
+		$this->addJS('js/lup-connected-route.js?rev=20260916_2');
+		$this->addJS('js/lup-scroll-finale.js?rev=20260916_2');
 		$this->addJS('js/lup-living-background.js?rev=20260912_1');
-		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260916_1'));
-		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260916_1'));
-		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260913_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260913_2'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260916_1'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260916_1'));
+		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260916_2'));
 	}
 
 	/**
@@ -314,6 +314,7 @@ final class Module_LinkUUp extends GDO_Module
 					"GDO\\Recovery\\Method\\Change",
 					"GDO\\Websocket\\Method\\GetSecret",
 					"GDO\\Date\\Method\\Timezone",
+					"GDO\\Date\\Method\\Timezones",
 					"GDO\\Date\\Method\\TimezoneDetect",
 					"GDO\\Account\\Method\\AjaxSettings",
 					"GDO\\Core\\Method\\GetTypes",

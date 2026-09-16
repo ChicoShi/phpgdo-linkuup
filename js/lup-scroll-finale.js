@@ -59,7 +59,7 @@
    const join=ease((p-.28)/.08),x=mix(r.left+r.width/2,target.x,join),y=mix(innerHeight*.42,target.y-16,join);
    const exit=ease((p-.975)/.025),main=document.querySelector('main.lup-arrival').getBoundingClientRect(),rail=main.left+Math.max(18,(main.width-1160)/2+14);
    pin.style.transform=`translate3d(${mix(x,rail,exit)-12}px,${mix(y,innerHeight*.55,exit)-16}px,0) scale(${mix(1.3,1,exit)})`;
-   pin.style.opacity=String(ease(p/.07)*(1-inside));pin.style.setProperty('--walking',String(join*(1-exit)*(1-inside)*((1-ease((p-.47)/.03))+ease((p-.9)/.025))));pin.style.setProperty('--step',Math.sin(walking*90)*1.5+'px');
+   pin.style.opacity=String(ease(p/.07)*(1-inside));pin.style.setProperty('--walking',String(1-inside));
   });
  };
  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init):init();

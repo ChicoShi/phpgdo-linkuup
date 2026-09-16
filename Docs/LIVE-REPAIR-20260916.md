@@ -20,3 +20,14 @@
 Aktuellen upstream/main vor dem PR integrieren; bestehende Änderungen an Standortverwaltung/Polygonen/Workers erhalten. Regulären Backend-Cache nach dem späteren Deployment erneuern. Keine Live-Änderung oder Datenmigration durch diesen Arbeitsgang.
 
 Grenzen: Chromium mit mobilen Viewports und Touch-Emulation, kein physisches iPhone/Safari. Produktive Google-Maps-Konfiguration und angemeldete Verwaltungsabläufe müssen auf der Zielinstallation separat geprüft werden. Es wird keine vollständige Fehlerfreiheit der gesamten Anwendung behauptet.
+
+## Ergänzung: Durchgehende Schritte und normale CSS-Kaskade
+
+- Alle `!important`-Zusätze aus den neun eigenen Stylesheets entfernt; keine neuen CSS-Dateien oder Imports. Asset-Versionen erneuert.
+- Dieselbe GPS-Nadel nutzt eine gemeinsame, scrollabhängige Schrittphase von den Häusern bis zum Finale. Die Beine laufen auch nach der Erde weiter und reagieren beim Zurückscrollen umgekehrt. Im Gebäude sind sie zusammen mit der Nadel verborgen; reduzierte Bewegung bleibt statisch.
+- Öffentlichen Endpunkt `Date/Timezones` zur vorhandenen Freigabeliste ergänzt. Dieser enthält nur den Zeitzonenkatalog. Eine fehlende Freigabe erzeugte beim Öffnen der App-Einstellungen als Gast HTTP 307; geschützte Endpunkte bleiben unverändert geschützt.
+- Geprüft: PHP-/JS-Syntax, Diff, fünf Wegabschnitte vorwärts/rückwärts, reduzierte Bewegung sowie mobile und Desktop-Ansichten. Eine bestehende Erdinstanz bleibt erhalten; kein horizontaler Überstand und keine defekten Erdbilder.
+
+Lokale Entwicklungsumgebung: vorhandenen Maps-Feature-Branch auf den aktuellen Upstream `c2d5f94` vorgezogen, weil LinkUUp `GDT_Velocity` verwendet. Die im lokalen alten Schema fehlende Tabelle `lup_workers` wurde einmalig aus der bestehenden Moduldefinition angelegt; vorhandene Tabellen und Daten nicht neu installiert. Dies ist keine neue Produktivmigration dieses Patches. Auf der Zielinstallation müssen Modulversionen und vorhandenes Workers-Schema zusammenpassen.
+
+Dieser Ergänzungsstand ist lokal und zur gemeinsamen Durchsicht vorgesehen; kein Deployment durchgeführt.

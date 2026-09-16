@@ -40,9 +40,9 @@ body.lup-arrival-refresh .lup-finale {height:360svh;position:relative;margin:0 -
  .lup-finale-stage {position:relative;top:auto;height:auto;min-height:0;display:block;padding-block:50px;}
  .lup-finale-visual {height:230px;}
  .lup-finale-globe {display:none;}
- .lup-finale-street {opacity:1!important;transform:none!important;}
+ .lup-finale-street {opacity:1;transform:none;}
  .lup-finale-copy {height:auto;}
- .lup-finale-copy article {position:relative;opacity:1!important;visibility:visible;transform:none!important;margin:28px 0;}
+ .lup-finale-copy article {position:relative;opacity:1;visibility:visible;transform:none;margin:28px 0;}
  .lup-finale-progress {display:none;}
 }
 
@@ -50,7 +50,7 @@ body.lup-arrival-refresh .lup-finale {height:360svh;position:relative;margin:0 -
 .lup-finale-chat {left:54%;top:4%;}
 @media(max-width:760px){.lup-finale-chat{left:35%;top:0;}.lup-finale-visual{margin-inline:-8px;width:calc(100% + 16px);}}
 
-.lup-earth-scene > .lup-earth-zoom {position:absolute;inset:0;display:block;width:100%!important;height:100%!important;max-width:none!important;z-index:3;border-radius:50%;object-fit:contain;pointer-events:none;}
+.lup-earth-scene > .lup-earth-zoom {position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;z-index:3;border-radius:50%;object-fit:contain;pointer-events:none;}
 
 body > .lup-finale-globe.lup-foreground-earth {position:fixed;margin:0;z-index:30;pointer-events:none;opacity:0;isolation:isolate;}
 
@@ -59,4 +59,4 @@ body > .lup-finale-globe.lup-foreground-earth {position:fixed;margin:0;z-index:3
 .lup-cafe-conversation .lup-chat-message {display:table;margin:10px 0;padding:12px 16px;border-radius:15px 15px 15px 4px;background:#3b4755;color:#e7eff8;font-size:14px;line-height:1.4;}
 .lup-cafe-conversation .lup-chat-message:nth-of-type(2) {margin-left:auto;background:#b5cfee;color:#202b39;border-radius:15px 15px 4px 15px;}
 @media(max-width:760px){.lup-finale-visual > .lup-cafe-conversation{padding:18px;}.lup-cafe-conversation > b{font-size:18px;margin-bottom:15px;}.lup-cafe-conversation .lup-chat-message{padding:9px 12px;font-size:13px;}}
-body.lup-arrival-refresh .lup-cafe-conversation .lup-chat-message:nth-of-type(2) {color:#202b39!important;}
+body.lup-arrival-refresh .lup-cafe-conversation .lup-chat-message:nth-of-type(2) {color:#202b39;}
