@@ -198,7 +198,7 @@ final class LUP_Room extends GDO
 	### Getters ###
 	###############
 
-	public function getColor(): string { return $this->gdoVar('room_color'); }
+	public function getColor(): ?string { return $this->gdoVar('room_color'); }
 
 	public function getInfo(): ?string { return $this->gdoVar('room_info'); }
 

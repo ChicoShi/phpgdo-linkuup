@@ -10,7 +10,9 @@ use GDO\Form\GDT_Submit;
 use GDO\Form\MethodCrud;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\LUP_Global;
+use GDO\LinkUUp\LUP_Workers;
 use GDO\User\GDO_User;
+use GDO\UI\GDT_Redirect;
 
 final class AddRoom extends MethodCrud
 {
@@ -62,22 +64,23 @@ final class AddRoom extends MethodCrud
 			$room->gdoColumn('room_info')->label('title'),
 			GDT_AntiCSRF::make(),
 		);
-		$form->actions()->addField(GDT_Submit::make('create')->label('btn_create')->icon('add'));
+		$form->actions()->addField(GDT_Submit::make('create')->label('btn_create')->icon('add')->onclick([$this, 'onCreate']));
 	}
 
 	/** A draft always continues straight to its detailed editor. */
 	public function onCreate(GDT_Form $form): GDT
 	{
 		$gdo = LUP_Room::blank($form->getFormVars());
+		$gdo->setVar('room_owner', GDO_User::current()->getID());
+		$gdo->setVar('room_enabled', '0');
 		$this->beforeCreate($form, $gdo);
 		$gdo->insert();
 		$this->afterCreate($form, $gdo);
-		return $this->redirectMessage('msg_crud_created', [$gdo->gdoHumanName(), $gdo->getID()], $gdo->href_edit());
+		return GDT_Redirect::to($gdo->href_edit());
 	}
 
 	public function afterCreate(GDT_Form $form, GDO $gdo): void
 	{
-		$gdo->saveVar('room_owner', GDO_User::current()->getID());
 		$this->updateOwnerPermissions($gdo);
 		GDT_Hook::callWithIPC('LUPRoomAdded', $gdo);
 	}
