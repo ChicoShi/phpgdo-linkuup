@@ -41,7 +41,12 @@ final class EditRoom extends MethodForm
 	public function hasPermission(GDO_User $user, string &$error, array &$args): bool
 	{
 		$room = $this->getRoom();
-		return $room->canEdit($user);
+		if ($room->canEdit($user))
+		{
+			return true;
+		}
+		$error = 'err_not_allowed';
+		return false;
 	}
 
 

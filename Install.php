@@ -21,6 +21,7 @@ use GDO\File\Method\CronjobImageVariants;
 use GDO\Favicon\Module_Favicon;
 use GDO\Javascript\Module_Javascript;
 use GDO\Language\Module_Language;
+use GDO\Install\Installer;
 use GDO\Maps\Module_Maps;
 use GDO\News\GDO_News;
 use GDO\News\GDO_NewsText;
@@ -82,6 +83,7 @@ final class Install
 
 	public static function onInstall(Module_LinkUUp $module): void
 	{
+		self::wipeMarkdown();
 		# The lame drunktard who cannot code well.
         $gizmore = GDO_User::blank([
             'user_id' => '2',
@@ -213,6 +215,15 @@ final class Install
 		self::reserveUserRoomIds();
 
 		self::createDefaultImageVariants($module);
+	}
+
+	/** LinkUUp uses plain text; remove the former Markdown installation. */
+	private static function wipeMarkdown(): void
+	{
+		if (($markdown = GDO_Module::getByName('Markdown')) && $markdown->isInstalled())
+		{
+			Installer::dropModule($markdown);
+		}
 	}
 
 	/** Install LinkUUp's favicon once without replacing a site-specific choice. */

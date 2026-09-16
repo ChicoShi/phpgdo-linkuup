@@ -2,7 +2,6 @@
 declare(strict_types=1);
 namespace GDO\LinkUUp;
 
-use GDO\Maps\GDT_Polygon;
 use GDO\User\GDO_User;
 
 /**
@@ -14,11 +13,7 @@ use GDO\User\GDO_User;
  */
 final class InstallPeine
 {
-	/** Current hand-curated DB geometry for Peine's first locations (1000–1014). */
-	private const CURATED_GEOMETRY = '{"1000":{"lat":52.32249832,"lng":10.22929955,"view":0.079332,"polygon":{"type":"Polygon","coordinates":[[[10.2291611,52.3227237],[10.2293572,52.3227155],[10.2295557,52.3226501],[10.2296213,52.3224715],[10.2292684,52.322242],[10.2288202,52.3222976],[10.2288738,52.3225122],[10.2291611,52.3227237]]]}},"1001":{"lat":52.32175064,"lng":10.23231792,"view":0.115276,"polygon":{"type":"Polygon","coordinates":[[[10.2325271,52.3220176],[10.232854,52.321789],[10.2329238,52.3214497],[10.2325217,52.321349],[10.2319533,52.3214562],[10.2318836,52.3220022],[10.2325271,52.3220176]]]}},"1002":{"lat":52.32382202,"lng":10.24394798,"view":0.055556,"polygon":{"type":"Polygon","coordinates":[[[10.2439064,52.3240495],[10.2442282,52.3238675],[10.24396,52.3236757],[10.243665,52.3238528],[10.2439064,52.3240495]]]}},"1003":{"lat":52.32092667,"lng":10.2468214,"view":0.120857,"polygon":{"type":"Polygon","coordinates":[[[10.2468433,52.3213504],[10.247326,52.3212157],[10.2472295,52.3206946],[10.2467897,52.3203572],[10.246028,52.3206395],[10.2460496,52.3210366],[10.2463606,52.3213312],[10.2468433,52.3213504]]]}},"1004":{"lat":52.32102585,"lng":10.23891544,"view":0.096219,"polygon":{"type":"Polygon","coordinates":[[[10.2387759,52.3212838],[10.2392856,52.3211697],[10.2393742,52.3209224],[10.2393125,52.320649],[10.2389586,52.3206169],[10.2384919,52.3207069],[10.2385187,52.3210265],[10.2386258,52.3211617],[10.2387759,52.3212838]]]}},"1005":{"lat":52.32170105,"lng":10.24289989,"view":0.16567884,"polygon":{"type":"Polygon","coordinates":[[[10.2425213,52.3213899],[10.2431285,52.3213177],[10.2432894,52.3218856],[10.2431001,52.321952],[10.2429107,52.321979],[10.2425964,52.3218888],[10.2425213,52.3213899]]]}},"1006":{"lat":52.32730865,"lng":10.23902798,"view":0.43284246,"polygon":{"type":"Polygon","coordinates":[[[10.2381929,52.3263992],[10.2401428,52.3263074],[10.2419989,52.3262926],[10.2419727,52.326968],[10.2417964,52.328994],[10.2376886,52.3288498],[10.2381929,52.3263992]]]}},"1007":{"lat":52.32564926,"lng":10.24110126,"view":0.2445264,"polygon":{"type":"Polygon","coordinates":[[[10.240722,52.3249337],[10.2417063,52.3249238],[10.2421462,52.3260664],[10.2414797,52.3260828],[10.2406416,52.3260926],[10.240722,52.3249337]]]}},"1008":{"lat":52.32157135,"lng":10.23580933,"view":0.46462232,"polygon":{"type":"Polygon","coordinates":[[[10.2346386,52.3208519],[10.2372152,52.3207601],[10.2372313,52.3214066],[10.239471,52.3213429],[10.2394146,52.3221973],[10.2342095,52.3223153],[10.2346386,52.3208519]]]}},"1009":{"lat":52.32228851,"lng":10.22737026,"view":2.08183551,"polygon":{"type":"Polygon","coordinates":[[[10.2263144,52.3157342],[10.23385,52.3160753],[10.2327342,52.3250358],[10.2268743,52.3267309],[10.2207998,52.3250948],[10.2214113,52.3229592],[10.2263144,52.3157342]]]}},"1010":{"lat":52.32329559,"lng":10.22571182,"view":0.2,"polygon":{"type":"Polygon","coordinates":[[[10.2251343,52.3230533],[10.2261561,52.3229582],[10.226435,52.3233696],[10.2258893,52.3237762],[10.2250699,52.3236483],[10.2248715,52.3232984],[10.2251343,52.3230533]]]}},"1011":{"lat":52.31914902,"lng":10.23225021,"view":0.30000001,"polygon":{"type":"Polygon","coordinates":[[[10.230988,52.3186259],[10.2338266,52.3186259],[10.233215,52.3195347],[10.2308485,52.3194954],[10.230988,52.3186259]]]}},"1012":{"lat":52.32259369,"lng":10.23928547,"view":0.60148644,"polygon":{"type":"Polygon","coordinates":[[[10.2385136,52.3222636],[10.2397506,52.3221718],[10.2424897,52.3220275],[10.2424843,52.3225574],[10.2410386,52.3227272],[10.2403332,52.3230938],[10.2393054,52.3232577],[10.238578,52.3231069],[10.2385136,52.3222636]]]}},"1013":{"lat":52.32472229,"lng":10.23084545,"view":0.15000001,"polygon":{"type":"Polygon","coordinates":[[[10.2306643,52.3247023],[10.2309518,52.3245433],[10.2311396,52.3246328],[10.2312201,52.3248076],[10.2309083,52.3249141],[10.2306643,52.3247023]]]}},"1014":{"lat":52.30614853,"lng":10.22713852,"view":1.21910477,"polygon":{"type":"Polygon","coordinates":[[[10.2270261,52.3060596],[10.227185,52.3060268],[10.2273654,52.306053],[10.2272769,52.30629],[10.2270623,52.3063281],[10.2268692,52.306281],[10.2270261,52.3060596]]]}}}';
-	private const CURATED_GEOMETRY_1015_1016 = '{"1015":{"lat":52.3229599,"lng":10.22596741,"view":0.15000001,"polygon":{"type":"Polygon","coordinates":[[[10.2258267,52.322881],[10.2261625,52.322858],[10.226251,52.323023],[10.2261947,52.3231059],[10.2257731,52.3231026],[10.225706,52.3229771],[10.2258267,52.322881]]]}},"1016":{"lat":52.32302856,"lng":10.22585678,"view":0.13540031,"polygon":{"type":"Polygon","coordinates":[[[10.2259351,52.3229679],[10.2259491,52.3230268],[10.2258329,52.32303],[10.2258394,52.3229705],[10.2259351,52.3229679]]]}}}';
-
-	/** @param array<int, object> $icons Installed LinkUUp image files. */
+	/** @param array<int, object>  Installed LinkUUp image files. */
 	public static function seed(array $icons): void
 	{
 		self::seedGarage($icons);
@@ -38,64 +33,6 @@ final class InstallPeine
 		self::seedLandmarks($icons);
 		self::seedRestaurants($icons);
 		self::seedDoctors($icons);
-		self::normalizeGeometry();
-	}
-
-	/**
-	 * Peine rooms use editable location squares. Hand-drawn locations retain
-	 * their outlines; other seed points receive a square around their origin.
-	 * Visibility reaches approximately twice the farthest polygon vertex.
-	 */
-	private static function normalizeGeometry(): void
-	{
-		$curated = json_decode(self::CURATED_GEOMETRY, true, 512, JSON_THROW_ON_ERROR);
-		$curated += json_decode(self::CURATED_GEOMETRY_1015_1016, true, 512, JSON_THROW_ON_ERROR);
-		$rooms = LUP_Room::table()->select()->where('room_id BETWEEN 1000 AND 1999')->exec()->fetchAllArray2dObject();
-		foreach ($rooms as $room)
-		{
-			/** @var LUP_Room $room */
-			$geometry = $curated[(int)$room->getID()] ?? null;
-			if ($geometry !== null)
-			{
-				$room->saveVars([
-					'room_pos_lat' => (string)$geometry['lat'],
-					'room_pos_lng' => (string)$geometry['lng'],
-					'room_view' => (string)$geometry['view'],
-					'room_polygon' => GDT_Polygon::encode($geometry['polygon']),
-				]);
-				continue;
-			}
-
-			$lat = $room->getLat();
-			$lng = $room->getLng();
-			if ((int)$room->gdoVar('room_category') === 21)
-			{
-				// Doctors are discoverable throughout Peine; presence stays polygon-local.
-				$polygon = GDT_Polygon::fromSquare($lat, $lng, $room->getRadius());
-				$room->saveVars([
-					'room_polygon' => $polygon,
-					'room_view' => '0.777',
-				]);
-				continue;
-			}
-			if ($room->getID() >= 1017 && $room->getID() <= 1099)
-			{
-				// Smaller venues receive a consistent 65 × 65 metre location square.
-				$polygon = GDT_Polygon::fromSquare($lat, $lng, 0.065 / sqrt(2));
-				$room->saveVars([
-					'room_polygon' => $polygon,
-					'room_view' => '2.0',
-				]);
-				continue;
-			}
-
-			$polygon = GDT_Polygon::fromSquare($lat, $lng, $room->getRadius());
-			$polygonRadius = GDT_Polygon::radiusFromCenter($polygon, $lat, $lng);
-			$room->saveVars([
-				'room_polygon' => $polygon,
-				'room_view' => sprintf('%.6F', max(0.010, $polygonRadius * 2)),
-			]);
-		}
 	}
 
 	private static function seedGarage(array $icons): void
@@ -151,6 +88,7 @@ final class InstallPeine
 			'room_pos_lng' => '10.2207358761131',
 			// Discoverable regionally; participation remains local to Peine.
 			'room_view' => '100',
+			'room_polygon' => null,
 			'room_radius' => '5',
 			'room_www' => 'https://www.peine.de/',
 			'room_phone' => null,
@@ -316,9 +254,10 @@ final class InstallPeine
 			'room_color' => '#2D946A',
 			'room_category' => '13',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3217000',
-			'room_pos_lng' => '10.2429000',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.32170105',
+			'room_pos_lng' => '10.24289989',
+			'room_view' => '0.16567884',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2425213,52.3213899],[10.2431285,52.3213177],[10.2432894,52.3218856],[10.2431001,52.321952],[10.2429107,52.321979],[10.2425964,52.3218888],[10.2425213,52.3213899]]]}',
 			'room_radius' => '0.150',
 			'room_address' => $address->getID(),
 			'room_icon' => $image->getID(),
@@ -348,9 +287,10 @@ final class InstallPeine
 			'room_color' => '#66706D',
 			'room_category' => '8',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3262639',
-			'room_pos_lng' => '10.2391667',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.32730865',
+			'room_pos_lng' => '10.23902798',
+			'room_view' => '0.43284246',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2381929,52.3263992],[10.2401428,52.3263074],[10.2419989,52.3262926],[10.2419727,52.326968],[10.2417964,52.328994],[10.2376886,52.3288498],[10.2381929,52.3263992]]]}',
 			'room_radius' => '0.100',
 			'room_www' => 'https://www.stjakobi-peine.de/Ueber-uns/Friedhof',
 			'room_phone' => '05171 6116',
@@ -382,9 +322,10 @@ final class InstallPeine
 			'room_color' => '#3D6CC9',
 			'room_category' => '16',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3257000',
-			'room_pos_lng' => '10.2412800',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.32564926',
+			'room_pos_lng' => '10.24110126',
+			'room_view' => '0.2445264',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.240722,52.3249337],[10.2417063,52.3249238],[10.2421462,52.3260664],[10.2414797,52.3260828],[10.2406416,52.3260926],[10.240722,52.3249337]]]}',
 			'room_radius' => '0.100',
 			'room_www' => 'https://rs-peine.de/',
 			'room_phone' => '05171 7902710',
@@ -415,9 +356,10 @@ final class InstallPeine
 			'room_color' => '#2D946A',
 			'room_category' => '20',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3215700',
-			'room_pos_lng' => '10.2345260',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.32157135',
+			'room_pos_lng' => '10.23580933',
+			'room_view' => '0.46462232',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2346386,52.3208519],[10.2372152,52.3207601],[10.2372313,52.3214066],[10.239471,52.3213429],[10.2394146,52.3221973],[10.2342095,52.3223153],[10.2346386,52.3208519]]]}',
 			// Roughly the radius of the 40,000 m² park grounds.
 			'room_radius' => '0.125',
 			'room_www' => 'https://www.peine.de/de/rathaus/stadtportraet/stadtrundgang/Stadtpark.php',
@@ -448,9 +390,10 @@ final class InstallPeine
 			'room_color' => '#3D6CC9',
 			'room_category' => '2',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3222900',
-			'room_pos_lng' => '10.2273700',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.32228851',
+			'room_pos_lng' => '10.22737026',
+			'room_view' => '2.08183551',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2263144,52.3157342],[10.23385,52.3160753],[10.2327342,52.3250358],[10.2268743,52.3267309],[10.2207998,52.3250948],[10.2214113,52.3229592],[10.2263144,52.3157342]]]}',
 			'room_radius' => '0.600',
 			'room_www' => 'https://www.stjakobi-peine.de/',
 			'room_address' => $address->getID(),
@@ -480,9 +423,10 @@ final class InstallPeine
 			'room_color' => '#C9821E',
 			'room_category' => '2',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3233900',
-			'room_pos_lng' => '10.2258500',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.32329559',
+			'room_pos_lng' => '10.22571182',
+			'room_view' => '0.2',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2251343,52.3230533],[10.2261561,52.3229582],[10.226435,52.3233696],[10.2258893,52.3237762],[10.2250699,52.3236483],[10.2248715,52.3232984],[10.2251343,52.3230533]]]}',
 			'room_radius' => '0.100',
 			'room_address' => $address->getID(),
 			'room_icon' => $image->getID(),
@@ -511,9 +455,10 @@ final class InstallPeine
 			'room_color' => '#4E6F92',
 			'room_category' => '2',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3191500',
-			'room_pos_lng' => '10.2322500',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.31914902',
+			'room_pos_lng' => '10.23225021',
+			'room_view' => '0.30000001',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.230988,52.3186259],[10.2338266,52.3186259],[10.233215,52.3195347],[10.2308485,52.3194954],[10.230988,52.3186259]]]}',
 			'room_radius' => '0.150',
 			'room_www' => 'https://www.bahnhof.de/peine',
 			'room_address' => $address->getID(),
@@ -544,9 +489,10 @@ final class InstallPeine
 			'room_color' => '#3D6CC9',
 			'room_category' => '16',
 			'room_active' => '1',
-			'room_pos_lat' => '52.3225930',
-			'room_pos_lng' => '10.2392850',
-			'room_view' => '10.0',
+			'room_pos_lat' => '52.32259369',
+			'room_pos_lng' => '10.23928547',
+			'room_view' => '0.60148644',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2385136,52.3222636],[10.2397506,52.3221718],[10.2424897,52.3220275],[10.2424843,52.3225574],[10.2410386,52.3227272],[10.2403332,52.3230938],[10.2393054,52.3232577],[10.238578,52.3231069],[10.2385136,52.3222636]]]}',
 			'room_radius' => '0.150',
 			'room_www' => 'https://www.silberkamp.de/',
 			'room_phone' => '05171 4019500',
@@ -561,15 +507,15 @@ final class InstallPeine
 	private static function seedLandmarks(array $icons): void
 	{
 		$landmarks = [
-			['Kreismuseum Peine', 'Das Kreismuseum mit Dauer- und Sonderausstellungen.', '12', 52.3248575, 10.2253998, 'Stederdorfer Straße 17', '31224', '#835DC2', '0.075', 'https://www.landkreis-peine.de/Themen-Projekte/Kreismuseum/'],
-			['Stadtbücherei Peine', 'Stadtbücherei im Zentrum von Peine.', '12', 52.3207687, 10.2263743, 'Winkel 30A', '31224', '#835DC2', '0.075', null],
-			['Stadttheater Peiner Festsäle', 'Veranstaltungs- und Theaterhaus am Friedrich-Ebert-Platz.', '12', 52.3164848, 10.2326568, 'Friedrich-Ebert-Platz 12', '31226', '#835DC2', '0.125', null],
-			['Schützenplatz Peine', 'Veranstaltungsfläche am Stadtpark.', '13', 52.3217776, 10.2337168, 'Kantstraße', '31224', '#2D946A', '0.150', null],
-			['Eixer See', 'See und Naherholungsgebiet bei Eixe.', '20', 52.3476947, 10.1994790, null, '31228', '#2D946A', '0.350', null],
+			['Kreismuseum Peine', 'Das Kreismuseum mit Dauer- und Sonderausstellungen.', '12', 52.3248575, 10.2253998, 'Stederdorfer Straße 17', '31224', '#835DC2', '0.075', 'https://www.landkreis-peine.de/Themen-Projekte/Kreismuseum/', null, '10.0'],
+			['Stadtbücherei Peine', 'Stadtbücherei im Zentrum von Peine.', '12', 52.3207687, 10.2263743, 'Winkel 30A', '31224', '#835DC2', '0.075', null, null, '10.0'],
+			['Stadttheater Peiner Festsäle', 'Veranstaltungs- und Theaterhaus am Friedrich-Ebert-Platz.', '12', 52.3164848, 10.2326568, 'Friedrich-Ebert-Platz 12', '31226', '#835DC2', '0.125', null, null, '10.0'],
+			['Schützenplatz Peine', 'Veranstaltungsfläche am Stadtpark.', '13', 52.3217776, 10.2337168, 'Kantstraße', '31224', '#2D946A', '0.150', null, null, '10.0'],
+			['Eixer See', 'See und Naherholungsgebiet bei Eixe.', '20', 52.3477, 10.1995, null, '31228', '#2D946A', '0.350', null, '{"type":"Polygon","coordinates":[[[10.2033571,52.3452527],[10.2064862,52.3451642],[10.2068903,52.3470813],[10.1997307,52.3504636],[10.1970968,52.3501875],[10.1945916,52.3497016],[10.1932291,52.3479959],[10.1957074,52.3456805],[10.2002511,52.3454404],[10.2033571,52.3452527]]]}', '2.0'],
 		];
 
 		$image = $icons[3];
-		foreach ($landmarks as $index => [$name, $info, $category, $lat, $lng, $street, $zip, $color, $radius, $www])
+		foreach ($landmarks as $index => [$name, $info, $category, $lat, $lng, $street, $zip, $color, $radius, $www, $polygon, $view])
 		{
 			$id = 1041 + $index;
 			$address = LocationRegistry::seedAddress((string)$id, [
@@ -590,7 +536,8 @@ final class InstallPeine
 				'room_active' => '1',
 				'room_pos_lat' => (string)$lat,
 				'room_pos_lng' => (string)$lng,
-				'room_view' => '10.0',
+				'room_view' => $view,
+				'room_polygon' => $polygon,
 				'room_radius' => $radius,
 				'room_www' => $www,
 				'room_address' => $address->getID(),
@@ -608,38 +555,38 @@ final class InstallPeine
 	private static function seedRestaurants(array $icons): void
 	{
 		$restaurants = [
-			['Mephisto', 52.3247604, 10.2307823, 'Hagenstraße 26', '31224'],
-			['Zur Hollandsmühle', 52.3066752, 10.2261689, 'Hollandsmühle 4', '31226'],
-			['Cafe Couture', 52.3229604, 10.2259672, 'Am Markt 22', '31224'],
-			['Restaurant No. 90', 52.3230273, 10.2258566, 'Am Markt 22/23', '31224'],
-			['La Bruschetta', 52.3225532, 10.2263507, 'Breite Straße 6', '31224'],
-			['Taormina', 52.3242585, 10.2269908, null, '31224'],
-			['Sushi Restaurant Viet Küche', 52.3460083, 10.2414566, 'Peiner Straße 15A', '31228'],
-			['Gasthaus zur Sonne', 52.3487371, 10.2432568, 'Edemissener Straße 6', '31228'],
-			['Hemingway', 52.3230840, 10.2260709, null, '31224'],
-			['Center Court', 52.3349421, 10.2211270, null, '31224'],
-			['Härke BrauereiAusschank', 52.3207247, 10.2299440, 'Gröpern 5', '31224'],
-			["Domino's Pizza", 52.3241712, 10.2294775, 'Hagenmarkt 25', '31224'],
-			['Vina', 52.3244842, 10.2312297, 'Senator-Voges-Straße 2', '31224'],
-			['bei Artour', 52.3208501, 10.2285030, 'Wallstraße 13', '31224'],
-			['Theaterrestaurant Peiner Festsäle', 52.3164306, 10.2323192, 'Friedrich-Ebert-Platz 12', '31226'],
-			['Osteria Luce', 52.3490910, 10.2449396, 'Edemissener Straße 12', '31228'],
-			['Belgrad Grill', 52.3202048, 10.2425816, 'Woltorfer Straße 70', '31224'],
-			['Steak & Grillhaus Argentina', 52.3236670, 10.2287590, 'Hagenstraße 17', '31224'],
-			['Xin Hua', 52.3221698, 10.2265737, null, '31224'],
-			['Vereinsheim KGV Reitlahe e.V.', 52.3291551, 10.2167244, null, '31224'],
-			['Bürger-Jäger-Heim', 52.3197188, 10.2327911, 'Beethovenstraße 6', '31224'],
-			['Hotel und Gaststätte Löns Krug Geffers', 52.3151882, 10.2388443, 'Braunschweiger Straße 72', '31226'],
-			['Asia Gourmet', 52.3376982, 10.2452099, 'Dieselstraße 8c', '31224'],
-			['Restaurant Peking', 52.3264305, 10.2337393, 'Lessingstraße 5', '31224'],
-			['Gasthaus Zum Sundern', 52.3415836, 10.2171707, 'Sundern 1', '31228'],
-			['Madame Le - Sushi & Panasiatisch', 52.3227907, 10.2261255, 'Breite Straße 3', '31224'],
-			['Cyrano', 52.3227804, 10.2335304, 'Kantstraße 12', '31224'],
-			['PTG Werksgasthaus', 52.3148052, 10.2413447, 'Gerhard-Lucas-Meyer-Straße 14', '31226'],
+			['Mephisto', 52.32472229, 10.23084545, 'Hagenstraße 26', '31224', '{"type":"Polygon","coordinates":[[[10.2306643,52.3247023],[10.2309518,52.3245433],[10.2311396,52.3246328],[10.2312201,52.3248076],[10.2309083,52.3249141],[10.2306643,52.3247023]]]}', '0.15000001'],
+			['Zur Hollandsmühle', 52.30614853, 10.22713852, 'Hollandsmühle 4', '31226', '{"type":"Polygon","coordinates":[[[10.2270261,52.3060596],[10.227185,52.3060268],[10.2273654,52.306053],[10.2272769,52.30629],[10.2270623,52.3063281],[10.2268692,52.306281],[10.2270261,52.3060596]]]}', '1.21910477'],
+			['Cafe Couture', 52.3229599, 10.22596741, 'Am Markt 22', '31224', '{"type":"Polygon","coordinates":[[[10.2258267,52.322881],[10.2261625,52.322858],[10.226251,52.323023],[10.2261947,52.3231059],[10.2257731,52.3231026],[10.225706,52.3229771],[10.2258267,52.322881]]]}', '0.15000001'],
+			['Restaurant No. 90', 52.32302856, 10.22585678, 'Am Markt 22/23', '31224', '{"type":"Polygon","coordinates":[[[10.2259351,52.3229679],[10.2259491,52.3230268],[10.2258329,52.32303],[10.2258394,52.3229705],[10.2259351,52.3229679]]]}', '0.13540031'],
+			['La Bruschetta', 52.3225532, 10.2263507, 'Breite Straße 6', '31224', null, '10.0'],
+			['Taormina', 52.3242585, 10.2269908, null, '31224', null, '10.0'],
+			['Sushi Restaurant Viet Küche', 52.3460083, 10.2414566, 'Peiner Straße 15A', '31228', null, '10.0'],
+			['Gasthaus zur Sonne', 52.3487371, 10.2432568, 'Edemissener Straße 6', '31228', null, '10.0'],
+			['Hemingway', 52.3230840, 10.2260709, null, '31224', null, '10.0'],
+			['Center Court', 52.3349421, 10.2211270, null, '31224', null, '10.0'],
+			['Härke BrauereiAusschank', 52.3207247, 10.2299440, 'Gröpern 5', '31224', null, '10.0'],
+			["Domino's Pizza", 52.3241712, 10.2294775, 'Hagenmarkt 25', '31224', null, '10.0'],
+			['Vina', 52.3244842, 10.2312297, 'Senator-Voges-Straße 2', '31224', null, '10.0'],
+			['bei Artour', 52.3208501, 10.2285030, 'Wallstraße 13', '31224', null, '10.0'],
+			['Theaterrestaurant Peiner Festsäle', 52.3164306, 10.2323192, 'Friedrich-Ebert-Platz 12', '31226', null, '10.0'],
+			['Osteria Luce', 52.3490910, 10.2449396, 'Edemissener Straße 12', '31228', null, '10.0'],
+			['Belgrad Grill', 52.3202048, 10.2425816, 'Woltorfer Straße 70', '31224', null, '10.0'],
+			['Steak & Grillhaus Argentina', 52.3236670, 10.2287590, 'Hagenstraße 17', '31224', null, '10.0'],
+			['Xin Hua', 52.3221698, 10.2265737, null, '31224', null, '10.0'],
+			['Vereinsheim KGV Reitlahe e.V.', 52.3291551, 10.2167244, null, '31224', null, '10.0'],
+			['Bürger-Jäger-Heim', 52.3197188, 10.2327911, 'Beethovenstraße 6', '31224', null, '10.0'],
+			['Hotel und Gaststätte Löns Krug Geffers', 52.3151882, 10.2388443, 'Braunschweiger Straße 72', '31226', null, '10.0'],
+			['Asia Gourmet', 52.3376982, 10.2452099, 'Dieselstraße 8c', '31224', null, '10.0'],
+			['Restaurant Peking', 52.3264305, 10.2337393, 'Lessingstraße 5', '31224', null, '10.0'],
+			['Gasthaus Zum Sundern', 52.3415836, 10.2171707, 'Sundern 1', '31228', null, '10.0'],
+			['Madame Le - Sushi & Panasiatisch', 52.3227907, 10.2261255, 'Breite Straße 3', '31224', null, '10.0'],
+			['Cyrano', 52.3227804, 10.2335304, 'Kantstraße 12', '31224', null, '10.0'],
+			['PTG Werksgasthaus', 52.3148052, 10.2413447, 'Gerhard-Lucas-Meyer-Straße 14', '31226', null, '10.0'],
 		];
 
 		$image = $icons[3];
-		foreach ($restaurants as $index => [$name, $lat, $lng, $street, $zip])
+		foreach ($restaurants as $index => [$name, $lat, $lng, $street, $zip, $polygon, $view])
 		{
 			$id = 1013 + $index;
 			$address = LocationRegistry::seedAddress((string)$id, [
@@ -660,7 +607,8 @@ final class InstallPeine
 				'room_active' => '1',
 				'room_pos_lat' => (string)$lat,
 				'room_pos_lng' => (string)$lng,
-				'room_view' => '10.0',
+				'room_view' => $view,
+				'room_polygon' => $polygon,
 				'room_radius' => '0.075',
 				'room_address' => $address->getID(),
 				'room_icon' => $image->getID(),
@@ -676,7 +624,7 @@ final class InstallPeine
 	 * One room represents one public practice location. This intentionally does
 	 * not duplicate doctors who share a practice, and does not include dental,
 	 * veterinary or therapy-only offices. Coordinates are address pins; the
-	 * normalizer supplies a compact four-point building polygon around each pin.
+	 * Polygons stay null until a reviewed building outline is available.
 	 */
 	private static function seedDoctors(array $icons): void
 	{
@@ -765,6 +713,7 @@ final class InstallPeine
 				'room_pos_lat' => (string)$lat,
 				'room_pos_lng' => (string)$lng,
 				'room_view' => '0.050',
+				'room_polygon' => null,
 				'room_radius' => '0.025',
 				'room_www' => $www,
 				'room_phone' => $phone,

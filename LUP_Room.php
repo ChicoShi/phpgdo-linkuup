@@ -55,7 +55,7 @@ final class LUP_Room extends GDO
 	 */
 	public static function blank(?array $initial = null): static
 	{
-		if ($initial !== null && !isset($initial['room_polygon']) &&
+		if ($initial !== null && !array_key_exists('room_polygon', $initial) &&
 			isset($initial['room_pos_lat'], $initial['room_pos_lng'], $initial['room_radius']))
 		{
 			$initial['room_polygon'] = GDT_Polygon::fromRadius(
@@ -326,24 +326,14 @@ final class LUP_Room extends GDO
 
 	public function isOwner(GDO_User $user): bool
 	{
-		if ($user->isStaff())
-		{
-			return true;
-		}
-
-		if ($this->getOwnerID() === $this->getID())
-		{
-			return true;
-		}
-
-		return false;
+		return $this->getOwnerID() === $user->getID();
 	}
 
 	###################
 	### Permissions ###
 	###################
 
-	public function getOwnerID(): string { return $this->gdoVar('room_owner'); }
+	public function getOwnerID(): ?string { return $this->gdoVar('room_owner'); }
 
 	public function canEdit(GDO_User $user): bool
 	{

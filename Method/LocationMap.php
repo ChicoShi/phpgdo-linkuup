@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace GDO\LinkUUp\Method;
 
 use GDO\Core\GDT;
+use GDO\Core\GDT_Object;
 use GDO\Core\Javascript;
 use GDO\LinkUUp\LUP_Room;
 use GDO\Maps\GDT_Polygon;
@@ -11,6 +12,13 @@ use GDO\Maps\GDT_Polygon;
 final class LocationMap extends \GDO\Core\Method
 {
 	public function getPermission(): ?string { return 'staff'; }
+
+	public function gdoParameters(): array
+	{
+		return [
+			GDT_Object::make('room')->table(LUP_Room::table()),
+		];
+	}
 
 	public function execute(): GDT
 	{
@@ -38,9 +46,11 @@ final class LocationMap extends \GDO\Core\Method
 			];
 		}
 
+		$selectedRoom = $this->gdoParameterValue('room');
 		Javascript::addJSPreInline('window.LUP_LOCATION_MAP = ' . json_encode([
 			'locations' => $locations,
 			'saveUrl' => href('LinkUUp', 'LocationPolygonSave'),
+			'selectedRoom' => $selectedRoom ? (int)$selectedRoom->getID() : null,
 		], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';');
 
 		return $this->templatePHP('page/location_map.php');
