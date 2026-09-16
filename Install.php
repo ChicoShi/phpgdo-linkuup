@@ -149,16 +149,21 @@ final class Install
 		$minion->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
 		LUP_Trophy::getOrCreate($minion)->saveVar('lt_vip', '1');
 
-		# rayaseiren is a regular seeded member; preserve the IRC nickname spelling.
-		$rayaseiren = GDO_User::blank([
-			'user_id' => '7',
-			'user_type' => GDT_UserType::MEMBER,
-			'user_name' => 'rayaseiren',
-			'user_level' => '0',
-		])->softReplace();
-		$rayaseiren->saveSettingVar('Login', 'password', BCrypt::create($users['rayaseiren'][0])->__toString());
-		$rayaseiren->saveSettingVar('Mail', 'email', $users['rayaseiren'][1]);
-		$rayaseiren->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
+		# rayaseiren is a regular seeded member; preserve an existing live account.
+		$rayaseiren = GDO_User::getByName('rayaseiren');
+		if (!$rayaseiren)
+		{
+			$rayaseiren = GDO_User::blank([
+				'user_type' => GDT_UserType::MEMBER,
+				'user_name' => 'rayaseiren',
+				'user_level' => '0',
+			])->insert();
+			$rayaseiren->saveSettingVar('Login', 'password', BCrypt::create($users['rayaseiren'][0])->__toString());
+			$rayaseiren->saveSettingVar('Mail', 'email', $users['rayaseiren'][1]);
+			$rayaseiren->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
+		}
+		GDO_UserPermission::grant($rayaseiren, 'admin');
+		GDO_UserPermission::grant($rayaseiren, 'staff');
 
         # Settings
 		Module_Core::instance()->saveConfigVar('allow_guests', '1');
