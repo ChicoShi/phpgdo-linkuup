@@ -84,7 +84,7 @@ final class InstallPeine
 			'room_color' => '#133742',
 			'room_category' => '2',
 			'room_sort' => '20',
-			'room_enabled' => '0',
+			'room_enabled' => '1',
 			'room_pos_lat' => '52.3204',
 			'room_pos_lng' => '10.2341',
 			// Discoverable regionally; participation remains local to Peine.
