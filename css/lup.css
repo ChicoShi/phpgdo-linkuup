@@ -3747,6 +3747,17 @@ body.lup-arrival-active #gdo-left-bar .gdo-lang-switch img {
 .lup-arrival-journey,
 .lup-arrival-categories,
 .lup-arrival-principles { scroll-margin-top:76px; }
+
+/* The welcome column can become narrow beside docked developer tools even
+ * while the browser viewport itself stays desktop-wide. Size this chapter by
+ * its actual journey container, not only by the viewport media query. */
+.lup-arrival { container-type:inline-size; }
+@container (max-width:680px) {
+  #lup-arrival-principles { grid-template-columns:1fr; gap:28px; }
+  #lup-arrival-principles .lup-arrival-principles-copy,
+  #lup-arrival-principles .lup-arrival-principles-list { min-width:0; }
+  #lup-arrival-principles .lup-arrival-principles-list > div { min-height:74px; }
+}
 .lup-arrival-reading { overflow-anchor:none; }
 
 /* iPhone 6 / short portrait screens: keep a whole journey step and its next
