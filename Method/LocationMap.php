@@ -15,7 +15,7 @@ final class LocationMap extends \GDO\Core\Method
 	public function hasPermission(GDO_User $user, string &$error, array &$args): bool
 	{
 		$room = $this->gdoParameterValue('room');
-		if ($user->isStaff() || ($room && $room->canEdit($user)))
+		if ($user->isStaff() || ($room && $room->canEdit($user)) || LUP_Room::getEditableRooms($user))
 		{
 			return true;
 		}
