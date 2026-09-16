@@ -20,7 +20,7 @@ final class LUPWS_RoomSearch extends LUPWS_Command
 		}
 
 		$rooms = LUP_Room::table()->select()
-			->where("room_enabled=1 AND room_active=1 AND room_name LIKE '%{$query}%'")
+			->where("room_enabled=1 AND room_name LIKE '%{$query}%'")
 			->order("CASE WHEN room_name = '{$query}' THEN 0 WHEN room_name LIKE '{$query}%' THEN 1 ELSE 2 END, room_sort ASC, room_name ASC")
 			->limit(20)
 			->uncached()

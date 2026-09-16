@@ -600,6 +600,7 @@ final class LocationRegistry
             'room_category' => (string)$entry['category'],
             'room_pos_lat' => (string)$entry['lat'],
             'room_pos_lng' => (string)$entry['lng'],
+			'room_polygon' => null,
             'room_view' => (string)$entry['view_km'],
             'room_radius' => (string)$entry['chat_radius_km'],
             'room_www' => $entry['website'],

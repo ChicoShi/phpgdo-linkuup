@@ -108,7 +108,7 @@ final class LUP_Room extends GDO
 		$query = $rooms->select();
 
 		# Enabled condition
-		$query->where('room_enabled=1 AND room_active=1');
+		$query->where('room_enabled=1');
 		$query->order('room_sort ASC');
 
 		# Distance conditions
@@ -162,7 +162,6 @@ final class LUP_Room extends GDO
 			GDT_AutoInc::make('room_id'),
 			GDT_User::make('room_owner')->label('lup_owner')->cascadeNull()->withCompletion(),
 			GDT_Checkbox::make('room_enabled')->notNull()->initial('1')->label('enabled'),
-			GDT_Checkbox::make('room_active')->notNull()->initial('1')->label('active'),
 			GDT_UInt::make('room_sort')->notNull()->initial('1000')->label('sort'),
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),

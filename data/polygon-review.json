@@ -1,0 +1,590 @@
+{
+    "schema_version": 1,
+    "purpose": "Manual OSM polygon review ledger. A pending record has no verified room polygon.",
+    "generated_from": "Local LinkUUp seed installation",
+    "generated_at": "2026-09-16T02:51:29+00:00",
+    "entries": [
+        {
+            "room_id": 1018,
+            "name": "Taormina",
+            "lat": 52.3243,
+            "lng": 10.227,
+            "status": "verified",
+            "checked_at": "2026-09-16",
+            "osm_object": "way/478979770",
+            "source_url": "https://www.openstreetmap.org/way/478979770",
+            "note": "Taormina POI node/13585059416 and the room origin are inside the Marktstraße 7 building footprint."
+        },
+        {
+            "room_id": 1019,
+            "name": "Sushi Restaurant Viet Küche",
+            "lat": 52.346,
+            "lng": 10.2415,
+            "status": "verified",
+            "checked_at": "2026-09-16",
+            "osm_object": "way/357663548",
+            "source_url": "https://www.openstreetmap.org/way/357663548",
+            "note": "Restaurant POI node/13946248802 and room origin are inside the Peiner Straße 15A;15B retail building."
+        },
+        {
+            "room_id": 1020,
+            "name": "Gasthaus zur Sonne",
+            "lat": 52.3487,
+            "lng": 10.2433,
+            "status": "review_required",
+            "checked_at": "2026-09-16",
+            "candidate_osm_object": "way/409284094",
+            "source_url": "https://www.openstreetmap.org/way/409284094",
+            "note": "POI is inside an untagged building footprint; venue-to-building identity is not documented."
+        },
+        {
+            "room_id": 1021,
+            "name": "Hemingway",
+            "lat": 52.3231,
+            "lng": 10.2261,
+            "status": "review_required",
+            "checked_at": "2026-09-16",
+            "candidate_osm_object": "way/286337013",
+            "source_url": "https://www.openstreetmap.org/way/286337013",
+            "note": "POI is in the historic Altes Rathaus footprint, but the venue tenancy is not documented."
+        },
+        {
+            "room_id": 1022,
+            "name": "Center Court",
+            "lat": 52.3349,
+            "lng": 10.2211,
+            "status": "review_required",
+            "checked_at": "2026-09-16",
+            "candidate_osm_object": "way/538313146",
+            "source_url": "https://www.openstreetmap.org/way/538313146",
+            "note": "POI is in a building tagged residential; the venue-to-building identity is not documented."
+        },
+        {
+            "room_id": 1023,
+            "name": "Härke BrauereiAusschank",
+            "lat": 52.3207,
+            "lng": 10.2299,
+            "status": "verified",
+            "checked_at": "2026-09-16",
+            "osm_object": "way/374858634",
+            "source_url": "https://www.openstreetmap.org/way/374858634",
+            "note": "Restaurant POI node/322031304 and room origin are inside the Gröpern 5-6 building footprint."
+        },
+        {
+            "room_id": 1024,
+            "name": "Domino's Pizza",
+            "lat": 52.3242,
+            "lng": 10.2295,
+            "status": "review_required",
+            "checked_at": "2026-09-16",
+            "candidate_osm_object": "way/374863419",
+            "source_url": "https://www.openstreetmap.org/way/374863419",
+            "note": "Containing building is Hagenstraße 25, while the seed says Hagenmarkt 25 and OSM has no matching Domino's POI."
+        },
+        {
+            "room_id": 1025,
+            "name": "Vina",
+            "lat": 52.3245,
+            "lng": 10.2312,
+            "status": "review_required",
+            "checked_at": "2026-09-16",
+            "candidate_osm_object": "way/529607826",
+            "source_url": "https://www.openstreetmap.org/way/529607826",
+            "note": "Restaurant POI is inside an untagged building footprint; tenancy-to-building identity remains undocumented."
+        },
+        {
+            "room_id": 1026,
+            "name": "bei Artour",
+            "lat": 52.3209,
+            "lng": 10.2285,
+            "status": "verified",
+            "checked_at": "2026-09-16",
+            "osm_object": "way/529621521",
+            "source_url": "https://www.openstreetmap.org/way/529621521",
+            "note": "Restaurant POI node/3260709961 and room origin are inside the Wallstraße 13 building footprint."
+        },
+        {
+            "room_id": 1027,
+            "name": "Theaterrestaurant Peiner Festsäle",
+            "lat": 52.3164,
+            "lng": 10.2323,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/321097290", "source_url": "https://www.openstreetmap.org/way/321097290", "note": "Restaurant POI node/3278163175 and origin are inside the matching Friedrich-Ebert-Platz 12 theatre building."
+        },
+        {
+            "room_id": 1028,
+            "name": "Osteria Luce",
+            "lat": 52.3491,
+            "lng": 10.2449,
+            "status": "review_required", "checked_at": "2026-09-16", "source_url": "https://www.openstreetmap.org/node/3664216850", "note": "Matching restaurant POI exists, but no containing closed OSM building geometry was returned."
+        },
+        {
+            "room_id": 1029,
+            "name": "Belgrad Grill",
+            "lat": 52.3202,
+            "lng": 10.2426,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/530586100", "source_url": "https://www.openstreetmap.org/way/530586100", "note": "Restaurant POI is inside an untagged building footprint; tenancy-to-building identity remains undocumented."
+        },
+        {
+            "room_id": 1030,
+            "name": "Steak & Grillhaus Argentina",
+            "lat": 52.3237,
+            "lng": 10.2288,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/374863443", "source_url": "https://www.openstreetmap.org/way/374863443", "note": "Restaurant POI node/3782434749 and room origin are inside the matching Hagenstraße 17 building footprint."
+        },
+        {
+            "room_id": 1031,
+            "name": "Xin Hua",
+            "lat": 52.3222,
+            "lng": 10.2266,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/1066945763", "source_url": "https://www.openstreetmap.org/way/1066945763", "note": "Restaurant POI is in a Breite Straße 51 building, but no tenancy-to-building identity is documented."
+        },
+        {
+            "room_id": 1032,
+            "name": "Vereinsheim KGV Reitlahe e.V.",
+            "lat": 52.3292,
+            "lng": 10.2167,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/1277915947", "source_url": "https://www.openstreetmap.org/way/1277915947", "note": "Containing restaurant building has the exact venue name and contains the room origin."
+        },
+        {
+            "room_id": 1033,
+            "name": "Bürger-Jäger-Heim",
+            "lat": 52.3197,
+            "lng": 10.2328,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/163257037", "source_url": "https://www.openstreetmap.org/way/163257037", "note": "Containing restaurant building has the exact venue name and matching Beethovenstraße 6 address."
+        },
+        {
+            "room_id": 1034,
+            "name": "Hotel und Gaststätte Löns Krug Geffers",
+            "lat": 52.3152,
+            "lng": 10.2388,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/166095046", "source_url": "https://www.openstreetmap.org/way/166095046", "note": "Containing restaurant building has the exact venue name and matching Braunschweiger Straße 72 address."
+        },
+        {
+            "room_id": 1035,
+            "name": "Asia Gourmet",
+            "lat": 52.3377,
+            "lng": 10.2452,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/26590956", "source_url": "https://www.openstreetmap.org/way/26590956", "note": "Containing commercial building has exact venue name and matching Dieselstraße 8c address."
+        },
+        {
+            "room_id": 1036,
+            "name": "Restaurant Peking",
+            "lat": 52.3264,
+            "lng": 10.2337,
+            "status": "review_required", "checked_at": "2026-09-16", "note": "No matching OSM POI or containing closed building geometry was found around the stored location."
+        },
+        {
+            "room_id": 1037,
+            "name": "Gasthaus Zum Sundern",
+            "lat": 52.3416,
+            "lng": 10.2172,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/332261116", "source_url": "https://www.openstreetmap.org/way/332261116", "note": "Containing restaurant building has exact venue name and matching Sundern 1 address."
+        },
+        {
+            "room_id": 1038,
+            "name": "Madame Le - Sushi & Panasiatisch",
+            "lat": 52.3228,
+            "lng": 10.2261,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/469935761", "source_url": "https://www.openstreetmap.org/way/469935761", "note": "Containing restaurant building has exact venue name and matching Breite Straße 3 address."
+        },
+        {
+            "room_id": 1039,
+            "name": "Cyrano",
+            "lat": 52.3228,
+            "lng": 10.2335,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/529607062", "source_url": "https://www.openstreetmap.org/way/529607062"
+        },
+        {
+            "room_id": 1040,
+            "name": "PTG Werksgasthaus",
+            "lat": 52.3148,
+            "lng": 10.2413,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/79630947", "source_url": "https://www.openstreetmap.org/way/79630947"
+        },
+        {
+            "room_id": 1041,
+            "name": "Kreismuseum Peine",
+            "lat": 52.3249,
+            "lng": 10.2254,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/324966492", "source_url": "https://www.openstreetmap.org/way/324966492", "note": "Museum POI lies in the Kreishaus footprint; its tenancy boundary is not documented."
+        },
+        {
+            "room_id": 1042,
+            "name": "Stadtbücherei Peine",
+            "lat": 52.3208,
+            "lng": 10.2264,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/46259186", "source_url": "https://www.openstreetmap.org/way/46259186"
+        },
+        {
+            "room_id": 1043,
+            "name": "Stadttheater Peiner Festsäle",
+            "lat": 52.3165,
+            "lng": 10.2327,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/321097290", "source_url": "https://www.openstreetmap.org/way/321097290"
+        },
+        {
+            "room_id": 1044,
+            "name": "Schützenplatz Peine",
+            "lat": 52.3218,
+            "lng": 10.2337,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/26114191", "source_url": "https://www.openstreetmap.org/way/26114191", "note": "Only a distinct Schützenplatz (Süd) parking polygon was found; its scope does not prove this room boundary."
+        },
+        {
+            "room_id": 1100,
+            "name": "Allgemeinmedizin Dr. Alexander Weimann",
+            "lat": 52.3376,
+            "lng": 10.1672,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/547221662", "source_url": "https://www.openstreetmap.org/way/547221662"
+        },
+        {
+            "room_id": 1101,
+            "name": "Allgemeinmedizin Dr. Reinhold-Dünow",
+            "lat": 52.3239,
+            "lng": 10.2279,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/374865592", "source_url": "https://www.openstreetmap.org/way/374865592"
+        },
+        {
+            "room_id": 1102,
+            "name": "Nervenärztliche Gemeinschaftspraxis",
+            "lat": 52.3246,
+            "lng": 10.2339,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/529606453", "source_url": "https://www.openstreetmap.org/way/529606453"
+        },
+        {
+            "room_id": 1103,
+            "name": "Allgemeinmedizin Dr. Liane Stropp",
+            "lat": 52.3432,
+            "lng": 10.2469,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/184521910", "source_url": "https://www.openstreetmap.org/way/184521910"
+        },
+        {
+            "room_id": 1104,
+            "name": "Allgemeinmedizin Katherine Knabe",
+            "lat": 52.3227,
+            "lng": 10.2297,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/538486297", "source_url": "https://www.openstreetmap.org/way/538486297"
+        },
+        {
+            "room_id": 1105,
+            "name": "Hausärzte Peine Wöhnke & Miehe",
+            "lat": 52.3246,
+            "lng": 10.2339,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/529606453", "source_url": "https://www.openstreetmap.org/way/529606453"
+        },
+        {
+            "room_id": 1106,
+            "name": "MVZ Kardiologie Peine",
+            "lat": 52.3289,
+            "lng": 10.2331,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/328923473", "source_url": "https://www.openstreetmap.org/way/328923473"
+        },
+        {
+            "room_id": 1107,
+            "name": "Anästhesiepraxis Peine",
+            "lat": 52.3289,
+            "lng": 10.2331,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/328923473", "source_url": "https://www.openstreetmap.org/way/328923473"
+        },
+        {
+            "room_id": 1108,
+            "name": "Augenärzte Peine",
+            "lat": 52.3233,
+            "lng": 10.2336,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1109,
+            "name": "Dr. med. Frank Seidling",
+            "lat": 52.3141,
+            "lng": 10.2104,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1110,
+            "name": "HNO-Praxis Peine",
+            "lat": 52.3289,
+            "lng": 10.2331,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1111,
+            "name": "HNO-Praxis Dr. Christian Rockel",
+            "lat": 52.333,
+            "lng": 10.2353,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/334996808", "source_url": "https://www.openstreetmap.org/way/334996808"
+        },
+        {
+            "room_id": 1112,
+            "name": "Urologie Buse & Kistenbrügge",
+            "lat": 52.329,
+            "lng": 10.2334,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1113,
+            "name": "Allgemeinmedizin Dr. Brigitte Sauer",
+            "lat": 52.3419,
+            "lng": 10.1858,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1115,
+            "name": "Frauenärztin Dr. Dorothea Marhenke",
+            "lat": 52.3195,
+            "lng": 10.2307,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1116,
+            "name": "Frauenärztin Christine Rückum-Savas",
+            "lat": 52.3264,
+            "lng": 10.2345,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1117,
+            "name": "Hausarzt Stefan Schmidtke",
+            "lat": 52.3229,
+            "lng": 10.2268,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1118,
+            "name": "Anästhesie Jens Krupke",
+            "lat": 52.2895,
+            "lng": 10.2692,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/167838136"
+        },
+        {
+            "room_id": 1119,
+            "name": "Augenarzt Walter Diegel",
+            "lat": 52.3195,
+            "lng": 10.2307,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/374853468"
+        },
+        {
+            "room_id": 1120,
+            "name": "Chirurgie Dr. Kevork Kalatas",
+            "lat": 52.329,
+            "lng": 10.2334,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/328923474"
+        },
+        {
+            "room_id": 1121,
+            "name": "Dermatologie Dr. Michael D. Lütgemeier",
+            "lat": 52.3218,
+            "lng": 10.2337,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1122,
+            "name": "Innere Medizin Irwan Iskandar",
+            "lat": 52.3223,
+            "lng": 10.2278,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/529628679"
+        },
+        {
+            "room_id": 1123,
+            "name": "Psychotherapie Dr. Harald Walter",
+            "lat": 52.3141,
+            "lng": 10.2104,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/327753688"
+        },
+        {
+            "room_id": 1124,
+            "name": "Frauenarztpraxis Inka Dagmar Groke",
+            "lat": 52.3258,
+            "lng": 10.2337,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/332136812"
+        },
+        {
+            "room_id": 1125,
+            "name": "Urologie Ellen Leukefeld",
+            "lat": 52.3225,
+            "lng": 10.2303,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1126,
+            "name": "Frauenarztpraxis Johannes Neimann",
+            "lat": 52.3295,
+            "lng": 10.1953,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/1149320069"
+        },
+        {
+            "room_id": 1127,
+            "name": "Gemeinschaftspraxis Ritter & von Müller",
+            "lat": 52.3489,
+            "lng": 10.248,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/530782296"
+        },
+        {
+            "room_id": 1128,
+            "name": "Hausarztpraxis Hauptmann & Herbst",
+            "lat": 52.3228,
+            "lng": 10.2298,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/374863395"
+        },
+        {
+            "room_id": 1129,
+            "name": "Orthopädie Peine Cuntze & Mintrop",
+            "lat": 52.3261,
+            "lng": 10.2297,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/208609161"
+        },
+        {
+            "room_id": 1130,
+            "name": "Dermatologie Kortenacker & Peters",
+            "lat": 52.3197,
+            "lng": 10.2302,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/374853464"
+        },
+        {
+            "room_id": 1131,
+            "name": "Frauenheilkunde Eichler-Pajunk & Müter",
+            "lat": 52.3197,
+            "lng": 10.2335,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/163257025"
+        },
+        {
+            "room_id": 1132,
+            "name": "Gastroenterologie Peine",
+            "lat": 52.329,
+            "lng": 10.2334,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/328923474"
+        },
+        {
+            "room_id": 1133,
+            "name": "Kinderarztpraxis Köhler & Weidner",
+            "lat": 52.3259,
+            "lng": 10.2277,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/478980022"
+        },
+        {
+            "room_id": 1134,
+            "name": "Onkologie & Hämatologie Peine",
+            "lat": 52.3225,
+            "lng": 10.2303,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1135,
+            "name": "Ortho Team Peine",
+            "lat": 52.3194,
+            "lng": 10.2319,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1136,
+            "name": "Hausarzt Zentrum Peine",
+            "lat": 52.3303,
+            "lng": 10.2459,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/173694841"
+        },
+        {
+            "room_id": 1137,
+            "name": "Hausarztpraxis Dr. Constantin de Curtis",
+            "lat": 52.3352,
+            "lng": 10.1763,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/529486421"
+        },
+        {
+            "room_id": 1138,
+            "name": "Hausarztpraxis Dr. Thomas Roy",
+            "lat": 52.3094,
+            "lng": 10.1562,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/207427388"
+        },
+        {
+            "room_id": 1139,
+            "name": "Hausarztpraxis in der Südstadt",
+            "lat": 52.3137,
+            "lng": 10.2355,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/166094990"
+        },
+        {
+            "room_id": 1140,
+            "name": "Hausarztpraxis Dr. Kahraman",
+            "lat": 52.3319,
+            "lng": 10.1949,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1141,
+            "name": "Kinder- und Jugendarztpraxis Simone Fritz",
+            "lat": 52.3245,
+            "lng": 10.2341,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1142,
+            "name": "Kinderarztpraxis Brigitte Ridder",
+            "lat": 52.3319,
+            "lng": 10.2608,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/269488845"
+        },
+        {
+            "room_id": 1143,
+            "name": "Kinderarztpraxis Peine Ilsede",
+            "lat": 52.3136,
+            "lng": 10.2346,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1144,
+            "name": "MKG am Marktplatz",
+            "lat": 52.3234,
+            "lng": 10.2267,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1145,
+            "name": "Neurozentrum Peine",
+            "lat": 52.3289,
+            "lng": 10.2331,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1146,
+            "name": "Orthopädische Praxis Stephan Quast",
+            "lat": 52.3195,
+            "lng": 10.2315,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1147,
+            "name": "Praxisklinik Peine",
+            "lat": 52.333,
+            "lng": 10.2353,
+            "status": "review_required", "checked_at": "2026-09-16"
+        },
+        {
+            "room_id": 1148,
+            "name": "Radiologie Zentrum Peine",
+            "lat": 52.3258,
+            "lng": 10.2337,
+            "status": "verified", "checked_at": "2026-09-16", "osm_object": "way/332136812"
+        },
+        {
+            "room_id": 1149,
+            "name": "Urologie Hagemann & Reese",
+            "lat": 52.3258,
+            "lng": 10.2337,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/332136812", "note": "Containing building is mapped as Radiologie Zentrum Peine, not the urology practice."
+        },
+        {
+            "room_id": 1150,
+            "name": "Schönheits- und Privatchirurgie Sabine Burkert",
+            "lat": 52.3406,
+            "lng": 10.2474,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/173694954"
+        },
+        {
+            "room_id": 1151,
+            "name": "Pränataldiagnostik & Humangenetik Peine",
+            "lat": 52.3205,
+            "lng": 10.2234,
+            "status": "review_required", "checked_at": "2026-09-16", "candidate_osm_object": "way/529631766"
+        }
+    ]
+}

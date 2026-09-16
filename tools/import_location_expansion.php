@@ -27,7 +27,7 @@ foreach($entries as $e){
 $find=$db->prepare('SELECT room_id FROM lup_room WHERE room_info LIKE ?');
 $duplicate=$db->prepare('SELECT r.room_id FROM lup_room r LEFT JOIN gdo_address a ON a.address_id=r.room_address WHERE (r.room_name=? AND a.address_city=?) OR (a.address_city=? AND a.address_street=?)');
 $address=$db->prepare('INSERT INTO gdo_address (address_name,address_street,address_zip,address_city,address_country) VALUES (?,?,?,?,?)');
-$room=$db->prepare('INSERT INTO lup_room (room_name,room_info,room_color,room_category,room_pos_lat,room_pos_lng,room_view,room_radius,room_www,room_address,room_rating,room_needs_vip,room_has_mira,room_show_distance,room_enabled,room_active) VALUES (?,?,?,?,?,?,?,?,?,?,0,0,0,1,1,1)');
+$room=$db->prepare('INSERT INTO lup_room (room_name,room_info,room_color,room_category,room_pos_lat,room_pos_lng,room_polygon,room_view,room_radius,room_www,room_address,room_rating,room_needs_vip,room_has_mira,room_show_distance,room_enabled) VALUES (?,?,?,?,?,?,?,?,?,?,?,0,0,0,1,1)');
 if($apply)$db->begin_transaction();
 try {
  foreach($entries as $e){
@@ -39,7 +39,7 @@ try {
   $address->execute([$e['name'],$e['street'],$e['zip'],$e['city'],'DE']);$aid=$db->insert_id;
   $info='Quelle: OpenStreetMap contributors (ODbL). ['.$e['key'].'] '.$e['source_url'].' | Lokaler Test: Kreis innerhalb OSM-Gebäude; GPS-Abweichung möglich; Betreiber ungeprüft.';
   $color=match($e['category']) {3,4,5,14=>'#E8B47F',11=>'#E6A4DF',default=>'#91BFF3'};
-  $room->execute([$e['name'],$info,$color,$e['category'],$e['lat'],$e['lng'],$e['view_km'],$e['chat_radius_km'],$e['website']??$e['source_url'],$aid]);
+  $room->execute([$e['name'],$info,$color,$e['category'],$e['lat'],$e['lng'],json_encode($e['polygon'], JSON_UNESCAPED_SLASHES),$e['view_km'],$e['chat_radius_km'],$e['website']??$e['source_url'],$aid]);
   $keys[$e['key']]=$db->insert_id;$counts['inserted']++;
  }
  if($apply)$db->commit();

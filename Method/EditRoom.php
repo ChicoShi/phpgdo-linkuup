@@ -85,7 +85,6 @@ final class EditRoom extends MethodForm
 		if ($staff)
 		{
 			$form->addField($room->gdoColumn('room_category'));
-			$form->addField($room->gdoColumn('room_active'));
 			$form->addField($room->gdoColumn('room_sort'));
 			$form->addField($room->gdoColumn('room_pos'));
 			$form->addField($room->gdoColumn('room_view'));
