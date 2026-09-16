@@ -618,7 +618,7 @@ final class InstallPeine
 		$doctors = [
 			['Allgemeinmedizin Dr. Alexander Weimann', 'Allgemeinmedizinische Praxis.', 52.3375723, 10.1672425, 'Weißdornstraße 65a', '31228', '05171 2811', null],
 			['Allgemeinmedizin Dr. Reinhold-Dünow', 'Allgemeinmedizinische Praxis.', 52.3238999, 10.2279235, 'Werderstraße 28', '31224', '05171 297115', null],
-			['Nervenärztliche Gemeinschaftspraxis', 'Neurologie, Psychiatrie und Psychotherapie.', 52.3245897, 10.2338981, 'Kantstraße 40', '31224', '05171 15687', 'https://www.nervenarztpraxis-peine.de/'],
+			['Nervenärztliche Gemeinschaftspraxis', 'Herr Dr. med. Hans-Werner Müller-Dethard und Amir Shobeiry', 52.3245897, 10.2338981, 'Kantstraße 40', '31224', '05171 15687', 'https://www.nervenarztpraxis-peine.de/'],
 			['Allgemeinmedizin Dr. Liane Stropp', 'Allgemeinmedizinische Praxis.', 52.3431545, 10.2468864, 'Regerstraße 25', '31228', '05171 15429', null, '{"type":"Polygon","coordinates":[[[10.2467701,52.3431033],[10.2467859,52.3432198],[10.2470042,52.3431901],[10.2469885,52.3430736],[10.2467701,52.3431033]]]}'],
 			['Allgemeinmedizin Katherine Knabe', 'Allgemeinmedizinische Praxis.', 52.3226616, 10.2297407, 'Bodenstedtstraße 7', '31224', '05171 905709', 'https://www.praxiskatherineknabe.de/'],
 			['Hausärzte Peine Wöhnke & Miehe', 'Hausärztliche Gemeinschaftspraxis.', 52.3245897, 10.2338981, 'Kantstraße 40', '31224', '05171 3551', 'https://www.hausaerzte-peine.de/'],
