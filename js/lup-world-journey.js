@@ -1,13 +1,15 @@
 /* Globe atlas renderer; the shared route controller supplies scroll progress. */
 (() => {
     'use strict';
-    const atlasURL=new URL('../www/img/linkuup-globe-atlas.webp',document.currentScript.src).href;
-    const zoomURL=new URL('../www/img/linkuup-globe-zoom.webp',document.currentScript.src).href;
     const init=()=>{
         const chapter=document.querySelector('#lup-arrival-journey');
         const sphere=chapter?.querySelector('.lup-world-sphere');
         const source=chapter?.querySelector('.lup-world-pin');
         if(!sphere||!source)return;
+        // PHP supplies the module URL. currentScript points into /assets in
+        // production and cannot be used to resolve module images.
+        const atlasURL=sphere.dataset.atlasUrl,zoomURL=sphere.dataset.zoomUrl;
+        if(!atlasURL)return;
         const scene=document.createElement('div');scene.className='lup-earth-scene';scene.setAttribute('aria-hidden','true');
         const layers=[0,1].map(()=>{const crop=document.createElement('div');crop.className='lup-earth-crop';const img=new Image();img.src=atlasURL;img.alt='';img.draggable=false;img.className='lup-earth-atlas';crop.append(img);scene.append(crop);return {crop,img};});
         const zoomImage=new Image();zoomImage.className='lup-earth-zoom';zoomImage.alt='';zoomImage.draggable=false;zoomImage.decoding='async';zoomImage.style.opacity='0';

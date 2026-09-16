@@ -261,7 +261,7 @@ body.lup-arrival-refresh .lup-journey-stage .lup-arrival-next { grid-column:1/-1
 body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow li { position:relative!important; border-bottom:1px solid #aaa2d326!important; padding:18px 0!important; }
 .lup-journey-stage .lup-arrival-flow li::after { content:''; position:absolute; left:0; bottom:-1px; width:100%; height:2px; background:linear-gradient(90deg,#a38aff,#83c9f3); opacity:0; transform:scaleX(.1); transform-origin:left; transition:transform .3s ease,opacity .3s ease; }
 .lup-journey-stage .lup-arrival-flow li.lup-step-current::after { opacity:1; transform:scaleX(1); }
-@media(min-height:700px) and (prefers-reduced-motion:no-preference) {
+@media(min-height:481px) and (prefers-reduced-motion:no-preference) {
  body.lup-arrival-refresh .lup-scroll-story #lup-arrival-journey { height:190svh!important; padding-top:0!important; padding-bottom:0!important; }
  .lup-scroll-story .lup-journey-stage { position:sticky; top:90px; min-height:600px; padding:24px 0; }
 }
