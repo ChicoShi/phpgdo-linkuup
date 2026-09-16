@@ -3,6 +3,7 @@ namespace GDO\LinkUUp\Method;
 
 use GDO\Admin\MethodAdmin;
 use GDO\Core\GDO;
+use GDO\LinkUUp\GDT_RoomEditID;
 use GDO\LinkUUp\LUP_Room;
 use GDO\QRCode\GDT_QRCode;
 use GDO\Table\MethodQueryTable;
@@ -30,7 +31,8 @@ final class Rooms extends MethodQueryTable
 	{
 		$room = LUP_Room::table();
 		return [
-			GDT_EditButton::make(),
+			$room->gdoColumn('room_enabled'),
+			GDT_RoomEditID::make('room_id')->label('id'),
 			$room->gdoColumn('room_name'),
             GDT_EditButton::make()->name('qrcode')->icon('qrcode'),
 			$room->gdoColumn('room_color'),
