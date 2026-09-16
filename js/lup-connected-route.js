@@ -85,7 +85,7 @@
    opacity*=ease((g.bottom-scrollY-90)/160);return {x,y,scale,rotation,opacity,walk,morph,p,hp};
   };
   const draw=time=>{
-   raf=0;if(document.hidden||!g)return;const still=reduced.matches||innerHeight<700,dt=last?Math.min(48,time-last):16;last=time;
+   raf=0;if(document.hidden||!g)return;const still=reduced.matches||innerHeight<=480,dt=last?Math.min(48,time-last):16;last=time;
    shown=still?scrollY:shown+(scrollY-shown)*(1-Math.exp(-dt/160));if(Math.abs(shown-scrollY)<.03)shown=scrollY;
    const b=sphere.getBoundingClientRect(),v=pose(shown,b);
    document.dispatchEvent(new CustomEvent('lup:route-frame',{detail:{progress:still?.3:v.p,still}}));

@@ -161,7 +161,7 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
             <div class="lup-world-orbit orbit-a"></div><div class="lup-world-orbit orbit-b"></div>
             <div class="lup-world-carrier" aria-hidden="true">
                 <svg class="lup-world-pin" viewBox="0 0 200 270"><defs><linearGradient id="lup-pin-gradient" x2="1" y2="1"><stop stop-color="#b3a0ff"/><stop offset="1" stop-color="#45bbeb"/></linearGradient></defs><path fill="url(#lup-pin-gradient)" d="M100 10C50 10 10 50 10 100c0 68 90 155 90 155s90-87 90-155c0-50-40-90-90-90Z"/><circle cx="100" cy="98" r="39" fill="#171b35"/></svg>
-                <div class="lup-world-sphere"><div class="lup-world-rotation"></div><div class="lup-world-shade"></div><div class="lup-world-rim"></div></div>
+                <div class="lup-world-sphere" data-atlas-url="<?=htmlspecialchars($module->wwwPath('www/img/linkuup-globe-atlas.webp'), ENT_QUOTES, 'UTF-8')?>" data-zoom-url="<?=htmlspecialchars($module->wwwPath('www/img/linkuup-globe-zoom.webp'), ENT_QUOTES, 'UTF-8')?>"><div class="lup-world-rotation"></div><div class="lup-world-shade"></div><div class="lup-world-rim"></div></div>
             </div>
             <a class="lup-world-invitation" href="#lup-arrival-categories" data-lup-scroll><span class="lup-invitation-copy"><small>DEIN NÄCHSTER MOMENT</small><strong>Wohin zieht es dich?</strong><span>Acht Kategorien. Dein nächster Ort.</span></span><i class="fas fa-arrow-down" aria-hidden="true"></i></a>
         </div>

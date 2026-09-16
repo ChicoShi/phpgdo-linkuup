@@ -24,7 +24,7 @@ body.lup-arrival-refresh .lup-world-invitation {border-radius:16px;padding:17px 
 .lup-tour-caption::before {content:'';width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--tour-color,#b5cfee);box-shadow:0 0 12px var(--tour-color,#b5cfee);}
 .lup-principle-note {display:block;grid-column:1/-1;color:#b1bcc9;font:400 13px/1.6 Ubuntu,'Segoe UI',sans-serif;opacity:var(--note,0);transform:translateX(calc((1 - var(--note,0))*20px));margin:8px 0 0;padding-left:18px;border-left:1px solid #a4c1e54a;}
 @media(max-width:760px){body.lup-arrival-refresh .lup-city-scene{height:300px!important;margin-top:16px!important;}.lup-city-building text{font-size:17px;}.lup-tour-caption{font-size:12px;text-align:center;padding-inline:10px;}}
-@media(prefers-reduced-motion:reduce),(max-height:699px){.lup-adventure-trail,.lup-globe-steps,.lup-pin-feet{display:none!important;}.lup-principle-note{opacity:1;transform:none;}.lup-tour-caption{display:none;}}
+@media(prefers-reduced-motion:reduce),(max-height:480px){.lup-adventure-trail,.lup-globe-steps,.lup-pin-feet{display:none!important;}.lup-principle-note{opacity:1;transform:none;}.lup-tour-caption{display:none;}}
 
 @media(max-width:760px){
  body.lup-arrival-refresh .lup-arrival-principle-flow > div {display:grid!important;grid-template-columns:56px minmax(0,1fr);column-gap:18px;row-gap:8px;align-items:start;}

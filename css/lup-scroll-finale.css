@@ -35,7 +35,7 @@ body.lup-arrival-refresh .lup-finale {height:360svh;position:relative;margin:0 -
  .lup-finale-globe {width:210px;height:210px;margin:-105px 0 0 -105px;}
  .lup-finale-chat {left:33%;top:0;width:190px;padding:12px;}
 }
-@media(prefers-reduced-motion:reduce),(max-height:699px){
+@media(prefers-reduced-motion:reduce),(max-height:480px){
  body.lup-arrival-refresh .lup-finale {height:auto;}
  .lup-finale-stage {position:relative;top:auto;height:auto;min-height:0;display:block;padding-block:50px;}
  .lup-finale-visual {height:230px;}
