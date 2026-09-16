@@ -100,7 +100,7 @@ return [
 	'cfg_lup_graph_height' => 'Höhe des Graphen in Pixeln',
 
 	'link_edit_room' => 'Raum bearbeiten',
-	'link_edit_room_map' => 'Karte bearbeiten',
+	'link_edit_room_map' => 'Location Mapping',
 	'link_edit_room_workers' => 'Mitarbeiter zuweisen',
 
 	'mt_linkuup_addcoworker' => 'Mitarbeiter hinzufügen',
