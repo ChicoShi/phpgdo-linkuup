@@ -36,6 +36,11 @@ final class Rooms extends MethodQueryTable
 		return LUP_Room::table();
 	}
 
+	public function getDefaultOrder(): ?string
+	{
+		return 'room_id ASC';
+	}
+
 	public function gdoHeaders(): array
 	{
 		$room = LUP_Room::table();
