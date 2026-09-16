@@ -88,7 +88,7 @@ final class InstallPeine
 			'room_pos_lng' => '10.2207358761131',
 			// Discoverable regionally; participation remains local to Peine.
 			'room_view' => '100',
-			'room_polygon' => null,
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2207359,52.3689083],[10.2843784,52.3464506],[10.2843784,52.301535],[10.2207359,52.2790772],[10.1570934,52.301535],[10.1570934,52.3464506],[10.2207359,52.3689083]]]}',
 			'room_radius' => '5',
 			'room_www' => 'https://www.peine.de/',
 			'room_phone' => null,
