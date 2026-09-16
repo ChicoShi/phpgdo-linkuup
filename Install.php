@@ -200,6 +200,7 @@ final class Install
 		$cats = self::installCats($icons);
 		self::seedAlphaNews($gizmore);
 		self::seedAlmostBetaNews($gizmore);
+		self::createWorldChat();
         self::createCountries();
         InstallPeine::seed(self::$ICONS);
 		self::createWolfsburg();
@@ -467,7 +468,7 @@ final class Install
 		GDO_UserAvatar::updateAvatar($user, $avatar->getID());
 	}
 
-    private static function createCountries(): void
+	private static function createCountries(): void
     {
         $gizmore = GDO_User::getByName('gizmore');
         $image = self::$ICONS[0];
@@ -491,6 +492,36 @@ final class Install
             'room_show_distance' => '0',
         ])->softReplace();
     }
+
+	/** A deliberately worldwide room: no polygon, no local boundary. */
+	private static function createWorldChat(): void
+	{
+		$gizmore = GDO_User::getByName('gizmore');
+		$image = self::$ICONS[0];
+		LUP_Room::blank([
+			'room_id' => '2',
+			'room_owner' => $gizmore->getID(),
+			'room_name' => 'World-Chat',
+			'room_info' => 'Der globale Chat für alle LinkUUp-Menschen, überall auf der Welt.',
+			'room_color' => '#6D8CFF',
+			'room_category' => '2',
+			'room_sort' => '0',
+			// The antipodal distance is below 20,100 km. 42,000 km makes this
+			// room intentionally worldwide while keeping normal room logic intact.
+			'room_pos_lat' => '0.0',
+			'room_pos_lng' => '0.0',
+			'room_polygon' => null,
+			'room_view' => '42000.0',
+			'room_radius' => '42000.0',
+			'room_www' => null,
+			'room_phone' => null,
+			'room_hours' => null,
+			'room_address' => null,
+			'room_icon' => $image->getID(),
+			'room_image' => $image->getID(),
+			'room_show_distance' => '0',
+		])->softReplace();
+	}
 
 	/** A city-wide chat uses a city-centre pin and a deliberate city radius. */
 	private static function createWolfsburg(): void
