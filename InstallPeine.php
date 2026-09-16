@@ -22,6 +22,7 @@ final class InstallPeine
 		self::seedMogwai($icons);
 		self::seedStandesamt($icons);
 		self::seedEmploymentAgency($icons);
+		self::seedJobcenter($icons);
 		self::seedSkatepark($icons);
 		self::seedCemetery($icons);
 		self::seedGunzelinSchool($icons);
@@ -224,6 +225,41 @@ final class InstallPeine
 			'room_radius' => '0.177',
 			'room_www' => 'https://www.arbeitsagentur.de/vor-ort/hildesheim/peine',
 			'room_phone' => '05171 7740-62',
+			'room_address' => $address->getID(),
+			'room_icon' => $image->getID(),
+			'room_image' => $image->getID(),
+			'room_show_distance' => '1',
+		])->softReplace();
+	}
+
+	/** Jobcenter Landkreis Peine, Stederdorfer Straße 24. OSM way/478979871. */
+	private static function seedJobcenter(array $icons): void
+	{
+		$address = LocationRegistry::seedAddress('1200', [
+			'address_name' => 'Jobcenter Landkreis Peine',
+			'address_street' => 'Stederdorfer Straße 24',
+			'address_zip' => '31224',
+			'address_city' => 'Peine',
+			'address_country' => 'DE',
+			'address_phone' => '+49 5171 401 7780',
+		]);
+
+		$image = $icons[3];
+		LUP_Room::blank([
+			'room_id' => '1200',
+			'room_owner' => null,
+			'room_name' => 'Jobcenter Peine',
+			'room_info' => 'Jobcenter Landkreis Peine.',
+			'room_color' => '#3D6CC9',
+			'room_category' => '16',
+			'room_enabled' => '1',
+			'room_pos_lat' => '52.3250778',
+			'room_pos_lng' => '10.2254629',
+			'room_view' => '0.050',
+			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2252801,52.3251455],[10.2254337,52.3250101],[10.2255677,52.3248683],[10.2257539,52.3249296],[10.2254132,52.3252025],[10.2252801,52.3251455]]]}',
+			'room_radius' => '0.075',
+			'room_www' => 'https://www.landkreis-peine.de/Soziales-Bildung/Jobcenter/',
+			'room_phone' => '05171 401 7780',
 			'room_address' => $address->getID(),
 			'room_icon' => $image->getID(),
 			'room_image' => $image->getID(),
