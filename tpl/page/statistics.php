@@ -9,11 +9,10 @@ use GDO\UI\GDT_Link;
 use GDO\User\GDO_User;
 
 /**
- * @var LUP_Room[] $rooms
+ * @var LUP_Room $room
+ * @var GDO\Form\GDT_Form $locationForm
  */
 $canPrintFlyers = GDO_User::current()->isStaff();
-
-foreach ($rooms as $room) :
 
 	$inputs = [
 		'room' => $room->getID(),
@@ -33,6 +32,9 @@ foreach ($rooms as $room) :
 	$categoryVisual = $categoryVisuals[$room->getCategory()] ?? ['fas fa-map-marker-alt', 'category-default'];
 
 	?>
+<div class="lup-statistics-room-select">
+	<?=$locationForm->renderForm()?>
+</div>
     <div class="lup-room-statistics">
         <div class="statistics-room col-xs-12 col-sm-3">
 			<div class="lup-stat-category-icon <?=$categoryVisual[1]?>" title="Kategorie"><i class="<?=$categoryVisual[0]?>"></i></div>
@@ -59,10 +61,16 @@ foreach ($rooms as $room) :
             </div>
         </div>
     </div>
-<?php
-endforeach; ?>
 <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
+	function initLupStatistics() {
+		const locationSelect = document.querySelector('.lup-statistics-room-select select');
+		if (locationSelect) {
+			locationSelect.addEventListener('change', function () {
+				const url = new URL(window.location.href);
+				url.searchParams.set('room', locationSelect.value);
+				window.location.assign(url);
+			});
+		}
 
 		function changeGraph(cont, select) {
 			var date = select.val();
@@ -93,5 +101,11 @@ endforeach; ?>
             var cont = select.parent();
             changeGraph(cont, select);
         });
-    });
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initLupStatistics, {once: true});
+	} else {
+		initLupStatistics();
+	}
 </script>

@@ -2,7 +2,7 @@
 
 use GDO\Form\GDT_Form;
 use GDO\LinkUUp\LUP_Room;
-use GDO\LinkUUp\LUP_RoomWorker;
+use GDO\LinkUUp\LUP_Workers;
 use GDO\LinkUUp\LUP_RoomWorkerActivation;
 use GDO\LinkUUp\Method\EditMenu;
 use GDO\Mail\GDT_Email;
@@ -16,7 +16,7 @@ echo EditMenu::make()->inputs(['room' => $room->getID()])->execute()->render();
  */
 if ($room)
 {
-	$result = LUP_RoomWorker::table()->getCoworkersResult($room);
+	$result = LUP_Workers::table()->getCoworkersResult($room);
 	$table = GDT_Table::make();
 	$table->title('lup_room_workers', [
 		$result->numRows(), $room->gdoDisplay('room_name'),
@@ -25,7 +25,7 @@ if ($room)
 		GDT_Username::make('user_name'),
 		GDT_Email::make('user_email'),
 	);
-	$table->fetchAs(LUP_RoomWorker::table());
+	$table->fetchAs(LUP_Workers::table());
 	$table->result($result);
 	echo $table->renderHTML();
 

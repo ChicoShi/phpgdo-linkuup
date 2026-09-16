@@ -27,7 +27,6 @@ use GDO\News\GDO_NewsText;
 use GDO\Perf\Module_Perf;
 use GDO\Register\Module_Register;
 use GDO\UI\Module_UI;
-use GDO\User\GDO_Permission;
 use GDO\User\GDO_User;
 use GDO\User\GDO_UserPermission;
 use GDO\User\GDT_UserType;
@@ -90,10 +89,9 @@ final class Install
             'user_name' => 'gizmore',
             'user_level' => '0',
         ])->softReplace();
-        $passwords = require Module_LinkUUp::instance()->filePath('secret.php');
-		$emails = $passwords['emails'];
-        $gizmore->saveSettingVar('Login', 'password', BCrypt::create($passwords['gizmore'][0])->__toString());
-		$gizmore->saveSettingVar('Mail', 'email', $emails['gizmore']);
+        $users = require Module_LinkUUp::instance()->filePath('secret.php');
+        $gizmore->saveSettingVar('Login', 'password', BCrypt::create($users['gizmore'][0])->__toString());
+		$gizmore->saveSettingVar('Mail', 'email', $users['gizmore'][1]);
 		$gizmore->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
 		self::seedGizmoreSettings($gizmore);
         GDO_UserPermission::grant($gizmore, 'admin');
@@ -107,9 +105,9 @@ final class Install
             'user_name' => 'shqiprim',
             'user_level' => '0',
         ])->softReplace();
-        $shqiprimPassword = $passwords['shqiprim'][0] ?? $passwords['squiprim'][0];
+        $shqiprimPassword = $users['shqiprim'][0];
         $shqiprim->saveSettingVar('Login', 'password', BCrypt::create($shqiprimPassword)->__toString());
-		$shqiprim->saveSettingVar('Mail', 'email', $emails['shqiprim']);
+		$shqiprim->saveSettingVar('Mail', 'email', $users['shqiprim'][1]);
 		$shqiprim->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
         $shqiprim->saveSettingVar('User', 'gender', 'male');
         $shqiprim->saveSettingVar('Country', 'country_of_origin', 'DE');
@@ -125,8 +123,8 @@ final class Install
             'user_name' => 'mira',
             'user_level' => '0',
         ])->softReplace();
-        $mira->saveSettingVar('Login', 'password', BCrypt::create($passwords['mira'][0])->__toString());
-		$mira->saveSettingVar('Mail', 'email', $emails['mira']);
+        $mira->saveSettingVar('Login', 'password', BCrypt::create($users['mira'][0])->__toString());
+		$mira->saveSettingVar('Mail', 'email', $users['mira'][1]);
 		$mira->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
         $mira->saveSettingVar('User', 'gender', 'female');
         $mira->saveSettingVar('Birthday', 'birthday', '2026-07-23');
@@ -145,8 +143,8 @@ final class Install
             'user_name' => 'Peter',
             'user_level' => '0',
         ])->softReplace();
-        $peterPasswordKey = $passwords['peter'][0];
-        $peter->saveSettingVar('Login', 'password', BCrypt::create($passwords[$peterPasswordKey][0])->__toString());
+        $peterPasswordKey = $users['peter'][0];
+        $peter->saveSettingVar('Login', 'password', BCrypt::create($users[$peterPasswordKey][0])->__toString());
 		LUP_Trophy::getOrCreate($peter)->saveVar('lt_vip', '1');
 
         # Settings
@@ -192,10 +190,6 @@ final class Install
             Module_Javascript::instance()->saveConfigVar('minify_js', 'concat');
             Module_Javascript::instance()->saveConfigVar('compress_js', '1');
         }
-
-		# Perms
-		GDO_Permission::create('lup_owner');
-		GDO_Permission::create('lup_worker');
 
 		# Image
 		self::installFavicon();

@@ -89,7 +89,7 @@ final class Module_LinkUUp extends GDO_Module
 			LUP_SignupGPS::class,
 			LUP_QueryThread::class,
 			LUP_QueryMessage::class,
-			LUP_RoomWorker::class,
+			LUP_Workers::class,
 			LUP_RoomWorkerActivation::class,
 			LUP_MessageSent::class,
 		];

@@ -7,7 +7,7 @@ use GDO\Core\GDT_String;
 use GDO\Core\GDT_UInt;
 use GDO\DB\Query;
 use GDO\LinkUUp\LUP_Room;
-use GDO\LinkUUp\LUP_RoomWorker;
+use GDO\LinkUUp\LUP_Workers;
 use GDO\Table\MethodQueryTable;
 use GDO\UI\GDT_EditButton;
 use GDO\User\GDO_User;
@@ -39,11 +39,11 @@ final class OwnerRooms extends MethodQueryTable
 				->join('LEFT JOIN gdo_country ON gdo_country.c_iso = address_country');
 		}
 
-		$table = LUP_RoomWorker::table();
-		$query = $table->select('lup_room.*, gdo_address.*')->joinObject('lrw_room')->joinObject('room_address');
+		$table = LUP_Workers::table();
+		$query = $table->select('lup_room.*, gdo_address.*')->joinObject('work_room')->joinObject('room_address');
 		if (!$user->isStaff())
 		{
-			$query->where("lrw_user={$user->getID()}");
+			$query->where("work_user={$user->getID()}");
 		}
 
 		return $query;

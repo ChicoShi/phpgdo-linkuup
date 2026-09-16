@@ -12,7 +12,7 @@ use GDO\Invite\GDO_Invitation;
 use GDO\Invite\Method\Form;
 use GDO\LinkUUp\GDT_RoomSelect;
 use GDO\LinkUUp\LUP_Room;
-use GDO\LinkUUp\LUP_RoomWorker;
+use GDO\LinkUUp\LUP_Workers;
 use GDO\LinkUUp\LUP_RoomWorkerActivation;
 use GDO\Mail\GDT_Email;
 use GDO\UI\GDT_Divider;
@@ -101,7 +101,7 @@ final class AddCoworker extends MethodForm
 		)
 		{
 			$this->resetForm();
-			LUP_RoomWorker::addWorker($this->getRoom(), $user);
+			LUP_Workers::addWorker($this->getRoom(), $user);
 			return $this->message('msg_form_saved')->addField($this->renderPage());
 		}
 

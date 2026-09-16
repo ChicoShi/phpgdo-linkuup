@@ -262,7 +262,7 @@ final class LUP_Room extends GDO
 
 	public function getCoworkers()
 	{
-		return LUP_RoomWorker::table()->getCoworkers($this);
+		return LUP_Workers::table()->getCoworkers($this);
 	}
 
     public function href_edit()
@@ -352,7 +352,7 @@ final class LUP_Room extends GDO
 			return true;
 		}
 
-		if (LUP_RoomWorker::isWorker($user))
+		if (LUP_Workers::isWorker($this, $user))
 		{
 			return true;
 		}
