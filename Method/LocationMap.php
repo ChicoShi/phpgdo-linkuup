@@ -33,7 +33,7 @@ final class LocationMap extends \GDO\Core\Method
 	public function execute(): GDT
 	{
 		$this->getModule()->addCSS('css/lup-location-map.css');
-		$this->getModule()->addJS('js/lup-location-map.js');
+		$this->getModule()->addJS('js/lup-location-map.js?rev=20260916_2');
 
 		$locations = [];
 		$user = GDO_User::current();
@@ -44,16 +44,20 @@ final class LocationMap extends \GDO\Core\Method
 			{
 				continue;
 			}
+			$lat = $room->gdoVar('room_pos_lat');
+			$lng = $room->gdoVar('room_pos_lng');
+			$hasPosition = $lat !== null && $lat !== '' && $lng !== null && $lng !== '';
 			$polygon = json_decode((string)$room->gdoVar('room_polygon'), true);
-			if (!is_array($polygon))
+			if (!is_array($polygon) && $hasPosition)
 			{
 				$polygon = json_decode(GDT_Polygon::fromRadius($room->getLat(), $room->getLng(), $room->getRadius()), true);
 			}
 			$locations[] = [
 				'id' => (int)$room->getID(),
 				'name' => $room->getName(),
-				'lat' => $room->getLat(),
-				'lng' => $room->getLng(),
+				'lat' => $hasPosition ? $room->getLat() : null,
+				'lng' => $hasPosition ? $room->getLng() : null,
+				'needs_current_position' => !$hasPosition,
 				'radius_km' => $room->getRadius(),
 				'view_km' => (float)$room->gdoVar('room_view'),
 				'color' => $room->getColor(),

@@ -33,6 +33,19 @@
 		return ring.slice(0, -1).map((point) => ({lat: Number(point[1]), lng: Number(point[0])}));
 	}
 
+	function radiusPath(lat, lng, radiusKm) {
+		const radius = Math.max(0.050, Number(radiusKm || 0.050));
+		const latScale = 111.32;
+		const lngScale = latScale * Math.cos(lat * Math.PI / 180);
+		return Array.from({length: 8}, (_, index) => {
+			const angle = index * Math.PI * 2 / 8;
+			return {
+				lat: lat + (Math.sin(angle) * radius / latScale),
+				lng: lng + (Math.cos(angle) * radius / lngScale),
+			};
+		});
+	}
+
 	function setStatus(message) {
 		status.textContent = message;
 	}
@@ -170,30 +183,35 @@
 	}
 
 	config.locations.forEach((location) => {
-		const path = polygonPath(location);
-		if (!path.length) { return; }
+		const provisional = {lat: 52.264, lng: 10.526};
+		const path = polygonPath(location).length ? polygonPath(location) : radiusPath(
+			location.lat ?? provisional.lat,
+			location.lng ?? provisional.lng,
+			location.radius_km,
+		);
+		const color = location.color || '#d9ac44';
 		const polygon = new google.maps.Polygon({
 			paths: path,
-			strokeColor: location.color,
+			strokeColor: color,
 			strokeOpacity: 1,
 			strokeWeight: 4,
-			fillColor: location.color,
+			fillColor: color,
 			fillOpacity: 0.42,
 			map: null,
 		});
 		const marker = new google.maps.Marker({
-			position: {lat: location.lat, lng: location.lng},
+			position: {lat: location.lat ?? provisional.lat, lng: location.lng ?? provisional.lng},
 			draggable: true,
 			map: null,
 			title: location.name,
 		});
 		const viewCircle = new google.maps.Circle({
-			center: {lat: location.lat, lng: location.lng},
+			center: {lat: location.lat ?? provisional.lat, lng: location.lng ?? provisional.lng},
 			radius: Math.max(0.010, Number(location.view_km || 1)) * 1000,
-			strokeColor: location.color,
+			strokeColor: color,
 			strokeOpacity: 1,
 			strokeWeight: 3,
-			fillColor: location.color,
+			fillColor: color,
 			fillOpacity: 0.24,
 			editable: true,
 			draggable: false,
@@ -260,4 +278,23 @@
 		config.locations.find((location) => layers.has(location.id));
 	if (first) { select(first.id); }
 	else { setStatus('Keine Locations mit Polygon geladen.'); }
+
+	if (first && first.needs_current_position && navigator.geolocation) {
+		setStatus('Aktuelle Position wird übernommen …');
+		navigator.geolocation.getCurrentPosition((position) => {
+			const layer = layers.get(first.id);
+			if (!layer) { return; }
+			const lat = position.coords.latitude;
+			const lng = position.coords.longitude;
+			layer.location.lat = lat;
+			layer.location.lng = lng;
+			layer.location.needs_current_position = false;
+			layer.marker.setPosition({lat, lng});
+			layer.viewCircle.setCenter({lat, lng});
+			layer.polygon.setPath(radiusPath(lat, lng, layer.location.radius_km));
+			map.setCenter({lat, lng});
+			map.setZoom(17);
+			markDirty();
+		}, () => setStatus('Standortfreigabe fehlt – bitte Marker manuell setzen.'));
+	}
 })();
