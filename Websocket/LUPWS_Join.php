@@ -7,6 +7,7 @@ use GDO\LinkUUp\LUP_Notification;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\LUP_RoomVisit;
 use GDO\LinkUUp\LUPWS_Command;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\User\GDO_User;
 use GDO\Websocket\Server\GWS_Commands;
 use GDO\Websocket\Server\GWS_Global;
@@ -144,6 +145,11 @@ class LUPWS_Join extends LUPWS_Command
 			GWS_Global::sendBinary($user, $payload);
 		}
 	}
+
+    private function cfgJoinVelocity()
+    {
+        return Module_LinkUUp::instance()->cfgJoinVelocity();
+    }
 
 }
 
