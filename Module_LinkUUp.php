@@ -112,6 +112,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_guest_query')->initial('0'), # Allow guest querie messages
 			GDT_Checkbox::make('lup_open_query')->initial('1'), # No near check for queries
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
+			GDT_UInt::make('lup_msg_bufsize')->initial('3')->max(100), # Volatile messages replayed when joining a room
 			GDT_Checkbox::make('lup_ticket_engine')->initial('0'), # Need to purchase tickets for a room first?
 			GDT_Checkbox::make('lup_profile_likes_guests')->initial('0'), # Guests may not like users
 			GDT_Credits::make('room_cost')->initial('0'), # One-time cost for creating a room
@@ -246,6 +247,7 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgOpenQuery(): bool { return $this->getConfigValue('lup_open_query'); }
 
 	public function cfgOnlyOneChat(): bool { return $this->getConfigValue('lup_only_one_chat'); }
+	public function cfgMessageBufferSize(): int { return (int)$this->getConfigValue('lup_msg_bufsize'); }
 
     public function cfgCuddleRange(): float { return (float)$this->getConfigValue('lup_cuddle_range'); }
 	public function cfgCuddleTokenTTL(): int { return (int)$this->getConfigValue('lup_cuddle_token_ttl'); }

@@ -78,6 +78,7 @@ return [
 	'cfg_lup_app_url' => 'URL zur LinkUUp App',
 	'cfg_lup_guest_query' => 'Erlaube Gästen privat zu chatten?',
 	'cfg_lup_only_one_chat' => 'Nur einen Chatraum gleichzeitig betreten können?',
+	'cfg_lup_msg_bufsize' => 'Flüchtige Raumnachrichten beim Beitritt wiedergeben',
 	'cfg_lup_ticket_engine' => 'Aktiviere Ticket-Engine?',
 	'cfg_lup_join_velocity' => 'Maximale Geschwindigkeit zum Raumbeitritt (km/h)',
 	'cfg_lup_profile_likes_guests' => 'Erlaube Gästen andere zu liken?',

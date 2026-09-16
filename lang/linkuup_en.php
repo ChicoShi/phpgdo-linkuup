@@ -78,6 +78,7 @@ return [
 	'cfg_lup_app_url' => 'URL to LUP/APP',
 	'cfg_lup_guest_query' => 'Allow guests to pm/query?',
 	'cfg_lup_only_one_chat' => 'Only one chatroom at once?',
+	'cfg_lup_msg_bufsize' => 'Volatile room messages replayed on join',
 	'cfg_lup_ticket_engine' => 'Enable room ticket engine?',
 	'cfg_lup_join_velocity' => 'Maximum velocity for joining rooms (km/h)',
 	'cfg_lup_profile_likes_guests' => 'Allow guests to like someone?',

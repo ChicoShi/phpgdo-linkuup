@@ -91,6 +91,9 @@ class LUPWS_Join extends LUPWS_Command
 			$this->sendUserUpdate($user);
 		}
 
+		# A newcomer receives the volatile room context before their join is announced.
+		LUP_Global::replayMessages($room, $user);
+
 		# Announce join
 		LUP_Global::join($room, $user);
 

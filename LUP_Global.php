@@ -23,6 +23,8 @@ final class LUP_Global
 	public static $USER_STATUS = [];
 	public static $USER_TROPHY = [];
 	public static $USER_LIKES = [];
+	/** @var array<int, string[]> Volatile chat payloads, newest item last. */
+	public static $ROOM_MESSAGES = [];
 
 	##################
 	### Visibility ###
@@ -384,6 +386,29 @@ final class LUP_Global
 		}
 	}
 
+	/** Send the volatile room backlog before broadcasting the new join. */
+	public static function replayMessages(LUP_Room $room, GDO_User $user): void
+	{
+		foreach (self::$ROOM_MESSAGES[$room->getID()] ?? [] as $payload)
+		{
+			GWS_Global::sendBinary($user, GWS_Message::payload(0x1107) . $payload);
+		}
+	}
+
+	/** Retain only a small, non-persistent room backlog for newly joining users. */
+	public static function rememberMessage(LUP_Room $room, string $payload): void
+	{
+		$id = $room->getID();
+		$size = Module_LinkUUp::instance()->cfgMessageBufferSize();
+		if ($size <= 0)
+		{
+			unset(self::$ROOM_MESSAGES[$id]);
+			return;
+		}
+		self::$ROOM_MESSAGES[$id][] = $payload;
+		self::$ROOM_MESSAGES[$id] = array_slice(self::$ROOM_MESSAGES[$id], -$size);
+	}
+
 	###########
 	### GPS ###
 	###########
@@ -395,6 +420,7 @@ final class LUP_Global
 		$payload .= GWS_Message::wr32($user->getID());
 		$payload .= GWS_Message::wr32($room->getID());
 		$payload .= GWS_Message::wrS($message->readString());
+		self::rememberMessage($room, $payload);
 
 		# Payload2 goes async to all users
 		$payload2 = GWS_Message::payload(0x1107);

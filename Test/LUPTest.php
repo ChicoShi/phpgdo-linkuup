@@ -62,6 +62,27 @@ final class LUPTest extends TestCase
 		}
 	}
 
+	public function testVolatileRoomMessageBuffer(): void
+	{
+		$room = LUP_Room::table()->select()->first()->exec()->fetchObject();
+		$module = Module_LinkUUp::instance();
+		$size = $module->cfgMessageBufferSize();
+		try
+		{
+			$module->saveConfigVar('lup_msg_bufsize', '2');
+			LUP_Global::$ROOM_MESSAGES = [];
+			LUP_Global::rememberMessage($room, 'first');
+			LUP_Global::rememberMessage($room, 'second');
+			LUP_Global::rememberMessage($room, 'third');
+			assertSame(['second', 'third'], LUP_Global::$ROOM_MESSAGES[$room->getID()]);
+		}
+		finally
+		{
+			$module->saveConfigVar('lup_msg_bufsize', (string)$size);
+			LUP_Global::$ROOM_MESSAGES = [];
+		}
+	}
+
 	public function testQueryThreadsSplitAfterAnHour(): void
 	{
 		$gizmore = GDO_User::getByName('gizmore');
