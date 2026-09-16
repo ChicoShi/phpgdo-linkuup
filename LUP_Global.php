@@ -30,7 +30,7 @@ final class LUP_Global
 	/**
 	 * Current user positions.
 	 *
-	 * @var array
+	 * @var array<int, array<int, array{0:float,1:float,2:float}>>
 	 */
 	public static $POSITIONS = [];
 
@@ -445,27 +445,36 @@ final class LUP_Global
 		return [$locations, $recipients];
 	}
 
-	/** Return the speed needed to reach a position from the last live GPS fix. */
+	/** Calculate velocity from the most recent four live GPS fixes. */
 	public static function velocityFor(GDO_User $user, float $lat, float $lng, ?float $now = null): float
 	{
-		if (!isset(self::$POSITIONS[$user->getID()]))
+		$points = self::$POSITIONS[$user->getID()] ?? [];
+		$points[] = [$lat, $lng, $now ?? microtime(true)];
+		$points = array_slice($points, -4);
+		if (count($points) < 2)
 		{
 			return 0.0;
 		}
-		[$oldLat, $oldLng, $then] = self::$POSITIONS[$user->getID()];
-		$seconds = ($now ?? microtime(true)) - $then;
+		$seconds = $points[array_key_last($points)][2] - $points[0][2];
 		if ($seconds <= 0.0)
 		{
 			return 0.0;
 		}
-		return Position::distanceCalculation($oldLat, $oldLng, $lat, $lng) / $seconds * 3600.0;
+		$distance = 0.0;
+		for ($i = 1, $n = count($points); $i < $n; $i++)
+		{
+			$distance += Position::distanceCalculation($points[$i - 1][0], $points[$i - 1][1], $points[$i][0], $points[$i][1]);
+		}
+		return $distance / $seconds * 3600.0;
 	}
 
 	public static function updateGPS(GDO_User $user, float $lat, float $lng, ?float $now = null): void
 	{
 		$velocity = self::velocityFor($user, $lat, $lng, $now);
 		Module_Maps::instance()->recordVelocity($user, $velocity);
-		self::$POSITIONS[$user->getID()] = [$lat, $lng, $now ?? microtime(true)];
+		$points = self::$POSITIONS[$user->getID()] ?? [];
+		$points[] = [$lat, $lng, $now ?? microtime(true)];
+		self::$POSITIONS[$user->getID()] = array_slice($points, -4);
 	}
 
 }
