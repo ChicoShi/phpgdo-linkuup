@@ -161,16 +161,16 @@ final class LUP_Room extends GDO
 		return [
 			GDT_AutoInc::make('room_id'),
 			GDT_User::make('room_owner')->label('lup_owner')->cascadeNull()->withCompletion(),
-			GDT_Checkbox::make('room_enabled')->notNull()->initial('1')->label('enabled'),
-			GDT_UInt::make('room_sort')->notNull()->initial('1000')->label('sort'),
+			GDT_Checkbox::make('room_enabled')->notNull()->initial('0')->label('enabled'),
+			GDT_UInt::make('room_sort')->label('sort'),
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),
-			GDT_Color::make('room_color')->notNull(),
-			GDT_ObjectSelect::make('room_category')->table(LUP_Category::table())->notNull()->label('category'),
-			GDT_Position::make('room_pos')->notNull()->initialCurrent(),
+			GDT_Color::make('room_color'),
+			GDT_ObjectSelect::make('room_category')->table(LUP_Category::table())->label('category'),
+			GDT_Position::make('room_pos'),
 			GDT_Polygon::make('room_polygon'),
-			GDT_Float::make('room_view')->min(0.010)->max(42000.0)->initial('1.500')->step(0.001)->notNull()->tooltip('tt_radius_in_km'),  // Visibility radius
-			GDT_Float::make('room_radius')->min(0.001)->max(42000.0)->initial('0.150')->step(0.001)->notNull()->tooltip('tt_radius_in_km'), // Chat radius
+			GDT_Float::make('room_view')->min(0.010)->max(42000.0)->step(0.001)->tooltip('tt_radius_in_km'),  // Visibility radius
+			GDT_Float::make('room_radius')->min(0.001)->max(42000.0)->step(0.001)->tooltip('tt_radius_in_km'), // Chat radius
 			GDT_Url::make('room_www')->allowAll()->reachable(),
 			GDT_Phone::make('room_phone'),
 			GDT_OpenHour::make('room_open')->hoursColumn('room_hours'),
@@ -180,9 +180,9 @@ final class LUP_Room extends GDO
 			GDT_ImageFile::make('room_image')->label('image')->scaledVersion('icon', 64, 64)->scaledVersion('large', 800, 600),
 			GDT_VoteCount::make('room_votes'),
 			GDT_VoteRating::make('room_rating'),
-			GDT_Checkbox::make('room_show_distance')->initial('1')->notNull(),
-            GDT_Checkbox::make('room_needs_vip')->initial('0')->notNull(),
-            GDT_Checkbox::make('room_has_mira')->initial('0')->notNull(), # TODO @mira Würdest Du lieber automatisch in jedem Raum sein, oder soll iwer was zahlen?
+			GDT_Checkbox::make('room_show_distance'),
+			GDT_Checkbox::make('room_needs_vip'),
+			GDT_Checkbox::make('room_has_mira'), # TODO @mira Würdest Du lieber automatisch in jedem Raum sein, oder soll iwer was zahlen?
 			GDT_EditedAt::make('room_edited'),
 			GDT_EditedBy::make('room_editor'),
 			GDT_DeletedAt::make('room_deleted'),
