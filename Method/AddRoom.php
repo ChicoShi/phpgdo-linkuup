@@ -65,19 +65,6 @@ final class AddRoom extends MethodCrud
 		$form->actions()->addField(GDT_Submit::make('create')->label('btn_create')->icon('add'));
 	}
 
-	public function beforeCreate(GDT_Form $form, GDO $gdo): void
-	{
-		$gdo->setVars([
-			'room_enabled' => '0',
-			'room_category' => '2',
-			'room_color' => '#6452c9',
-			'room_pos_lat' => '51.1642292',
-			'room_pos_lng' => '10.4541194',
-			'room_view' => '1.500',
-			'room_radius' => '0.150',
-		]);
-	}
-
 	/** A draft always continues straight to its detailed editor. */
 	public function onCreate(GDT_Form $form): GDT
 	{
