@@ -7,11 +7,21 @@ use GDO\Core\GDT_Object;
 use GDO\Core\Javascript;
 use GDO\LinkUUp\LUP_Room;
 use GDO\Maps\GDT_Polygon;
+use GDO\User\GDO_User;
 
 /** Staff map for reviewing and editing room geofences. */
 final class LocationMap extends \GDO\Core\Method
 {
-	public function getPermission(): ?string { return 'staff'; }
+	public function hasPermission(GDO_User $user, string &$error, array &$args): bool
+	{
+		$room = $this->gdoParameterValue('room');
+		if ($user->isStaff() || ($room && $room->canEdit($user)))
+		{
+			return true;
+		}
+		$error = 'err_not_allowed';
+		return false;
+	}
 
 	public function gdoParameters(): array
 	{
@@ -26,9 +36,14 @@ final class LocationMap extends \GDO\Core\Method
 		$this->getModule()->addJS('js/lup-location-map.js');
 
 		$locations = [];
+		$user = GDO_User::current();
 		foreach (LUP_Room::table()->select()->order('room_id ASC')->exec()->fetchAllArray2dObject() as $room)
 		{
 			/** @var LUP_Room $room */
+			if (!$user->isStaff() && !$room->canEdit($user))
+			{
+				continue;
+			}
 			$polygon = json_decode((string)$room->gdoVar('room_polygon'), true);
 			if (!is_array($polygon))
 			{

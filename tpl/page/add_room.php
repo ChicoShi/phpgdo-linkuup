@@ -10,13 +10,13 @@ use GDO\Form\GDT_Form;
 		<div>
 			<small>LINKUUP · ORTSWERKSTATT</small>
 			<h1>Neue Location anlegen</h1>
-			<p>Jeder Eintrag beginnt mit einem echten Ort: Name, Kategorie, präziser Pin und ein sinnvoller Radius.</p>
+			<p>Name und Titel reichen zum Start. Adresse, Kategorie, Karte und Radius folgen direkt danach.</p>
 		</div>
 	</header>
 	<aside class="lup-room-composer-guide" aria-label="Qualitätscheck">
-		<span><i class="fas fa-check"></i> Exakte Adresse</span>
-		<span><i class="fas fa-check"></i> Pin auf dem Gebäude</span>
-		<span><i class="fas fa-check"></i> Radius passend zur Fläche</span>
+		<span><i class="fas fa-check"></i> Name und Titel</span>
+		<span><i class="fas fa-check"></i> Danach Karte öffnen</span>
+		<span><i class="fas fa-check"></i> Fläche präzise setzen</span>
 	</aside>
 	<div class="lup-room-composer-form">
 		<?= $form->render() ?>

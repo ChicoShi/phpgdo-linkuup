@@ -100,6 +100,7 @@ return [
 	'cfg_lup_graph_height' => 'Graph height in pixels',
 
 	'link_edit_room' => 'Edit room',
+	'link_edit_room_map' => 'Edit map',
 	'link_edit_room_workers' => 'Assign employees',
 
 	'mt_linkuup_addcoworker' => 'Add employee',

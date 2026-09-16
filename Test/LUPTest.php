@@ -37,6 +37,7 @@ final class LUPTest extends TestCase
 		assertGreaterThanOrEqual(1, LUP_Category::table()->countWhere());
 		assertGreaterThanOrEqual(1, GDO_Address::table()->countWhere());
 		assertGreaterThanOrEqual(1, LUP_Room::table()->countWhere());
+		assertSame(400, LUP_Room::table()->countWhere("room_info LIKE '%[osm-%'"));
 	}
 
 	public function testQueryThreadsSplitAfterAnHour(): void

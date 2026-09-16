@@ -51,23 +51,41 @@ final class AddRoom extends MethodCrud
 	public function gdoTable(): GDO { return LUP_Room::table(); }
 
 	/**
-	 * The public VIP flow deliberately starts small. Detailed room management
-	 * remains available through EditRoom after the room exists.
+	 * A draft only needs its name and title. Everything spatial belongs in the
+	 * room editor and the map editor after the room exists.
 	 */
 	protected function createForm(GDT_Form $form): void
 	{
 		$room = LUP_Room::table();
 		$form->addFields(
-			$room->gdoColumn('room_name'),
-			$room->gdoColumn('room_info'),
-			$room->gdoColumn('room_category'),
-			$room->gdoColumn('room_color')->initial('#6452c9'),
-			$room->gdoColumn('room_pos'),
-			$room->gdoColumn('room_view'),
-			$room->gdoColumn('room_radius'),
+			$room->gdoColumn('room_name')->label('name'),
+			$room->gdoColumn('room_info')->label('title'),
 			GDT_AntiCSRF::make(),
 		);
 		$form->actions()->addField(GDT_Submit::make('create')->label('btn_create')->icon('add'));
+	}
+
+	public function beforeCreate(GDT_Form $form, GDO $gdo): void
+	{
+		$gdo->setVars([
+			'room_enabled' => '0',
+			'room_category' => '2',
+			'room_color' => '#6452c9',
+			'room_pos_lat' => '51.1642292',
+			'room_pos_lng' => '10.4541194',
+			'room_view' => '1.500',
+			'room_radius' => '0.150',
+		]);
+	}
+
+	/** A draft always continues straight to its detailed editor. */
+	public function onCreate(GDT_Form $form): GDT
+	{
+		$gdo = LUP_Room::blank($form->getFormVars());
+		$this->beforeCreate($form, $gdo);
+		$gdo->insert();
+		$this->afterCreate($form, $gdo);
+		return $this->redirectMessage('msg_crud_created', [$gdo->gdoHumanName(), $gdo->getID()], $gdo->href_edit());
 	}
 
 	public function afterCreate(GDT_Form $form, GDO $gdo): void

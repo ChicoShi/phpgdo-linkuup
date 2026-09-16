@@ -212,6 +212,7 @@ final class Install
 		self::createRegionalClubExpansion();
 		self::createRegionalMixedExpansion();
 		LocationRegistry::importApproved();
+		LocationExpansion::import();
 		self::reserveUserRoomIds();
 
 		self::createDefaultImageVariants($module);

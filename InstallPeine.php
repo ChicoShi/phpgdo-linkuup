@@ -146,7 +146,6 @@ final class InstallPeine
 			'address_country' => 'DE',
 		]);
 
-		$image = $icons[3];
 		LUP_Room::blank([
 			'room_id' => '1002',
 			'room_owner' => $owner->getID(),
@@ -160,8 +159,8 @@ final class InstallPeine
 			'room_polygon' => '{"type":"Polygon","coordinates":[[[10.2439064,52.3240495],[10.2442282,52.3238675],[10.24396,52.3236757],[10.243665,52.3238528],[10.2439064,52.3240495]]]}',
 			'room_radius' => '0.050',
 			'room_address' => $address->getID(),
-			'room_icon' => $image->getID(),
-			'room_image' => $image->getID(),
+			'room_icon' => null,
+			'room_image' => null,
 			'room_show_distance' => '1',
 		])->softReplace();
 	}

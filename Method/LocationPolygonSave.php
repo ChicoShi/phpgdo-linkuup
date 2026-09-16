@@ -9,11 +9,21 @@ use GDO\Core\GDT_Object;
 use GDO\Core\MethodAjax;
 use GDO\LinkUUp\LUP_Room;
 use GDO\Maps\GDT_Polygon;
+use GDO\User\GDO_User;
 
 /** Saves one staff-edited room polygon. */
 final class LocationPolygonSave extends MethodAjax
 {
-	public function getPermission(): ?string { return 'staff'; }
+	public function hasPermission(GDO_User $user, string &$error, array &$args): bool
+	{
+		$room = $this->gdoParameterValue('room');
+		if ($room && $room->canEdit($user))
+		{
+			return true;
+		}
+		$error = 'err_not_allowed';
+		return false;
+	}
 
 	public function isAlwaysTransactional(): bool { return true; }
 
