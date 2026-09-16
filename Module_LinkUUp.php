@@ -18,6 +18,7 @@ use GDO\Form\GDT_Form;
 use GDO\Gallery\GDO_Gallery;
 use GDO\Gallery\Module_Gallery;
 use GDO\LinkUUp\Method\Welcome;
+use GDO\Maps\GDT_Velocity;
 use GDO\Net\GDT_Url;
 use GDO\PaymentCredits\GDT_Credits;
 use GDO\UI\GDT_Bar;
@@ -119,6 +120,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Credits::make('shout_cost')->initial('0'), # One shout to all occupied locations
 			GDT_Length::make('room_tolerance')->initial('0.064'), # GPS tolerance around room polygons in km
 			GDT_Length::make('room_leave_tolerance')->initial('0.640'), # GPS tolerance before automatically leaving a room in km
+			GDT_Velocity::make('lup_join_velocity')->min(0.0)->max(1000.0)->initial('10.0'), # km/h
 			GDT_Length::make('lup_cuddle_range')->initial('0.100'), # Cuddle range in km
 			GDT_Duration::make('lup_cuddle_token_ttl')->initial('2m')->min(30)->max(900),
 			GDT_UInt::make('lup_num_top_comments')->initial('3')->max(100), # Num Top comments in Room detail.
@@ -261,6 +263,7 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgShoutCost(): int { return (int)$this->getConfigValue('shout_cost'); }
 	public function cfgRoomTolerance(): float { return (float)$this->getConfigValue('room_tolerance'); }
 	public function cfgRoomLeaveTolerance(): float { return (float)$this->getConfigValue('room_leave_tolerance'); }
+	public function cfgJoinVelocity(): float { return (float)$this->getConfigValue('lup_join_velocity'); }
 
 	public function cfgNumTopComments(): int { return $this->getConfigValue('lup_num_top_comments'); }
 

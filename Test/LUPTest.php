@@ -12,6 +12,7 @@ use GDO\LinkUUp\LUP_SignupGPS;
 use GDO\LinkUUp\LUP_QueryThread;
 use GDO\LinkUUp\Method\Cuddle;
 use GDO\LinkUUp\Module_LinkUUp;
+use GDO\Maps\Module_Maps;
 use GDO\Tests\GDT_MethodTest;
 use GDO\Tests\TestCase;
 use GDO\User\GDO_User;
@@ -44,11 +45,21 @@ final class LUPTest extends TestCase
 	public function testLiveGPSVelocity(): void
 	{
 		$user = GDO_User::getByName('gizmore');
-		LUP_Global::updateGPS($user, 52.3200, 10.2300, 1000.0);
-		self::assertGreaterThan(10.0, LUP_Global::velocityFor($user, 52.3210, 10.2300, 1001.0));
-		LUP_Global::updateGPS($user, 52.3200, 10.2300, 1000.0);
-		self::assertSame(0.0, LUP_Global::velocityFor($user, 52.3200, 10.2300, 1001.0));
-		unset(LUP_Global::$POSITIONS[$user->getID()]);
+		$maps = Module_Maps::instance();
+		$record = $maps->userMaxVelocity($user);
+		try
+		{
+			$maps->saveUserSetting($user, 'max_velocity', '0');
+			LUP_Global::updateGPS($user, 52.3200, 10.2300, 1000.0);
+			self::assertGreaterThan(10.0, LUP_Global::velocityFor($user, 52.3210, 10.2300, 1001.0));
+			LUP_Global::updateGPS($user, 52.3210, 10.2300, 1001.0);
+			self::assertGreaterThan(10.0, $maps->userMaxVelocity($user));
+		}
+		finally
+		{
+			$maps->saveUserSetting($user, 'max_velocity', (string)$record);
+			unset(LUP_Global::$POSITIONS[$user->getID()]);
+		}
 	}
 
 	public function testQueryThreadsSplitAfterAnHour(): void

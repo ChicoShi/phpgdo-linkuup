@@ -6,6 +6,7 @@ use GDO\Friends\GDO_FriendRequest;
 use GDO\Friends\GDO_Friendship;
 use GDO\Friends\GDT_FriendRelation;
 use GDO\Maps\Position;
+use GDO\Maps\Module_Maps;
 use GDO\User\GDO_User;
 use GDO\Websocket\Server\GWS_Global;
 use GDO\Websocket\Server\GWS_Message;
@@ -462,6 +463,8 @@ final class LUP_Global
 
 	public static function updateGPS(GDO_User $user, float $lat, float $lng, ?float $now = null): void
 	{
+		$velocity = self::velocityFor($user, $lat, $lng, $now);
+		Module_Maps::instance()->recordVelocity($user, $velocity);
 		self::$POSITIONS[$user->getID()] = [$lat, $lng, $now ?? microtime(true)];
 	}
 
