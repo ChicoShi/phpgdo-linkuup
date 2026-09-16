@@ -23,7 +23,7 @@ final class LUP_Category extends GDO
 			GDT_AutoInc::make('cat_id'),
 			GDT_Name::make('cat_name')->utf8()->notNull(),
 			GDT_Color::make('cat_color'),
-			GDT_ImageFile::make('cat_icon'),
+			GDT_ImageFile::make('cat_icon')->label('icon'),
 		];
 	}
 
@@ -33,6 +33,7 @@ final class LUP_Category extends GDO
 
 	public function getName(): ?string { return $this->gdoVar('cat_name'); }
 
+	public function renderName(): string { return t('lupcat_' . $this->getName()); }
 
 	public function renderHTML(): string { return GDT_Template::php('LinkUUp', 'cell/category.php', ['gdo' => $this]); }
 
