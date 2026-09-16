@@ -37,10 +37,10 @@ final class FromDog extends Method
 	public function execute(): GDT
 	{
 		$room = $this->gdoParameterValue('room');
-		$mira = GDO_User::getByName('mira');
-		LUP_Global::sendMinion($room, $mira);
+		$minion = GDO_User::getByName('minion');
+		LUP_Global::sendMinion($room, $minion);
 		LUP_MessageSent::messageSent($room);
-		LUP_Global::chatText($room, $mira, $this->gdoParameterVar('message'));
+		LUP_Global::chatText($room, $minion, $this->gdoParameterVar('message'));
 		return $this->empty();
 	}
 }

@@ -137,17 +137,28 @@ final class Install
 		LUP_Trophy::getOrCreate($mira)->saveVar('lt_vip', '1');
 		self::installAvatar('mira', 'mira.png');
 
-        # Peter is a seeded VIP member. His secret deliberately aliases
-        # gizmore's installer password without duplicating it in secret.php.
-        $peter = GDO_User::blank([
+        # Minion is the visible LinkUUp voice for Mira/Dog replies.
+        $minion = GDO_User::blank([
             'user_id' => '6',
             'user_type' => GDT_UserType::MEMBER,
-            'user_name' => 'Peter',
+            'user_name' => 'minion',
             'user_level' => '0',
         ])->softReplace();
-        $peterPasswordKey = $users['peter'][0];
-        $peter->saveSettingVar('Login', 'password', BCrypt::create($users[$peterPasswordKey][0])->__toString());
-		LUP_Trophy::getOrCreate($peter)->saveVar('lt_vip', '1');
+        $minion->saveSettingVar('Login', 'password', BCrypt::create($users['minion'][0])->__toString());
+		$minion->saveSettingVar('Mail', 'email', $users['minion'][1]);
+		$minion->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
+		LUP_Trophy::getOrCreate($minion)->saveVar('lt_vip', '1');
+
+		# rayaseiren is a regular seeded member; preserve the IRC nickname spelling.
+		$rayaseiren = GDO_User::blank([
+			'user_id' => '7',
+			'user_type' => GDT_UserType::MEMBER,
+			'user_name' => 'rayaseiren',
+			'user_level' => '0',
+		])->softReplace();
+		$rayaseiren->saveSettingVar('Login', 'password', BCrypt::create($users['rayaseiren'][0])->__toString());
+		$rayaseiren->saveSettingVar('Mail', 'email', $users['rayaseiren'][1]);
+		$rayaseiren->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
 
         # Settings
 		Module_Core::instance()->saveConfigVar('allow_guests', '1');
@@ -200,7 +211,6 @@ final class Install
 		$cats = self::installCats($icons);
 		self::seedAlphaNews($gizmore);
 		self::seedAlmostBetaNews($gizmore);
-		self::createWorldChat();
         self::createCountries();
         InstallPeine::seed(self::$ICONS);
 		self::createWolfsburg();
@@ -492,36 +502,6 @@ final class Install
             'room_show_distance' => '0',
         ])->softReplace();
     }
-
-	/** A deliberately worldwide room: no polygon, no local boundary. */
-	private static function createWorldChat(): void
-	{
-		$gizmore = GDO_User::getByName('gizmore');
-		$image = self::$ICONS[0];
-		LUP_Room::blank([
-			'room_id' => '2',
-			'room_owner' => $gizmore->getID(),
-			'room_name' => 'World-Chat',
-			'room_info' => 'Der globale Chat für alle LinkUUp-Menschen, überall auf der Welt.',
-			'room_color' => '#6D8CFF',
-			'room_category' => '2',
-			'room_sort' => '0',
-			// The antipodal distance is below 20,100 km. 42,000 km makes this
-			// room intentionally worldwide while keeping normal room logic intact.
-			'room_pos_lat' => '0.0',
-			'room_pos_lng' => '0.0',
-			'room_polygon' => null,
-			'room_view' => '42000.0',
-			'room_radius' => '42000.0',
-			'room_www' => null,
-			'room_phone' => null,
-			'room_hours' => null,
-			'room_address' => null,
-			'room_icon' => $image->getID(),
-			'room_image' => $image->getID(),
-			'room_show_distance' => '0',
-		])->softReplace();
-	}
 
 	/** A city-wide chat uses a city-centre pin and a deliberate city radius. */
 	private static function createWolfsburg(): void
