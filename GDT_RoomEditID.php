@@ -11,7 +11,7 @@ final class GDT_RoomEditID extends GDT_UInt
 	{
 		$room = $this->getGDO();
 		return $room instanceof LUP_Room ?
-			GDT_Link::anchor($room->href_edit(), (string)$room->getID()) :
+			GDT_Link::make()->href($room->href_edit())->textRaw((string)$room->getID())->icon('edit')->render() :
 			parent::renderCell();
 	}
 
