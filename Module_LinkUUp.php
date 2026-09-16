@@ -65,7 +65,7 @@ final class Module_LinkUUp extends GDO_Module
 			'News', 'OpenTimes', 'Perf',
 			'PaymentBank', 'PaymentCredits', 'PaymentPaypal',
 			'QRCode', 'Recovery', 'Register',
-            'Session', 'Websocket',
+			'Session', 'Sitemap', 'Websocket',
 		];
 	}
 
