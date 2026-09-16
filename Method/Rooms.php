@@ -33,7 +33,6 @@ final class Rooms extends MethodQueryTable
 			GDT_EditButton::make(),
 			$room->gdoColumn('room_name'),
             GDT_EditButton::make()->name('qrcode')->icon('qrcode'),
-            $room->gdoColumn('room_pos'),
 			$room->gdoColumn('room_color'),
 			$room->gdoColumn('room_category'),
 			$room->gdoColumn('room_www'),
