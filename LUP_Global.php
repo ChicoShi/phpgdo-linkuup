@@ -124,7 +124,7 @@ final class LUP_Global
 		{
 			return 'PROFILE_ROLE_BOSS';
 		}
-		if (LUP_RoomWorker::table()->select('lrw_room')->where("lrw_user={$userId}")->first()->exec()->fetchVar())
+		if (LUP_Workers::table()->select('work_room')->where("work_user={$userId}")->first()->exec()->fetchVar())
 		{
 			return 'PROFILE_ROLE_CREW';
 		}

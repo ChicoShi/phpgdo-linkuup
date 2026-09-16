@@ -21,13 +21,13 @@ use GDO\File\Method\CronjobImageVariants;
 use GDO\Favicon\Module_Favicon;
 use GDO\Javascript\Module_Javascript;
 use GDO\Language\Module_Language;
+use GDO\Install\Installer;
 use GDO\Maps\Module_Maps;
 use GDO\News\GDO_News;
 use GDO\News\GDO_NewsText;
 use GDO\Perf\Module_Perf;
 use GDO\Register\Module_Register;
 use GDO\UI\Module_UI;
-use GDO\User\GDO_Permission;
 use GDO\User\GDO_User;
 use GDO\User\GDO_UserPermission;
 use GDO\User\GDT_UserType;
@@ -83,6 +83,7 @@ final class Install
 
 	public static function onInstall(Module_LinkUUp $module): void
 	{
+		self::wipeMarkdown();
 		# The lame drunktard who cannot code well.
         $gizmore = GDO_User::blank([
             'user_id' => '2',
@@ -90,10 +91,9 @@ final class Install
             'user_name' => 'gizmore',
             'user_level' => '0',
         ])->softReplace();
-        $passwords = require Module_LinkUUp::instance()->filePath('secret.php');
-		$emails = $passwords['emails'];
-        $gizmore->saveSettingVar('Login', 'password', BCrypt::create($passwords['gizmore'][0])->__toString());
-		$gizmore->saveSettingVar('Mail', 'email', $emails['gizmore']);
+        $users = require Module_LinkUUp::instance()->filePath('secret.php');
+        $gizmore->saveSettingVar('Login', 'password', BCrypt::create($users['gizmore'][0])->__toString());
+		$gizmore->saveSettingVar('Mail', 'email', $users['gizmore'][1]);
 		$gizmore->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
 		self::seedGizmoreSettings($gizmore);
         GDO_UserPermission::grant($gizmore, 'admin');
@@ -107,9 +107,9 @@ final class Install
             'user_name' => 'shqiprim',
             'user_level' => '0',
         ])->softReplace();
-        $shqiprimPassword = $passwords['shqiprim'][0] ?? $passwords['squiprim'][0];
+        $shqiprimPassword = $users['shqiprim'][0];
         $shqiprim->saveSettingVar('Login', 'password', BCrypt::create($shqiprimPassword)->__toString());
-		$shqiprim->saveSettingVar('Mail', 'email', $emails['shqiprim']);
+		$shqiprim->saveSettingVar('Mail', 'email', $users['shqiprim'][1]);
 		$shqiprim->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
         $shqiprim->saveSettingVar('User', 'gender', 'male');
         $shqiprim->saveSettingVar('Country', 'country_of_origin', 'DE');
@@ -125,8 +125,8 @@ final class Install
             'user_name' => 'mira',
             'user_level' => '0',
         ])->softReplace();
-        $mira->saveSettingVar('Login', 'password', BCrypt::create($passwords['mira'][0])->__toString());
-		$mira->saveSettingVar('Mail', 'email', $emails['mira']);
+        $mira->saveSettingVar('Login', 'password', BCrypt::create($users['mira'][0])->__toString());
+		$mira->saveSettingVar('Mail', 'email', $users['mira'][1]);
 		$mira->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
         $mira->saveSettingVar('User', 'gender', 'female');
         $mira->saveSettingVar('Birthday', 'birthday', '2026-07-23');
@@ -145,8 +145,8 @@ final class Install
             'user_name' => 'Peter',
             'user_level' => '0',
         ])->softReplace();
-        $peterPasswordKey = $passwords['peter'][0];
-        $peter->saveSettingVar('Login', 'password', BCrypt::create($passwords[$peterPasswordKey][0])->__toString());
+        $peterPasswordKey = $users['peter'][0];
+        $peter->saveSettingVar('Login', 'password', BCrypt::create($users[$peterPasswordKey][0])->__toString());
 		LUP_Trophy::getOrCreate($peter)->saveVar('lt_vip', '1');
 
         # Settings
@@ -193,10 +193,6 @@ final class Install
             Module_Javascript::instance()->saveConfigVar('compress_js', '1');
         }
 
-		# Perms
-		GDO_Permission::create('lup_owner');
-		GDO_Permission::create('lup_worker');
-
 		# Image
 		self::installFavicon();
 		$icons = self::installIcons();
@@ -219,6 +215,15 @@ final class Install
 		self::reserveUserRoomIds();
 
 		self::createDefaultImageVariants($module);
+	}
+
+	/** LinkUUp uses plain text; remove the former Markdown installation. */
+	private static function wipeMarkdown(): void
+	{
+		if (($markdown = GDO_Module::getByName('Markdown')) && $markdown->isInstalled())
+		{
+			Installer::dropModule($markdown);
+		}
 	}
 
 	/** Install LinkUUp's favicon once without replacing a site-specific choice. */
@@ -428,7 +433,6 @@ final class Install
             'room_info' => 'Deutschland-Chat für Menschen außerhalb eines lokalen Orts.',
             'room_color' => '#FFD700',
             'room_category' => '2',
-            'room_active' => '1',
             'room_sort' => '40',
             'room_pos_lat' => '51.1093728415025',
             'room_pos_lng' => '10.398766823981518',
@@ -458,6 +462,7 @@ final class Install
 			// City centre, used solely for distance and the route pin.
 			'room_pos_lat' => '52.42265',
 			'room_pos_lng' => '10.78655',
+			'room_polygon' => null,
 			'room_view' => '100',
 			'room_radius' => '15',
 			'room_www' => 'https://www.wolfsburg.de/',
@@ -484,6 +489,7 @@ final class Install
 			'room_sort' => '10',
             'room_pos_lat' => '52.247659326009185',
             'room_pos_lng' => '10.523846179408098',
+			'room_polygon' => null,
             // City cards stay discoverable across the region; chat access remains local.
             'room_view' => '100',
             'room_radius' => '15',
@@ -535,6 +541,7 @@ final class Install
 				'room_sort' => (string)(50 + $index),
 				'room_pos_lat' => (string)$lat,
 				'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
 				// Publicly discoverable throughout the current regional test area.
 				'room_view' => '120.0',
 				// Entry remains guarded by this local city geofence.
@@ -587,6 +594,7 @@ final class Install
                 'room_category' => (string)$category,
                 'room_pos_lat' => (string)$lat,
                 'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
                 // Test locations should be discoverable throughout Braunschweig.
                 'room_view' => '32.0',
                 'room_radius' => '0.150',
@@ -632,6 +640,7 @@ final class Install
                 'room_category' => (string)$category,
                 'room_pos_lat' => (string)$lat,
                 'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
                 'room_view' => '32.0',
                 'room_radius' => '0.150',
                 'room_www' => $website,
@@ -715,6 +724,7 @@ final class Install
                 'room_category' => (string)$category,
                 'room_pos_lat' => (string)$lat,
                 'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
                 'room_view' => '32.0',
                 'room_radius' => (string)$radius,
                 'room_address' => $address->getID(),
@@ -768,6 +778,7 @@ final class Install
                 'room_category' => '5',
                 'room_pos_lat' => (string)$lat,
                 'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
                 'room_view' => '32.0',
                 'room_radius' => '0.075',
                 'room_address' => $address->getID(),
@@ -820,6 +831,7 @@ final class Install
                 'room_category' => '5',
                 'room_pos_lat' => (string)$lat,
                 'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
                 'room_view' => '32.0',
                 'room_radius' => '0.075',
                 'room_www' => $website,
@@ -874,6 +886,7 @@ final class Install
                 'room_category' => '11',
                 'room_pos_lat' => (string)$lat,
                 'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
                 'room_view' => '60.0',
                 'room_radius' => '0.075',
                 'room_www' => $website,
@@ -927,6 +940,7 @@ final class Install
                 'room_category' => (string)$category,
                 'room_pos_lat' => (string)$lat,
                 'room_pos_lng' => (string)$lng,
+				'room_polygon' => null,
                 'room_view' => '60.0',
                 'room_radius' => '0.075',
                 'room_www' => $website,

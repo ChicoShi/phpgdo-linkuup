@@ -34,6 +34,7 @@ return [
 	'room_radius' => 'Chatradius',
 	'tt_radius_in_km' => 'Radius in Kilometern',
 	'lup_owner' => 'Eigentümer',
+	'location' => 'Location',
 
 	'err_room' => 'Dieser Raum ist unbekannt.',
 	'err_lup_vip_only' => 'Das ist nur für VIP Nutzer.',
@@ -52,8 +53,6 @@ return [
 	'err_user_not_near' => 'Dieser Nutzer befindet sich nicht in Ihrer Nähe.',
 	'err_perm_view_lup_room' => 'Den Raum betrachten',
 
-	'perm_lup_owner' => 'Eigentümer',
-	'perm_lup_worker' => 'Angestellter',
 
 	'cfg_lup_app_url' => 'URL zur LinkUUp App',
 	'cfg_lup_guest_query' => 'Erlaube Gästen privat zu chatten?',

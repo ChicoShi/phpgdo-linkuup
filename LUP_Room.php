@@ -55,7 +55,7 @@ final class LUP_Room extends GDO
 	 */
 	public static function blank(?array $initial = null): static
 	{
-		if ($initial !== null && !isset($initial['room_polygon']) &&
+		if ($initial !== null && !array_key_exists('room_polygon', $initial) &&
 			isset($initial['room_pos_lat'], $initial['room_pos_lng'], $initial['room_radius']))
 		{
 			$initial['room_polygon'] = GDT_Polygon::fromRadius(
@@ -108,7 +108,7 @@ final class LUP_Room extends GDO
 		$query = $rooms->select();
 
 		# Enabled condition
-		$query->where('room_enabled=1 AND room_active=1');
+		$query->where('room_enabled=1');
 		$query->order('room_sort ASC');
 
 		# Distance conditions
@@ -162,7 +162,6 @@ final class LUP_Room extends GDO
 			GDT_AutoInc::make('room_id'),
 			GDT_User::make('room_owner')->label('lup_owner')->cascadeNull()->withCompletion(),
 			GDT_Checkbox::make('room_enabled')->notNull()->initial('1')->label('enabled'),
-			GDT_Checkbox::make('room_active')->notNull()->initial('1')->label('active'),
 			GDT_UInt::make('room_sort')->notNull()->initial('1000')->label('sort'),
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),
@@ -262,7 +261,7 @@ final class LUP_Room extends GDO
 
 	public function getCoworkers()
 	{
-		return LUP_RoomWorker::table()->getCoworkers($this);
+		return LUP_Workers::table()->getCoworkers($this);
 	}
 
     public function href_edit()
@@ -326,24 +325,14 @@ final class LUP_Room extends GDO
 
 	public function isOwner(GDO_User $user): bool
 	{
-		if ($user->isStaff())
-		{
-			return true;
-		}
-
-		if ($this->getOwnerID() === $this->getID())
-		{
-			return true;
-		}
-
-		return false;
+		return $this->getOwnerID() === $user->getID();
 	}
 
 	###################
 	### Permissions ###
 	###################
 
-	public function getOwnerID(): string { return $this->gdoVar('room_owner'); }
+	public function getOwnerID(): ?string { return $this->gdoVar('room_owner'); }
 
 	public function canEdit(GDO_User $user): bool
 	{
@@ -352,7 +341,7 @@ final class LUP_Room extends GDO
 			return true;
 		}
 
-		if (LUP_RoomWorker::isWorker($user))
+		if (LUP_Workers::isWorker($this, $user))
 		{
 			return true;
 		}

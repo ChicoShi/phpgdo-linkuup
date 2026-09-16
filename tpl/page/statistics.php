@@ -9,11 +9,10 @@ use GDO\UI\GDT_Link;
 use GDO\User\GDO_User;
 
 /**
- * @var LUP_Room[] $rooms
+ * @var LUP_Room $room
+ * @var GDO\Form\GDT_Form $locationForm
  */
 $canPrintFlyers = GDO_User::current()->isStaff();
-
-foreach ($rooms as $room) :
 
 	$inputs = [
 		'room' => $room->getID(),
@@ -33,14 +32,26 @@ foreach ($rooms as $room) :
 	$categoryVisual = $categoryVisuals[$room->getCategory()] ?? ['fas fa-map-marker-alt', 'category-default'];
 
 	?>
+<div class="lup-statistics-room-select">
+	<?=$locationForm->renderForm()?>
+</div>
     <div class="lup-room-statistics">
         <div class="statistics-room col-xs-12 col-sm-3">
 			<div class="lup-stat-category-icon <?=$categoryVisual[1]?>" title="Kategorie"><i class="<?=$categoryVisual[0]?>"></i></div>
 			<span class="lup-stat-category-name">Kategorie</span>
             <h2><?php
 				echo $room->gdoDisplay('room_name'); ?></h2>
-			<a class="lup-stat-qrcode" href="<?=$room->href_qrcode()?>" title="QR-Code für <?=$room->gdoDisplay('room_name')?>"><i class="fas fa-qrcode"></i><span>QR</span></a>
+			<?php if ($info = $room->gdoDisplay('room_info')): ?>
+				<p class="lup-stat-room-description"><?=$info?></p>
+			<?php endif; ?>
+            <a class="lup-stat-qrcode" href="<?=$room->href_qrcode()?>" title="QR-Code für <?=$room->gdoDisplay('room_name')?>"><i class="fas fa-qrcode"></i><span>QR</span></a>
             <div><?=GDT_Link::make()->href($room->url_chat())->render()?></div>
+			<?php if ($room->canEdit(GDO_User::current())): ?>
+				<a class="lup-stat-edit-room" href="<?=$room->href_edit()?>"><i class="fas fa-edit"></i><span><?=t('btn_edit')?></span></a>
+			<?php endif; ?>
+			<?php if ($canPrintFlyers): ?>
+				<a class="lup-stat-edit-map" href="<?=href('LinkUUp', 'LocationMap', '&room=' . $room->getID())?>"><i class="fas fa-draw-polygon"></i><span><?=t('mt_linkuup_locationmap')?></span></a>
+			<?php endif; ?>
 			<?php if ($canPrintFlyers): ?>
 				<a class="lup-stat-flyer" href="<?=href('LinkUUp', 'RoomFlyer', '&room=' . $room->getID() . '&_ajax=1')?>"><i class="fas fa-print"></i><span><?=t('room_flyer')?></span></a>
 			<?php endif; ?>
@@ -59,10 +70,16 @@ foreach ($rooms as $room) :
             </div>
         </div>
     </div>
-<?php
-endforeach; ?>
 <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
+	function initLupStatistics() {
+		const locationSelect = document.querySelector('.lup-statistics-room-select select');
+		if (locationSelect) {
+			locationSelect.addEventListener('change', function () {
+				const url = new URL(window.location.href);
+				url.searchParams.set('room', locationSelect.value);
+				window.location.assign(url);
+			});
+		}
 
 		function changeGraph(cont, select) {
 			var date = select.val();
@@ -93,5 +110,11 @@ endforeach; ?>
             var cont = select.parent();
             changeGraph(cont, select);
         });
-    });
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initLupStatistics, {once: true});
+	} else {
+		initLupStatistics();
+	}
 </script>

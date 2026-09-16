@@ -252,9 +252,11 @@
 
 	locationSelect.addEventListener('change', () => select(Number(locationSelect.value)));
 	saveButton.addEventListener('click', () => save(active));
+	let selectedID = Number(config.selectedRoom) || Number(new URLSearchParams(window.location.search).get('room')) || null;
 	let rememberedID = null;
 	try { rememberedID = Number(sessionStorage.getItem(sessionKey)); } catch (_) { /* private browser mode */ }
-	const first = config.locations.find((location) => location.id === rememberedID && layers.has(location.id)) ||
+	const first = config.locations.find((location) => location.id === selectedID && layers.has(location.id)) ||
+		config.locations.find((location) => location.id === rememberedID && layers.has(location.id)) ||
 		config.locations.find((location) => layers.has(location.id));
 	if (first) { select(first.id); }
 	else { setStatus('Keine Locations mit Polygon geladen.'); }

@@ -9,10 +9,8 @@ use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
 use GDO\Form\MethodCrud;
 use GDO\LinkUUp\LUP_Room;
-use GDO\LinkUUp\LUP_RoomWorker;
 use GDO\LinkUUp\LUP_Global;
 use GDO\User\GDO_User;
-use GDO\User\GDO_UserPermission;
 
 final class AddRoom extends MethodCrud
 {
@@ -83,8 +81,7 @@ final class AddRoom extends MethodCrud
 	{
 		if ($owner = $room->getOwner())
 		{
-			LUP_RoomWorker::addWorker($room, $owner);
-			GDO_UserPermission::grant($owner, 'lup_owner');
+			LUP_Workers::addWorker($room, $owner);
 		}
 	}
 

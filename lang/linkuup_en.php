@@ -34,6 +34,7 @@ return [
 	'room_radius' => 'Chat radius',
 	'tt_radius_in_km' => 'Radius in kilometers',
 	'lup_owner' => 'Owner',
+	'location' => 'Location',
 
 	'err_room' => 'This room is unknown.',
 	'err_lup_vip_only' => 'This is only available to VIP users.',
@@ -52,8 +53,6 @@ return [
 	'err_user_not_near' => 'This user is not near you.',
 	'err_perm_view_lup_room' => 'View a room',
 
-	'perm_lup_owner' => 'Owner',
-	'perm_lup_worker' => 'Employee',
 
 	'cfg_lup_app_url' => 'URL to LUP/APP',
 	'cfg_lup_guest_query' => 'Allow guests to pm/query?',

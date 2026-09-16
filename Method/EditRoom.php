@@ -41,7 +41,12 @@ final class EditRoom extends MethodForm
 	public function hasPermission(GDO_User $user, string &$error, array &$args): bool
 	{
 		$room = $this->getRoom();
-		return $room->canEdit($user);
+		if ($room->canEdit($user))
+		{
+			return true;
+		}
+		$error = 'err_not_allowed';
+		return false;
 	}
 
 
@@ -80,7 +85,6 @@ final class EditRoom extends MethodForm
 		if ($staff)
 		{
 			$form->addField($room->gdoColumn('room_category'));
-			$form->addField($room->gdoColumn('room_active'));
 			$form->addField($room->gdoColumn('room_sort'));
 			$form->addField($room->gdoColumn('room_pos'));
 			$form->addField($room->gdoColumn('room_view'));

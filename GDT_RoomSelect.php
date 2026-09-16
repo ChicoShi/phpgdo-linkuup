@@ -10,7 +10,7 @@ use GDO\User\GDO_User;
  *
  * @author gizmore
  */
-final class GDT_RoomSelect extends GDT_ObjectSelect
+class GDT_RoomSelect extends GDT_ObjectSelect
 {
 
 	public bool $editableRooms = false;
@@ -56,7 +56,7 @@ final class GDT_RoomSelect extends GDT_ObjectSelect
 			$user = GDO_User::current();
 			if (!$user->isStaff())
 			{
-				$coworker_query = "SELECT lrw_room FROM lup_roomworker WHERE lrw_user = {$user->getID()}";
+				$coworker_query = "SELECT work_room FROM lup_workers WHERE work_user = {$user->getID()}";
 				$where[] = "(room_owner = {$user->getID()} OR room_id IN ( $coworker_query ))";
 			}
 		}
@@ -64,7 +64,7 @@ final class GDT_RoomSelect extends GDT_ObjectSelect
 		# Only enabled rooms?
 		if ($this->enabledRooms)
 		{
-			$where[] = '(room_enabled=1 AND room_active=1)';
+			$where[] = 'room_enabled=1';
 		}
 
 		# Query rooms

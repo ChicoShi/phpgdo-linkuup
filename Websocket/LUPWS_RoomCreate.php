@@ -6,13 +6,12 @@ use GDO\DB\Database;
 use GDO\LinkUUp\LUP_Category;
 use GDO\LinkUUp\LUP_Global;
 use GDO\LinkUUp\LUP_Room;
-use GDO\LinkUUp\LUP_RoomWorker;
+use GDO\LinkUUp\LUP_Workers;
 use GDO\LinkUUp\LUPWS_Command;
 use GDO\LinkUUp\Module_LinkUUp;
 use GDO\Maps\GDT_Polygon;
 use GDO\User\GDO_User;
 use GDO\User\GDO_UserSetting;
-use GDO\User\GDO_UserPermission;
 use GDO\Websocket\Server\GWS_Commands;
 use GDO\Websocket\Server\GWS_Message;
 
@@ -88,8 +87,7 @@ final class LUPWS_RoomCreate extends LUPWS_Command
 			'room_polygon' => $polygon,
 		])->insert();
 
-		LUP_RoomWorker::addWorker($room, $user);
-		GDO_UserPermission::grant($user, 'lup_owner');
+		LUP_Workers::addWorker($room, $user);
 		$room = LUP_Global::refreshRoom($room->getID()) ?: $room;
 		LUPWS_Room::broadcastRoomAdded($room);
 		return $msg->replyBinary($msg->cmd(), GWS_Message::wrN(4, $room->getID()));

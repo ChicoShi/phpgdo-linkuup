@@ -85,11 +85,11 @@ final class LUP_RoomWorkerActivation extends GDO
 
 	public function activate(GDO_User $user): void
 	{
-		LUP_RoomWorker::blank([
-			'lrw_room' => $this->getRoomID(),
-			'lrw_user' => $user->getID(),
-			'lrw_created' => Time::getDate(),
-			'lrw_creator' => $this->getCreatorID(),
+		LUP_Workers::blank([
+			'work_room' => $this->getRoomID(),
+			'work_user' => $user->getID(),
+			'work_created' => Time::getDate(),
+			'work_creator' => $this->getCreatorID(),
 		])->insert();
 	}
 

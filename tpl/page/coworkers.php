@@ -1,7 +1,7 @@
 <?php
 
 use GDO\LinkUUp\LUP_Room;
-use GDO\LinkUUp\LUP_RoomWorker;
+use GDO\LinkUUp\LUP_Workers;
 use GDO\LinkUUp\LUP_RoomWorkerActivation;
 use GDO\Mail\GDT_Email;
 use GDO\Table\GDT_Table;
@@ -14,9 +14,9 @@ use GDO\User\GDT_Username;
 foreach ($rooms as $room)
 {
 	# Render Coworkers
-	$result = LUP_RoomWorker::table()->getCoworkersResult($room);
+	$result = LUP_Workers::table()->getCoworkersResult($room);
 	$table = GDT_Table::make();
-	$table->fetchAs(LUP_RoomWorker::table());
+	$table->fetchAs(LUP_Workers::table());
 	$table->title('lup_room_workers', [
 		$result->numRows(),
 		$room->gdoDisplay('room_name'),
