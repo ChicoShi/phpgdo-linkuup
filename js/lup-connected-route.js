@@ -15,15 +15,16 @@
   const targetPoints=Array.from({length:80},(_,i)=>{const q=targetPath.getPointAtLength(targetLength*i/80);return {x:(q.x-100)*32/270,y:(q.y-135)*32/270};});
   let buttonPoints=[];
   const feet=document.createElement('span');feet.className='lup-pin-feet';pin.append(feet);document.body.append(pin);pin.classList.add('lup-unified-pin');
-  const trail=document.createElement('div');trail.className='lup-adventure-trail';trail.setAttribute('aria-hidden','true');document.body.append(trail);
-  const marks=Array.from({length:14},()=>{const e=document.createElement('span');trail.append(e);return e;});
+  // The old trail put frozen soles directly underneath the animated feet.
+  // Keep one pair on the traveller; planted footprints belong to the globe.
   const globeSteps=document.createElement('div');globeSteps.className='lup-globe-steps';globeSteps.setAttribute('aria-hidden','true');sphere.append(globeSteps);
   const prints=Array.from({length:48},()=>{const e=document.createElement('i');globeSteps.append(e);return e;});
   const icons=[...main.querySelectorAll('.lup-arrival-principle-flow > div > i')];
   const explanations=['Entdecke, welche Orte sich in deiner Nähe befinden.','Wähle den Ort und die Begegnung, die zu dir passen.','Begegne anderen aufmerksam und respektvoll.'];
   const notes=icons.map((el,i)=>{el.classList.add('lup-route-dock');const n=document.createElement('small');n.className='lup-principle-note';n.textContent=explanations[i];el.parentElement.append(n);return n;});
-  const caption=document.createElement('p');caption.className='lup-tour-caption';caption.setAttribute('aria-hidden','true');categorySection.querySelector('.lup-destinations').after(caption);
-  let manualCategory=false;categories.forEach(b=>b.addEventListener('click',()=>{manualCategory=true;caption.textContent=b.dataset.description;caption.style.setProperty('--tour-color',b.style.getPropertyValue('--place-color'));schedule();}));
+  const story=categorySection.querySelector('.lup-destination-story');
+  story.setAttribute('aria-live','off'); // Scroll previews must not announce every category.
+  let manualCategory=false,lastCategory=-1;categories.forEach(b=>b.addEventListener('click',()=>{manualCategory=true;schedule();}));
   const reduced=matchMedia('(prefers-reduced-motion: reduce)'),clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x);},mix=(a,b,t)=>a+(b-a)*t;
   // Shared tilted-sphere projection for the traveller and every planted footprint.
   const surface=(longitude,latitude=0)=>{const c=Math.cos(latitude),z=Math.cos(longitude)*c;return {x:Math.sin(longitude)*c*.46,y:(Math.sin(latitude)*.94-z*.342)*.46,front:z*.94+Math.sin(latitude)*.342};};
@@ -113,7 +114,6 @@
     // Enlarge around the doorway: the pin landing point stays fixed.
     body.setAttribute('transform',`translate(82 ${doorY}) scale(${1+contact*.22}) translate(-82 ${-doorY})`);
    });
-   marks.forEach((el,i)=>{const at=shown-8*(i+1),q=pose(at,b);el.style.opacity=String(still||(v.p>0&&v.p<1)||at<g.heroStart||q.morph<.95?0:q.opacity*(1-i/14)*.32);el.style.transform=`translate(${q.x+(i%2?3:-3)}px,${q.y+16}px) rotate(${q.rotation}deg)`;});
    const globeQ=clamp((v.p-.14)/.7);
    prints.forEach((el,i)=>{
     const birth=(i+1)/49,birthProgress=.14+birth*.7;
@@ -123,10 +123,17 @@
     el.style.transform=`translate3d(${(point.x+.5)*b.width}px,${(point.y+.5)*b.height}px,0) translate(-50%,-50%) rotate(${Math.sin(longitude)*20}deg) scale(${Math.max(.12,Math.abs(point.front))},1)`;
     el.style.opacity=String(still?0:ease(age/.018)*ease((point.front-.02)/.18)*.7*(1-ease((age-.3)/.3)));
    });
-   const arrival=ease((v.p-.78)/.18);invitation.style.setProperty('--arrival',String(still?1:arrival));invitation.classList.toggle('is-arrived',arrival>.6);
+   const arrival=ease((v.p-.2)/.24);invitation.style.setProperty('--arrival',String(still?1:arrival));invitation.inert=!still&&arrival<.1;
    const cp=clamp((shown-g.catStart)/g.catLength),chosen=Math.min(categories.length-1,Math.floor(cp*categories.length));
    categories.forEach((el,i)=>el.classList.toggle('is-tour-active',!still&&!manualCategory&&cp>0&&cp<1&&i===chosen));
-   if(!manualCategory){const selected=categories[chosen];caption.textContent=selected.dataset.description;caption.style.setProperty('--tour-color',selected.style.getPropertyValue('--place-color'));}
+   if(!manualCategory&&lastCategory!==chosen){
+    lastCategory=chosen;const selected=categories[chosen];
+    categories.forEach(el=>{el.classList.toggle('is-selected',el===selected);el.setAttribute('aria-pressed',String(el===selected));});
+    story.querySelector('strong').textContent=selected.lastElementChild.textContent;
+    story.querySelector('p > span').textContent=selected.dataset.description;
+    story.style.setProperty('--story-color',selected.style.getPropertyValue('--place-color'));
+    story.querySelector('.lup-story-orbit').innerHTML=selected.querySelector('svg').outerHTML;
+   }
    g.stops.forEach((stop,i)=>{const t=clamp(1-Math.abs(shown-stop.t)/160);stop.el.style.setProperty('--dock',String(still?0:ease(t)));notes[i].style.setProperty('--note',String(still?1:ease((shown-stop.t+120)/150)));});
    document.dispatchEvent(new CustomEvent('lup:finale-frame',{detail:{scroll:shown,still}}));
    if(!still&&shown!==scrollY)raf=requestAnimationFrame(draw);

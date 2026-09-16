@@ -101,10 +101,12 @@
         const story = document.querySelector('.lup-destination-story');
         const destinations = [...document.querySelectorAll('.lup-destination')];
         destinations.forEach(button => button.addEventListener('click', () => {
+            story.setAttribute('aria-live', 'polite');
             destinations.forEach(other => { other.classList.toggle('is-selected', other === button); other.setAttribute('aria-pressed', String(other === button)); });
             story.querySelector('strong').textContent = button.lastElementChild.textContent;
             story.querySelector('p > span').textContent = button.dataset.description;
             story.style.setProperty('--story-color', button.style.getPropertyValue('--place-color'));
+            story.querySelector('.lup-story-orbit').innerHTML = button.querySelector('svg').outerHTML;
         }));
         document.querySelector('.lup-back-top').addEventListener('click', event => {
             event.preventDefault();

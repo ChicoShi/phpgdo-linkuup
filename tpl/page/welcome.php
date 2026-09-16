@@ -163,7 +163,7 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
                 <svg class="lup-world-pin" viewBox="0 0 200 270"><defs><linearGradient id="lup-pin-gradient" x2="1" y2="1"><stop stop-color="#b3a0ff"/><stop offset="1" stop-color="#45bbeb"/></linearGradient></defs><path fill="url(#lup-pin-gradient)" d="M100 10C50 10 10 50 10 100c0 68 90 155 90 155s90-87 90-155c0-50-40-90-90-90Z"/><circle cx="100" cy="98" r="39" fill="#171b35"/></svg>
                 <div class="lup-world-sphere" data-atlas-url="<?=htmlspecialchars($module->wwwPath('www/img/linkuup-globe-atlas.webp'), ENT_QUOTES, 'UTF-8')?>" data-zoom-url="<?=htmlspecialchars($module->wwwPath('www/img/linkuup-globe-zoom.webp'), ENT_QUOTES, 'UTF-8')?>"><div class="lup-world-rotation"></div><div class="lup-world-shade"></div><div class="lup-world-rim"></div></div>
             </div>
-            <a class="lup-world-invitation" href="#lup-arrival-categories" data-lup-scroll><span class="lup-invitation-copy"><small>DEIN NÄCHSTER MOMENT</small><strong>Wohin zieht es dich?</strong><span>Acht Kategorien. Dein nächster Ort.</span></span><i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+            <a class="lup-world-invitation" href="#lup-arrival-categories" data-lup-scroll><span class="lup-invitation-copy"><small>DEIN NÄCHSTER SCHRITT</small><strong>Finde deinen Ort</strong></span><i class="fas fa-arrow-down" aria-hidden="true"></i></a>
         </div>
         <ol class="lup-arrival-flow"><li><i class="fas fa-globe-europe"></i><div><h3>Entdecke deine Welt</h3><p>Was gibt es direkt um dich herum?</p></div></li><li><i class="fas fa-shoe-prints"></i><div><h3>Mach den ersten Schritt</h3><p>Finde einen Ort, der zu dir passt.</p></div></li><li><i class="fas fa-map-marker-alt"></i><div><h3>Komm wirklich an</h3><p>Dein Ziel führt ins echte Leben.</p></div></li></ol>
 		<a class="lup-arrival-next" href="#lup-arrival-categories" data-lup-scroll><span>Kategorien ansehen</span><i class="fas fa-arrow-down"></i></a>
@@ -175,7 +175,7 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 		<div class="lup-destinations" aria-label="Ortskategorien">
 		<?php
 		$places = [
-			['Bar', 'Anstoßen. Reden. Bleiben.', '#edb47f', 'M4 4h16L12 13 4 4Zm8 9v7m-4 0h8M7 7h10'],
+			['Bar', 'Erst ankommen. Dann im Chat die Menschen vor Ort kennenlernen.', '#edb47f', 'M4 4h16L12 13 4 4Zm8 9v7m-4 0h8M7 7h10'],
 			['Café', 'Kaffee, Gespräche und eine kleine Pause.', '#e8c39b', 'M4 9h12v5a6 6 0 0 1-12 0V9Zm12 1h2a3 3 0 0 1 0 6h-2M3 22h15M7 2v3m5-3v3'],
 			['Club & Disco', 'Dein Sound. Deine Nacht. Zusammen unterwegs.', '#e6a4df', 'M9 17V5l11-2v12M9 8l11-2M6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm11-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z'],
 			['Kultur', 'Neue Perspektiven zwischen Bühne und Ausstellung.', '#91bff3', 'm3 9 9-6 9 6H3Zm2 3v7m5-7v7m4-7v7m5-7v7M2 22h20'],
@@ -188,7 +188,7 @@ $appURL = htmlspecialchars($module->cfgAppUrl(), ENT_QUOTES, 'UTF-8');
 			<button type="button" class="lup-destination<?=$index === 0 ? ' is-selected' : ''?>" style="--place-color:<?=$color?>;--place-index:<?=$index?>" aria-pressed="<?=$index === 0 ? 'true' : 'false'?>" data-description="<?=htmlspecialchars($description, ENT_QUOTES, 'UTF-8')?>"><span class="lup-destination-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="<?=$path?>"/></svg></span><span><?=$name?></span></button>
 		<?php endforeach; ?>
 		</div>
-		<div class="lup-destination-story" aria-live="polite"><span class="lup-story-orbit" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span><p><small>WORAUF HAST DU LUST?</small><strong>Bar</strong><span>Anstoßen. Reden. Bleiben.</span></p><a href="<?=$appURL?>" aria-label="Orte in LinkUUp entdecken"><i class="fas fa-arrow-right"></i></a></div>
+		<div class="lup-destination-story" aria-live="polite"><span class="lup-story-orbit" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span><p><small>DEIN ORT. DEINE BEGEGNUNG.</small><strong>Bar</strong><span>Erst ankommen. Dann im Chat die Menschen vor Ort kennenlernen.</span></p><a href="<?=$appURL?>" aria-label="Orte in LinkUUp entdecken"><span>Orte entdecken</span><i class="fas fa-arrow-right"></i></a></div>
 		<a class="lup-arrival-next" href="#lup-arrival-principles" data-lup-scroll><span>Weiter zu „Auf deine Art“</span><i class="fas fa-arrow-down"></i></a>
 	</section>
 

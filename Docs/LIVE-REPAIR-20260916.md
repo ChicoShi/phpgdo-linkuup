@@ -31,3 +31,13 @@ Grenzen: Chromium mit mobilen Viewports und Touch-Emulation, kein physisches iPh
 Lokale Entwicklungsumgebung: vorhandenen Maps-Feature-Branch auf den aktuellen Upstream `c2d5f94` vorgezogen, weil LinkUUp `GDT_Velocity` verwendet. Die im lokalen alten Schema fehlende Tabelle `lup_workers` wurde einmalig aus der bestehenden Moduldefinition angelegt; vorhandene Tabellen und Daten nicht neu installiert. Dies ist keine neue Produktivmigration dieses Patches. Auf der Zielinstallation müssen Modulversionen und vorhandenes Workers-Schema zusammenpassen.
 
 Dieser Ergänzungsstand ist lokal und zur gemeinsamen Durchsicht vorgesehen; kein Deployment durchgeführt.
+
+
+## Scrollabstimmung nach Feedback – lokaler Stand
+
+- Alte starre Fußspur direkt hinter der Nadel entfernt; genau ein animiertes Fußpaar bleibt. Fußabdrücke auf der Weltkugel bleiben erhalten.
+- Große Einladung „Wohin zieht es dich?“ durch kleine Zeile ersetzt, die mit dem Globusfortschritt hochkommt. Drei Schritt-Symbole auch mobil sichtbar und mit derselben vorwärts/rückwärts laufenden Zeitleiste verbunden.
+- Kategorieauswahl mit einem ruhigen farbigen Auswahlring, passendem großen Symbol und zugehöriger Erklärung. Automatische Vorschau und bewusste Auswahl verwenden denselben Inhaltsbereich; nach einem Klick bleibt die Auswahl erhalten. Scrollvorschauen lösen keine laufenden Screenreader-Meldungen aus.
+- Bar erklärt Ankommen und anschließenden lokalen Chat. „Orte entdecken“ öffnet die vorhandene App; es wird kein automatischer Chatbeitritt oder ungeprüfter Filter-Link eingeführt.
+
+PHP-/JS-Syntax und Diff geprüft. Chromium 390/1440 px: kein horizontaler Überlauf; Kategorieauswahl per Klick geprüft, eine Weltkugel und ein Fußpaar. Reduzierte Bewegung und Rückkehr aus dem Finale geprüft. Bestehende externe Google-Maps/CSP-Meldungen sind von dieser Darstellungsänderung unabhängig. Kein Live-Deployment.

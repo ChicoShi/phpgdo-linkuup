@@ -26,7 +26,11 @@
             [index,Math.min(63,index+1)].forEach((n,i)=>{layers[i].img.style.transform=`translate3d(${-(n%8)*12.5}%,${-Math.floor(n/8)*12.5}%,0)`;});
             layers[1].crop.style.opacity=String(blend);
             const current=Math.min(2,Math.floor(p*3));
-            chapter.querySelectorAll('.lup-arrival-flow li').forEach((li,i)=>li.classList.toggle('lup-step-current',still||i===current));
+            chapter.querySelectorAll('.lup-arrival-flow li').forEach((li,i)=>{
+                const reveal=still?1:Math.max(0,Math.min(1,(p-i*.26)/.2));
+                li.style.setProperty('--step-reveal',String(reveal*reveal*(3-2*reveal)));
+                li.classList.toggle('lup-step-current',still||i===current);
+            });
         });
     };
     document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init):init();

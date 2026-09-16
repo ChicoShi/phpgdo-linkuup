@@ -10,18 +10,10 @@ body.lup-arrival-refresh > .lup-unified-pin {overflow:visible;width:24px;height:
 .lup-pin-feet {position:absolute;left:2px;right:2px;bottom:-3px;height:9px;opacity:var(--walking,0);}
 .lup-pin-feet::before,.lup-pin-feet::after {content:'';position:absolute;bottom:0;width:5px;height:8px;border-radius:60%;background:#dccafa;transform:translateY(var(--step,0px)) rotate(-15deg);}
 .lup-pin-feet::after {right:0;transform:translateY(calc(-1 * var(--step,0px))) rotate(15deg);}
-.lup-adventure-trail {position:fixed;inset:0;z-index:7;pointer-events:none;overflow:hidden;}
-.lup-adventure-trail > span {position:absolute;width:3px;height:7px;border-radius:70%;background:#b8d1ef;opacity:0;}
 .lup-globe-steps {position:absolute;inset:0;overflow:hidden;border-radius:50%;pointer-events:none;z-index:4;}
 .lup-globe-steps i {position:absolute;width:4px;height:7px;border-radius:65%;background:#e8d5b5;box-shadow:0 0 7px #e8d5b530;opacity:0;}
-body.lup-arrival-refresh .lup-world-invitation {border-radius:16px;padding:17px 20px;border-color:#b5cfee44;background:linear-gradient(125deg,#314052ed,#182636ed);box-shadow:0 14px 32px #080d1830;}
-.lup-world-invitation strong {letter-spacing:-.025em;}
-.lup-world-invitation.is-arrived {transform:translateX(-50%) translateY(-5px);}
-.lup-world-invitation::after {content:'';position:absolute;left:18px;right:18px;bottom:8px;height:2px;transform:scaleX(var(--arrival,0));transform-origin:left;background:linear-gradient(90deg,#b5cfee,#9acfc5);opacity:.65;}
 .lup-destination.is-tour-active .lup-destination-icon {transform:translateY(-5px) scale(1.1);box-shadow:0 0 24px color-mix(in srgb,var(--place-color) 26%,transparent);border-color:var(--place-color);}
 .lup-destination.is-tour-active {border-color:var(--place-color);}
-.lup-tour-caption {min-height:38px;display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 20px;color:#bec9d7;font:400 14px/1.5 Ubuntu,'Segoe UI',sans-serif;}
-.lup-tour-caption::before {content:'';width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--tour-color,#b5cfee);box-shadow:0 0 12px var(--tour-color,#b5cfee);}
 .lup-principle-note {display:block;grid-column:1/-1;color:#b1bcc9;font:400 13px/1.6 Ubuntu,'Segoe UI',sans-serif;opacity:var(--note,0);transform:translateX(calc((1 - var(--note,0))*20px));margin:8px 0 0;padding-left:18px;border-left:1px solid #a4c1e54a;}
 @media(max-width:760px){body.lup-arrival-refresh .lup-city-scene{height:300px;margin-top:16px;}.lup-city-building text{font-size:17px;}.lup-tour-caption{font-size:12px;text-align:center;padding-inline:10px;}}
 @media(prefers-reduced-motion:reduce),(max-height:480px){.lup-adventure-trail,.lup-globe-steps,.lup-pin-feet{display:none;}.lup-principle-note{opacity:1;transform:none;}.lup-tour-caption{display:none;}}
@@ -36,20 +28,23 @@ body.lup-arrival-refresh .lup-world-invitation {border-radius:16px;padding:17px 
 .lup-shop-welcome {opacity:calc(.12 + var(--landed,0)*.8);}
 .lup-city-building {stroke-linejoin:round;}
 .lup-pin-button-shell {background:linear-gradient(130deg,#cddef3,#b7cde9);box-shadow:inset 0 1px 0 #ffffff60,0 8px 28px #10172030;}
-.lup-adventure-trail > span {background:linear-gradient(#d9c5fb,#91cdeb);width:4px;height:8px;}
 
 /* Compact editorial invitation: one clear action, no floating nested card. */
-body.lup-arrival-refresh .lup-world-invitation {display:flex;align-items:center;justify-content:space-between;gap:18px;background:#171b29;border:1px solid #a6bbd438;border-radius:28px;padding:20px 22px;box-shadow:0 10px 28px #080c1625;}
+body.lup-arrival-refresh .lup-world-invitation {
+ display:flex;align-items:center;justify-content:center;gap:18px;width:max-content;max-width:100%;
+ background:none;border:0;border-radius:0;padding:12px 0;box-shadow:none;
+ opacity:var(--arrival,1);transform:translate(-50%,calc((1 - var(--arrival,1))*16px));
+}
 body.lup-arrival-refresh .lup-world-invitation::before,body.lup-arrival-refresh .lup-world-invitation::after {display:none;}
 body.lup-arrival-refresh .lup-world-invitation > .lup-invitation-copy {margin:0;letter-spacing:normal;}
-body.lup-arrival-refresh .lup-invitation-copy small {font-size:9px;letter-spacing:.14em;margin:0 0 7px;color:#a1b3c9;}
-body.lup-arrival-refresh .lup-invitation-copy strong {font-size:22px;font-weight:500;line-height:1.2;color:#f2edff;}
+body.lup-arrival-refresh .lup-invitation-copy small {font-size:9px;letter-spacing:.14em;margin:0 0 5px;color:#a1b3c9;}
+body.lup-arrival-refresh .lup-invitation-copy strong {font-size:18px;font-weight:500;line-height:1.2;color:#f2edff;letter-spacing:-.02em;}
 body.lup-arrival-refresh .lup-invitation-copy > span {display:block;font-size:12px;line-height:1.4;margin-top:8px;color:#aeb9c6;}
-body.lup-arrival-refresh .lup-world-invitation > i {display:grid;place-items:center;flex:0 0 42px;height:42px;margin:0;border-radius:50%;background:#b5cfee;color:#212a36;font-size:16px;}
+body.lup-arrival-refresh .lup-world-invitation > i {display:grid;place-items:center;flex:0 0 36px;height:36px;margin:0;border-radius:50%;background:#b5cfee12;color:#b5cfee;font-size:14px;}
 body.lup-arrival-refresh .lup-world-invitation:hover {border-color:#b5cfee90;}
 .lup-globe-steps i {left:0;top:0;width:3px;height:6px;border-radius:65% 65% 40% 40%;background:#bcd2ed;box-shadow:none;will-change:transform,opacity;}
 .lup-city-building text {font-size:17px;}
-@media(max-width:760px){body.lup-arrival-refresh .lup-invitation-copy strong{font-size:20px;}body.lup-arrival-refresh .lup-world-invitation{padding:17px 19px;}.lup-city-building text{font-size:18px;}}
+@media(max-width:760px){.lup-city-building text{font-size:18px;}}
 
 .lup-city-road {fill:none;stroke:#b1c7e31c;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;}
 body.lup-arrival-refresh .lup-city-scene .lup-hero-route {stroke-width:1.5;stroke-dasharray:2 6;opacity:.6;}
@@ -59,3 +54,55 @@ body.lup-arrival-refresh .lup-pin-button-shell {width:0;height:0;overflow:visibl
 .lup-button-morph {position:absolute;left:0;top:0;width:1px;height:1px;overflow:visible;}
 .lup-morph-label {position:absolute;left:0;top:0;display:flex;align-items:center;justify-content:center;white-space:nowrap;color:#202935;transform:translate(-50%,-50%);}
 body.lup-arrival-refresh .lup-unified-pin .lup-button-morph {width:1px;height:1px;max-width:none;max-height:none;overflow:visible;}
+
+/* The three steps follow the same reversible globe timeline. Copy stays still. */
+body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow li > i {
+ display:grid;place-items:center;width:40px;height:40px;flex:0 0 40px;border-radius:14px;
+ color:#c4dcf1;background:#86b9e512;border:1px solid #a9cbea26;
+ opacity:calc(.3 + var(--step-reveal,1)*.7);
+ transform:translateY(calc((1 - var(--step-reveal,1))*9px)) scale(calc(.88 + var(--step-reveal,1)*.12));
+}
+.lup-journey-stage .lup-arrival-flow li::after {opacity:var(--step-reveal,1);transform:scaleX(var(--step-reveal,1));transition:none;}
+body.lup-arrival-refresh .lup-destinations {gap:25px 14px;margin-block:42px 32px;}
+body.lup-arrival-refresh .lup-arrival-categories > .lup-arrival-section-head {max-width:680px;margin-inline:auto;text-align:center;}
+body.lup-arrival-refresh .lup-destination {gap:13px;}
+.lup-destination .lup-destination-icon {
+ position:relative;width:68px;height:68px;border-radius:23px;
+ background:color-mix(in srgb,var(--place-color) 5%,transparent);
+ border:1px solid color-mix(in srgb,var(--place-color) 23%,transparent);
+ transition:transform .42s cubic-bezier(.2,.8,.2,1),box-shadow .42s ease;
+}
+.lup-destination .lup-destination-icon::after {
+ content:'';position:absolute;inset:-7px;border-radius:28px;border:1px solid var(--place-color);
+ opacity:0;transform:scale(.83);transition:transform .6s ease,opacity .6s ease;pointer-events:none;
+}
+.lup-destination .lup-destination-icon::before {display:none;}
+.lup-destination:is(.is-tour-active,.is-selected):not(:disabled) .lup-destination-icon {
+ transform:translateY(-4px) rotate(-4deg);box-shadow:0 9px 26px color-mix(in srgb,var(--place-color) 14%,transparent);
+}
+.lup-destination:is(.is-tour-active,.is-selected) .lup-destination-icon::after {opacity:.38;transform:scale(1);}
+body.lup-arrival-refresh .lup-destination-story {
+ gap:22px;border-top:0;padding:24px;border-radius:26px;
+ background:linear-gradient(125deg,color-mix(in srgb,var(--story-color) 8%,transparent),transparent);
+}
+.lup-destination-story .lup-story-orbit {border:0;background:color-mix(in srgb,var(--story-color) 9%,transparent);border-radius:21px;}
+.lup-story-orbit > svg {width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.lup-destination-story .lup-story-orbit i {animation:none;}
+.lup-destination-story p > span {min-height:3.2em;}
+.lup-destination-story a {display:flex;justify-content:center;gap:9px;width:auto;min-width:44px;padding:10px 14px;border-radius:15px;white-space:nowrap;font:500 12px Ubuntu,Arial,sans-serif;}
+.lup-destination-story a > span {display:inline;}
+@media(max-width:760px) {
+ body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow li > i {font-size:16px;width:32px;height:32px;flex-basis:32px;border-radius:11px;}
+ .lup-destination .lup-destination-icon {width:54px;height:54px;border-radius:18px;}
+ .lup-destination .lup-destination-icon::after {inset:-5px;border-radius:22px;}
+ body.lup-arrival-refresh .lup-destination-story {padding:20px 16px;gap:15px;display:grid;grid-template-columns:44px minmax(0,1fr);}
+ .lup-destination-story .lup-story-orbit {width:44px;height:44px;border-radius:15px;}
+ .lup-destination-story p {min-width:0;}
+ .lup-destination-story p > span {min-height:4.8em;}
+ .lup-destination-story a {grid-column:2;justify-self:start;}
+}
+@media(prefers-reduced-motion:reduce) {
+ body.lup-arrival-refresh .lup-world-invitation {opacity:1;transform:translateX(-50%);}
+ body.lup-arrival-refresh .lup-journey-stage ol.lup-arrival-flow li > i {opacity:1;transform:none;}
+ .lup-destination .lup-destination-icon,.lup-destination .lup-destination-icon::after {transition:none;}
+}
