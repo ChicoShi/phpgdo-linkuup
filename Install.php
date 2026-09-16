@@ -199,6 +199,7 @@ final class Install
 		# Category
 		$cats = self::installCats($icons);
 		self::seedAlphaNews($gizmore);
+		self::seedAlmostBetaNews($gizmore);
         self::createCountries();
         InstallPeine::seed(self::$ICONS);
 		self::createWolfsburg();
@@ -333,6 +334,49 @@ final class Install
 				'newstext_title' => $title,
 				'newstext_message' => $texts[$iso] ?? $texts['en'],
 				'newstext_created' => '2026-08-24 00:00:00',
+				'newstext_creator' => $creator->getID(),
+			])->replace();
+		}
+	}
+
+	/** Seed the final pre-beta notice. Re-running the installer updates this one entry. */
+	private static function seedAlmostBetaNews(GDO_User $creator): void
+	{
+		$category = GDO_Category::getBy('cat_name', 'News');
+		$title = 'Almost Beta';
+		$english = GDO_NewsText::getBy('newstext_title', $title);
+		$news = $english ? GDO_News::getById($english->gdoVar('newstext_news')) : null;
+		if (!$news)
+		{
+			$news = GDO_News::blank([
+				'news_category' => $category->getID(),
+				'news_visible' => '1',
+				'news_created' => '2026-09-16 00:00:00',
+				'news_creator' => $creator->getID(),
+			])->insert();
+		}
+		else
+		{
+			$news->setVars([
+				'news_category' => $category->getID(),
+				'news_visible' => '1',
+				'news_created' => '2026-09-16 00:00:00',
+				'news_creator' => $creator->getID(),
+			])->save();
+		}
+
+		$texts = [
+			'en' => "This news will soon be replaced with our beta announcement. Then we are in beta — no more wipes.",
+			'de' => "Diese News wird bald durch unsere Beta-Ankündigung ersetzt. Dann sind wir in der Beta — keine weiteren Wipes.",
+		];
+		foreach (Module_Language::instance()->cfgSupported() as $iso => $language)
+		{
+			GDO_NewsText::blank([
+				'newstext_news' => $news->getID(),
+				'newstext_lang' => $iso,
+				'newstext_title' => $title,
+				'newstext_message' => $texts[$iso] ?? $texts['en'],
+				'newstext_created' => '2026-09-16 00:00:00',
 				'newstext_creator' => $creator->getID(),
 			])->replace();
 		}
