@@ -3,6 +3,7 @@ namespace GDO\LinkUUp\Websocket;
 
 use GDO\Friends\GDO_Friendship;
 use GDO\LinkUUp\LUP_Global;
+use GDO\Maps\Module_Maps;
 use GDO\LinkUUp\LUP_Notification;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\LUP_RoomVisit;
@@ -46,12 +47,20 @@ class LUPWS_Join extends LUPWS_Command
 			return; # $msg->rplyError('err_join_twice');
 		}
 
+		$maxVelocity = Module_Maps::instance()->userMaxVelocity($user);
+		if (LUP_Global::velocityFor($user, $lat, $lng) > $maxVelocity)
+		{
+			return $msg->rplyError('err_lup_join_too_fast', [$maxVelocity]);
+		}
+
 		// Local rooms are local for every account. Privileged roles may manage
 		// rooms, but they must never bypass the live GPS entrance requirement.
 		if (!$room->isInChatRange($lat, $lng))
 		{
 			return $msg->rplyError('err_room_not_near');
 		}
+
+		LUP_Global::updateGPS($user, $lat, $lng);
 
 		if ($this->cfgTicketEngine())
 		{

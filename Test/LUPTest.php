@@ -6,6 +6,7 @@ use GDO\File\GDO_File;
 use GDO\LinkUUp\LUP_Category;
 use GDO\LinkUUp\LUP_Cuddle;
 use GDO\LinkUUp\LUP_CuddleToken;
+use GDO\LinkUUp\LUP_Global;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\LUP_SignupGPS;
 use GDO\LinkUUp\LUP_QueryThread;
@@ -38,6 +39,16 @@ final class LUPTest extends TestCase
 		assertGreaterThanOrEqual(1, GDO_Address::table()->countWhere());
 		assertGreaterThanOrEqual(1, LUP_Room::table()->countWhere());
 		assertSame(400, LUP_Room::table()->countWhere("room_info LIKE '%[osm-%'"));
+	}
+
+	public function testLiveGPSVelocity(): void
+	{
+		$user = GDO_User::getByName('gizmore');
+		LUP_Global::updateGPS($user, 52.3200, 10.2300, 1000.0);
+		self::assertGreaterThan(10.0, LUP_Global::velocityFor($user, 52.3210, 10.2300, 1001.0));
+		LUP_Global::updateGPS($user, 52.3200, 10.2300, 1000.0);
+		self::assertSame(0.0, LUP_Global::velocityFor($user, 52.3200, 10.2300, 1001.0));
+		unset(LUP_Global::$POSITIONS[$user->getID()]);
 	}
 
 	public function testQueryThreadsSplitAfterAnHour(): void

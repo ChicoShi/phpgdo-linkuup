@@ -5,6 +5,7 @@ use GDO\Avatar\GDO_Avatar;
 use GDO\Friends\GDO_FriendRequest;
 use GDO\Friends\GDO_Friendship;
 use GDO\Friends\GDT_FriendRelation;
+use GDO\Maps\Position;
 use GDO\User\GDO_User;
 use GDO\Websocket\Server\GWS_Global;
 use GDO\Websocket\Server\GWS_Message;
@@ -443,9 +444,25 @@ final class LUP_Global
 		return [$locations, $recipients];
 	}
 
-	public static function updateGPS(GDO_User $user, $lat, $lng)
+	/** Return the speed needed to reach a position from the last live GPS fix. */
+	public static function velocityFor(GDO_User $user, float $lat, float $lng, ?float $now = null): float
 	{
-		self::$POSITIONS[$user->getID()] = [$lat, $lng];
+		if (!isset(self::$POSITIONS[$user->getID()]))
+		{
+			return 0.0;
+		}
+		[$oldLat, $oldLng, $then] = self::$POSITIONS[$user->getID()];
+		$seconds = ($now ?? microtime(true)) - $then;
+		if ($seconds <= 0.0)
+		{
+			return 0.0;
+		}
+		return Position::distanceCalculation($oldLat, $oldLng, $lat, $lng) / $seconds * 3600.0;
+	}
+
+	public static function updateGPS(GDO_User $user, float $lat, float $lng, ?float $now = null): void
+	{
+		self::$POSITIONS[$user->getID()] = [$lat, $lng, $now ?? microtime(true)];
 	}
 
 }
