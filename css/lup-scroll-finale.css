@@ -60,3 +60,5 @@ body > .lup-finale-globe.lup-foreground-earth {position:fixed;margin:0;z-index:3
 .lup-cafe-conversation .lup-chat-message:nth-of-type(2) {margin-left:auto;background:#b5cfee;color:#202b39;border-radius:15px 15px 4px 15px;}
 @media(max-width:760px){.lup-finale-visual > .lup-cafe-conversation{padding:18px;}.lup-cafe-conversation > b{font-size:18px;margin-bottom:15px;}.lup-cafe-conversation .lup-chat-message{padding:9px 12px;font-size:13px;}}
 body.lup-arrival-refresh .lup-cafe-conversation .lup-chat-message:nth-of-type(2) {color:#202b39;}
+
+.lup-finale-route {opacity:0;stroke:none;pointer-events:none;}

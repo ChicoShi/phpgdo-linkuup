@@ -51,7 +51,7 @@ class LUPWS_FriendsRequest extends GWS_CommandForm
 	 */
 	public function hookFriendsRequest($requestId)
 	{
-		$request = GDO_FriendRequest::findByGID($requestId);
+		$request = $requestId instanceof GDO_FriendRequest ? $requestId : GDO_FriendRequest::findByGID($requestId);
 		$uid = (int)$request->getUserID();
 		$fid = (int)$request->getFriendID();
 		$this->sendNotifications($uid, $fid);

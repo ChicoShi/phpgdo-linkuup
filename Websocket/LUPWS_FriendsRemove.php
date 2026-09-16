@@ -73,9 +73,22 @@ class LUPWS_FriendsRemove extends GWS_Command
 	public function execute(GWS_Message $msg)
 	{
 		$friendid = $msg->read32u();
-		$_REQUEST['friend'] = $friendid;
-		Remove::make()->executeWithInit();
-		$this->sendNotifications($msg->user()->getID(), $friendid);
+		$userid = $msg->user()->getID();
+		if (!GDO_Friendship::getById($userid, $friendid))
+		{
+			return $msg->rplyError('err_friend_request');
+		}
+		// Method parameters come from inputs(), not the process-global HTTP
+		// request array. The old call could return an error and still reply success.
+		Remove::make()->inputs(['friend' => (string)$friendid])->executeWithInit();
+		if (GDO_Friendship::getById($userid, $friendid) ||
+			GDO_Friendship::getById($friendid, $userid))
+		{
+			return $msg->rplyError('err_friend_request');
+		}
+		$msg->user()->tempUnset('gdo_friendship_count');
+		GWS_Global::getOrLoadUserById($friendid)->tempUnset('gdo_friendship_count');
+		// The HTTP method emits FriendsRemove. Its hook sends the event once.
 		return $msg->replyBinary($msg->cmd());
 	}
 

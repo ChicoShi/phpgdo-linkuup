@@ -69,13 +69,22 @@ class LUPWS_FriendsAccept extends GWS_Command
 		# Get request
 		$userid = $msg->read32u();
 		$friendid = $msg->read32u();
-		$request = GDO_FriendRequest::findById($userid, $friendid);
+        // Only the authenticated recipient may accept this pending request.
+        if ((string)$friendid !== (string)$msg->user()->getID())
+        {
+            return $msg->rplyError('err_friend_request');
+        }
+        $request = GDO_FriendRequest::getById($userid, $friendid);
+        if (!$request || $request->isDenied())
+        {
+            return $msg->rplyError('err_friend_request');
+        }
 
 		# Exec http method
 		Accept::make()->executeWithRequest($request);
 
-		# Send notifications
-		$this->sendNotifications($userid, $friendid);
+        // Accept emits FriendsAccept; its hook owns the notifications.
+        // Sending here as well produced duplicate events and counters.
 
 		# Reply user payload
 		$friend = GWS_Global::getOrLoadUserById($userid);

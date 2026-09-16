@@ -13,7 +13,8 @@
   shell.append(morphSVG);const outline=morphSVG.querySelector('path'),eye=morphSVG.querySelector('circle'),label=document.createElement('span');label.className='lup-morph-label';label.innerHTML=cta.innerHTML;shell.append(label);
   const targetPath=source.querySelector('path'),targetLength=targetPath.getTotalLength();
   const targetPoints=Array.from({length:80},(_,i)=>{const q=targetPath.getPointAtLength(targetLength*i/80);return {x:(q.x-100)*32/270,y:(q.y-135)*32/270};});
-  let buttonPoints=[];
+  let buttonPoints=[],finalPoints=[],labelAtFinal=null,firstFont,finalFont;
+  const finalCTA=main.querySelector('.lup-arrival-invitation > a');
   const feet=document.createElement('span');feet.className='lup-pin-feet';pin.append(feet);document.body.append(pin);pin.classList.add('lup-unified-pin');
   // The old trail put frozen soles directly underneath the animated feet.
   // Keep one pair on the traveller; planted footprints belong to the globe.
@@ -30,19 +31,31 @@
   const surface=(longitude,latitude=0)=>{const c=Math.cos(latitude),z=Math.cos(longitude)*c;return {x:Math.sin(longitude)*c*.46,y:(Math.sin(latitude)*.94-z*.342)*.46,front:z*.94+Math.sin(latitude)*.342};};
   let raf=0,shown=scrollY,last=0,g;
   const center=el=>{const r=el.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+scrollY+r.height/2};};
+  const measureFinalAnchor=()=>{
+   // The carried earth and responsive copy can move this target without
+   // resizing the whole main element. Read its real position before painting.
+   g.finalButton=center(finalCTA);
+   g.finalEnd=Math.min(document.documentElement.scrollHeight-innerHeight-12,g.finalButton.y-innerHeight*.58);
+   g.finalStart=g.finalEnd-Math.min(440,innerHeight*.52);
+  };
   const layout=()=>{
    const r=main.getBoundingClientRect(),c=chapter.getBoundingClientRect(),button=cta.getBoundingClientRect(),hr=hero.getBoundingClientRect(),cr=categorySection.getBoundingClientRect();
    const sample=document.createElementNS(ns,'path'),w=button.width/2,h=button.height/2,corner=Math.min(h,16);
    sample.setAttribute('d',`M0 ${-h} H${w-corner} Q${w} ${-h} ${w} ${-h+corner} V${h-corner} Q${w} ${h} ${w-corner} ${h} H${-w+corner} Q${-w} ${h} ${-w} ${h-corner} V${-h+corner} Q${-w} ${-h} ${-w+corner} ${-h} Z`);
    const perimeter=sample.getTotalLength();buttonPoints=targetPoints.map((_,i)=>sample.getPointAtLength(perimeter*i/80));
-   label.style.font=getComputedStyle(cta).font;label.style.gap=getComputedStyle(cta).gap;
+   const endRect=finalCTA.getBoundingClientRect(),fw=endRect.width/2,fh=endRect.height/2,fc=Math.min(fh,16);
+   sample.setAttribute('d',`M0 ${-fh} H${fw-fc} Q${fw} ${-fh} ${fw} ${-fh+fc} V${fh-fc} Q${fw} ${fh} ${fw-fc} ${fh} H${-fw+fc} Q${-fw} ${fh} ${-fw} ${fh-fc} V${-fh+fc} Q${-fw} ${-fh} ${-fw+fc} ${-fh} Z`);
+   const finalLength=sample.getTotalLength();finalPoints=targetPoints.map((_,i)=>sample.getPointAtLength(finalLength*i/80));
+   firstFont=getComputedStyle(cta).font;finalFont=getComputedStyle(finalCTA).font;label.style.font=firstFont;label.style.gap=getComputedStyle(cta).gap;
    const rail=r.left+Math.max(18,(r.width-1160)/2+14);
    g={rail,start:c.top+scrollY-(innerWidth<761?76:90),length:Math.max(1,chapter.offsetHeight-stage.offsetHeight),bottom:r.bottom+scrollY,top:r.top+scrollY,button:center(cta),buttonWidth:button.width,buttonHeight:button.height,heroStart:Math.max(0,button.top+scrollY-innerHeight*.77),heroEnd:hr.bottom+scrollY-innerHeight*.35,buildings:buildings.map(center),catStart:cr.top+scrollY-innerHeight*.5,catLength:Math.max(360,cr.height*.7),stops:icons.map(el=>({...center(el),el,t:center(el).y-innerHeight*.55}))};
+   measureFinalAnchor();
    const x=rail-r.left,mapHeight=main.offsetHeight;let path=`M ${x} 0`;for(let y=0;y<mapHeight;y+=320)path+=` C ${x+10} ${y+100},${x-10} ${y+220},${x} ${y+320}`;
    map.setAttribute('viewBox',`0 0 ${r.width} ${mapHeight}`);map.querySelectorAll('path').forEach(p=>p.setAttribute('d',path));schedule();
   };
   const pose=(s,b)=>{
    const p=clamp((s-g.start)/g.length),hp=clamp((s-g.heroStart)/Math.max(1,g.heroEnd-g.heroStart));
+   let final=false,finalProgress=0;
    let x=g.rail+6*Math.sin(s/210),y=Math.min(innerHeight*.55,100+s*.45),scale=1,rotation=6*Math.cos(s/210),opacity=1,walk=0,morph=1;
    if(s<g.heroEnd&&g.buildings.length){
     // Reserve the first quarter for the handoff, then visit each doorway.
@@ -83,22 +96,34 @@
      rotation=mix(rotation,Math.sin(angle)*12,join);scale=1+join*.12;
     });
    }
-   opacity*=ease((g.bottom-scrollY-90)/160);return {x,y,scale,rotation,opacity,walk,morph,p,hp};
+   if(s>=g.finalStart){
+    final=true;finalProgress=clamp((s-g.finalStart)/Math.max(1,g.finalEnd-g.finalStart));
+    const travel=ease((finalProgress-.28)/.52),arc=Math.sin(finalProgress*Math.PI);
+    // Descend beside the heading first, then turn into the button's own row.
+    // Expand only after arrival so neither the label nor its shell cover copy.
+    x=mix(g.rail,g.finalButton.x,travel)+Math.sin(finalProgress*Math.PI*2)*18*(1-travel);
+    y=mix(innerHeight*.55,g.finalButton.y-scrollY,ease(finalProgress/.28));
+    rotation=360*ease(finalProgress/.8);scale=1+arc*.12*(1-travel);
+    morph=1-ease((finalProgress-.8)/.2);opacity=finalProgress>=1?0:1;
+   }
+   opacity*=ease((g.bottom-scrollY-90)/160);return {x,y,scale,rotation,opacity,walk,morph,p,hp,final,finalProgress};
   };
   const draw=time=>{
    raf=0;if(document.hidden||!g)return;const still=reduced.matches||innerHeight<=480,dt=last?Math.min(48,time-last):16;last=time;
    shown=still?scrollY:shown+(scrollY-shown)*(1-Math.exp(-dt/160));if(Math.abs(shown-scrollY)<.03)shown=scrollY;
-   const b=sphere.getBoundingClientRect(),v=pose(shown,b);
+   const b=sphere.getBoundingClientRect();measureFinalAnchor();const v=pose(shown,b);
    document.dispatchEvent(new CustomEvent('lup:route-frame',{detail:{progress:still?.3:v.p,still}}));
    pin.style.transform=`translate3d(${v.x-12}px,${v.y-16}px,0) rotate(${v.rotation}deg) scale(${v.scale})`;pin.style.opacity=String(still?0:v.opacity);
    // One continuous outline, not a squeezed label crossfading with another icon.
    const m=v.morph,finish=ease((m-.96)/.04);
-   outline.setAttribute('d',buttonPoints.map((pt,i)=>`${i?'L':'M'}${mix(pt.x,targetPoints[i].x,m).toFixed(2)} ${mix(pt.y,targetPoints[i].y,m).toFixed(2)}`).join(' ')+' Z');
+   if(labelAtFinal!==v.final){label.innerHTML=v.final?finalCTA.innerHTML:cta.innerHTML;label.style.font=v.final?finalFont:firstFont;label.style.color=v.final?'#fff':'#202935';labelAtFinal=v.final;}
+   finalCTA.style.opacity=still||!v.final||v.finalProgress>=1?'1':'0';
+   outline.setAttribute('d',(v.final?finalPoints:buttonPoints).map((pt,i)=>`${i?'L':'M'}${mix(pt.x,targetPoints[i].x,m).toFixed(2)} ${mix(pt.y,targetPoints[i].y,m).toFixed(2)}`).join(' ')+' Z');
    eye.setAttribute('cx','0');eye.setAttribute('cy',String((98-135)*32/270));eye.setAttribute('r',String(39*32/270*ease((m-.48)/.4)));
    eye.style.opacity=String(ease((m-.48)/.4));
    const stops=morphSVG.querySelectorAll('stop'),tint=ease((m-.35)/.65);
    const color=(a,b)=>'#'+a.map((v,i)=>Math.round(mix(v,b[i],tint)).toString(16).padStart(2,'0')).join('');
-   stops[0].setAttribute('stop-color',color([211,196,239],[179,160,255]));stops[1].setAttribute('stop-color',color([211,196,239],[69,187,235]));
+   stops[0].setAttribute('stop-color',color(v.final?[122,92,255]:[211,196,239],[179,160,255]));stops[1].setAttribute('stop-color',color(v.final?[43,157,244]:[211,196,239],[69,187,235]));
    shell.style.opacity=String(1-finish);symbol.style.opacity=String(finish);
    label.style.opacity=String(1-ease(m/.3));label.style.transform=`translate(-50%,-50%) translateY(${-m*5}px)`;
    cta.style.opacity=still||shown<=g.heroStart?'1':'0';

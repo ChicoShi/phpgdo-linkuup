@@ -41,3 +41,15 @@ Dieser Ergänzungsstand ist lokal und zur gemeinsamen Durchsicht vorgesehen; kei
 - Bar erklärt Ankommen und anschließenden lokalen Chat. „Orte entdecken“ öffnet die vorhandene App; es wird kein automatischer Chatbeitritt oder ungeprüfter Filter-Link eingeführt.
 
 PHP-/JS-Syntax und Diff geprüft. Chromium 390/1440 px: kein horizontaler Überlauf; Kategorieauswahl per Klick geprüft, eine Weltkugel und ein Fußpaar. Reduzierte Bewegung und Rückkehr aus dem Finale geprüft. Bestehende externe Google-Maps/CSP-Meldungen sind von dieser Darstellungsänderung unabhängig. Kein Live-Deployment.
+
+## Finale und zuverlässige soziale Aktionen
+
+- Dieselbe Nadel bleibt während des Herunterkommens der Erde zunächst am seitlichen Weg. Die Café-Weglinie ist unsichtbar; ihre Geometrie dient weiterhin der Bewegungsführung. Am Ende läuft die Nadel unterhalb der Überschrift in einen Kreisel und verwandelt sich in den vorhandenen App-Button. Dessen Position wird nach Layoutänderungen erneut gemessen. Rückwärts-Scrollen und reduzierte Bewegung berücksichtigt; weiterhin genau eine Erde und eine Nadel.
+- Freundschaftsanfragen verarbeiten den Hook sowohl mit Modellobjekt als auch mit ID. Annehmen prüft den angemeldeten Empfänger und eine tatsächlich offene Anfrage. Die Benachrichtigung wird ausschließlich vom Hook verschickt, wodurch doppelte Ereignisse entfallen.
+- Zurückziehen entfernt die eigene offene Anfrage; Ablehnen speichert den Status und aktualisiert den Anfragezähler. Abgelehnte Anfragen werden nicht länger als offen ausgeliefert.
+- Entfernen übergibt den Freund als tatsächlichen Methodenparameter und prüft die gelöschte Beziehung vor einer Erfolgsantwort. Zuvor wurde ein HTTP-Request-Array gesetzt, das die Methode nicht als Eingabe übernahm: Erfolg konnte ohne Löschung gemeldet werden. Keine doppelte Benachrichtigung neben dem vorhandenen Hook.
+- Hilfeschlüssel werden validiert und idempotent gespeichert. Ereignisse unterstützen einen optionalen ID-Cursor neben dem bisherigen Zeitparameter; alte Clients bleiben kompatibel.
+
+Prüfung: PHP-/JS-Syntax und Diff erfolgreich. Lokaler WebSocket-Dienst mit geändertem Code neu gestartet. Zwei getrennte lokale Testprofile: Anfrage/Annahme/Entfernen und erneute Anfrage/Ablehnung; nach Entfernen auf beiden Seiten keine gespeicherte Freundschaft mehr. Annahme durch falschen Empfänger abgewiesen. App-Regressionstests: 38 erfolgreich. Scrollfinale bei 390 und 1440 px vorwärts/rückwärts: eine Erde, unsichtbare Café-Linie, kein horizontaler Überstand; bei reduzierter Bewegung bleibt der normale App-Button verfügbar.
+
+Gemeinsam mit dem App-Stand ausliefern und auf der Zielinstallation den üblichen Build-/Cache-/WebSocket-Neustartablauf verwenden. Keine Live-Datenbank oder produktiven Nutzer angeschrieben. Sichtbare Freigabe sowie echter iPhone-/registrierter-PM-/QR-Kamera-Test stehen noch aus.
