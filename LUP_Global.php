@@ -435,13 +435,11 @@ final class LUP_Global
 	{
 		$module = Module_LinkUUp::instance();
 		$url = $module->cfgDogURL();
-		$secret = $module->cfgConnectorSecret();
-		if (!$url || !$secret)
+		if (!$url)
 		{
 			return;
 		}
 		self::postToDog($url, [
-			'secret' => $secret,
 			'room' => $room->getID(),
 			'user' => $user->getID(),
 			'username' => $user->getName(),
@@ -494,7 +492,7 @@ final class LUP_Global
 	{
 		$module = Module_LinkUUp::instance();
 		$url = $module->cfgDogBacklogURL();
-		if (!$url || !$module->cfgConnectorSecret())
+		if (!$url)
 		{
 			return;
 		}
@@ -506,7 +504,6 @@ final class LUP_Global
 				continue;
 			}
 			if (self::postToDog($url, [
-				'secret' => $module->cfgConnectorSecret(),
 				'room' => $id,
 				'room_name' => $backlog['room']->getName(),
 				'lang' => \GDO\Language\Trans::$ISO,
@@ -527,7 +524,6 @@ final class LUP_Global
 	{
 		try
 		{
-			$secret = Module_LinkUUp::instance()->cfgConnectorSecret();
 			foreach ($payload as $key => $value)
 			{
 				if (is_array($value))
@@ -537,7 +533,7 @@ final class LUP_Global
 			}
 			$context = stream_context_create(['http' => [
 				'method' => 'POST',
-				'header' => "Content-Type: application/x-www-form-urlencoded\r\nX-LUP-Secret: {$secret}\r\n",
+				'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
 				'content' => http_build_query($payload),
 				'timeout' => 5,
 			]]);
