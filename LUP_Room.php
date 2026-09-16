@@ -161,7 +161,7 @@ final class LUP_Room extends GDO
 		return [
 			GDT_AutoInc::make('room_id'),
 			GDT_User::make('room_owner')->label('lup_owner')->cascadeNull()->withCompletion(),
-			GDT_Checkbox::make('room_enabled')->notNull()->initial('0')->label('enabled'),
+			GDT_Checkbox::make('room_enabled')->notNull()->initial('1')->label('enabled'),
 			GDT_UInt::make('room_sort')->label('sort'),
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),
