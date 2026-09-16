@@ -141,7 +141,7 @@ return [
 	'link_add_room' => 'Add Room',
 	'link_cats' => 'Categories',
 	'link_add_cat' => 'Add Category',
-	'mt_linkuup_roomflyer' => 'A5 room flyer',
+	'mt_linkuup_roomflyer' => 'A4 sheet (2× A5 room flyers)',
 	'room_flyer' => 'Room flyer',
 	'room_flyer_cta' => 'Scan the code and join the local chat.',
 	'room_flyer_copy' => 'LinkUUp connects people at real places. Discover who is here, chat directly, and make plans with ease.',

@@ -7,7 +7,7 @@ use GDO\LinkUUp\GDT_RoomSelect;
 use GDO\LinkUUp\LUP_Room;
 use GDO\QRCode\Method\Render;
 
-/** A print-ready A5 flyer for a LinkUUp location. */
+/** Two cut-ready A5 flyers on one A4 landscape page. */
 final class RoomFlyer extends \GDO\Core\Method
 {
 	public function getPermission(): ?string { return 'staff'; }

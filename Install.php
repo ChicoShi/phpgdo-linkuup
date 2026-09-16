@@ -212,6 +212,7 @@ final class Install
 		self::seedAlphaNews($gizmore);
 		self::seedAlmostBetaNews($gizmore);
         self::createCountries();
+		InstallKoreaSeeds::seed(self::$ICONS);
         InstallPeine::seed(self::$ICONS);
 		self::createWolfsburg();
         self::createBrunswick();

@@ -1,8 +1,10 @@
-@page { size: A5 portrait; margin: 0; }
+@page { size: A4 landscape; margin: 0; }
 
-.lup-room-flyer { box-sizing: border-box; max-width: 148mm; margin: 1rem auto; color: #151515; font-family: Arial, sans-serif; }
+.lup-room-flyer { box-sizing: border-box; max-width: 297mm; margin: 1rem auto; color: #151515; font-family: Arial, sans-serif; }
 .lup-room-flyer *, .lup-room-flyer *::before, .lup-room-flyer *::after { box-sizing: inherit; }
-.lup-room-flyer-sheet { position: relative; min-height: 210mm; overflow: hidden; padding: 16mm 14mm 12mm; background: #fff; border: 1px solid #e2e2e2; text-align: center; }
+.lup-room-flyer-page { display: flex; width: 297mm; min-height: 210mm; background: #fff; }
+.lup-room-flyer-sheet { position: relative; flex: 0 0 148.5mm; min-height: 210mm; overflow: hidden; padding: 16mm 14mm 12mm; background: #fff; border: 1px solid #e2e2e2; text-align: center; }
+.lup-room-flyer-sheet + .lup-room-flyer-sheet { border-left: 1px dashed #9b9b9b; }
 .lup-room-flyer-brand { color: #1c1c1c; font-size: 15pt; font-weight: 800; letter-spacing: .16em; }
 .lup-room-flyer-brand b { color: #6251cf; }
 .lup-room-flyer h1 { margin: 0; font-size: 28pt; line-height: 1.08; overflow-wrap: anywhere; }
@@ -17,7 +19,8 @@
 
 @media print {
 	body { margin: 0; background: #fff; }
-	.lup-room-flyer { width: 148mm; max-width: none; margin: 0; }
+	.lup-room-flyer { width: 297mm; max-width: none; margin: 0; }
 	.lup-room-flyer-sheet { border: 0; }
+	.lup-room-flyer-sheet + .lup-room-flyer-sheet { border-left: 1px dashed #9b9b9b; }
 	.lup-room-flyer-print { display: none; }
 }
