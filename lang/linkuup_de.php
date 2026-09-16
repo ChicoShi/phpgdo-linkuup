@@ -67,6 +67,8 @@ return [
 	'err_lup_room_category' => 'Bitte wähle eine gültige Kategorie.',
 	'err_lup_room_credits' => 'Für diesen Raum werden %s Credits benötigt; Du hast aktuell %s Credits.',
 	'err_lup_shout_text' => 'Bitte gib einen Shout mit 1 bis 512 Zeichen ein.',
+	'err_lup_shout_radius' => 'Wähle einen Shout-Radius von mindestens 1 km.',
+	'err_lup_shout_position' => 'Für einen lokalen Shout wird eine aktuelle GPS-Position benötigt.',
 	'err_lup_shout_credits' => 'Für diesen Shout werden %s Credits benötigt; Du hast aktuell %s Credits.',
 	'err_room_not_near' => 'Dieser Raum ist nicht in Chatreichweite.',
 	'err_lup_join_too_fast' => 'Du kannst einem Raum nicht mit mehr als %s km/h beitreten.',

@@ -25,6 +25,8 @@ final class LUP_Global
 	public static $USER_LIKES = [];
 	/** @var array<int, string[]> Volatile chat payloads, newest item last. */
 	public static $ROOM_MESSAGES = [];
+	/** @var array<int, array{room:LUP_Room,last:float,lines:array<int,array<string,string>>}> */
+	public static $ROOM_DOG_BACKLOG = [];
 
 	##################
 	### Visibility ###
@@ -415,42 +417,176 @@ final class LUP_Global
 
 	public static function chat(LUP_Room $room, GDO_User $user, GWS_Message $message)
 	{
-		# User, room, msg
+		$text = $message->readString();
 		$payload = GWS_Message::wr32(time());
 		$payload .= GWS_Message::wr32($user->getID());
 		$payload .= GWS_Message::wr32($room->getID());
-		$payload .= GWS_Message::wrS($message->readString());
-		self::rememberMessage($room, $payload);
-
-		# Payload2 goes async to all users
-		$payload2 = GWS_Message::payload(0x1107);
-		$payload2 .= $payload;
-		foreach (self::$ROOM_USERS[$room->getID()] as $_user)
-		{
-			if ($user !== $_user)
-			{
-				GWS_Global::sendBinary($_user, $payload2);
-			}
-		}
+		$payload .= GWS_Message::wrS($text);
+		self::rememberDogBacklog($room, $user, $text);
+		self::broadcastChatPayload($room, $user, $payload);
+		self::sendToDog($room, $user, $text);
 
 		# Payload1 goes sync back
 		$message->replyBinary($message->cmd(), $payload);
 	}
 
+	/** Forward one room line to the PyGDO connector. Delivery failure never blocks chat. */
+	private static function sendToDog(LUP_Room $room, GDO_User $user, string $text): void
+	{
+		$module = Module_LinkUUp::instance();
+		$url = $module->cfgDogURL();
+		$secret = $module->cfgConnectorSecret();
+		if (!$url || !$secret)
+		{
+			return;
+		}
+		self::postToDog($url, [
+			'secret' => $secret,
+			'room' => $room->getID(),
+			'user' => $user->getID(),
+			'username' => $user->getName(),
+			'displayname' => $user->getDisplayName() ?: $user->getName(),
+			'lang' => \GDO\Language\Trans::$ISO,
+			'message' => $text,
+		]);
+	}
+
+	/** Deliver a connector-originated chat line; no sender socket needs a sync reply. */
+	public static function chatText(LUP_Room $room, GDO_User $user, string $text): void
+	{
+		$payload = GWS_Message::wr32(time());
+		$payload .= GWS_Message::wr32($user->getID());
+		$payload .= GWS_Message::wr32($room->getID());
+		$payload .= GWS_Message::wrS($text);
+		self::broadcastChatPayload($room, $user, $payload, true);
+	}
+
+	/** Make a connector minion known to every app client before it speaks. */
+	public static function sendMinion(LUP_Room $room, GDO_User $user): void
+	{
+		$payload = GWS_Message::payload(0x1106) . self::fullUserPayload($user);
+		foreach (self::$ROOM_USERS[$room->getID()] ?? [] as $recipient)
+		{
+			GWS_Global::sendBinary($recipient, $payload);
+		}
+	}
+
+	/** Keep a short, volatile transcript until the room has gone quiet. */
+	public static function rememberDogBacklog(LUP_Room $room, GDO_User $user, string $text): void
+	{
+		$module = Module_LinkUUp::instance();
+		$size = $module->cfgDogBacklog();
+		$id = (int)$room->getID();
+		if ($size <= 0)
+		{
+			unset(self::$ROOM_DOG_BACKLOG[$id]);
+			return;
+		}
+		$backlog = self::$ROOM_DOG_BACKLOG[$id] ?? ['room' => $room, 'last' => 0.0, 'lines' => []];
+		$backlog['last'] = microtime(true);
+		$backlog['lines'][] = ['name' => $user->getName(), 'message' => $text];
+		$backlog['lines'] = array_slice($backlog['lines'], -$size);
+		self::$ROOM_DOG_BACKLOG[$id] = $backlog;
+	}
+
+	/** Flush quiet room transcripts to Dog. A failed delivery remains buffered. */
+	public static function flushDogBacklogs(): void
+	{
+		$module = Module_LinkUUp::instance();
+		$url = $module->cfgDogBacklogURL();
+		if (!$url || !$module->cfgConnectorSecret())
+		{
+			return;
+		}
+		$now = microtime(true);
+		foreach (self::$ROOM_DOG_BACKLOG as $id => $backlog)
+		{
+			if (($now - $backlog['last']) < $module->cfgDogChill())
+			{
+				continue;
+			}
+			if (self::postToDog($url, [
+				'secret' => $module->cfgConnectorSecret(),
+				'room' => $id,
+				'room_name' => $backlog['room']->getName(),
+				'lang' => \GDO\Language\Trans::$ISO,
+				'backlog' => $backlog['lines'],
+			]))
+			{
+				unset(self::$ROOM_DOG_BACKLOG[$id]);
+			}
+			else
+			{
+				self::$ROOM_DOG_BACKLOG[$id]['last'] = $now;
+			}
+		}
+	}
+
+	/** @param array<string,mixed> $payload */
+	private static function postToDog(string $url, array $payload): bool
+	{
+		try
+		{
+			$secret = Module_LinkUUp::instance()->cfgConnectorSecret();
+			foreach ($payload as $key => $value)
+			{
+				if (is_array($value))
+				{
+					$payload[$key] = json_encode($value, JSON_THROW_ON_ERROR);
+				}
+			}
+			$context = stream_context_create(['http' => [
+				'method' => 'POST',
+				'header' => "Content-Type: application/x-www-form-urlencoded\r\nX-LUP-Secret: {$secret}\r\n",
+				'content' => http_build_query($payload),
+				'timeout' => 5,
+			]]);
+			return false !== @file_get_contents($url, false, $context);
+		}
+		catch (\Throwable)
+		{
+			return false;
+		}
+	}
+
+	private static function broadcastChatPayload(LUP_Room $room, GDO_User $user, string $payload, bool $includeSender = false): void
+	{
+		self::rememberMessage($room, $payload);
+
+		$payload2 = GWS_Message::payload(0x1107);
+		$payload2 .= $payload;
+		foreach (self::$ROOM_USERS[$room->getID()] as $_user)
+		{
+			if ($includeSender || $user !== $_user)
+			{
+				GWS_Global::sendBinary($_user, $payload2);
+			}
+		}
+	}
+
 	/**
-	 * Deliver a paid broadcast to every currently occupied location. A shout is
-	 * deliberately not a normal chat event: recipients must not see its sender
-	 * as having joined their room.
+	 * Deliver a paid broadcast to occupied locations within the purchased radius.
+	 * A shout is deliberately not a normal chat event: recipients must not see
+	 * its sender as having joined their room.
 	 *
 	 * @return array{0:int,1:int} Number of reached locations and recipients.
 	 */
-	public static function shout(GDO_User $user, string $text): array
+	public static function shout(GDO_User $user, string $text, int $radius): array
 	{
+		[$lat, $lng] = self::lastPositionFor($user);
 		$locations = 0;
 		$recipients = 0;
 		foreach (self::$ROOM_USERS as $roomId => $users)
 		{
 			if (!$users)
+			{
+				continue;
+			}
+			if (!$room = LUP_Room::getById($roomId))
+			{
+				continue;
+			}
+			if (Position::distanceCalculation($lat, $lng, $room->getLat(), $room->getLng()) > $radius)
 			{
 				continue;
 			}
@@ -492,6 +628,18 @@ final class LUP_Global
 			$distance += Position::distanceCalculation($points[$i - 1][0], $points[$i - 1][1], $points[$i][0], $points[$i][1]);
 		}
 		return $distance / $seconds * 3600.0;
+	}
+
+	/** @return array{0:float,1:float}|null Last GPS point received over this WebSocket. */
+	public static function lastPositionFor(GDO_User $user): ?array
+	{
+		$points = self::$POSITIONS[$user->getID()] ?? [];
+		if (!$points)
+		{
+			return null;
+		}
+		$point = $points[array_key_last($points)];
+		return [$point[0], $point[1]];
 	}
 
 	public static function updateGPS(GDO_User $user, float $lat, float $lng, ?float $now = null): void

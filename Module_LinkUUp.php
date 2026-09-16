@@ -11,6 +11,7 @@ use GDO\Core\GDO_RedirectError;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_Enum;
 use GDO\Core\GDT_String;
+use GDO\Core\GDT_Secret;
 use GDO\Core\GDT_UInt;
 use GDO\Date\GDT_Duration;
 use GDO\Core\Method;
@@ -112,13 +113,19 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_guest_query')->initial('0'), # Allow guest querie messages
 			GDT_Checkbox::make('lup_open_query')->initial('1'), # No near check for queries
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
+			GDT_UInt::make('lup_max_locations')->initial('100')->min(1)->max(1000), # Maximum locations sent to the app per catalogue request
 			GDT_UInt::make('lup_msg_bufsize')->initial('3')->max(100), # Volatile messages replayed when joining a room
+			GDT_Secret::make('lup_connector_secret')->initial(require __DIR__ . '/secret_gdo.php'), # Authenticates the PyGDO LUP connector callback
+			GDT_UInt::make('lup_dog_backlog')->initial('20')->max(100), # Volatile room lines sent to Mira after a quiet period
+			GDT_Duration::make('lup_dog_chill')->initial('5m')->min(30), # Required room silence before sending Mira the backlog
+			GDT_Url::make('lup_dog_url')->initial('')->allowAll(false), # PyGDO lup.to_dog endpoint for signed room messages
+			GDT_Url::make('lup_dog_backlog_url')->initial('')->allowAll(false), # PyGDO lup.backlog endpoint for quiet room transcripts
 			GDT_Checkbox::make('lup_ticket_engine')->initial('0'), # Need to purchase tickets for a room first?
 			GDT_Checkbox::make('lup_profile_likes_guests')->initial('0'), # Guests may not like users
 			GDT_Credits::make('room_cost')->initial('0'), # One-time cost for creating a room
 			GDT_Credits::make('room_cost_view')->initial('0'), # Cost per additional visibility unit
 			GDT_Length::make('room_cost_view_unit')->initial('0.500'), # Visibility billing unit in km
-			GDT_Credits::make('shout_cost')->initial('0'), # One shout to all occupied locations
+			GDT_Credits::make('lup_shout_credits_km')->initial('1'), # Credits for each kilometre of shout radius
 			GDT_Length::make('room_tolerance')->initial('0.064'), # GPS tolerance around room polygons in km
 			GDT_Length::make('room_leave_tolerance')->initial('0.640'), # GPS tolerance before automatically leaving a room in km
 			GDT_Velocity::make('lup_join_velocity')->min(0.0)->max(1000.0)->initial('10.0'), # km/h
@@ -127,7 +134,20 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_UInt::make('lup_num_top_comments')->initial('3')->max(100), # Num Top comments in Room detail.
 			GDT_UInt::make('lup_graph_width')->initial('512')->min(32)->max(4096),
 			GDT_UInt::make('lup_graph_height')->initial('392')->min(32)->max(4096),
+            GDT_String::make('lup_wechall_flag1')->initial('FLAG_0x1337')->pattern('/[A-Z_0-9x]/'),
 		];
+	}
+
+	public function cfgConnectorSecret(): string { return $this->getConfigVar('lup_connector_secret'); }
+	public function cfgMaxLocations(): int { return (int)$this->getConfigValue('lup_max_locations'); }
+	public function cfgDogBacklog(): int { return (int)$this->getConfigValue('lup_dog_backlog'); }
+	public function cfgDogChill(): float { return (float)$this->getConfigValue('lup_dog_chill'); }
+	public function cfgDogURL(): string { return $this->getConfigVar('lup_dog_url'); }
+	public function cfgDogBacklogURL(): string { return $this->getConfigVar('lup_dog_backlog_url'); }
+
+	public function isSecretCorrect(string $secret): bool
+	{
+		return hash_equals($this->cfgConnectorSecret(), $secret);
 	}
 
     public function getUserConfig(): array
@@ -262,7 +282,7 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgRoomCost(): int { return (int)$this->getConfigValue('room_cost'); }
 	public function cfgRoomCostView(): int { return (int)$this->getConfigValue('room_cost_view'); }
 	public function cfgRoomCostViewUnit(): float { return (float)$this->getConfigValue('room_cost_view_unit'); }
-	public function cfgShoutCost(): int { return (int)$this->getConfigValue('shout_cost'); }
+	public function cfgShoutCreditsKM(): int { return (int)$this->getConfigValue('lup_shout_credits_km'); }
 	public function cfgRoomTolerance(): float { return (float)$this->getConfigValue('room_tolerance'); }
 	public function cfgRoomLeaveTolerance(): float { return (float)$this->getConfigValue('room_leave_tolerance'); }
 	public function cfgJoinVelocity(): float { return (float)$this->getConfigValue('lup_join_velocity'); }

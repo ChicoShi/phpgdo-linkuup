@@ -21,21 +21,31 @@ final class LUPWS_Shout extends LUPWS_Command
 		{
 			return $msg->rplyError('err_member_only');
 		}
+		$radius = $msg->read32u();
 		$text = trim($msg->readString());
 		if ($text === '' || strlen($text) > 512)
 		{
 			return $msg->rplyError('err_lup_shout_text');
 		}
+		if ($radius < 1)
+		{
+			return $msg->rplyError('err_lup_shout_radius');
+		}
+		if (!LUP_Global::lastPositionFor($user))
+		{
+			return $msg->rplyError('err_lup_shout_position');
+		}
 
-		$cost = Module_LinkUUp::instance()->cfgShoutCost();
+		$cost = $radius * Module_LinkUUp::instance()->cfgShoutCreditsKM();
 		if (!$this->chargeCredits($user, $cost))
 		{
 			return $msg->rplyError('err_lup_shout_credits', [$cost, $this->creditBalance($user)]);
 		}
 
-		[$locations, $recipients] = LUP_Global::shout($user, $text);
+		[$locations, $recipients] = LUP_Global::shout($user, $text, $radius);
 		return $msg->replyBinary($msg->cmd(),
 			GWS_Message::wr32($this->creditBalance($user)) .
+			GWS_Message::wr32($radius) .
 			GWS_Message::wr32($locations) .
 			GWS_Message::wr32($recipients));
 	}

@@ -3,6 +3,7 @@ namespace GDO\LinkUUp\Websocket;
 
 use GDO\Address\GDO_Address;
 use GDO\LinkUUp\LUP_Global;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\LUPWS_Command;
 use GDO\Maps\Position;
@@ -39,7 +40,8 @@ class LUPWS_RoomList extends LUPWS_Command
 		// A real position is filtered and ordered by its visibility radius. Without
 		// one, retain the complete test catalogue so category browsing never makes
 		// places appear to have disappeared.
-		$result = $hasPosition ? LUP_Room::queryRooms($lat, $lng) : LUP_Room::queryRooms();
+		$limit = Module_LinkUUp::instance()->cfgMaxLocations();
+		$result = $hasPosition ? LUP_Room::queryRooms($lat, $lng, $limit) : LUP_Room::queryRooms(null, null, $limit);
 		$rooms = $result->fetchAllObjects();
 		// Avoid the N+1 address lookup: a normal list contains dozens of rooms,
 		// and asking the database once per room delayed the first visible card.
