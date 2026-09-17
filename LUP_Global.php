@@ -456,7 +456,7 @@ final class LUP_Global
 		$module = Module_LinkUUp::instance();
 		$size = $module->cfgDogBacklog();
 		$id = (int)$room->getID();
-		if ($size <= 0)
+		if ($size <= 0 || $room->minionCooldown() === null)
 		{
 			unset(self::$ROOM_DOG_BACKLOG[$id]);
 			return;
@@ -487,7 +487,14 @@ final class LUP_Global
 		$now = microtime(true);
 		foreach (self::$ROOM_DOG_BACKLOG as $id => $backlog)
 		{
-			if (($now - $backlog['last']) < $module->cfgDogChill())
+			$cooldown = $backlog['room']->minionCooldown();
+			if ($cooldown === null)
+			{
+				// A room without an active prepaid Minion must not queue work forever.
+				unset(self::$ROOM_DOG_BACKLOG[$id]);
+				continue;
+			}
+			if (($now - $backlog['last']) < $cooldown)
 			{
 				continue;
 			}

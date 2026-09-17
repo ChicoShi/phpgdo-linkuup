@@ -10,6 +10,7 @@ use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\LinkUUp\LUP_Room;
 use GDO\UI\GDT_DeleteButton;
+use GDO\UI\GDT_Link;
 use GDO\User\GDO_User;
 
 final class EditRoom extends MethodForm
@@ -79,6 +80,10 @@ final class EditRoom extends MethodForm
 			$form->addField($room->gdoColumn('room_enabled'));
 		}
 		$form->addField($room->gdoColumn('room_info'));
+		// The tier is visible here, but only BookMinion may change it because
+		// that route performs the atomic credit debit.
+		$form->addField($room->gdoColumn('room_minion_subscription')->writeable(false));
+		$form->addField($room->gdoColumn('room_minion_expire')->writeable(false));
 
 		$form->addField($room->gdoColumn('room_color'));
 
@@ -109,6 +114,9 @@ final class EditRoom extends MethodForm
 		$form->addField(GDT_AntiCSRF::make());
 
         $form->actions()->addField(GDT_Submit::make());
+		$form->actions()->addField(GDT_Link::make('book_minion')
+			->href(href('LinkUUp', 'BookMinion', '&room=' . $room->getID()))
+			->text('link_book_minion')->icon('smart_toy'));
         if ($room->canDelete($user))
         {
             $form->actions()->addField(GDT_DeleteButton::make()->onclick([$this, 'deleteRoom']));

@@ -22,6 +22,7 @@ use GDO\Core\GDT_String;
 use GDO\Core\GDT_Template;
 use GDO\Core\GDT_UInt;
 use GDO\Core\Method;
+use GDO\Date\GDT_DateTime;
 use GDO\File\GDO_File;
 use GDO\File\GDT_ImageFile;
 use GDO\Maps\GDT_Position;
@@ -65,6 +66,25 @@ final class LUP_Room extends GDO
 			);
 		}
 		return parent::blank($initial);
+	}
+
+	/** Whether this room currently has a prepaid Minion subscription. */
+	public function hasMinionSubscription(): bool
+	{
+		$subscription = $this->gdoVar('room_minion_subscription');
+		$expires = $this->gdoVar('room_minion_expire');
+		return (bool)$subscription && (bool)$expires && strtotime($expires . ' UTC') > time();
+	}
+
+	/** The booked quiet period in seconds, or null when no Minion is active. */
+	public function minionCooldown(): ?float
+	{
+		if (!$this->hasMinionSubscription())
+		{
+			return null;
+		}
+		$minutes = GDT_MinionSubscription::delayMinutes($this->gdoVar('room_minion_subscription'));
+		return $minutes === null ? null : $minutes * 60.0;
 	}
 
 	/**
@@ -170,6 +190,8 @@ final class LUP_Room extends GDO
 			GDT_UInt::make('room_sort')->label('sort'),
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),
+			GDT_MinionSubscription::make('room_minion_subscription'),
+			GDT_DateTime::make('room_minion_expire'),
 			GDT_Color::make('room_color'),
 			GDT_ObjectSelect::make('room_category')->table(LUP_Category::table())->label('category'),
 			GDT_Position::make('room_pos'),
