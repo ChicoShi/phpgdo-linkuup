@@ -638,6 +638,12 @@ final class LUP_Global
 		return [$point[0], $point[1]];
 	}
 
+	/** Start a fresh live GPS sample window after a WebSocket reconnect. */
+	public static function resetGPS(GDO_User $user): void
+	{
+		unset(self::$POSITIONS[$user->getID()]);
+	}
+
 	public static function updateGPS(GDO_User $user, float $lat, float $lng, ?float $now = null): void
 	{
 		$velocity = self::velocityFor($user, $lat, $lng, $now);

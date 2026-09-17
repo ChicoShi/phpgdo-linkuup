@@ -218,15 +218,22 @@ final class LUP_Room extends GDO
 	 * Chat access follows the maintained location polygon. Existing rows without
 	 * one retain the legacy radius behaviour until they have been migrated.
 	 */
-	public function isInChatRange($lat, $lng): bool
+	public function isInChatRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng, Module_LinkUUp::instance()->cfgRoomTolerance());
+		return $this->isInChatRangeWithTolerance($lat, $lng,
+			Module_LinkUUp::instance()->cfgRoomTolerance() + $this->toleranceBoost($user));
 	}
 
 	/** Is a position still close enough that an active chat membership is retained? */
-	public function isInChatLeaveRange($lat, $lng): bool
+	public function isInChatLeaveRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng, Module_LinkUUp::instance()->cfgRoomLeaveTolerance());
+		return $this->isInChatRangeWithTolerance($lat, $lng,
+			Module_LinkUUp::instance()->cfgRoomLeaveTolerance() + $this->toleranceBoost($user));
+	}
+
+	private function toleranceBoost(?GDO_User $user): float
+	{
+		return $user ? (float)Module_LinkUUp::instance()->userSettingValue($user, 'tolerance_boost') : 0.0;
 	}
 
 	private function isInChatRangeWithTolerance($lat, $lng, float $tolerance): bool

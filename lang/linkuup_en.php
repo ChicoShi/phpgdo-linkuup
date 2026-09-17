@@ -70,6 +70,9 @@ return [
 	'err_lup_shout_radius' => 'Choose a shout radius of at least 1 km.',
 	'err_lup_shout_position' => 'A current GPS position is required for a local shout.',
 	'err_lup_shout_credits' => 'This shout requires %s Credits; you currently have %s Credits.',
+	'err_lup_tolerance_meters' => 'The tolerance boost must be between 1 and 1000 metres.',
+	'err_lup_tolerance_limit' => 'Your personal tolerance boost may not exceed 10 km.',
+	'err_lup_tolerance_credits' => 'This tolerance boost requires %s Credits; you currently have %s Credits.',
 	'err_room_not_near' => 'This room is not in chat distance.',
 	'err_lup_join_too_fast' => 'You cannot join a room while moving faster than %s km/h.',
 	'err_not_in_room' => 'You did not join this chatroom.',
@@ -143,6 +146,7 @@ return [
 	'link_add_cat' => 'Add Category',
 	'mt_linkuup_roomflyer' => 'A4 sheet (2× A5 room flyers)',
 	'room_flyer' => 'Room flyer',
+	'room_flyer_brand' => 'Local chat',
 	'room_flyer_cta' => 'Scan the code and join the local chat.',
 	'room_flyer_copy' => 'LinkUUp connects people at real places. Discover who is here, chat directly, and make plans with ease.',
 

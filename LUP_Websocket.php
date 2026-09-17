@@ -24,6 +24,7 @@ final class LUP_Websocket extends GWS_Commands
 
 	public function connect(GDO_User $user)
 	{
+		LUP_Global::resetGPS($user);
 // 		$this->deliverQueryMessages($user);
 // 		$this->deliverQueryReadMessages($user);
 	}

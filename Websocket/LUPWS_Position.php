@@ -31,7 +31,7 @@ final class LUPWS_Position extends LUPWS_Command
 		$rooms = LUP_Global::getRoomsForUser($user);
 		foreach ($rooms as $room)
 		{
-			if (!$room->isInChatLeaveRange($lat, $lng))
+			if (!$room->isInChatLeaveRange($lat, $lng, $user))
 			{
 				LUP_Global::part($room, $user);
 			}

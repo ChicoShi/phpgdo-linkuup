@@ -24,6 +24,7 @@ use GDO\LinkUUp\LUP_Room;
 		<div class="lup-room-flyer-page">
 			<?php for ($copy = 0; $copy < 2; $copy++): ?>
 				<section class="lup-room-flyer-sheet">
+					<div class="lup-room-flyer-brand">LINK<b>UUP</b> · <?=t('room_flyer_brand')?></div>
 					<h1><?=html($room->getName())?></h1>
 					<?php if ($room->getInfo()): ?>
 						<p class="lup-room-flyer-info"><?=html($room->getInfo())?></p>

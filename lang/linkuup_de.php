@@ -70,6 +70,9 @@ return [
 	'err_lup_shout_radius' => 'Wähle einen Shout-Radius von mindestens 1 km.',
 	'err_lup_shout_position' => 'Für einen lokalen Shout wird eine aktuelle GPS-Position benötigt.',
 	'err_lup_shout_credits' => 'Für diesen Shout werden %s Credits benötigt; Du hast aktuell %s Credits.',
+	'err_lup_tolerance_meters' => 'Der Toleranz-Boost muss zwischen 1 und 1000 Metern liegen.',
+	'err_lup_tolerance_limit' => 'Dein persönlicher Toleranz-Boost kann höchstens 10 km betragen.',
+	'err_lup_tolerance_credits' => 'Für diesen Toleranz-Boost werden %s Credits benötigt; Du hast aktuell %s Credits.',
 	'err_room_not_near' => 'Dieser Raum ist nicht in Chatreichweite.',
 	'err_lup_join_too_fast' => 'Du kannst einem Raum nicht mit mehr als %s km/h beitreten.',
 	'err_not_in_room' => 'Sie befinden sich nicht in diesem Chatraum.',
@@ -143,6 +146,7 @@ return [
 	'link_add_cat' => 'Neue Kategorie',
 	'mt_linkuup_roomflyer' => 'A4-Druckbogen (2× A5-Raumflyer)',
 	'room_flyer' => 'Raum-Flyer',
+	'room_flyer_brand' => 'Lokaler Chat',
 	'room_flyer_cta' => 'Scanne den Code und tritt dem lokalen Chat bei.',
 	'room_flyer_copy' => 'LinkUUp verbindet Menschen an echten Orten. Entdecke, wer gerade hier ist, chatte direkt und verabrede dich unkompliziert.',
 

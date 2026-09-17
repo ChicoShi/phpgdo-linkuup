@@ -3,16 +3,16 @@ declare(strict_types=1);
 namespace GDO\LinkUUp\Websocket;
 
 use GDO\DB\Database;
-use GDO\LinkUUp\LUP_Global;
 use GDO\LinkUUp\LUPWS_Command;
 use GDO\LinkUUp\Module_LinkUUp;
 use GDO\User\GDO_User;
 use GDO\User\GDO_UserSetting;
+use GDO\Util\WS;
 use GDO\Websocket\Server\GWS_Commands;
 use GDO\Websocket\Server\GWS_Message;
 
-/** Send one paid message to every currently occupied Location. */
-final class LUPWS_Shout extends LUPWS_Command
+/** Buy permanent personal room-entry tolerance in whole metres. */
+final class LUPWS_ToleranceBoost extends LUPWS_Command
 {
 	public function execute(GWS_Message $msg)
 	{
@@ -21,36 +21,28 @@ final class LUPWS_Shout extends LUPWS_Command
 		{
 			return $msg->rplyError('err_member_only');
 		}
-		$radius = $msg->read32u();
-		$text = trim($msg->readString());
-		if ($text === '' || strlen($text) > 512)
+		$meters = $msg->read16u();
+		if ($meters < 1 || $meters > 1000)
 		{
-			return $msg->rplyError('err_lup_shout_text');
+			return $msg->rplyError('err_lup_tolerance_meters');
 		}
-		if ($radius < 1)
+		$module = Module_LinkUUp::instance();
+		$oldBoost = (float)$module->userSettingValue($user, 'tolerance_boost');
+		$newBoost = $oldBoost + ($meters / 1000.0);
+		if ($newBoost > 10.0)
 		{
-			return $msg->rplyError('err_lup_shout_radius');
+			return $msg->rplyError('err_lup_tolerance_limit');
 		}
-		if (!LUP_Global::lastPositionFor($user))
-		{
-			return $msg->rplyError('err_lup_shout_position');
-		}
-
-		$cost = $radius * Module_LinkUUp::instance()->cfgShoutCostPerKM();
+		$cost = $meters * $module->cfgToleranceCreditsPerMeter();
 		if (!$this->chargeCredits($user, $cost))
 		{
-			return $msg->rplyError('err_lup_shout_credits', [$cost, $this->creditBalance($user)]);
+			return $msg->rplyError('err_lup_tolerance_credits', [$cost, $this->creditBalance($user)]);
 		}
-
-		[$locations, $recipients] = LUP_Global::shout($user, $text, $radius);
+		$module->saveUserSetting($user, 'tolerance_boost', (string)$newBoost);
 		return $msg->replyBinary($msg->cmd(),
-			GWS_Message::wr32($this->creditBalance($user)) .
-			GWS_Message::wr32($radius) .
-			GWS_Message::wr32($locations) .
-			GWS_Message::wr32($recipients));
+			GWS_Message::wr32($this->creditBalance($user)) . WS::wrFloat($newBoost));
 	}
 
-	/** Conditional update makes concurrent shouts unable to overspend credits. */
 	private function chargeCredits(GDO_User $user, int $cost): bool
 	{
 		if ($cost <= 0)
@@ -70,4 +62,4 @@ final class LUPWS_Shout extends LUPWS_Command
 	}
 }
 
-GWS_Commands::register(0x1166, new LUPWS_Shout());
+GWS_Commands::register(0x1168, new LUPWS_ToleranceBoost());

@@ -56,7 +56,7 @@ class LUPWS_Join extends LUPWS_Command
 
 		// Local rooms are local for every account. Privileged roles may manage
 		// rooms, but they must never bypass the live GPS entrance requirement.
-		if (!$room->isInChatRange($lat, $lng))
+		if (!$room->isInChatRange($lat, $lng, $user))
 		{
 			return $msg->rplyError('err_room_not_near');
 		}
