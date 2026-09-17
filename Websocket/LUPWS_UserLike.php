@@ -29,6 +29,7 @@ class LUPWS_UserLike extends LUPWS_Command
 		$_REQUEST = [
 			'gdo' => LUP_ProfileLike::table()->gdoClassName(),
 			'id' => $userid,
+			'direction' => 'up',
 		];
 
 		if (!LUP_Global::userSeesUser($user, $likeUser))
