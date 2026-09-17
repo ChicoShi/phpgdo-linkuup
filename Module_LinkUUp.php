@@ -124,7 +124,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Credits::make('room_cost')->initial('0'), # One-time cost for creating a room
 			GDT_Credits::make('room_cost_view')->initial('0'), # Cost per additional visibility unit
 			GDT_Length::make('room_cost_view_unit')->initial('0.500'), # Visibility billing unit in km
-			GDT_Credits::make('lup_shout_cost_per_km')->initial('100'), # Credits for each kilometre of shout radius
+			GDT_Credits::make('lup_shout_cost_per_km')->initial('150'), # Credits for each kilometre of shout radius
 			GDT_Length::make('room_tolerance')->initial('0.064'), # GPS tolerance around room polygons in km
 			GDT_Length::make('room_leave_tolerance')->initial('0.640'), # GPS tolerance before automatically leaving a room in km
 			GDT_Credits::make('tolerance_credits_per_meter')->initial('100'), # Credits for one metre of personal chat tolerance

@@ -32,6 +32,7 @@ final class InstallPeine
 		self::seedMarketSquare($icons);
 		self::seedStation($icons);
 		self::seedSilberkampGymnasium($icons);
+		self::seedWeitkowitz($icons);
 		self::seedLandmarks($icons);
 		self::seedRestaurants($icons);
 		self::seedDoctors($icons);
@@ -71,6 +72,42 @@ final class InstallPeine
 			'room_address' => $garage->getID(),
 			'room_icon' => $icons[1]->getID(),
 			'room_image' => $icons[2]->getID(),
+			'room_show_distance' => '1',
+		])->softReplace();
+	}
+
+	/** Weitkowitz GmbH, Woltorfer Straße 125. Google Maps pin; no verified OSM building outline. */
+	private static function seedWeitkowitz(array $icons): void
+	{
+		$address = LocationRegistry::seedAddress('1190', [
+			'address_name' => 'Weitkowitz GmbH',
+			'address_company' => 'Weitkowitz GmbH',
+			'address_street' => 'Woltorfer Straße 125',
+			'address_zip' => '31224',
+			'address_city' => 'Peine',
+			'address_country' => 'DE',
+			'address_phone' => '+49 5171 70610',
+			'address_email' => 'info@weitkowitz.de',
+		]);
+
+		$image = $icons[3];
+		LUP_Room::blank([
+			'room_id' => '1190',
+			'room_owner' => null,
+			'room_name' => 'Weitkowitz GmbH',
+			'room_info' => 'Hersteller für Kabelschuhe, Verbinder und Werkzeuge in Peine.',
+			'room_color' => '#2B638C',
+			'room_category' => '6',
+			'room_pos_lat' => '52.3311198',
+			'room_pos_lng' => '10.24495415',
+			'room_view' => '10.0',
+			'room_polygon' => null,
+			'room_radius' => '0.100',
+			'room_www' => 'https://www.weitkowitz.de/',
+			'room_phone' => '+49 5171 70610',
+			'room_address' => $address->getID(),
+			'room_icon' => $image->getID(),
+			'room_image' => $image->getID(),
 			'room_show_distance' => '1',
 		])->softReplace();
 	}

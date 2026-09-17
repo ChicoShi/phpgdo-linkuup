@@ -539,9 +539,12 @@ final class LUP_Global
 	 *
 	 * @return array{0:int,1:int} Number of reached locations and recipients.
 	 */
-	public static function shout(GDO_User $user, string $text, int $radius): array
+	public static function shout(GDO_User $user, string $text, float $radius, ?float $lat = null, ?float $lng = null): array
 	{
-		[$lat, $lng] = self::lastPositionFor($user);
+		if ($lat === null || $lng === null)
+		{
+			[$lat, $lng] = self::lastPositionFor($user);
+		}
 		$locations = 0;
 		$recipients = 0;
 		foreach (self::$ROOM_USERS as $roomId => $users)
