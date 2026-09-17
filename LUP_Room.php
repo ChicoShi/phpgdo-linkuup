@@ -109,7 +109,6 @@ final class LUP_Room extends GDO
 
 		# Enabled condition
 		$query->where('room_enabled=1');
-		$query->order('room_sort ASC');
 
 		# Distance conditions
 		if (is_float($lat) && is_float($lng))
