@@ -53,7 +53,8 @@ final class BookMinion extends MethodForm
 			GDT_MinionSubscription::make('subscription')->notNull()->initial($current ?: GDT_MinionSubscription::DELAY_5M),
 			GDT_AntiCSRF::make(),
 		);
-		$form->actions()->addField(GDT_Submit::make('book')->label('btn_book_minion')->icon('smart_toy'));
+		// MethodForm invokes formValidated() for its conventional submit action.
+		$form->actions()->addField(GDT_Submit::make()->label('btn_book_minion')->icon('smart_toy'));
 	}
 
 	public function formValidated(GDT_Form $form): GDT
@@ -67,7 +68,8 @@ final class BookMinion extends MethodForm
 		$cost = GDT_MinionSubscription::credits($newSubscription);
 		if (!$this->chargeCredits($user, $cost))
 		{
-			return $this->error('err_lup_minion_credits', [$cost, $this->creditBalance($user)]);
+			$form->error('err_lup_minion_credits', [$cost, $this->creditBalance($user)]);
+			return $this->renderPage();
 		}
 
 		$now = new DateTimeImmutable('now', new DateTimeZone('UTC'));

@@ -60,6 +60,7 @@ return [
 	'enum_delay_3m' => '3 Minuten – 600 Credits (6 € / Monat)',
 	'enum_delay_4m' => '4 Minuten – 400 Credits (4 € / Monat)',
 	'enum_delay_5m' => '5 Minuten – 200 Credits (2 € / Monat)',
+	'enum_delay_30s' => '30 Sekunden – 1.500 Credits (15 € / Monat)',
 	'tt_radius_in_km' => 'Radius in Kilometern',
 	'lup_owner' => 'Eigentümer',
 	'location' => 'Location',

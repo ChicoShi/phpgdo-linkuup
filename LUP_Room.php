@@ -83,8 +83,8 @@ final class LUP_Room extends GDO
 		{
 			return null;
 		}
-		$minutes = GDT_MinionSubscription::delayMinutes($this->gdoVar('room_minion_subscription'));
-		return $minutes === null ? null : $minutes * 60.0;
+		$seconds = GDT_MinionSubscription::delaySeconds($this->gdoVar('room_minion_subscription'));
+		return $seconds === null ? null : (float)$seconds;
 	}
 
 	/**
