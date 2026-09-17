@@ -148,6 +148,7 @@ final class Install
 		$minion->saveSettingVar('Mail', 'email', $users['minion'][1]);
 		$minion->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
 		LUP_Trophy::getOrCreate($minion)->saveVar('lt_vip', '1');
+		self::installAvatar('minion', 'minion.png', 'data');
 
 		# rayaseiren is a regular seeded member; preserve an existing live account.
 		$rayaseiren = GDO_User::getByName('rayaseiren');
@@ -467,7 +468,7 @@ final class Install
 	}
 
 	/** Install the supplied public profile image for a seeded user once. */
-	private static function installAvatar(string $username, string $filename): void
+	private static function installAvatar(string $username, string $filename, string $sourceDir = 'install_data'): void
 	{
 		$user = GDO_User::getByName($username);
 		if (GDO_UserAvatar::getById($user->getID()))
@@ -477,7 +478,7 @@ final class Install
 
 		$file = GDO_File::fromPath(
 			$filename,
-			Module_LinkUUp::instance()->filePath("install_data/$filename"),
+			Module_LinkUUp::instance()->filePath("$sourceDir/$filename"),
 		)->insert();
 		$avatar = GDO_Avatar::blank([
 			'avatar_file_id' => $file->getID(),
