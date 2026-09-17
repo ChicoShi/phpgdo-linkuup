@@ -17,6 +17,12 @@ use GDO\User\GDO_User;
 /** Receive one Dog/Mira response and broadcast it into a LinkUUp room. */
 final class FromDog extends Method
 {
+	/** This machine-to-machine endpoint authenticates with its shared secret. */
+	public function isGuestAllowed(): bool
+	{
+		return true;
+	}
+
 	public function gdoParameters(): array
 	{
 		return [
