@@ -8,8 +8,10 @@ use GDO\Core\GDT_Secret;
 use GDO\Core\GDT_String;
 use GDO\Core\GDO_Exception;
 use GDO\Core\GDT_Hook;
+use GDO\Core\GDT_Response;
 use GDO\Core\Method;
 use GDO\LinkUUp\LUP_Room;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\User\GDO_User;
 
 /** Receive one Dog/Mira response and broadcast it into a LinkUUp room. */
@@ -37,6 +39,6 @@ final class FromDog extends Method
 		$room = $this->gdoParameterValue('room');
 		$minion = GDO_User::getByName('minion');
 		GDT_Hook::callWithIPC('LUPDogMessage', $room->getID(), $minion->getID(), $this->gdoParameterVar('message'));
-		return $this->empty();
+		return GDT_Response::make();
 	}
 }
