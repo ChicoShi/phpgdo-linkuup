@@ -312,6 +312,17 @@ final class LUP_Room extends GDO
 
 	public function getName(): ?string { return $this->gdoVar('room_name'); }
 
+	/** Plain room label for object fields and completion selections. */
+	public function renderName(): string
+	{
+		$name = (string)$this->getName();
+		if (($address = $this->getAddress()) && !$address->emptyAddress())
+		{
+			return trim("{$name}, {$address->getStreet()} {$address->getCity()}", ' ,');
+		}
+		return $name;
+	}
+
 	public function renderCard(): string { return GDT_Template::php('LinkUUp', 'card/room.php', ['room' => $this]); }
 
 	public function renderList(): string { return GDT_Template::php('LinkUUp', 'list/room.php', ['room' => $this]); }
