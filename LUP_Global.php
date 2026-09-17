@@ -462,10 +462,16 @@ final class LUP_Global
 			return;
 		}
 		$backlog = self::$ROOM_DOG_BACKLOG[$id] ?? ['room' => $room, 'last' => 0.0, 'lines' => []];
-		$backlog['last'] = microtime(true);
-		$backlog['lines'][] = ['name' => $user->getName(), 'message' => $text];
+		$now = microtime(true);
+		$backlog['last'] = $now;
+		$backlog['lines'][] = [
+			'time' => sprintf('%s.%06d', date('Y-m-d H:i:s', (int)$now), (int)(($now - floor($now)) * 1000000)),
+			'name' => $user->getName(),
+			'message' => $text,
+		];
 		$backlog['lines'] = array_slice($backlog['lines'], -$size);
 		self::$ROOM_DOG_BACKLOG[$id] = $backlog;
+		error_log(sprintf('[LUP Dog] queued room=%d lines=%d', $id, count($backlog['lines'])));
 	}
 
 	/** Flush quiet room transcripts to Dog. A failed delivery remains buffered. */
@@ -484,12 +490,15 @@ final class LUP_Global
 			{
 				continue;
 			}
-			if (self::postToDog($url, [
+			$error = '';
+			$ok = self::postToDog($url, [
 				'room' => $id,
 				'room_name' => $backlog['room']->getName(),
 				'lang' => \GDO\Language\Trans::$ISO,
-				'backlog' => $backlog['lines'],
-			]))
+				'backlog' => json_encode($backlog['lines'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+			], $error);
+			error_log(sprintf('[LUP Dog] flush room=%d lines=%d result=%s%s', $id, count($backlog['lines']), $ok ? 'ok' : 'failed', $error ? " error={$error}" : ''));
+			if ($ok)
 			{
 				unset(self::$ROOM_DOG_BACKLOG[$id]);
 			}
@@ -501,9 +510,9 @@ final class LUP_Global
 	}
 
 	/** @param array<string,mixed> $payload */
-	private static function postToDog(string $url, array $payload): bool
+	private static function postToDog(string $url, array $payload, string &$error = ''): bool
 	{
-        HTTP::post($url, $payload);
+		return HTTP::post($url, $payload, false, false, false, $error) !== false;
 	}
 
 	private static function broadcastChatPayload(LUP_Room $room, GDO_User $user, string $payload, bool $includeSender = false): void
