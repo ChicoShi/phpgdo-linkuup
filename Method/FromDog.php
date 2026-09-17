@@ -7,7 +7,7 @@ use GDO\Core\GDT_Object;
 use GDO\Core\GDT_Secret;
 use GDO\Core\GDT_String;
 use GDO\Core\GDO_Exception;
-use GDO\Core\GDO_Hook;
+use GDO\Core\GDT_Hook;
 use GDO\Core\GDT_Response;
 use GDO\Core\Method;
 use GDO\LinkUUp\LUP_Room;
@@ -44,10 +44,12 @@ final class FromDog extends Method
 	{
 		$room = $this->gdoParameterValue('room');
 		$minion = GDO_User::getByName('minion');
-		GDO_Hook::blank(['hook_message' => json_encode([
-			'event' => 'LUPDogMessage',
-			'args' => [(string)$room->getID(), (string)$minion->getID(), $this->gdoParameterVar('message')],
-		], JSON_THROW_ON_ERROR)])->insert();
+		GDT_Hook::callWithIPC(
+			'LUPDogMessage',
+			(string)$room->getID(),
+			(string)$minion->getID(),
+			$this->gdoParameterVar('message'),
+		);
 		return GDT_Response::make();
 	}
 }
