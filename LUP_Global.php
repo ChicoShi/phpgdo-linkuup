@@ -424,29 +424,9 @@ final class LUP_Global
 		$payload .= GWS_Message::wrS($text);
 		self::rememberDogBacklog($room, $user, $text);
 		self::broadcastChatPayload($room, $user, $payload);
-		self::sendToDog($room, $user, $text);
 
 		# Payload1 goes sync back
 		$message->replyBinary($message->cmd(), $payload);
-	}
-
-	/** Forward one room line to the PyGDO connector. Delivery failure never blocks chat. */
-	private static function sendToDog(LUP_Room $room, GDO_User $user, string $text): void
-	{
-		$module = Module_LinkUUp::instance();
-		$url = $module->cfgDogURL();
-		if (!$url)
-		{
-			return;
-		}
-		self::postToDog($url, [
-			'room' => $room->getID(),
-			'user' => $user->getID(),
-			'username' => $user->getName(),
-			'displayname' => $user->getDisplayName() ?: $user->getName(),
-			'lang' => \GDO\Language\Trans::$ISO,
-			'message' => $text,
-		]);
 	}
 
 	/** Deliver a connector-originated chat line; no sender socket needs a sync reply. */
