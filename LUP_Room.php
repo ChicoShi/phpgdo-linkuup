@@ -114,7 +114,13 @@ final class LUP_Room extends GDO
 		# Distance conditions
 		if (is_float($lat) && is_float($lng))
 		{
-			$distanceWhere = Position::getDistanceQuery($lat, $lng, 'room_pos_lat', 'room_pos_lng');
+			$centerDistance = Position::getDistanceQuery($lat, $lng, 'room_pos_lat', 'room_pos_lng');
+			/*
+			 * Regional rooms deliberately hide their distance. Treat their chat radius
+			 * as a circle rather than pretending that their centre is the location:
+			 * the effective distance is the nearest point on that circle (zero inside).
+			 */
+			$distanceWhere = "CASE WHEN room_show_distance=0 THEN GREATEST(0, ({$centerDistance}) - room_radius) ELSE ({$centerDistance}) END";
 			$query->where($distanceWhere . ' <= room_view');
 			$query->order($distanceWhere . ' ASC');
 		}
