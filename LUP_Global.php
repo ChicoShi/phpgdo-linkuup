@@ -479,7 +479,8 @@ final class LUP_Global
 	{
 		$module = Module_LinkUUp::instance();
 		$url = $module->cfgDogBacklogURL();
-		if (!$url)
+		$secret = $module->cfgConnectorSecret();
+		if (!$url || !$secret)
 		{
 			return;
 		}
@@ -492,6 +493,7 @@ final class LUP_Global
 			}
 			$error = '';
 			$ok = self::postToDog($url, [
+				'secret' => $secret,
 				'room' => $id,
 				'room_name' => $backlog['room']->getName(),
 				'lang' => \GDO\Language\Trans::$ISO,

@@ -10,6 +10,7 @@ use GDO\Core\CSS;
 use GDO\Core\GDO_RedirectError;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_Enum;
+use GDO\Core\GDT_Secret;
 use GDO\Core\GDT_String;
 use GDO\Core\GDT_UInt;
 use GDO\Date\GDT_Duration;
@@ -114,6 +115,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
 			GDT_UInt::make('lup_max_locations')->initial('100')->min(1)->max(1000), # Maximum locations sent to the app per catalogue request
 			GDT_UInt::make('lup_msg_bufsize')->initial('3')->max(100), # Volatile messages replayed when joining a room
+			GDT_Secret::make('lup_connector_secret')->initial(require __DIR__ . '/secret_gdo.php'), # Authenticates the PyGDO LUP connector callback
 			GDT_UInt::make('lup_dog_backlog')->initial('20')->max(100), # Volatile room lines sent to Mira after a quiet period
 			GDT_Duration::make('lup_dog_chill')->initial('5m')->min(30), # Required room silence before sending Mira the backlog
 			GDT_Url::make('lup_dog_backlog_url')->initial('')->allowAll(false), # PyGDO queue endpoint for quiet room transcripts
@@ -137,6 +139,7 @@ final class Module_LinkUUp extends GDO_Module
 	}
 
 	public function cfgMaxLocations(): int { return (int)$this->getConfigValue('lup_max_locations'); }
+	public function cfgConnectorSecret(): string { return $this->getConfigVar('lup_connector_secret'); }
 	public function cfgDogBacklog(): int { return (int)$this->getConfigValue('lup_dog_backlog'); }
 	public function cfgDogChill(): float { return (float)$this->getConfigValue('lup_dog_chill'); }
 	public function cfgDogBacklogURL(): string { return $this->getConfigVar('lup_dog_backlog_url'); }
