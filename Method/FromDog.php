@@ -4,10 +4,11 @@ namespace GDO\LinkUUp\Method;
 
 use GDO\Core\GDT;
 use GDO\Core\GDT_Object;
+use GDO\Core\GDT_Secret;
 use GDO\Core\GDT_String;
+use GDO\Core\GDO_Exception;
+use GDO\Core\GDT_Hook;
 use GDO\Core\Method;
-use GDO\LinkUUp\LUP_Global;
-use GDO\LinkUUp\LUP_MessageSent;
 use GDO\LinkUUp\LUP_Room;
 use GDO\User\GDO_User;
 
@@ -17,18 +18,25 @@ final class FromDog extends Method
 	public function gdoParameters(): array
 	{
 		return [
+			GDT_Secret::make('secret')->notNull(),
 			GDT_Object::make('room')->notNull()->table(LUP_Room::table()),
 			GDT_String::make('message')->notNull()->max(4096),
 		];
+	}
+
+	public function beforeExecute(): void
+	{
+		if (!Module_LinkUUp::instance()->isSecretCorrect($this->gdoParameterVar('secret')))
+		{
+			throw new GDO_Exception('err_lup_connector_secret');
+		}
 	}
 
 	public function execute(): GDT
 	{
 		$room = $this->gdoParameterValue('room');
 		$minion = GDO_User::getByName('minion');
-		LUP_Global::sendMinion($room, $minion);
-		LUP_MessageSent::messageSent($room);
-		LUP_Global::chatText($room, $minion, $this->gdoParameterVar('message'));
+		GDT_Hook::callWithIPC('LUPDogMessage', $room->getID(), $minion->getID(), $this->gdoParameterVar('message'));
 		return $this->empty();
 	}
 }

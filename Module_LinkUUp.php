@@ -140,6 +140,7 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function cfgMaxLocations(): int { return (int)$this->getConfigValue('lup_max_locations'); }
 	public function cfgConnectorSecret(): string { return $this->getConfigVar('lup_connector_secret'); }
+	public function isSecretCorrect(string $secret): bool { return hash_equals($this->cfgConnectorSecret(), $secret); }
 	public function cfgDogBacklog(): int { return (int)$this->getConfigValue('lup_dog_backlog'); }
 	public function cfgDogChill(): float { return (float)$this->getConfigValue('lup_dog_chill'); }
 	public function cfgDogBacklogURL(): string { return $this->getConfigVar('lup_dog_backlog_url'); }
