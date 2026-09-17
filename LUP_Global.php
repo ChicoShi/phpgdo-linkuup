@@ -7,6 +7,7 @@ use GDO\Friends\GDO_Friendship;
 use GDO\Friends\GDT_FriendRelation;
 use GDO\Maps\Position;
 use GDO\Maps\Module_Maps;
+use GDO\Net\HTTP;
 use GDO\User\GDO_User;
 use GDO\Websocket\Server\GWS_Global;
 use GDO\Websocket\Server\GWS_Message;
@@ -502,27 +503,7 @@ final class LUP_Global
 	/** @param array<string,mixed> $payload */
 	private static function postToDog(string $url, array $payload): bool
 	{
-		try
-		{
-			foreach ($payload as $key => $value)
-			{
-				if (is_array($value))
-				{
-					$payload[$key] = json_encode($value, JSON_THROW_ON_ERROR);
-				}
-			}
-			$context = stream_context_create(['http' => [
-				'method' => 'POST',
-				'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
-				'content' => http_build_query($payload),
-				'timeout' => 5,
-			]]);
-			return false !== @file_get_contents($url, false, $context);
-		}
-		catch (\Throwable)
-		{
-			return false;
-		}
+        HTTP::post($url, $payload);
 	}
 
 	private static function broadcastChatPayload(LUP_Room $room, GDO_User $user, string $payload, bool $includeSender = false): void
