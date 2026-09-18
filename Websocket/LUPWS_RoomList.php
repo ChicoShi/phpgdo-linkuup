@@ -22,6 +22,9 @@ class LUPWS_RoomList extends LUPWS_Command
 	{
 		$lat = $msg->readFloat();
 		$lng = $msg->readFloat();
+		// Clients that know pagination append the zero-based result offset. Keep
+		// the two-coordinate request valid for already deployed app versions.
+		$from = $msg->hasMore() ? $msg->read32u() : 0;
 
 		if (!Position::isValidLat($lat))
 		{
@@ -41,7 +44,9 @@ class LUPWS_RoomList extends LUPWS_Command
 		// one, retain the complete test catalogue so category browsing never makes
 		// places appear to have disappeared.
 		$limit = Module_LinkUUp::instance()->cfgMaxLocations();
-		$result = $hasPosition ? LUP_Room::queryRooms($lat, $lng, $limit) : LUP_Room::queryRooms(null, null, $limit);
+		$result = $hasPosition ?
+			LUP_Room::queryRooms($lat, $lng, $limit, $from) :
+			LUP_Room::queryRooms(null, null, $limit, $from);
 		$rooms = $result->fetchAllObjects();
 		// Avoid the N+1 address lookup: a normal list contains dozens of rooms,
 		// and asking the database once per room delayed the first visible card.
