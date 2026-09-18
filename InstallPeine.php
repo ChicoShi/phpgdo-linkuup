@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace GDO\LinkUUp;
 
+use GDO\DB\Database;
 use GDO\User\GDO_User;
 
 /**
@@ -36,6 +37,16 @@ final class InstallPeine
 		self::seedLandmarks($icons);
 		self::seedRestaurants($icons);
 		self::seedDoctors($icons);
+	}
+
+	/** Keep local Peine venues discoverable without changing structural rooms. */
+	public static function normalizeVisibility(): void
+	{
+		Database::instance()->queryWrite(
+			"UPDATE lup_room r JOIN gdo_address a ON a.address_id=r.room_address " .
+			"SET r.room_view=CASE WHEN r.room_category IN (3,4,5,14) THEN 2.5 ELSE 0.5 END " .
+			"WHERE a.address_city='Peine' AND r.room_id>=1000"
+		);
 	}
 
 	private static function seedGarage(array $icons): void

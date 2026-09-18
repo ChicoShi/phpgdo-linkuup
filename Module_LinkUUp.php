@@ -117,7 +117,6 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_UInt::make('lup_msg_bufsize')->initial('3')->max(100), # Volatile messages replayed when joining a room
 			GDT_Secret::make('lup_connector_secret')->initial(require __DIR__ . '/secret_gdo.php'), # Authenticates the PyGDO LUP connector callback
 			GDT_UInt::make('lup_dog_backlog')->initial('20')->max(100), # Volatile room lines sent to Mira after a quiet period
-			GDT_Duration::make('lup_dog_chill')->initial('5m')->min(30), # Required room silence before sending Mira the backlog
 			GDT_Url::make('lup_dog_backlog_url')->initial('')->allowAll(false), # PyGDO queue endpoint for quiet room transcripts
 			GDT_Checkbox::make('lup_ticket_engine')->initial('0'), # Need to purchase tickets for a room first?
 			GDT_Checkbox::make('lup_profile_likes_guests')->initial('0'), # Guests may not like users
@@ -143,7 +142,6 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgConnectorSecret(): string { return $this->getConfigVar('lup_connector_secret'); }
 	public function isSecretCorrect(string $secret): bool { return hash_equals($this->cfgConnectorSecret(), $secret); }
 	public function cfgDogBacklog(): int { return (int)$this->getConfigValue('lup_dog_backlog'); }
-	public function cfgDogChill(): float { return (float)$this->getConfigValue('lup_dog_chill'); }
 	public function cfgDogBacklogURL(): string { return $this->getConfigVar('lup_dog_backlog_url'); }
 	public function cfgToleranceCreditsPerMeter(): int { return (int)$this->getConfigValue('tolerance_credits_per_meter'); }
 

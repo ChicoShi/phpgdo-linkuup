@@ -48,12 +48,15 @@ final class LocationExpansion
 	/** @param array<string,mixed> $entry */
 	private static function hasCuratedPeineDuplicate(array $entry): bool
 	{
+		$lat = (float)$entry['lat'];
+		$lng = (float)$entry['lng'];
 		return LUP_Room::table()->select()
 			->joinObject('room_address')
 			->where('room_id BETWEEN 1000 AND 1201')
 			->where('room_name=' . LUP_Room::quoteS((string)$entry['name']))
 			->where('address_city=' . LUP_Room::quoteS('Peine'))
-			->where('address_street=' . LUP_Room::quoteS((string)$entry['street']))
+			->where("(address_street=" . LUP_Room::quoteS((string)$entry['street']) .
+				" OR (ABS(room_pos_lat-{$lat})<0.0003 AND ABS(room_pos_lng-{$lng})<0.0005))")
 			->first()->exec()->fetchObject() !== null;
 	}
 

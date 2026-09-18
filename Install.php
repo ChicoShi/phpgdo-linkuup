@@ -245,6 +245,7 @@ final class Install
 		self::createRegionalMixedExpansion();
 		LocationRegistry::importApproved();
 		LocationExpansion::import();
+		InstallPeine::normalizeVisibility();
 		self::reserveUserRoomIds();
 
 		self::createDefaultImageVariants($module);
