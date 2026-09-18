@@ -37,6 +37,7 @@ final class InstallPeine
 		self::seedLandmarks($icons);
 		self::seedRestaurants($icons);
 		self::seedDoctors($icons);
+		self::seedSeniorCare($icons);
 	}
 
 	/** Keep local Peine venues discoverable without changing structural rooms. */
@@ -836,6 +837,80 @@ final class InstallPeine
 		if ($room = LUP_Room::getById('1114'))
 		{
 			$room->delete();
+		}
+	}
+
+	/**
+	 * Publicly listed Peine senior care homes and day-care facilities.
+	 *
+	 * The list is de-duplicated by physical facility: specialist wards and
+	 * organisational sub-units at the same address share their home's room.
+	 * Polygon origins are documented OpenStreetMap building ways; null means
+	 * the public address pin is retained until a matching building is mapped.
+	 */
+	private static function seedSeniorCare(array $icons): void
+	{
+		$homes = [
+			// OSM way/170057891 (the home covers several Am Mehlenkamp buildings).
+			['DRK Altenpflegeheim Woltorf', 'Alten- und Pflegeheim des DRK in Woltorf.', 52.2924320, 10.3069467, 'Am Mehlenkamp 2-8', '31224', '05171 8840', null, '{"type":"Polygon","coordinates":[[[10.3068511,52.2925064],[10.3070487,52.2925032],[10.3070423,52.2923575],[10.3068447,52.2923607],[10.3068511,52.2925064]]]}'],
+			// OSM way/529638417.
+			['DRK Haus am Stadtpark Peine', 'Pflegeheim des Deutschen Roten Kreuzes am Stadtpark.', 52.3211831, 10.2374067, 'Woltorfer Straße 3', '31224', '05171 5081880', null, '{"type":"Polygon","coordinates":[[[10.2375922,52.3213879],[10.237507,52.3209782],[10.2375778,52.3209727],[10.2375396,52.3207889],[10.2371876,52.3208163],[10.237311,52.3214097],[10.2375922,52.3213879]]]}'],
+			// OSM way/529459401.
+			['GERAS Seniorenpflege Haus Doris', 'Seniorenpflege mit gerontopsychiatrischem Bereich.', 52.3411969, 10.1862388, 'Kirchvordener Straße 44a-b', '31228', '05171 294961', null, '{"type":"Polygon","coordinates":[[[10.1860374,52.341442],[10.186224,52.341471],[10.1864198,52.3410007],[10.1862332,52.3409717],[10.1860578,52.3413931],[10.1860374,52.341442]]]}'],
+			// OSM way/130217953.
+			['Haus Charlottenhof Peine', 'Senioren- und Pflegeheim in der Peiner Südstadt.', 52.3138154, 10.2332882, 'Feldstraße 2', '31226', '05171 9540', null, '{"type":"Polygon","coordinates":[[[10.2326664,52.3139854],[10.2329699,52.3139938],[10.2329762,52.3139076],[10.2331659,52.3139128],[10.2333,52.3139165],[10.2332984,52.3139387],[10.2334963,52.3139441],[10.2335012,52.3138773],[10.2337962,52.3138854],[10.2338922,52.313888],[10.2339071,52.3136856],[10.2337295,52.3136807],[10.2337262,52.3137257],[10.2333331,52.3137149],[10.2333303,52.3137534],[10.2329442,52.3137428],[10.2326849,52.3137342],[10.2326664,52.3139854]]]}'],
+			// OSM ways/130217954, /130217957 and /130217958 form the facility.
+			['Wohnpark Fuhseblick', 'Senioren- und Pflegeheim mit Kurzzeitpflege und gerontopsychiatrischem Bereich.', 52.3162837, 10.2252868, 'Fuhsering 1-5', '31226', '05171 9530', null, '{"type":"Polygon","coordinates":[[[10.225281,52.3165175],[10.2255148,52.3165179],[10.2255126,52.3161922],[10.2254758,52.316126],[10.2250426,52.3160796],[10.2250292,52.3162474],[10.2250633,52.3162485],[10.2250573,52.3163188],[10.2253199,52.3163272],[10.2253122,52.316418],[10.2252829,52.3164171],[10.225281,52.3165175]]]}'],
+			// OSM way/388758146.
+			['Philipp-Spitta-Seniorenzentrum', 'Seniorenzentrum am Windmühlenwall.', 52.3215867, 10.2258527, 'Windmühlenwall 22', '31224', '05171 9970', 'https://www.spitta-seniorenzentrum.de/', '{"type":"Polygon","coordinates":[[[10.2255141,52.3216598],[10.2256969,52.3217153],[10.2257638,52.3216367],[10.2258201,52.3216302],[10.2260787,52.321686],[10.2260926,52.321656],[10.2261553,52.3215432],[10.2258619,52.3214864],[10.2258468,52.3214538],[10.2256319,52.3214898],[10.2256406,52.3215059],[10.2255141,52.3216598]]]}'],
+			// OSM way/328933656.
+			['Seniorenzentrum Rosenblick', 'Stationäres Pflegeheim in Vöhrum.', 52.3292963, 10.1956831, 'Falkenberger Straße 31c-d', '31228', '05171 5060', null, '{"type":"Polygon","coordinates":[[[10.1953661,52.3293061],[10.1953633,52.3293122],[10.1959799,52.3294185],[10.1960267,52.3293169],[10.195989,52.3293104],[10.1960366,52.3292072],[10.1959267,52.3291882],[10.1958814,52.3292864],[10.1955148,52.3292232],[10.1955061,52.3292421],[10.1954038,52.3292244],[10.1953661,52.3293061]]]}'],
+			// OSM way/297807238.
+			['Seniorenhaus Handorf', 'Senioren- und Pflegeheim im Peiner Ortsteil Handorf.', 52.2898584, 10.2066128, 'Am Walde 2', '31226', '05171 57501', null, '{"type":"Polygon","coordinates":[[[10.2061668,52.2898643],[10.2062205,52.289705],[10.2066647,52.289761],[10.2066338,52.2898525],[10.2069608,52.2898938],[10.2069223,52.2900079],[10.206512,52.2899562],[10.2065479,52.2898498],[10.2063101,52.2898199],[10.2062899,52.2898799],[10.2061668,52.2898643]]]}'],
+			// OSM way/165941046.
+			['ArteCare Pflegezentrum Birkenblick', 'Seniorenheim in der Peiner Südstadt.', 52.3068284, 10.2484852, 'Grünberger Straße 6', '31226', '05171 582530', null, '{"type":"Polygon","coordinates":[[[10.2475906,52.3067699],[10.2478441,52.3067912],[10.2478544,52.3067575],[10.2479462,52.3067712],[10.2479303,52.3068],[10.2485449,52.30692],[10.2485712,52.3068839],[10.2486598,52.3069083],[10.2486359,52.306943],[10.2488571,52.3070087],[10.2489851,52.3068567],[10.2487596,52.3067858],[10.2487532,52.3067946],[10.2486319,52.3067658],[10.2486359,52.3067561],[10.2480133,52.3066375],[10.2480061,52.3066472],[10.2478832,52.3066302],[10.247884,52.306618],[10.2476291,52.3065989],[10.2475906,52.3067699]]]}'],
+			// OSM node/5070861929; no matching building boundary is mapped.
+			['Seniorenzentrum Am Herzberg', 'Stationäres Pflegeheim am Herzberg.', 52.3313661, 10.2255303, 'Sundernstraße 60-62', '31224', '05171 98810', null, null],
+			// OSM way/334996797.
+			['Tagespflege Am Herzberg', 'Tagespflege für Seniorinnen und Senioren.', 52.3355123, 10.2325131, 'Am Herzberg 18', '31224', null, null, '{"type":"Polygon","coordinates":[[[10.2325968,52.3356648],[10.2325538,52.3356058],[10.232232,52.3355926],[10.2322534,52.3354189],[10.2325002,52.335432],[10.2324412,52.335337],[10.2326558,52.3352812],[10.2328435,52.3356189],[10.2325968,52.3356648]]]}'],
+			// OSM node/298994349; no matching building boundary is mapped.
+			['Wohnpark Peine', 'Seniorenwohnanlage und Pflegeangebot.', 52.3309720, 10.2249435, 'Sundernstraße 45', '31224', '05171 76670', null, null],
+			// OSM way/531483799.
+			['ASB Tagespflege Peine', 'Tagespflege des Arbeiter-Samariter-Bundes.', 52.3144155, 10.2273556, 'Wiesenstraße 15', '31226', '05171 59890', null, '{"type":"Polygon","coordinates":[[[10.2267367,52.3143518],[10.2267547,52.3144428],[10.226614,52.3144533],[10.2266308,52.3145382],[10.2269838,52.314512],[10.2269658,52.3144215],[10.2271431,52.3144084],[10.2271507,52.3144463],[10.2276482,52.3144094],[10.2276237,52.3142861],[10.2267367,52.3143518]]]}'],
+		];
+
+		$image = $icons[3];
+		foreach ($homes as $index => [$name, $info, $lat, $lng, $street, $zip, $phone, $www, $polygon])
+		{
+			$id = 1160 + $index;
+			$address = LocationRegistry::seedAddress((string)$id, [
+				'address_name' => $name,
+				'address_street' => $street,
+				'address_zip' => $zip,
+				'address_city' => 'Peine',
+				'address_country' => 'DE',
+				'address_phone' => $phone,
+			]);
+
+			LUP_Room::blank([
+				'room_id' => (string)$id,
+				'room_owner' => null,
+				'room_name' => $name,
+				'room_info' => $info,
+				'room_color' => '#865B9B',
+				'room_category' => '22',
+				'room_pos_lat' => (string)$lat,
+				'room_pos_lng' => (string)$lng,
+				'room_view' => '0.500',
+				'room_polygon' => $polygon,
+				'room_radius' => '0.075',
+				'room_www' => $www,
+				'room_phone' => $phone,
+				'room_address' => $address->getID(),
+				'room_icon' => $image->getID(),
+				'room_image' => $image->getID(),
+				'room_show_distance' => '1',
+			])->softReplace();
 		}
 	}
 

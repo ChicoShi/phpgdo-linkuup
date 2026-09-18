@@ -86,6 +86,7 @@ final class Install
 		'19' => ['Übernachten', null, 34],
 		'20' => ['Erholung', null, 33],
 		'21' => ['Arzt', null, 34],
+		'22' => ['Senioren & Pflege', null, 34],
 	];
 
 
