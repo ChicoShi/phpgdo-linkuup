@@ -112,7 +112,8 @@ final class LUP_Global
 			GWS_Message::wrS(self::countryPayload($user)) .
 			self::trophyDataForUser($user) .
 			GWS_Message::wr32($user->getCredits()) .
-			GWS_Message::wrS(self::profileRolePayload($user));
+			GWS_Message::wrS(self::profileRolePayload($user)) .
+			GWS_Message::wr8($user->isBot() ? 1 : 0);
 	}
 
 	/** A compact public role label for the app profile header. */
