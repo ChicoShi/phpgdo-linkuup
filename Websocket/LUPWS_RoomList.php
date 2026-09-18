@@ -47,6 +47,9 @@ class LUPWS_RoomList extends LUPWS_Command
 		$result = $hasPosition ?
 			LUP_Room::queryRooms($lat, $lng, $limit, $from) :
 			LUP_Room::queryRooms(null, null, $limit, $from);
+		// Prefix every page with the total before pagination. The client can show
+		// an exact discovery count without a second WebSocket round trip.
+		$total = $hasPosition ? LUP_Room::countRooms($lat, $lng) : LUP_Room::countRooms();
 		$rooms = $result->fetchAllObjects();
 		// Avoid the N+1 address lookup: a normal list contains dozens of rooms,
 		// and asking the database once per room delayed the first visible card.
@@ -70,7 +73,7 @@ class LUPWS_RoomList extends LUPWS_Command
 			}
 		}
 
-		$response = '';
+		$response = GWS_Message::wr32($total);
 		foreach ($rooms as $room)
 		{
 			$room instanceof LUP_Room;

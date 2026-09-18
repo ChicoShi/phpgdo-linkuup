@@ -113,7 +113,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_guest_query')->initial('0'), # Allow guest querie messages
 			GDT_Checkbox::make('lup_open_query')->initial('1'), # No near check for queries
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
-			GDT_UInt::make('lup_max_locations')->initial('100')->min(1)->max(1000), # Maximum locations sent to the app per catalogue request
+			GDT_UInt::make('lup_max_locations')->initial('10')->min(1)->max(1000), # Maximum locations sent to the app per catalogue request
 			GDT_UInt::make('lup_msg_bufsize')->initial('3')->max(100), # Volatile messages replayed when joining a room
 			GDT_Secret::make('lup_connector_secret')->initial(require __DIR__ . '/secret_gdo.php'), # Authenticates the PyGDO LUP connector callback
 			GDT_UInt::make('lup_dog_backlog')->initial('20')->max(100), # Volatile room lines sent to Mira after a quiet period

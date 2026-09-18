@@ -119,7 +119,11 @@ final class LUP_Room extends GDO
 		return $select->queryRooms();
 	}
 
-	public static function queryRooms(float $lat = null, float $lng = null, int $limit = null, int $from = 0)
+	/**
+	 * Build the public discovery query once so the paged room list and its total
+	 * always apply exactly the same visibility rules.
+	 */
+	public static function queryRoomsQuery(float $lat = null, float $lng = null)
 	{
 		# Involved tables
 		$rooms = self::table();
@@ -148,13 +152,22 @@ final class LUP_Room extends GDO
 			$query->order('room_name ASC');
 		}
 
-		# Limit
+		return $query;
+	}
+
+	public static function queryRooms(float $lat = null, float $lng = null, int $limit = null, int $from = 0)
+	{
+		$query = self::queryRoomsQuery($lat, $lng);
 		if ($limit !== null)
 		{
 			$query->limit($limit, $from);
 		}
-
 		return $query->exec();
+	}
+
+	public static function countRooms(float $lat = null, float $lng = null): int
+	{
+		return (int)self::queryRoomsQuery($lat, $lng)->selectOnly('COUNT(*)')->noOrder()->exec()->fetchVar();
 	}
 
 	#############
