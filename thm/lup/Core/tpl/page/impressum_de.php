@@ -3,6 +3,7 @@
 <h1>Impressum</h1>
 <p><strong>Angaben gemäß § 5 DDG</strong></p>
 <p>Shqiprim Mehmeti<br>Hauptstraße 25B<br>38110 Braunschweig</p>
+<p>Christian Busch<br>Am Bauhof 15<br>31224 Peine</p>
 <p>E-Mail: <a href="mailto:info@linkuup.de">info@linkuup.de</a></p>
 
 <h2>Inhalte und Links</h2>
