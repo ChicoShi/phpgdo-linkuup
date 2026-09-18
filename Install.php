@@ -26,6 +26,7 @@ use GDO\Maps\Module_Maps;
 use GDO\News\GDO_News;
 use GDO\News\GDO_NewsText;
 use GDO\Perf\Module_Perf;
+use GDO\Payment\Module_Payment;
 use GDO\Register\Module_Register;
 use GDO\UI\Module_UI;
 use GDO\User\GDO_User;
@@ -180,6 +181,8 @@ final class Install
 		Module_Captcha::instance()->saveConfigVar('captcha_bg', '#111625');
 		Module_Captcha::instance()->saveConfigVar('captcha_fg', '#b9d8fa');
 		Module_Perf::instance()->saveConfigVar('hook_sidebar', 'staff');
+		Module_Payment::instance()->saveConfigVar('right_bar_your_orders', '0');
+		Module_Payment::instance()->saveConfigVar('right_bar_orders', '0');
 		Module_UI::instance()->saveConfigVar('default_editor', 'Text');
 		Module_UI::instance()->saveConfigVar('allow_editor_choice', '0');
 		Module_UI::instance()->saveConfigVar('store_device_info', '0');
