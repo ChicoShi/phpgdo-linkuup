@@ -26,6 +26,11 @@ return [
 
 	'module_LinkUUp' => 'LinkUUp',
 	'lup_category' => 'Kategorie',
+	'lupcat_Café & Bar' => 'Café & Bar',
+	'lupcat_Nachtleben' => 'Nachtleben',
+	'lupcat_Kultur & Bildung' => 'Kultur & Bildung',
+	'lupcat_Freizeit & Draußen' => 'Freizeit & Draußen',
+	'lupcat_Orte & Alltag' => 'Orte & Alltag',
 	'lupcat_Orte' => 'Orte',
 	'lupcat_Bars' => 'Bars',
 	'lupcat_Kneipen' => 'Kneipen',

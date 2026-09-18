@@ -59,26 +59,33 @@ final class Install
 	 * Name, IconID.
 	 */
 	private static array $CATS = [
-		'2' => ['Orte', null],
-		'3' => ['Bars', null],
-        '4' => ['Kneipen', null],
-        '5' => ['Cafe', null],
-        '6' => ['Unternehmen', null],
-        '7' => ['Supermarkt', null],
-        '8' => ['Religion', null],
-        '9' => ['Friseur', null],
-        '10' => ['Ortschaften', null],
-		'11' => ['Clubs & Tanz', null],
-		'12' => ['Kultur', null],
-		'13' => ['Sport & Freizeit', null],
-		'14' => ['Essen', null],
-		'15' => ['Draußen', null],
-		'16' => ['Bildung & Begegnung', null],
-		'17' => ['Hochschulen', null],
-		'18' => ['Gesundheit', null],
-		'19' => ['Übernachten', null],
-        '20' => ['Erholung', null],
-        '21' => ['Arzt', null],
+		# Stable top-level groups. Existing room category ids remain unchanged.
+		'30' => ['Café & Bar', null, null],
+		'31' => ['Nachtleben', null, null],
+		'32' => ['Kultur & Bildung', null, null],
+		'33' => ['Freizeit & Draußen', null, null],
+		'34' => ['Orte & Alltag', null, null],
+
+		'2' => ['Orte', null, 34],
+		'3' => ['Bars', null, 31],
+		'4' => ['Kneipen', null, 31],
+		'5' => ['Cafe', null, 30],
+		'6' => ['Unternehmen', null, 34],
+		'7' => ['Supermarkt', null, 34],
+		'8' => ['Religion', null, 32],
+		'9' => ['Friseur', null, 34],
+		'10' => ['Ortschaften', null, 34],
+		'11' => ['Clubs & Tanz', null, 31],
+		'12' => ['Kultur', null, 32],
+		'13' => ['Sport & Freizeit', null, 33],
+		'14' => ['Essen', null, 30],
+		'15' => ['Draußen', null, 33],
+		'16' => ['Bildung & Begegnung', null, 32],
+		'17' => ['Hochschulen', null, 32],
+		'18' => ['Gesundheit', null, 34],
+		'19' => ['Übernachten', null, 34],
+		'20' => ['Erholung', null, 33],
+		'21' => ['Arzt', null, 34],
 	];
 
 
@@ -308,6 +315,13 @@ final class Install
 				'cat_color' => '#FF0000', # Knallrot
 				'cat_icon' => $icon,
 			])->softReplace();
+		}
+		# Assign relations only after every parent exists, making repeated installs
+		# idempotent regardless of category declaration order.
+		foreach (self::$CATS as $id => $data)
+		{
+			$parent = $data[2] ?? null;
+			$cats[$id]->saveVar('cat_parent', $parent === null ? null : (string) $parent);
 		}
 		return $cats;
 	}

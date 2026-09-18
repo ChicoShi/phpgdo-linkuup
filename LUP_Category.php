@@ -21,6 +21,7 @@ final class LUP_Category extends GDO
 	{
 		return [
 			GDT_AutoInc::make('cat_id'),
+			GDT_CategoryParent::make('cat_parent')->table(self::table())->label('parent'),
 			GDT_Name::make('cat_name')->utf8()->notNull(),
 			GDT_Color::make('cat_color'),
 			GDT_ImageFile::make('cat_icon')->label('icon'),
@@ -32,6 +33,8 @@ final class LUP_Category extends GDO
 	public function href_edit(): string { return href('LinkUUp', 'CategoryCRUD', "&id={$this->getID()}"); }
 
 	public function getName(): ?string { return $this->gdoVar('cat_name'); }
+
+	public function getParentID(): ?string { return $this->gdoVar('cat_parent'); }
 
 	public function renderName(): string { return t('lupcat_' . $this->getName()); }
 
