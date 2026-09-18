@@ -191,6 +191,7 @@ final class LUP_Room extends GDO
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),
 			GDT_MinionSubscription::make('room_minion_subscription'),
+			GDT_Checkbox::make('room_minion_bot_control')->notNull()->initial('0'),
 			GDT_DateTime::make('room_minion_expire'),
 			GDT_Color::make('room_color'),
 			GDT_ObjectSelect::make('room_category')->table(LUP_Category::table())->label('category'),

@@ -58,6 +58,8 @@ return [
 	'room_view' => 'Sichtbarkeitsradius',
 	'room_radius' => 'Chatradius',
 	'minion_subscription' => 'Minion-Antwortzeit',
+	'minion_bot_control' => 'Botsteuerung (15 €/Monat)',
+	'room_minion_bot_control' => 'Botsteuerung',
 	'room_minion_expire' => 'Agent gebucht bis',
 	'minion_subscription_none' => 'Kein Agent gebucht',
 	'enum_delay_1m' => '1 Minute – 1.000 Credits (10 € / Monat)',

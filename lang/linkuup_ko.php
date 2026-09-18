@@ -54,6 +54,8 @@ return [
 	'room_view' => '반경 보기',
 	'room_radius' => '채팅 반경',
 	'minion_subscription' => '미니언 응답 시간',
+	'minion_bot_control' => '봇 제어 (월 15유로)',
+	'room_minion_bot_control' => '봇 제어',
 	'room_minion_expire' => '에이전트 예약 날짜:',
 	'minion_subscription_none' => '예약된 대리인이 없습니다.',
 	'enum_delay_1m' => '1분 – 1,000 크레딧(€10/월)',

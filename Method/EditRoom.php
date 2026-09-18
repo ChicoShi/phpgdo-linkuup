@@ -91,6 +91,7 @@ final class EditRoom extends MethodForm
 		// The tier is visible here, but only BookMinion may change it because
 		// that route performs the atomic credit debit.
 		$form->addField($room->gdoColumn('room_minion_subscription')->writeable(false));
+		$form->addField($room->gdoColumn('room_minion_bot_control')->writeable(false));
 		$form->addField($room->gdoColumn('room_minion_expire')->writeable(false));
 
 		$form->addField($room->gdoColumn('room_color'));

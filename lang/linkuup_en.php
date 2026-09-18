@@ -58,6 +58,8 @@ return [
 	'room_view' => 'View radius',
 	'room_radius' => 'Chat radius',
 	'minion_subscription' => 'Minion response time',
+	'minion_bot_control' => 'Bot control (€15/month)',
+	'room_minion_bot_control' => 'Bot control',
 	'room_minion_expire' => 'Agent booked until',
 	'minion_subscription_none' => 'No agent booked',
 	'enum_delay_1m' => '1 minute – 1,000 Credits (€10/month)',

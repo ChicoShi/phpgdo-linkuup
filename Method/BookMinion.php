@@ -5,6 +5,7 @@ namespace GDO\LinkUUp\Method;
 use DateTimeImmutable;
 use DateTimeZone;
 use GDO\Core\GDT;
+use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_Object;
 use GDO\DB\Database;
 use GDO\Form\GDT_AntiCSRF;
@@ -19,6 +20,8 @@ use GDO\User\GDO_UserSetting;
 /** Book or change the response-time tier for a location's Minion. */
 final class BookMinion extends MethodForm
 {
+	private const BOT_CONTROL_CREDITS = 1500;
+
 	public function isTrivial(): bool { return false; }
 
 	public function gdoParameters(): array
@@ -51,6 +54,7 @@ final class BookMinion extends MethodForm
 		$current = $this->room()->gdoVar('room_minion_subscription');
 		$form->addFields(
 			GDT_MinionSubscription::make('subscription')->notNull()->initial($current ?: GDT_MinionSubscription::DELAY_5M),
+			GDT_Checkbox::make('bot_control')->label('minion_bot_control')->initial($this->room()->gdoVar('room_minion_bot_control')),
 			GDT_AntiCSRF::make(),
 		);
 		// MethodForm invokes formValidated() for its conventional submit action.
@@ -62,10 +66,11 @@ final class BookMinion extends MethodForm
 		$room = $this->room();
 		$user = GDO_User::current();
 		$newSubscription = $form->getFormVar('subscription');
+		$botControl = $form->getFormValue('bot_control');
 
 		// Every booking pays the selected monthly rate in advance. Renewing early
 		// adds a calendar month after the already paid expiry instead of losing it.
-		$cost = GDT_MinionSubscription::credits($newSubscription);
+		$cost = GDT_MinionSubscription::credits($newSubscription) + ($botControl ? self::BOT_CONTROL_CREDITS : 0);
 		if (!$this->chargeCredits($user, $cost))
 		{
 			$form->error('err_lup_minion_credits', [$cost, $this->creditBalance($user)]);
@@ -82,6 +87,7 @@ final class BookMinion extends MethodForm
 		$expires = $start->modify('+1 month')->format('Y-m-d H:i:s');
 		$room->saveVars([
 			'room_minion_subscription' => $newSubscription,
+			'room_minion_bot_control' => $botControl,
 			'room_minion_expire' => $expires,
 		]);
 		return $this->redirectMessage('msg_lup_minion_booked', [
