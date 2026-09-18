@@ -127,7 +127,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Credits::make('lup_shout_cost_per_km')->initial('150'), # Credits for each kilometre of shout radius
 			GDT_Length::make('room_tolerance')->initial('0.064'), # GPS tolerance around room polygons in km
 			GDT_Length::make('room_leave_tolerance')->initial('0.640'), # GPS tolerance before automatically leaving a room in km
-			GDT_Credits::make('tolerance_credits_per_meter')->initial('100'), # Credits for one metre of personal chat tolerance
+			GDT_Credits::make('lup_tolerance_credits_per_km')->initial('10000'), # Credits for one kilometre of personal chat tolerance
 			GDT_Velocity::make('lup_join_velocity')->min(0.0)->max(1000.0)->initial('10.0'), # km/h
 			GDT_Length::make('lup_cuddle_range')->initial('0.100'), # Cuddle range in km
 			GDT_Duration::make('lup_cuddle_token_ttl')->initial('2m')->min(30)->max(900),
@@ -143,7 +143,7 @@ final class Module_LinkUUp extends GDO_Module
 	public function isSecretCorrect(string $secret): bool { return hash_equals($this->cfgConnectorSecret(), $secret); }
 	public function cfgDogBacklog(): int { return (int)$this->getConfigValue('lup_dog_backlog'); }
 	public function cfgDogBacklogURL(): string { return $this->getConfigVar('lup_dog_backlog_url'); }
-	public function cfgToleranceCreditsPerMeter(): int { return (int)$this->getConfigValue('tolerance_credits_per_meter'); }
+	public function cfgToleranceCreditsPerKM(): int { return (int)$this->getConfigValue('lup_tolerance_credits_per_km'); }
 
     public function getUserConfig(): array
     {

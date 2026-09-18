@@ -33,7 +33,10 @@ final class LUPWS_ToleranceBoost extends LUPWS_Command
 		{
 			return $msg->rplyError('err_lup_tolerance_limit');
 		}
-		$cost = $meters * $module->cfgToleranceCreditsPerMeter();
+		// Credits are stored as integers. Charge the exact metred proportion; if
+		// an administrator chooses a rate that cannot be divided into whole
+		// credits, round the fractional remainder up rather than undercharge.
+		$cost = (int)ceil(($meters * $module->cfgToleranceCreditsPerKM()) / 1000);
 		if (!$this->chargeCredits($user, $cost))
 		{
 			return $msg->rplyError('err_lup_tolerance_credits', [$cost, $this->creditBalance($user)]);

@@ -208,7 +208,7 @@ final class Install
 		$module->saveConfigVar('lup_shout_cost_per_km', '150');
 		$module->saveConfigVar('room_tolerance', '0.064');
 		$module->saveConfigVar('room_leave_tolerance', '0.64');
-		$module->saveConfigVar('tolerance_credits_per_meter', '100');
+		$module->saveConfigVar('lup_tolerance_credits_per_km', '10000');
         if (GDO_ENV === 'dev' || GDO_ENV === 'tes')
         {
             Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'app.lup.localhost');
