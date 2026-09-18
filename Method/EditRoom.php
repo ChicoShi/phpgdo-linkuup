@@ -53,7 +53,15 @@ final class EditRoom extends MethodForm
 
 	public function getRoom(): LUP_Room
 	{
-        return LUP_Room::paramFrom($this, 'room');
+		// Parameters can be a lightweight object during the first form compose.
+		// Re-fetch it once so gdoColumn() receives the persisted row values on
+		// the first render, not only after the browser submits/reloads it.
+		if ($this->room === null)
+		{
+			$room = LUP_Room::paramFrom($this, 'room');
+			$this->room = LUP_Room::table()->getById($room->getID()) ?: $room;
+		}
+		return $this->room;
 	}
 
 	public function getMethodTitle(): string
@@ -117,6 +125,9 @@ final class EditRoom extends MethodForm
 		$form->actions()->addField(GDT_Link::make('book_minion')
 			->href(href('LinkUUp', 'BookMinion', '&room=' . $room->getID()))
 			->text('link_book_minion')->icon('smart_toy'));
+		$form->actions()->addField(GDT_Link::make('book_visibility')
+			->href(href('LinkUUp', 'BookVisibility', '&room=' . $room->getID()))
+			->text('link_book_visibility')->icon('visibility'));
         if ($room->canDelete($user))
         {
             $form->actions()->addField(GDT_DeleteButton::make()->onclick([$this, 'deleteRoom']));

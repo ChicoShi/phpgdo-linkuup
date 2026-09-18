@@ -35,7 +35,7 @@ use GDO\LinkUUp\LUP_Room;
 					<p class="lup-room-flyer-cta"><?=t('room_flyer_cta')?></p>
 					<p class="lup-room-flyer-copy"><?=t('room_flyer_copy')?></p>
 					<?php if ($room->getAddress()): ?>
-						<div class="lup-room-flyer-address"><?=$room->displayAddress()?></div>
+						<div class="lup-room-flyer-address"><?=html($room->getAddress()->getAddressLine())?></div>
 					<?php endif; ?>
 				</section>
 			<?php endfor; ?>

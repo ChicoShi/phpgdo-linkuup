@@ -194,6 +194,7 @@ final class Install
 		$module->saveConfigVar('room_cost', '500');
 		$module->saveConfigVar('room_cost_view', '200');
 		$module->saveConfigVar('room_cost_view_unit', '0.5');
+		$module->saveConfigVar('lup_credits_view_km', '250');
 		$module->saveConfigVar('lup_shout_cost_per_km', '150');
 		$module->saveConfigVar('room_tolerance', '0.064');
 		$module->saveConfigVar('room_leave_tolerance', '0.64');
