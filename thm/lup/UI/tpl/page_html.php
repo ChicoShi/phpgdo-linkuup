@@ -70,7 +70,7 @@ use GDO\UI\GDT_Page;
 </div>
 <footer><?=$page->bottomBar()->addClass('gdt-footer')->renderHTML()?></footer>
 <?=GDT_Loading::make()->renderHTML()?>
-<script src="<?=\GDO\LinkUUp\Module_LinkUUp::instance()->wwwPath('js/lup-backend-shell.js?rev=20260920_4')?>"></script>
+<script src="<?=\GDO\LinkUUp\Module_LinkUUp::instance()->wwwPath('js/lup-backend-shell.js?rev=20260920_5')?>"></script>
 <?=Javascript::displayJavascripts()?>
 </body>
 </html>

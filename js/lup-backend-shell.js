@@ -480,6 +480,7 @@
                 if (bar.querySelectorAll('a[href]').length > 1) bar.classList.add('lup-section-nav');
             });
             if (/\/friends[.;]/i.test(location.pathname)) {
+                content.classList.add('lup-friends-page');
                 content.querySelectorAll('a[href]').forEach(link => {
                     const match = new URL(link.href).pathname.match(/friends[.;](requesting|requests|request|friendlist)\.html/i);
                     if (!match || !link.closest('.lup-section-nav')) return;
