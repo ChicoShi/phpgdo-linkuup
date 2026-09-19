@@ -30,8 +30,10 @@ final class BackendLayout
             'login' => ['form'],
             'register' => ['form', 'tos'],
             'recovery' => ['form', 'change'],
-            'news' => ['news'],
-            'core' => ['impressum', 'privacypolicy'],
+            'news' => ['newslist', 'view'],
+            'core' => ['impressum', 'privacy'],
+            'contact' => ['form'],
+            'licenses' => ['all'],
         ];
         return in_array($name, $routes[$module] ?? [], true);
     }
