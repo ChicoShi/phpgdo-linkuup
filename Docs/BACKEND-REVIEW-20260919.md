@@ -46,3 +46,9 @@ PR: https://github.com/gizmore/phpgdo-linkuup/pull/7 (Entwurf).
 - Lokaler WebSocket-Protokollfix ist ausdrücklich nicht Teil dieses PR-Updates.
 - Der Adresslink-Fix liegt separat im Payment-Modul und ist nicht Bestandteil dieses LinkUUp-PRs.
 - Bestehende Flyer-/Sprachkonflikte mit upstream/main bleiben offen. Draft bleibt zur menschlichen Prüfung; kein Merge/Deployment.
+
+## Separater Payment-Patch
+
+`Docs/payment-address-link.patch` enthält den Einzeilenfix für den ungültigen AddAddress-Link in Payment/Method/YourOrders.php. Er wird im Payment-Repository angewendet, nicht im LinkUUp-Modul. Ziel ist Address/Add mit kodiertem Rücksprung auf Payment/YourOrders. Lokal auf Payment-main 0961201 abgeglichen; PHP-Lint und echter Formularaufruf bei 320/1440 px geprüft, keine Adresse gespeichert. Direkter Push nach gizmore/phpgdo-payment war für ChicoShi nicht erlaubt; es existiert daher kein Payment-PR.
+
+Aktueller App-Reviewbranch: https://github.com/ChicoShi/linkuup-app/tree/simion/locations-visual-rail-20260919 . Neuer App-PR muss aus diesem Branch angelegt werden; der ältere PR #11 enthält diese Änderungen nicht. Prüfumfang und neun auch auf main vorhandene Testfehler stehen dort in Docs/APP-REVIEW-20260920.md.
