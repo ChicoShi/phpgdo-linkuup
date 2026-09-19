@@ -474,6 +474,7 @@
         setOpen(false);
         const content = document.getElementById('content-wrap');
         if (content) {
+            if (/\/admin[.;]/i.test(location.pathname)) content.classList.add('lup-admin-page');
             content.querySelectorAll('.gdt-bar, .lup-admin-nav').forEach(bar => {
                 if (bar.closest('form,.gdt-form,.gdt-list-item')) return;
                 if (bar.querySelectorAll('a[href]').length > 1) bar.classList.add('lup-section-nav');
