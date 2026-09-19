@@ -538,3 +538,22 @@ html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="log
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) input:focus {border-color:#bce8fa99;box-shadow:0 0 0 3px #9ddcff14;}
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) input[type="submit"] {min-height:48px;border:1px solid #d8f3ff70;border-radius:15px;background:linear-gradient(145deg,#e5f6ff,#a3d4ed);color:#153951;box-shadow:inset 0 1px 0 #fffc;font-size:15px;font-weight:600;}
 @media(max-width:380px) {html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) {padding:18px;}}
+
+/* Compact order overview on phones: actions first, no oversized empty hero. */
+@media(max-width:700px) {
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page {padding:24px 16px 40px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-hero {padding:0 0 20px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-hero h1 {font-size:28px;margin:8px 0 10px;line-height:1.2;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-hero p {font-size:14px;line-height:1.6;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-links {display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-links .gdt-link {min-width:0;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-links a {height:100%;min-height:56px;padding:10px 8px;font-size:12px;line-height:1.4;gap:6px;text-align:center;justify-content:center;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-order-filters {border-radius:16px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-order-filters summary {padding:13px 16px;min-height:48px;font-size:14px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-count h3 {margin:18px 0 12px;font-size:12px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-empty {padding:22px 20px;border-radius:22px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-empty > i {width:42px;height:42px;font-size:20px;border-radius:14px;margin-bottom:16px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-empty h2 {font-size:22px;line-height:1.25;margin-bottom:10px;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-empty p {font-size:14px;line-height:1.6;}
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-orders-page .lup-orders-cta {display:flex;justify-content:center;min-height:46px;padding:12px 16px;margin-top:18px;font-size:13px;}
+}
