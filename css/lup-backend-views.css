@@ -530,3 +530,11 @@ html.lup-backend-ui body.lup-backend #content-wrap.lup-gallery-page .gdt-li-acti
 html.lup-backend-ui body.lup-backend #content-wrap.lup-gallery-page .gdt-li-actions a {min-height:46px;padding:10px 6px;font-size:13px;border-radius:12px;}
 html.lup-backend-ui body.lup-backend #content-wrap.lup-gallery-page .gdo-gallery-image img:not(.gdo-avatar img) {display:block;width:100%;height:auto;max-height:65vh;object-fit:contain;border-radius:14px;}
 @media(max-width:600px){html.lup-backend-ui body.lup-backend #content-wrap.lup-gallery-page .gdt-list {grid-template-columns:minmax(0,1fr);}}
+
+/* Login shares the app glass material; preserve the original form controls. */
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) {max-width:460px;margin:0 auto;padding:24px;border:1px solid #d8f3ff30;border-radius:28px;background:radial-gradient(ellipse at 0 60%,#307e9d24,transparent 70%),linear-gradient(150deg,#15243bf5,#101a2bf5);box-shadow:inset 1px 1px 1px #f5fdff38,inset -1px -1px 1px #c8eafc12,0 18px 48px #030c1b38;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) .card-title {font-size:26px;line-height:1.2;color:#edf7ff;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) :is(input[name="login"],input[name="password"],select) {border:1px solid #c9edff30;border-radius:15px;background:#d1f0ff06;color:#edf7ff;min-height:48px;box-shadow:inset 0 1px 0 #f5fdff12;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) input:focus {border-color:#bce8fa99;box-shadow:0 0 0 3px #9ddcff14;}
+html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) input[type="submit"] {min-height:48px;border:1px solid #d8f3ff70;border-radius:15px;background:linear-gradient(145deg,#e5f6ff,#a3d4ed);color:#153951;box-shadow:inset 0 1px 0 #fffc;font-size:15px;font-weight:600;}
+@media(max-width:380px) {html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:has(input[name="login"]) {padding:18px;}}
