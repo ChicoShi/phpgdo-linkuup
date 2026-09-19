@@ -633,3 +633,10 @@ html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .gdt-form .g
  html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .lup-section-nav a {font-size:12px;}
  html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .gdt-form .card-header {padding:20px;}
 }
+
+/* Keep message tools inside the editor's measured toolbar height. */
+html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .editormd-toolbar {height:48px;padding:0;}
+html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .editormd-toolbar ul {height:48px;margin:0;padding:6px;align-items:center;box-sizing:border-box;}
+html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .editormd-toolbar li {height:36px;margin:0;padding:0;}
+html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .editormd-toolbar li > a {width:36px;height:36px;margin:0;padding:0;line-height:1;box-sizing:border-box;}
+html.lup-backend-ui body.lup-backend #content-wrap.lup-friends-page .editormd-toolbar li.divider {height:20px;margin:0 6px;}

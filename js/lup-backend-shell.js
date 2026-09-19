@@ -127,11 +127,20 @@
             const adaptEditor = () => {
                 const toggle = editor.querySelector('.editormd-toolbar .fa-eye-slash[name="watch"]');
                 if (!toggle) return;
+                const cm = editor.querySelector('.CodeMirror')?.CodeMirror;
+                if (/\/friends[.;]request[.;]/i.test(location.pathname)) {
+                    if (!cm) return;
+                    cm.setOption('lineNumbers', false);
+                }
                 observer.disconnect();
                 requestAnimationFrame(() => {
                     const link = toggle.closest('a');
                     const event = window.editormd?.mouseOrTouch('click', 'touchend') || 'click';
                     link?.dispatchEvent(new Event(event, {bubbles:true, cancelable:true}));
+                    if (/\/friends[.;]request[.;]/i.test(location.pathname) && cm) {
+                        cm.getWrapperElement().style.marginTop = (editor.querySelector('.editormd-toolbar').offsetHeight + 1) + 'px';
+                        cm.refresh();
+                    }
                 });
             };
             const observer = new MutationObserver(adaptEditor);
