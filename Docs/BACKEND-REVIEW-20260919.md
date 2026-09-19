@@ -62,3 +62,11 @@ Prüfung auf Chico bei 320/390/1440 px: Bestellungen behalten 11 bzw. 18 Filterf
 Newsletter-/News-/Write-Prüfung: vorhandene Felder und Disabled-Zustände erhalten, keine Anmeldung oder Veröffentlichung. Der dabei gefundene Editor-Startfehler ist im **separaten Markdown-Modul** behoben. Dazu liegt `Docs/markdown-editor-initialization.patch` bei (lokaler Modulcommit 8968411). Im Markdown-Repository anwenden und separat reviewen; der LinkUUp-Merge allein aktiviert diesen Fix nicht. Mit diesem Fix laden fünf Sprach-Editoren lokal ohne JS-Ausnahme. RSS bleibt ein unveränderter Feed; nur der Zugangsbutton wurde gestaltet.
 
 Bestehende Flyer-/Sprachkonflikte und menschliche Abnahme bleiben vor dem Merge offen. Keine Live-Übernahme.
+
+## Freund hinzufügen – ergänzender Review
+
+Die Ansicht Friends/Request erhält eine gleichmäßige Bereichsnavigation, blaue transparente Formular-/Editorflächen und eine vollständig sichtbare Editor-Werkzeugleiste. Die unnötigen Zeilennummern sind nur auf Friends/Request deaktiviert; der Editor verwendet seine vorhandene CodeMirror-API. Cache-Versionen wurden angepasst. Keine neuen CSS-Dateien, keine neuen !important-Regeln und keine Änderung an Versand oder Berechtigungen.
+
+Lokaler Browsercheck bei 320/390/1440 px: mehrzeilige Texteingabe funktioniert, Werkzeugbuttons werden vertikal nicht abgeschnitten, Textfeld beginnt unter der Werkzeugleiste, keine Zeilennummern und kein horizontaler Dokumentüberlauf. Keine JS-Ausnahmen im Eingabetest. Die fünf Formularnamen frq_friend, frq_message, frq_relation, xsrf und submit bleiben erhalten. Hintergrund abschließend bei 320/1440 px visuell geprüft. Keine Freundschaftsanfrage versendet. Shippi hat die Darstellung bestätigt; technische Übernahme weiterhin durch Mira/Gizmore prüfen.
+
+Separater lokaler Umgebungsbefund: Backend-Dokumente unter app.localhost/backend/ luden root-relative Assets vom falschen Host (404). Chico leitet solche HTML-Dokumentnavigation jetzt zum lokalen Backend-Origin um; API-Abfragen bleiben im Proxy. Diese Apache-Konfiguration ist nicht Teil dieses PRs und darf nicht ungeprüft als Produktionskonfiguration übernommen werden.
