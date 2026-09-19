@@ -2,6 +2,136 @@
 document.documentElement.classList.add('lup-backend-ui');
 (() => {
     'use strict';
+    // Keep the framework's real forms, field names, ACL controls and submit handlers.
+    // Only their presentation changes; a non-JS page retains its original accordions.
+    const enhanceAccountSettings = (content, de) => {
+        if (!/\/account[.;](allsettings|settings)[.;]/i.test(location.pathname)) return;
+        const blocks = [...content.querySelectorAll('.gdt-accordeon')].filter(el => el.querySelector('.accordion-collapse[id^="acc_"] form'));
+        if (!blocks.length) return;
+        const make = (tag, cls, text) => {
+            const el = document.createElement(tag);
+            if (cls) el.className = cls;
+            if (text) el.textContent = text;
+            return el;
+        };
+        const names = {
+            LinkUUp:['Dein Profil','Your profile','user','Was dich ausmacht und wo du zu Hause bist.','What makes you you, and where you call home.'],
+            AboutMe:['Über dich','About you','comment','Erzähl etwas von dir.','Tell people a little about yourself.'],
+            User:['Konto & Sichtbarkeit','Account & visibility','shield-alt','Deine Kontodaten und die Sichtbarkeit deines Profils.','Your account details and who can see your profile.'],
+            Birthday:['Geburtstag','Birthday','birthday-cake','Dein Geburtsdatum und wer dein Alter sehen darf.','Your date of birth and who can see your age.'],
+            Friends:['Freunde','Friends','users','Bestimme, wer dich hinzufügen und deine Freunde sehen darf.','Choose who can add you and see your friends.'],
+            Gallery:['Galerie','Gallery','images','Entscheide, wer deine Bilder sehen darf.','Choose who can see your photos.'],
+            Contact:['Kontakt','Contact','address-book','Deine zusätzlichen Kontaktmöglichkeiten.','Your other ways to stay in touch.'],
+            Country:['Herkunft & Wohnort','Home & origin','globe','Wo du lebst und woher du kommst.','Where you live and where you are from.'],
+            Language:['Sprache','Language','language','LinkUUp in deiner Sprache.','LinkUUp in your language.'],
+            Date:['Datum & Uhrzeit','Date & time','clock','Zeitzone und Anzeige deiner Aktivität.','Time zone and how your activity is displayed.']
+        };
+        const previous = blocks.find(el => el.querySelector('.gdt-error,.is-invalid')) || blocks.find(el => el.querySelector('.accordion-collapse.show'));
+        const head = make('header','lup-settings-heading');
+        head.append(make('span','lup-settings-eyebrow',de?'PERSÖNLICH EINSTELLEN':'MAKE IT YOURS'),make('h1','',de?'Dein Konto':'Your account'),make('p','',de?'Deine Angaben. Deine Sichtbarkeit. Dein LinkUUp.':'Your details. Your visibility. Your LinkUUp.'));
+        const layout = make('div','lup-settings-layout');
+        const nav = make('nav','lup-settings-nav');
+        nav.setAttribute('aria-label',de?'Kontobereiche':'Account sections');
+        const mobile = make('label','lup-settings-picker',de?'Bereich':'Section');
+        const select = make('select');
+        mobile.append(select);
+        const panels = make('div','lup-settings-panels');
+        const entries = blocks.map(block => {
+            const panel = block.querySelector('.accordion-collapse');
+            const key = panel.id.slice(4);
+            const fallback = block.querySelector('.accordion-button')?.textContent.trim() || key;
+            const config = names[key] || [fallback,fallback,'sliders-h','',''];
+            const title = config[de?0:1];
+            const button = make('button','lup-settings-tab');
+            button.type = 'button'; button.setAttribute('aria-controls',panel.id);
+            const icon = make('i','fas fa-'+config[2]); icon.setAttribute('aria-hidden','true');
+            button.append(icon,make('span','',title));
+            const option = make('option','',title); option.value = panel.id;
+            block.classList.add('lup-settings-section');
+            block.querySelector('.accordion-header').hidden = true;
+            panel.classList.remove('collapse','collapsing'); panel.classList.add('show');
+            panel.style.removeProperty('height');
+            const formHead = block.querySelector('.card-header');
+            const heading = formHead.querySelector('.card-title');
+            heading.textContent = title; heading.id = panel.id+'-title';
+            panel.setAttribute('role','region'); panel.setAttribute('aria-labelledby',heading.id);
+            if (config[de?3:4]) formHead.append(make('p','lup-settings-description',config[de?3:4]));
+            const mark = make('span','lup-settings-mark');
+            const markIcon = icon.cloneNode(true); mark.append(markIcon); formHead.prepend(mark);
+            block.querySelectorAll('.gdt-form-fields > *').forEach(field => {
+                if (field.querySelector('textarea,[name="lup_status"],[name="lup_profile_outside_visible"],.editormd')) field.classList.add('lup-field-wide');
+                const controls = [...field.querySelectorAll('input:not([type=hidden]),select,textarea')];
+                if (controls.length && controls.every(el=>el.disabled)) field.classList.add('lup-field-readonly');
+            });
+            // GDT_Submit dispatches by name/presence; its value is only the translated label.
+            block.querySelectorAll('input[type="submit"]').forEach(submit => {
+                submit.value = de ? 'Änderungen speichern' : 'Save changes';
+            });
+            return {key,block,panel,button,option};
+        }).sort((a,b) => {
+            const rank=key=>{const i=Object.keys(names).indexOf(key);return i<0?99:i;};
+            return rank(a.key)-rank(b.key);
+        });
+        const choose = (id, updateHash = false) => {
+            const active = entries.find(entry=>entry.panel.id===id) || entries[0];
+            entries.forEach(entry=>{
+                entry.block.hidden = entry!==active;
+                entry.button.setAttribute('aria-pressed',String(entry===active));
+            });
+            select.value=active.panel.id;
+            if (updateHash) history.replaceState(history.state,'','#'+active.panel.id);
+            // Editors/autocompletes keep their original instances; notify resize after reveal.
+            requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+        };
+        entries.forEach(entry=>{
+            nav.append(entry.button); select.append(entry.option); panels.append(entry.block);
+            entry.button.addEventListener('click',()=>choose(entry.panel.id,true));
+        });
+        select.addEventListener('change',()=>choose(select.value,true));
+        window.addEventListener('hashchange',()=>choose(location.hash.slice(1)));
+        const intro = [...content.children].find(el=>el.matches('.gdt-panel:not(.gdt-accordeon)') && !el.querySelector('form,.gdt-error,.alert-danger'));
+        if (intro) intro.hidden = true;
+        const bar = content.querySelector('.lup-section-nav');
+        if (bar) {
+            const wrapper = bar.closest('.card');
+            const tools = make('details','lup-settings-tools');
+            tools.append(make('summary','',de?'Weitere Kontoaktionen':'More account actions'),bar);
+            content.append(tools);
+            if (wrapper && !wrapper.textContent.trim() && !wrapper.querySelector('input,select,textarea,img,form')) wrapper.remove();
+            if (de) bar.querySelectorAll('a').forEach(link => {
+                const text = link.textContent.trim();
+                if (text==='Delete Account') {
+                    [...link.childNodes].filter(node=>node.nodeType===Node.TEXT_NODE).forEach(node=>node.remove());
+                    link.append(document.createTextNode('Konto löschen'));
+                }
+            });
+        }
+        layout.append(nav,panels);
+        content.prepend(head,mobile,layout);
+        content.classList.add('lup-account-settings');
+        choose(previous?.querySelector('.accordion-collapse')?.id || location.hash.slice(1));
+        // Fix missing/technical labels locally, without changing API fields or ACL values.
+        const fieldLabels = de ? {lup_profile_outside_visible:'Profil auch außerhalb einer Location zeigen',lup_state:'Bundesland / Region',lup_city:'Wohnort',age_visible:'Wer darf dein Alter sehen?',activity_accuracy:'Genauigkeit der Aktivitätsanzeige',gallery_acl:'Wer darf deine Galerie sehen?'} : {lup_profile_outside_visible:'Show profile outside a location',lup_state:'State / region',lup_city:'City'};
+        Object.entries(fieldLabels).forEach(([id,text])=>{
+            const label = content.querySelector('label[for="'+id+'"]');
+            if (!label) return;
+            [...label.childNodes].filter(node=>node.nodeType===Node.TEXT_NODE).forEach(node=>node.remove());
+            label.prepend(document.createTextNode(text));
+        });
+        // The legacy Markdown editor starts split in half, even on a phone.
+        // Use its own preview toggle once; editing and the optional preview remain intact.
+        content.querySelectorAll('.wysiwyg.gdt-editor-markdown').forEach(editor => {
+            const adaptEditor = () => {
+                const toggle = editor.querySelector('.editormd-toolbar .fa-eye-slash[name="watch"]');
+                if (!toggle) return;
+                observer.disconnect();
+                requestAnimationFrame(()=>toggle.closest('a')?.click());
+            };
+            const observer = new MutationObserver(adaptEditor);
+            observer.observe(editor,{childList:true,subtree:true});
+            adaptEditor();
+        });
+    };
     const ready = () => {
         document.body.classList.add('lup-backend');
         const de = (document.documentElement.lang || window.GDO_LANGUAGE || 'de').startsWith('de');
@@ -152,6 +282,7 @@ document.documentElement.classList.add('lup-backend-ui');
                 });
             };
             decorateTables();
+            enhanceAccountSettings(content, de);
             // Filtered and asynchronously loaded tables need the same treatment.
             let tableFrame=0;
             new MutationObserver(records => {
