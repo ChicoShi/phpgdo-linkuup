@@ -19,6 +19,7 @@ final class BackendLayout
         $routes = [
             'linkuup' => ['welcome', 'main', 'rooms', 'ownerrooms', 'categorylist', 'addcategory', 'editcategory', 'statistics', 'editroom', 'addroom', 'coworkers', 'addcoworker', 'locationmap'],
             'account' => ['allsettings', 'settings'],
+            'admin' => ['modules', 'users', 'permissions', 'configure', 'usercreate', 'useredit', 'permissionadd', 'permissiongrant', 'permissionrevoke', 'viewpermission', 'modulesort'],
             'user' => ['profile'],
             'friends' => ['friendlist', 'request', 'requests', 'requesting'],
             'gallery' => ['gallerylist', 'show', 'crud'],
