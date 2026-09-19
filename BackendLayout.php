@@ -30,7 +30,7 @@ final class BackendLayout
             'login' => ['form'],
             'register' => ['form', 'tos'],
             'recovery' => ['form', 'change'],
-            'news' => ['newslist', 'view'],
+            'news' => ['newslist', 'view', 'newsletterabbo', 'newsletters', 'write', 'comments', 'writecomment'],
             'core' => ['impressum', 'privacy'],
             'contact' => ['form'],
             'licenses' => ['all'],

@@ -520,6 +520,18 @@
             enhanceAccountSettings(content, de);
             enhanceEditors(content);
             enhanceCredits(content, de);
+            if (/\/news[.;]/i.test(location.pathname)) {
+                content.classList.add('lup-news-page');
+                if (/newsletterabbo[.;]/i.test(location.pathname)) content.classList.add('lup-news-subscribe');
+                if (/write(?:[.;])/i.test(location.pathname)) content.classList.add('lup-news-compose');
+                content.querySelectorAll('.lup-section-nav a').forEach(link=>{
+                    const path=new URL(link.href).pathname;
+                    if (/rssfeed/.test(path)) {link.classList.add('lup-news-rss');link.setAttribute('title',de?'RSS-Feed im Feedreader abonnieren':'Subscribe with your feed reader');}
+                    if (/newsletterabbo/.test(path)) link.classList.add('lup-news-newsletter');
+                    if (/news[.;]write[.;]/.test(path)) link.classList.add('lup-news-write');
+                    if(path===location.pathname)link.setAttribute('aria-current','page');
+                });
+            }
             enhanceOrders(content, de);
             enhanceProfile(content, de);
             enhanceStatistics(content);
