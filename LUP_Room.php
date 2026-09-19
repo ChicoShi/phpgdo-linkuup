@@ -162,7 +162,7 @@ final class LUP_Room extends GDO
 		{
 			$query->limit($limit, $from);
 		}
-		return $query->exec();
+		return $query;
 	}
 
 	public static function countRooms(float $lat = null, float $lng = null): int

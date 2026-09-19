@@ -7,6 +7,8 @@ use GDO\LinkUUp\Module_LinkUUp;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\LUPWS_Command;
 use GDO\Maps\Position;
+use GDO\Table\GDT_PageNum;
+use GDO\UI\GDT_Page;
 use GDO\Websocket\Server\GWS_Commands;
 use GDO\Websocket\Server\GWS_Message;
 
@@ -22,9 +24,8 @@ class LUPWS_RoomList extends LUPWS_Command
 	{
 		$lat = $msg->readFloat();
 		$lng = $msg->readFloat();
-		// Clients that know pagination append the zero-based result offset. Keep
-		// the two-coordinate request valid for already deployed app versions.
-		$from = $msg->hasMore() ? $msg->read32u() : 0;
+		$page = $msg->read32u();
+        $perPage = $msg->read32u();
 
 		if (!Position::isValidLat($lat))
 		{
@@ -36,23 +37,17 @@ class LUPWS_RoomList extends LUPWS_Command
 			return $msg->rplyError('err_longitude');
 		}
 
-		// (0,0) is the frontend's explicit discovery-only sentinel when a user
-		// has not granted GPS access. It lists public rooms but does not affect
-		// chat entry: LUPWS_Join still checks the user's real coordinates.
-		$hasPosition = !($lat === 0.0 && $lng === 0.0);
-		// A real position is filtered and ordered by its visibility radius. Without
-		// one, retain the complete test catalogue so category browsing never makes
-		// places appear to have disappeared.
-		$limit = Module_LinkUUp::instance()->cfgMaxLocations();
-		$result = $hasPosition ?
-			LUP_Room::queryRooms($lat, $lng, $limit, $from) :
-			LUP_Room::queryRooms(null, null, $limit, $from);
-		// Prefix every page with the total before pagination. The client can show
-		// an exact discovery count without a second WebSocket round trip.
-		$total = $hasPosition ? LUP_Room::countRooms($lat, $lng) : LUP_Room::countRooms();
-		$rooms = $result->fetchAllObjects();
-		// Avoid the N+1 address lookup: a normal list contains dozens of rooms,
-		// and asking the database once per room delayed the first visible card.
+		$from = ($page-1) * $perPage;
+		$query = LUP_Room::queryRooms(
+			$lat,
+			$lng,
+			$perPage,
+			$from,
+		);
+		// Counting must not mutate the paged room query. Query's fluent methods
+		// operate in place, so use a copy before dropping its LIMIT and ORDER.
+		$total = (int)$query->copy()->selectOnly('COUNT(*)')->noLimit()->noOrder()->noJoins()->exec()->fetchVar();
+		$rooms = $query->exec()->fetchAllObjects();
 		$addressIds = [];
 		foreach ($rooms as $room)
 		{
@@ -74,6 +69,7 @@ class LUPWS_RoomList extends LUPWS_Command
 		}
 
 		$response = GWS_Message::wr32($total);
+
 		foreach ($rooms as $room)
 		{
 			$room instanceof LUP_Room;
