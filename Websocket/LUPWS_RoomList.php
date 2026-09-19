@@ -21,6 +21,8 @@ class LUPWS_RoomList extends LUPWS_Command
 	{
 		$lat = $msg->readFloat();
 		$lng = $msg->readFloat();
+        $page = max(1, $msg->read32u());
+        $perPage = max(1, min(100, $msg->read32u()));
 
 		if (!Position::isValidLat($lat))
 		{
@@ -41,6 +43,8 @@ class LUPWS_RoomList extends LUPWS_Command
 		// places appear to have disappeared.
 		$result = $hasPosition ? LUP_Room::queryRooms($lat, $lng) : LUP_Room::queryRooms();
 		$rooms = $result->fetchAllObjects();
+        $total = count($rooms);
+        $rooms = array_slice($rooms, ($page - 1) * $perPage, $perPage);
 		// Avoid the N+1 address lookup: a normal list contains dozens of rooms,
 		// and asking the database once per room delayed the first visible card.
 		$addressIds = [];
@@ -63,7 +67,7 @@ class LUPWS_RoomList extends LUPWS_Command
 			}
 		}
 
-		$response = '';
+		$response = GWS_Message::wr32($total);
 		foreach ($rooms as $room)
 		{
 			$room instanceof LUP_Room;
