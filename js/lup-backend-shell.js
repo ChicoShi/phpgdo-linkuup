@@ -213,13 +213,14 @@
         content.classList.add('lup-credits-page');content.prepend(hero,order,uses);
     };
     const enhanceOrders = (content, de) => {
-        if (!/\/payment[.;]yourorders[.;]/i.test(location.pathname)) return;
+        if (!/\/payment[.;](?:yourorders|orders)[.;]/i.test(location.pathname)) return;
+        const personal=/[.;]yourorders[.;]/i.test(location.pathname);
         const table=content.querySelector('.gdt-table table'), form=table?.closest('form');
         if (!table || !form) return;
         const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text)e.textContent=text;return e;};
         content.classList.add('lup-orders-page');
         const hero=make('header','lup-orders-hero');
-        hero.append(make('span','lup-orders-kicker','DEIN LINKUUP'),make('h1','',de?'Deine Bestellungen':'Your orders'),make('p','',de?'Alles an einem Ort: deine Käufe, Zahlungen und der Stand deiner Bestellungen.':'Your purchases, payments and order progress, together in one place.'));
+        hero.append(make('span','lup-orders-kicker','DEIN LINKUUP'),make('h1','',personal?(de?'Deine Bestellungen':'Your orders'):(de?'Bestellungen':'Orders')),make('p','',personal?(de?'Alles an einem Ort: deine Käufe, Zahlungen und der Stand deiner Bestellungen.':'Your purchases, payments and order progress, together in one place.'):(de?'Bestellungen, Zahlungen und Bearbeitungsstand im Überblick.':'Orders, payments and processing status at a glance.')));
         content.prepend(hero);
         const nav=content.querySelector('.lup-section-nav');
         if(nav){nav.classList.add('lup-orders-links');hero.after(nav);}
@@ -253,10 +254,10 @@
             scroll.hidden=true;
             const empty=make('section','lup-orders-empty');
             const icon=make('i','fas fa-receipt');icon.setAttribute('aria-hidden','true');empty.append(icon);
-            empty.append(make('h2','',active?(de?'Keine passenden Bestellungen':'No matching orders'):(de?'Dein nächster Moment wartet.':'Your next moment awaits.')),
-                make('p','',active?(de?'Passe deine Filter an oder zeige wieder alle Bestellungen.':'Adjust your filters or show all orders again.'):(de?'Hier erscheinen deine Bestellungen, sobald du etwas bestellst. Entdecke, was du mit LinkUUp Credits machen kannst.':'Your orders will appear here when you place one. Discover what you can do with LinkUUp Credits.')));
+            empty.append(make('h2','',active?(de?'Keine passenden Bestellungen':'No matching orders'):(personal?(de?'Dein nächster Moment wartet.':'Your next moment awaits.'):(de?'Noch keine Bestellungen':'No orders yet'))),
+                make('p','',active?(de?'Passe deine Filter an oder zeige wieder alle Bestellungen.':'Adjust your filters or show all orders again.'):(personal?(de?'Hier erscheinen deine Bestellungen, sobald du etwas bestellst. Entdecke, was du mit LinkUUp Credits machen kannst.':'Your orders will appear here when you place one. Discover what you can do with LinkUUp Credits.'):(de?'Sobald Bestellungen vorliegen, findest du hier ihren Zahlungs- und Bearbeitungsstand.':'Orders will appear here with their payment and processing status.'))));
             const cta=make('a','lup-orders-cta',active?(de?'Alle Bestellungen anzeigen':'Show all orders'):(de?'Credits entdecken':'Explore credits'));
-            cta.href=active?clear.href:'/paymentcredits.ordercredits.html?_lang='+(de?'de':'en');empty.append(cta);scroll.after(empty);
+            cta.href=active?clear.href:'/paymentcredits.ordercredits.html?_lang='+(de?'de':'en');if(personal || active)empty.append(cta);scroll.after(empty);
         }
     };
     const enhanceProfile = (content, de) => {
