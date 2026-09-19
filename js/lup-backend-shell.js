@@ -204,6 +204,53 @@ document.documentElement.classList.add('lup-backend-ui');
         uses.append(grid,make('p','lup-credit-roadmap-note',de?'Geplante Funktionen sind noch nicht nutzbar. Ihre Verfügbarkeit ist nicht Bestandteil dieses Credit-Kaufs.':'Planned features are not available yet. Their availability is not included in this credit purchase.'));
         content.classList.add('lup-credits-page');content.prepend(hero,order,uses);
     };
+    const enhanceOrders = (content, de) => {
+        if (!/\/payment[.;]yourorders[.;]/i.test(location.pathname)) return;
+        const table=content.querySelector('.gdt-table table'), form=table?.closest('form');
+        if (!table || !form) return;
+        const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text)e.textContent=text;return e;};
+        content.classList.add('lup-orders-page');
+        const hero=make('header','lup-orders-hero');
+        hero.append(make('span','lup-orders-kicker','DEIN LINKUUP'),make('h1','',de?'Deine Bestellungen':'Your orders'),make('p','',de?'Alles an einem Ort: deine Käufe, Zahlungen und der Stand deiner Bestellungen.':'Your purchases, payments and order progress, together in one place.'));
+        content.prepend(hero);
+        const nav=content.querySelector('.lup-section-nav');
+        if(nav){nav.classList.add('lup-orders-links');hero.after(nav);}
+        const caption=form.querySelector('.gdo-table-caption');
+        if(caption)caption.classList.add('lup-orders-count');
+        const details=make('details','lup-order-filters');
+        details.append(make('summary','',de?'Bestellungen filtern':'Filter orders'));
+        const grid=make('div','lup-order-filter-grid');details.append(grid);
+        const heads=[...table.querySelectorAll('thead th')];
+        heads.forEach((th,index)=>{
+            const inputs=[...th.querySelectorAll('input,select')];
+            const title=th.querySelector('.gdt-table-order')?.textContent.trim() || (index===1?(de?'Beleg':'Receipt'):(de?'Details':'Details'));
+            th.setAttribute('scope','col');
+            if(!th.textContent.trim())th.append(document.createTextNode(title));
+            table.querySelectorAll('tbody tr').forEach(row=>{if(row.cells[index])row.cells[index].dataset.label=title;});
+            if(!inputs.length)return;
+            const group=make('fieldset','lup-order-filter');group.append(make('legend','',title));
+            inputs.forEach((input,n)=>{
+                const label=make('label','',inputs.length>1?(n===0?(de?'Von':'From'):(de?'Bis':'To')):(de?'Suchtext':'Search text'));
+                label.append(input);group.append(label);
+            });grid.append(group);
+        });
+        const active=[...grid.querySelectorAll('input,select')].some(e=>e.value.trim());
+        details.open=active;
+        const actions=make('div','lup-order-filter-actions');
+        const apply=make('button','',de?'Filter anwenden':'Apply filters');apply.type='submit';
+        const clear=make('a','',de?'Filter zurücksetzen':'Clear filters');clear.href=location.pathname+'?_lang='+(de?'de':'en');
+        actions.append(apply,clear);details.append(actions);form.prepend(details);
+        const scroll=table.closest('.lup-table-scroll');
+        if(!table.querySelector('tbody tr')){
+            scroll.hidden=true;
+            const empty=make('section','lup-orders-empty');
+            const icon=make('i','fas fa-receipt');icon.setAttribute('aria-hidden','true');empty.append(icon);
+            empty.append(make('h2','',active?(de?'Keine passenden Bestellungen':'No matching orders'):(de?'Dein nächster Moment wartet.':'Your next moment awaits.')),
+                make('p','',active?(de?'Passe deine Filter an oder zeige wieder alle Bestellungen.':'Adjust your filters or show all orders again.'):(de?'Hier erscheinen deine Bestellungen, sobald du etwas bestellst. Entdecke, was du mit LinkUUp Credits machen kannst.':'Your orders will appear here when you place one. Discover what you can do with LinkUUp Credits.')));
+            const cta=make('a','lup-orders-cta',active?(de?'Alle Bestellungen anzeigen':'Show all orders'):(de?'Credits entdecken':'Explore credits'));
+            cta.href=active?clear.href:'/paymentcredits.ordercredits.html?_lang='+(de?'de':'en');empty.append(cta);scroll.after(empty);
+        }
+    };
     const ready = () => {
         document.body.classList.add('lup-backend');
         const de = (document.documentElement.lang || window.GDO_LANGUAGE || 'de').startsWith('de');
@@ -356,6 +403,7 @@ document.documentElement.classList.add('lup-backend-ui');
             decorateTables();
             enhanceAccountSettings(content, de);
             enhanceCredits(content, de);
+            enhanceOrders(content, de);
             // Filtered and asynchronously loaded tables need the same treatment.
             let tableFrame=0;
             new MutationObserver(records => {
