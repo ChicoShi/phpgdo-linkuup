@@ -251,6 +251,37 @@ document.documentElement.classList.add('lup-backend-ui');
             cta.href=active?clear.href:'/paymentcredits.ordercredits.html?_lang='+(de?'de':'en');empty.append(cta);scroll.after(empty);
         }
     };
+    const enhanceProfile = (content, de) => {
+        if (!/\/user[.;]profile[.;]/i.test(location.pathname)) return;
+        const fields=content.querySelector('.gdt-card-fields'), card=fields?.closest('.card');
+        if(!fields || !card)return;
+        content.classList.add('lup-person-page');card.classList.add('lup-person-card');
+        const make=(tag,cls,text)=>{const el=document.createElement(tag);el.className=cls;if(text)el.textContent=text;return el;};
+        const names=de?['Über mich','Aktivität','Kontakt & Einstellungen','Technische Angaben']:['About me','Activity','Contact & settings','Technical details'];
+        const groups=names.map((name,i)=>{const section=make(i===3?'details':'section','lup-person-section');section.append(make(i===3?'summary':'h2','',name));const list=make('div','lup-person-facts');section.append(list);return {section,list};});
+        const nodes=[...fields.children];
+        for(let i=0;i<nodes.length;i++){
+            const label=nodes[i],value=nodes[i+1];
+            if(!(label.matches('label,.gdt-card-label') && value?.matches('span,.gdt-card-message')))continue;
+            i++;
+            const text=[...label.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join('').trim().replace(/[:\s]+$/,'');
+            let group=0;
+            if(/IP$|Bildschirm|Geräteversion|Geschwindigkeit|screen|user.agent|speed/i.test(text))group=3;
+            else if(/Aktivität|Profiltreffer|Likes|High Fives|Registriert|beschäftigt|activity|views|registered|status/i.test(text))group=1;
+            else if(/Mail|Telegram|WhatsApp|URL|Adresse|Addresse|Zeitzone|Aktivierungs|mitteilen|outside_visible|timezone|address|activation/i.test(text))group=2;
+            const fallback=label.querySelector('.gdo-utf8-icon-text,.gdo-utf8-icon-select,.gdo-utf8-icon-dog,.gdo-utf8-icon-account_balance,.gdo-utf8-icon-telegram');
+            if(fallback){const symbol=document.createElement('i');symbol.className='fas fa-'+(/Religion/i.test(text)?'landmark':/pet|Haustier/i.test(text)?'paw':/City|State/i.test(text)?'map-marker-alt':'circle');symbol.setAttribute('aria-hidden','true');fallback.replaceChildren(symbol);}
+            const aliases={'__lup_profile_outside_visible':de?'Profil außerhalb einer Location':'Profile outside a location','Living State':de?'Bundesland / Region':'State / region','Living City':de?'Wohnort':'City'};
+            if(aliases[text]){[...label.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).forEach(n=>n.remove());label.append(document.createTextNode(aliases[text]));}
+            const item=make('div','lup-person-fact');
+            if(value.matches('.gdt-card-message'))item.classList.add('lup-person-story');
+            const raw=value.textContent.trim();if(!raw || /^(Nicht angegeben|Not specified|---.*---)$/i.test(raw))item.classList.add('lup-person-empty');
+            item.append(label,value);groups[group].list.append(item);
+        }
+        groups.forEach(({section,list})=>{if(list.children.length)fields.append(section);});
+        const edit=content.querySelector('.gdt-panel a[href*="account.allsettings"]');
+        if(edit){const panel=edit.closest('.card');edit.textContent=de?'Profil bearbeiten':'Edit profile';edit.classList.add('lup-person-edit');card.querySelector('.card-header')?.append(edit);if(panel && panel!==card)panel.remove();}
+    };
     const ready = () => {
         document.body.classList.add('lup-backend');
         const de = (document.documentElement.lang || window.GDO_LANGUAGE || 'de').startsWith('de');
@@ -404,6 +435,7 @@ document.documentElement.classList.add('lup-backend-ui');
             enhanceAccountSettings(content, de);
             enhanceCredits(content, de);
             enhanceOrders(content, de);
+            enhanceProfile(content, de);
             // Filtered and asynchronously loaded tables need the same treatment.
             let tableFrame=0;
             new MutationObserver(records => {
@@ -457,5 +489,6 @@ document.documentElement.classList.add('lup-backend-ui');
             if (identity?.firstChild?.nodeType === Node.TEXT_NODE) identity.firstChild.textContent = de ? 'E-Mail oder Nutzername ' : 'Email or username ';
         }
     };
-    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', ready) : ready();
+    const initialize = () => {try {ready();} finally {document.documentElement.classList.remove('lup-shell-pending');}};
+    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initialize) : initialize();
 })();

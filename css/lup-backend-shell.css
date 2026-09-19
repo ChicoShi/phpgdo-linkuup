@@ -161,3 +161,10 @@ html.lup-backend-ui #content-wrap .gdo-logs-search button { min-height:44px; pad
  html.lup-backend-ui #content-wrap .gdt-card-fields > * { grid-column:1; text-align:left; }
  html.lup-backend-ui #content-wrap .gdt-card-fields label { margin-top:12px; color:#aebccc; font-size:12px; }
 }
+/* The server adds the shell marker in <head>; reserve the final frame before JS. */
+html.lup-backend-ui body:not(.lup-backend) #wrapper #sidebar-wrapper {display:none;}
+html.lup-backend-ui body:not(.lup-backend) #navbarSupportedContent {display:none;}
+html.lup-backend-ui body:not(.lup-backend) #page-content-wrapper > nav.navbar {min-height:72px;}
+/* Avoid displaying the legacy form for a frame while its DOM is enhanced.
+   The controller releases this immediately; a head-script timeout is the fallback. */
+html.lup-backend-ui.lup-shell-pending #wrapper {visibility:hidden;}
