@@ -195,7 +195,7 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function onIncludeScripts(): void
 	{
-		$this->addJS('js/lup-backend-shell.js?rev=20260919_4');
+		$this->addJS('js/lup-backend-shell.js?rev=20260919_5');
 		$this->addJS('js/lup-backend-location-status.js?rev=20260912_1');
 		$this->addCSS('css/lup.css?lup_skin=20260916_2');
 		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260916_2');
@@ -215,7 +215,7 @@ final class Module_LinkUUp extends GDO_Module
 		$this->addJS('js/lup-living-background.js?rev=20260919_1');
 		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260916_2'));
 		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260919_3'));
-		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260919_4'));
+		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260919_5'));
 		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260919_3'));
 		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260916_3'));
 		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260916_4'));
@@ -284,6 +284,17 @@ final class Module_LinkUUp extends GDO_Module
 	 */
 	public function hookBeforeExecute(Method $method): void
 	{
+		// Public display data only. Checkout remains authoritative for tax and fees.
+		if (Application::instance()->isWebserver() && GDO_User::current()->isAuthenticated() &&
+			$method instanceof \GDO\PaymentCredits\Method\OrderCredits)
+		{
+			$credits = \GDO\PaymentCredits\Module_PaymentCredits::instance();
+			\GDO\Core\Javascript::addJSPreInline('window.LUP_CREDITS_PRICING = ' . json_encode([
+				'unitPrice' => (float)$credits->cfgConversionRateToCurrency(),
+				'currency' => \GDO\Payment\GDT_Money::$CURRENCY,
+				'minCredits' => (int)$credits->cfgMinPurchaseCredits(),
+			], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) . ';');
+		}
 		# Redirect to login if not authenticated
 		if (Application::instance()->isWebserver())
 		{

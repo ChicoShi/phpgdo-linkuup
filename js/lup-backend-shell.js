@@ -132,6 +132,78 @@ document.documentElement.classList.add('lup-backend-ui');
             adaptEditor();
         });
     };
+    const enhanceCredits = (content, de) => {
+        if (!/\/paymentcredits[.;]ordercredits[.;]/i.test(location.pathname)) return;
+        const field=content.querySelector('input[name="co_credits"]');
+        const form=field?.closest('.gdt-form');
+        const pricing=window.LUP_CREDITS_PRICING;
+        if (!form || !pricing || !Number.isFinite(pricing.unitPrice) || pricing.unitPrice<=0 || !Number.isSafeInteger(pricing.minCredits) || pricing.minCredits<1) return;
+        const make=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;};
+        let money;
+        try {money=new Intl.NumberFormat(de?'de-DE':'en-GB',{style:'currency',currency:pricing.currency});} catch {return;}
+        const number=new Intl.NumberFormat(de?'de-DE':'en-GB');
+        const hero=make('header','lup-credits-hero');
+        const intro=make('div','lup-credits-intro');
+        intro.append(make('span','lup-credits-eyebrow','LINKUUP CREDITS'),make('h1','',de?'Mach mehr aus deinem Ort.':'Make more of your place.'),make('p','',de?'Dein Guthaben für eigene Treffpunkte, mehr Sichtbarkeit und Nachrichten, die weiterreichen.':'Your balance for your own meeting places, more visibility and messages that reach further.'));
+        const wallet=make('div','lup-credits-wallet');
+        const icon=make('i','fas fa-coins');icon.setAttribute('aria-hidden','true');wallet.append(icon);
+        const link=[...document.querySelectorAll('#navbarSupportedContent a')].find(a=>/paymentcredits[.;]ordercredits/i.test(a.pathname));
+        const balance=link?.textContent.match(/\(([^)]+)\)/)?.[1];
+        wallet.append(make('span','',de?'Dein Guthaben':'Your balance'),make('strong','',balance===undefined?'Credits':balance),make('small','',balance===undefined?'LinkUUp':de?'Credits auf deinem Konto':'Credits in your account'));
+        hero.append(intro,wallet);
+        const order=make('section','lup-credits-order');
+        const selection=make('div','lup-credits-selection');
+        selection.append(make('h2','',de?'Wie viel hast du vor?':'What do you have in mind?'),make('p','',de?'Wähle eine Menge oder trage deinen eigenen Betrag an Credits ein.':'Choose an amount or enter your own number of credits.'));
+        const packs=make('div','lup-credits-packs');packs.setAttribute('aria-label',de?'Credits-Menge auswählen':'Choose a credit amount');
+        const titles=de?['Zum Start','Mehr Spielraum','Große Pläne']:['Get started','More possibilities','Bigger plans'];
+        const buttons=[1,2,4].map((factor,index)=>{
+            const amount=pricing.minCredits*factor;
+            const button=make('button','lup-credit-pack');button.type='button';button.dataset.amount=String(amount);
+            button.append(make('span','lup-pack-title',titles[index]),make('strong','',number.format(amount)),make('span','lup-pack-unit','Credits'),make('span','lup-pack-price',money.format(Math.round(amount*pricing.unitPrice*100)/100)),make('small','',de?'Basispreis':'Base price'));
+            button.addEventListener('click',()=>{field.value=String(amount);field.dispatchEvent(new Event('input',{bubbles:true}));field.dispatchEvent(new Event('change',{bubbles:true}));});
+            packs.append(button);return button;
+        });
+        selection.append(packs,make('p','lup-credit-pack-note',de?'Basispreise, zuzüglich möglicher Steuern und Zahlungsgebühren.':'Base prices, plus applicable taxes and payment fees.'));
+        const heading=form.querySelector('.card-title');if(heading)heading.textContent=de?'Deine Auswahl':'Your selection';
+        const label=form.querySelector('label[for="'+field.id+'"]');
+        if(label){[...label.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).forEach(n=>n.remove());label.prepend(document.createTextNode(de?'Anzahl Credits':'Number of credits'));}
+        field.inputMode='numeric';
+        const quote=make('div','lup-credit-quote');
+        quote.append(make('span','',de?'Basispreis deiner Auswahl':'Base price of your selection'));
+        const price=make('output');price.setAttribute('aria-live','polite');quote.append(price);
+        const note=make('p','lup-credit-price-note',de?'Basispreis ohne Steuern und mögliche Zahlungsgebühren. Der Gesamtbetrag richtet sich nach Rechnungsadresse und Zahlungsart; prüfe ihn im Bestellablauf.':'Base price excludes taxes and possible payment fees. The total depends on billing address and payment method; review it during checkout.');
+        const actions=form.querySelector('.gdt-form-actions');actions.before(quote,note);
+        const submit=form.querySelector('input[type=submit]');if(submit)submit.value=de?'Weiter zur Übersicht':'Review selection';
+        const update=()=>{
+            const raw=field.value.trim(),amount=/^\d+$/.test(raw)?Number(raw):NaN;
+            const valid=Number.isSafeInteger(amount)&&amount>0;
+            price.textContent=valid?money.format(Math.round(amount*pricing.unitPrice*100)/100):(de?'Menge eingeben':'Enter an amount');
+            buttons.forEach(button=>button.setAttribute('aria-pressed',String(valid&&Number(button.dataset.amount)===amount)));
+        };
+        field.addEventListener('input',update);field.addEventListener('change',update);update();
+        order.append(selection,form);
+        const uses=make('section','lup-credits-uses');uses.append(make('h2','',de?'Deine Credits. Dein nächster Schritt.':'Your credits. Your next step.'));
+        const grid=make('div','lup-credit-uses-grid');
+        const features=de?[
+            ['map-marker-alt','Eigene Treffpunkte','Locations anlegen und ihre Sichtbarkeit erweitern.',''],
+            ['bullhorn','Ein Impuls an viele Orte','Mit einem Shout besetzte Locations erreichen.',''],
+            ['street-view','Nachrichten im Umkreis','Menschen gezielt rund um deinen Standort ansprechen.','Geplant'],
+            ['glass-cheers','Direkt an der Bar','Mit Credits bei Partner-Locations bezahlen.','Geplant']
+        ]:[
+            ['map-marker-alt','Your own meeting places','Create locations and extend their visibility.',''],
+            ['bullhorn','Reach more places','Send a shout to occupied locations.',''],
+            ['street-view','Messages nearby','Reach people around your location.','Planned'],
+            ['glass-cheers','At the bar','Pay with credits at partner locations.','Planned']
+        ];
+        features.forEach(([symbol,title,text,status])=>{
+            const card=make('article','lup-credit-use'+(status?' lup-credit-planned':''));
+            const mark=make('i','fas fa-'+symbol);mark.setAttribute('aria-hidden','true');card.append(mark);
+            if(status)card.append(make('span','lup-credit-status',status));
+            card.append(make('h3','',title),make('p','',text));grid.append(card);
+        });
+        uses.append(grid,make('p','lup-credit-roadmap-note',de?'Geplante Funktionen sind noch nicht nutzbar. Ihre Verfügbarkeit ist nicht Bestandteil dieses Credit-Kaufs.':'Planned features are not available yet. Their availability is not included in this credit purchase.'));
+        content.classList.add('lup-credits-page');content.prepend(hero,order,uses);
+    };
     const ready = () => {
         document.body.classList.add('lup-backend');
         const de = (document.documentElement.lang || window.GDO_LANGUAGE || 'de').startsWith('de');
@@ -283,6 +355,7 @@ document.documentElement.classList.add('lup-backend-ui');
             };
             decorateTables();
             enhanceAccountSettings(content, de);
+            enhanceCredits(content, de);
             // Filtered and asynchronously loaded tables need the same treatment.
             let tableFrame=0;
             new MutationObserver(records => {

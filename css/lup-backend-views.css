@@ -273,3 +273,73 @@ html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .CodeMir
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .CodeMirror-gutters { background:#0d2134;border-right:1px solid #bce8fa15; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .CodeMirror-cursor { border-left-color:#bce8fa; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .CodeMirror textarea { min-height:0;padding:0;border:0;border-radius:0;box-shadow:none; }
+
+/* Credits: real configuration, clear quantities and separate future concepts. */
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page { max-width:1160px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-hero { display:grid;grid-template-columns:minmax(0,1fr) 260px;align-items:center;gap:48px;margin:6px 0 44px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-eyebrow { display:block;margin-bottom:14px;color:#96d5e6;font:500 11px/1.5 Roboto,"Segoe UI",sans-serif;letter-spacing:.16em; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-intro h1 { max-width:600px;margin:0 0 18px;font:500 clamp(32px,4.5vw,52px)/1.08 Ubuntu,"Segoe UI",sans-serif;letter-spacing:-.045em; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-intro p { max-width:540px;margin:0;color:var(--shell-muted);font-size:16px;line-height:1.7; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet { position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:28px;border:1px solid #dcf8ff42;border-radius:28px;background:radial-gradient(ellipse at 100% 0,#a5e5f524,transparent 72%),linear-gradient(135deg,#d9f6ff17,#1032485c);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 #ffffff45,inset 0 -1px 0 #bce8fa0d,0 22px 52px #030e2026; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet > i { position:absolute;right:26px;top:26px;color:#c5efff;font-size:28px;text-shadow:0 2px 18px #82d7f533; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet > span { margin:42px 0 8px;color:#b9d5e3;font-size:12px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet strong { font:500 42px/1.1 Ubuntu,"Segoe UI",sans-serif;letter-spacing:-.04em;color:#effbff;overflow-wrap:anywhere; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet small { margin-top:9px;color:#a6c5d5;font-size:12px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-order { display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,1fr);align-items:start;gap:32px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-selection h2, html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-uses h2 { margin:0 0 10px;font:500 25px/1.25 Ubuntu,"Segoe UI",sans-serif;letter-spacing:-.025em; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-selection > p { margin:0 0 24px;color:var(--shell-muted);font-size:14px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-packs { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page button.lup-credit-pack { position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:0;min-width:0;min-height:204px;padding:22px 16px;border:1px solid #c5efff25;border-radius:22px;background:linear-gradient(140deg,#c5efff0e,#102a3f70);box-shadow:inset 0 1px 0 #effaff20;text-align:left; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page button.lup-credit-pack[aria-pressed=true] { border-color:#c5efff9c;background:linear-gradient(140deg,#c5efff25,#174c6640);box-shadow:inset 0 1px 0 #effaff65,0 8px 28px #68c9e20c; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page button.lup-credit-pack[aria-pressed=true]::after { content:"✓";position:absolute;top:13px;right:13px;color:#c5efff;font-size:12px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-pack-title { display:block;min-height:36px;padding-right:9px;color:#b4cfde;font-size:12px;font-weight:400; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-pack strong { margin:14px 0 3px;font:500 clamp(22px,2.5vw,32px)/1 Ubuntu,"Segoe UI",sans-serif;letter-spacing:-.04em;color:#effbff; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-pack-unit { margin-bottom:24px;color:#a7c5d6;font-size:12px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-pack-price { margin-top:auto;color:#d7f4ff;font-size:17px;font-weight:500; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-pack small { margin-top:4px;color:#9cbbcd;font-size:10px;font-weight:400; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .gdt-form:is(#form,.gdt-form) { width:100%;margin:0;padding:28px;border-radius:26px;background:linear-gradient(140deg,#c5efff0e,#10263ac4);border-color:#d9f5ff30;box-shadow:inset 0 1px 0 #effaff38; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .gdt-form:is(#form,.gdt-form) .card-title { font-size:24px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .gdt-form:is(#form,.gdt-form) input[name=co_credits] { min-height:58px;font-size:23px;border-radius:15px;background:#091e306e; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-quote { display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:24px;padding-top:20px;border-top:1px solid #bce8fa20; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-quote > span { color:#a9c7d8;font-size:12px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-quote output { flex:none;color:#e9faff;font:500 24px/1.2 Ubuntu,"Segoe UI",sans-serif; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .gdt-form:is(#form,.gdt-form) .lup-credit-price-note { margin:14px 0 18px;font-size:11px;line-height:1.6;color:#a9c0d2; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .gdt-form:is(#form,.gdt-form) .gdt-submit input { min-height:50px;border-radius:15px;background:linear-gradient(135deg,#d2f3ff,#a9ddec);color:#102b3d;box-shadow:inset 0 1px 0 #ffffff80; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-uses { margin-top:48px;padding-top:32px;border-top:1px solid #bce8fa20; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-uses-grid { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:26px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-use { position:relative;min-width:0;padding:0 0 16px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-use > i { display:grid;place-items:center;width:42px;height:42px;margin-bottom:18px;border:1px solid #c5efff2b;border-radius:14px;background:#c5efff09;color:#bce8fa;font-size:19px;box-shadow:inset 0 1px 0 #ffffff1c; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-use h3 { margin:0 0 10px;font-size:16px;font-weight:500; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-use p { margin:0;font-size:13px;color:#a9c0d2;line-height:1.7; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-status { position:absolute;right:0;top:11px;padding:3px 8px;border:1px solid #bce8fa20;border-radius:20px;color:#a9c0d2;font-size:10px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-roadmap-note { margin:20px 0 0;color:#a9c0d2;font-size:12px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page :is(.lup-credit-pack,input):focus-visible { outline:2px solid #bce8fa;outline-offset:3px; }
+@media(max-width:900px) {
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-order {grid-template-columns:minmax(0,1fr);gap:24px;}
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-uses-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:600px) {
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page { padding:26px 16px 48px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-hero { grid-template-columns:minmax(0,1fr);gap:24px;margin-bottom:32px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-intro h1 { font-size:36px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-intro p { font-size:14px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet { padding:22px 24px;border-radius:24px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet > span { margin:0 0 6px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet strong { font-size:32px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-wallet > i { top:32px;font-size:34px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-packs { gap:8px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page button.lup-credit-pack { padding:20px 11px 16px;min-height:184px;border-radius:18px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-pack strong { font-size:24px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-pack-price { font-size:15px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-pack-title { font-size:11px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .gdt-form:is(#form,.gdt-form) { padding:24px 20px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credits-uses { margin-top:36px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-uses-grid { gap:24px 18px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-use h3 { font-size:15px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-status { position:static;display:inline-block;margin:0 0 12px; }
+}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page :is(.lup-credits-wallet,.lup-credit-pack),html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .gdt-form:is(#form,.gdt-form){background:#152c42;backdrop-filter:none;-webkit-backdrop-filter:none;border-color:#bce8fa70;}
+}
+
+html.lup-backend-ui body.lup-backend #content-wrap.lup-credits-page .lup-credit-pack-note {margin:16px 0 0;font-size:12px;line-height:1.6;color:var(--shell-muted);}
