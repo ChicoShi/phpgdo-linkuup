@@ -209,9 +209,13 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function href_administrate_module(): ?string { return href('LinkUUp', 'Admin'); }
 
-	public function onIncludeScripts(): void
+	private bool $backendScriptsIncluded = false;
+
+	private function includeBackendScripts(): void
 	{
-		$this->addJS('js/lup-backend-shell.js?rev=20260916_2');
+		if ($this->backendScriptsIncluded) return;
+		$this->backendScriptsIncluded = true;
+		\GDO\Core\GDT_Template::$THEMES = ['lup-backend' => $this->filePath('thm/lup/')] + \GDO\Core\GDT_Template::$THEMES;
 		$this->addJS('js/lup-backend-location-status.js?rev=20260912_1');
 		$this->addCSS('css/lup.css?lup_skin=20260916_2');
 		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260916_2');
@@ -228,11 +232,11 @@ final class Module_LinkUUp extends GDO_Module
 		$this->addJS('js/lup-world-journey.js?rev=20260916_3');
         $this->addJS('js/lup-connected-route.js?rev=20260916_5');
 		$this->addJS('js/lup-scroll-finale.js?rev=20260916_4');
-		$this->addJS('js/lup-living-background.js?rev=20260912_1');
+		$this->addJS('js/lup-living-background.js?rev=20260919_1');
 		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260916_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260919_9'));
+		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260919_16'));
+		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260919_3'));
 		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260916_3'));
 		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260916_4'));
 	}
@@ -301,6 +305,21 @@ final class Module_LinkUUp extends GDO_Module
 	 */
 	public function hookBeforeExecute(Method $method): void
 	{
+		if (BackendLayout::supports($method))
+		{
+			$this->includeBackendScripts();
+		}
+		// Public display data only. Checkout remains authoritative for tax and fees.
+		if (BackendLayout::supports($method) && GDO_User::current()->isAuthenticated() &&
+			$method instanceof \GDO\PaymentCredits\Method\OrderCredits)
+		{
+			$credits = \GDO\PaymentCredits\Module_PaymentCredits::instance();
+			\GDO\Core\Website::addHead('<meta name="lup-credits-pricing" content="' . htmlspecialchars(json_encode([
+				'unitPrice' => (float)$credits->cfgConversionRateToCurrency(),
+				'currency' => \GDO\Payment\GDT_Money::$CURRENCY,
+				'minCredits' => (int)$credits->cfgMinPurchaseCredits(),
+			], JSON_THROW_ON_ERROR), ENT_QUOTES, 'UTF-8') . '">');
+		}
 		# Redirect to login if not authenticated
 		if (Application::instance()->isWebserver())
 		{

@@ -32,6 +32,7 @@ $canPrintFlyers = GDO_User::current()->isStaff();
 	$categoryVisual = $categoryVisuals[$room->getCategory()] ?? ['fas fa-map-marker-alt', 'category-default'];
 
 	?>
+<header class="lup-statistics-heading"><h1>Deine Location im Überblick</h1><p>Besuche und Gespräche – nachvollziehbar für den gewählten Zeitraum.</p></header>
 <div class="lup-statistics-room-select">
 	<?=$locationForm->renderForm()?>
 </div>
@@ -56,65 +57,17 @@ $canPrintFlyers = GDO_User::current()->isStaff();
 				<a class="lup-stat-flyer" href="<?=href('LinkUUp', 'RoomFlyer', '&room=' . $room->getID() . '&_ajax=1')?>"><i class="fas fa-print"></i><span><?=t('room_flyer')?></span></a>
 			<?php endif; ?>
         </div>
-        <div class="col-xs-12 col-sm-9 grapics">
+        <div class="col-xs-12 col-sm-9 grapics"><h2>Aktivität im Zeitraum</h2>
 			<?=GDT_GraphDateselect::make('date')->initial('this_year')->addClass('lup-graph-select')->withToday(false)->withYesterday(false)->render()?>
-			<input class="lup-graph-custom-date" type="date" name="start" disabled="disabled" style="display:none"/>
-			<input class="lup-graph-custom-date" type="date" name="end" disabled="disabled" style="display:none"/>
+			<input class="lup-graph-custom-date" type="date" name="start" aria-label="Zeitraum von" disabled="disabled" hidden/>
+			<input class="lup-graph-custom-date" type="date" name="end" aria-label="Zeitraum bis" disabled="disabled" hidden/>
             <div class="lup-room-graph-container">
-                <div class="statistics-usercount col-xs-12 col-sm-6">
+                <div class="statistics-usercount col-xs-12 col-sm-6"><h3>Besuche</h3>
 					<?=GDT_RoomGraph::make()->room($room)->graphMethod(GraphUsercount::make()->appliedInputs($inputs))->withoutDateInput()->render()?>
                 </div>
-                <div class="statistics-messagecount col-xs-12 col-sm-6">
+                <div class="statistics-messagecount col-xs-12 col-sm-6"><h3>Nachrichten</h3>
 					<?=GDT_RoomGraph::make()->room($room)->graphMethod(GraphMessagecount::make()->appliedInputs($inputs))->withoutDateInput()->render()?>
                 </div>
             </div>
         </div>
     </div>
-<script>
-	function initLupStatistics() {
-		const locationSelect = document.querySelector('.lup-statistics-room-select select');
-		if (locationSelect) {
-			locationSelect.addEventListener('change', function () {
-				const url = new URL(window.location.href);
-				url.searchParams.set('room', locationSelect.value);
-				window.location.assign(url);
-			});
-		}
-
-		function changeGraph(cont, select) {
-			var date = select.val();
-			var start = cont.find("input[name=start]").val();
-			var end = cont.find("input[name=end]").val();
-			// The range fields are meaningful only for a manual date range.
-			// Keeping them hidden otherwise removes the empty white block below
-			// the timeframe selector.
-			cont.find('.lup-graph-custom-date').toggle(date === 'custom');
-            cont.find('form').each(function () {
-                cont.find('input').prop('disabled', date !== 'custom');
-                var form = $(this);
-                form.find('img').each(function () {
-                    window.GDO.JPGraph._renderImage($(this), date, start, end);
-                });
-            });
-        }
-
-        jQuery('input[type=date]').change(function () {
-            var input = $(this);
-            var cont = input.parent();
-            var select = cont.find('select');
-            changeGraph(cont, select);
-        });
-
-        jQuery('select.lup-graph-select').change(function () {
-            var select = $(this);
-            var cont = select.parent();
-            changeGraph(cont, select);
-        });
-	}
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initLupStatistics, {once: true});
-	} else {
-		initLupStatistics();
-	}
-</script>

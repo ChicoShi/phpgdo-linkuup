@@ -1,154 +1,141 @@
-/* Shared shell, forms and legal pages. Does not alter field semantics. */
-html.lup-backend-ui body { --shell-bg:#10161d; --shell-panel:#191c2a; --shell-text:#f5f6ff; --shell-muted:#afbdce; --shell-line:#9ab0ca2b; background:var(--shell-bg); color:var(--shell-text); }
-html.lup-backend-ui #wrapper,html.lup-backend-ui #page-content-wrapper { background:var(--shell-bg); }
-html.lup-backend-ui #page-content-wrapper { width:100%; min-width:0; margin-left:0; }
-html.lup-backend-ui body #wrapper #sidebar-wrapper { position:fixed; inset:0 auto 0 0; width:min(310px,88vw); height:100dvh; margin:0; display:flex; flex-direction:column; transform:translateX(-100%); visibility:hidden; pointer-events:none; z-index:1060; background:radial-gradient(ellipse at 0 0,#38537344,transparent 65%),#171b2b; border-right:1px solid var(--shell-line); box-shadow:16px 0 60px #0005; overflow:auto; transition:transform .25s ease,visibility .25s; }
-html.lup-backend-ui body.lup-arrival-menu-open #wrapper #sidebar-wrapper { transform:translateX(0); visibility:visible; pointer-events:auto; }
-html.lup-backend-ui .lup-menu-shade { position:fixed; inset:0; z-index:1050; background:#090f17a6; border:0; padding:0; }
-html.lup-backend-ui .lup-menu-shade[hidden] { display:none; }
-html.lup-backend-ui .lup-drawer-head { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:28px 22px; flex-shrink:0; }
-.lup-drawer-head b { font:450 38px/1.1 Ubuntu,'Segoe UI',sans-serif; letter-spacing:-.055em; color:#f5f6ff; }.lup-drawer-head b span { font-weight:750; color:#a7c7ef; }.lup-drawer-head small { display:block; margin-top:9px; font-size:12px; color:#b2b7d0; }
-html.lup-backend-ui .lup-menu-close { display:grid; place-items:center; width:44px; height:44px; min-width:44px; padding:0; margin:0; border:1px solid var(--shell-line); border-radius:50%; background:#23273a; color:#e3edfa; font:300 29px/1 sans-serif; }
-html.lup-backend-ui #sidebar-wrapper #leftnav { flex:1; width:100%; margin:0; padding:12px; background:transparent; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li { border:0; padding:3px 0; margin:0; background:none; }
+/* Shared LinkUUp shell. Navigation has one owner on every backend page. */
+html.lup-backend-ui { scrollbar-gutter:stable; }
+html.lup-backend-ui body {
+ --shell-bg:#101d30; --shell-panel:#152c42; --shell-raised:#203e56;
+ --shell-text:#eef9ff; --shell-muted:#a9c0d2; --shell-accent:#bce8fa;
+ --shell-line:#bce8fa26; --shell-glass:linear-gradient(150deg,#23475dc9,#102136e8);
+ --shell-highlight:inset 0 1px 0 #e1f5ff26; --shell-radius:16px;
+ background:var(--shell-bg); color:var(--shell-text); font-family:Roboto,'Segoe UI',sans-serif;
+}
+html.lup-backend-ui body.lup-backend {--lup-ink:var(--shell-text); --lup-soft:var(--shell-muted); --lup-blue:var(--shell-accent); --lup-border:var(--shell-line);}
+html.lup-backend-ui #wrapper { background:var(--shell-bg); }
+html.lup-backend-ui #page-content-wrapper { width:100%; min-width:0; margin-left:0; background:var(--shell-bg); }
+/* Also prevent an open legacy drawer flashing before the controller loads. */
+html:not(.lup-backend-ui) #sidebar-wrapper,html.lup-backend-ui body:not(.lup-backend) #sidebar-wrapper { visibility:hidden; }
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {
+ position:fixed; inset:12px auto 12px 12px; z-index:1060;
+ display:flex; flex-direction:column; width:min(328px,calc(100vw - 24px));
+ height:calc(100dvh - 24px); max-height:calc(100dvh - 24px); min-height:0;
+ margin:0; padding:0; box-sizing:border-box; overflow:auto; overscroll-behavior:contain;
+ border:1px solid var(--shell-line); border-radius:26px; background:linear-gradient(145deg,#a9ddf51c,#102136c7);
+ backdrop-filter:blur(20px) saturate(125%); -webkit-backdrop-filter:blur(20px) saturate(125%);
+ box-shadow:inset 0 1px 0 #ffffff40,inset 0 -1px 0 #bce8fa16,0 22px 64px #020b2060;
+ transform:translateX(calc(-100% - 24px)); visibility:hidden; pointer-events:none;
+ transition:none;
+}
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper[data-lup-animated] { transition:transform 220ms ease,visibility 220ms; }
+html.lup-backend-ui body.lup-backend.lup-arrival-menu-open #wrapper #sidebar-wrapper { transform:translateX(0); visibility:visible; pointer-events:auto; }
+html.lup-backend-ui #sidebar-wrapper::before,html.lup-backend-ui #sidebar-wrapper::after { display:none; }
+html.lup-backend-ui .lup-drawer-head { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-shrink:0; padding:26px 22px; border-bottom:1px solid var(--shell-line); }
+html.lup-backend-ui .lup-drawer-head b { font:400 34px/1 Ubuntu,'Segoe UI',sans-serif; letter-spacing:-.055em; color:var(--shell-text); }
+html.lup-backend-ui .lup-drawer-head b span { font-weight:700; color:var(--shell-accent); }
+html.lup-backend-ui .lup-drawer-head small { display:block; margin-top:8px; color:var(--shell-muted); font-size:12px; }
+html.lup-backend-ui .lup-menu-close { display:grid; place-items:center; flex:none; width:44px; height:44px; padding:0; border:1px solid var(--shell-line); border-radius:50%; background:#bce8fa08; color:var(--shell-text); font:300 28px/1 sans-serif; }
+html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav { flex:1 0 auto; width:100%; min-width:0; margin:0; padding:12px; list-style:none; background:none; }
+html.lup-backend-ui #sidebar-wrapper #leftnav > li { padding:2px 0; margin:0; border:0; background:none; }
 html.lup-backend-ui #sidebar-wrapper #leftnav > li[hidden] { display:none; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li .gdt-link { display:block; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a { display:flex; align-items:center; gap:14px; padding:13px 16px; min-height:52px; border:1px solid transparent; border-radius:14px; background:none; font-size:15px; font-weight:500; color:#bec3db; text-decoration:none; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a[aria-current=page] { border-color:#94bcee44; background:linear-gradient(110deg,#5489c930,#418aca20); color:#eeeaff; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a:hover { background:#ffffff09; }
-html.lup-backend-ui #sidebar-wrapper #leftnav a .gdo-icon { display:grid; place-items:center; width:32px; height:32px; flex-shrink:0; border-radius:10px; background:#90b7e612; color:#b2cdee; }
-html.lup-backend-ui #sidebar-wrapper #leftnav a i { background:none; color:inherit; font-size:17px; transition:transform .2s; }
-html.lup-backend-ui #sidebar-wrapper #leftnav a:hover i { transform:translateY(-2px) rotate(-7deg); }
-.lup-drawer-languages { margin-top:auto; padding:18px 20px 26px; border-top:1px solid var(--shell-line); }
-html.lup-backend-ui .lup-drawer-languages .gdo-lang-switch { display:flex; justify-content:space-between; gap:5px; padding:0; border:0; background:none; }
-html.lup-backend-ui .lup-drawer-languages a { display:grid; place-items:center; min-width:44px; min-height:44px; border-radius:10px; background:#ffffff05; }
-html.lup-backend-ui #page-content-wrapper > .navbar { min-height:68px; background:linear-gradient(110deg,#202c3a,#171b2b); border-bottom:1px solid var(--shell-line); box-shadow:none; }
-html.lup-backend-ui body #page-content-wrapper > nav.navbar #sidebarToggle,
-html.lup-backend-ui body #page-content-wrapper > nav.navbar .navbar-toggler { width:44px; height:44px; min-height:44px; min-width:44px; margin:0; padding:0; border:1px solid var(--shell-line); border-radius:14px; background:#262b4044; box-shadow:none; color:#d8e5f5; }
-html.lup-backend-ui body #page-content-wrapper > nav.navbar #sidebarToggle > * { display:none; }
-html.lup-backend-ui body #page-content-wrapper > nav.navbar #sidebarToggle::after { content:'☰'; display:block; position:static; font-size:22px; width:auto; height:auto; border:0; border-radius:0; background:none; box-shadow:none; color:#d0deee; }
-html.lup-backend-ui #navbarSupportedContent { border-color:var(--shell-line); background:#1b2430; }
-html.lup-backend-ui #navbarSupportedContent a { font-size:14px; min-height:44px; color:#dee8f5; }
-html.lup-backend-ui a:focus-visible,html.lup-backend-ui button:focus-visible,html.lup-backend-ui input:focus-visible,html.lup-backend-ui select:focus-visible { outline:3px solid #b6a6ff; outline-offset:3px; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap { width:min(100%,1000px); margin:0 auto; padding:56px 32px 80px; min-height:calc(100vh - 180px); background:none; color:#d9e2ee; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap h1 { font-size:clamp(30px,5vw,46px); line-height:1.15; letter-spacing:-.035em; margin:20px 0 30px; color:#f5f6ff; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap h2 { font-size:23px; margin:32px 0 14px; color:#f5f6ff; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap p,
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap li { font-size:16px; line-height:1.75; color:#b9bfd6; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap a { color:#bdadfa; text-underline-offset:4px; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap .card { background:#191c2a; border:1px solid var(--shell-line); border-radius:22px; box-shadow:none; }
-html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap .gdt-form { max-width:680px; margin:0 auto; padding:28px; }
-html.lup-backend-ui .gdt-form .card-header,html.lup-backend-ui .gdt-form .card-body { background:none; border:0; padding:12px; }
-html.lup-backend-ui .gdt-form .card-header::before { display:none; }
-html.lup-backend-ui .gdt-form .card-title { font-size:30px; letter-spacing:-.03em; color:#f4f3ff; }
-html.lup-backend-ui .gdt-form label { font-size:13px; line-height:1.5; color:#c0cbd9; text-transform:none; letter-spacing:0; }
-html.lup-backend-ui .gdt-form input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]),
-html.lup-backend-ui .gdt-form textarea,html.lup-backend-ui .gdt-form select { min-height:48px; background:#111421; color:#f3f3ff; border:1px solid #75829155; border-radius:12px; box-shadow:none; font-size:16px; }
-html.lup-backend-ui .gdt-form .gdt-submit { background:none; border:0; box-shadow:none; padding:0; }
-html.lup-backend-ui .gdt-form input[type=submit],html.lup-backend-ui .gdt-form button[type=submit] { width:100%; min-height:48px; padding:12px 20px; background:linear-gradient(110deg,#378bd3,#2b9df4); border:1px solid #b7adf64d; border-radius:12px; color:white; font-size:15px; }
-html.lup-backend-ui .gdt-form .gdt-checkbox { min-height:44px; }
-html.lup-backend-ui .gdt-table,html.lup-backend-ui table { color:#d7e0ec; border-color:#a0b7d42b; }
-html.lup-backend-ui .gdt-error,html.lup-backend-ui .alert-danger { color:#ffd4dd; background:#48243477; border-color:#d7889d55; }
-html.lup-backend-ui body > footer { background:#10161d; border:0; }
-html.lup-backend-ui #bottom { justify-content:center; gap:20px; padding:22px; }
-html.lup-backend-ui #bottom > .gdt-link a { display:inline-flex; align-items:center; min-height:44px; font-size:13px; color:#aeb4d0; }
+html.lup-backend-ui #sidebar-wrapper #leftnav .gdt-link { display:block; margin:0; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a { display:flex; align-items:center; gap:12px; min-height:52px; padding:12px 14px; border:1px solid transparent; border-radius:14px; background:none; color:var(--shell-text); font:500 14px/1.4 Roboto,'Segoe UI',sans-serif; text-decoration:none; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a::before,html.lup-backend-ui #sidebar-wrapper #leftnav a::after { display:none; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a[aria-current=page] { border-color:#bce8fa33; background:#bce8fa14; box-shadow:inset 3px 0 var(--shell-accent); }
+html.lup-backend-ui #sidebar-wrapper #leftnav a:hover { background:#bce8fa10; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a .gdo-icon { display:grid; place-items:center; flex:none; width:32px; height:32px; color:var(--shell-accent); background:#bce8fa08; border:1px solid #bce8fa16; border-radius:10px; }
+html.lup-backend-ui #sidebar-wrapper #leftnav a i { background:none; color:inherit; font-size:20px; transform:none; }
+html.lup-backend-ui .lup-drawer-languages { margin-top:auto; padding:16px 22px; border-top:1px solid var(--shell-line); }
+html.lup-backend-ui .lup-drawer-languages .gdo-lang-switch { display:flex; flex-wrap:wrap; gap:8px; padding:0; background:none; border:0; }
+html.lup-backend-ui .lup-drawer-languages a { display:grid; place-items:center; min-width:44px; min-height:44px; border-radius:12px; background:#bce8fa08; }
+html.lup-backend-ui .lup-menu-shade { position:fixed; inset:0; z-index:1050; background:#050f2299; border:0; padding:0; }
+html.lup-backend-ui .lup-menu-shade[hidden] { display:none; }
+
+/* Match the legacy theme’s page ID once, so page-specific skins cannot
+   change the shared header when their deferred page marker is applied. */
+html.lup-backend-ui body.lup-backend #page-content-wrapper > nav.lup-shell-header {
+ position:relative; display:block; z-index:1045; isolation:isolate;
+ min-height:72px; padding:0; border:0; border-bottom:1px solid var(--shell-line);
+ background:linear-gradient(115deg,#1e394fe8,#102136ef); box-shadow:var(--shell-highlight);
+ backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+}
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header > .container-fluid { position:relative; display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:16px; width:100%; min-height:72px; padding:12px 24px; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header .navbar-brand { display:flex; justify-content:center; position:static; grid-column:2; grid-row:1; width:auto; min-width:0; padding:0; margin:0; transform:none; background:none; border:0; box-shadow:none; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header .lup-shell-brand { display:block; padding:0; color:var(--shell-text); font:400 28px/1 Ubuntu,'Segoe UI',sans-serif; letter-spacing:-.05em; text-decoration:none; }
+html.lup-backend-ui #page-content-wrapper nav.lup-shell-header .lup-shell-brand span { color:var(--shell-accent); font-weight:700; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header :is(#sidebarToggle,.navbar-toggler) {
+ display:grid; place-items:center; width:44px; height:44px; min-width:44px; min-height:44px;
+ align-self:center; inset:auto; padding:0; margin:0; border:1px solid var(--shell-line); border-radius:14px;
+ background:#bce8fa09; color:var(--shell-accent); box-shadow:var(--shell-highlight);
+ filter:none; transform:none; transition:background-color 140ms ease,border-color 140ms ease;
+}
+html.lup-backend-ui #page-content-wrapper nav.lup-shell-header #sidebarToggle { grid-column:1; grid-row:1; }
+html.lup-backend-ui #page-content-wrapper nav.lup-shell-header .navbar-toggler { grid-column:3; grid-row:1; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header :is(#sidebarToggle,.navbar-toggler)::before,html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header :is(#sidebarToggle,.navbar-toggler)::after { display:none; content:none; }
+html.lup-backend-ui #page-content-wrapper nav.lup-shell-header :is(#sidebarToggle,.navbar-toggler) svg { display:block; width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header :is(#sidebarToggle,.navbar-toggler):is(:hover,[aria-expanded=true]) { background:#bce8fa1a; border-color:#bce8fa50; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header #top[hidden] { display:none; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header #top.lup-context-nav { position:static; display:flex; flex-wrap:wrap; justify-content:center; gap:6px; width:100%; max-width:none; padding:8px 20px 12px; margin:0; border:0; border-top:1px solid var(--shell-line); border-radius:0; background:none; }
+html.lup-backend-ui #page-content-wrapper nav.lup-shell-header #top.lup-context-nav :is(.gdt-bar,.gdt-container,.gdt-menu) { display:contents; }
+html.lup-backend-ui #page-content-wrapper nav.lup-shell-header #top.lup-context-nav .gdt-link { display:block; flex:0 1 auto; min-width:0; padding:0; margin:0; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header #top.lup-context-nav a { display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:10px 14px; margin:0; border:1px solid transparent; border-radius:12px; background:none; color:var(--shell-muted); font:500 14px/1.4 Roboto,'Segoe UI',sans-serif; text-decoration:none; white-space:normal; }
+html.lup-backend-ui #page-content-wrapper nav.lup-shell-header #top.lup-context-nav a::before,html.lup-backend-ui #page-content-wrapper nav.lup-shell-header #top.lup-context-nav a::after { display:none; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header #top.lup-context-nav a:is(:hover,[aria-current=page]) { color:var(--shell-text); background:#bce8fa12; border-color:var(--shell-line); }
+
+/* Account links keep their real destinations and permissions. */
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent {
+ position:absolute; inset:calc(100% + 8px) 16px auto auto; z-index:1040;
+ width:min(340px,calc(100% - 32px)); max-height:calc(100dvh - 112px);
+ margin:0; padding:12px; overflow:auto; overscroll-behavior:auto;
+ border:1px solid #bce8fa33; border-radius:22px; background:linear-gradient(155deg,#203e56f5,#102136fa);
+ box-shadow:var(--shell-highlight),0 20px 50px #030c2066; transform:none;
+}
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent.collapse:not(.show) { display:none; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent::before { display:none; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent .lup-account-title { padding:10px 12px 16px; margin-bottom:6px; border-bottom:1px solid var(--shell-line); color:var(--shell-muted); font-size:12px; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent .navbar-nav { display:flex; flex-direction:column; align-items:stretch; gap:3px; width:100%; padding:0; margin:0; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent :is(.nav-item,.nav-link,.gdt-container,.gdt-menu) { display:contents; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent .gdt-link { display:block; width:100%; padding:0; margin:0; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent a {
+ display:flex; align-items:center; justify-content:flex-start; gap:12px;
+ width:100%; max-width:none; min-width:0; min-height:48px; padding:12px;
+ border:1px solid transparent; border-radius:12px; background:none; box-shadow:none;
+ color:var(--shell-text); font:500 14px/1.4 Roboto,'Segoe UI',sans-serif;
+ white-space:normal; text-decoration:none; text-transform:none; transform:none;
+}
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent.show a::before,html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent.show a::after { content:none; display:none; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent a > .gdo-icon { display:grid; place-items:center; width:24px; height:24px; flex:none; padding:0; margin:0; background:none; border:0; box-shadow:none; color:var(--shell-accent); font-size:18px; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent a > .gdo-icon i { display:block; position:static; color:inherit; font-size:inherit; background:none; transform:none; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent .gdt-avatar { display:block; width:28px; height:28px; flex:none; margin:0; border:0; border-radius:50%; box-shadow:none; overflow:hidden; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent .gdt-avatar img { width:100%; height:100%; object-fit:cover; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent .gdt-nickname { font:inherit; color:inherit; }
+html.lup-backend-ui #page-content-wrapper #navbarSupportedContent .gdt-nickname::after { display:none; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent a:is(:hover,:focus-visible) { background:#bce8fa12; border-color:var(--shell-line); transform:none; }
+html.lup-backend-ui :is(a,button,input,select,textarea,[tabindex]):focus-visible { outline:2px solid var(--shell-accent); outline-offset:3px; }
+html.lup-backend-ui body > footer { background:var(--shell-bg); border:0; }
+html.lup-backend-ui #bottom { display:flex; flex-wrap:wrap; justify-content:center; gap:12px 24px; padding:24px; }
+html.lup-backend-ui #bottom a { display:inline-flex; align-items:center; min-height:44px; padding:8px 0; color:var(--shell-muted); font-size:13px; text-underline-offset:4px; }
 html.lup-backend-ui #gdo_dsgvo_panel { position:relative; z-index:1100; }
-html.lup-backend-ui #gdo_dsgvo_panel .gdo_dsgvo_info { background:#191c2af5; border:1px solid #a0b7d449; border-radius:20px; color:#dee6f0; max-width:calc(100vw - 28px); max-height:80dvh; overflow:auto; }
+html.lup-backend-ui #gdo_dsgvo_panel .gdo_dsgvo_info { background:#152c42fa; border:1px solid var(--shell-line); border-radius:22px; color:var(--shell-text); max-width:calc(100vw - 28px); max-height:80dvh; overflow:auto; }
 html.lup-backend-ui #gdo_dsgvo_panel .gdo_dsgvo_info p { font-size:14px; line-height:1.6; }
-html.lup-backend-ui #gdo-dsgvo-accept-button { min-height:44px; display:inline-flex; align-items:center; padding:12px 20px; background:linear-gradient(110deg,#378bd3,#2b9df4); border-radius:12px; color:#fff; }
-@media(max-width:760px) {
- html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap { padding:28px 16px 44px; }
- html.lup-backend-ui body:not(.lup-arrival-active) #content-wrap .gdt-form { padding:18px 8px; }
- html.lup-backend-ui .gdt-form .card-title { font-size:27px; }
- html.lup-backend-ui .gdt-form .card-body { padding:10px; }
- html.lup-backend-ui #content-wrap .gdt-table { max-width:100%; overflow:auto; }
+html.lup-backend-ui #gdo-dsgvo-accept-button { display:inline-flex; align-items:center; min-height:44px; padding:12px 20px; border:1px solid var(--shell-line); border-radius:12px; background:#bce8fa; color:#102136; text-decoration:none; }
+@media(max-width:600px) {
+ html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header > .container-fluid { gap:12px; min-height:68px; padding:10px 16px; }
+ html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header #top.lup-context-nav { padding:8px 12px; }
+ html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header #top.lup-context-nav .gdt-link { flex:1 1 120px; }
+ html.lup-backend-ui #content-wrap .gdo-logs-columns { grid-template-columns:minmax(0,1fr); }
+ html.lup-backend-ui body.lup-backend #content-wrap dl { grid-template-columns:minmax(0,1fr); }
 }
-@media(prefers-reduced-motion:reduce) { html.lup-backend-ui #sidebar-wrapper,html.lup-backend-ui #leftnav i { transition:none; } }
-/* Override earlier, more specific backend experiments at their actual scope. */
-html.lup-backend-ui body.lup-backend #page-content-wrapper > nav.navbar > .container-fluid { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; gap:12px; align-items:center; padding:10px 16px; }
-html.lup-backend-ui body.lup-backend .navbar-brand { position:static; grid-column:2; grid-row:1; width:auto; margin:0; transform:none; justify-self:center; }
-html.lup-backend-ui body.lup-backend .navbar-toggler { grid-column:3; grid-row:1; }
-html.lup-backend-ui body.lup-backend #navbarSupportedContent { grid-column:1/-1; grid-row:2; width:100%; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form form,
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .gdt-form-inner,
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .card-header,
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .card-footer { background:none; box-shadow:none; border:0; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions > .gdt-container { display:flex; flex-wrap:wrap; align-items:center; gap:16px; padding:0; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions .gdt-submit { flex:1 0 100%; display:block; padding:0; margin:0; min-height:0; background:none; border:0; box-shadow:none; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-submit > .gdo-icon { display:none; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-submit input { display:block; position:static; transform:none; width:100%; margin:0; padding:14px 20px; text-align:center; background:linear-gradient(110deg,#378bd3,#2b9df4); border-radius:12px; }
-html.lup-backend-ui body.lup-backend #content-wrap .inner-form-input > .gdo-icon { color:#a1b8d4; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions .gdt-button,
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions .gdt-link { flex:1 1 140px; padding:0; background:none; border:0; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-actions a { display:inline-flex; align-items:center; min-height:44px; font-size:13px; line-height:1.5; gap:8px; }
-
-/* Account/view popover: one readable list, shared by signed-in backend pages. */
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) {
- position:absolute; inset:calc(100% + 8px) 12px auto auto;
- width:min(340px,calc(100vw - 24px)); max-height:calc(100dvh - 110px);
- overflow:auto; overscroll-behavior:contain; padding:16px; margin:0;
- background:#1b2430; background-image:none; backdrop-filter:none;
- border:1px solid #a1b8d536; border-radius:20px;
- box-shadow:0 18px 48px #05071066; z-index:1040;
+@media(prefers-reduced-motion:reduce) {
+ html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper[data-lup-animated],html.lup-backend-ui #page-content-wrapper #navbarSupportedContent.collapsing { transition:none; }
 }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing)::before {
- content:'Konto & Bereiche'; display:block; padding:4px 12px 14px;
- color:#b3c3d7; font:500 12px/1.4 Ubuntu,'Segoe UI',sans-serif;
- letter-spacing:.025em; text-transform:none; border-bottom:1px solid #a1b4cb20;
+@media(forced-colors:active) {
+ html.lup-backend-ui :is(.lup-menu-close,.lup-shell-header button,#sidebar-wrapper,#navbarSupportedContent) { border:1px solid ButtonText; }
 }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .navbar-nav {
- display:flex; flex-direction:column; gap:2px;
- width:100%; padding:8px 0 0; margin:0;
-}
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .nav-item,
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .nav-item > .nav-link,
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-container,
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-menu { display:contents; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-link { display:block; width:100%; margin:0; padding:0; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a {
- display:flex; align-items:center; justify-content:space-between;
- gap:12px; width:100%; min-height:46px; padding:11px 12px;
- border:0; border-radius:10px; background:transparent; box-shadow:none;
- color:#edf2f8; font-size:14px; font-weight:500; line-height:1.4;
- white-space:normal; text-decoration:none; text-transform:none;
-}
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a::before,
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a > .gdo-icon { display:none; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a::after { content:'›'; position:static; display:block; border:0; background:none; color:#96a6ba; font:400 20px/1 sans-serif; margin-left:auto; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a:hover,
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a:focus-visible { background:#a0c4ef16; color:#fff; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-nickname { font-size:14px; color:inherit; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) { transform:none; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .navbar-nav,
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) .gdt-link,
-html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent:is(.show, .collapsing) a { max-width:none; flex-basis:auto; align-self:stretch; box-sizing:border-box; }
-
-/* Backend review: isolate navigation above content; keep subnavigation in flow. */
-html.lup-backend-ui body.lup-backend #page-content-wrapper > nav.navbar { position:relative; z-index:1045; isolation:isolate; }
-html.lup-backend-ui body.lup-backend #content-wrap { position:relative; z-index:0; min-width:0; overflow-wrap:anywhere; }
-html.lup-backend-ui body.lup-backend #content-wrap > * { min-width:0; max-width:100%; }
-html.lup-backend-ui body.lup-backend #content-wrap .card { margin-bottom:18px; }
-html.lup-backend-ui body.lup-backend #content-wrap .card-body,
-html.lup-backend-ui body.lup-backend #content-wrap .card-header { background:transparent; color:#ebf0f7; }
-html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav { display:flex; flex-wrap:wrap; gap:8px; width:100%; padding:0; margin:0; position:static; background:none; border:0; }
-html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav .gdt-link { flex:1 1 145px; margin:0; min-width:0; }
-html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a { display:flex; align-items:center; justify-content:center; gap:8px; min-height:46px; padding:10px 12px; border:1px solid #a3bedf29; border-radius:12px; background:#a0c1e909; color:#c0cddd; text-decoration:none; font-size:13px; line-height:1.4; }
-html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a[aria-current=page] { background:#8ab7ee24; border-color:#8ab7ee66; color:#f3ecff; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form-fields > * { margin-bottom:22px; min-width:0; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form label { display:block; margin-bottom:9px; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form .card-title { line-height:1.25; }
-html.lup-backend-ui .lup-table-scroll { width:100%; max-width:100%; overflow-x:auto; overflow-y:visible; overscroll-behavior-x:contain; overscroll-behavior-y:auto; border-radius:14px; }
-html.lup-backend-ui .lup-table-scroll table { margin:0; }
-html.lup-backend-ui #content-wrap dl { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:10px 14px; }
-html.lup-backend-ui #content-wrap dt,html.lup-backend-ui #content-wrap dd { min-width:0; max-width:100%; margin:0; white-space:normal; overflow-wrap:anywhere; }
 /* Keep the editor toolbar on one scrollable row so it cannot cover text. */
-html.lup-backend-ui #content-wrap .editormd { border:1px solid #75829155; border-radius:12px; background:#111421; }
-html.lup-backend-ui #content-wrap .editormd-toolbar { height:38px; min-height:38px; overflow-x:auto; overflow-y:hidden; background:#24283c; border-color:#75829155; z-index:12; }
+html.lup-backend-ui #content-wrap .editormd { border:1px solid #75829155; border-radius:12px; background:var(--shell-bg); }
+html.lup-backend-ui #content-wrap .editormd-toolbar { height:38px; min-height:38px; overflow-x:auto; overflow-y:hidden; background:var(--shell-raised); border-color:#75829155; z-index:12; }
 html.lup-backend-ui #content-wrap .editormd-menu { display:flex; flex-wrap:nowrap; width:max-content; }
 html.lup-backend-ui #content-wrap .editormd-menu > li { flex:none; }
 html.lup-backend-ui #content-wrap .editormd-menu a { min-width:32px; height:32px; color:#c9daef; }
 html.lup-backend-ui #content-wrap .CodeMirror,html.lup-backend-ui #content-wrap .CodeMirror-gutters,
-html.lup-backend-ui #content-wrap .editormd-preview { background:#111421; color:#e2e9f1; border-color:#75829155; }
+html.lup-backend-ui #content-wrap .editormd-preview { background:var(--shell-bg); color:#e2e9f1; border-color:#75829155; }
 html.lup-backend-ui #content-wrap .CodeMirror { margin-top:38px; }
 html.lup-backend-ui #content-wrap .CodeMirror-cursor { border-left-color:#fff; }
 html.lup-backend-ui #content-wrap .gdo-logs-columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:24px; }
@@ -157,23 +144,9 @@ html.lup-backend-ui #content-wrap .gdo-logs-files ul { padding:0; list-style:non
 html.lup-backend-ui #content-wrap .gdo-logs-files li a { display:block; padding:10px 0; border-bottom:1px solid #a0b7d423; font-size:13px; }
 html.lup-backend-ui #content-wrap .gdo-logs-search { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
 html.lup-backend-ui #content-wrap .gdo-logs-search label { flex-basis:100%; }
-html.lup-backend-ui #content-wrap .gdo-logs input { min-width:0; max-width:100%; min-height:44px; padding:8px 12px; border:1px solid #75829155; border-radius:10px; background:#171b2b; color:#eee; }
+html.lup-backend-ui #content-wrap .gdo-logs input { min-width:0; max-width:100%; min-height:44px; padding:8px 12px; border:1px solid #75829155; border-radius:10px; background:var(--shell-panel); color:#eee; }
 html.lup-backend-ui #content-wrap .gdo-logs-content { max-width:100%; overflow:auto; }
-/* Sidebar: one consistent rhythm, clear current page, quiet icons. */
-html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper { background:#17202b; border-right-color:#a3bedf33; }
-html.lup-backend-ui .lup-drawer-head { padding:30px 24px 24px; border-bottom:1px solid #a3bedf20; }
-html.lup-backend-ui .lup-drawer-head b { font-size:34px; }
-html.lup-backend-ui #sidebar-wrapper #leftnav { padding:16px 12px; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a { min-height:50px; border-radius:12px; padding:10px 14px; }
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a[aria-current=page] { background:#94bae921; border-color:#a1c3ed45; }
-html.lup-backend-ui #sidebar-wrapper #leftnav a .gdo-icon { width:34px; height:34px; background:#a0bada10; }
-@media(max-width:760px) {
- html.lup-backend-ui #content-wrap .gdo-logs-columns { grid-template-columns:minmax(0,1fr); }
- html.lup-backend-ui body.lup-backend #content-wrap dl { grid-template-columns:minmax(0,1fr); }
- html.lup-backend-ui #content-wrap dd { padding-bottom:10px; }
- html.lup-backend-ui #content-wrap .editormd .CodeMirror { width:100%; }
- html.lup-backend-ui #content-wrap .editormd-preview { top:38px; width:100%; z-index:11; }
-}
+
 html.lup-backend-ui #content-wrap .gdt-card-middle { min-width:0; display:block; }
 html.lup-backend-ui #content-wrap .gdt-card-fields { width:100%; min-width:0; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); }
 html.lup-backend-ui #content-wrap .gdt-card-fields > * { min-width:0; max-width:100%; overflow-wrap:anywhere; white-space:normal; }
@@ -181,73 +154,40 @@ html.lup-backend-ui #content-wrap .CodeMirror,
 html.lup-backend-ui #content-wrap .CodeMirror-scroll,
 html.lup-backend-ui #content-wrap .CodeMirror-gutters,
 html.lup-backend-ui #content-wrap .editormd-preview,
-html.lup-backend-ui #content-wrap .editormd-preview-container { background:#111421; color:#e2e9f1; }
+html.lup-backend-ui #content-wrap .editormd-preview-container { background:var(--shell-bg); color:#e2e9f1; }
 html.lup-backend-ui #content-wrap .gdo-logs-search button { min-height:44px; padding:8px 16px; border:1px solid #a1c3ed45; border-radius:10px; color:#eee9ff; background:#36475c; }
 @media(max-width:760px) {
  html.lup-backend-ui #content-wrap .gdt-card-fields { grid-template-columns:minmax(0,1fr); gap:6px; }
  html.lup-backend-ui #content-wrap .gdt-card-fields > * { grid-column:1; text-align:left; }
  html.lup-backend-ui #content-wrap .gdt-card-fields label { margin-top:12px; color:#aebccc; font-size:12px; }
 }
-html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper { overflow-x:hidden; }
-html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper::before,
-html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper::after { display:none; }
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav { min-width:0; max-width:100%; box-sizing:border-box; }
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav::before { content:'ENTDECKEN'; display:block; padding:10px 14px 12px; font-size:10px; letter-spacing:.14em; color:#8b99aa; }
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a,
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a span:not(.gdo-icon) { font-size:14px; font-weight:500; color:#d3dce8; }
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a::before,
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a::after { display:none; }
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a[aria-current=page] { box-shadow:inset 3px 0 #94bcee; }
-html.lup-backend-ui body.lup-backend #page-content-wrapper .navbar-toggler { display:block; }
-html.lup-backend-ui body.lup-backend #navbarSupportedContent.collapse:not(.show) { display:none; }
-html.lup-backend-ui body.lup-backend #content-wrap .gdt-form > form { max-height:none; height:auto; overflow:visible; }
-html.lup-backend-ui #content-wrap .CodeMirror-activeline-background { background:#b6a5f51a; }
-/* Non-modal notice: location permission failures do not trap table scrolling. */
-html.lup-backend-ui .lup-location-status {display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;margin:0 0 20px;border:1px solid var(--shell-line);border-radius:12px;background:var(--shell-panel);color:var(--shell-text);font-size:14px;}
-html.lup-backend-ui .lup-location-status span {flex:1 1 240px;}
-html.lup-backend-ui .lup-location-status button {padding:8px 12px;border:1px solid var(--shell-line);border-radius:8px;background:#b6a6ff15;color:inherit;cursor:pointer;}
 
-/* App-aligned navigation: one blue glass drawer, generous touch targets and
-   its own scroll area, with no permanent desktop gutter. */
-html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {
- inset:12px auto 12px 12px;
- width:min(328px,calc(100vw - 24px));
- height:calc(100dvh - 24px);
- min-height:0;
- max-height:calc(100dvh - 24px);
- box-sizing:border-box;
- border:1px solid #a8d7f32b;
- border-radius:26px;
- background:linear-gradient(155deg,#233b51f5,#101e32fa 66%);
- box-shadow:0 20px 70px #030b2280,inset 0 1px 0 #d5edff20;
- transform:translateX(calc(-100% - 24px));
- overscroll-behavior:contain;
- padding-top:env(safe-area-inset-top);
- padding-bottom:env(safe-area-inset-bottom);
-}
-html.lup-backend-ui body.lup-backend.lup-arrival-menu-open #wrapper #sidebar-wrapper {transform:translateX(0);}
-html.lup-backend-ui .lup-drawer-head {padding:26px 22px 24px;border-bottom:1px solid #a8d7f31c;}
-html.lup-backend-ui .lup-drawer-head small {color:#afc5d9;letter-spacing:.025em;}
-html.lup-backend-ui .lup-menu-close {background:#b5ddff0a;border-color:#b5ddff29;}
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav {padding:16px 12px;}
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav > li a {min-height:54px;margin:2px 0;border-radius:15px;padding:12px 14px;}
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a[aria-current=page] {
- background:linear-gradient(110deg,#acdfff26,#81c8ef0b);
- border-color:#b4e4ff33;box-shadow:inset 3px 0 #9fdaff;
-}
-html.lup-backend-ui body.lup-backend #sidebar-wrapper #leftnav a .gdo-icon {width:34px;height:34px;background:#9bcfff0d;color:#b3dfff;}
-html.lup-backend-ui .lup-drawer-languages {padding:18px 22px 20px;background:#0d1a291f;}
-html.lup-backend-ui #page-content-wrapper > .navbar {padding-block:10px;min-height:68px;align-items:center;}
-html.lup-backend-ui #sidebarToggle,html.lup-backend-ui #page-content-wrapper .navbar-toggler {
- display:grid;place-items:center;min-width:44px;min-height:44px;
- padding:10px;border:1px solid #acdfff23;border-radius:14px;
- background:#b9e4ff08;color:#cee9ff;box-shadow:none;
-}
-html.lup-backend-ui .lup-menu-shade {background:#060f1b8c;}
-html.lup-backend-ui #content-wrap .lup-data-table th {white-space:nowrap;}
-html.lup-backend-ui #content-wrap .lup-data-table td {vertical-align:middle;}
-html.lup-backend-ui #content-wrap .lup-data-table tbody tr:hover td {background:#243b53;}
-@media(prefers-reduced-motion:reduce) {
- html.lup-backend-ui body #wrapper #sidebar-wrapper {transition:none;}
- html.lup-backend-ui #sidebar-wrapper #leftnav a i {transition:none;}
-}
+/* App drawer geometry and scroll ownership. */
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {inset:0 auto 0 0;height:100dvh;max-height:100dvh;width:328px;max-width:calc(100vw - 24px);border-left:0;border-radius:0 30px 30px 0;overflow:hidden;background:radial-gradient(ellipse at 0 16%,#4894c51c,transparent 58%),linear-gradient(155deg,#152c42e6,#102136e8);box-shadow:inset -1px 0 1px #e5f7ff40,inset 0 1px 1px #eefbff30,18px 0 54px #020b203d;}
+html.lup-backend-ui .lup-drawer-head {min-height:88px;padding:18px 22px;border:0;}
+html.lup-backend-ui .lup-drawer-head b {font:500 29px/1 Ubuntu,Roboto,sans-serif;letter-spacing:-1.2px;}
+html.lup-backend-ui .lup-drawer-head b span {font-weight:500;}
+html.lup-backend-ui .lup-drawer-head small {font-size:11px;letter-spacing:.02em;}
+html.lup-backend-ui .lup-drawer-scroll {flex:1 1 0%;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:#a9dfff40 transparent;}
+html.lup-backend-ui .lup-drawer-user {display:flex;align-items:center;gap:13px;margin:2px 18px 18px;padding:15px 13px;border:1px solid #daf0ff12;border-radius:23px;background:#eaf9ff05;box-shadow:inset 1px 1px 1px #f5fdff40,inset -1px -1px 1px #c8eafc1f;text-decoration:none;color:#eef9ff;}
+html.lup-backend-ui .lup-drawer-user > :is(img,i) {width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;font-size:36px;color:#bce8fa;}
+html.lup-backend-ui .lup-drawer-user div {min-width:0;}
+html.lup-backend-ui .lup-drawer-user strong {display:block;font:500 16px/1.3 Ubuntu,Roboto,sans-serif;overflow-wrap:anywhere;}
+html.lup-backend-ui .lup-drawer-user span {display:block;margin-top:5px;color:#a9c0d2;font-size:12px;}
+html.lup-backend-ui .lup-drawer-section {margin:20px 28px 7px;color:#9cb7cb;font:500 10px/1.5 Roboto,sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) {display:block;flex:none;padding:0 16px;margin:0;list-style:none;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) li {padding:0;margin:3px 0;border:0;background:none;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a {display:flex;align-items:center;gap:12px;min-height:52px;padding:0 12px;border:1px solid transparent;border-radius:16px;background:none;color:#dfedf6;font:400 14px/1.45 Roboto,Arial,sans-serif;text-decoration:none;box-shadow:none;white-space:normal;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a:is(:hover,:focus-visible,[aria-current=page]) {background:#bce8fa0a;border-color:#daf0ff24;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a[aria-current=page] {box-shadow:inset 2px 0 #bce8fa99;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a .gdo-icon {display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border:0;border-radius:12px;background:none;box-shadow:none;color:var(--nav-tone,#bce8fa);}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a i {color:inherit;font-size:23px;}
+/* clip does not create the hidden/auto nested scrolling box that overflow-x:hidden does. */
+html.lup-backend-ui body.lup-backend #wrapper {overflow-x:clip;overflow-y:visible;}
+/* The account popup owns vertical touch scrolling, independently of page gestures. */
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent {touch-action:pan-y;overscroll-behavior-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#a9dfff55 transparent;}
+
+/* The legacy Bootstrap drawer restores sb-sidenav-toggled from storage.
+   Only the current LinkUUp drawer may lock page scrolling. */
+html.lup-backend-ui body.lup-backend {overflow:visible;}
+html.lup-backend-ui body.lup-backend.lup-arrival-menu-open {overflow:hidden;}
