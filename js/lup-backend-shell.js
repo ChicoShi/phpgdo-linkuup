@@ -1,7 +1,8 @@
 /* One navigation controller for the whole LinkUUp backend. */
-document.documentElement.classList.add('lup-backend-ui');
+// The scoped LinkUUp layout supplies its marker before the first paint.
 (() => {
     'use strict';
+    if (!document.documentElement.classList.contains('lup-backend-ui')) return;
     // Keep the framework's real forms, field names, ACL controls and submit handlers.
     // Only their presentation changes; a non-JS page retains its original accordions.
     const enhanceAccountSettings = (content, de) => {
@@ -118,6 +119,8 @@ document.documentElement.classList.add('lup-backend-ui');
             [...label.childNodes].filter(node=>node.nodeType===Node.TEXT_NODE).forEach(node=>node.remove());
             label.prepend(document.createTextNode(text));
         });
+    };
+    const enhanceEditors = (content) => {
         // The legacy Markdown editor starts split in half, even on a phone.
         // Use its own preview toggle once; editing and the optional preview remain intact.
         content.querySelectorAll('.wysiwyg.gdt-editor-markdown').forEach(editor => {
@@ -125,7 +128,11 @@ document.documentElement.classList.add('lup-backend-ui');
                 const toggle = editor.querySelector('.editormd-toolbar .fa-eye-slash[name="watch"]');
                 if (!toggle) return;
                 observer.disconnect();
-                requestAnimationFrame(()=>toggle.closest('a')?.click());
+                requestAnimationFrame(() => {
+                    const link = toggle.closest('a');
+                    const event = window.editormd?.mouseOrTouch('click', 'touchend') || 'click';
+                    link?.dispatchEvent(new Event(event, {bubbles:true, cancelable:true}));
+                });
             };
             const observer = new MutationObserver(adaptEditor);
             observer.observe(editor,{childList:true,subtree:true});
@@ -136,7 +143,8 @@ document.documentElement.classList.add('lup-backend-ui');
         if (!/\/paymentcredits[.;]ordercredits[.;]/i.test(location.pathname)) return;
         const field=content.querySelector('input[name="co_credits"]');
         const form=field?.closest('.gdt-form');
-        const pricing=window.LUP_CREDITS_PRICING;
+        let pricing;
+        try {pricing=JSON.parse(document.querySelector('meta[name="lup-credits-pricing"]')?.content || 'null');} catch {return;}
         if (!form || !pricing || !Number.isFinite(pricing.unitPrice) || pricing.unitPrice<=0 || !Number.isSafeInteger(pricing.minCredits) || pricing.minCredits<1) return;
         const make=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;};
         let money;
@@ -281,6 +289,24 @@ document.documentElement.classList.add('lup-backend-ui');
         groups.forEach(({section,list})=>{if(list.children.length)fields.append(section);});
         const edit=content.querySelector('.gdt-panel a[href*="account.allsettings"]');
         if(edit){const panel=edit.closest('.card');edit.textContent=de?'Profil bearbeiten':'Edit profile';edit.classList.add('lup-person-edit');card.querySelector('.card-header')?.append(edit);if(panel && panel!==card)panel.remove();}
+    };
+    const enhanceStatistics = content => {
+        const root=content.querySelector('.lup-room-statistics');if(!root)return;
+        const locationSelect=content.querySelector('.lup-statistics-room-select select');
+        locationSelect?.addEventListener('change',()=>{const url=new URL(location.href);url.searchParams.set('room',locationSelect.value);location.assign(url);});
+        const range=root.querySelector('select[name=date]'),start=root.querySelector('input[name=start]'),end=root.querySelector('input[name=end]');
+        if(!range || !start || !end)return;
+        range.setAttribute('aria-label','Zeitraum auswählen');
+        const images=[...root.querySelectorAll('.gdo-jpgraph img')];
+        images.forEach((img,i)=>{img.alt=i?'Nachrichten im ausgewählten Zeitraum':'Besuche im ausgewählten Zeitraum';});
+        const update=()=>{
+            const custom=range.value==='custom';
+            [start,end].forEach(input=>{input.hidden=!custom;input.disabled=!custom;});
+            end.min=start.value;start.max=end.value;
+            if(!range.value || range.value==='0' || (custom&&(!start.value||!end.value||start.value>end.value)))return;
+            images.forEach(img=>{const url=new URL(img.src);url.searchParams.set('date',range.value);url.searchParams.set('start',custom?start.value:'');url.searchParams.set('end',custom?end.value:'');img.src=url.href;});
+        };
+        [range,start,end].forEach(input=>input.addEventListener('change',update));update();
     };
     const ready = () => {
         document.body.classList.add('lup-backend');
@@ -459,10 +485,31 @@ document.documentElement.classList.add('lup-backend-ui');
                 });
             };
             decorateTables();
+            if (/\/payment[.;]orders[.;]/i.test(location.pathname)) {
+                const caption = content.querySelector('.gdo-table-caption');
+                if (caption && caption.textContent.includes('__list_payment_orders')) {
+                    const count = caption.textContent.match(/\[(\d+)\]/)?.[1];
+                    caption.textContent = (de ? 'Bestellungen' : 'Orders') + (count ? ' (' + count + ')' : '');
+                }
+            }
+            if (/\/gallery[.;](gallerylist|show|crud)[.;]/i.test(location.pathname)) {
+                content.classList.add('lup-gallery-page');
+                if (/\/gallery[.;]gallerylist[.;]/i.test(location.pathname)) {
+                    const title = content.querySelector('.gdt-list-title');
+                    if (title && de) title.textContent = title.textContent.replace(/Gallerien/g, 'Galerien').replace(/^1 Galerien$/, '1 Galerie');
+                    const create = content.querySelector('a[href*="gallery.crud"]');
+                    if (create) {
+                        create.classList.add('lup-gallery-create');
+                        if (de) create.childNodes.forEach(n=>{if(n.nodeType===Node.TEXT_NODE)n.textContent=n.textContent.replace('Gallerie','Galerie');});
+                    }
+                }
+            }
             enhanceAccountSettings(content, de);
+            enhanceEditors(content);
             enhanceCredits(content, de);
             enhanceOrders(content, de);
             enhanceProfile(content, de);
+            enhanceStatistics(content);
             const logs=content.querySelector('.gdo-logs');
             if(logs){
                 const head=document.createElement('header');head.className='lup-logs-heading';
@@ -523,6 +570,5 @@ document.documentElement.classList.add('lup-backend-ui');
             if (identity?.firstChild?.nodeType === Node.TEXT_NODE) identity.firstChild.textContent = de ? 'E-Mail oder Nutzername ' : 'Email or username ';
         }
     };
-    const initialize = () => {try {ready();} finally {document.documentElement.classList.remove('lup-shell-pending');}};
-    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initialize) : initialize();
+    document.getElementById('content-wrap') ? ready() : document.addEventListener('DOMContentLoaded', ready, {once:true});
 })();

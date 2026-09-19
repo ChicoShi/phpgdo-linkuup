@@ -82,7 +82,7 @@ html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header 
 html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent {
  position:absolute; inset:calc(100% + 8px) 16px auto auto; z-index:1040;
  width:min(340px,calc(100% - 32px)); max-height:calc(100dvh - 112px);
- margin:0; padding:12px; overflow:auto; overscroll-behavior:contain;
+ margin:0; padding:12px; overflow:auto; overscroll-behavior:auto;
  border:1px solid #bce8fa33; border-radius:22px; background:linear-gradient(155deg,#203e56f5,#102136fa);
  box-shadow:var(--shell-highlight),0 20px 50px #030c2066; transform:none;
 }
@@ -161,13 +161,7 @@ html.lup-backend-ui #content-wrap .gdo-logs-search button { min-height:44px; pad
  html.lup-backend-ui #content-wrap .gdt-card-fields > * { grid-column:1; text-align:left; }
  html.lup-backend-ui #content-wrap .gdt-card-fields label { margin-top:12px; color:#aebccc; font-size:12px; }
 }
-/* The server adds the shell marker in <head>; reserve the final frame before JS. */
-html.lup-backend-ui body:not(.lup-backend) #wrapper #sidebar-wrapper {display:none;}
-html.lup-backend-ui body:not(.lup-backend) #navbarSupportedContent {display:none;}
-html.lup-backend-ui body:not(.lup-backend) #page-content-wrapper > nav.navbar {min-height:72px;}
-/* Avoid displaying the legacy form for a frame while its DOM is enhanced.
-   The controller releases this immediately; a head-script timeout is the fallback. */
-html.lup-backend-ui.lup-shell-pending #wrapper {visibility:hidden;}
+
 /* App drawer geometry and scroll ownership. */
 html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {inset:0 auto 0 0;height:100dvh;max-height:100dvh;width:328px;max-width:calc(100vw - 24px);border-left:0;border-radius:0 30px 30px 0;overflow:hidden;background:radial-gradient(ellipse at 0 16%,#4894c51c,transparent 58%),linear-gradient(155deg,#152c42e6,#102136e8);box-shadow:inset -1px 0 1px #e5f7ff40,inset 0 1px 1px #eefbff30,18px 0 54px #020b203d;}
 html.lup-backend-ui .lup-drawer-head {min-height:88px;padding:18px 22px;border:0;}
@@ -190,3 +184,10 @@ html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-m
 html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a i {color:inherit;font-size:23px;}
 /* clip does not create the hidden/auto nested scrolling box that overflow-x:hidden does. */
 html.lup-backend-ui body.lup-backend #wrapper {overflow-x:clip;overflow-y:visible;}
+/* The account popup owns vertical touch scrolling, independently of page gestures. */
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent {touch-action:pan-y;overscroll-behavior-y:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#a9dfff55 transparent;}
+
+/* The legacy Bootstrap drawer restores sb-sidenav-toggled from storage.
+   Only the current LinkUUp drawer may lock page scrolling. */
+html.lup-backend-ui body.lup-backend {overflow:visible;}
+html.lup-backend-ui body.lup-backend.lup-arrival-menu-open {overflow:hidden;}

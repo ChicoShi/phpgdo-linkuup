@@ -22,7 +22,14 @@ use GDO\LinkUUp\LUP_Room;
 <body class="lup-room-flyer-page">
 	<main class="lup-room-flyer">
 		<section class="lup-room-flyer-sheet">
-			<h1><?=html($room->getName())?></h1>
+			<header class="lup-room-flyer-head">
+                <div class="lup-room-flyer-brand">link<b>uup</b></div>
+                <p><?=t('room_flyer_tagline')?></p>
+            </header>
+            <div class="lup-room-flyer-place">
+                <span class="lup-room-flyer-eyebrow"><?=t('room_flyer_here')?></span>
+                <h1><?=html($room->getName())?></h1>
+            </div>
 			<?php if ($room->getInfo()): ?>
 				<p class="lup-room-flyer-info"><?=html($room->getInfo())?></p>
 			<?php endif; ?>
@@ -31,11 +38,12 @@ use GDO\LinkUUp\LUP_Room;
 			</div>
 			<p class="lup-room-flyer-cta"><?=t('room_flyer_cta')?></p>
 			<p class="lup-room-flyer-copy"><?=t('room_flyer_copy')?></p>
+            <p class="lup-room-flyer-steps"><?=t('room_flyer_steps')?></p>
 			<?php if ($room->getAddress()): ?>
 				<div class="lup-room-flyer-address"><?=$room->displayAddress()?></div>
 			<?php endif; ?>
 		</section>
-		<button class="lup-room-flyer-print" type="button" onclick="window.print()">Drucken (A5)</button>
+		<button class="lup-room-flyer-print" type="button" onclick="window.print()"><?=t('room_flyer_print')?></button>
 	</main>
 </body>
 </html>
