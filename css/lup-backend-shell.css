@@ -99,7 +99,7 @@ html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedConte
  color:var(--shell-text); font:500 14px/1.4 Roboto,'Segoe UI',sans-serif;
  white-space:normal; text-decoration:none; text-transform:none; transform:none;
 }
-html.lup-backend-ui #page-content-wrapper #navbarSupportedContent a::before,html.lup-backend-ui #page-content-wrapper #navbarSupportedContent a::after { display:none; }
+html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent.show a::before,html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent.show a::after { content:none; display:none; }
 html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent a > .gdo-icon { display:grid; place-items:center; width:24px; height:24px; flex:none; padding:0; margin:0; background:none; border:0; box-shadow:none; color:var(--shell-accent); font-size:18px; }
 html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedContent a > .gdo-icon i { display:block; position:static; color:inherit; font-size:inherit; background:none; transform:none; }
 html.lup-backend-ui #page-content-wrapper #navbarSupportedContent .gdt-avatar { display:block; width:28px; height:28px; flex:none; margin:0; border:0; border-radius:50%; box-shadow:none; overflow:hidden; }

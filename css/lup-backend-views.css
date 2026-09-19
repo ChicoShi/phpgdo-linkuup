@@ -132,9 +132,16 @@ html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a { display:
 html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a:is(:hover,[aria-current=page]) { color:var(--shell-text); border-color:var(--shell-line); background:#bce8fa14; }
 html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a::before,html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav a::after { display:none; }
 html.lup-backend-ui body.lup-backend #content-wrap .lup-section-nav .lup-admin-nav-brand { flex:0 0 auto; background:none; border:0; }
-html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action { background:var(--shell-glass); border:1px solid var(--shell-line); border-radius:18px; box-shadow:var(--shell-highlight); transform:none; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-hub { background:var(--shell-glass); border-color:var(--shell-line); box-shadow:var(--shell-highlight); }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-actions { gap:12px; padding:20px; border:0; background:none; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action { min-width:0; min-height:92px; padding:16px; background:var(--shell-glass); border:1px solid var(--shell-line); border-radius:18px; box-shadow:var(--shell-highlight); transform:none; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action :is(span,strong) { color:inherit; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action strong { font-size:15px; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action small { font-size:12px; line-height:1.5; white-space:normal; color:var(--shell-muted); }
 html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action > i { background:#bce8fa0c; color:var(--shell-accent); border:1px solid var(--shell-line); }
-html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action-primary { border-color:#bce8fa50; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action-primary { background:var(--shell-accent); border-color:#d9f3ff60; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action-primary :is(span,strong,small,b,i) { color:#102136; }
+html.lup-backend-ui body.lup-backend #content-wrap .lup-admin-action-primary :is(b,i) { border-color:#10213630; background:#1021360a; }
 html.lup-backend-ui .lup-table-scroll { width:100%; min-width:0; max-width:100%; overflow-x:auto; overflow-y:visible; overscroll-behavior-x:contain; overscroll-behavior-y:auto; border-radius:16px; }
 html.lup-backend-ui #content-wrap dl { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:10px 16px; }
 html.lup-backend-ui #content-wrap :is(dt,dd) { min-width:0; margin:0; white-space:normal; overflow-wrap:anywhere; }
@@ -183,3 +190,9 @@ html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:is(#form,.gdt-form)
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:is(#form,.gdt-form) .gdt-form-actions .gdt-submit { flex:1 0 100%; width:100%; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:is(#form,.gdt-form) .gdt-form-actions :is(.gdt-button,.gdt-link) { flex:1 1 130px; }
 html.lup-backend-ui body.lup-backend #content-wrap .gdt-form:is(#form,.gdt-form) .gdt-form-actions :is(.gdt-button,.gdt-link) a { display:flex; justify-content:center; align-items:center; width:100%; min-height:44px; font-size:13px; text-align:center; }
+
+/* Framework navigation cards need one surface; explanatory text needs breathing room. */
+html.lup-backend-ui body.lup-backend #content-wrap > .card:has(> .card-body > .lup-section-nav:only-child) { border:0; background:none; box-shadow:none; }
+html.lup-backend-ui body.lup-backend #content-wrap > .card > .card-body:has(> .lup-section-nav:only-child) { padding:0; }
+html.lup-backend-ui body.lup-backend #content-wrap > .gdt-panel:not(.gdt-accordeon) { margin:0 0 20px; padding:16px 20px; }
+html.lup-backend-ui body.lup-backend #content-wrap > .gdt-panel:not(.gdt-accordeon) > p:last-child { margin-bottom:0; }
