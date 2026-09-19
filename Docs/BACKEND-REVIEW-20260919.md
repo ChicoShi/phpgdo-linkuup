@@ -35,3 +35,14 @@ PR: https://github.com/gizmore/phpgdo-linkuup/pull/7 (Entwurf).
 - Konflikte mit aktuellem main in Flyer-CSS, Flyer-Template und DE/EN-Dateien
   benötigen eine abgestimmte Auflösung. Kein Main-Merge oder Deployment.
 - App-PR #11 und dessen Tests sind getrennt von diesem Backend-Review.
+
+## Ergänzung 20.09.2026 – Sidebar und Layout
+
+- App-nahe Sidebar: blaue Glasflächen, Profilkarte, Wortmarke, dezente Icons und vereinheitlichte Abstände.
+- Darstellung auf angemeldeten lokalen Bestellseiten bei 320/390/1440 px geprüft. Interner Scrollbereich bewegt sich; Escape schließt das Menü und hebt die Seitensperre auf.
+- Dekorative Ringe überschreiten geometrisch den Drawer; sie werden abgeschnitten und nehmen keine Eingaben entgegen.
+- Layoutzuordnung für Neuigkeiten, Datenschutz, Kontakt und Lizenzen korrigiert; Loginfelder separat optisch angeglichen.
+- PHP-Lint und Diff-Prüfung bestanden. Keine Käufe, Adressspeicherung oder Live-Änderung.
+- Lokaler WebSocket-Protokollfix ist ausdrücklich nicht Teil dieses PR-Updates.
+- Der Adresslink-Fix liegt separat im Payment-Modul und ist nicht Bestandteil dieses LinkUUp-PRs.
+- Bestehende Flyer-/Sprachkonflikte mit upstream/main bleiben offen. Draft bleibt zur menschlichen Prüfung; kein Merge/Deployment.
