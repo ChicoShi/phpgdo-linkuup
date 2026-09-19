@@ -331,6 +331,18 @@ document.documentElement.classList.add('lup-backend-ui');
         closeButton.setAttribute('aria-label', labels.close);
         header.append(brand, closeButton);
         drawer.prepend(header);
+        // Match the app drawer: fixed wordmark, profile card, one scrolling body.
+        const scrollBody=document.createElement('div');scrollBody.className='lup-drawer-scroll';
+        [...drawer.children].filter(node=>node!==header).forEach(node=>scrollBody.append(node));drawer.append(scrollBody);
+        const ownLink=document.querySelector('#navbarSupportedContent a[href*="user.profile"]');
+        if(ownLink){
+            const profile=document.createElement('a');profile.className='lup-drawer-user';profile.href=ownLink.href;
+            const avatar=ownLink.querySelector('img');
+            if(avatar){const picture=avatar.cloneNode(true);picture.removeAttribute('style');picture.alt='';profile.append(picture);}
+            else {const symbol=document.createElement('i');symbol.className='fas fa-user-circle';symbol.setAttribute('aria-hidden','true');profile.append(symbol);}
+            const text=document.createElement('div'),name=document.createElement('strong'),hint=document.createElement('span');
+            name.textContent=ownLink.textContent.trim().replace(/^\[|\]$/g,'');hint.textContent=de?'Dein Profil ansehen':'View your profile';text.append(name,hint);profile.append(text);scrollBody.prepend(profile);
+        }
         const nav = drawer.querySelector('#leftnav');
         const welcome = nav?.querySelector('a[href*="linkuup.welcome"],a[href*="linkuup;welcome"]')?.closest('li');
         if (welcome) nav.prepend(welcome);
@@ -341,8 +353,23 @@ document.documentElement.classList.add('lup-backend-ui');
             languages.setAttribute('aria-label', de ? 'Sprache wählen' : 'Choose language');
             const item = lang.closest('li');
             languages.append(lang);
-            drawer.append(languages);
+            scrollBody.append(languages);
             if (item && !item.textContent.trim()) item.hidden = true;
+        }
+        if(nav){
+            const section=document.createElement('div');section.className='lup-drawer-section';section.textContent=de?'Entdecken':'Discover';nav.before(section);
+            const manage=document.createElement('ul');manage.className='lup-drawer-manage';
+            document.querySelectorAll('#navbarSupportedContent a[href]').forEach(source=>{
+                if(source===ownLink || /admin[.;]|linkuup[.;]main/i.test(source.pathname))return;
+                const item=document.createElement('li'),link=source.cloneNode(true);link.removeAttribute('id');
+                const module=source.pathname.split('/').pop().split(/[.;]/)[0].toLowerCase();
+                const tones={friends:'#edb8cf',paymentcredits:'#e5c88f',account:'#adcaf1',login:'#d5a9b9'};
+                item.style.setProperty('--nav-tone',tones[module]||'#bce8fa');
+                const icon=link.querySelector('i');const icons={friends:'users',account:'cog',paymentcredits:'coins',payment:'receipt',gallery:'images',logs:'history',login:'sign-out-alt'};
+                if(icon && icons[module])icon.className='fas fa-'+icons[module];
+                item.append(link);manage.append(item);
+            });
+            if(manage.children.length){const title=document.createElement('div');title.className='lup-drawer-section';title.textContent=de?'Verwalten':'Manage';nav.after(title,manage);}
         }
         drawer.querySelectorAll('li').forEach(item => {
             if (!item.querySelector('a,button,input,select') && !item.textContent.trim()) item.hidden = true;
@@ -436,6 +463,13 @@ document.documentElement.classList.add('lup-backend-ui');
             enhanceCredits(content, de);
             enhanceOrders(content, de);
             enhanceProfile(content, de);
+            const logs=content.querySelector('.gdo-logs');
+            if(logs){
+                const head=document.createElement('header');head.className='lup-logs-heading';
+                const title=document.createElement('h1'),description=document.createElement('p');
+                title.textContent=de?'Meine Logs':'My logs';description.textContent=de?'Einträge finden, Abläufe nachvollziehen. Wähle eine Datei oder suche nach einem Begriff.':'Find entries and trace activity. Choose a file or search for a term.';
+                head.append(title,description);logs.prepend(head);
+            }
             // Filtered and asynchronously loaded tables need the same treatment.
             let tableFrame=0;
             new MutationObserver(records => {
