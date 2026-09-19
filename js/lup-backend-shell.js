@@ -5,10 +5,38 @@ document.documentElement.classList.add('lup-backend-ui');
     const ready = () => {
         document.body.classList.add('lup-backend');
         const de = (document.documentElement.lang || window.GDO_LANGUAGE || 'de').startsWith('de');
-        const labels = de ? {open:'Menü öffnen',close:'Menü schließen',nav:'Navigation',tag:'Zusammen unterwegs',account:'Konto öffnen'} : {open:'Open menu',close:'Close menu',nav:'Navigation',tag:'Together nearby',account:'Open account menu'};
+        const labels = de ? {open:'Menü öffnen',close:'Menü schließen',nav:'Navigation',tag:'Zusammen unterwegs',account:'Konto öffnen',areas:'Konto & Bereiche',section:'Bereich auswählen'} : {open:'Open menu',close:'Close menu',nav:'Navigation',tag:'Together nearby',account:'Open account menu',areas:'Account & areas',section:'Choose a section'};
         const trigger = document.getElementById('sidebarToggle');
         const drawer = document.getElementById('sidebar-wrapper');
         if (!trigger || !drawer) return;
+        if (drawer.dataset.lupShellReady) return;
+        drawer.dataset.lupShellReady = '1';
+        // Keep the brand and controls fixed; module links get their own row.
+        // Move the existing anchors so permissions, destinations and handlers survive.
+        const topbar = trigger.closest('nav.navbar');
+        const brandSlot = topbar?.querySelector('.navbar-brand');
+        const topLinks = document.getElementById('top');
+        const home = topLinks?.querySelector('a[href*="linkuup.welcome"],a[href*="linkuup;welcome"]');
+        topbar?.classList.add('lup-shell-header');
+        topbar?.classList.remove('bg-light', 'navbar-expand-lg', 'border-bottom');
+        drawer.classList.remove('bg-body-tertiary', 'border-end');
+        if (home && brandSlot) {
+            home.classList.add('lup-shell-brand');
+            home.setAttribute('aria-label', 'LinkUUp');
+            home.innerHTML = 'link<span>uup</span>';
+            brandSlot.append(home);
+        }
+        if (topLinks && brandSlot) {
+            topLinks.querySelectorAll('.gdt-link').forEach(item => {
+                if (!item.querySelector('a,button') && !item.textContent.trim()) item.remove();
+            });
+            if (topLinks.querySelector('a[href]')) {
+                topLinks.classList.add('lup-context-nav');
+                topLinks.setAttribute('aria-label', labels.section);
+                topLinks.setAttribute('role', 'navigation');
+                topbar.append(topLinks);
+            } else topLinks.hidden = true;
+        }
         drawer.setAttribute('aria-label', labels.nav);
         trigger.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h11M4 17h16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
         const header = document.createElement('div');
@@ -24,7 +52,7 @@ document.documentElement.classList.add('lup-backend-ui');
         header.append(brand, closeButton);
         drawer.prepend(header);
         const nav = drawer.querySelector('#leftnav');
-        const welcome = nav?.querySelector('a[href*="linkuup.welcome"]')?.closest('li');
+        const welcome = nav?.querySelector('a[href*="linkuup.welcome"],a[href*="linkuup;welcome"]')?.closest('li');
         if (welcome) nav.prepend(welcome);
         const lang = drawer.querySelector('.gdo-lang-switch');
         if (lang) {
@@ -56,6 +84,10 @@ document.documentElement.classList.add('lup-backend-ui');
         let focusTimer;
         const setOpen = (open, restore = false) => {
             clearTimeout(focusTimer);
+            if (open) {
+                closeAccount();
+                drawer.dataset.lupAnimated = '1';
+            }
             document.body.classList.toggle('lup-arrival-menu-open', open);
             trigger.setAttribute('aria-expanded', String(open));
             trigger.setAttribute('aria-label', open ? labels.close : labels.open);
@@ -96,7 +128,7 @@ document.documentElement.classList.add('lup-backend-ui');
         setOpen(false);
         const content = document.getElementById('content-wrap');
         if (content) {
-            content.querySelectorAll('.gdt-bar').forEach(bar => {
+            content.querySelectorAll('.gdt-bar, .lup-admin-nav').forEach(bar => {
                 if (bar.closest('form,.gdt-form,.gdt-list-item')) return;
                 if (bar.querySelectorAll('a[href]').length > 1) bar.classList.add('lup-section-nav');
             });
@@ -127,6 +159,12 @@ document.documentElement.classList.add('lup-backend-ui');
                 tableFrame=requestAnimationFrame(()=>{tableFrame=0;decorateTables();});
             }).observe(content,{childList:true,subtree:true});
         }
+        document.querySelectorAll('.lup-context-nav a[href],.lup-section-nav a[href]').forEach(link => {
+            const target = new URL(link.href);
+            const current = new URL(location.href);
+            const params = url => [...url.searchParams].filter(([key]) => !['_lang','lang'].includes(key)).sort().toString();
+            if (target.origin === current.origin && target.pathname === current.pathname && params(target) === params(current)) link.setAttribute('aria-current', 'page');
+        });
         const accountPanel=document.getElementById('navbarSupportedContent');
         const closeAccount=()=>window.bootstrap?.Collapse?.getInstance(accountPanel)?.hide();
         document.addEventListener('keydown',e=>{if(e.key==='Escape' && accountPanel?.classList.contains('show')) {closeAccount();document.querySelector('.navbar-toggler')?.focus();}});
@@ -139,6 +177,26 @@ document.documentElement.classList.add('lup-backend-ui');
         window.addEventListener('pageshow',closeAccount);
         const account = document.querySelector('.navbar-toggler');
         account?.setAttribute('aria-label', labels.account);
+        if (account) account.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20v-2a7 7 0 0 1 14 0v2"/></svg>';
+        if (accountPanel) {
+            accountPanel.setAttribute('aria-label', labels.areas);
+            const title = document.createElement('div');
+            title.className = 'lup-account-title';
+            title.textContent = labels.areas;
+            accountPanel.prepend(title);
+            // Give generic framework links a recognisable icon, preserving real avatars.
+            const accountIcons = {register:'fa-user-plus',login:'fa-sign-in-alt',account:'fa-cog',admin:'fa-shield-alt',friends:'fa-users',gallery:'fa-images',logs:'fa-history',payment:'fa-receipt',paymentcredits:'fa-coins',linkuup:'fa-link'};
+            accountPanel.querySelectorAll('a[href]').forEach(link => {
+                const icon = link.querySelector('.gdo-icon .fa-link');
+                const module = new URL(link.href).pathname.split('/').pop().split(/[.;]/)[0].toLowerCase();
+                if (icon && accountIcons[module]) {
+                    const name = /login[.;]logout/i.test(link.pathname) ? 'fa-sign-out-alt' : accountIcons[module];
+                    icon.classList.replace('fa-link', name);
+                    icon.setAttribute('aria-hidden', 'true');
+                }
+            });
+            accountPanel.addEventListener('shown.bs.collapse', () => accountPanel.querySelector('a[href]')?.focus());
+        }
         // Correct labels only on the login view; no form fields or validation change.
         if (/\/login\.form\.html$/i.test(location.pathname)) {
             const heading = document.querySelector('#content-wrap .card-title');

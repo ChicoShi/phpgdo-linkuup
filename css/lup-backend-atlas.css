@@ -1,27 +1,5 @@
-/* Unified local visual refresh: decorative geography, native document flow. */
-html.lup-backend-ui body {
- --shell-bg:#111a2d;--shell-panel:#19273d;--shell-text:#f1f5fc;--shell-muted:#afbed2;--shell-line:#9bcfff24;
- --lup-ink:#f1f5fc;--lup-soft:#afbed2;--lup-blue:#9bcfff;--lup-border:#9bcfff24;
-}
-html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) {
- --view-bg:#111a2d;--view-panel:#19273d;--view-raised:#243651;--view-text:#f1f5fc;--view-muted:#afbed2;--view-accent:#9bcfff;--view-line:#9bcfff24;
-}
-html.lup-backend-ui #wrapper {background:#111a2d;}
-html.lup-backend-ui #page-content-wrapper {
- background: url('../img/backend-city-field.svg?v=2') center top / 1400px auto no-repeat,#111a2d;
-}
-html.lup-backend-ui #page-content-wrapper > .navbar {
- background:#152138f5;border-bottom:1px solid #9bcfff24;min-height:72px;
-}
-html.lup-backend-ui .navbar .navbar-brand {background:none;border:0;box-shadow:none;color:#eff7ff;font-size:18px;letter-spacing:-.035em;}
-html.lup-backend-ui body #wrapper #sidebar-wrapper {
- background:url('../img/backend-city-field.svg?v=2') center bottom / auto 650px no-repeat,#17253c;
- border-right:1px solid #9bcfff30;box-shadow:18px 0 50px #06071066;
-}
-html.lup-backend-ui .lup-drawer-head {padding:32px 24px 26px;border-bottom:1px solid #9bcfff20;}
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a {border-radius:12px;font-size:14px;min-height:50px;}
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a:hover {background:#9bcfff0d;color:#faf7ff;}
-html.lup-backend-ui #sidebar-wrapper #leftnav > li a[aria-current=page] {background:#9bcfff14;border-color:#9bcfff38;color:#d2eaff;box-shadow:inset 3px 0 #75baf4;}
+/* Decorative geography and welcome motion; shared controls live in the shell. */
+html.lup-backend-ui #page-content-wrapper { background:url('../img/backend-city-field.svg?v=2') center top / 1400px auto no-repeat,var(--shell-bg); }
 /* Keep artwork at the edges; typography and controls remain still. */
 body.lup-arrival-refresh .lup-arrival {
  background:url('../img/backend-city-field.svg?v=2') center top / 1500px auto repeat-y,#111a2d;
@@ -38,20 +16,12 @@ body.lup-arrival-refresh .lup-destination.is-selected {border-color:#9bcfff70;ba
 body.lup-arrival-refresh .lup-arrival-invitation {background:linear-gradient(125deg,#7daee013,#88b7b00b);}
 body.lup-arrival-refresh .lup-arrival-footer {background:none;}
 body.lup-arrival-refresh .lup-arrival-footer a {color:#b8c9dc;text-decoration:none;border-bottom:1px solid #9bcfff24;padding-bottom:5px;}
-/* All backend content types share the same surface and spacing. */
-html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap {max-width:1160px;margin-inline:auto;padding:44px 32px 72px;box-sizing:border-box;}
-html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap :is(.card,.gdt-form,.accordion-item) {border-radius:18px;border-color:#9bcfff28;box-shadow:0 10px 32px #09091218;}
-html.lup-backend-ui .gdt-form :is(input:not([type=checkbox]):not([type=radio]):not([type=submit]),textarea,select) {background:#111d32;border-color:#9bcfff35;color:#f1f5fc;}
-html.lup-backend-ui :is(a,button,input,select,textarea):focus-visible {outline:2px solid #b8ddff;outline-offset:3px;}
-html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap th {background:#24354d;}
-html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap td {background:#19273d;}
 @media(max-width:760px){
  html.lup-backend-ui #page-content-wrapper {background-size:850px auto;}
  body.lup-arrival-refresh .lup-arrival {background-size:850px auto;}
  body.lup-arrival-refresh .lup-arrival .lup-arrival-hero {gap:24px;padding:28px 22px 52px;}
  body.lup-arrival-refresh .lup-arrival > section,body.lup-arrival-refresh .lup-arrival > footer {padding-inline:22px;}
  body.lup-arrival-refresh .lup-arrival h1 {font-size:clamp(36px,10vw,48px);}
- html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #content-wrap {padding:28px 18px 48px;}
 }
 /* A single visual language for the route's landing points. */
 body.lup-arrival-refresh .lup-arrival .lup-arrival-actions > a:first-child {background:#b8ddff;color:#14283e;border:1px solid #d4eaff;box-shadow:0 8px 24px #09061230;}
