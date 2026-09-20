@@ -10,6 +10,11 @@ use GDO\User\GDT_User;
 
 class QRForRoom extends \GDO\Core\Method {
 
+    public function isShownInSitemap(): bool
+    {
+        return false;
+    }
+
     public function gdoParameters(): array
     {
         return [

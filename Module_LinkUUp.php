@@ -61,7 +61,7 @@ final class Module_LinkUUp extends GDO_Module
 			'Contact', 'CORS', 'Country',
 			'CSS', 'Currency',
             'DBMS', 'DSGVO',
-			'Favicon', 'Friends', 'Gallery', 'GoogleAuth',
+			'Favicon', 'FontAwesome', 'Friends', 'Gallery', 'GoogleAuth',
 			'Javascript', 'JPGraph', 'JQueryAutocomplete',
 			'Login', 'Logs',
 			'Maps',
@@ -182,12 +182,12 @@ final class Module_LinkUUp extends GDO_Module
 	{
 		return [
 			GDT_Divider::make('div_general'),
-			GDT_String::make('lup_status'),
+			GDT_String::make('lup_status')->icon('info'),
 			GDT_Checkbox::make('lup_profile_outside_visible')->initial('1'),
 
 			GDT_Divider::make('div_location'),
-			GDT_String::make('lup_state'),
-			GDT_String::make('lup_city'),
+			GDT_String::make('lup_state')->icon('country'),
+			GDT_String::make('lup_city')->icon('city'),
 
 			GDT_Divider::make('div_contact'),
             GDT_ACLRelation::make('lup_course_visible')->hidden(),
@@ -201,9 +201,9 @@ final class Module_LinkUUp extends GDO_Module
 
 			GDT_Divider::make('div_habits'),
 			GDT_Pet::make('lup_has_pet'),
-			GDT_Enum::make('lup_drinks')->enumValues('lup_drink_yes', 'lup_drink_sometimes', 'lup_drink_never')->emptyLabel('not_specified'),
-			GDT_Enum::make('lup_smokes')->enumValues('lup_smokes_yes', 'lup_smokes_no_care', 'lup_smokes_no', 'lup_smokes_no_way')->emptyLabel('not_specified'),
-			GDT_Enum::make('lup_sporty')->enumValues('lup_sporty', 'lup_unsporty')->emptyLabel('not_specified'),
+			GDT_Enum::make('lup_drinks')->icon('wine')->enumValues('lup_drink_yes', 'lup_drink_sometimes', 'lup_drink_never')->emptyLabel('not_specified'),
+			GDT_Enum::make('lup_smokes')->icon('smoke')->enumValues('lup_smokes_yes', 'lup_smokes_no_care', 'lup_smokes_no', 'lup_smokes_no_way')->emptyLabel('not_specified'),
+			GDT_Enum::make('lup_sporty')->icon('dumbbell')->enumValues('lup_sporty', 'lup_unsporty')->emptyLabel('not_specified'),
 			GDT_Religion::make('lup_religion'),
 		];
 	}
@@ -258,7 +258,7 @@ final class Module_LinkUUp extends GDO_Module
 
 		if (GDO_User::current()->isStaff())
 		{
-			GDT_Page::$INSTANCE->rightBar()->addField(GDT_Link::make('lup_staff')->href(href('LinkUUp', 'Main')));
+			GDT_Page::$INSTANCE->rightBar()->addField(GDT_Link::make('lup_staff')->icon('work')->href(href('LinkUUp', 'Main')));
 		}
 
 		GDT_Page::instance()->leftBar()->addField(GDT_Link::make('lup_welcome')->href(href('LinkUUp', 'Welcome')));

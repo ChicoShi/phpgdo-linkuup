@@ -18,7 +18,12 @@ use GDO\LinkUUp\Module_LinkUUp;
 final class RoomIcon extends Method
 {
 
-	public function gdoParameters(): array
+    public function isShownInSitemap(): bool
+    {
+        return false;
+    }
+
+    public function gdoParameters(): array
 	{
 		return [
 			GDT_RoomSelect::make('id'),

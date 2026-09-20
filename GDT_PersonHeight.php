@@ -16,6 +16,7 @@ final class GDT_PersonHeight extends GDT_Float
 	public int|null|float $min = 1.00;
 	public int|null|float $max = 2.50;
 	public int|float $step = 0.01;
+    public string $icon = 'ruler';
 
 	public function gdtDefaultLabel(): ?string
 	{

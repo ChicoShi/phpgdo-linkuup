@@ -17,6 +17,7 @@ class GDT_SexualOrientation extends GDT_Enum
 		parent::__construct();
 		$this->enumValues('men', 'women', 'both');
 		$this->emptyLabel('not_specified');
+        $this->icon('sex');
 	}
 
 }

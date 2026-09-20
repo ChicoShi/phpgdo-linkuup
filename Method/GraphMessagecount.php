@@ -25,7 +25,12 @@ use GDO\User\GDO_User;
 final class GraphMessagecount extends MethodGraph
 {
 
-	##################
+    public function isShownInSitemap(): bool
+    {
+        return false;
+    }
+
+    ##################
 	### Parameters ###
 	##################
 	public function defaultWidth(): int { return Module_LinkUUp::instance()->cfgGraphWidth(); }
