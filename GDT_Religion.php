@@ -2,6 +2,7 @@
 namespace GDO\LinkUUp;
 
 use GDO\Core\GDT_Enum;
+use GDO\Core\GDT_String;
 
 /** A person's optional religion or worldview. */
 final class GDT_Religion extends GDT_Enum
@@ -34,9 +35,8 @@ final class GDT_Religion extends GDT_Enum
 	private function valuesSortedForLanguage(): array
 	{
 		$values = self::VALUES;
-		$collator = new \Collator(GDO_LANGUAGE);
-		usort($values, static function(string $a, string $b) use ($collator): int {
-			return $collator->compare(t('enum_' . $a), t('enum_' . $b));
+		usort($values, static function(string $a, string $b): int {
+			return GDT_String::localeCompare(t('enum_' . $a), t('enum_' . $b));
 		});
 		return $values;
 	}
