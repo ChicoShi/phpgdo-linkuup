@@ -73,7 +73,7 @@
             const rank=key=>{const i=Object.keys(names).indexOf(key);return i<0?99:i;};
             return rank(a.key)-rank(b.key);
         });
-        const choose = (id, updateHash = false) => {
+        const choose = (id, updateHash = false, scrollToSection = false) => {
             const active = entries.find(entry=>entry.panel.id===id) || entries[0];
             entries.forEach(entry=>{
                 entry.block.hidden = entry!==active;
@@ -82,13 +82,18 @@
             select.value=active.panel.id;
             if (updateHash) history.replaceState(history.state,'','#'+active.panel.id);
             // Editors/autocompletes keep their original instances; notify resize after reveal.
-            requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+            requestAnimationFrame(()=>{
+                window.dispatchEvent(new Event('resize'));
+                if (scrollToSection) {
+                    window.scrollTo({top:Math.max(0,active.block.getBoundingClientRect().top + window.scrollY - 20),behavior:'smooth'});
+                }
+            });
         };
         entries.forEach(entry=>{
             nav.append(entry.button); select.append(entry.option); panels.append(entry.block);
-            entry.button.addEventListener('click',()=>choose(entry.panel.id,true));
+            entry.button.addEventListener('click',()=>choose(entry.panel.id,true,true));
         });
-        select.addEventListener('change',()=>choose(select.value,true));
+        select.addEventListener('change',()=>choose(select.value,true,true));
         window.addEventListener('hashchange',()=>choose(location.hash.slice(1)));
         const intro = [...content.children].find(el=>el.matches('.gdt-panel:not(.gdt-accordeon)') && !el.querySelector('form,.gdt-error,.alert-danger'));
         if (intro) intro.hidden = true;
@@ -96,6 +101,7 @@
         if (bar) {
             const wrapper = bar.closest('.card');
             const tools = make('details','lup-settings-tools');
+            tools.open = true;
             tools.append(make('summary','',de?'Weitere Kontoaktionen':'More account actions'),bar);
             content.append(tools);
             if (wrapper && !wrapper.textContent.trim() && !wrapper.querySelector('input,select,textarea,img,form')) wrapper.remove();
@@ -310,7 +316,9 @@
     };
     const ready = () => {
         document.body.classList.add('lup-backend');
-        const de = (document.documentElement.lang || window.GDO_LANGUAGE || 'de').startsWith('de');
+        // The selected request language wins over a persisted account default.
+        const requestedLanguage = new URL(location.href).searchParams.get('_lang');
+        const de = (requestedLanguage || document.documentElement.lang || window.GDO_LANGUAGE || 'de').startsWith('de');
         const labels = de ? {open:'Menü öffnen',close:'Menü schließen',nav:'Navigation',tag:'Zusammen unterwegs',account:'Konto öffnen',areas:'Konto & Bereiche',section:'Bereich auswählen'} : {open:'Open menu',close:'Close menu',nav:'Navigation',tag:'Together nearby',account:'Open account menu',areas:'Account & areas',section:'Choose a section'};
         const trigger = document.getElementById('sidebarToggle');
         const drawer = document.getElementById('sidebar-wrapper');

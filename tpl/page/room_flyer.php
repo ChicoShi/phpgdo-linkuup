@@ -30,7 +30,7 @@ use GDO\LinkUUp\LUP_Room;
 						<p class="lup-room-flyer-info"><?=html($room->getInfo())?></p>
 					<?php endif; ?>
 					<div class="lup-room-flyer-qr">
-						<img src="data:image/gif;base64,<?=$qrCode?>" alt="QR-Code für <?=html($room->getName())?>" />
+						<img src="<?=$qrCode?>" alt="QR-Code für <?=html($room->getName())?>" />
 					</div>
 					<p class="lup-room-flyer-cta"><?=t('room_flyer_cta')?></p>
 					<p class="lup-room-flyer-copy"><?=t('room_flyer_copy')?></p>

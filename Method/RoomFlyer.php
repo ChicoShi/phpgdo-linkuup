@@ -26,7 +26,7 @@ final class RoomFlyer extends \GDO\Core\Method
 		return $this->templatePHP('page/room_flyer.php', [
 			'room' => $room,
 			'url' => $url,
-			'qrCode' => Render::renderBase64($url, 600),
+			'qrCode' => $this->getModule()->href('QRForRoom', "&room_id={$room->getID()}"),
 		]);
 	}
 }
