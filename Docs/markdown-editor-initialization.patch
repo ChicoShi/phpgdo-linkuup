@@ -1,0 +1,48 @@
+diff --git a/Module_Markdown.php b/Module_Markdown.php
+index dee3d87..c1f487a 100644
+--- a/Module_Markdown.php
++++ b/Module_Markdown.php
+@@ -72,7 +72,7 @@ final class Module_Markdown extends GDO_Module
+ 		if ($this->cfgJSEditor())
+ 		{
+ 			$this->addBowerJS("editor.md/editormd{$min}.js");
+-			$this->addJS('js/gdo-markdown.js');
++			$this->addJS('js/gdo-markdown.js?rev=20260920_1');
+ 			$this->addCSS('css/editormd.css');
+ 		}
+ 		$this->addCSS('css/gdo-markdown.css');
+diff --git a/js/gdo-markdown.js b/js/gdo-markdown.js
+index c1419a6..a3dc339 100644
+--- a/js/gdo-markdown.js
++++ b/js/gdo-markdown.js
+@@ -1,7 +1,11 @@
+ "use strict";
+ $(function() {
+-	$('.wysiwyg').each(function() {
+-		var id = this.id;
++	var editors = $('.wysiwyg').toArray();
++	var startNext = function() {
++		var element = editors.shift();
++		if (!element) { GDO.triggerResize(); return; }
++		var id = element.id;
++		if (!id) { startNext(); return; }
+ 		setTimeout(function(){
+ 			if (id) {
+ 				editormd(id, {
+@@ -10,6 +14,7 @@ $(function() {
+ 					path: GDO_WEB_ROOT + 'GDO/Markdown/bower_components/editor.md/lib/',
+ 					placeholder: '',
+ 					autoFocus: false,
++					onload: function() { startNext(); },
+ 					toolbarIcons: [
+ 			            "undo", "redo", "|", 
+ 		    	        "bold", "italic", "quote", "|", 
+@@ -22,6 +27,6 @@ $(function() {
+ 				});
+ 			}
+ 		}, 25);
+-	});
+-	GDO.triggerResize();
++	};
++	startNext();
+ });

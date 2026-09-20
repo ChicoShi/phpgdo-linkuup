@@ -1,0 +1,13 @@
+diff --git a/Method/YourOrders.php b/Method/YourOrders.php
+index af926ce..d337167 100644
+--- a/Method/YourOrders.php
++++ b/Method/YourOrders.php
+@@ -47,7 +47,7 @@ final class YourOrders extends MethodQueryTable
+ 	{
+ 		return GDT_Response::makeWith(
+ 			GDT_Bar::makeWith(
+-				GDT_Link::make('link_add_address')->href(href('Address', 'AddAddress')),
++				GDT_Link::make('link_add_address')->href(href('Address', 'Add', '&_rb=' . rawurlencode(href('Payment', 'YourOrders')))),
+ 				GDT_Link::make('link_own_addresses')->href(href('Address', 'OwnAddresses')),
+ 
+ 			)->horizontal()

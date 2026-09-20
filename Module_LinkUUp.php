@@ -234,10 +234,10 @@ final class Module_LinkUUp extends GDO_Module
         $this->addJS('js/lup-connected-route.js?rev=20260916_5');
 		$this->addJS('js/lup-scroll-finale.js?rev=20260916_4');
         $this->addJS('js/lup-living-background.js?rev=20260919_1');
-        $this->addJS('js/lup-backend-shell.js?rev=20260919_1');
+        $this->addJS('js/lup-backend-shell.js?rev=20260920_7');
 		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260919_9'));
-		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260919_16'));
+		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260920_2'));
+		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260920_7'));
 		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260919_3'));
 		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260916_3'));
 		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260916_4'));

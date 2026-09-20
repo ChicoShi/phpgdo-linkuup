@@ -18,12 +18,12 @@ html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {
  height:calc(100dvh - 24px); max-height:calc(100dvh - 24px); min-height:0;
  margin:0; padding:0; box-sizing:border-box; overflow:auto; overscroll-behavior:contain;
  border:1px solid var(--shell-line); border-radius:26px; background:linear-gradient(145deg,#a9ddf51c,#102136c7);
- backdrop-filter:blur(20px) saturate(125%); -webkit-backdrop-filter:blur(20px) saturate(125%);
+ isolation:isolate;
  box-shadow:inset 0 1px 0 #ffffff40,inset 0 -1px 0 #bce8fa16,0 22px 64px #020b2060;
  transform:translateX(calc(-100% - 24px)); visibility:hidden; pointer-events:none;
  transition:none;
 }
-html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper[data-lup-animated] { transition:transform 220ms ease,visibility 220ms; }
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper[data-lup-animated] { transition:transform 380ms cubic-bezier(.22,.8,.25,1),visibility 380ms; }
 html.lup-backend-ui body.lup-backend.lup-arrival-menu-open #wrapper #sidebar-wrapper { transform:translateX(0); visibility:visible; pointer-events:auto; }
 html.lup-backend-ui #sidebar-wrapper::before,html.lup-backend-ui #sidebar-wrapper::after { display:none; }
 html.lup-backend-ui .lup-drawer-head { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-shrink:0; padding:26px 22px; border-bottom:1px solid var(--shell-line); }
@@ -52,8 +52,8 @@ html.lup-backend-ui .lup-menu-shade[hidden] { display:none; }
 html.lup-backend-ui body.lup-backend #page-content-wrapper > nav.lup-shell-header {
  position:relative; display:block; z-index:1045; isolation:isolate;
  min-height:72px; padding:0; border:0; border-bottom:1px solid var(--shell-line);
- background:linear-gradient(115deg,#1e394fe8,#102136ef); box-shadow:var(--shell-highlight);
- backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+ background:transparent; box-shadow:none;
+ backdrop-filter:none; -webkit-backdrop-filter:none;
 }
 html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header > .container-fluid { position:relative; display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; gap:16px; width:100%; min-height:72px; padding:12px 24px; }
 html.lup-backend-ui body.lup-backend #page-content-wrapper nav.lup-shell-header .navbar-brand { display:flex; justify-content:center; position:static; grid-column:2; grid-row:1; width:auto; min-width:0; padding:0; margin:0; transform:none; background:none; border:0; box-shadow:none; }
@@ -163,25 +163,25 @@ html.lup-backend-ui #content-wrap .gdo-logs-search button { min-height:44px; pad
 }
 
 /* App drawer geometry and scroll ownership. */
-html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {inset:0 auto 0 0;height:100dvh;max-height:100dvh;width:328px;max-width:calc(100vw - 24px);border-left:0;border-radius:0 30px 30px 0;overflow:hidden;background:radial-gradient(ellipse at 0 16%,#4894c51c,transparent 58%),linear-gradient(155deg,#152c42e6,#102136e8);box-shadow:inset -1px 0 1px #e5f7ff40,inset 0 1px 1px #eefbff30,18px 0 54px #020b203d;}
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {inset:0 auto 0 0;height:100dvh;max-height:100dvh;width:320px;max-width:calc(100vw - 36px);border-left:0;border-radius:0 28px 28px 0;overflow:hidden;background:radial-gradient(ellipse at 0 65%,#307e9d29,transparent 65%),linear-gradient(150deg,#15243bf5,#101a2bf5);box-shadow:inset -1px 0 1px #f5fdff42,16px 0 48px #03102450;}
 html.lup-backend-ui .lup-drawer-head {min-height:88px;padding:18px 22px;border:0;}
 html.lup-backend-ui .lup-drawer-head b {font:500 29px/1 Ubuntu,Roboto,sans-serif;letter-spacing:-1.2px;}
 html.lup-backend-ui .lup-drawer-head b span {font-weight:500;}
 html.lup-backend-ui .lup-drawer-head small {font-size:11px;letter-spacing:.02em;}
 html.lup-backend-ui .lup-drawer-scroll {flex:1 1 0%;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:#a9dfff40 transparent;}
-html.lup-backend-ui .lup-drawer-user {display:flex;align-items:center;gap:13px;margin:2px 18px 18px;padding:15px 13px;border:1px solid #daf0ff12;border-radius:23px;background:#eaf9ff05;box-shadow:inset 1px 1px 1px #f5fdff40,inset -1px -1px 1px #c8eafc1f;text-decoration:none;color:#eef9ff;}
-html.lup-backend-ui .lup-drawer-user > :is(img,i) {width:42px;height:42px;flex:none;border-radius:50%;object-fit:cover;font-size:36px;color:#bce8fa;}
+html.lup-backend-ui .lup-drawer-user {display:flex;align-items:center;gap:12px;margin:3px 20px 18px;padding:18px 14px;border:1px solid #daf0ff12;border-radius:20px;background:linear-gradient(125deg,#c5ecff14,#bce8fa03);box-shadow:inset 1px 1px 1px #f5fdff40,inset -1px -1px 1px #c8eafc1f;text-decoration:none;color:#eef9ff;}
+html.lup-backend-ui .lup-drawer-user > :is(img,i) {width:44px;height:44px;flex:none;border-radius:50%;object-fit:cover;font-size:36px;color:#bce8fa;}
 html.lup-backend-ui .lup-drawer-user div {min-width:0;}
-html.lup-backend-ui .lup-drawer-user strong {display:block;font:500 16px/1.3 Ubuntu,Roboto,sans-serif;overflow-wrap:anywhere;}
-html.lup-backend-ui .lup-drawer-user span {display:block;margin-top:5px;color:#a9c0d2;font-size:12px;}
-html.lup-backend-ui .lup-drawer-section {margin:20px 28px 7px;color:#9cb7cb;font:500 10px/1.5 Roboto,sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+html.lup-backend-ui .lup-drawer-user strong {display:block;font:500 14px/1.4 Roboto,sans-serif;overflow-wrap:anywhere;}
+html.lup-backend-ui .lup-drawer-user span {display:block;margin-top:4px;color:#9dbbd1;font-size:11px;}
+html.lup-backend-ui .lup-drawer-section {margin:22px 28px 9px;color:#9cb7cb;font:500 10px/1.5 Roboto,sans-serif;letter-spacing:.1em;text-transform:uppercase;}
 html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) {display:block;flex:none;padding:0 16px;margin:0;list-style:none;}
 html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) li {padding:0;margin:3px 0;border:0;background:none;}
 html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a {display:flex;align-items:center;gap:12px;min-height:52px;padding:0 12px;border:1px solid transparent;border-radius:16px;background:none;color:#dfedf6;font:400 14px/1.45 Roboto,Arial,sans-serif;text-decoration:none;box-shadow:none;white-space:normal;}
 html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a:is(:hover,:focus-visible,[aria-current=page]) {background:#bce8fa0a;border-color:#daf0ff24;}
 html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a[aria-current=page] {box-shadow:inset 2px 0 #bce8fa99;}
-html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a .gdo-icon {display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border:0;border-radius:12px;background:none;box-shadow:none;color:var(--nav-tone,#bce8fa);}
-html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a i {color:inherit;font-size:23px;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a .gdo-icon {display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border:1px solid transparent;border-radius:12px;background:color-mix(in srgb,var(--nav-tone,#afcbdc) 7%,transparent);box-shadow:inset 0 1px 0 #edfaff12;color:var(--nav-tone,#bce8fa);}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a i {color:inherit;font-size:21px;}
 /* clip does not create the hidden/auto nested scrolling box that overflow-x:hidden does. */
 html.lup-backend-ui body.lup-backend #wrapper {overflow-x:clip;overflow-y:visible;}
 /* The account popup owns vertical touch scrolling, independently of page gestures. */
@@ -191,3 +191,35 @@ html.lup-backend-ui body.lup-backend #page-content-wrapper #navbarSupportedConte
    Only the current LinkUUp drawer may lock page scrolling. */
 html.lup-backend-ui body.lup-backend {overflow:visible;}
 html.lup-backend-ui body.lup-backend.lup-arrival-menu-open {overflow:hidden;}
+
+/* Profile atmosphere: decorative layers never own scroll or intercept input. */
+html.lup-backend-ui #sidebar-wrapper > * {position:relative;z-index:1;}
+html.lup-backend-ui #sidebar-wrapper::before,
+html.lup-backend-ui #sidebar-wrapper::after {
+ content:'';display:block;position:absolute;inset:auto;z-index:0;pointer-events:none;box-shadow:none;filter:none;
+ width:132%;height:31%;border:1px solid rgba(147,198,255,.09);border-radius:50%;
+ background:radial-gradient(circle at 30% 34%,rgba(105,168,244,.09),transparent 47%);
+ animation:lup-drawer-profile-drift 22s ease-in-out infinite paused;
+}
+html.lup-backend-ui #sidebar-wrapper::before {top:5%;right:-58%;--drawer-ring-angle:-24deg;transform:rotate(var(--drawer-ring-angle));}
+html.lup-backend-ui #sidebar-wrapper::after {top:48%;left:-62%;--drawer-ring-angle:19deg;transform:rotate(var(--drawer-ring-angle));animation-direction:reverse;animation-duration:26s;}
+html.lup-backend-ui .lup-arrival-menu-open #sidebar-wrapper::before,
+html.lup-backend-ui .lup-arrival-menu-open #sidebar-wrapper::after {animation-play-state:running;}
+@keyframes lup-drawer-profile-drift {
+ 0%,100% {transform:translate3d(0,0,0) rotate(var(--drawer-ring-angle));opacity:.55;}
+ 50% {transform:translate3d(12px,18px,0) rotate(var(--drawer-ring-angle));opacity:1;}
+}
+@media(prefers-reduced-motion:reduce) {
+ html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper[data-lup-animated] {transition:none;}
+ html.lup-backend-ui #sidebar-wrapper::before,
+ html.lup-backend-ui #sidebar-wrapper::after {animation:none;}
+}
+
+/* Shared app wordmark scale and close control. */
+html.lup-backend-ui .lup-drawer-head {height:82px;min-height:82px;box-sizing:border-box;padding:0 24px;border-bottom:0;}
+html.lup-backend-ui .lup-drawer-head b {font:600 27px/1 Ubuntu,Roboto,sans-serif;letter-spacing:-1.2px;}
+html.lup-backend-ui .lup-drawer-head b span {font-weight:600;color:#a9dfff;}
+html.lup-backend-ui .lup-drawer-head small {margin-top:7px;font-size:10px;color:#a7c1d6;}
+html.lup-backend-ui .lup-menu-close {border:0;background:#ddf3ff08;color:#c5e7f8;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a .gdo-icon i {background:none;border:0;box-shadow:none;padding:0;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper a[href*="friends."] .gdo-icon {color:#a2ddd0;background:#a2ddd012;}
