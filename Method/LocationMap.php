@@ -33,7 +33,7 @@ final class LocationMap extends \GDO\Core\Method
 	public function execute(): GDT
 	{
 		$this->getModule()->addCSS('css/lup-location-map.css');
-		$this->getModule()->addJS('js/lup-location-map.js?rev=20260918_1');
+		$this->getModule()->addJS('js/lup-location-map.js');
 
 		$selectedRoom = $this->gdoParameterValue('room');
 		$roomSearch = GDT_Object::make('room_search')

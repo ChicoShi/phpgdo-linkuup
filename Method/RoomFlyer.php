@@ -20,7 +20,7 @@ final class RoomFlyer extends \GDO\Core\Method
 
 	public function execute(): GDT
 	{
-		$this->getModule()->addCSS('css/lup-room-flyer.css?rev=20260919_2');
+		$this->getModule()->addCSS('css/lup-room-flyer.css');
 		$room = $this->gdoParameterValue('room');
 		$url = $room->url_chat();
 		return $this->templatePHP('page/room_flyer.php', [

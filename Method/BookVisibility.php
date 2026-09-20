@@ -44,7 +44,7 @@ final class BookVisibility extends MethodForm
 	public function renderPage(): GDT
 	{
 		$this->getModule()->addCSS('css/lup-visibility-booking.css');
-		$this->getModule()->addJS('js/lup-visibility-booking.js?rev=1');
+		$this->getModule()->addJS('js/lup-visibility-booking.js');
 		$room = $this->room();
 		Javascript::addJSPreInline('window.LUP_VISIBILITY_BOOKING=' . json_encode([
 			'lat' => $room->getLat(), 'lng' => $room->getLng(), 'view' => $room->getView(),

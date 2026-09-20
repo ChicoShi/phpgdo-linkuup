@@ -6,7 +6,6 @@ use GDO\Address\GDT_Phone;
 use GDO\Core\Application;
 use GDO\Core\GDO_Exception;
 use GDO\Core\GDO_Module;
-use GDO\Core\CSS;
 use GDO\Core\GDO_RedirectError;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_Enum;
@@ -217,30 +216,26 @@ final class Module_LinkUUp extends GDO_Module
 		if ($this->backendScriptsIncluded) return;
 		$this->backendScriptsIncluded = true;
 		\GDO\Core\GDT_Template::$THEMES = ['lup-backend' => $this->filePath('thm/lup/')] + \GDO\Core\GDT_Template::$THEMES;
-		$this->addJS('js/lup-backend-location-status.js?rev=20260912_1');
-		$this->addCSS('css/lup.css?lup_skin=20260916_2');
-		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260916_2');
-		$this->addJS('js/lup-welcome.js?lup_nav=20260911_009');
-		$this->addJS('js/lup-admin-sidebar.js?lup_nav=20260911_014');
+		$this->addJS('js/lup-backend-location-status.js');
+		$this->addCSS('css/lup.css');
+		$this->addCSS('css/lup-arrival-flow.css');
+		$this->addJS('js/lup-welcome.js');
+		$this->addJS('js/lup-admin-sidebar.js');
 		// Bootstrap5 owns the current sidebar. The legacy drawer helper targets
 		// an older theme and can create a competing toggle on mixed backend pages.
-		// A separate revision is used for the visual back-office polish so
-		// browsers do not keep an older stylesheet after a local cache clear.
-		CSS::addFile($this->wwwPath('css/lup.css?lup_skin=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-flow.css?lup_skin=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260916_2'));
-		$this->addJS('js/lup-arrival-refresh.js?rev=20260916_3');
-		$this->addJS('js/lup-world-journey.js?rev=20260916_3');
-        $this->addJS('js/lup-connected-route.js?rev=20260916_5');
-		$this->addJS('js/lup-scroll-finale.js?rev=20260916_4');
-        $this->addJS('js/lup-living-background.js?rev=20260919_1');
-        $this->addJS('js/lup-backend-shell.js?rev=20260920_7');
-		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260920_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260920_7'));
-		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260919_3'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260916_3'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260916_4'));
+		$this->addCSS('css/lup-arrival-refresh.css');
+		$this->addJS('js/lup-arrival-refresh.js');
+		$this->addJS('js/lup-world-journey.js');
+        $this->addJS('js/lup-connected-route.js');
+		$this->addJS('js/lup-scroll-finale.js');
+        $this->addJS('js/lup-living-background.js');
+        $this->addJS('js/lup-backend-shell.js');
+		$this->addCSS('css/lup-world-journey.css');
+		$this->addCSS('css/lup-backend-shell.css');
+		$this->addCSS('css/lup-backend-views.css');
+		$this->addCSS('css/lup-backend-atlas.css');
+		$this->addCSS('css/lup-scroll-adventure.css');
+		$this->addCSS('css/lup-scroll-finale.css');
 	}
 
 	/**
