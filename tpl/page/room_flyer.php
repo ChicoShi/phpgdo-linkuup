@@ -21,29 +21,26 @@ use GDO\LinkUUp\LUP_Room;
 </head>
 <body class="lup-room-flyer-page">
 	<main class="lup-room-flyer">
-		<section class="lup-room-flyer-sheet">
-			<header class="lup-room-flyer-head">
-                <div class="lup-room-flyer-brand">link<b>uup</b></div>
-                <p><?=t('room_flyer_tagline')?></p>
-            </header>
-            <div class="lup-room-flyer-place">
-                <span class="lup-room-flyer-eyebrow"><?=t('room_flyer_here')?></span>
-                <h1><?=html($room->getName())?></h1>
-            </div>
-			<?php if ($room->getInfo()): ?>
-				<p class="lup-room-flyer-info"><?=html($room->getInfo())?></p>
-			<?php endif; ?>
-			<div class="lup-room-flyer-qr">
-				<img src="data:image/gif;base64,<?=$qrCode?>" alt="QR-Code für <?=html($room->getName())?>" />
-			</div>
-			<p class="lup-room-flyer-cta"><?=t('room_flyer_cta')?></p>
-			<p class="lup-room-flyer-copy"><?=t('room_flyer_copy')?></p>
-            <p class="lup-room-flyer-steps"><?=t('room_flyer_steps')?></p>
-			<?php if ($room->getAddress()): ?>
-				<div class="lup-room-flyer-address"><?=$room->displayAddress()?></div>
-			<?php endif; ?>
-		</section>
-		<button class="lup-room-flyer-print" type="button" onclick="window.print()"><?=t('room_flyer_print')?></button>
+		<div class="lup-room-flyer-page">
+			<?php for ($copy = 0; $copy < 2; $copy++): ?>
+				<section class="lup-room-flyer-sheet">
+					<div class="lup-room-flyer-brand">LINK<b>UUP</b> · <?=t('room_flyer_brand')?></div>
+					<h1><?=html($room->getName())?></h1>
+					<?php if ($room->getInfo()): ?>
+						<p class="lup-room-flyer-info"><?=html($room->getInfo())?></p>
+					<?php endif; ?>
+					<div class="lup-room-flyer-qr">
+						<img src="<?=$qrCode?>" alt="QR-Code für <?=html($room->getName())?>" />
+					</div>
+					<p class="lup-room-flyer-cta"><?=t('room_flyer_cta')?></p>
+					<p class="lup-room-flyer-copy"><?=t('room_flyer_copy')?></p>
+					<?php if ($room->getAddress()): ?>
+						<div class="lup-room-flyer-address"><?=html($room->getAddress()->getAddressLine())?></div>
+					<?php endif; ?>
+				</section>
+			<?php endfor; ?>
+		</div>
+		<button class="lup-room-flyer-print" type="button" onclick="window.print()">Drucken (A4 · 2× A5)</button>
 	</main>
 </body>
 </html>

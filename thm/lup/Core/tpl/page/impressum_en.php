@@ -3,6 +3,7 @@
 <h1>Legal notice</h1>
 <p><strong>Information pursuant to section 5 German Digital Services Act (DDG)</strong></p>
 <p>Shqiprim Mehmeti<br>Hauptstraße 25B<br>38110 Braunschweig<br>Germany</p>
+<p>Christian Busch<br>Am Bauhof 15<br>31224 Peine<br>Germany</p>
 <p>Email: <a href="mailto:info@linkuup.de">info@linkuup.de</a></p>
 
 <h2>Content and links</h2>

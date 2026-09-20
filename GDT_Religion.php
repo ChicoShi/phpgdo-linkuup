@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 namespace GDO\LinkUUp;
 
 use GDO\Core\GDT_Enum;
@@ -25,7 +24,7 @@ final class GDT_Religion extends GDT_Enum
 	protected function __construct()
 	{
 		parent::__construct();
-		$this->icon('account_balance');
+		$this->icon('cross');
 		$this->label('lup_religion');
 		$this->enumValues(...$this->valuesSortedForLanguage());
 		$this->emptyLabel('not_specified');

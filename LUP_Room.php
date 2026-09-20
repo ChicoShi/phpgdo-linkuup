@@ -22,6 +22,7 @@ use GDO\Core\GDT_String;
 use GDO\Core\GDT_Template;
 use GDO\Core\GDT_UInt;
 use GDO\Core\Method;
+use GDO\Date\GDT_DateTime;
 use GDO\File\GDO_File;
 use GDO\File\GDT_ImageFile;
 use GDO\Maps\GDT_Position;
@@ -67,6 +68,25 @@ final class LUP_Room extends GDO
 		return parent::blank($initial);
 	}
 
+	/** Whether this room currently has a prepaid Minion subscription. */
+	public function hasMinionSubscription(): bool
+	{
+		$subscription = $this->gdoVar('room_minion_subscription');
+		$expires = $this->gdoVar('room_minion_expire');
+		return (bool)$subscription && (bool)$expires && strtotime($expires . ' UTC') > time();
+	}
+
+	/** The booked quiet period in seconds, or null when no Minion is active. */
+	public function minionCooldown(): ?float
+	{
+		if (!$this->hasMinionSubscription())
+		{
+			return null;
+		}
+		$seconds = GDT_MinionSubscription::delaySeconds($this->gdoVar('room_minion_subscription'));
+		return $seconds === null ? null : (float)$seconds;
+	}
+
 	/**
 	 * MySQL/MariaDB's text protocol prints FLOAT columns with fewer significant
 	 * digits than are stored. A 52.x latitude can shift by several metres.
@@ -99,7 +119,11 @@ final class LUP_Room extends GDO
 		return $select->queryRooms();
 	}
 
-	public static function queryRooms(float $lat = null, float $lng = null, int $limit = null, int $from = 0)
+	/**
+	 * Build the public discovery query once so the paged room list and its total
+	 * always apply exactly the same visibility rules.
+	 */
+	public static function queryRoomsQuery(float $lat = null, float $lng = null)
 	{
 		# Involved tables
 		$rooms = self::table();
@@ -109,12 +133,17 @@ final class LUP_Room extends GDO
 
 		# Enabled condition
 		$query->where('room_enabled=1');
-		$query->order('room_sort ASC');
 
 		# Distance conditions
 		if (is_float($lat) && is_float($lng))
 		{
-			$distanceWhere = Position::getDistanceQuery($lat, $lng, 'room_pos_lat', 'room_pos_lng');
+			$centerDistance = Position::getDistanceQuery($lat, $lng, 'room_pos_lat', 'room_pos_lng');
+			/*
+			 * Regional rooms deliberately hide their distance. Treat their chat radius
+			 * as a circle rather than pretending that their centre is the location:
+			 * the effective distance is the nearest point on that circle (zero inside).
+			 */
+			$distanceWhere = "CASE WHEN room_show_distance=0 THEN GREATEST(0, ({$centerDistance}) - room_radius) ELSE ({$centerDistance}) END";
 			$query->where($distanceWhere . ' <= room_view');
 			$query->order($distanceWhere . ' ASC');
 		}
@@ -123,13 +152,22 @@ final class LUP_Room extends GDO
 			$query->order('room_name ASC');
 		}
 
-		# Limit
+		return $query;
+	}
+
+	public static function queryRooms(float $lat = null, float $lng = null, int $limit = null, int $from = 0)
+	{
+		$query = self::queryRoomsQuery($lat, $lng);
 		if ($limit !== null)
 		{
 			$query->limit($limit, $from);
 		}
+		return $query;
+	}
 
-		return $query->exec();
+	public static function countRooms(float $lat = null, float $lng = null): int
+	{
+		return (int)self::queryRoomsQuery($lat, $lng)->selectOnly('COUNT(*)')->noOrder()->exec()->fetchVar();
 	}
 
 	#############
@@ -165,6 +203,9 @@ final class LUP_Room extends GDO
 			GDT_UInt::make('room_sort')->label('sort'),
 			GDT_String::make('room_name')->notNull()->max(self::MAX_ROOM_NAME_LEN),
 			GDT_String::make('room_info')->max(512)->label('description'),
+			GDT_MinionSubscription::make('room_minion_subscription'),
+			GDT_Checkbox::make('room_minion_bot_control')->notNull()->initial('0'),
+			GDT_DateTime::make('room_minion_expire'),
 			GDT_Color::make('room_color'),
 			GDT_ObjectSelect::make('room_category')->table(LUP_Category::table())->label('category'),
 			GDT_Position::make('room_pos'),
@@ -218,15 +259,22 @@ final class LUP_Room extends GDO
 	 * Chat access follows the maintained location polygon. Existing rows without
 	 * one retain the legacy radius behaviour until they have been migrated.
 	 */
-	public function isInChatRange($lat, $lng): bool
+	public function isInChatRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng, Module_LinkUUp::instance()->cfgRoomTolerance());
+		return $this->isInChatRangeWithTolerance($lat, $lng,
+			Module_LinkUUp::instance()->cfgRoomTolerance() + $this->toleranceBoost($user));
 	}
 
 	/** Is a position still close enough that an active chat membership is retained? */
-	public function isInChatLeaveRange($lat, $lng): bool
+	public function isInChatLeaveRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng, Module_LinkUUp::instance()->cfgRoomLeaveTolerance());
+		return $this->isInChatRangeWithTolerance($lat, $lng,
+			Module_LinkUUp::instance()->cfgRoomLeaveTolerance() + $this->toleranceBoost($user));
+	}
+
+	private function toleranceBoost(?GDO_User $user): float
+	{
+		return $user ? (float)Module_LinkUUp::instance()->userSettingValue($user, 'tolerance_boost') : 0.0;
 	}
 
 	private function isInChatRangeWithTolerance($lat, $lng, float $tolerance): bool
@@ -277,6 +325,17 @@ final class LUP_Room extends GDO
 	public function getID(): ?string { return $this->gdoVar('room_id'); }
 
 	public function getName(): ?string { return $this->gdoVar('room_name'); }
+
+	/** Plain room label for object fields and completion selections. */
+	public function renderName(): string
+	{
+		$name = (string)$this->getName();
+		if (($address = $this->getAddress()) && !$address->emptyAddress())
+		{
+			return trim("{$name}, {$address->getStreet()} {$address->getCity()}", ' ,');
+		}
+		return $name;
+	}
 
 	public function renderCard(): string { return GDT_Template::php('LinkUUp', 'card/room.php', ['room' => $this]); }
 

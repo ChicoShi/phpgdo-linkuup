@@ -21,21 +21,45 @@ final class LUPWS_Shout extends LUPWS_Command
 		{
 			return $msg->rplyError('err_member_only');
 		}
+		$radius = $msg->read32u();
 		$text = trim($msg->readString());
+		$lat = $lng = null;
+		if ($msg->hasMore(8))
+		{
+			$lat = $msg->readFloat();
+			$lng = $msg->readFloat();
+			if (!is_finite($lat) || !is_finite($lng) || abs($lat) > 90 || abs($lng) > 180)
+			{
+				return $msg->rplyError('err_lup_shout_position');
+			}
+		}
+		if ($msg->hasMore(4))
+		{
+			$radius = $msg->read32u() / 1000;
+		}
 		if ($text === '' || strlen($text) > 512)
 		{
 			return $msg->rplyError('err_lup_shout_text');
 		}
+		if ($radius < 0.001)
+		{
+			return $msg->rplyError('err_lup_shout_radius');
+		}
+		if (!LUP_Global::lastPositionFor($user))
+		{
+			return $msg->rplyError('err_lup_shout_position');
+		}
 
-		$cost = Module_LinkUUp::instance()->cfgShoutCost();
+		$cost = (int)ceil($radius * Module_LinkUUp::instance()->cfgShoutCostPerKM());
 		if (!$this->chargeCredits($user, $cost))
 		{
 			return $msg->rplyError('err_lup_shout_credits', [$cost, $this->creditBalance($user)]);
 		}
 
-		[$locations, $recipients] = LUP_Global::shout($user, $text);
+		[$locations, $recipients] = LUP_Global::shout($user, $text, $radius, $lat, $lng);
 		return $msg->replyBinary($msg->cmd(),
 			GWS_Message::wr32($this->creditBalance($user)) .
+			GWS_Message::wr32((int)round($radius * 1000)) .
 			GWS_Message::wr32($locations) .
 			GWS_Message::wr32($recipients));
 	}

@@ -1,7 +1,10 @@
 <?php
-declare(strict_types=1);
-namespace GDO\LinkUUp;
+namespace GDO\LinkUUp\install;
 
+use GDO\LinkUUp\LUP_Category;
+use GDO\LinkUUp\LUP_Room;
+use GDO\LinkUUp\LUP_Trophy;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\AboutMe\Module_AboutMe;
 use GDO\Avatar\GDO_Avatar;
 use GDO\Avatar\GDO_UserAvatar;
@@ -26,6 +29,7 @@ use GDO\Maps\Module_Maps;
 use GDO\News\GDO_News;
 use GDO\News\GDO_NewsText;
 use GDO\Perf\Module_Perf;
+use GDO\Payment\Module_Payment;
 use GDO\Register\Module_Register;
 use GDO\UI\Module_UI;
 use GDO\User\GDO_User;
@@ -58,26 +62,34 @@ final class Install
 	 * Name, IconID.
 	 */
 	private static array $CATS = [
-		'2' => ['Orte', null],
-		'3' => ['Bars', null],
-        '4' => ['Kneipen', null],
-        '5' => ['Cafe', null],
-        '6' => ['Unternehmen', null],
-        '7' => ['Supermarkt', null],
-        '8' => ['Religion', null],
-        '9' => ['Friseur', null],
-        '10' => ['Ortschaften', null],
-		'11' => ['Clubs & Tanz', null],
-		'12' => ['Kultur', null],
-		'13' => ['Sport & Freizeit', null],
-		'14' => ['Essen', null],
-		'15' => ['Draußen', null],
-		'16' => ['Bildung & Begegnung', null],
-		'17' => ['Hochschulen', null],
-		'18' => ['Gesundheit', null],
-		'19' => ['Übernachten', null],
-        '20' => ['Erholung', null],
-        '21' => ['Arzt', null],
+		# Stable top-level groups. Existing room category ids remain unchanged.
+		'30' => ['Café & Bar', null, null],
+		'31' => ['Nachtleben', null, null],
+		'32' => ['Kultur & Bildung', null, null],
+		'33' => ['Freizeit & Draußen', null, null],
+		'34' => ['Orte & Alltag', null, null],
+
+		'2' => ['Orte', null, 34],
+		'3' => ['Bars', null, 31],
+		'4' => ['Kneipen', null, 31],
+		'5' => ['Cafe', null, 30],
+		'6' => ['Unternehmen', null, 34],
+		'7' => ['Supermarkt', null, 34],
+		'8' => ['Religion', null, 32],
+		'9' => ['Friseur', null, 34],
+		'10' => ['Ortschaften', null, 34],
+		'11' => ['Clubs & Tanz', null, 31],
+		'12' => ['Kultur', null, 32],
+		'13' => ['Sport & Freizeit', null, 33],
+		'14' => ['Essen', null, 30],
+		'15' => ['Draußen', null, 33],
+		'16' => ['Bildung & Begegnung', null, 32],
+		'17' => ['Hochschulen', null, 32],
+		'18' => ['Gesundheit', null, 34],
+		'19' => ['Übernachten', null, 34],
+		'20' => ['Erholung', null, 33],
+		'21' => ['Arzt', null, 34],
+		'22' => ['Senioren & Pflege', null, 34],
 	];
 
 
@@ -137,17 +149,34 @@ final class Install
 		LUP_Trophy::getOrCreate($mira)->saveVar('lt_vip', '1');
 		self::installAvatar('mira', 'mira.png');
 
-        # Peter is a seeded VIP member. His secret deliberately aliases
-        # gizmore's installer password without duplicating it in secret.php.
-        $peter = GDO_User::blank([
+        # Minion is the visible LinkUUp voice for Mira/Dog replies.
+        $minion = GDO_User::blank([
             'user_id' => '6',
             'user_type' => GDT_UserType::MEMBER,
-            'user_name' => 'Peter',
+            'user_name' => 'minion',
             'user_level' => '0',
         ])->softReplace();
-        $peterPasswordKey = $users['peter'][0];
-        $peter->saveSettingVar('Login', 'password', BCrypt::create($users[$peterPasswordKey][0])->__toString());
-		LUP_Trophy::getOrCreate($peter)->saveVar('lt_vip', '1');
+        $minion->saveSettingVar('Login', 'password', BCrypt::create($users['minion'][0])->__toString());
+		$minion->saveSettingVar('Mail', 'email', $users['minion'][1]);
+		$minion->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
+		LUP_Trophy::getOrCreate($minion)->saveVar('lt_vip', '1');
+		self::installAvatar('minion', 'minion.png', 'data');
+
+		# rayaseiren is a regular seeded member; preserve an existing live account.
+		$rayaseiren = GDO_User::getByName('rayaseiren');
+		if (!$rayaseiren)
+		{
+			$rayaseiren = GDO_User::blank([
+				'user_type' => GDT_UserType::MEMBER,
+				'user_name' => 'rayaseiren',
+				'user_level' => '0',
+			])->insert();
+			$rayaseiren->saveSettingVar('Login', 'password', BCrypt::create($users['rayaseiren'][0])->__toString());
+			$rayaseiren->saveSettingVar('Mail', 'email', $users['rayaseiren'][1]);
+			$rayaseiren->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
+		}
+		GDO_UserPermission::grant($rayaseiren, 'admin');
+		GDO_UserPermission::grant($rayaseiren, 'staff');
 
         # Settings
 		Module_Core::instance()->saveConfigVar('allow_guests', '1');
@@ -163,10 +192,12 @@ final class Install
 		Module_Captcha::instance()->saveConfigVar('captcha_bg', '#111625');
 		Module_Captcha::instance()->saveConfigVar('captcha_fg', '#b9d8fa');
 		Module_Perf::instance()->saveConfigVar('hook_sidebar', 'staff');
+		Module_Payment::instance()->saveConfigVar('right_bar_your_orders', '0');
+		Module_Payment::instance()->saveConfigVar('right_bar_orders', '0');
 		Module_UI::instance()->saveConfigVar('default_editor', 'Text');
 		Module_UI::instance()->saveConfigVar('allow_editor_choice', '0');
 		Module_UI::instance()->saveConfigVar('store_device_info', '0');
-		Module_Language::instance()->saveConfigVar('languages', '["en","de","it","fr","es"]');
+		Module_Language::instance()->saveConfigVar('languages', '["en","de","it","fr","es","ko"]');
 		Module_Maps::instance()->saveConfigVar('maps_record_history', '60s');
         Module_Websocket::instance()->saveConfigVar('ws_processor', GDO_PATH . 'GDO/LinkUUp/LUP_Websocket.php');
         Module_Websocket::instance()->saveConfigVar('ws_timer', '100ms');
@@ -177,16 +208,26 @@ final class Install
 		$module->saveConfigVar('room_cost', '500');
 		$module->saveConfigVar('room_cost_view', '200');
 		$module->saveConfigVar('room_cost_view_unit', '0.5');
-		$module->saveConfigVar('shout_cost', '137');
+		$module->saveConfigVar('lup_credits_view_km', '250');
+		$module->saveConfigVar('lup_shout_cost_per_km', '150');
 		$module->saveConfigVar('room_tolerance', '0.064');
 		$module->saveConfigVar('room_leave_tolerance', '0.64');
+		$module->saveConfigVar('lup_tolerance_credits_per_km', '10000');
         if (GDO_ENV === 'dev' || GDO_ENV === 'tes')
         {
-            Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'app.lup.localhost');
+            if (GDO_HOSTNAME === 'mogwai@home')
+            {
+                Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.lup.mogwai.mira-gpt.org/index_debug.php');
+            }
+            else
+            {
+                Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.lup.chico.linkuup.de');
+            }
         }
         if (GDO_ENV === 'pro')
         {
 			Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.www.linkuup.de/');
+			Module_LinkUUp::instance()->saveConfigVar('lup_dog_backlog_url', 'https://mogwai.mira-gpt.org/lup_connector.to_dog.html');
             Module_Core::instance()->saveConfigVar('module_assets', '0');
             Module_CSS::instance()->saveConfigVar('minify_css', '1');
             Module_Javascript::instance()->saveConfigVar('minify_js', 'concat');
@@ -201,6 +242,7 @@ final class Install
 		self::seedAlphaNews($gizmore);
 		self::seedAlmostBetaNews($gizmore);
         self::createCountries();
+		InstallKoreaSeeds::seed(self::$ICONS);
         InstallPeine::seed(self::$ICONS);
 		self::createWolfsburg();
         self::createBrunswick();
@@ -214,6 +256,7 @@ final class Install
 		self::createRegionalMixedExpansion();
 		LocationRegistry::importApproved();
 		LocationExpansion::import();
+		InstallPeine::normalizeVisibility();
 		self::reserveUserRoomIds();
 
 		self::createDefaultImageVariants($module);
@@ -284,6 +327,13 @@ final class Install
 				'cat_color' => '#FF0000', # Knallrot
 				'cat_icon' => $icon,
 			])->softReplace();
+		}
+		# Assign relations only after every parent exists, making repeated installs
+		# idempotent regardless of category declaration order.
+		foreach (self::$CATS as $id => $data)
+		{
+			$parent = $data[2] ?? null;
+			$cats[$id]->saveVar('cat_parent', $parent === null ? null : (string) $parent);
 		}
 		return $cats;
 	}
@@ -448,7 +498,7 @@ final class Install
 	}
 
 	/** Install the supplied public profile image for a seeded user once. */
-	private static function installAvatar(string $username, string $filename): void
+	private static function installAvatar(string $username, string $filename, string $sourceDir = 'install_data'): void
 	{
 		$user = GDO_User::getByName($username);
 		if (GDO_UserAvatar::getById($user->getID()))
@@ -458,7 +508,7 @@ final class Install
 
 		$file = GDO_File::fromPath(
 			$filename,
-			Module_LinkUUp::instance()->filePath("install_data/$filename"),
+			Module_LinkUUp::instance()->filePath("$sourceDir/$filename"),
 		)->insert();
 		$avatar = GDO_Avatar::blank([
 			'avatar_file_id' => $file->getID(),
@@ -467,7 +517,7 @@ final class Install
 		GDO_UserAvatar::updateAvatar($user, $avatar->getID());
 	}
 
-    private static function createCountries(): void
+	private static function createCountries(): void
     {
         $gizmore = GDO_User::getByName('gizmore');
         $image = self::$ICONS[0];

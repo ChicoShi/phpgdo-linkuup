@@ -1,8 +1,9 @@
 <?php
-declare(strict_types=1);
-namespace GDO\LinkUUp;
+namespace GDO\LinkUUp\install;
 
 use GDO\Address\GDO_Address;
+use GDO\LinkUUp\LUP_Room;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\User\GDO_User;
 
 /** The reviewed OSM batches are normal install seed data, not a local side job. */
@@ -10,10 +11,13 @@ final class LocationExpansion
 {
 	private const DATASETS = ['location-expansion', 'bar-expansion', 'location-expansion-2', 'location-expansion-3'];
 	private const FIRST_ROOM_ID = 4000;
+	/** Peine has its curated seed range; OSM-only venues continue after it. */
+	private const FIRST_PEINE_ROOM_ID = 1202;
 
 	public static function import(): void
 	{
 		$roomID = self::FIRST_ROOM_ID;
+		$peineRoomID = self::FIRST_PEINE_ROOM_ID;
 		foreach (self::DATASETS as $dataset)
 		{
 			$doc = json_decode(file_get_contents(Module_LinkUUp::instance()->filePath("data/{$dataset}/locations.json")), true, 512, JSON_THROW_ON_ERROR);
@@ -24,9 +28,37 @@ final class LocationExpansion
 			}
 			foreach ($entries as $entry)
 			{
-				self::importEntry($entry, $roomID++);
+				$genericRoomID = $roomID++;
+				if (($entry['city'] ?? null) === 'Peine')
+				{
+					// Curated Peine seeds win over a matching generic OSM expansion.
+					if (self::hasCuratedPeineDuplicate($entry))
+					{
+						continue;
+					}
+					self::importEntry($entry, $peineRoomID++);
+				}
+				else
+				{
+					self::importEntry($entry, $genericRoomID);
+				}
 			}
 		}
+	}
+
+	/** @param array<string,mixed> $entry */
+	private static function hasCuratedPeineDuplicate(array $entry): bool
+	{
+		$lat = (float)$entry['lat'];
+		$lng = (float)$entry['lng'];
+		return LUP_Room::table()->select()
+			->joinObject('room_address')
+			->where('room_id BETWEEN 1000 AND 1201')
+			->where('room_name=' . LUP_Room::quoteS((string)$entry['name']))
+			->where('address_city=' . LUP_Room::quoteS('Peine'))
+			->where("(address_street=" . LUP_Room::quoteS((string)$entry['street']) .
+				" OR (ABS(room_pos_lat-{$lat})<0.0003 AND ABS(room_pos_lng-{$lng})<0.0005))")
+			->first()->exec()->fetchObject() !== null;
 	}
 
 	/** @param array<string,mixed> $entry */

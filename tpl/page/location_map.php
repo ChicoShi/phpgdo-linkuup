@@ -1,3 +1,4 @@
+<?php /** @var \GDO\Core\GDT_Object $roomSearch */ ?>
 <section class="lup-location-map-page">
 	<header class="lup-location-map-head">
 		<div>
@@ -8,8 +9,7 @@
 		<div class="lup-location-map-status" id="lup-location-map-status" aria-live="polite">Karte wird geladen …</div>
 	</header>
 	<div class="lup-location-map-picker" aria-label="Locations">
-		<label for="lup-location-map-select">Location</label>
-		<select id="lup-location-map-select"></select>
+		<?=$roomSearch->renderForm()?>
 	</div>
 	<div class="lup-location-map-layout">
 		<div class="lup-location-map-canvas-wrap">

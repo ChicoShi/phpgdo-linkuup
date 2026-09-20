@@ -24,6 +24,7 @@ final class LUP_Websocket extends GWS_Commands
 
 	public function connect(GDO_User $user)
 	{
+		LUP_Global::resetGPS($user);
 // 		$this->deliverQueryMessages($user);
 // 		$this->deliverQueryReadMessages($user);
 	}
@@ -34,6 +35,7 @@ final class LUP_Websocket extends GWS_Commands
 
 	public function timer()
 	{
+		LUP_Global::flushDogBacklogs();
 		$now = microtime(true);
 		if ($this->lastKeepaliveAt !== null && (($now - $this->lastKeepaliveAt) <= 60))
 		{

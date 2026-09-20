@@ -51,13 +51,15 @@ class LUPWS_Join extends LUPWS_Command
 		LUP_Global::updateGPS($user, $lat, $lng);
 		if ($velocity > $this->cfgJoinVelocity())
 		{
+			error_log(sprintf('[LUP Join] denied room=%d reason=velocity speed=%.2f', $roomId, $velocity));
 			return $msg->rplyError('err_lup_join_too_fast', [$this->cfgJoinVelocity()]);
 		}
 
 		// Local rooms are local for every account. Privileged roles may manage
 		// rooms, but they must never bypass the live GPS entrance requirement.
-		if (!$room->isInChatRange($lat, $lng))
+		if (!$room->isInChatRange($lat, $lng, $user))
 		{
+			error_log(sprintf('[LUP Join] denied room=%d reason=range', $roomId));
 			return $msg->rplyError('err_room_not_near');
 		}
 

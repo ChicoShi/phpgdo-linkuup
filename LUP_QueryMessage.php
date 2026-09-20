@@ -52,7 +52,7 @@ final class LUP_QueryMessage extends GDO
 
 	public function isRead() { return $this->gdoVar('lupqm_read') !== null; }
 
-	public function isDelivered() { return $this->gdoVar('lupqm_read') !== null; }
+	public function isDelivered() { return $this->gdoVar('lupqm_delivered') !== null; }
 
 	public function isAcknowledged() { return $this->gdoVar('lupqm_ack') !== '0'; }
 

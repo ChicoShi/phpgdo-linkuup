@@ -26,19 +26,21 @@ class LUPWS_UserLike extends LUPWS_Command
 			return $msg->rplyError('err_like_self');
 		}
 
-		$_REQUEST = [
-			'gdo' => LUP_ProfileLike::table()->gdoClassName(),
-			'id' => $userid,
-		];
-
 		if (!LUP_Global::userSeesUser($user, $likeUser))
 		{
 			return $msg->rplyError('err_user_not_near');
 		}
 
-		$response = Like::make()->execute();
+		// Calling execute() directly skips Method::applyInput(), leaving the
+		// required `gdo` parameter as an empty GDT_String. Bind the three
+		// concrete values through the normal method input path instead.
+		$response = Like::make()->execWithInputs([
+			'gdo' => LUP_ProfileLike::table()->gdoClassName(),
+			'id' => $userid,
+			'direction' => 'up',
+		]);
 
-		if ($response->isError())
+		if ($response->hasError())
 		{
 			return $msg->replyErrorMessage($msg->cmd(), json_encode($response->renderJSON()));
 		}
