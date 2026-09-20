@@ -70,3 +70,7 @@ Die Ansicht Friends/Request erhält eine gleichmäßige Bereichsnavigation, blau
 Lokaler Browsercheck bei 320/390/1440 px: mehrzeilige Texteingabe funktioniert, Werkzeugbuttons werden vertikal nicht abgeschnitten, Textfeld beginnt unter der Werkzeugleiste, keine Zeilennummern und kein horizontaler Dokumentüberlauf. Keine JS-Ausnahmen im Eingabetest. Die fünf Formularnamen frq_friend, frq_message, frq_relation, xsrf und submit bleiben erhalten. Hintergrund abschließend bei 320/1440 px visuell geprüft. Keine Freundschaftsanfrage versendet. Shippi hat die Darstellung bestätigt; technische Übernahme weiterhin durch Mira/Gizmore prüfen.
 
 Separater lokaler Umgebungsbefund: Backend-Dokumente unter app.localhost/backend/ luden root-relative Assets vom falschen Host (404). Chico leitet solche HTML-Dokumentnavigation jetzt zum lokalen Backend-Origin um; API-Abfragen bleiben im Proxy. Diese Apache-Konfiguration ist nicht Teil dieses PRs und darf nicht ungeprüft als Produktionskonfiguration übernommen werden.
+
+## Aktueller Integrationsabgleich
+
+Maßgeblich ist jetzt Docs/RELEASE-HANDOFF-20260920.md. Backend upstream/main f36136a ist integriert; die früher genannten Mergekonflikte sind im Reviewbranch gelöst, indem Gizmo res neue Script-/Layout-Einbindung erhalten bleibt. Gemeinsame Laufzeitprüfung dieses integrierten Stands weiterhin offen. App-main hat inzwischen den älteren Stand bis 0432991 übernommen; die verbleibenden Ergänzungen sind gegen diesen neuen Hauptstand vorbereitet.
