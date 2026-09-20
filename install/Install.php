@@ -95,7 +95,6 @@ final class Install
 
 	public static function onInstall(Module_LinkUUp $module): void
 	{
-		self::wipeMarkdown();
 		# The lame drunktard who cannot code well.
         $gizmore = GDO_User::blank([
             'user_id' => '2',
@@ -154,7 +153,7 @@ final class Install
         $minion = GDO_User::blank([
             'user_id' => '6',
             'user_type' => GDT_UserType::MEMBER,
-            'user_name' => 'minion',
+            'user_name' => 'Simion',
             'user_level' => '0',
         ])->softReplace();
         $minion->saveSettingVar('Login', 'password', BCrypt::create($users['minion'][0])->__toString());
@@ -217,7 +216,11 @@ final class Install
 		$module->saveConfigVar('lup_tolerance_credits_per_km', '10000');
         if (GDO_ENV === 'dev' || GDO_ENV === 'tes')
         {
-            if (GDO_HOSTNAME === 'mogwai@home')
+            if (GDO_HOSTNAME === 'linkuup@box5')
+            {
+                Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.linkuup.mira-gpt.org/');
+            }
+            elseif (GDO_HOSTNAME === 'mogwai@home')
             {
                 Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.lup.mogwai.mira-gpt.org/index_debug.php');
             }
@@ -262,15 +265,6 @@ final class Install
 		self::reserveUserRoomIds();
 
 		self::createDefaultImageVariants($module);
-	}
-
-	/** LinkUUp uses plain text; remove the former Markdown installation. */
-	private static function wipeMarkdown(): void
-	{
-		if (($markdown = GDO_Module::getByName('Markdown')) && $markdown->isInstalled())
-		{
-			Installer::dropModule($markdown);
-		}
 	}
 
 	/** Install LinkUUp's favicon once without replacing a site-specific choice. */
