@@ -141,6 +141,7 @@ final class Install
 		$mira->saveSettingVar('Mail', 'email', $users['mira'][1]);
 		$mira->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
         $mira->saveSettingVar('User', 'gender', 'female');
+        $mira->saveSettingVar('User', 'bot', '1');
         $mira->saveSettingVar('Birthday', 'birthday', '2026-07-23');
         $mira->saveSettingVar('Country', 'country_of_origin', 'US');
         $mira->saveSettingVar('Country', 'country_of_living', 'US');
@@ -159,6 +160,7 @@ final class Install
         $minion->saveSettingVar('Login', 'password', BCrypt::create($users['minion'][0])->__toString());
 		$minion->saveSettingVar('Mail', 'email', $users['minion'][1]);
 		$minion->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
+        $minion->saveSettingVar('User', 'bot', '1');
 		LUP_Trophy::getOrCreate($minion)->saveVar('lt_vip', '1');
 		self::installAvatar('minion', 'minion.png', 'data');
 
@@ -221,7 +223,7 @@ final class Install
             }
             else
             {
-                Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.lup.chico.linkuup.de');
+                Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.lup.chico.mira-gpt.org/');
             }
         }
         if (GDO_ENV === 'pro')
