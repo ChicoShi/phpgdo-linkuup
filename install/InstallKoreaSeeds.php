@@ -1,7 +1,7 @@
 <?php
-declare(strict_types=1);
-namespace GDO\LinkUUp;
+namespace GDO\LinkUUp\install;
 
+use GDO\LinkUUp\LUP_Room;
 use GDO\User\GDO_User;
 
 /**

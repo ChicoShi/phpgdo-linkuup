@@ -1,8 +1,9 @@
 <?php
-declare(strict_types=1);
-namespace GDO\LinkUUp;
+namespace GDO\LinkUUp\install;
 
 use GDO\Address\GDO_Address;
+use GDO\LinkUUp\LUP_Room;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\User\GDO_User;
 
 /** The reviewed OSM batches are normal install seed data, not a local side job. */

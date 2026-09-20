@@ -19,6 +19,7 @@ use GDO\Form\GDT_Form;
 use GDO\Gallery\GDO_Gallery;
 use GDO\Gallery\Module_Gallery;
 use GDO\LinkUUp\Method\Welcome;
+use GDO\LinkUUp\install\Install;
 use GDO\Maps\GDT_Velocity;
 use GDO\Net\GDT_Url;
 use GDO\PaymentCredits\GDT_Credits;

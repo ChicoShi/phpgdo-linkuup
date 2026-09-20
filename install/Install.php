@@ -1,7 +1,10 @@
 <?php
-declare(strict_types=1);
-namespace GDO\LinkUUp;
+namespace GDO\LinkUUp\install;
 
+use GDO\LinkUUp\LUP_Category;
+use GDO\LinkUUp\LUP_Room;
+use GDO\LinkUUp\LUP_Trophy;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\AboutMe\Module_AboutMe;
 use GDO\Avatar\GDO_Avatar;
 use GDO\Avatar\GDO_UserAvatar;
@@ -212,7 +215,14 @@ final class Install
 		$module->saveConfigVar('lup_tolerance_credits_per_km', '10000');
         if (GDO_ENV === 'dev' || GDO_ENV === 'tes')
         {
-            Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'app.lup.localhost');
+            if (GDO_HOSTNAME === 'mogwai@home')
+            {
+                Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.lup.mogwai.mira-gpt.org/index_debug.php');
+            }
+            else
+            {
+                Module_LinkUUp::instance()->saveConfigVar('lup_app_url', 'https://app.lup.chico.linkuup.de');
+            }
         }
         if (GDO_ENV === 'pro')
         {
