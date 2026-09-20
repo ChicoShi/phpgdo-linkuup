@@ -39,7 +39,7 @@ define('GDO_CONSOLE_VERBOSE', env('GDO_CONSOLE_VERBOSE', true));
 define('GDO_ERROR_LEVEL', env('GDO_ERROR_LEVEL', 0x37ff));
 define('GDO_ERROR_STACKTRACE', env('GDO_ERROR_STACKTRACE', true));
 define('GDO_ERROR_DIE', env('GDO_ERROR_DIE', true));
-define('GDO_ERROR_MAILS', env('GDO_ERROR_MAILS', true));
+define('GDO_SEND_ERROR_MAILS', env('GDO_SEND_ERROR_MAILS', true));
 
 ################
 ### Database ###
