@@ -161,7 +161,7 @@ final class Install
 		$minion->saveSettingVar('Mail', 'email_confirmed', Time::getDate());
         $minion->saveSettingVar('User', 'bot', '1');
 		LUP_Trophy::getOrCreate($minion)->saveVar('lt_vip', '1');
-		self::installAvatar('minion', 'minion.png', 'data');
+		self::installAvatar('Simion', 'simion.jpg');
 
 		# rayaseiren is a regular seeded member; preserve an existing live account.
 		$rayaseiren = GDO_User::getByName('rayaseiren');
