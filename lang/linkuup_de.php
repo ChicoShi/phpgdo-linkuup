@@ -303,7 +303,7 @@ return [
 	'lup_city' => 'Living City',
 	'lup_cuddle_token_ttl' => 'Gültigkeit des Cuddle-QR-Codes',
 	'lup_cuddles' => 'High Fives',
-	'tolerance_boost' => 'Zusätzliche Chat-Toleranz in km',
+	'tolerance_boost' => 'Chatradius Booster',
 	'PLEASE_SELECT' => 'Bitte wählen …',
 	'err_lup_cuddle_token' => 'Dieser Cuddle-Code ist ungültig.',
 	'err_lup_cuddle_qr' => 'Bitte nutze den Cuddle-QR-Code.',

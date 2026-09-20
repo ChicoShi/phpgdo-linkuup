@@ -290,6 +290,7 @@ return [
 	'lup_city' => 'Living City',
 	'lup_cuddle_token_ttl' => 'Cuddle QR validity',
 	'lup_cuddles' => 'High Fives',
+	'tolerance_boost' => 'Chat Radius Booster',
 	'err_lup_cuddle_token' => 'This Cuddle code is invalid.',
 	'err_lup_cuddle_qr' => 'Please use the Cuddle QR code.',
 	'err_lup_cuddle_used' => 'This Cuddle code has already been used.',

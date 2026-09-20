@@ -254,6 +254,7 @@ return [
 	'lup_city' => '살아있는 도시',
 	'lup_cuddle_token_ttl' => '포옹 QR 유효성',
 	'lup_cuddles' => '하이파이브',
+	'tolerance_boost' => '채팅 반경 부스터',
 	'err_lup_cuddle_token' => '이 포옹 코드는 유효하지 않습니다.',
 	'err_lup_cuddle_qr' => '껴안기 QR코드를 이용해 주세요.',
 	'err_lup_cuddle_used' => '이 Cuddle 코드는 이미 사용되었습니다.',
