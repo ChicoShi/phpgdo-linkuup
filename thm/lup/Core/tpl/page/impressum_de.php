@@ -4,6 +4,7 @@
 <p><strong>Angaben gemäß § 5 DDG</strong></p>
 <p>Shqiprim Mehmeti<br>Hauptstraße 25B<br>38110 Braunschweig</p>
 <p>Christian Busch<br>Am Bauhof 15<br>31224 Peine</p>
+<p>IT Multiservice Busch<br/>St.Nr.: 38/107/05324<br/>Id.Nr.: 63 907 842 613</p>
 <p>E-Mail: <a href="mailto:info@linkuup.de">info@linkuup.de</a></p>
 
 <h2>Inhalte und Links</h2>

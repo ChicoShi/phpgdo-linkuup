@@ -4,7 +4,8 @@
 <p><strong>Information pursuant to section 5 German Digital Services Act (DDG)</strong></p>
 <p>Shqiprim Mehmeti<br>Hauptstraße 25B<br>38110 Braunschweig<br>Germany</p>
 <p>Christian Busch<br>Am Bauhof 15<br>31224 Peine<br>Germany</p>
-<p>Email: <a href="mailto:info@linkuup.de">info@linkuup.de</a></p>
+<p>IT Multiservice Busch<br/>Vat: 38/107/05324<br/>Id: 63 907 842 613</p>
+<p>Email: <a href="mailto:info@linkuup.de">info@linkuup.de</a><br/>WhatsApp: <a href="tel:004917659598844">+49 176 - 59 59 88 44</a></p>
 
 <h2>Content and links</h2>
 <p>We are responsible for our own content under general law. Third-party sites linked from LinkUUp remain the responsibility of their respective providers. Please report suspected unlawful content to the email address above; verified unlawful content or links will be removed.</p>
