@@ -62,6 +62,7 @@ use GDO\UI\GDT_Page;
         <!-- topTabs -->
         <!-- Page content-->
         <main id="content-wrap" class="container-fluid" tabindex="-1">
+            <a class="lup-app-return" href="<?=htmlspecialchars(\GDO\LinkUUp\Module_LinkUUp::instance()->cfgAppUrl(), ENT_QUOTES, 'UTF-8')?>"><span aria-hidden="true">←</span> <?=t('lup_back_to_app')?></a>
 
 			<?=$page->topResponse()->renderHTML()?>
 			<?=$page->html?:''?>

@@ -223,3 +223,8 @@ html.lup-backend-ui .lup-drawer-head small {margin-top:7px;font-size:10px;color:
 html.lup-backend-ui .lup-menu-close {border:0;background:#ddf3ff08;color:#c5e7f8;}
 html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a .gdo-icon i {background:none;border:0;box-shadow:none;padding:0;}
 html.lup-backend-ui body.lup-backend #sidebar-wrapper a[href*="friends."] .gdo-icon {color:#a2ddd0;background:#a2ddd012;}
+
+/* A direct route home, even after several backend form pages. */
+html.lup-backend-ui .lup-app-return { display:inline-flex; align-items:center; gap:8px; min-height:44px; max-width:100%; margin:0 0 12px; padding:8px 14px; border:1px solid var(--shell-line); border-radius:12px; color:var(--shell-text); background:#bce8fa0d; text-decoration:none; font-weight:600; }
+html.lup-backend-ui .lup-app-return:hover { background:#bce8fa1a; }
+html.lup-backend-ui .lup-app-return:focus-visible { outline:2px solid var(--shell-accent); outline-offset:3px; }

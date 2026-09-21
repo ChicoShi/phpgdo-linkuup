@@ -2,6 +2,7 @@
 namespace GDO\LinkUUp\lang;
 
 return [
+	'lup_back_to_app' => 'Zurück zur App',
 
 	'lup_welcome' => 'Willkommen!',
 	'lup_home' => 'LinkUUp',
