@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace GDO\LinkUUp\lang;
 return [
+	'lup_back_to_app' => '앱으로 돌아가기',
 	'lup_welcome' => '환영!',
 	'lup_home' => 'LinkUUp',
 	'lup_login_required' => '로그인한 회원을 위한 공간입니다. <a href="%s">로그인</a>하세요.',
