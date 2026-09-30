@@ -252,7 +252,12 @@ final class LUP_Global
 	{
 		if (!isset(self::$ROOMS[$id]))
 		{
-			if (!$room = LUP_Room::getById($id))
+			// The long-running websocket can retain a stale GDO table cache after
+			// installer changes. Fetch the room once from the database instead.
+			$room = LUP_Room::table()->select()
+				->where('lup_room.room_id=' . LUP_Room::quoteS((string)$id))
+				->first()->exec()->fetchObject();
+			if (!$room)
 			{
 				return false;
 			}
@@ -260,6 +265,25 @@ final class LUP_Global
 			self::$ROOM_USERS[$id] = [];
 		}
 		return self::$ROOMS[$id];
+	}
+
+	/**
+	 * Reload the mutable room fields while keeping the live visitor map intact.
+	 * The websocket process is long-running, so vote totals would otherwise
+	 * remain frozen at the value from the first room lookup.
+	 */
+	public static function refreshRoom($id)
+	{
+		$room = LUP_Room::table()->select()
+			->where('lup_room.room_id=' . LUP_Room::quoteS((string)$id))
+			->first()->exec()->fetchObject();
+		if (!$room)
+		{
+			return false;
+		}
+		self::$ROOMS[$id] = $room;
+		self::$ROOM_USERS[$id] ??= [];
+		return $room;
 	}
 
 	public static function isUserInRoom(GDO_User $user, LUP_Room $room)

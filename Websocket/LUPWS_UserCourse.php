@@ -28,7 +28,10 @@ final class LUPWS_UserCourse extends GWS_Command
 		 */
 		$acl = Module_LinkUUp::instance()->userSetting($user, 'lup_course_visible');
 		$reason = '';
-		if (!$acl->hasAccess($msg->user(), $user, $reason))
+		// Your own chronology is always available to you. Privacy settings only
+		// govern what other accounts may inspect.
+		$isOwnCourse = ($msg->user()->getID() === $user->getID());
+		if ((!$isOwnCourse) && (!$acl->hasAccess($msg->user(), $user, $reason)))
 		{
 			return $msg->replyErrorMessage($msg->cmd(), t('err_not_allowed', [$reason]));
 		}
@@ -36,6 +39,9 @@ final class LUPWS_UserCourse extends GWS_Command
 		$query = LUP_RoomVisit::table()->
 		select('COUNT(*) visit_count, MAX(visit_at) visit_last, visit_room');
 		$query->where('visit_user=' . $user->getID());
+		// Deleted legacy rooms leave visit_room as NULL. They are not real
+		// locations anymore and must never become a phantom entry in a profile.
+		$query->where('visit_room IS NOT NULL');
 		$query->group('visit_room');
 		$query->order('visit_count DESC');
 

@@ -80,6 +80,8 @@ final class EditRoom extends MethodForm
 		if ($staff)
 		{
 			$form->addField($room->gdoColumn('room_category'));
+			$form->addField($room->gdoColumn('room_active'));
+			$form->addField($room->gdoColumn('room_sort'));
 			$form->addField($room->gdoColumn('room_pos'));
 			$form->addField($room->gdoColumn('room_view'));
 			$form->addField($room->gdoColumn('room_radius'));
@@ -124,11 +126,24 @@ final class EditRoom extends MethodForm
 	public function formValidated(GDT_Form $form): GDT
 	{
 		$room = $this->getRoom();
-		$room->saveVars($form->getFormVars());
-
+		$vars = $form->getFormVars();
+		$addressVars = array_intersect_key($vars, array_flip([
+			'address_country',
+			'address_zip',
+			'address_city',
+			'address_street',
+		]));
+		unset(
+			$vars['address_country'],
+			$vars['address_zip'],
+			$vars['address_city'],
+			$vars['address_street'],
+		);
+		$room->saveVars($vars);
+		
 		if ($address = $room->getAddress())
 		{
-			$address->saveVars($form->getFormVars());
+			$address->saveVars($addressVars);
 		}
 		else
 		{

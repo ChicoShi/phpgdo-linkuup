@@ -4,6 +4,8 @@ namespace GDO\LinkUUp\lang;
 return [
 
 	'lup_welcome' => 'Willkommen!',
+	'lup_staff' => 'Team-Bereich',
+	'lup_back_to_backend' => 'Zurück zum LinkUUp-Start',
 	'lup_landing_kicker' => 'Lokale Verbindung, zu deinen Bedingungen',
 	'lup_landing_title' => 'In der Nähe treffen. Gemeinsam planen.',
 	'lup_landing_lead' => 'LinkUUp hilft Menschen, Orte, Gespräche und Pläne zu entdecken, die zum eigenen Alltag passen.',
@@ -21,6 +23,7 @@ return [
 	'keywords' => ' LinkUUp, local chat app, location based chat, establishments with a chatroom, free city chat',
 
 	'module_LinkUUp' => 'LinkUUp',
+	'module_linkuup' => 'LinkUUp',
 	'lup_category' => 'Kategorie',
 	'lup_course_visible' => 'Besuchte Orte zeigen',
 
@@ -60,6 +63,10 @@ return [
 	'cfg_lup_drinks' => 'Trinken Sie Alkohol?',
 	'cfg_lup_smokes' => 'Rauchen Sie?',
 	'cfg_lup_sporty' => 'Treiben Sie Sport?',
+	'cfg_lup_religion' => 'Ihre Religion (optional)',
+	'lup_religion' => 'Religion',
+	'cfg_lup_occupation' => 'Ihre Tätigkeit',
+	'cfg_lup_drivers_license' => 'Haben Sie einen Führerschein?',
 	'cfg_lup_origin' => 'Woher stammen Sie?',
 	'cfg_lup_state' => 'In welchem Staat/Bundesland leben Sie?',
 	'cfg_lup_city' => 'In welcher Stadt leben Sie?',
@@ -86,8 +93,8 @@ return [
 
 	'link_edit_room_comments' => 'Kommentare bearbeiten',
 
-	'graph_usercount' => 'Anzahl Benutzer',
-	'graph_messagecount' => 'Anzahl Nachrichten',
+	'graph_usercount' => 'Barbesuche',
+	'graph_messagecount' => 'LinkUUp Chat-Nutzung',
 
 	# 6.10.6
 	'lup_room' => 'Room',
@@ -96,6 +103,7 @@ return [
 	# 6.11.0
 	'box_content_lup_main' => 'LinkUUp Mitarbeiter Bereich',
 	'link_rooms' => 'Räume',
+	'link_statistics' => 'Statistiken',
 	'link_add_room' => 'Neuer Raum',
 	'link_cats' => 'Kategorien',
 	'link_add_cat' => 'Neue Kategorie',
@@ -111,6 +119,9 @@ return [
 	'lup_drinks_visible' => 'Wer darf sehen, ob Du Alkohol trinkst',
 	'lup_smokes_visible' => 'Wer darf sehen, ob Du rauchst?',
 	'lup_sporty_visible' => 'Wer darf sehen, ob Du Sport treibst?',
+	'lup_religion_visible' => 'Wer darf Deine Religion sehen?',
+	'lup_occupation_visible' => 'Wer darf Deine Tätigkeit sehen?',
+	'lup_drivers_license_visible' => 'Wer darf Deinen Führerschein sehen?',
 	'lup_origin_visible' => 'Wer darf Dein Herkunfstland sehen?',
 	'lup_state_visible' => 'Wer darf sehen in welchem Bundesland Du wohnst?',
 	'lup_city_visible' => 'Wer darf sehen in welcher Stadt Du wohnst?',
@@ -134,6 +145,35 @@ return [
 	'enum_lup_drink_yes' => 'ja',
 	'enum_lup_drink_sometimes' => 'manchmal',
 	'enum_lup_drink_never' => 'niemals',
+
+	'enum_religion_christian' => 'christlich',
+	'enum_religion_muslim' => 'muslimisch',
+	'enum_religion_jewish' => 'jüdisch',
+	'enum_religion_egyptian' => 'ägyptisch',
+	'enum_religion_hindi' => 'hinduistisch',
+	'enum_religion_romanian' => 'römisch',
+	'enum_religion_vikings' => 'Wikinger',
+	'enum_religion_buddhism' => 'Buddhismus',
+	'enum_religion_atheist' => 'atheistisch',
+	'enum_religion_other' => 'andere Religion',
+	'enum_pet_cat' => 'Katze',
+	'enum_pet_dog' => 'Hund',
+	'enum_pet_fish' => 'Fisch',
+	'enum_pet_reptile' => 'Reptil',
+	'enum_pet_bird' => 'Vogel',
+	'enum_pet_other_mammal' => 'Anderes Säugetier',
+	'enum_pet_other' => 'Anderes Haustier',
+	'enum_pet_none' => 'Kein Haustier',
+	'enum_pet_wished' => 'Ich wünschte mir eins',
+	'enum_occupation_student' => 'Student/in',
+	'enum_occupation_pupil' => 'Schüler/in',
+	'enum_occupation_working' => 'berufstätig',
+	'enum_occupation_self_employed' => 'selbstständig',
+	'enum_occupation_training' => 'in Ausbildung',
+	'enum_occupation_other' => 'anderes',
+	'enum_license_yes' => 'ja',
+	'enum_license_no' => 'nein',
+	'enum_license_in_progress' => 'gerade in Ausbildung',
 
 	# Eye color
 	'enum_amber' => 'braun',
@@ -162,7 +202,7 @@ return [
 
 	# 7.0.1
 	'mt_linkuup_statistics' => 'Statistics',
-	'mt_linkuup_admin' => 'Admin Section',
+	'mt_linkuup_admin' => 'Verwaltung',
 	'mt_linkuup_editmenu' => 'Edit Menu',
 	'mt_linkuup_roomicon' => 'Icon',
 	'mt_linkuup_roomimage' => 'Image',
