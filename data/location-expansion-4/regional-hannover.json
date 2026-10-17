@@ -1,0 +1,1303 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "checked_at": "2026-10-17",
+  "status": "online_reviewed_local_import_only",
+  "entries": [
+    {
+      "key": "osm-way-25197585",
+      "name": "HMTM Hannover – Hauptgebäude Neues Haus",
+      "city": "Hannover",
+      "street": "Neues Haus 1",
+      "zip": "30175",
+      "category": 16,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/25197585/full",
+      "website": "https://www.hmtm-hannover.de/de/hochschule/profil-organisation/oeffnungszeiten/",
+      "lat": 52.3775799023,
+      "lng": 9.7539486883,
+      "view_km": 32,
+      "chat_radius_km": 0.0105,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7545996,
+              52.3778334
+            ],
+            [
+              9.7547469,
+              52.3778166
+            ],
+            [
+              9.7547761,
+              52.3778334
+            ],
+            [
+              9.7547917,
+              52.3778208
+            ],
+            [
+              9.7547714,
+              52.3776311
+            ],
+            [
+              9.7543846,
+              52.3774518
+            ],
+            [
+              9.7542273,
+              52.3774401
+            ],
+            [
+              9.7541346,
+              52.3775366
+            ],
+            [
+              9.7541676,
+              52.3775878
+            ],
+            [
+              9.7541843,
+              52.3775938
+            ],
+            [
+              9.75421,
+              52.3775672
+            ],
+            [
+              9.7544376,
+              52.3776358
+            ],
+            [
+              9.7543763,
+              52.3777858
+            ],
+            [
+              9.7538764,
+              52.3777802
+            ],
+            [
+              9.7537185,
+              52.3775626
+            ],
+            [
+              9.7537744,
+              52.3775103
+            ],
+            [
+              9.7538267,
+              52.3774614
+            ],
+            [
+              9.7540341,
+              52.3772278
+            ],
+            [
+              9.7542603,
+              52.3772414
+            ],
+            [
+              9.7542779,
+              52.3772259
+            ],
+            [
+              9.7543101,
+              52.3771975
+            ],
+            [
+              9.7550562,
+              52.3775268
+            ],
+            [
+              9.7550807,
+              52.377856
+            ],
+            [
+              9.75502,
+              52.3778875
+            ],
+            [
+              9.7549906,
+              52.3779027
+            ],
+            [
+              9.7549547,
+              52.3779214
+            ],
+            [
+              9.7548805,
+              52.3779599
+            ],
+            [
+              9.754782,
+              52.3779632
+            ],
+            [
+              9.7546757,
+              52.3779667
+            ],
+            [
+              9.7545727,
+              52.3778732
+            ],
+            [
+              9.7545996,
+              52.3778334
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 13.52,
+      "area_m2": 3893.58,
+      "source_version": "21",
+      "source_timestamp": "2026-04-19T13:40:33Z",
+      "additional_sources": [
+        "https://api.openstreetmap.org/api/0.6/way/42713800/full"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.hmtm-hannover.de/de/hochschule/profil-organisation/oeffnungszeiten/",
+          "checked_at": "2026-10-17",
+          "evidence": "Hauptgebäude Neues Haus1 mit aktuellen Vorlesungs- und Ferienöffnungszeiten 2026; Schließtage 2026/27 ausdrücklich aufgeführt."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.hmtm-hannover.de/de/hochschule/profil-organisation/oeffnungszeiten/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiber-/Stadtquelle bestätigt Standortadresse; originale OSM-Adresse zusätzlich geprüft. "
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/25197585/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt über metrische Rasterverfeinerung; unabhängig mit PHP GDT_Polygon::containsPoint geprüft, kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/25197585/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler building=university-Way Neues Haus1. Der deutlich größere Hochschulstandort-Way42713800 wird NICHT übernommen. Gebäudepostaladresse stimmt mit expliziten Betreiberöffnungszeiten dieses Hauptgebäudes überein. Geschlossener Originalring ohne echte Segmentkreuzung; Flächenprüfung durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/25197585/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus3m abgerundet;128 Punkte auf Innenradius+3m liegen innerhalb. Effektive Zugangsgrenze bleibt das Originalpolygon mit3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 543,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-560955703",
+      "name": "Sprengel Museum Hannover",
+      "city": "Hannover",
+      "street": "Kurt-Schwitters-Platz 1",
+      "zip": "30169",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/560955703/full",
+      "website": "https://www.sprengel-museum.de/besuch",
+      "lat": 52.3631898574,
+      "lng": 9.7399361771,
+      "view_km": 32,
+      "chat_radius_km": 0.0245,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7398284,
+              52.3637157
+            ],
+            [
+              9.7400051,
+              52.363766
+            ],
+            [
+              9.7400221,
+              52.3637439
+            ],
+            [
+              9.7400422,
+              52.3637494
+            ],
+            [
+              9.7400734,
+              52.3637085
+            ],
+            [
+              9.7402109,
+              52.3635278
+            ],
+            [
+              9.7402904,
+              52.3635505
+            ],
+            [
+              9.7402922,
+              52.3635483
+            ],
+            [
+              9.740339,
+              52.3635617
+            ],
+            [
+              9.740434,
+              52.3634379
+            ],
+            [
+              9.7403871,
+              52.3634245
+            ],
+            [
+              9.740527,
+              52.3632421
+            ],
+            [
+              9.7405741,
+              52.3631806
+            ],
+            [
+              9.7403184,
+              52.3631072
+            ],
+            [
+              9.7407675,
+              52.3625156
+            ],
+            [
+              9.7408061,
+              52.3624948
+            ],
+            [
+              9.7406107,
+              52.3623931
+            ],
+            [
+              9.7405847,
+              52.362425
+            ],
+            [
+              9.7403499,
+              52.3623121
+            ],
+            [
+              9.7403597,
+              52.3622994
+            ],
+            [
+              9.7403907,
+              52.362308
+            ],
+            [
+              9.7408568,
+              52.3616943
+            ],
+            [
+              9.7405351,
+              52.3616023
+            ],
+            [
+              9.7400676,
+              52.3622153
+            ],
+            [
+              9.740203,
+              52.3622547
+            ],
+            [
+              9.7398273,
+              52.3627466
+            ],
+            [
+              9.7397962,
+              52.3627378
+            ],
+            [
+              9.7397817,
+              52.3627568
+            ],
+            [
+              9.7398128,
+              52.3627656
+            ],
+            [
+              9.7395292,
+              52.3631369
+            ],
+            [
+              9.7395102,
+              52.3631419
+            ],
+            [
+              9.7393801,
+              52.3633122
+            ],
+            [
+              9.7393934,
+              52.3633164
+            ],
+            [
+              9.7394083,
+              52.3632976
+            ],
+            [
+              9.7394537,
+              52.3633104
+            ],
+            [
+              9.7394401,
+              52.3633296
+            ],
+            [
+              9.7394877,
+              52.3633432
+            ],
+            [
+              9.7395903,
+              52.3633726
+            ],
+            [
+              9.739724,
+              52.363411
+            ],
+            [
+              9.7397295,
+              52.363404
+            ],
+            [
+              9.7397604,
+              52.363413
+            ],
+            [
+              9.739626,
+              52.3635905
+            ],
+            [
+              9.739798,
+              52.3636399
+            ],
+            [
+              9.7397993,
+              52.3636381
+            ],
+            [
+              9.739823,
+              52.3636447
+            ],
+            [
+              9.7398477,
+              52.3636127
+            ],
+            [
+              9.7398969,
+              52.3636267
+            ],
+            [
+              9.7398284,
+              52.3637157
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 27.56,
+      "area_m2": 9575.72,
+      "source_version": "34",
+      "source_timestamp": "2026-09-05T12:06:13Z",
+      "additional_sources": [
+        "https://www.sprengel-museum.de/kalender"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.sprengel-museum.de/besuch",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt aktuelle Wochenöffnungszeiten, Eintritt und Anfahrt. Turrell-Räume aktuell wegen Brandschutzarbeiten geschlossen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.sprengel-museum.de/besuch",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiber-/Stadtquelle bestätigt Standortadresse; originale OSM-Adresse zusätzlich geprüft. Offizielle Besuchsseite nennt Kurt-Schwitters-Platz ohne Hausnummer; Hausnummer1 stammt aus dem benannten Museums-Way."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/560955703/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt über metrische Rasterverfeinerung; unabhängig mit PHP GDT_Polygon::containsPoint geprüft, kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/560955703/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Direkt als Sprengel Museum benannter civic-Museumsgebäudering; keine Umhüllung benachbarter Wohnhäuser oder des Maschseeufers. Museumsfunktionen inklusive angeschlossener Besucherservices. Geschlossener Originalring ohne echte Segmentkreuzung; Flächenprüfung durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/560955703/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus3m abgerundet;128 Punkte auf Innenradius+3m liegen innerhalb. Effektive Zugangsgrenze bleibt das Originalpolygon mit3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 543,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-4816460",
+      "name": "Museum August Kestner",
+      "city": "Hannover",
+      "street": "Platz der Menschenrechte 3",
+      "zip": "30159",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/4816460/full",
+      "website": "https://www.hannover.de/Veranstaltungskalender/Ausstellungen/Museum-August-Kestner/Mittendrin-Mittelalter",
+      "lat": 52.3680813983,
+      "lng": 9.7362537857,
+      "view_km": 32,
+      "chat_radius_km": 0.0136,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7359504,
+              52.3679799
+            ],
+            [
+              9.7361072,
+              52.3683071
+            ],
+            [
+              9.7365761,
+              52.3682229
+            ],
+            [
+              9.7365249,
+              52.3681157
+            ],
+            [
+              9.7365445,
+              52.3681122
+            ],
+            [
+              9.7365505,
+              52.3681184
+            ],
+            [
+              9.7365629,
+              52.3681262
+            ],
+            [
+              9.7365778,
+              52.3681321
+            ],
+            [
+              9.736582,
+              52.3681331
+            ],
+            [
+              9.7365845,
+              52.3681289
+            ],
+            [
+              9.7365811,
+              52.3681281
+            ],
+            [
+              9.7365676,
+              52.3681227
+            ],
+            [
+              9.7365564,
+              52.3681156
+            ],
+            [
+              9.7365518,
+              52.3681109
+            ],
+            [
+              9.7365481,
+              52.3681072
+            ],
+            [
+              9.7365451,
+              52.3681016
+            ],
+            [
+              9.7365431,
+              52.3680978
+            ],
+            [
+              9.7365422,
+              52.3680916
+            ],
+            [
+              9.7365417,
+              52.368088
+            ],
+            [
+              9.7365438,
+              52.3680784
+            ],
+            [
+              9.7365493,
+              52.3680694
+            ],
+            [
+              9.7365537,
+              52.3680653
+            ],
+            [
+              9.7365475,
+              52.3680628
+            ],
+            [
+              9.7365427,
+              52.3680673
+            ],
+            [
+              9.7365366,
+              52.3680773
+            ],
+            [
+              9.7365343,
+              52.3680879
+            ],
+            [
+              9.736535,
+              52.3680929
+            ],
+            [
+              9.7365156,
+              52.3680963
+            ],
+            [
+              9.7364192,
+              52.3678946
+            ],
+            [
+              9.7359504,
+              52.3679799
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 16.62,
+      "area_m2": 1270.65,
+      "source_version": "58",
+      "source_timestamp": "2026-09-04T14:11:18Z",
+      "additional_sources": [
+        "https://www.hannover.de/Media/01-DATA-Neu/Facetten/Landeshauptstadt/Tag-des-offenen-Denkmals-F/Museum-August-Kestner"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.hannover.de/Veranstaltungskalender/Ausstellungen/Museum-August-Kestner/Mittendrin-Mittelalter",
+          "checked_at": "2026-10-17",
+          "evidence": "Stadt dokumentiert laufende Ausstellung Mittendrin: Mittelalter seit08.10.2026 bis31.12.2027 einschließlich Besuchstagen und Hausadresse."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.hannover.de/Veranstaltungskalender/Ausstellungen/Museum-August-Kestner/Mittendrin-Mittelalter",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiber-/Stadtquelle bestätigt Standortadresse; originale OSM-Adresse zusätzlich geprüft. "
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/4816460/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt über metrische Rasterverfeinerung; unabhängig mit PHP GDT_Polygon::containsPoint geprüft, kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/4816460/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler benannter Museum-Way. Platz der Menschenrechte3 ist durch aktuelle städtische Ausstellung und Denkmaltag2026 bestätigt; abweichende Hausnummer2 in einem allgemeinen städtischen Verzeichniseintrag nicht übernommen. Geschlossener Originalring ohne echte Segmentkreuzung; Flächenprüfung durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/4816460/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus3m abgerundet;128 Punkte auf Innenradius+3m liegen innerhalb. Effektive Zugangsgrenze bleibt das Originalpolygon mit3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 543,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-208147781",
+      "name": "Kestner Gesellschaft",
+      "city": "Hannover",
+      "street": "Goseriede 11",
+      "zip": "30159",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/208147781/full",
+      "website": "https://kestnergesellschaft.de/de/seite/information",
+      "lat": 52.3772787607,
+      "lng": 9.7314514718,
+      "view_km": 32,
+      "chat_radius_km": 0.0115,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7312348,
+              52.377531
+            ],
+            [
+              9.7316297,
+              52.3775216
+            ],
+            [
+              9.7316351,
+              52.3774499
+            ],
+            [
+              9.731636,
+              52.3774384
+            ],
+            [
+              9.73164,
+              52.3774371
+            ],
+            [
+              9.7316432,
+              52.377435
+            ],
+            [
+              9.7316453,
+              52.3774325
+            ],
+            [
+              9.7316462,
+              52.3774297
+            ],
+            [
+              9.7316457,
+              52.3774269
+            ],
+            [
+              9.731644,
+              52.3774243
+            ],
+            [
+              9.7316412,
+              52.3774221
+            ],
+            [
+              9.7316374,
+              52.3774205
+            ],
+            [
+              9.7316382,
+              52.377409
+            ],
+            [
+              9.7316466,
+              52.3773323
+            ],
+            [
+              9.7316575,
+              52.3773329
+            ],
+            [
+              9.7316631,
+              52.3773007
+            ],
+            [
+              9.7316673,
+              52.3773009
+            ],
+            [
+              9.7316713,
+              52.3772821
+            ],
+            [
+              9.7316879,
+              52.3772701
+            ],
+            [
+              9.7316972,
+              52.3772554
+            ],
+            [
+              9.7316989,
+              52.3772397
+            ],
+            [
+              9.7316931,
+              52.3772243
+            ],
+            [
+              9.7316794,
+              52.377211
+            ],
+            [
+              9.7316828,
+              52.3771934
+            ],
+            [
+              9.7317079,
+              52.3771953
+            ],
+            [
+              9.7317144,
+              52.3771642
+            ],
+            [
+              9.731512,
+              52.3771467
+            ],
+            [
+              9.7312389,
+              52.3771529
+            ],
+            [
+              9.7312348,
+              52.377531
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 14.54,
+      "area_m2": 1202.31,
+      "source_version": "20",
+      "source_timestamp": "2025-02-17T21:36:00Z",
+      "additional_sources": [
+        "https://api.openstreetmap.org/api/0.6/way/208147782/full"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://kestnergesellschaft.de/de/seite/information",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Goseriede11, reguläre Ausstellungszeiten Di–So und Donnerstagabend sowie laufenden Besucherbetrieb."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://kestnergesellschaft.de/de/seite/information",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiber-/Stadtquelle bestätigt Standortadresse; originale OSM-Adresse zusätzlich geprüft. "
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/208147781/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt über metrische Rasterverfeinerung; unabhängig mit PHP GDT_Polygon::containsPoint geprüft, kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/208147781/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Goseriedebad-Way mit alt_name=Kestnergesellschaft, tourism=museum und Betreiberwebsite. Benachbartes radio-ffn-Funkhaus ist ein eigener Way208147782 und wird nicht pauschal mitumfasst. Geschlossener Originalring ohne echte Segmentkreuzung; Flächenprüfung durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/208147781/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus3m abgerundet;128 Punkte auf Innenradius+3m liegen innerhalb. Effektive Zugangsgrenze bleibt das Originalpolygon mit3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 543,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-28399518",
+      "name": "SEA LIFE Hannover",
+      "city": "Hannover",
+      "street": "Herrenhäuser Straße 4a",
+      "zip": "30419",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/28399518/full",
+      "website": "https://www.visitsealife.com/hannover/",
+      "lat": 52.3926010439,
+      "lng": 9.6989827431,
+      "view_km": 32,
+      "chat_radius_km": 0.0178,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.6985837,
+              52.3925537
+            ],
+            [
+              9.6985864,
+              52.3925302
+            ],
+            [
+              9.6985932,
+              52.3925098
+            ],
+            [
+              9.6986077,
+              52.3924909
+            ],
+            [
+              9.6986256,
+              52.3924742
+            ],
+            [
+              9.6986494,
+              52.3924606
+            ],
+            [
+              9.6986792,
+              52.3924476
+            ],
+            [
+              9.6987131,
+              52.3924392
+            ],
+            [
+              9.698752,
+              52.392431
+            ],
+            [
+              9.6987927,
+              52.3924269
+            ],
+            [
+              9.6988355,
+              52.3924237
+            ],
+            [
+              9.6988786,
+              52.3924244
+            ],
+            [
+              9.6988914,
+              52.3923901
+            ],
+            [
+              9.6988604,
+              52.3923933
+            ],
+            [
+              9.698859,
+              52.3923879
+            ],
+            [
+              9.6989133,
+              52.3923825
+            ],
+            [
+              9.6989345,
+              52.3923822
+            ],
+            [
+              9.6989558,
+              52.3923818
+            ],
+            [
+              9.6989978,
+              52.3923853
+            ],
+            [
+              9.6990387,
+              52.3923907
+            ],
+            [
+              9.6990777,
+              52.3923999
+            ],
+            [
+              9.6990795,
+              52.3923976
+            ],
+            [
+              9.6991049,
+              52.3924051
+            ],
+            [
+              9.6991287,
+              52.3924144
+            ],
+            [
+              9.6991399,
+              52.3924193
+            ],
+            [
+              9.699151,
+              52.3924242
+            ],
+            [
+              9.6991715,
+              52.3924353
+            ],
+            [
+              9.6991914,
+              52.3924473
+            ],
+            [
+              9.6992092,
+              52.3924605
+            ],
+            [
+              9.6992164,
+              52.3924589
+            ],
+            [
+              9.6992241,
+              52.3924588
+            ],
+            [
+              9.6992315,
+              52.3924601
+            ],
+            [
+              9.699238,
+              52.3924626
+            ],
+            [
+              9.6992431,
+              52.3924661
+            ],
+            [
+              9.6992464,
+              52.3924703
+            ],
+            [
+              9.6992475,
+              52.392475
+            ],
+            [
+              9.6992465,
+              52.3924796
+            ],
+            [
+              9.6992433,
+              52.3924839
+            ],
+            [
+              9.6992381,
+              52.3924874
+            ],
+            [
+              9.699251,
+              52.392504
+            ],
+            [
+              9.6992474,
+              52.3925049
+            ],
+            [
+              9.6992487,
+              52.3925067
+            ],
+            [
+              9.6992778,
+              52.392501
+            ],
+            [
+              9.6993069,
+              52.3924953
+            ],
+            [
+              9.6993477,
+              52.3924872
+            ],
+            [
+              9.699362,
+              52.3925176
+            ],
+            [
+              9.6993712,
+              52.3925431
+            ],
+            [
+              9.69938,
+              52.392569
+            ],
+            [
+              9.6993837,
+              52.3925964
+            ],
+            [
+              9.6993851,
+              52.3926233
+            ],
+            [
+              9.6993834,
+              52.3926501
+            ],
+            [
+              9.6993796,
+              52.392677
+            ],
+            [
+              9.6993719,
+              52.3927036
+            ],
+            [
+              9.699356,
+              52.392747
+            ],
+            [
+              9.6993374,
+              52.39279
+            ],
+            [
+              9.6992898,
+              52.3927699
+            ],
+            [
+              9.699266,
+              52.3927599
+            ],
+            [
+              9.6992421,
+              52.3927498
+            ],
+            [
+              9.6992219,
+              52.392776
+            ],
+            [
+              9.6991946,
+              52.3927997
+            ],
+            [
+              9.6991642,
+              52.392822
+            ],
+            [
+              9.6991278,
+              52.3928406
+            ],
+            [
+              9.69909,
+              52.3928579
+            ],
+            [
+              9.6990496,
+              52.3928728
+            ],
+            [
+              9.6990081,
+              52.3928867
+            ],
+            [
+              9.6989862,
+              52.3928923
+            ],
+            [
+              9.6989644,
+              52.3928978
+            ],
+            [
+              9.6989199,
+              52.3929077
+            ],
+            [
+              9.6988741,
+              52.392915
+            ],
+            [
+              9.6988535,
+              52.3927714
+            ],
+            [
+              9.6988277,
+              52.3927706
+            ],
+            [
+              9.6988023,
+              52.3927677
+            ],
+            [
+              9.6987701,
+              52.3927607
+            ],
+            [
+              9.6987411,
+              52.3927496
+            ],
+            [
+              9.6987195,
+              52.3927383
+            ],
+            [
+              9.6986996,
+              52.3927259
+            ],
+            [
+              9.6986886,
+              52.3927185
+            ],
+            [
+              9.6986776,
+              52.3927111
+            ],
+            [
+              9.6986582,
+              52.392695
+            ],
+            [
+              9.6986398,
+              52.3926779
+            ],
+            [
+              9.6986252,
+              52.3926594
+            ],
+            [
+              9.6986132,
+              52.3926439
+            ],
+            [
+              9.6986041,
+              52.3926276
+            ],
+            [
+              9.6985927,
+              52.3926027
+            ],
+            [
+              9.6985869,
+              52.3925771
+            ],
+            [
+              9.6985837,
+              52.3925537
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 20.9,
+      "area_m2": 2150.04,
+      "source_version": "22",
+      "source_timestamp": "2026-05-31T07:09:01Z",
+      "additional_sources": [],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.visitsealife.com/hannover/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber zeigt aktuellen Aquariumbetrieb, Öffnungszeiten und Halloweenangebot. Anfahrt nennt Herrenhäuser Str.4a."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.visitsealife.com/hannover/en/general-information/directions/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiber-/Stadtquelle bestätigt Standortadresse; originale OSM-Adresse zusätzlich geprüft. "
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28399518/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt über metrische Rasterverfeinerung; unabhängig mit PHP GDT_Polygon::containsPoint geprüft, kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28399518/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Direkt als Sea Life benannter Aquarium-Gebäudering mit access=customers. Kein gesamter Berggarten- oder Herrenhäuser-Gärten-Geofence. Tropen- und Aquariumteil sind ein zusammenhängender Besucherbetrieb. Geschlossener Originalring ohne echte Segmentkreuzung; Flächenprüfung durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28399518/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus3m abgerundet;128 Punkte auf Innenradius+3m liegen innerhalb. Effektive Zugangsgrenze bleibt das Originalpolygon mit3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 543,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    }
+  ],
+  "held_candidates": [
+    {
+      "name": "Niedersächsisches Landesmuseum",
+      "reason": "Multipolygon mit Innenhöfen; keine Außenhülle ohne Innenringe übernehmen."
+    },
+    {
+      "name": "Wilhelm-Busch-Museum",
+      "reason": "POI bestätigt; separater Gebäudebezug noch nicht abschließend geprüft."
+    }
+  ]
+}

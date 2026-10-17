@@ -1,5 +1,5 @@
 {
-  "status": "second_pass_12_more_imported_locally",
+  "status": "regional_13_more_imported_locally",
   "cities": [
     "Berlin",
     "Hamburg",
@@ -46,7 +46,7 @@
   "osm_candidates_total": 297,
   "official_source_records": 48,
   "geocoded_point_candidates": 11,
-  "new_active_locations": 15,
+  "new_active_locations": 28,
   "existing_active_locations": 528,
   "bulk_fetch_failed_cities": [
     "Berlin",
@@ -167,9 +167,9 @@
     "university_scope_or_institution_type_ambiguous": 6,
     "operator_or_institution_source_present_not_field_verified": 24
   },
-  "independently_reviewed_venue_polygons": 3,
+  "independently_reviewed_venue_polygons": 28,
   "activation_pending": "283 of original297 OSM candidates remain unimported; additional official-only candidates remain pending",
-  "total_active_locations": 543,
+  "total_active_locations": 556,
   "imported_keys": [
     "osm-way-96854636",
     "osm-way-28299711",
@@ -185,7 +185,20 @@
     "osm-way-558371648",
     "osm-way-89375225",
     "osm-way-95793933",
-    "osm-node-983499363"
+    "osm-node-983499363",
+    "osm-way-26679355",
+    "osm-way-173605166",
+    "osm-way-84030995",
+    "osm-way-28622716",
+    "osm-way-25197585",
+    "osm-way-560955703",
+    "osm-way-4816460",
+    "osm-way-208147781",
+    "osm-way-28399518",
+    "osm-way-25809295",
+    "osm-way-126413725",
+    "osm-way-141726461",
+    "osm-way-141726462"
   ],
   "remaining_osm_candidates": 283,
   "new_venue_tolerances_m": {
@@ -222,5 +235,20 @@
       "Dynochrom shared upstairs Chromotion studio",
       "Regina current operator evidence unavailable"
     ]
+  },
+  "regional_pass": {
+    "imported": 13,
+    "cities": {
+      "Braunschweig": 3,
+      "Wolfsburg": 2,
+      "Hannover": 5,
+      "Wolfenbüttel": 1,
+      "Salzgitter": 2
+    },
+    "prior_543_rows_unchanged": true,
+    "source_polygons_rechecked": 13,
+    "duplicate_dryrun": "13 existing,0 new",
+    "boundary_checks": "13 inside allowed / far outside denied",
+    "held": "Naturhistorisches Museum: mixed building use; other ambiguous footprints retained as research only"
   }
 }
