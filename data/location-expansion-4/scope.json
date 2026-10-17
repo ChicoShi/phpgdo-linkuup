@@ -1,0 +1,67 @@
+{
+  "status": "research_in_progress_not_imported",
+  "cities": [
+    "Berlin",
+    "Hamburg",
+    "Frankfurt am Main",
+    "Kiel",
+    "München",
+    "Nürnberg",
+    "Augsburg",
+    "Regensburg"
+  ],
+  "regional_cities": [
+    "Braunschweig",
+    "Wolfsburg",
+    "Hannover"
+  ],
+  "categories": [
+    "city",
+    "cafe",
+    "bar",
+    "club",
+    "university",
+    "leisure"
+  ],
+  "target_per_city": [
+    50,
+    100
+  ],
+  "requirements": [
+    "current_operator_evidence",
+    "verified_exact_pin",
+    "verified_effective_chat_boundary",
+    "radius_matched_to_venue",
+    "no_duplicates"
+  ],
+  "blocked_import_reasons": [
+    "Original importer has regional coordinate constraints and enables all inserts",
+    "Current OSM bulk requests partly fail with HTTP500",
+    "Source point or bbox center is not a verified entrance or chat boundary"
+  ],
+  "candidate_counts": {
+    "Augsburg": 100,
+    "Frankfurt am Main": 100,
+    "Regensburg": 97
+  },
+  "osm_candidates_total": 297,
+  "official_source_records": 48,
+  "geocoded_point_candidates": 11,
+  "new_active_locations": 0,
+  "existing_active_locations": 528,
+  "bulk_fetch_failed_cities": [
+    "Berlin",
+    "Hamburg",
+    "Kiel",
+    "München",
+    "Nürnberg"
+  ],
+  "remaining_checks": [
+    "Cross-dataset and existing DB duplicate review",
+    "Current operating evidence per venue",
+    "Entrance or valid interior pin",
+    "Effective polygon plus server tolerance, not just radius",
+    "Missing addresses and source websites",
+    "Bulk candidates for remaining five cities"
+  ]
+}

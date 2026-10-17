@@ -1,0 +1,66 @@
+{
+  "Berlin": {
+    "osm_type": "relation",
+    "osm_id": 62422,
+    "lat": "52.5173885",
+    "lon": "13.3951309",
+    "display_name": "Berlin, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  },
+  "Hamburg": {
+    "osm_type": "relation",
+    "osm_id": 62782,
+    "lat": "53.5501721",
+    "lon": "10.0013165",
+    "display_name": "Hamburg, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  },
+  "Frankfurt am Main": {
+    "osm_type": "relation",
+    "osm_id": 62400,
+    "lat": "50.1106444",
+    "lon": "8.6820917",
+    "display_name": "Frankfurt am Main, Hessen, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  },
+  "Kiel": {
+    "osm_type": "relation",
+    "osm_id": 27021,
+    "lat": "54.3227085",
+    "lon": "10.1355550",
+    "display_name": "Kiel, Altenholz, Schleswig-Holstein, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  },
+  "München": {
+    "osm_type": "relation",
+    "osm_id": 62428,
+    "lat": "48.1371079",
+    "lon": "11.5753822",
+    "display_name": "München, Bayern, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  },
+  "Nürnberg": {
+    "osm_type": "relation",
+    "osm_id": 62780,
+    "lat": "49.4538720",
+    "lon": "11.0772980",
+    "display_name": "Nürnberg, Bayern, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  },
+  "Augsburg": {
+    "osm_type": "relation",
+    "osm_id": 62407,
+    "lat": "48.3690341",
+    "lon": "10.8979522",
+    "display_name": "Augsburg, Bayern, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  },
+  "Regensburg": {
+    "osm_type": "relation",
+    "osm_id": 62411,
+    "lat": "49.0195333",
+    "lon": "12.0974869",
+    "display_name": "Regensburg, Bayern, Deutschland",
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright"
+  }
+}

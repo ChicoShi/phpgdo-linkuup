@@ -1,0 +1,2385 @@
+{
+  "city": "Regensburg",
+  "city_boundary_source": "https://www.openstreetmap.org/relation/62411",
+  "fetched_at": "2026-10-17T06:26:05.212690+00:00",
+  "osm_base": "2026-06-01T08:52:28Z",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "status": "discovery_only_not_importable",
+  "available": {
+    "cafe": 113,
+    "bar": 65,
+    "club": 12,
+    "university": 24,
+    "leisure": 128
+  },
+  "entries": [
+    {
+      "source_key": "osm-node-3754880863",
+      "name": "190°",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3754880863",
+      "website": "https://www.rehorik.de/gastro/cafe-190-grad/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "6",
+        "postcode": "93047",
+        "street": "Am Brixener Hof"
+      },
+      "source_point": {
+        "lat": 49.0171376,
+        "lng": 12.0995812,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-13860578214",
+      "name": "ALEA Kaffee-/Konzertbar",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/13860578214",
+      "website": "https://www.facebook.com/KonzertbarALEA/?locale=de_DE",
+      "address": {
+        "city": "Regensburg",
+        "housenumber": "2",
+        "postcode": "93053",
+        "street": "Albertus-Magnus-Straße"
+      },
+      "source_point": {
+        "lat": 48.9984348,
+        "lng": 12.0948162,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12672875850",
+      "name": "Basecoffee",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/12672875850",
+      "website": "https://www.basecoffee.love/regensburg/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93049",
+        "street": "Johanna-Kinkel-Straße"
+      },
+      "source_point": {
+        "lat": 49.0124986,
+        "lng": 12.0742853,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-602173142",
+      "name": "Bistro Café Mari",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/602173142",
+      "website": "http://www.bistro-mari.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "D10",
+        "postcode": "93059",
+        "street": "Im Gewerbepark"
+      },
+      "source_point": {
+        "lat": 49.0312287,
+        "lng": 12.1261074,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3386793243",
+      "name": "Bäckerei Schifferl",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3386793243",
+      "website": "https://www.baeckerei-schifferl.de/standorte/filiale/?filiale=21&bildid=filiale3",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2",
+        "postcode": "93055",
+        "street": "Kastenmaierstraße"
+      },
+      "source_point": {
+        "lat": 49.0137914,
+        "lng": 12.1279376,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-462552298",
+      "name": "Cafe ALEX",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/462552298",
+      "website": "https://www.dein-alex.de/regensburg",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "6",
+        "postcode": "93047",
+        "street": "Neupfarrplatz"
+      },
+      "source_point": {
+        "lat": 49.0187793,
+        "lng": 12.0963396,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12992388106",
+      "name": "Cafeteria Architektur",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/12992388106",
+      "website": "https://www.stwno.de/de/gastronomie/cafeterien-regensburg/cafeteria-architektur-oth",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "32",
+        "postcode": "93053",
+        "street": "Galgenbergstraße"
+      },
+      "source_point": {
+        "lat": 49.0022991,
+        "lng": 12.0984274,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1840611172",
+      "name": "Cafeteria Maschinenbau",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1840611172",
+      "website": "https://stwno.de/de/gastronomie/cafeterien-regensburg/cafeteria-maschinenbau-oth",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "30",
+        "postcode": "93053",
+        "street": "Galgenbergstraße"
+      },
+      "source_point": {
+        "lat": 49.0031682,
+        "lng": 12.0969229,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3641083875",
+      "name": "Cafeteria PT (Philosophie-Theologie)",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3641083875",
+      "website": "https://stwno.de/de/gastronomie/cafeterien-regensburg/cafeteria-pt-ur",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "31",
+        "postcode": "93053",
+        "street": "Universitätsstraße"
+      },
+      "source_point": {
+        "lat": 48.9991214,
+        "lng": 12.095941,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-323114615",
+      "name": "Cafeteria Sammelgebäude",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/323114615",
+      "website": "https://stwno.de/de/gastronomie/cafeterien-regensburg/cafeteria-sammelgebaeude-ur",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "31",
+        "postcode": "93053",
+        "street": "Universitätsstraße"
+      },
+      "source_point": {
+        "lat": 48.9994349,
+        "lng": 12.093085,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-534788023",
+      "name": "Cafeteria Seybothstraße",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/534788023",
+      "website": "https://stwno.de/de/gastronomie/cafeterien-regensburg/cafeteria-seybothstrasse-oth",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "4",
+        "postcode": "93053",
+        "street": "Seybothstraße"
+      },
+      "source_point": {
+        "lat": 49.0035493,
+        "lng": 12.0955098,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-5176337724",
+      "name": "Cafeteria café zentral",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/5176337724",
+      "website": "https://stwno.de/de/gastronomie/cafeterien-regensburg/cafeteria-cafe-zentral-ur",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "31",
+        "postcode": "93053",
+        "street": "Universitätsstraße"
+      },
+      "source_point": {
+        "lat": 48.9981134,
+        "lng": 12.0961887,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3142324798",
+      "name": "Café Jolie",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3142324798",
+      "website": "https://cafe-jolie.de/#teaser_menu",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Pfauengasse"
+      },
+      "source_point": {
+        "lat": 49.0182809,
+        "lng": 12.0978914,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4252324985",
+      "name": "Café Klara",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/4252324985",
+      "website": "https://www.regensburg.de/mehrgenerationenhaus/cafe-klara",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "29",
+        "postcode": "93047",
+        "street": "Ostengasse"
+      },
+      "source_point": {
+        "lat": 49.0187225,
+        "lng": 12.1058436,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1935799539",
+      "name": "Café Lila",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1935799539",
+      "website": "https://www.cafe-lila.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2",
+        "postcode": "93047",
+        "street": "Rote-Hahnen-Gasse"
+      },
+      "source_point": {
+        "lat": 49.0195658,
+        "lng": 12.0925309,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-410417809",
+      "name": "Café Prinzess",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/410417809",
+      "website": "http://www.cafe-prinzess.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2",
+        "postcode": "93047",
+        "street": "Rathausplatz"
+      },
+      "source_point": {
+        "lat": 49.0201033,
+        "lng": 12.0948965,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1453727405",
+      "name": "Café Sofa",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1453727405",
+      "website": "http://www.cafesofa.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Spiegelgasse"
+      },
+      "source_point": {
+        "lat": 49.0180552,
+        "lng": 12.0941442,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1674604153",
+      "name": "Café zweitesLEBEN",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1674604153",
+      "website": "https://www.zweiteslebenev.de/projekte/cafe",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "84",
+        "postcode": "93053",
+        "street": "Universitätsstraße"
+      },
+      "source_point": {
+        "lat": 48.9996126,
+        "lng": 12.0902433,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3384324469",
+      "name": "Café/Konditorei Pernsteiner",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3384324469",
+      "website": "https://www.pernsteiner.net/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "40",
+        "postcode": "93047",
+        "street": "Von-der-Tann-Straße"
+      },
+      "source_point": {
+        "lat": 49.0168182,
+        "lng": 12.1072549,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-7120318797",
+      "name": "Carakess",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/7120318797",
+      "website": "https://www.carakess.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "11",
+        "postcode": "93047",
+        "street": "Unter den Schwibbögen"
+      },
+      "source_point": {
+        "lat": 49.0202417,
+        "lng": 12.0988281,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4116867999",
+      "name": "Crema Gelato",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/4116867999",
+      "website": "http://www.gelatoecaffe.eu/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "5",
+        "postcode": "93047",
+        "street": "Kohlenmarkt"
+      },
+      "source_point": {
+        "lat": 49.0201666,
+        "lng": 12.0956735,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-5149968790",
+      "name": "Das Degginger",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/5149968790",
+      "website": "https://www.regensburg.de/degginger",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "17",
+        "postcode": "93047",
+        "street": "Wahlenstraße"
+      },
+      "source_point": {
+        "lat": 49.0191822,
+        "lng": 12.0955982,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2269422706",
+      "name": "Der Beck",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/2269422706",
+      "website": "https://www.der-beck.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "A9",
+        "postcode": "93059",
+        "street": "Im Gewerbepark"
+      },
+      "source_point": {
+        "lat": 49.0307664,
+        "lng": 12.1249462,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3703504649",
+      "name": "Freiraum",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3703504649",
+      "website": "https://www.freiraum-regensburg.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Simadergasse"
+      },
+      "source_point": {
+        "lat": 49.0166135,
+        "lng": 12.0973583,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-9221949816",
+      "name": "Friedl Zwo",
+      "city": "Regensburg",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/9221949816",
+      "website": "https://friedlzwo.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Obermünsterstraße"
+      },
+      "source_point": {
+        "lat": 49.0168208,
+        "lng": 12.0951033,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-10314778543",
+      "name": "Astra Kiezbar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/10314778543",
+      "website": "https://www.astra-bar.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Glockengasse"
+      },
+      "source_point": {
+        "lat": 49.0194148,
+        "lng": 12.0918022,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-10788299058",
+      "name": "Bar.bar.a",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/10788299058",
+      "website": "https://bar-bara.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "7",
+        "postcode": "93047",
+        "street": "Watmarkt"
+      },
+      "source_point": {
+        "lat": 49.0200768,
+        "lng": 12.0968057,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-378956294",
+      "name": "Bierstüberl Oase",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/way/378956294",
+      "website": "https://oase-bierstueberl.9gg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3a",
+        "postcode": "93053",
+        "street": "Humboldtstraße"
+      },
+      "source_point": {
+        "lat": 48.9961121,
+        "lng": 12.1096753,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1653823224",
+      "name": "Cartoon",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1653823224",
+      "website": "http://www.alte-maelzerei.de/de/gastro.php",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "20",
+        "postcode": "93053",
+        "street": "Galgenbergstraße"
+      },
+      "source_point": {
+        "lat": 49.0071065,
+        "lng": 12.0998751,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-457465273",
+      "name": "Clixx Billard & Bar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/457465273",
+      "website": "https://www.clixx-billard.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2c",
+        "postcode": "93053",
+        "street": "Galgenbergstraße"
+      },
+      "source_point": {
+        "lat": 49.0097342,
+        "lng": 12.100087,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-964933743",
+      "name": "Einfall",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/way/964933743",
+      "website": "http://www.klappe-regensburg.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "23",
+        "postcode": "93055",
+        "street": "Fleischmannstraße"
+      },
+      "source_point": {
+        "lat": 49.0240694,
+        "lng": 12.1519642,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-942872549",
+      "name": "Escobar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/942872549",
+      "website": "http://www.escobar-regensburg.com/",
+      "address": {
+        "city": "Regensburg",
+        "housenumber": "14",
+        "postcode": "93047",
+        "street": "Fröhliche-Türken-Straße"
+      },
+      "source_point": {
+        "lat": 49.0153236,
+        "lng": 12.0978196,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12219188459",
+      "name": "FassBar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/12219188459",
+      "website": "https://www.regensburg-events.com/studentenwirtschaft-fass-bar",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "10",
+        "postcode": "93047",
+        "street": "Spiegelgasse"
+      },
+      "source_point": {
+        "lat": 49.0174823,
+        "lng": 12.0937078,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3268841120",
+      "name": "Filmbühne",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/3268841120",
+      "website": "http://www.filmbuehne.com/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2",
+        "postcode": "93047",
+        "street": "Taubengäßchen"
+      },
+      "source_point": {
+        "lat": 49.0208442,
+        "lng": 12.0971226,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-9785968789",
+      "name": "Hausbar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/9785968789",
+      "website": "http://www.hausbar-regensburg.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "7",
+        "postcode": "93047",
+        "street": "Hinter der Grieb"
+      },
+      "source_point": {
+        "lat": 49.0189976,
+        "lng": 12.0941522,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-318108769",
+      "name": "Heimat",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/318108769",
+      "website": "https://www.heimat-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "9",
+        "postcode": "93047",
+        "street": "Am Römling"
+      },
+      "source_point": {
+        "lat": 49.0199887,
+        "lng": 12.0919512,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4186114918",
+      "name": "Hotelbar Hansa",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/4186114918",
+      "website": "https://www.hansa-apart-hotel.de/de/gastronomie/hotelbar-hansa.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "7",
+        "postcode": "93051",
+        "street": "Friedenstraße"
+      },
+      "source_point": {
+        "lat": 49.0101513,
+        "lng": 12.0911052,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-779127403",
+      "name": "Ka5par",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/779127403",
+      "website": "https://ka5per.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "5",
+        "postcode": "93047",
+        "street": "Hinter der Grieb"
+      },
+      "source_point": {
+        "lat": 49.0190066,
+        "lng": 12.0942751,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-103541545",
+      "name": "Klappe",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/way/103541545",
+      "website": "http://www.klappe-regensburg.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "13",
+        "postcode": "93059",
+        "street": "Stadtamhof"
+      },
+      "source_point": {
+        "lat": 49.0255759,
+        "lng": 12.097004,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-104016277",
+      "name": "Marple & Stringer",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/way/104016277",
+      "website": "https://www.marple-and-stringer.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "4",
+        "postcode": "93047",
+        "street": "Bismarckplatz"
+      },
+      "source_point": {
+        "lat": 49.0187403,
+        "lng": 12.0891578,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-506380331",
+      "name": "Murphy's Law",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/506380331",
+      "website": "https://www.murphyslaw-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "6",
+        "postcode": "93047",
+        "street": "Spiegelgasse"
+      },
+      "source_point": {
+        "lat": 49.0177702,
+        "lng": 12.0939292,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-9032539494",
+      "name": "No7 Bar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/9032539494",
+      "website": "https://www.no7-bar.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Glockengasse"
+      },
+      "source_point": {
+        "lat": 49.0193158,
+        "lng": 12.0917748,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3500867001",
+      "name": "Tikibeat",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/3500867001",
+      "website": "https://www.tikibeat.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "4",
+        "postcode": "93047",
+        "street": "Arnulfsplatz"
+      },
+      "source_point": {
+        "lat": 49.0198175,
+        "lng": 12.0891782,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2357397773",
+      "name": "U-Bar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/2357397773",
+      "website": "http://www.u-bar-regensburg.net",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Spiegelgasse"
+      },
+      "source_point": {
+        "lat": 49.0178327,
+        "lng": 12.094138,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-9241357577",
+      "name": "Zazu",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/9241357577",
+      "website": "https://zazu-lounge.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Unter den Schwibbögen"
+      },
+      "source_point": {
+        "lat": 49.0202527,
+        "lng": 12.098125,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1935799548",
+      "name": "Zur geflickten Trommel",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1935799548",
+      "website": "http://www.geflickte-trommel.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2",
+        "postcode": "93047",
+        "street": "Gesandtenstraße"
+      },
+      "source_point": {
+        "lat": 49.018696,
+        "lng": 12.0942728,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1938315061",
+      "name": "mono",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1938315061",
+      "website": "https://www.monoregensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2",
+        "postcode": "93047",
+        "street": "Rote-Hahnen-Gasse"
+      },
+      "source_point": {
+        "lat": 49.0193966,
+        "lng": 12.0926684,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2357389552",
+      "name": "Bar 13",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/2357389552",
+      "website": "https://www.bar-13.de/",
+      "address": {},
+      "source_point": {
+        "lat": 49.0212927,
+        "lng": 12.0926547,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-10738716712",
+      "name": "Billardcafe 6-Pocket",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/10738716712",
+      "website": "https://www.6pocket.de/",
+      "address": {},
+      "source_point": {
+        "lat": 49.0281545,
+        "lng": 12.113126,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12041088269",
+      "name": "Bonaparte Bar",
+      "city": "Regensburg",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/12041088269",
+      "website": "https://bonaparte-bar.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "postcode": "93047"
+      },
+      "source_point": {
+        "lat": 49.0189936,
+        "lng": 12.0953376,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12554565876",
+      "name": "Velvet Room",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/12554565876",
+      "website": "https://www.velvet-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "15",
+        "postcode": "93047",
+        "street": "Sankt-Peters-Weg"
+      },
+      "source_point": {
+        "lat": 49.0153084,
+        "lng": 12.0965374,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2587949469",
+      "name": "Zarap Zap Zap",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/2587949469",
+      "website": "https://www.zarapzapzap.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Augustinergasse"
+      },
+      "source_point": {
+        "lat": 49.0176567,
+        "lng": 12.0951507,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3739525922",
+      "name": "suite15",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/3739525922",
+      "website": "http://www.suite15.de",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "15",
+        "postcode": "93047",
+        "street": "Sankt-Peters-Weg"
+      },
+      "source_point": {
+        "lat": 49.0157218,
+        "lng": 12.09662,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3739525915",
+      "name": "Beats-Club",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/3739525915",
+      "website": "http://www.beats-club.de",
+      "address": {},
+      "source_point": {
+        "lat": 49.0158309,
+        "lng": 12.0969586,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-318111831",
+      "name": "Scala",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/318111831",
+      "website": "http://www.scalaclub.de",
+      "address": {},
+      "source_point": {
+        "lat": 49.0189769,
+        "lng": 12.0927793,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3920023898",
+      "name": "Club Schimmerlos",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/3920023898",
+      "website": null,
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "15",
+        "postcode": "93047",
+        "street": "Sankt-Peters-Weg"
+      },
+      "source_point": {
+        "lat": 49.015625,
+        "lng": 12.0966066,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2409850704",
+      "name": "Grand Slam",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/2409850704",
+      "website": null,
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "20",
+        "postcode": "93053",
+        "street": "Galgenbergstraße"
+      },
+      "source_point": {
+        "lat": 49.007103,
+        "lng": 12.0995953,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1269259050",
+      "name": "CC2",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/1269259050",
+      "website": null,
+      "address": {},
+      "source_point": {
+        "lat": 49.0189209,
+        "lng": 12.0982934,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4552428449",
+      "name": "Gatsby",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/4552428449",
+      "website": null,
+      "address": {},
+      "source_point": {
+        "lat": 49.0158649,
+        "lng": 12.0966567,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2278239510",
+      "name": "Max's Bar",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/2278239510",
+      "website": null,
+      "address": {},
+      "source_point": {
+        "lat": 49.015079,
+        "lng": 12.100057,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4706750932",
+      "name": "Peter & Paul",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/4706750932",
+      "website": null,
+      "address": {},
+      "source_point": {
+        "lat": 49.0191446,
+        "lng": 12.1015732,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4061859891",
+      "name": "Rauschgold",
+      "city": "Regensburg",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/4061859891",
+      "website": null,
+      "address": {},
+      "source_point": {
+        "lat": 49.0161543,
+        "lng": 12.0971517,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3781951451",
+      "name": "Akademie für Gestaltung Regensburg",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/3781951451",
+      "website": "http://akademie-für-gestaltung-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "28",
+        "postcode": "93059",
+        "street": "Andreasstraße"
+      },
+      "source_point": {
+        "lat": 49.024209,
+        "lng": 12.1005785,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-890156984",
+      "name": "BRK Berufsfachschule für Notfallsanitäter",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/890156984",
+      "website": "https://www.brk-regensburg.de/bildung/schul-und-simulationszentrum/bfs-fuer-notfallsanitaeter.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "62b",
+        "postcode": "93055",
+        "street": "Straubinger Straße"
+      },
+      "source_point": {
+        "lat": 49.0120287,
+        "lng": 12.1557338,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3633555938",
+      "name": "Berufsfachschule für Gesundheits- und Krankenpflege",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/3633555938",
+      "website": "https://www.caritasstjosef.de/content/node_3589.htm",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "65",
+        "postcode": "93053",
+        "street": "Landshuter Straße"
+      },
+      "source_point": {
+        "lat": 49.0066864,
+        "lng": 12.1180925,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3880848305",
+      "name": "Berufsfachschule für Krankenpflegehilfe",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/3880848305",
+      "website": "https://www.barmherzige-regensburg.de/karriere/bildung/berufsfachschule-fuer-krankenpflegehilfe.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Alte Manggasse"
+      },
+      "source_point": {
+        "lat": 49.0167875,
+        "lng": 12.0941082,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4346472256",
+      "name": "DAA-Technikum",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/4346472256",
+      "website": "https://www.daa-technikum.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "18",
+        "postcode": "93053",
+        "street": "Alfons-Auer-Straße"
+      },
+      "source_point": {
+        "lat": 49.0057686,
+        "lng": 12.1094535,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-463173496",
+      "name": "FOSBOS Regensburg",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/463173496",
+      "website": "https://fosbos-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "31",
+        "postcode": "93053",
+        "street": "Fort-Skelly-Straße"
+      },
+      "source_point": {
+        "lat": 48.9992571,
+        "lng": 12.1071945,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-13619692401",
+      "name": "Fakultät für Informatik und Mathematik, OTH Regensburg",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/13619692401",
+      "website": "https://informatik-mathematik.oth-regensburg.de/",
+      "address": {
+        "housenumber": "32",
+        "street": "Galgenbergstraße"
+      },
+      "source_point": {
+        "lat": 49.0024169,
+        "lng": 12.0975004,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-1385383211",
+      "name": "Haus 28: Berufsfachschule für Krankenpflege Regensburg",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/1385383211",
+      "website": "https://www.medbo.de/karriere-bildung/berufsfachschule-fuer-krankenpflege-bfs.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "84",
+        "postcode": "93053",
+        "street": "Universitätsstraße"
+      },
+      "source_point": {
+        "lat": 48.9983236,
+        "lng": 12.0858564,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-97061095",
+      "name": "Haus 9: Staatliche Berufsfachschule für Logopädie",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/97061095",
+      "website": "http://www.logopaedieschule-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "84",
+        "postcode": "93053",
+        "street": "Universitätsstraße"
+      },
+      "source_point": {
+        "lat": 48.999901,
+        "lng": 12.0879925,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-95793933",
+      "name": "Hochschule für katholische Kirchenmusik und Musikpädagogik Regensburg",
+      "city": "Regensburg",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/95793933",
+      "website": "https://www.hfkm-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "9",
+        "postcode": "93059",
+        "street": "Andreasstraße"
+      },
+      "source_point": {
+        "lat": 49.0248795,
+        "lng": 12.0989839,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1300835200",
+      "name": "Besucherzentrum Welterbe",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/1300835200",
+      "website": "https://www.regensburg.de/welterbe/besucherzentrum",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Weiße-Lamm-Gasse"
+      },
+      "source_point": {
+        "lat": 49.021075,
+        "lng": 12.0973747,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1157973450",
+      "name": "Boulderwelt Regensburg",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/1157973450",
+      "website": "https://www.boulderwelt-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "A46",
+        "postcode": "93059",
+        "street": "Im Gewerbepark"
+      },
+      "source_point": {
+        "lat": 49.0321913,
+        "lng": 12.128645,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-793475702",
+      "name": "Boxfit",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/793475702",
+      "website": "https://www.boxfit.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "146",
+        "postcode": "93059",
+        "street": "Donaustaufer Straße"
+      },
+      "source_point": {
+        "lat": 49.0286074,
+        "lng": 12.1231918,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-5366395904",
+      "name": "Diözesanzentrum Obermünster",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/5366395904",
+      "website": "https://www.bistum-regensburg.de/bistum/einrichtungen-a-z/dioezesanzentrum-obermuenster/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "7",
+        "postcode": "93047",
+        "street": "Obermünsterplatz"
+      },
+      "source_point": {
+        "lat": 49.0159094,
+        "lng": 12.0953277,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4858414658",
+      "name": "Dojo - Raum für Wegkunst und Stille",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/4858414658",
+      "website": "https://dojo-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "8",
+        "postcode": "93049",
+        "street": "Udetstraße"
+      },
+      "source_point": {
+        "lat": 49.0196851,
+        "lng": 12.060298,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3889012945",
+      "name": "Domschatzmuseum",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/3889012945",
+      "website": "https://www.domschatz-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Krauterermarkt"
+      },
+      "source_point": {
+        "lat": 49.0197936,
+        "lng": 12.0985806,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-1199542405",
+      "name": "Donau-Schiffahrts-Museum Regensburg",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/1199542405",
+      "website": "https://www.donau-schiffahrtsmuseum-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Marc-Aurel-Ufer"
+      },
+      "source_point": {
+        "lat": 49.0209016,
+        "lng": 12.1003254,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-89375225",
+      "name": "Funsporthalle Regensburg",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/89375225",
+      "website": "https://www.funsporthalle-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "4",
+        "postcode": "93049",
+        "street": "Lilienthalstraße"
+      },
+      "source_point": {
+        "lat": 49.0116384,
+        "lng": 12.0603115,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-428903214",
+      "name": "Garbo",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/428903214",
+      "website": "https://www.altstadtkinos.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "11a",
+        "postcode": "93047",
+        "street": "Weißgerbergraben"
+      },
+      "source_point": {
+        "lat": 49.0206578,
+        "lng": 12.0904046,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-6838438669",
+      "name": "Golfmuseum Regensburg",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/6838438669",
+      "website": "https://www.golfmuseum.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "3",
+        "postcode": "93047",
+        "street": "Tändlergasse"
+      },
+      "source_point": {
+        "lat": 49.0196085,
+        "lng": 12.0963536,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-99719903",
+      "name": "Halle 37 - Freizeitsporthalle",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/99719903",
+      "website": "https://www.regensburg.de/halle37",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housename": "Halle 37",
+        "housenumber": "10",
+        "postcode": "93053",
+        "street": "Dieselstraße"
+      },
+      "source_point": {
+        "lat": 49.0044225,
+        "lng": 12.1305052,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-relation-4649329",
+      "name": "Historisches Museum",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/relation/4649329",
+      "website": "https://www.regensburg.de/kultur/museen/alle-museen/historisches-museum",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2-4",
+        "postcode": "93047",
+        "street": "Dachauplatz"
+      },
+      "source_point": {
+        "lat": 49.0177894,
+        "lng": 12.1023738,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-812049148",
+      "name": "Kick Arena",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/812049148",
+      "website": "https://www.kickarena.com/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "D22",
+        "postcode": "93059",
+        "street": "Im Gewerbepark"
+      },
+      "source_point": {
+        "lat": 49.0302994,
+        "lng": 12.1265107,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1653823266",
+      "name": "Kinos im Andreasstadel",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/1653823266",
+      "website": "http://www.kinos-im-andreasstadel.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "28",
+        "postcode": "93059",
+        "street": "Andreasstraße"
+      },
+      "source_point": {
+        "lat": 49.0243123,
+        "lng": 12.1005673,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-13444803834",
+      "name": "Laser Circus Lasertag Regensburg",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/13444803834",
+      "website": "https://www.lasercircus-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "housenumber": "12",
+        "postcode": "93057",
+        "street": "Auerbacher Straße"
+      },
+      "source_point": {
+        "lat": 49.0640782,
+        "lng": 12.1340796,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-384726703",
+      "name": "Museum Obermünster",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/384726703",
+      "website": "https://www.bistumsmuseen-regensburg.de/museen/museum-obermuenster.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Emmeramsplatz"
+      },
+      "source_point": {
+        "lat": 49.0161064,
+        "lng": 12.0945467,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-93421133",
+      "name": "Museum Sankt Ulrich",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/93421133",
+      "website": "https://www.domschatz-regensburg.de/museen/st-ulrich.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "2",
+        "postcode": "93047",
+        "street": "Domplatz"
+      },
+      "source_point": {
+        "lat": 49.0192303,
+        "lng": 12.0993152,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-558371648",
+      "name": "Museum der Bayerischen Geschichte",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/558371648",
+      "website": "https://www.museum.bayern/museum.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Donaumarkt"
+      },
+      "source_point": {
+        "lat": 49.0200696,
+        "lng": 12.1022919,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-100317431",
+      "name": "Naturkundemuseum Ostbayern",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/100317431",
+      "website": "https://www.nmo-regensburg.de/",
+      "address": {
+        "alt_housename": "Herzogspalais",
+        "city": "Regensburg",
+        "country": "DE",
+        "housename": "Württembergisches Palais",
+        "housenumber": "4",
+        "postcode": "93047",
+        "street": "Am Prebrunntor"
+      },
+      "source_point": {
+        "lat": 49.0221772,
+        "lng": 12.0828707,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-414739270",
+      "name": "Olympic Gym Regensburg",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/414739270",
+      "website": "https://www.olympic-gym-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "46",
+        "postcode": "93053",
+        "street": "Landshuter Straße"
+      },
+      "source_point": {
+        "lat": 49.0097184,
+        "lng": 12.1122036,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-6724776079",
+      "name": "Ostentor-Kino",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/6724776079",
+      "website": "https://www.altstadtkinos.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "5",
+        "postcode": "93055",
+        "street": "Adolf-Schmetzer-Straße"
+      },
+      "source_point": {
+        "lat": 49.0179164,
+        "lng": 12.1096829,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-324755564",
+      "name": "RFZ Rückenzentrum Regensburg",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/324755564",
+      "website": "http://www.rfz-regensburg.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "D50",
+        "postcode": "93059",
+        "street": "Im Gewerbepark"
+      },
+      "source_point": {
+        "lat": 49.0312159,
+        "lng": 12.1302895,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-113120320",
+      "name": "Regina Filmtheater",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/113120320",
+      "website": "https://www.reginakino.de/",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "22",
+        "postcode": "93059",
+        "street": "Holzgartenstraße"
+      },
+      "source_point": {
+        "lat": 49.0283619,
+        "lng": 12.1043899,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1262262102",
+      "name": "Reichstagsmuseum",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/1262262102",
+      "website": "https://www.regensburg.de/kultur/museen-in-regensburg/staedtische-museen/document-reichstag",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "1",
+        "postcode": "93047",
+        "street": "Rathausplatz"
+      },
+      "source_point": {
+        "lat": 49.0202506,
+        "lng": 12.0942746,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-320020247",
+      "name": "Schiffsdurchzug",
+      "city": "Regensburg",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/320020247",
+      "website": "http://www.schiffahrtsmuseum-regensburg.de/html/schiffsdurchzug.html",
+      "address": {
+        "city": "Regensburg",
+        "country": "DE",
+        "housenumber": "5a",
+        "postcode": "93047",
+        "street": "Am Wiedfang"
+      },
+      "source_point": {
+        "lat": 49.0213267,
+        "lng": 12.0962914,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    }
+  ]
+}
