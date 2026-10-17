@@ -26,7 +26,9 @@ final class CategoryJSON extends MethodAjax
 		fetchAllArray2dObject();
 		$categories = array_map(function (LUP_Category $cat)
 		{
-			return $cat->renderJSON();
+			$json = $cat->renderJSON();
+			$json['cat_label'] = $cat->renderName();
+			return $json;
 		}, $categories);
 
 		return GDT_Array::make()->value($categories);

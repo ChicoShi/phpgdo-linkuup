@@ -20,15 +20,18 @@ final class LUPWS_Position extends LUPWS_Command
 		$user = $message->user();
 		$lat = $message->readFloat();
 		$lng = $message->readFloat();
+		// Optional trailing metric keeps older app versions protocol-compatible.
+		$keypresses = $message->hasMore(2) ? $message->read16u() : 0;
 
 		LUP_Global::updateGPS($user, $lat, $lng);
+		\GDO\Maps\Module_Maps::instance()->recordKeypress($user, $keypresses);
 		LUP_SignupGPS::updateGPS($user, $lat, $lng);
 
 		# Make user part rooms when not in range anymore
 		$rooms = LUP_Global::getRoomsForUser($user);
 		foreach ($rooms as $room)
 		{
-			if (!$room->isInChatLeaveRange($lat, $lng))
+			if (!$room->isInChatLeaveRange($lat, $lng, $user))
 			{
 				LUP_Global::part($room, $user);
 			}

@@ -62,6 +62,15 @@ final class LUPTest extends TestCase
 		}
 	}
 
+	public function testFirstLiveGPSFixHasNoVelocity(): void
+	{
+		$user = GDO_User::getByName('gizmore');
+		LUP_Global::updateGPS($user, 52.3200, 10.2300, 1000.0);
+		LUP_Global::resetGPS($user);
+		self::assertSame(0.0, LUP_Global::velocityFor($user, 53.3200, 11.2300, 1001.0));
+		unset(LUP_Global::$POSITIONS[$user->getID()]);
+	}
+
 	public function testVolatileRoomMessageBuffer(): void
 	{
 		$room = LUP_Room::table()->select()->first()->exec()->fetchObject();

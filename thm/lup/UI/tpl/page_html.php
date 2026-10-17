@@ -62,6 +62,7 @@ use GDO\UI\GDT_Page;
         <!-- topTabs -->
         <!-- Page content-->
         <main id="content-wrap" class="container-fluid" tabindex="-1">
+            <a class="lup-app-return" href="<?=htmlspecialchars(\GDO\LinkUUp\Module_LinkUUp::instance()->cfgAppUrl(), ENT_QUOTES, 'UTF-8')?>"><span aria-hidden="true">←</span> <?=t('lup_back_to_app')?></a>
 
 			<?=$page->topResponse()->renderHTML()?>
 			<?=$page->html?:''?>
@@ -70,7 +71,6 @@ use GDO\UI\GDT_Page;
 </div>
 <footer><?=$page->bottomBar()->addClass('gdt-footer')->renderHTML()?></footer>
 <?=GDT_Loading::make()->renderHTML()?>
-<script src="<?=\GDO\LinkUUp\Module_LinkUUp::instance()->wwwPath('js/lup-backend-shell.js?rev=20260920_7')?>"></script>
 <?=Javascript::displayJavascripts()?>
 </body>
 </html>

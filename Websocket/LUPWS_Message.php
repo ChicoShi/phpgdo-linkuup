@@ -4,11 +4,22 @@ namespace GDO\LinkUUp\Websocket;
 use GDO\LinkUUp\LUP_Global;
 use GDO\LinkUUp\LUP_MessageSent;
 use GDO\LinkUUp\LUPWS_Command;
+use GDO\User\GDO_User;
 use GDO\Websocket\Server\GWS_Commands;
 use GDO\Websocket\Server\GWS_Message;
 
 class LUPWS_Message extends LUPWS_Command
 {
+	/** Deliver a trusted Dog response inside the WebSocket process. */
+	public function hookLUPDogMessage(int $roomId, int $minionId, string $text): void
+	{
+		if (($room = LUP_Global::getRoom($roomId)) && ($minion = GDO_User::getById((string)$minionId)))
+		{
+			LUP_MessageSent::messageSent($room);
+			LUP_Global::sendMinion($room, $minion);
+			LUP_Global::chatText($room, $minion, $text);
+		}
+	}
 
 	public function execute(GWS_Message $msg)
 	{

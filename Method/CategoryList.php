@@ -21,5 +21,14 @@ final class CategoryList extends MethodQueryTable
 		return LUP_Category::table();
 	}
 
+	/**
+	 * cat_parent points at this same table. Reusing one mutable row object via
+	 * fetchInto() corrupts self-reference rendering on a populated page.
+	 */
+	public function useFetchInto(): bool
+	{
+		return false;
+	}
+
 
 }

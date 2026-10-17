@@ -6,10 +6,10 @@ use GDO\Address\GDT_Phone;
 use GDO\Core\Application;
 use GDO\Core\GDO_Exception;
 use GDO\Core\GDO_Module;
-use GDO\Core\CSS;
 use GDO\Core\GDO_RedirectError;
 use GDO\Core\GDT_Checkbox;
 use GDO\Core\GDT_Enum;
+use GDO\Core\GDT_Secret;
 use GDO\Core\GDT_String;
 use GDO\Core\GDT_UInt;
 use GDO\Date\GDT_Duration;
@@ -18,6 +18,7 @@ use GDO\Form\GDT_Form;
 use GDO\Gallery\GDO_Gallery;
 use GDO\Gallery\Module_Gallery;
 use GDO\LinkUUp\Method\Welcome;
+use GDO\LinkUUp\install\Install;
 use GDO\Maps\GDT_Velocity;
 use GDO\Net\GDT_Url;
 use GDO\PaymentCredits\GDT_Credits;
@@ -59,7 +60,7 @@ final class Module_LinkUUp extends GDO_Module
 			'Contact', 'CORS', 'Country',
 			'CSS', 'Currency',
             'DBMS', 'DSGVO',
-			'Favicon', 'Friends', 'Gallery', 'GoogleAuth',
+			'Favicon', 'FontAwesome', 'Friends', 'Gallery', 'GoogleAuth',
 			'Javascript', 'JPGraph', 'JQueryAutocomplete',
 			'Login', 'Logs',
 			'Maps',
@@ -112,28 +113,43 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_guest_query')->initial('0'), # Allow guest querie messages
 			GDT_Checkbox::make('lup_open_query')->initial('1'), # No near check for queries
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
+			GDT_UInt::make('lup_max_locations')->initial('10')->min(1)->max(1000), # Maximum locations sent to the app per catalogue request
 			GDT_UInt::make('lup_msg_bufsize')->initial('3')->max(100), # Volatile messages replayed when joining a room
+			GDT_Secret::make('lup_connector_secret')->initial(require __DIR__ . '/secret_gdo.php'), # Authenticates the PyGDO LUP connector callback
+			GDT_UInt::make('lup_dog_backlog')->initial('20')->max(100), # Volatile room lines sent to Mira after a quiet period
+			GDT_Url::make('lup_dog_backlog_url')->initial('')->allowAll(false), # PyGDO queue endpoint for quiet room transcripts
 			GDT_Checkbox::make('lup_ticket_engine')->initial('0'), # Need to purchase tickets for a room first?
 			GDT_Checkbox::make('lup_profile_likes_guests')->initial('0'), # Guests may not like users
 			GDT_Credits::make('room_cost')->initial('0'), # One-time cost for creating a room
 			GDT_Credits::make('room_cost_view')->initial('0'), # Cost per additional visibility unit
 			GDT_Length::make('room_cost_view_unit')->initial('0.500'), # Visibility billing unit in km
-			GDT_Credits::make('shout_cost')->initial('0'), # One shout to all occupied locations
+			GDT_Credits::make('lup_credits_view_km')->initial('250'), # Credits per added km of room visibility
+			GDT_Credits::make('lup_shout_cost_per_km')->initial('150'), # Credits for each kilometre of shout radius
 			GDT_Length::make('room_tolerance')->initial('0.064'), # GPS tolerance around room polygons in km
 			GDT_Length::make('room_leave_tolerance')->initial('0.640'), # GPS tolerance before automatically leaving a room in km
+			GDT_Credits::make('lup_tolerance_credits_per_km')->initial('10000'), # Credits for one kilometre of personal chat tolerance
 			GDT_Velocity::make('lup_join_velocity')->min(0.0)->max(1000.0)->initial('10.0'), # km/h
 			GDT_Length::make('lup_cuddle_range')->initial('0.100'), # Cuddle range in km
 			GDT_Duration::make('lup_cuddle_token_ttl')->initial('2m')->min(30)->max(900),
 			GDT_UInt::make('lup_num_top_comments')->initial('3')->max(100), # Num Top comments in Room detail.
 			GDT_UInt::make('lup_graph_width')->initial('512')->min(32)->max(4096),
 			GDT_UInt::make('lup_graph_height')->initial('392')->min(32)->max(4096),
+            GDT_String::make('lup_wechall_flag1')->initial('FLAG_0x1337')->pattern('/[A-Z_0-9x]/'),
 		];
 	}
+
+	public function cfgMaxLocations(): int { return (int)$this->getConfigValue('lup_max_locations'); }
+	public function cfgConnectorSecret(): string { return $this->getConfigVar('lup_connector_secret'); }
+	public function isSecretCorrect(string $secret): bool { return hash_equals($this->cfgConnectorSecret(), $secret); }
+	public function cfgDogBacklog(): int { return (int)$this->getConfigValue('lup_dog_backlog'); }
+	public function cfgDogBacklogURL(): string { return $this->getConfigVar('lup_dog_backlog_url'); }
+	public function cfgToleranceCreditsPerKM(): int { return (int)$this->getConfigValue('lup_tolerance_credits_per_km'); }
 
     public function getUserConfig(): array
     {
         return [
             GDT_UInt::make('lup_cuddles')->icon('trophy')->notNull()->initial('0'),
+			GDT_Length::make('tolerance_boost')->initial('0')->min(0)->max(10), # Personally purchased join-range in km
         ];
     }
 
@@ -165,12 +181,12 @@ final class Module_LinkUUp extends GDO_Module
 	{
 		return [
 			GDT_Divider::make('div_general'),
-			GDT_String::make('lup_status'),
+			GDT_String::make('lup_status')->icon('info'),
 			GDT_Checkbox::make('lup_profile_outside_visible')->initial('1'),
 
 			GDT_Divider::make('div_location'),
-			GDT_String::make('lup_state'),
-			GDT_String::make('lup_city'),
+			GDT_String::make('lup_state')->icon('country'),
+			GDT_String::make('lup_city')->icon('city'),
 
 			GDT_Divider::make('div_contact'),
             GDT_ACLRelation::make('lup_course_visible')->hidden(),
@@ -184,9 +200,9 @@ final class Module_LinkUUp extends GDO_Module
 
 			GDT_Divider::make('div_habits'),
 			GDT_Pet::make('lup_has_pet'),
-			GDT_Enum::make('lup_drinks')->enumValues('lup_drink_yes', 'lup_drink_sometimes', 'lup_drink_never')->emptyLabel('not_specified'),
-			GDT_Enum::make('lup_smokes')->enumValues('lup_smokes_yes', 'lup_smokes_no_care', 'lup_smokes_no', 'lup_smokes_no_way')->emptyLabel('not_specified'),
-			GDT_Enum::make('lup_sporty')->enumValues('lup_sporty', 'lup_unsporty')->emptyLabel('not_specified'),
+			GDT_Enum::make('lup_drinks')->icon('wine')->enumValues('lup_drink_yes', 'lup_drink_sometimes', 'lup_drink_never')->emptyLabel('not_specified'),
+			GDT_Enum::make('lup_smokes')->icon('smoke')->enumValues('lup_smokes_yes', 'lup_smokes_no_care', 'lup_smokes_no', 'lup_smokes_no_way')->emptyLabel('not_specified'),
+			GDT_Enum::make('lup_sporty')->icon('dumbbell')->enumValues('lup_sporty', 'lup_unsporty')->emptyLabel('not_specified'),
 			GDT_Religion::make('lup_religion'),
 		];
 	}
@@ -200,29 +216,26 @@ final class Module_LinkUUp extends GDO_Module
 		if ($this->backendScriptsIncluded) return;
 		$this->backendScriptsIncluded = true;
 		\GDO\Core\GDT_Template::$THEMES = ['lup-backend' => $this->filePath('thm/lup/')] + \GDO\Core\GDT_Template::$THEMES;
-		$this->addJS('js/lup-backend-location-status.js?rev=20260912_1');
-		$this->addCSS('css/lup.css?lup_skin=20260916_2');
-		$this->addCSS('css/lup-arrival-flow.css?lup_skin=20260916_2');
-		$this->addJS('js/lup-welcome.js?lup_nav=20260911_009');
-		$this->addJS('js/lup-admin-sidebar.js?lup_nav=20260911_014');
+		$this->addJS('js/lup-backend-location-status.js');
+		$this->addCSS('css/lup.css');
+		$this->addCSS('css/lup-arrival-flow.css');
+		$this->addJS('js/lup-welcome.js');
+		$this->addJS('js/lup-admin-sidebar.js');
 		// Bootstrap5 owns the current sidebar. The legacy drawer helper targets
 		// an older theme and can create a competing toggle on mixed backend pages.
-		// A separate revision is used for the visual back-office polish so
-		// browsers do not keep an older stylesheet after a local cache clear.
-		CSS::addFile($this->wwwPath('css/lup.css?lup_skin=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-flow.css?lup_skin=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-arrival-refresh.css?rev=20260916_2'));
-		$this->addJS('js/lup-arrival-refresh.js?rev=20260916_3');
-		$this->addJS('js/lup-world-journey.js?rev=20260916_3');
-        $this->addJS('js/lup-connected-route.js?rev=20260916_5');
-		$this->addJS('js/lup-scroll-finale.js?rev=20260916_4');
-		$this->addJS('js/lup-living-background.js?rev=20260919_1');
-		CSS::addFile($this->wwwPath('css/lup-world-journey.css?rev=20260916_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-shell.css?rev=20260920_2'));
-		CSS::addFile($this->wwwPath('css/lup-backend-views.css?rev=20260920_7'));
-		CSS::addFile($this->wwwPath('css/lup-backend-atlas.css?rev=20260919_3'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-adventure.css?rev=20260916_3'));
-		CSS::addFile($this->wwwPath('css/lup-scroll-finale.css?rev=20260916_4'));
+		$this->addCSS('css/lup-arrival-refresh.css');
+		$this->addJS('js/lup-arrival-refresh.js');
+		$this->addJS('js/lup-world-journey.js');
+        $this->addJS('js/lup-connected-route.js');
+		$this->addJS('js/lup-scroll-finale.js');
+        $this->addJS('js/lup-living-background.js');
+        $this->addJS('js/lup-backend-shell.js');
+		$this->addCSS('css/lup-world-journey.css');
+		$this->addCSS('css/lup-backend-shell.css');
+		$this->addCSS('css/lup-backend-views.css');
+		$this->addCSS('css/lup-backend-atlas.css');
+		$this->addCSS('css/lup-scroll-adventure.css');
+		$this->addCSS('css/lup-scroll-finale.css');
 	}
 
 	/**
@@ -240,7 +253,7 @@ final class Module_LinkUUp extends GDO_Module
 
 		if (GDO_User::current()->isStaff())
 		{
-			GDT_Page::$INSTANCE->rightBar()->addField(GDT_Link::make('lup_staff')->href(href('LinkUUp', 'Main')));
+			GDT_Page::$INSTANCE->rightBar()->addField(GDT_Link::make('lup_staff')->icon('work')->href(href('LinkUUp', 'Main')));
 		}
 
 		GDT_Page::instance()->leftBar()->addField(GDT_Link::make('lup_welcome')->href(href('LinkUUp', 'Welcome')));
@@ -266,7 +279,8 @@ final class Module_LinkUUp extends GDO_Module
 	public function cfgRoomCost(): int { return (int)$this->getConfigValue('room_cost'); }
 	public function cfgRoomCostView(): int { return (int)$this->getConfigValue('room_cost_view'); }
 	public function cfgRoomCostViewUnit(): float { return (float)$this->getConfigValue('room_cost_view_unit'); }
-	public function cfgShoutCost(): int { return (int)$this->getConfigValue('shout_cost'); }
+	public function cfgCreditsViewKM(): int { return (int)$this->getConfigValue('lup_credits_view_km'); }
+	public function cfgShoutCostPerKM(): int { return (int)$this->getConfigValue('lup_shout_cost_per_km'); }
 	public function cfgRoomTolerance(): float { return (float)$this->getConfigValue('room_tolerance'); }
 	public function cfgRoomLeaveTolerance(): float { return (float)$this->getConfigValue('room_leave_tolerance'); }
 	public function cfgJoinVelocity(): float { return (float)$this->getConfigValue('lup_join_velocity'); }
@@ -346,7 +360,9 @@ final class Module_LinkUUp extends GDO_Module
 					"GDO\\Register\\Method\\Guest",
 					"GDO\\Sitemap\\Method\\Show",
 					"GDO\\LinkUUp\\Method\\CategoryJSON",
+					"GDO\\LinkUUp\\Method\\FromDog",
 					"GDO\\LinkUUp\\Method\\Main",
+					"GDO\\LinkUUp\\Method\\QRForRoom",
 					"GDO\\LinkUUp\\Method\\Welcome",
 					"GDO\\Maps\\Method\\Record",
 					"GDO\\Core\\Method\\Error",

@@ -8,7 +8,7 @@
 	const status = document.getElementById('lup-location-map-status');
 	const selectedLabel = document.getElementById('lup-location-map-selected');
 	const saveButton = document.getElementById('lup-location-map-save');
-	const locationSelect = document.getElementById('lup-location-map-select');
+	const roomSearch = document.getElementById('room_search');
 	if (!canvas || !window.google || !google.maps) {
 		if (status) { status.textContent = 'Google Maps konnte nicht geladen werden.'; }
 		return;
@@ -33,12 +33,12 @@
 		return ring.slice(0, -1).map((point) => ({lat: Number(point[1]), lng: Number(point[0])}));
 	}
 
-	function radiusPath(lat, lng, radiusKm) {
+	function radiusPath(lat, lng, radiusKm, sides = 8) {
 		const radius = Math.max(0.050, Number(radiusKm || 0.050));
 		const latScale = 111.32;
 		const lngScale = latScale * Math.cos(lat * Math.PI / 180);
-		return Array.from({length: 8}, (_, index) => {
-			const angle = index * Math.PI * 2 / 8;
+		return Array.from({length: sides}, (_, index) => {
+			const angle = index * Math.PI * 2 / sides;
 			return {
 				lat: lat + (Math.sin(angle) * radius / latScale),
 				lng: lng + (Math.cos(angle) * radius / lngScale),
@@ -46,15 +46,20 @@
 		});
 	}
 
-	function setStatus(message) {
-		status.textContent = message;
+	function containsPoint(path, lat, lng) {
+		let inside = false;
+		for (let index = 0, previous = path.length - 1; index < path.length; previous = index++) {
+			const point = path[index];
+			const before = path[previous];
+			const crosses = ((point.lat > lat) !== (before.lat > lat)) &&
+				(lng < ((before.lng - point.lng) * (lat - point.lat) / (before.lat - point.lat)) + point.lng);
+			if (crosses) { inside = !inside; }
+		}
+		return inside;
 	}
 
-	function addOption(location) {
-		const option = document.createElement('option');
-		option.value = String(location.id);
-		option.textContent = '#' + location.id + ' – ' + location.name;
-		locationSelect.appendChild(option);
+	function setStatus(message) {
+		status.textContent = message;
 	}
 
 	function markDirty() {
@@ -118,11 +123,26 @@
 		// Moving a whole geofence is too easy by accident. Its vertices remain
 		// editable, but the polygon itself always stays anchored.
 		active.polygon.setDraggable(false);
-		selectedLabel.textContent = active.location.name + ' – Marker verschiebt den Ursprung; Eckpunkte ziehen, Doppelklick fügt ein, Rechtsklick entfernt; Kreisrand zieht den Sichtradius';
+		selectedLabel.textContent = active.location.name + ' – Marker verschiebt den Ursprung; Eckpunkte ziehen, Doppelklick im Polygon fügt ein, außerhalb setzt Mittelpunkt + Sechseck; Rechtsklick entfernt; Kreisrand zieht den Sichtradius';
 		map.fitBounds(polygonBounds(active.polygon));
-		locationSelect.value = String(active.location.id);
 		try { sessionStorage.setItem(sessionKey, String(active.location.id)); } catch (_) { /* private browser mode */ }
 		setStatus('Bearbeitung aktiv.');
+	}
+
+	function relocateFromDoubleClick(event) {
+		if (!active || !event.latLng) { return; }
+		const path = active.polygon.getPath().getArray();
+		// The visibility circle is deliberately irrelevant here: only the
+		// editable geofence decides whether this is an insert or a relocation.
+		if (containsPoint(path, event.latLng.lat(), event.latLng.lng())) { return; }
+		const lat = event.latLng.lat();
+		const lng = event.latLng.lng();
+		active.location.lat = lat;
+		active.location.lng = lng;
+		active.marker.setPosition(event.latLng);
+		active.viewCircle.setCenter(event.latLng);
+		active.polygon.setPath(radiusPath(lat, lng, active.location.radius_km, 6));
+		markDirty();
 	}
 
 	function geoJSON(layer) {
@@ -182,7 +202,7 @@
 		}
 	}
 
-	config.locations.forEach((location) => {
+	function addLayer(location) {
 		const provisional = {lat: 52.264, lng: 10.526};
 		const path = polygonPath(location).length ? polygonPath(location) : radiusPath(
 			location.lat ?? provisional.lat,
@@ -265,24 +285,37 @@
 			}
 		});
 		viewCircle.addListener('radius_changed', markDirty);
-		addOption(location);
-	});
+		viewCircle.addListener('dblclick', (event) => {
+			if (active === layer) { relocateFromDoubleClick(event); }
+		});
+		return layer;
+	}
 
-	locationSelect.addEventListener('change', () => select(Number(locationSelect.value)));
 	saveButton.addEventListener('click', () => save(active));
-	let selectedID = Number(config.selectedRoom) || Number(new URLSearchParams(window.location.search).get('room')) || null;
-	let rememberedID = null;
-	try { rememberedID = Number(sessionStorage.getItem(sessionKey)); } catch (_) { /* private browser mode */ }
-	const first = config.locations.find((location) => location.id === selectedID && layers.has(location.id)) ||
-		config.locations.find((location) => location.id === rememberedID && layers.has(location.id)) ||
-		config.locations.find((location) => layers.has(location.id));
-	if (first) { select(first.id); }
-	else { setStatus('Keine Locations mit Polygon geladen.'); }
+	map.addListener('dblclick', relocateFromDoubleClick);
+	async function loadRoom(id) {
+		if (!id) { return; }
+		setStatus('Location wird geladen …');
+		try {
+			const response = await fetch(config.roomUrl + '&room=' + encodeURIComponent(id), {
+				credentials: 'same-origin',
+			});
+			if (!response.ok) { throw new Error('HTTP ' + response.status); }
+			const payload = await response.json();
+			const location = payload.data || payload;
+			if (!location || !location.id) { throw new Error('Ungültige Location-Antwort'); }
+			if (!layers.has(location.id)) { addLayer(location); }
+			select(Number(location.id));
+			if (location.needs_current_position && navigator.geolocation) { setCurrentPosition(location.id); }
+		} catch (error) {
+			setStatus('Location konnte nicht geladen werden: ' + error.message);
+		}
+	}
 
-	if (first && first.needs_current_position && navigator.geolocation) {
+	function setCurrentPosition(id) {
 		setStatus('Aktuelle Position wird übernommen …');
 		navigator.geolocation.getCurrentPosition((position) => {
-			const layer = layers.get(first.id);
+			const layer = layers.get(id);
 			if (!layer) { return; }
 			const lat = position.coords.latitude;
 			const lng = position.coords.longitude;
@@ -297,4 +330,17 @@
 			markDirty();
 		}, () => setStatus('Standortfreigabe fehlt – bitte Marker manuell setzen.'));
 	}
+
+	roomSearch?.addEventListener('gdo-completion', (event) => {
+		const id = Number(event.detail?.id);
+		if (!id || id === Number(config.selectedRoom)) { return; }
+		const url = new URL(window.location.href);
+		url.searchParams.set('room', String(id));
+		window.location.assign(url.toString());
+	});
+	let selectedID = Number(config.selectedRoom) || Number(new URLSearchParams(window.location.search).get('room')) || null;
+	let rememberedID = null;
+	try { rememberedID = Number(sessionStorage.getItem(sessionKey)); } catch (_) { /* private browser mode */ }
+	if (selectedID || rememberedID) { loadRoom(selectedID || rememberedID); }
+	else { setStatus('Suche nach einer Location, um ihre Fläche zu bearbeiten.'); }
 })();

@@ -3,9 +3,12 @@ namespace GDO\LinkUUp\Websocket;
 
 use GDO\Address\GDO_Address;
 use GDO\LinkUUp\LUP_Global;
+use GDO\LinkUUp\Module_LinkUUp;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\LUPWS_Command;
 use GDO\Maps\Position;
+use GDO\Table\GDT_PageNum;
+use GDO\UI\GDT_Page;
 use GDO\Websocket\Server\GWS_Commands;
 use GDO\Websocket\Server\GWS_Message;
 
@@ -34,19 +37,19 @@ class LUPWS_RoomList extends LUPWS_Command
 			return $msg->rplyError('err_longitude');
 		}
 
-		// (0,0) is the frontend's explicit discovery-only sentinel when a user
-		// has not granted GPS access. It lists public rooms but does not affect
-		// chat entry: LUPWS_Join still checks the user's real coordinates.
-		$hasPosition = !($lat === 0.0 && $lng === 0.0);
-		// A real position is filtered and ordered by its visibility radius. Without
-		// one, retain the complete test catalogue so category browsing never makes
-		// places appear to have disappeared.
-		$result = $hasPosition ? LUP_Room::queryRooms($lat, $lng) : LUP_Room::queryRooms();
-		$rooms = $result->fetchAllObjects();
-        $total = count($rooms);
-        $rooms = array_slice($rooms, ($page - 1) * $perPage, $perPage);
-		// Avoid the N+1 address lookup: a normal list contains dozens of rooms,
-		// and asking the database once per room delayed the first visible card.
+		$from = ($page-1) * $perPage;
+		// (0,0) is discovery-only; chat entry still validates real GPS.
+		if ($lat === 0.0 && $lng === 0.0) { $lat = $lng = null; }
+		$query = LUP_Room::queryRooms(
+			$lat,
+			$lng,
+			$perPage,
+			$from,
+		);
+		// Counting must not mutate the paged room query. Query's fluent methods
+		// operate in place, so use a copy before dropping its LIMIT and ORDER.
+		$total = (int)$query->copy()->selectOnly('COUNT(*)')->noLimit()->noOrder()->noJoins()->exec()->fetchVar();
+		$rooms = $query->exec()->fetchAllObjects();
 		$addressIds = [];
 		foreach ($rooms as $room)
 		{
@@ -68,6 +71,7 @@ class LUPWS_RoomList extends LUPWS_Command
 		}
 
 		$response = GWS_Message::wr32($total);
+
 		foreach ($rooms as $room)
 		{
 			$room instanceof LUP_Room;

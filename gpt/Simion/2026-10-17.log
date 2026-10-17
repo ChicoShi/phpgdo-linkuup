@@ -29,3 +29,7 @@ Nächster Schritt: Shippi – lokalen Stand prüfen; Veröffentlichung separat f
 
 [2026-10-17T11:28:57+02:00] lokal importiert / geprüft
 Drei Ergänzungen auf Nutzerwunsch nur Hochschulen/Clubs/Cafés/Shishabars: OstfaliaWOB GebäudeC, HafenbutzeWOB, MusikZentrumHannover. Datei data/location-expansion-4/regional-university-club-cafe.json; Original-OSM-Umrisse, Betreiber-/Adressquellen und3/5mGrenzen dokumentiert. Waldsonne zurückgestellt: Kiosk ohneInnensitzbereich, Außengastfläche ungeklärt. AktiveGesamtzahl569. Import3neu, erneuterDryRun3bestehend0neu; GDOInnen-/Fernaußenprüfung3/3PASS.566Bestandszeilen perHash unverändert mitgleichemMysqliFetch. ErsterHashvergleichüberGDOwichwegenFetch-Typenab; identischeRohverbindungbestätigtUnverändertheit. OstfaliaCAdressPDFnurindexiertnachweisbar(Direkt404); Campusbetrieb2026durchaktuelleHochschulseitebelegt. KeineCodeänderung/Neustart/Push/Merge. NächsterSchritt: Shippi–lokaleAnsichtundSmartphoneGPSprüfen.
+
+[2026-10-17T11:34:02+02:00] lokal integriert / geprüft
+Aktuelles upstream/main integriert; Konflikte zusammengeführt. 44 Import-/Grenz-/GPS-Prüfungen erfolgreich, PHP-Syntax/JSON geprüft. Upstream-Paginierung und tolerance_boost erhalten. Kein Main-Push/Deployment.
+Nächster Schritt: Simion – Feature-Branch veröffentlichen und Review-PR erstellen.

@@ -14,6 +14,8 @@ final class QRForCuddle extends \GDO\Core\Method
 {
 	public function isUserRequired(): bool { return true; }
 
+    public function isShownInSitemap(): bool { return false; }
+
     public function execute(): GDT
     {
         $token = LUP_CuddleToken::issue(GDO_User::current(), Module_LinkUUp::instance()->cfgCuddleTokenTTL());

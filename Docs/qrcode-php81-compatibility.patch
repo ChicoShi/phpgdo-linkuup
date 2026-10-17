@@ -1,0 +1,36 @@
+diff --git a/Method/Render.php b/Method/Render.php
+index 58a7d2d..cd5d4b3 100644
+--- a/Method/Render.php
++++ b/Method/Render.php
+@@ -2,7 +2,7 @@
+ namespace GDO\QRCode\Method;
+ 
+ use chillerlan\QRCode\Common\EccLevel;
+-use chillerlan\QRCode\Output\QRGdImageGIF;
++use chillerlan\QRCode\Output\QROutputInterface;
+ use chillerlan\QRCode\QRCode;
+ use chillerlan\QRCode\QROptions;
+ use GDO\Core\Application;
+@@ -68,7 +68,7 @@ final class Render extends Method
+ 
+ 		$options = new QROptions([
+ // 			'version' => 5,
+-			'outputInterface' => QRGdImageGIF::class,
++			'outputType' => QROutputInterface::GDIMAGE_GIF,
+ 			'outputBase64' => true,
+ 			'eccLevel' => EccLevel::L,
+ 			'imageTransparent' => false,
+diff --git a/php-qrcode b/php-qrcode
+index d8bf173..7b66282 160000
+--- a/php-qrcode
++++ b/php-qrcode
+@@ -1 +1 @@
+-Subproject commit d8bf17302c7793c64c379fd8e605bd0ede59cd2a
++Subproject commit 7b66282572fc14075c0507d74d9837dab25b38d6
+diff --git a/php-settings-container b/php-settings-container
+index ab8ed1c..95ed3e9 160000
+--- a/php-settings-container
++++ b/php-settings-container
+@@ -1 +1 @@
+-Subproject commit ab8ed1c2075e3400ec28bc75adb8be52129fa180
++Subproject commit 95ed3e9676a1d47cab2e3174d19b43f5dbf52681

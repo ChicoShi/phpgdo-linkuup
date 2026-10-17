@@ -7,6 +7,10 @@
 .lup-location-map-picker { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
 .lup-location-map-picker label { color: #344054; font-weight: 700; }
 .lup-location-map-picker select { width: min(100%, 420px); padding: .65rem .75rem; border: 1px solid #98a2b3; border-radius: .45rem; background: #fff; }
+.lup-location-map-picker .gdt-container { width: min(100%, 420px); margin: 0; }
+.lup-location-map-picker .gdt-container > span,
+.lup-location-map-picker .gdo-autocomplete-container { display: block; width: 100%; }
+.lup-location-map-picker input[type="search"] { width: 100%; padding: .65rem .75rem; border: 1px solid #98a2b3; border-radius: .45rem; background: #fff; }
 .lup-location-map-layout { min-height: 70vh; border: 1px solid #d0d5dd; border-radius: .75rem; overflow: hidden; background: #fff; }
 .lup-location-map-canvas-wrap { display: grid; grid-template-rows: minmax(0, 1fr) auto; min-height: 70vh; }
 .lup-location-map-canvas { min-height: 60vh; }
