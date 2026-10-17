@@ -1,5 +1,5 @@
 {
-  "status": "regional_13_more_imported_locally",
+  "status": "regional_next_10_imported_locally",
   "cities": [
     "Berlin",
     "Hamburg",
@@ -46,7 +46,7 @@
   "osm_candidates_total": 297,
   "official_source_records": 48,
   "geocoded_point_candidates": 11,
-  "new_active_locations": 28,
+  "new_active_locations": 38,
   "existing_active_locations": 528,
   "bulk_fetch_failed_cities": [
     "Berlin",
@@ -167,9 +167,9 @@
     "university_scope_or_institution_type_ambiguous": 6,
     "operator_or_institution_source_present_not_field_verified": 24
   },
-  "independently_reviewed_venue_polygons": 28,
+  "independently_reviewed_venue_polygons": 38,
   "activation_pending": "283 of original297 OSM candidates remain unimported; additional official-only candidates remain pending",
-  "total_active_locations": 556,
+  "total_active_locations": 566,
   "imported_keys": [
     "osm-way-96854636",
     "osm-way-28299711",
@@ -198,7 +198,17 @@
     "osm-way-25809295",
     "osm-way-126413725",
     "osm-way-141726461",
-    "osm-way-141726462"
+    "osm-way-141726462",
+    "osm-way-107106923",
+    "osm-way-56060396",
+    "osm-way-461687831",
+    "osm-way-5121415",
+    "osm-way-41586149",
+    "osm-way-192185631",
+    "osm-way-384995338",
+    "osm-way-286028279",
+    "osm-way-26189623",
+    "osm-way-24974773"
   ],
   "remaining_osm_candidates": 283,
   "new_venue_tolerances_m": {
@@ -250,5 +260,17 @@
     "duplicate_dryrun": "13 existing,0 new",
     "boundary_checks": "13 inside allowed / far outside denied",
     "held": "Naturhistorisches Museum: mixed building use; other ambiguous footprints retained as research only"
+  },
+  "regional_next_pass": {
+    "imported": 10,
+    "cities": {
+      "Braunschweig": 3,
+      "Hannover": 4,
+      "Wolfsburg": 3
+    },
+    "prior_556_rows_unchanged": true,
+    "source_polygons_rechecked": 10,
+    "duplicate_dryrun": "10 existing,0 new",
+    "boundary_checks": "10 inside allowed / far outside denied"
   }
 }

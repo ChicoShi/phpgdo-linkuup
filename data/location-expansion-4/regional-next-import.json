@@ -1,0 +1,1663 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "checked_at": "2026-10-17",
+  "entries": [
+    {
+      "key": "osm-way-107106923",
+      "name": "Fliegerhalle",
+      "city": "Braunschweig",
+      "street": "Westbahnhof 3",
+      "zip": "38118",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+      "website": "https://www.fliegerhalle-bs.de/",
+      "lat": 52.251412548,
+      "lng": 10.502904034,
+      "view_km": 32,
+      "chat_radius_km": 0.0081,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5028789,
+              52.2515634
+            ],
+            [
+              10.5026391,
+              52.2513565
+            ],
+            [
+              10.5025645,
+              52.2512922
+            ],
+            [
+              10.5028304,
+              52.2511766
+            ],
+            [
+              10.5031449,
+              52.2514478
+            ],
+            [
+              10.5028789,
+              52.2515634
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 11.11,
+      "source_version": "10",
+      "source_timestamp": "2026-02-14T18:58:50Z",
+      "source_tags": {
+        "access": "yes",
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "3",
+        "addr:postcode": "38118",
+        "addr:street": "Westbahnhof",
+        "building": "yes",
+        "climbing:boulder": "yes",
+        "climbing:multipitch": "no",
+        "climbing:sport": "yes",
+        "climbing:toprope": "yes",
+        "email": "info@fliegerhalle-bs.de",
+        "fee": "yes",
+        "indoor": "yes",
+        "leisure": "sports_centre",
+        "name": "Fliegerhalle",
+        "opening_hours": "Mo 15:00-23:00; Tu-Th 11:00-23:00; Fr 15:00-23:00; PH,Sa,Su 09:30-21:00",
+        "outdoor": "no",
+        "phone": "+49 531 22436229",
+        "sport": "climbing",
+        "website": "https://www.fliegerhalle-bs.de/",
+        "wikidata": "Q114133447",
+        "wikimedia_commons": "File:BS Fliegerhalle.JPG"
+      },
+      "scope_note": "Nur benanntes Hallengebäude; Außenkletterturm, Außengelände und Parkflächen nicht enthalten. OSM-Öffnungszeiten weichen von aktuellen Betreiberzeiten ab und werden nicht übernommen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.fliegerhalle-bs.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber zeigt aktuelle Kletter- und Boulderangebote, Kurse sowie Besuchszeiten Mo 15–23 Uhr, Di–Fr 9:30–23 Uhr, Sa/So/Feiertage 9:30–21 Uhr."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.fliegerhalle-bs.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Westbahnhof 3, 38118 Braunschweig. Benanntes OSM-Gebäude trägt dieselbe Anschrift."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler geschlossener OSM-Way, ausdrücklich benannt. Nur benanntes Hallengebäude; Außenkletterturm, Außengelände und Parkflächen nicht enthalten. OSM-Öffnungszeiten weichen von aktuellen Betreiberzeiten ab und werden nicht übernommen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 m abgerundet, kleiner als Randabstand minus 3 m. Chatgrenze ist das Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; keine Katasterpräzision, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-56060396",
+      "name": "Lokpark Braunschweig – Lokhalle",
+      "city": "Braunschweig",
+      "street": "Schwartzkopffstraße 3",
+      "zip": "38126",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+      "website": "https://www.lokpark.de/kontakt/",
+      "lat": 52.243944192,
+      "lng": 10.546089456,
+      "view_km": 32,
+      "chat_radius_km": 0.014,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5454828,
+              52.2442236
+            ],
+            [
+              10.5455794,
+              52.244257
+            ],
+            [
+              10.5459689,
+              52.2443917
+            ],
+            [
+              10.546042,
+              52.2443114
+            ],
+            [
+              10.5460876,
+              52.2442616
+            ],
+            [
+              10.5461383,
+              52.2442058
+            ],
+            [
+              10.5461768,
+              52.2441642
+            ],
+            [
+              10.5462217,
+              52.2441142
+            ],
+            [
+              10.5462743,
+              52.2440566
+            ],
+            [
+              10.5463248,
+              52.2440009
+            ],
+            [
+              10.5464307,
+              52.2438846
+            ],
+            [
+              10.5459911,
+              52.2437336
+            ],
+            [
+              10.5458867,
+              52.2438509
+            ],
+            [
+              10.5458336,
+              52.2439105
+            ],
+            [
+              10.5457817,
+              52.2439687
+            ],
+            [
+              10.5456197,
+              52.2441507
+            ],
+            [
+              10.545566,
+              52.2441323
+            ],
+            [
+              10.5454828,
+              52.2442236
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 17.09,
+      "source_version": "11",
+      "source_timestamp": "2026-05-08T21:59:47Z",
+      "source_tags": {
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "3",
+        "addr:postcode": "38126",
+        "addr:street": "Schwartzkopffstraße",
+        "building": "industrial",
+        "name": "Lokpark Braunschweig",
+        "railway": "engine_shed",
+        "url": "http://www.lokpark.de/",
+        "wikidata": "Q138568475"
+      },
+      "scope_note": "Nur benanntes Lokhallengebäude als Museums- und Veranstaltungshalle; nicht das gesamte 27.500-m²-Gelände oder Open-Air-Areal. Die Veranstaltungsteilfläche von 614 m² ist nicht mit dem gesamten Hallengebäude gleichzusetzen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.lokpark-braunschweig.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizieller Museumsbetreiber beschreibt laufenden Lokparkbetrieb und Termine am 01.11., 05.12. und 06.12.2026; Veranstaltungsbetreiber bietet die Lokhalle weiterhin zur Buchung an.",
+          "additional_source_url": "https://vbv-bs.de/lokpark/events-festivitaeten/lokhalle"
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.lokpark.de/kontakt/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Schwartzkopffstraße 3, 38126 Braunschweig. Benanntes OSM-Gebäude trägt dieselbe Anschrift."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler geschlossener OSM-Way, ausdrücklich benannt. Nur benanntes Lokhallengebäude als Museums- und Veranstaltungshalle; nicht das gesamte 27.500-m²-Gelände oder Open-Air-Areal. Die Veranstaltungsteilfläche von 614 m² ist nicht mit dem gesamten Hallengebäude gleichzusetzen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 m abgerundet, kleiner als Randabstand minus 3 m. Chatgrenze ist das Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; keine Katasterpräzision, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-461687831",
+      "name": "Wasserwelt Braunschweig",
+      "city": "Braunschweig",
+      "street": "Am Schützenplatz 1",
+      "zip": "38114",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+      "website": "https://www.bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-allgemein",
+      "lat": 52.286152116,
+      "lng": 10.51669075,
+      "view_km": 32,
+      "chat_radius_km": 0.0516,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5174968,
+              52.2867177
+            ],
+            [
+              10.5174969,
+              52.2864856
+            ],
+            [
+              10.5174919,
+              52.2860681
+            ],
+            [
+              10.517492,
+              52.2860027
+            ],
+            [
+              10.5174921,
+              52.2859683
+            ],
+            [
+              10.5174921,
+              52.2859335
+            ],
+            [
+              10.5174981,
+              52.2856054
+            ],
+            [
+              10.517464,
+              52.2856054
+            ],
+            [
+              10.5172401,
+              52.2856053
+            ],
+            [
+              10.5172368,
+              52.2852284
+            ],
+            [
+              10.5172248,
+              52.2852284
+            ],
+            [
+              10.5171883,
+              52.2852283
+            ],
+            [
+              10.5171519,
+              52.2852283
+            ],
+            [
+              10.5171154,
+              52.2852282
+            ],
+            [
+              10.517079,
+              52.2852282
+            ],
+            [
+              10.5170426,
+              52.2852281
+            ],
+            [
+              10.5170061,
+              52.2852281
+            ],
+            [
+              10.5169697,
+              52.2852281
+            ],
+            [
+              10.5169332,
+              52.285228
+            ],
+            [
+              10.5168968,
+              52.285228
+            ],
+            [
+              10.5168603,
+              52.2852279
+            ],
+            [
+              10.5168239,
+              52.2852279
+            ],
+            [
+              10.5167875,
+              52.2852278
+            ],
+            [
+              10.516751,
+              52.2852278
+            ],
+            [
+              10.5167146,
+              52.2852278
+            ],
+            [
+              10.5166781,
+              52.2852277
+            ],
+            [
+              10.5166417,
+              52.2852277
+            ],
+            [
+              10.5166052,
+              52.2852276
+            ],
+            [
+              10.5165688,
+              52.2852276
+            ],
+            [
+              10.5165323,
+              52.2852275
+            ],
+            [
+              10.5164959,
+              52.2852275
+            ],
+            [
+              10.5164595,
+              52.2852275
+            ],
+            [
+              10.516423,
+              52.2852274
+            ],
+            [
+              10.5163866,
+              52.2852274
+            ],
+            [
+              10.5163501,
+              52.2852273
+            ],
+            [
+              10.5163137,
+              52.2852273
+            ],
+            [
+              10.5162772,
+              52.2852272
+            ],
+            [
+              10.515897,
+              52.2852308
+            ],
+            [
+              10.5158896,
+              52.2858888
+            ],
+            [
+              10.5158834,
+              52.2864431
+            ],
+            [
+              10.5159615,
+              52.2864416
+            ],
+            [
+              10.5159606,
+              52.2865506
+            ],
+            [
+              10.5159603,
+              52.2865878
+            ],
+            [
+              10.5164516,
+              52.2866485
+            ],
+            [
+              10.5164544,
+              52.2866301
+            ],
+            [
+              10.5165346,
+              52.2866358
+            ],
+            [
+              10.5165303,
+              52.2866555
+            ],
+            [
+              10.5171358,
+              52.2867118
+            ],
+            [
+              10.5173714,
+              52.286719
+            ],
+            [
+              10.5174968,
+              52.2867177
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 54.62,
+      "source_version": "14",
+      "source_timestamp": "2026-09-28T06:54:08Z",
+      "source_tags": {
+        "check_date": "2026-04-01",
+        "check_date:opening_hours": "2026-04-01",
+        "landuse": "recreation_ground",
+        "leisure": "water_park",
+        "name": "Wasserwelt",
+        "note:opening_hours": "Badeschluss 30 Minuten vor Schließung.",
+        "opening_hours": "Mo-Sa 08:00-21:30; Su 08:00-20:30",
+        "sport": "swimming",
+        "website": "https://bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-allgemein",
+        "wikidata": "Q118206255"
+      },
+      "scope_note": "Benannter OSM-Wasserpark mit Bad-, Sauna- und zugehörigen Außenflächen. Dies ist ausdrücklich ein Freizeitgelände, kein reiner Gebäudeumriss. Separater Besucherparkplatz und Wohnmobilstellplätze werden nicht hinzugefügt. Horizontale Fläche unterscheidet keine Stockwerke und integrierten Nutzungen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-badewelt",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber veröffentlicht Badangebote und Öffnung am 17.10.2026 von 8 bis 21:30 Uhr sowie aktuelle Besucherinformationen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-allgemein",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Am Schützenplatz 1, 38114 Braunschweig. OSM benennt denselben Wasserpark mit derselben Betreiberwebsite; zugehöriges Gebäude way208527082 trägt exakt diese Anschrift.",
+          "additional_source_url": "https://api.openstreetmap.org/api/0.6/way/208527082/full"
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler geschlossener OSM-Way, ausdrücklich benannt. Benannter OSM-Wasserpark mit Bad-, Sauna- und zugehörigen Außenflächen. Dies ist ausdrücklich ein Freizeitgelände, kein reiner Gebäudeumriss. Separater Besucherparkplatz und Wohnmobilstellplätze werden nicht hinzugefügt. Horizontale Fläche unterscheidet keine Stockwerke und integrierten Nutzungen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 m abgerundet, kleiner als Randabstand minus 3 m. Chatgrenze ist das Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; keine Katasterpräzision, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-5121415",
+      "name": "Museum Wilhelm Busch – Georgenpalais",
+      "city": "Hannover",
+      "street": "Georgengarten 1",
+      "zip": "30167",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+      "website": "https://www.karikatur-museum.de/besuch/",
+      "lat": 52.3842416801,
+      "lng": 9.7077527733,
+      "view_km": 32,
+      "chat_radius_km": 0.0042,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7072179,
+              52.3844029
+            ],
+            [
+              9.7072088,
+              52.3843835
+            ],
+            [
+              9.7071666,
+              52.3842936
+            ],
+            [
+              9.7076629,
+              52.3842068
+            ],
+            [
+              9.7076859,
+              52.384179
+            ],
+            [
+              9.7077509,
+              52.3841677
+            ],
+            [
+              9.7077986,
+              52.384183
+            ],
+            [
+              9.7081124,
+              52.3841281
+            ],
+            [
+              9.7082924,
+              52.3840966
+            ],
+            [
+              9.7083052,
+              52.3841239
+            ],
+            [
+              9.7083309,
+              52.3841786
+            ],
+            [
+              9.7083437,
+              52.3842059
+            ],
+            [
+              9.7072179,
+              52.3844029
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 7.24,
+      "area_m2": 1025.04,
+      "source_version": "43",
+      "source_timestamp": "2026-08-28T22:37:39Z",
+      "additional_sources": [
+        "https://www.karikatur-museum.de/programm/ausstellungen/",
+        "https://api.openstreetmap.org/api/0.6/way/5121415/relations"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.karikatur-museum.de/programm/ausstellungen/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt Wallmodenpalais im Georgengarten 1 und Di–So 11–17 Uhr; aktuelle Ausstellung ACH WAS vom 02.07.2026 bis 14.03.2027."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.karikatur-museum.de/besuch/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originales Georgenpalais, hist_name=Wallmodenpalais, passende Adresse; Betreiber benennt ausdrücklich dieses Palais als Museumsgebäude. Kein Parkpolygon. Elternrelationen abgefragt: keine Multipolygon-Relation und somit kein bekannter ausgelassener Innenring."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-41586149",
+      "name": "LUH – Laboratorium für Nano- und Quantenengineering",
+      "city": "Hannover",
+      "street": "Schneiderberg 39",
+      "zip": "30167",
+      "category": 17,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+      "website": "https://www.lnqe.uni-hannover.de/leibniz-forschungszentrum/kontakt",
+      "lat": 52.3879061389,
+      "lng": 9.7148583939,
+      "view_km": 32,
+      "chat_radius_km": 0.0164,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7150439,
+              52.3876851
+            ],
+            [
+              9.714954,
+              52.3877025
+            ],
+            [
+              9.7148145,
+              52.3877296
+            ],
+            [
+              9.7145418,
+              52.3877825
+            ],
+            [
+              9.7144977,
+              52.3877911
+            ],
+            [
+              9.7145097,
+              52.3878141
+            ],
+            [
+              9.7146457,
+              52.388075
+            ],
+            [
+              9.7146722,
+              52.3881259
+            ],
+            [
+              9.7150742,
+              52.3880479
+            ],
+            [
+              9.7152184,
+              52.3880199
+            ],
+            [
+              9.7150439,
+              52.3876851
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 19.47,
+      "area_m2": 1523.05,
+      "source_version": "15",
+      "source_timestamp": "2024-10-15T11:07:58Z",
+      "additional_sources": [
+        "https://www.lnqe.uni-hannover.de/",
+        "https://api.openstreetmap.org/api/0.6/way/41586149/relations"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.lnqe.uni-hannover.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuelle Kontaktseite vom 30.06.2026 nennt Forschungsbau Schneiderberg 39, Gebäude 3430; Hauptseite dokumentiert Forschungsbetrieb und Meldungen Oktober 2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.lnqe.uni-hannover.de/leibniz-forschungszentrum/kontakt",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Direkt benanntes LNQE building=university mit Betreiber Leibniz Universität und passender Adresse; nur eigenständiger Forschungsbau, kein Campus. Laborzugang eingeschränkt. Elternrelationen abgefragt: keine Multipolygon-Relation und somit kein bekannter ausgelassener Innenring."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-192185631",
+      "name": "LUH – KletterCAMPUS und CAMPUSFit",
+      "city": "Hannover",
+      "street": "Am Moritzwinkel 6",
+      "zip": "30167",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+      "website": "https://www.hochschulsport-hannover.de/klettercampus",
+      "lat": 52.379315208,
+      "lng": 9.7129936675,
+      "view_km": 32,
+      "chat_radius_km": 0.0144,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7130065,
+              52.379621
+            ],
+            [
+              9.7130892,
+              52.379589
+            ],
+            [
+              9.7131149,
+              52.3795794
+            ],
+            [
+              9.7132106,
+              52.3795418
+            ],
+            [
+              9.7134402,
+              52.3794538
+            ],
+            [
+              9.7133551,
+              52.3793711
+            ],
+            [
+              9.7133149,
+              52.3793329
+            ],
+            [
+              9.7132359,
+              52.3792565
+            ],
+            [
+              9.7131933,
+              52.3792142
+            ],
+            [
+              9.7131885,
+              52.37921
+            ],
+            [
+              9.7131184,
+              52.3791745
+            ],
+            [
+              9.713107,
+              52.3791633
+            ],
+            [
+              9.7130933,
+              52.3791504
+            ],
+            [
+              9.7131167,
+              52.3791414
+            ],
+            [
+              9.7130357,
+              52.379063
+            ],
+            [
+              9.7130013,
+              52.3790298
+            ],
+            [
+              9.7127356,
+              52.3791321
+            ],
+            [
+              9.7126671,
+              52.3791585
+            ],
+            [
+              9.7126626,
+              52.3791602
+            ],
+            [
+              9.7125672,
+              52.3791966
+            ],
+            [
+              9.7125951,
+              52.3792237
+            ],
+            [
+              9.7126167,
+              52.3792446
+            ],
+            [
+              9.7126216,
+              52.3792493
+            ],
+            [
+              9.7126362,
+              52.3792634
+            ],
+            [
+              9.7126483,
+              52.379275
+            ],
+            [
+              9.7126588,
+              52.3792852
+            ],
+            [
+              9.7126641,
+              52.3792903
+            ],
+            [
+              9.7126827,
+              52.3793083
+            ],
+            [
+              9.7126846,
+              52.3793101
+            ],
+            [
+              9.7127035,
+              52.3793284
+            ],
+            [
+              9.712716,
+              52.3793405
+            ],
+            [
+              9.7127415,
+              52.3793652
+            ],
+            [
+              9.7127761,
+              52.3793984
+            ],
+            [
+              9.7128013,
+              52.3794227
+            ],
+            [
+              9.7128125,
+              52.3794338
+            ],
+            [
+              9.7128264,
+              52.3794469
+            ],
+            [
+              9.7128349,
+              52.379455
+            ],
+            [
+              9.7128609,
+              52.3794805
+            ],
+            [
+              9.7128947,
+              52.3795132
+            ],
+            [
+              9.7129205,
+              52.3795381
+            ],
+            [
+              9.7129457,
+              52.3795625
+            ],
+            [
+              9.7129801,
+              52.3795954
+            ],
+            [
+              9.7130065,
+              52.379621
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 17.45,
+      "area_m2": 1935.26,
+      "source_version": "8",
+      "source_timestamp": "2026-06-01T07:41:45Z",
+      "additional_sources": [
+        "https://www.hochschulsport-hannover.de/klettercampus/dein-weg-in-die-kletterhalle",
+        "https://api.openstreetmap.org/api/0.6/way/192185631/relations",
+        "https://www.hochschulsport-hannover.de/campusfit",
+        "https://www.hochschulsport-hannover.de/der-hochschulsport/kontakt-und-anfahrt"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.hochschulsport-hannover.de/klettercampus/dein-weg-in-die-kletterhalle",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt aktuelle Wochenöffnungszeiten für KletterCAMPUS und CAMPUSFit, jeweils Am Moritzwinkel 6, Gebäude 1806. CAMPUSFit-Seite zuletzt geändert 30.07.2026. Beide Angebote gehören zum Zentrum für Hochschulsport."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.hochschulsport-hannover.de/klettercampus",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originales sports_centre-Gebäude ref=1806: Betreiber ordnet sowohl KletterCAMPUS als auch CAMPUSFit ausdrücklich Gebäude 1806 zu. Raum umfasst beide Angebote desselben Hochschulsportbetreibers. Nicht Gesamtcampus oder Gebäude 1801; keine getrennte Kletterhallen-Innengeometrie behauptet. Keine Multipolygon-Elternrelation."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen.",
+        "Gemeinsames Sportgebäude: CAMPUSFit und KletterCAMPUS haben unterschiedliche Teilnahmeberechtigungen. Kein separat begrenzter Kletterhallenraum."
+      ]
+    },
+    {
+      "key": "osm-way-384995338",
+      "name": "Apollo Kino Hannover",
+      "city": "Hannover",
+      "street": "Limmerstraße 50",
+      "zip": "30451",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+      "website": "https://www.apollokino.de/?mp=Anfahrt",
+      "lat": 52.3740767292,
+      "lng": 9.7069632892,
+      "view_km": 32,
+      "chat_radius_km": 0.004,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7068987,
+              52.3741711
+            ],
+            [
+              9.7070288,
+              52.3741266
+            ],
+            [
+              9.7071023,
+              52.3741015
+            ],
+            [
+              9.7070837,
+              52.3740811
+            ],
+            [
+              9.7070721,
+              52.3740686
+            ],
+            [
+              9.7071269,
+              52.3740498
+            ],
+            [
+              9.7070686,
+              52.3739863
+            ],
+            [
+              9.7070564,
+              52.373973
+            ],
+            [
+              9.7068937,
+              52.3740282
+            ],
+            [
+              9.7067978,
+              52.3740611
+            ],
+            [
+              9.7068987,
+              52.3741711
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 7.02,
+      "area_m2": 264.46,
+      "source_version": "12",
+      "source_timestamp": "2025-10-20T19:25:49Z",
+      "additional_sources": [
+        "https://www.apollokino.de/?datum=17.10.2026&v=",
+        "https://api.openstreetmap.org/api/0.6/way/384995338/relations"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.apollokino.de/?datum=17.10.2026&v=",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Adresse und Tagesprogramm 17.10.2026 mit Vorstellungen 15:45, 18:00, 20:15 und 22:30 Uhr; tatsächlich abgerufen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.apollokino.de/?mp=Anfahrt",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler separat als Apollo amenity=cinema kartierter Gebäudering, addr:unit=Hinterhaus; kein Wohngebäude an Straßenfront, kein gesamter Hofblock. Elternrelationen abgefragt: keine Multipolygon-Relation und somit kein bekannter ausgelassener Innenring."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-286028279",
+      "name": "AutoMuseum Volkswagen",
+      "city": "Wolfsburg",
+      "street": "Dieselstraße 35",
+      "zip": "38446",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+      "website": "https://www.automuseum-volkswagen.de/",
+      "lat": 52.42777846,
+      "lng": 10.8083824934,
+      "view_km": 32,
+      "chat_radius_km": 0.0303,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8077468,
+              52.4280712
+            ],
+            [
+              10.8087283,
+              52.4280821
+            ],
+            [
+              10.8087243,
+              52.4282162
+            ],
+            [
+              10.8093595,
+              52.4282233
+            ],
+            [
+              10.8093771,
+              52.4276367
+            ],
+            [
+              10.8094149,
+              52.4276371
+            ],
+            [
+              10.8094167,
+              52.4275764
+            ],
+            [
+              10.8093796,
+              52.427576
+            ],
+            [
+              10.80938,
+              52.4275596
+            ],
+            [
+              10.8093817,
+              52.4274895
+            ],
+            [
+              10.808053,
+              52.4274751
+            ],
+            [
+              10.8080523,
+              52.4274479
+            ],
+            [
+              10.8078664,
+              52.4274459
+            ],
+            [
+              10.8078674,
+              52.4274167
+            ],
+            [
+              10.8077171,
+              52.4274145
+            ],
+            [
+              10.8077171,
+              52.4274453
+            ],
+            [
+              10.8077664,
+              52.4274463
+            ],
+            [
+              10.8077468,
+              52.4280712
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 33.367,
+      "source_version": "6",
+      "source_timestamp": "2026-02-22T12:29:20Z",
+      "source_sha256": "dea1f811c6e9596de7f6b8fbb77f1d3e9274f7df3180e9c23be036e71cbfe933",
+      "source_tags": {
+        "addr:housenumber": "35",
+        "addr:street": "Dieselstraße",
+        "building": "yes",
+        "contact:website": "http://www.volkswagen-automuseum.de/",
+        "name": "AutoMuseum Volkswagen",
+        "opening_hours": "Th-Su 10:00-18:00",
+        "tourism": "museum",
+        "wikidata": "Q784789"
+      },
+      "scope_note": "Nur das benannte Museumsgebäude; keine Parkplätze oder Nachbarbetriebe.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.automuseum-volkswagen.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bietet Tickets und Sonderausstellung Audi in Le Mans vom 12.02.2026 bis 10.01.2027; Besuch Dienstag bis Sonntag 10–17 Uhr."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.automuseum-volkswagen.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Museumsseite nennt Dieselstraße 35, 38446 Wolfsburg; Straße und Hausnummer stimmen mit dem benannten OSM-Museumsgebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit größtem gefundenem Randabstand aus drei verfeinerten 21×21-Rastern des Originalpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes, geschlossenes OSM-Gebäude mit passendem Namen und Nutzung; Way/relations liefert keine übergeordnete Relation. Nur das benannte Museumsgebäude; keine Parkplätze oder Nachbarbetriebe."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet; die Chatgrenze folgt dem unveränderten Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Bewusste kleine Randzugabe: Quellpolygon plus 3 m zum Beitritt und 5 m zum Verlassen. Keine Garantie für Smartphone-GPS oder exakte Katastergrenzen; Praxistest bleibt offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-26189623",
+      "name": "CongressPark Wolfsburg",
+      "city": "Wolfsburg",
+      "street": "Heinrich-Heine-Straße",
+      "zip": "38440",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+      "website": "https://congresspark-wolfsburg.de/",
+      "lat": 52.4172481689,
+      "lng": 10.7795997896,
+      "view_km": 32,
+      "chat_radius_km": 0.0274,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7786328,
+              52.4172228
+            ],
+            [
+              10.7792474,
+              52.4170795
+            ],
+            [
+              10.7791969,
+              52.4169985
+            ],
+            [
+              10.7795932,
+              52.4169057
+            ],
+            [
+              10.7796256,
+              52.4169567
+            ],
+            [
+              10.7796938,
+              52.41694
+            ],
+            [
+              10.7799162,
+              52.4168881
+            ],
+            [
+              10.77997,
+              52.4169743
+            ],
+            [
+              10.780299,
+              52.4168976
+            ],
+            [
+              10.7804482,
+              52.4171367
+            ],
+            [
+              10.7800469,
+              52.4172303
+            ],
+            [
+              10.780121,
+              52.4173491
+            ],
+            [
+              10.7802711,
+              52.4173141
+            ],
+            [
+              10.7804782,
+              52.417646
+            ],
+            [
+              10.780191,
+              52.417713
+            ],
+            [
+              10.7801513,
+              52.4176493
+            ],
+            [
+              10.7800639,
+              52.4176697
+            ],
+            [
+              10.7799551,
+              52.4174954
+            ],
+            [
+              10.7798488,
+              52.4175201
+            ],
+            [
+              10.7794393,
+              52.4176157
+            ],
+            [
+              10.7793521,
+              52.4174759
+            ],
+            [
+              10.778862,
+              52.4175903
+            ],
+            [
+              10.7786328,
+              52.4172228
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 30.413,
+      "source_version": "14",
+      "source_timestamp": "2025-09-05T07:26:39Z",
+      "source_sha256": "2038bfa7f7a9bef587130e0b6cf5c9f9d4e630d21953ff33dc82104887bafca1",
+      "source_tags": {
+        "building": "public",
+        "loc_name": "Kongresszentrum",
+        "name": "CongressPark Wolfsburg",
+        "website": "https://www.congresspark-wolfsburg.de/",
+        "wikidata": "Q15108889",
+        "wikimedia_commons": "File:CongressPark.jpg"
+      },
+      "scope_note": "Gesamtes benanntes CongressPark-Gebäude mit Sälen und Foyers; nicht Planetarium, Scharoun-Theater oder Außenpark.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://congresspark-wolfsburg.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber veröffentlicht aktuelle Veranstaltungen, darunter Hakuna Matata am 18.10.2026 und True Collins am 24.10.2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://congresspark-wolfsburg.de/kontakt/anreise/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Anreiseseite nennt CongressPark Wolfsburg GmbH, Heinrich-Heine-Straße, 38440 Wolfsburg ausdrücklich ohne Hausnummer. Klieverhagen 50 ist nur zusätzliche Navigationshilfe, nicht die übernommene Postanschrift."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit größtem gefundenem Randabstand aus drei verfeinerten 21×21-Rastern des Originalpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes, geschlossenes OSM-Gebäude mit passendem Namen und Nutzung; Way/relations liefert keine übergeordnete Relation. Gesamtes benanntes CongressPark-Gebäude mit Sälen und Foyers; nicht Planetarium, Scharoun-Theater oder Außenpark."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet; die Chatgrenze folgt dem unveränderten Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Bewusste kleine Randzugabe: Quellpolygon plus 3 m zum Beitritt und 5 m zum Verlassen. Keine Garantie für Smartphone-GPS oder exakte Katastergrenzen; Praxistest bleibt offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-24974773",
+      "name": "ZeitHaus Autostadt",
+      "city": "Wolfsburg",
+      "street": "Stadtbrücke",
+      "zip": "38440",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+      "website": "https://www.autostadt.de/w/zeithaus",
+      "lat": 52.4317871492,
+      "lng": 10.7908777199,
+      "view_km": 32,
+      "chat_radius_km": 0.0133,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7911154,
+              52.4318123
+            ],
+            [
+              10.7912251,
+              52.431811
+            ],
+            [
+              10.7912091,
+              52.4317313
+            ],
+            [
+              10.7911938,
+              52.431668
+            ],
+            [
+              10.791028,
+              52.431651
+            ],
+            [
+              10.7909008,
+              52.4316411
+            ],
+            [
+              10.7906028,
+              52.4316336
+            ],
+            [
+              10.7904321,
+              52.4316381
+            ],
+            [
+              10.7902965,
+              52.4316538
+            ],
+            [
+              10.7902461,
+              52.4317119
+            ],
+            [
+              10.7904543,
+              52.4317571
+            ],
+            [
+              10.7904398,
+              52.4318159
+            ],
+            [
+              10.7902545,
+              52.4318026
+            ],
+            [
+              10.7902457,
+              52.4318364
+            ],
+            [
+              10.7903673,
+              52.4318469
+            ],
+            [
+              10.7903587,
+              52.4318875
+            ],
+            [
+              10.7913104,
+              52.4319752
+            ],
+            [
+              10.791327,
+              52.4318993
+            ],
+            [
+              10.7911032,
+              52.431879
+            ],
+            [
+              10.7911091,
+              52.4318467
+            ],
+            [
+              10.7911154,
+              52.4318123
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 16.309,
+      "source_version": "11",
+      "source_timestamp": "2024-06-28T16:52:38Z",
+      "source_sha256": "fc59903ebe4490a17c79d0add5248219bcbf600cebf0513e6a2f7229d48ee4b9",
+      "source_tags": {
+        "addr:city": "Wolfsburg",
+        "addr:postcode": "38440",
+        "addr:street": "Stadtbrücke",
+        "air_conditioning": "yes",
+        "building": "yes",
+        "building:levels": "6",
+        "fee": "yes",
+        "layer": "2",
+        "museum": "transport",
+        "name": "ZeitHaus",
+        "opening_hours": "10:00-18:00",
+        "roof:shape": "flat",
+        "toilets": "yes",
+        "tourism": "museum",
+        "website": "https://www.autostadt.de/autostadt-erkunden/zeithaus",
+        "wheelchair": "yes",
+        "wikidata": "Q91450761"
+      },
+      "scope_note": "Nur das ZeitHaus-Museumsgebäude; nicht der gesamte Autostadt-Park und keine anderen Pavillons. Die Anschrift ist die offizielle Campusadresse.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.autostadt.de/w/zeithaus",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber führt das ZeitHaus als Old- und Youngtimer-Museum mit täglichen Besuchszeiten 10–18 Uhr und Dauer- sowie Sonderausstellungen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://medienportal.autostadt.de/web/guest/service-kontakt/kontakt",
+          "checked_at": "2026-10-17",
+          "evidence": "Autostadt nennt als offizielle Postanschrift Stadtbrücke, 38440 Wolfsburg ohne Hausnummer. Diese Campusadresse entspricht Straße und Postleitzahl am ausdrücklich ZeitHaus benannten OSM-Gebäude."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit größtem gefundenem Randabstand aus drei verfeinerten 21×21-Rastern des Originalpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes, geschlossenes OSM-Gebäude mit passendem Namen und Nutzung; Way/relations liefert keine übergeordnete Relation. Nur das ZeitHaus-Museumsgebäude; nicht der gesamte Autostadt-Park und keine anderen Pavillons. Die Anschrift ist die offizielle Campusadresse."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet; die Chatgrenze folgt dem unveränderten Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Bewusste kleine Randzugabe: Quellpolygon plus 3 m zum Beitritt und 5 m zum Verlassen. Keine Garantie für Smartphone-GPS oder exakte Katastergrenzen; Praxistest bleibt offen."
+        }
+      }
+    }
+  ]
+}
