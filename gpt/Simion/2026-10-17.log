@@ -41,3 +41,7 @@ Nächster Schritt: Mira/Gizmore – gemeinsamer Review.
 [2026-10-17T11:42:57+02:00] lokal korrigiert / geprüft
 Mira-Review: Explizite Venue-Grenzen ohne Boost; Legacy-Boost erhalten, User an alle Prüfungen übergeben.50 gezielte Backendchecks grün. Testuser isoliert gestubbt nach erstem DB-Bootstrapfehler. Migration per Spaltenprüfung wiederholbar, Vorabcheck/Runbook ergänzt; isolierter SQL-Ausführungstest offen. Fünf Batches validiert,41 eindeutige Keys plus528 Altbestand. Keine Migration/Imports ausgeführt.
 Nächster Schritt: Simion – Review-Korrektur in bestehenden Draft-PR pushen, Mira gegenprüfen lassen.
+
+[2026-10-17T11:45:41+02:00] lokal korrigiert / geprüft
+Mira-Re-Review: zentrale Paarprüfung in LUP_Room, beide Range-Methoden sperren ungültige Werte; Join/Message erkennen auch nur gesetzte Leave-Toleranz. Keine Datenmutation oder Schreibvalidierung behauptet. 28 Boundary-,13Guard-,17Importchecks grün (58), PHP-Syntax/Diff sauber. SQL-Wiederholungstest und Smartphone-Praxistest bleiben offen.
+Nächster Schritt: Mira – Folgecommit im Draft gegenprüfen.

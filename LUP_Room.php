@@ -264,13 +264,29 @@ final class LUP_Room extends GDO
 	 */
 	public function isInChatRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng, $this->getJoinTolerance() + $this->toleranceBoost($user));
+		return $this->hasValidTolerancePair() && $this->isInChatRangeWithTolerance($lat, $lng, $this->getJoinTolerance() + $this->toleranceBoost($user));
 	}
 
 	/** Is a position still close enough that an active chat membership is retained? */
 	public function isInChatLeaveRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng, $this->getLeaveTolerance() + $this->toleranceBoost($user));
+		return $this->hasValidTolerancePair() && $this->isInChatRangeWithTolerance($lat, $lng, $this->getLeaveTolerance() + $this->toleranceBoost($user));
+	}
+
+	public function hasIndividualTolerances(): bool
+	{
+		return $this->gdoVar('room_join_tolerance') !== null || $this->gdoVar('room_leave_tolerance') !== null;
+	}
+
+	/** Invalid manual/legacy data must never silently widen access. */
+	public function hasValidTolerancePair(): bool
+	{
+		$join = $this->gdoVar('room_join_tolerance');
+		$leave = $this->gdoVar('room_leave_tolerance');
+		if ($join === null && $leave === null) { return true; }
+		return is_numeric($join) && is_numeric($leave) &&
+			is_finite((float)$join) && is_finite((float)$leave) &&
+			(float)$join >= 0 && (float)$leave >= (float)$join && (float)$leave <= 10;
 	}
 
 	public function getJoinTolerance(): float
@@ -289,7 +305,7 @@ final class LUP_Room extends GDO
 	{
 		// Explicit venue boundaries are binding for every account, including boosts.
 		// Preserve the existing boost policy only for legacy/global-tolerance rooms.
-		if ($this->gdoVar('room_join_tolerance') !== null || $this->gdoVar('room_leave_tolerance') !== null)
+		if ($this->hasIndividualTolerances())
 		{
 			return 0.0;
 		}

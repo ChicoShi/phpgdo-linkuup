@@ -12,6 +12,7 @@ namespace GDO\LinkUUp {
     class LUP_Room {
         public $tolerance = '0';
         public function getID() { return 9; }
+        public function hasIndividualTolerances() { return $this->tolerance !== null; }
         public function isDisabled() { return false; }
         public function gdoVar($key) { return $this->tolerance; }
         public function isInChatRange($lat, $lng) { return $lat >= 50 && $lat <= 50.001 && $lng >= 8 && $lng <= 8.001; }

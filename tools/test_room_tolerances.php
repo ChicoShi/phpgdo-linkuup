@@ -48,5 +48,18 @@ namespace {
     $check(strlen($wire) === 4 && is_nan(unpack('fvalue',$wire)['value']),'Nullable Length serializes as four-byte NaN');
     $wire = $field->var('0.003')->renderBinary();
     $check(abs(unpack('fvalue',$wire)['value'] - .003) < .000000001,'Per-room Length wire value');
+    foreach ([
+        'join only'=>['0.003',null], 'leave only'=>[null,'0.005'],
+        'negative'=>['-1','0.005'], 'reversed'=>['0.005','0.003'],
+        'nonnumeric'=>['oops','0.005'], 'infinite'=>['0.003','1e999'],
+        'oversize'=>['0.003','11'],
+    ] as $label=>[$join,$leave]) {
+        $room->setGDOVars(['room_polygon'=>$polygon,'room_join_tolerance'=>$join,'room_leave_tolerance'=>$leave]);
+        $check($room->hasIndividualTolerances() && !$room->hasValidTolerancePair() &&
+            !$room->isInChatRange(52.5,13.4,$user) && !$room->isInChatLeaveRange(52.5,13.4,$user),
+            'Invalid pair fails closed: '.$label);
+    }
+    $room->setGDOVars(['room_polygon'=>$polygon,'room_join_tolerance'=>'0','room_leave_tolerance'=>'0']);
+    $check($room->hasValidTolerancePair() && $room->isInChatRange(52.5,13.4,$user), 'Valid zero pair enters inside');
     echo "$checks DB-free boundary checks passed.\n";
 }

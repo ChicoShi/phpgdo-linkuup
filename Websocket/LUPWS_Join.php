@@ -43,7 +43,7 @@ class LUPWS_Join extends LUPWS_Command
 		{
 			// Reviewed venues must not bypass their boundary on a repeated join.
 			// NULL keeps the existing room policy unchanged.
-			if ($room->gdoVar('room_join_tolerance') !== null)
+			if ($room->hasIndividualTolerances())
 			{
 				if (!is_finite($lat) || !is_finite($lng) || abs($lat) > 90 || abs($lng) > 180)
 				{

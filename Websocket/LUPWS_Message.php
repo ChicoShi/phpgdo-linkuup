@@ -41,7 +41,7 @@ class LUPWS_Message extends LUPWS_Command
 
 		// Only reviewed venues opt into a fresh-position requirement. Use the
 		// volatile server receipt timestamp, never the persisted signup location.
-		if ($room->gdoVar('room_join_tolerance') !== null)
+		if ($room->hasIndividualTolerances())
 		{
 			$positions = LUP_Global::$POSITIONS[$user->getID()] ?? [];
 			$fix = $positions ? $positions[array_key_last($positions)] : null;
