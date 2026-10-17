@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "status": "online_reviewed_local_import_only",
+  "limitations": [
+    "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+    "GPS unterscheidet übereinanderliegende Räume nicht zuverlässig.",
+    "Neue enge Toleranzen benötigen Smartphone-Praxistest."
+  ],
+  "entries": [
+    {
+      "key": "osm-way-96854636",
+      "name": "Spectrum Club",
+      "city": "Augsburg",
+      "street": "Ulmer Straße 234a",
+      "zip": "86156",
+      "category": 11,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/96854636/full",
+      "website": "https://www.spectrum-club.de/programm/kalender/",
+      "lat": 48.3801169905,
+      "lng": 10.8499119042,
+      "view_km": 32,
+      "chat_radius_km": 0.0066,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8500874,
+              48.3802515
+            ],
+            [
+              10.8500888,
+              48.3801929
+            ],
+            [
+              10.8500405,
+              48.3801924
+            ],
+            [
+              10.8500439,
+              48.3800412
+            ],
+            [
+              10.8499751,
+              48.3800405
+            ],
+            [
+              10.8499775,
+              48.379934
+            ],
+            [
+              10.8498818,
+              48.379933
+            ],
+            [
+              10.8497862,
+              48.379932
+            ],
+            [
+              10.8497821,
+              48.3800925
+            ],
+            [
+              10.849779,
+              48.3802483
+            ],
+            [
+              10.8500874,
+              48.3802515
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 9.63,
+      "source_version": "9",
+      "source_timestamp": "2026-03-30T14:10:25Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.spectrum-club.de/programm/kalender/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielles Oktoberprogramm enthält Veranstaltung am 17.10.2026; Betreiberanschrift entspricht dem benannten OSM-Clubumriss."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.spectrum-club.de/besucher/wegbeschreibung/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift und Anschrift des gleichnamigen OSM-Flächenobjekts stimmen überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/96854636/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt rechnerisch innerhalb der direkt mit Venue-Name und Nutzung getaggten Fläche; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/96854636/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler benannter Venue-Umriss aus aktueller OSM-API; geschlossener einfacher Ring, keine pauschale Gebäudeumhüllung oder Kreisvergrößerung. Unabhängiger zweiter Quellenreview durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/96854636/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Kleiner Innenradius mit drei Metern Abstand zum Polygonrand; wirksame Chatgrenze bleibt das Venue-Polygon plus separat begrenzte GPS-Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Drei Meter Beitrittstoleranz und fünf Meter Verlasstoleranz am Venue-Polygon statt global 64/640 Meter. Konservative lokale Konfiguration, keine Garantie für Smartphone-GPS; Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-28299711",
+      "name": "Boulderwelt Frankfurt",
+      "city": "Frankfurt am Main",
+      "street": "August-Schanz-Straße 50",
+      "zip": "60433",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/28299711/full",
+      "website": "https://www.boulderwelt-frankfurt.de/kontakt/",
+      "lat": 50.1641259076,
+      "lng": 8.684750545,
+      "view_km": 32,
+      "chat_radius_km": 0.0176,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.6843392,
+              50.164171
+            ],
+            [
+              8.6849224,
+              50.1644248
+            ],
+            [
+              8.6852533,
+              50.1641376
+            ],
+            [
+              8.6848639,
+              50.1639483
+            ],
+            [
+              8.6846905,
+              50.1638656
+            ],
+            [
+              8.6843392,
+              50.164171
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 20.64,
+      "source_version": "13",
+      "source_timestamp": "2025-02-12T09:07:43Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.boulderwelt-frankfurt.de/kontakt/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt laufende Öffnungszeiten und Anschrift; Sporthalle mit zugehörigem Café/Shop, Nachbarparkplätze ausgeschlossen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.boulderwelt-frankfurt.de/kontakt/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift und Anschrift des gleichnamigen OSM-Flächenobjekts stimmen überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28299711/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt rechnerisch innerhalb der direkt mit Venue-Name und Nutzung getaggten Fläche; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28299711/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler benannter Venue-Umriss aus aktueller OSM-API; geschlossener einfacher Ring, keine pauschale Gebäudeumhüllung oder Kreisvergrößerung. Unabhängiger zweiter Quellenreview durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28299711/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Kleiner Innenradius mit drei Metern Abstand zum Polygonrand; wirksame Chatgrenze bleibt das Venue-Polygon plus separat begrenzte GPS-Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Drei Meter Beitrittstoleranz und fünf Meter Verlasstoleranz am Venue-Polygon statt global 64/640 Meter. Konservative lokale Konfiguration, keine Garantie für Smartphone-GPS; Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-1144593247",
+      "name": "Bloc-Hütte Augsburg",
+      "city": "Augsburg",
+      "street": "Austraße 35",
+      "zip": "86153",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/1144593247/full",
+      "website": "https://bloc-huette.de/bloc-huette-galerie/",
+      "lat": 48.390053899399994,
+      "lng": 10.887515185800002,
+      "view_km": 32,
+      "chat_radius_km": 0.0116,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8873077,
+              48.3896587
+            ],
+            [
+              10.8873066,
+              48.3899046
+            ],
+            [
+              10.8873245,
+              48.3901632
+            ],
+            [
+              10.8873859,
+              48.3901693
+            ],
+            [
+              10.8873516,
+              48.3903261
+            ],
+            [
+              10.8876497,
+              48.3903548
+            ],
+            [
+              10.8876662,
+              48.3902792
+            ],
+            [
+              10.8877398,
+              48.3899424
+            ],
+            [
+              10.8875275,
+              48.389922
+            ],
+            [
+              10.8875052,
+              48.3899198
+            ],
+            [
+              10.8875035,
+              48.3898978
+            ],
+            [
+              10.8874816,
+              48.3896534
+            ],
+            [
+              10.8873077,
+              48.3896587
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 14.64,
+      "source_version": "5",
+      "source_timestamp": "2026-10-05T13:08:12Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://bloc-huette.de/bloc-huette-galerie/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Hallengalerie mit Öffnungszeiten und Anschrift passt zur benannten OSM-Boulderfläche."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://bloc-huette.de/bloc-huette-galerie/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift und Anschrift des gleichnamigen OSM-Flächenobjekts stimmen überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/1144593247/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt rechnerisch innerhalb der direkt mit Venue-Name und Nutzung getaggten Fläche; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/1144593247/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler benannter Venue-Umriss aus aktueller OSM-API; geschlossener einfacher Ring, keine pauschale Gebäudeumhüllung oder Kreisvergrößerung. Unabhängiger zweiter Quellenreview durchgeführt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/1144593247/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Kleiner Innenradius mit drei Metern Abstand zum Polygonrand; wirksame Chatgrenze bleibt das Venue-Polygon plus separat begrenzte GPS-Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Drei Meter Beitrittstoleranz und fünf Meter Verlasstoleranz am Venue-Polygon statt global 64/640 Meter. Konservative lokale Konfiguration, keine Garantie für Smartphone-GPS; Praxistest offen."
+        }
+      }
+    }
+  ]
+}

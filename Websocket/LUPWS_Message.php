@@ -28,6 +28,22 @@ class LUPWS_Message extends LUPWS_Command
 			return $msg->rplyError('err_not_in_room');
 		}
 
+		// Only reviewed venues opt into a fresh-position requirement. Use the
+		// volatile server receipt timestamp, never the persisted signup location.
+		if ($room->gdoVar('room_join_tolerance') !== null)
+		{
+			$positions = LUP_Global::$POSITIONS[$user->getID()] ?? [];
+			$fix = $positions ? $positions[array_key_last($positions)] : null;
+			$age = $fix ? microtime(true) - $fix[2] : INF;
+			if (!$fix || !is_finite($age) || $age < 0 || $age > 120 ||
+				!is_finite($fix[0]) || !is_finite($fix[1]) ||
+				abs($fix[0]) > 90 || abs($fix[1]) > 180 ||
+				!$room->isInChatLeaveRange($fix[0], $fix[1]))
+			{
+				return $msg->rplyError('err_room_not_near');
+			}
+		}
+
 		if ($this->cfgTicketEngine())
 		{
 			if (!$room->getCurrentTicket())

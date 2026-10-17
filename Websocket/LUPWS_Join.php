@@ -41,6 +41,20 @@ class LUPWS_Join extends LUPWS_Command
 
 		if (LUP_Global::isUserInRoom($user, $room))
 		{
+			// Reviewed venues must not bypass their boundary on a repeated join.
+			// NULL keeps the existing room policy unchanged.
+			if ($room->gdoVar('room_join_tolerance') !== null)
+			{
+				if (!is_finite($lat) || !is_finite($lng) || abs($lat) > 90 || abs($lng) > 180)
+				{
+					return $msg->rplyError('err_room_not_near');
+				}
+				LUP_Global::updateGPS($user, $lat, $lng);
+				if (!$room->isInChatRange($lat, $lng))
+				{
+					return $msg->rplyError('err_room_not_near');
+				}
+			}
 			# Send GDO_User list on join
 			$payload = LUP_Global::userListPayload($room);
 			GWS_Global::sendBinary($user, $payload);
