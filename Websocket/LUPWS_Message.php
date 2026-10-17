@@ -49,7 +49,7 @@ class LUPWS_Message extends LUPWS_Command
 			if (!$fix || !is_finite($age) || $age < 0 || $age > 120 ||
 				!is_finite($fix[0]) || !is_finite($fix[1]) ||
 				abs($fix[0]) > 90 || abs($fix[1]) > 180 ||
-				!$room->isInChatLeaveRange($fix[0], $fix[1]))
+				!$room->isInChatLeaveRange($fix[0], $fix[1], $user))
 			{
 				return $msg->rplyError('err_room_not_near');
 			}

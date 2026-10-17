@@ -287,6 +287,12 @@ final class LUP_Room extends GDO
 
 	private function toleranceBoost(?GDO_User $user): float
 	{
+		// Explicit venue boundaries are binding for every account, including boosts.
+		// Preserve the existing boost policy only for legacy/global-tolerance rooms.
+		if ($this->gdoVar('room_join_tolerance') !== null || $this->gdoVar('room_leave_tolerance') !== null)
+		{
+			return 0.0;
+		}
 		return $user ? (float)Module_LinkUUp::instance()->userSettingValue($user, 'tolerance_boost') : 0.0;
 	}
 

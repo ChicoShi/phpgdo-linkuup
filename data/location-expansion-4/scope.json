@@ -1,5 +1,5 @@
 {
-  "status": "regional_next_10_imported_locally",
+  "status": "41_reviewed_additions_imported_locally",
   "cities": [
     "Berlin",
     "Hamburg",
@@ -46,7 +46,7 @@
   "osm_candidates_total": 297,
   "official_source_records": 48,
   "geocoded_point_candidates": 11,
-  "new_active_locations": 38,
+  "new_active_locations": 41,
   "existing_active_locations": 528,
   "bulk_fetch_failed_cities": [
     "Berlin",
@@ -167,9 +167,9 @@
     "university_scope_or_institution_type_ambiguous": 6,
     "operator_or_institution_source_present_not_field_verified": 24
   },
-  "independently_reviewed_venue_polygons": 38,
+  "independently_reviewed_venue_polygons": 41,
   "activation_pending": "283 of original297 OSM candidates remain unimported; additional official-only candidates remain pending",
-  "total_active_locations": 566,
+  "total_active_locations": 569,
   "imported_keys": [
     "osm-way-96854636",
     "osm-way-28299711",
@@ -208,7 +208,10 @@
     "osm-way-384995338",
     "osm-way-286028279",
     "osm-way-26189623",
-    "osm-way-24974773"
+    "osm-way-24974773",
+    "osm-way-36147411",
+    "osm-way-211250525",
+    "osm-way-747076975"
   ],
   "remaining_osm_candidates": 283,
   "new_venue_tolerances_m": {
@@ -226,7 +229,7 @@
     "frontend_tests": 5,
     "independent_php_js_geometry_comparisons": 240
   },
-  "deployment": "local only; not pushed, merged or deployed publicly",
+  "deployment": "Feature branches published as draft PRs; no production import or deployment",
   "second_pass": {
     "imported": 12,
     "cities": {
@@ -272,5 +275,27 @@
     "source_polygons_rechecked": 10,
     "duplicate_dryrun": "10 existing,0 new",
     "boundary_checks": "10 inside allowed / far outside denied"
-  }
+  },
+  "import_batches": [
+    {
+      "file": "import-reviewed.json",
+      "active_entries": 3
+    },
+    {
+      "file": "second-import.json",
+      "active_entries": 12
+    },
+    {
+      "file": "regional-import.json",
+      "active_entries": 13
+    },
+    {
+      "file": "regional-next-import.json",
+      "active_entries": 10
+    },
+    {
+      "file": "regional-university-club-cafe.json",
+      "active_entries": 3
+    }
+  ]
 }

@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
-/** Actual LUP_Room + GDT_Polygon, with only global config stubbed; no DB. */
+/** Actual LUP_Room + GDT_Polygon, with config/user stubs; no DB. */
+namespace GDO\User { class GDO_User {} }
 namespace GDO\LinkUUp {
     final class Module_LinkUUp {
         public static function instance(): self { return new self(); }
+        public function userSettingValue($user, $key): float { return 10.0; }
         public function cfgRoomTolerance(): float { return .064; }
         public function cfgRoomLeaveTolerance(): float { return .640; }
     }
@@ -24,6 +26,11 @@ namespace {
     $check(!$room->isInChatRange($outside(4),13.4),'Four metres outside cannot enter');
     $check($room->isInChatLeaveRange($outside(4),13.4),'Four metres outside retained');
     $check(!$room->isInChatLeaveRange($outside(6),13.4),'Six metres outside leaves');
+    $user = (new ReflectionClass(\GDO\User\GDO_User::class))->newInstanceWithoutConstructor();
+    $check($room->isInChatRange(52.5,13.4,$user), 'Boosted account inside reviewed venue enters');
+    $check(!$room->isInChatRange($outside(4),13.4,$user), '10 km boost cannot expand reviewed join');
+    $check(!$room->isInChatLeaveRange($outside(6),13.4,$user), '10 km boost cannot expand reviewed leave');
+    $check($room->isInChatLeaveRange($outside(4),13.4,$user), 'Boosted account retains reviewed hysteresis');
     $room->setGDOVars(['room_polygon'=>$polygon,'room_join_tolerance'=>'0','room_leave_tolerance'=>'0']);
     $check(!$room->isInChatRange($outside(1),13.4),'Explicit zero does not fall back');
     $room->setGDOVars(['room_polygon'=>$polygon,'room_join_tolerance'=>null,'room_leave_tolerance'=>null]);
@@ -32,6 +39,8 @@ namespace {
     $check(!$room->isInChatRange($outside(70),13.4),'Existing room rejects beyond join');
     $check($room->isInChatLeaveRange($outside(600),13.4),'Existing room retains 640 m leave');
     $check(!$room->isInChatLeaveRange($outside(650),13.4),'Existing room rejects beyond leave');
+    $check($room->isInChatRange($outside(1000),13.4,$user), 'Legacy account boost still applies to join');
+    $check($room->isInChatLeaveRange($outside(1000),13.4,$user), 'Legacy account boost still applies to leave');
     $room->setGDOVars(['room_polygon'=>$polygon]);
     $check($room->getJoinTolerance() === .064,'Old cached row missing columns retains globals');
     $field = \GDO\UI\GDT_Length::make('room_join_tolerance')->initial(null);

@@ -33,3 +33,11 @@ Drei Ergänzungen auf Nutzerwunsch nur Hochschulen/Clubs/Cafés/Shishabars: Ostf
 [2026-10-17T11:34:02+02:00] lokal integriert / geprüft
 Aktuelles upstream/main integriert; Konflikte zusammengeführt. 44 Import-/Grenz-/GPS-Prüfungen erfolgreich, PHP-Syntax/JSON geprüft. Upstream-Paginierung und tolerance_boost erhalten. Kein Main-Push/Deployment.
 Nächster Schritt: Simion – Feature-Branch veröffentlichen und Review-PR erstellen.
+
+[2026-10-17T11:35:47+02:00] gepusht / PR erstellt
+Feature-Branch veröffentlicht, Draft-PR: https://github.com/gizmore/phpgdo-linkuup/pull/9. Mira im CEO-Chat namentlich mit beiden PR-Links informiert; Telegram-Nachricht3620 inhaltlich bestätigt. Kein Merge/Deployment.
+Nächster Schritt: Mira/Gizmore – gemeinsamer Review.
+
+[2026-10-17T11:42:57+02:00] lokal korrigiert / geprüft
+Mira-Review: Explizite Venue-Grenzen ohne Boost; Legacy-Boost erhalten, User an alle Prüfungen übergeben.50 gezielte Backendchecks grün. Testuser isoliert gestubbt nach erstem DB-Bootstrapfehler. Migration per Spaltenprüfung wiederholbar, Vorabcheck/Runbook ergänzt; isolierter SQL-Ausführungstest offen. Fünf Batches validiert,41 eindeutige Keys plus528 Altbestand. Keine Migration/Imports ausgeführt.
+Nächster Schritt: Simion – Review-Korrektur in bestehenden Draft-PR pushen, Mira gegenprüfen lassen.

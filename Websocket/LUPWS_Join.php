@@ -50,7 +50,7 @@ class LUPWS_Join extends LUPWS_Command
 					return $msg->rplyError('err_room_not_near');
 				}
 				LUP_Global::updateGPS($user, $lat, $lng);
-				if (!$room->isInChatRange($lat, $lng))
+				if (!$room->isInChatRange($lat, $lng, $user))
 				{
 					return $msg->rplyError('err_room_not_near');
 				}
