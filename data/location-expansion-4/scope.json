@@ -1,5 +1,5 @@
 {
-  "status": "reviewed_first_three_imported_locally_remaining_held",
+  "status": "second_pass_12_more_imported_locally",
   "cities": [
     "Berlin",
     "Hamburg",
@@ -46,7 +46,7 @@
   "osm_candidates_total": 297,
   "official_source_records": 48,
   "geocoded_point_candidates": 11,
-  "new_active_locations": 3,
+  "new_active_locations": 15,
   "existing_active_locations": 528,
   "bulk_fetch_failed_cities": [
     "Berlin",
@@ -168,14 +168,26 @@
     "operator_or_institution_source_present_not_field_verified": 24
   },
   "independently_reviewed_venue_polygons": 3,
-  "activation_pending": "294 OSM candidates remain held until individual operation, identity and venue footprint evidence is sufficient",
-  "total_active_locations": 531,
+  "activation_pending": "283 of original297 OSM candidates remain unimported; additional official-only candidates remain pending",
+  "total_active_locations": 543,
   "imported_keys": [
     "osm-way-96854636",
     "osm-way-28299711",
-    "osm-way-1144593247"
+    "osm-way-1144593247",
+    "osm-way-111266902",
+    "osm-way-113047637",
+    "osm-way-70534218",
+    "osm-way-59533536",
+    "osm-way-70194625",
+    "osm-way-203468116",
+    "osm-way-620133302",
+    "osm-way-305152195",
+    "osm-way-558371648",
+    "osm-way-89375225",
+    "osm-way-95793933",
+    "osm-node-983499363"
   ],
-  "remaining_osm_candidates": 294,
+  "remaining_osm_candidates": 283,
   "new_venue_tolerances_m": {
     "join": 3,
     "leave": 5
@@ -191,5 +203,24 @@
     "frontend_tests": 5,
     "independent_php_js_geometry_comparisons": 240
   },
-  "deployment": "local only; not pushed, merged or deployed publicly"
+  "deployment": "local only; not pushed, merged or deployed publicly",
+  "second_pass": {
+    "imported": 12,
+    "cities": {
+      "Augsburg": 5,
+      "Frankfurt am Main": 3,
+      "Regensburg": 3,
+      "Kiel": 1
+    },
+    "duplicate_dryrun": "12 existing,0 new on repeated run",
+    "prior_531_rows_unchanged": true,
+    "source_polygons_rechecked": 12,
+    "known_exclusions": [
+      "Naturkundemuseum closed per operator",
+      "Halle37 official/OSM address conflict",
+      "Billard Sportanlage Augsburg website points to Munich",
+      "Dynochrom shared upstairs Chromotion studio",
+      "Regina current operator evidence unavailable"
+    ]
+  }
 }

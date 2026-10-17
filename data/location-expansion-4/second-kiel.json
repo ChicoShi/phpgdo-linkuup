@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "key": "osm-node-983499363",
+      "name": "Blauer Engel",
+      "city": "Kiel",
+      "street": "Kaistraße 47",
+      "zip": "24114",
+      "category": 3,
+      "source_url": "https://www.openstreetmap.org/node/983499363",
+      "website": "https://www.blauerengel-kiel.de/",
+      "lat": 54.315578723200005,
+      "lng": 10.1345140696,
+      "view_km": 32,
+      "chat_radius_km": 0.0076,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.1344123,
+              54.315697
+            ],
+            [
+              10.1343037,
+              54.3155217
+            ],
+            [
+              10.1346124,
+              54.3154566
+            ],
+            [
+              10.1347211,
+              54.3156321
+            ],
+            [
+              10.1346215,
+              54.3156531
+            ],
+            [
+              10.1346303,
+              54.3156673
+            ],
+            [
+              10.1345302,
+              54.3156883
+            ],
+            [
+              10.1345213,
+              54.315674
+            ],
+            [
+              10.1344123,
+              54.315697
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 10.61,
+      "source_version": "12",
+      "source_timestamp": "2022-10-28T16:56:53Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.blauerengel-kiel.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiberseite führt laufenden Café-/Barbetrieb, tägliche Öffnungszeiten sowie Veranstaltung 16/10 auf; Abruf am 17.10.2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.blauerengel-kiel.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiberadresse Kaistraße 47,24114 Kiel stimmt mit OSM-POI und eingeschossigem Einzelhandelsgebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/18922640/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt im belegten Pavillonumriss, keine Behauptung eines exakt vermessenen Eingangs."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/18922640/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Eingeschossiger Baukörper an identischer Anschrift enthält den passend benannten Bar-POI. Offizielle Außenaufnahme zeigt den eigenständigen Blauer-Engel-Pavillon; nur Gebäude, keine unbekannte Terrasse/Kai-Fläche übernommen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/18922640/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Kleiner Innenradius mit drei Metern Abstand zum Polygonrand; wirksame Chatgrenze bleibt das Venue-Polygon plus separat begrenzte GPS-Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Drei Meter Beitrittstoleranz und fünf Meter Verlasstoleranz am Venue-Polygon statt global 64/640 Meter. Konservative lokale Konfiguration, keine Garantie für Smartphone-GPS; Praxistest offen."
+        }
+      },
+      "boundary_source_url": "https://api.openstreetmap.org/api/0.6/way/18922640/full",
+      "boundary_visual_source": "https://www.blauerengel-kiel.de/image.php?id=3831",
+      "limitations": [
+        "Gebäudeumriss ist online plausibilisiert, keine Vermessung.",
+        "Außenterrasse/Kai mangels belegbarer Grenze nicht eingeschlossen.",
+        "Offizielle Außenaufnahme zeigt Fahnen Juni 2016; nur zur Baukörperzuordnung, nicht als aktueller Betriebsnachweis genutzt."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "status": "online_reviewed_local_import_only",
+  "limitations": [
+    "Keine Vor-Ort-Messung.",
+    "Innenpunkte sind keine Eingangspins.",
+    "Betriebszeiten und tatsächliche Zugänglichkeit weiter beachten."
+  ],
+  "entries": [
+    {
+      "key": "osm-way-203468116",
+      "name": "DAV Kletterzentrum Frankfurt Main",
+      "city": "Frankfurt am Main",
+      "street": "Homburger Landstraße 283",
+      "zip": "60433",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/203468116/full",
+      "website": "https://www.dav-klz-ffm.de/kontakt/",
+      "lat": 50.1599022117,
+      "lng": 8.6861797967,
+      "view_km": 32,
+      "chat_radius_km": 0.008,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.6862033,
+              50.1600486
+            ],
+            [
+              8.6859543,
+              50.1599302
+            ],
+            [
+              8.6861604,
+              50.1597523
+            ],
+            [
+              8.6864094,
+              50.1598707
+            ],
+            [
+              8.6863292,
+              50.1599399
+            ],
+            [
+              8.6862033,
+              50.1600486
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 11.06,
+      "area_m2": 545.38,
+      "source_version": "16",
+      "source_timestamp": "2022-04-14T16:10:39Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.dav-klz-ffm.de/kontakt/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt Homburger Landstraße 283 und tägliche Öffnungszeiten; Mittwoch ab 13 Uhr. Hallenbistro ist Teil desselben Betriebs."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.dav-klz-ffm.de/kontakt/",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuelle offizielle Anschrift stimmt mit Straße, Hausnummer und PLZ des benannten OSM-Flächenobjekts überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/203468116/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mittels metrischer Rasterverfeinerung mit maximalem gefundenen Randabstand; kein behaupteter Eingang. Polygonzugehörigkeit separat durch PHP GDT_Polygon geprüft."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/203468116/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Benannter OSM-Sporthallen-Way mit sport=climbing; die Betreiberseite beschreibt diese Halle und Hofparkplätze separat. Nur Hallenumriss, keine Parkplätze. Geschlossener Ring ohne echte Segmentkreuzung, Fläche berechnet; ergänzende OSM-Umgebung separat gelesen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/203468116/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius abgerundet aus Randabstand minus 3m. 128 Prüfpunkte des Radius plus 3m bleiben im Originalpolygon; wirksamer Geofence ist das Polygon mit 3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Explizite neue Raumtoleranzen: Beitritt 3m, Verlassen 5m; keine globale 64/640m-Ausweitung. GPS-Praxistest bleibt offen."
+        }
+      },
+      "supplemental_boundary_source": "https://api.openstreetmap.org/api/0.6/map?bbox=8.6858,50.1596,8.6866,50.1602",
+      "geometry_checks": {
+        "closed_ring": true,
+        "proper_self_intersections": 0,
+        "sampled_inner_circle_points": 128,
+        "checked_in_local_metre_projection": true
+      },
+      "limitations": [
+        "Online-Geometrieprüfung, keine Vor-Ort-Vermessung.",
+        "Mehrgeschossigkeit kann GPS nicht trennen; erfasste Funktionen gehören laut Betreiber zum selben Sportbetrieb.",
+        "OSM-Kartierung kann veraltet oder unvollständig sein; Toleranzgrenzen im Smartphone-Praxistest noch prüfen."
+      ]
+    },
+    {
+      "key": "osm-way-620133302",
+      "name": "Eco-Kart Frankfurt",
+      "city": "Frankfurt am Main",
+      "street": "August-Schanz-Straße 31a",
+      "zip": "60433",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/620133302/full",
+      "website": "https://www.eco-kart.de/preiseinfos/",
+      "lat": 50.16256465,
+      "lng": 8.68590645,
+      "view_km": 32,
+      "chat_radius_km": 0.0115,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.6854017,
+              50.1628156
+            ],
+            [
+              8.6857407,
+              50.1629599
+            ],
+            [
+              8.6864112,
+              50.1623137
+            ],
+            [
+              8.6860722,
+              50.1621694
+            ],
+            [
+              8.6854017,
+              50.1628156
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 14.51,
+      "area_m2": 2507.1,
+      "source_version": "2",
+      "source_timestamp": "2019-09-19T10:40:28Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.eco-kart.de/preiseinfos/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber führt aktuellen Kartbetrieb, Buchung, Öffnungszeiten und August-Schanz-Straße 31a. Montag/Dienstag nur Events auf Anfrage."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.eco-kart.de/anfahrt",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuelle offizielle Anschrift stimmt mit Straße, Hausnummer und PLZ des benannten OSM-Flächenobjekts überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/620133302/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mittels metrischer Rasterverfeinerung mit maximalem gefundenen Randabstand; kein behaupteter Eingang. Polygonzugehörigkeit separat durch PHP GDT_Polygon geprüft."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/620133302/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Benannter Karthallen-Way sport=karting. Betreiber beschreibt Kartbahn, eigenes Bistro und eigene Event-Lounge im ersten Stock als zusammengehörigen Betrieb. Nachbarcafé Mr. Yu und Lidl liegen außerhalb. Geschlossener Ring ohne echte Segmentkreuzung, Fläche berechnet; ergänzende OSM-Umgebung separat gelesen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/620133302/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius abgerundet aus Randabstand minus 3m. 128 Prüfpunkte des Radius plus 3m bleiben im Originalpolygon; wirksamer Geofence ist das Polygon mit 3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Explizite neue Raumtoleranzen: Beitritt 3m, Verlassen 5m; keine globale 64/640m-Ausweitung. GPS-Praxistest bleibt offen."
+        }
+      },
+      "supplemental_boundary_source": "https://api.openstreetmap.org/api/0.6/map?bbox=8.6852,50.1620,8.6866,50.1631",
+      "geometry_checks": {
+        "closed_ring": true,
+        "proper_self_intersections": 0,
+        "sampled_inner_circle_points": 128,
+        "checked_in_local_metre_projection": true
+      },
+      "limitations": [
+        "Online-Geometrieprüfung, keine Vor-Ort-Vermessung.",
+        "Mehrgeschossigkeit kann GPS nicht trennen; erfasste Funktionen gehören laut Betreiber zum selben Sportbetrieb.",
+        "OSM-Kartierung kann veraltet oder unvollständig sein; Toleranzgrenzen im Smartphone-Praxistest noch prüfen."
+      ]
+    },
+    {
+      "key": "osm-way-305152195",
+      "name": "ESV Blau-Gold Frankfurt – Tennisanlage",
+      "city": "Frankfurt am Main",
+      "street": "Am Oberforsthaus 5",
+      "zip": "60528",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/305152195/full",
+      "website": "https://esv-frankfurt.de/tennis/startseite",
+      "lat": 50.0759658598,
+      "lng": 8.65876618,
+      "view_km": 32,
+      "chat_radius_km": 0.0214,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.6559324,
+              50.0751594
+            ],
+            [
+              8.6564035,
+              50.0752932
+            ],
+            [
+              8.6571292,
+              50.0755274
+            ],
+            [
+              8.6575264,
+              50.0757706
+            ],
+            [
+              8.6579012,
+              50.0759508
+            ],
+            [
+              8.6588683,
+              50.0762381
+            ],
+            [
+              8.6591066,
+              50.0762215
+            ],
+            [
+              8.6593483,
+              50.0758931
+            ],
+            [
+              8.6560758,
+              50.0749491
+            ],
+            [
+              8.6559324,
+              50.0751594
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 24.44,
+      "area_m2": 9591.08,
+      "source_version": "3",
+      "source_timestamp": "2019-03-09T04:00:02Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://esv-frankfurt.de/tennis/startseite",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt sieben Außenplätze, Tennishalle, Clubhaus sowie laufende Gastspieler-/Buchungsangebote und Saisoneröffnung 2026; Vereinsheim Am Oberforsthaus 5."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://esv-frankfurt.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuelle offizielle Anschrift stimmt mit Straße, Hausnummer und PLZ des benannten OSM-Flächenobjekts überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/305152195/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mittels metrischer Rasterverfeinerung mit maximalem gefundenen Randabstand; kein behaupteter Eingang. Polygonzugehörigkeit separat durch PHP GDT_Polygon geprüft."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/305152195/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Benannter sport=tennis-Sportanlagen-Way, kein Campus- oder Gebäudeboundingbox. Umgebungsdaten enthalten eigene Tennishalle und Tennisplätze; benachbarter Boxer-Klub wird separat geführt. Betreiberbeschreibung bestätigt zusammengehörige Tennisanlage. Geschlossener Ring ohne echte Segmentkreuzung, Fläche berechnet; ergänzende OSM-Umgebung separat gelesen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/305152195/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius abgerundet aus Randabstand minus 3m. 128 Prüfpunkte des Radius plus 3m bleiben im Originalpolygon; wirksamer Geofence ist das Polygon mit 3m/5m Toleranz.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Explizite neue Raumtoleranzen: Beitritt 3m, Verlassen 5m; keine globale 64/640m-Ausweitung. GPS-Praxistest bleibt offen."
+        }
+      },
+      "supplemental_boundary_source": "https://api.openstreetmap.org/api/0.6/map?bbox=8.6558,50.0748,8.6595,50.0764",
+      "geometry_checks": {
+        "closed_ring": true,
+        "proper_self_intersections": 0,
+        "sampled_inner_circle_points": 128,
+        "checked_in_local_metre_projection": true
+      },
+      "limitations": [
+        "Online-Geometrieprüfung, keine Vor-Ort-Vermessung.",
+        "Mehrgeschossigkeit kann GPS nicht trennen; erfasste Funktionen gehören laut Betreiber zum selben Sportbetrieb.",
+        "OSM-Kartierung kann veraltet oder unvollständig sein; Toleranzgrenzen im Smartphone-Praxistest noch prüfen."
+      ]
+    }
+  ],
+  "held_candidates": [
+    {
+      "key": "osm-way-114980175",
+      "name": "Dynochrom",
+      "reason": "Separate Chromotion-Nutzung im Obergeschoss; kein unkritischer gesamter Hallen-Geofence.",
+      "source_url": "https://www.chromotion-ffm.de/"
+    },
+    {
+      "key": "osm-way-53178879",
+      "name": "Feldbahnmuseum Frankfurt",
+      "reason": "Way umfasst nur eine Halle, Betreiber beschreibt mehrere Hallen/Freigelände; konkrete Hallenzuordnung offen.",
+      "source_url": "https://www.feldbahn-ffm.de/vereinsgeschichte/"
+    },
+    {
+      "key": "osm-way-102008879",
+      "name": "Ernst-May-Haus",
+      "reason": "Sehr schmaler Reihenhausumriss; 3m Innenreserve plus Mindest-Innenradius nicht ausreichend belegt.",
+      "source_url": "https://ernst-may-gesellschaft.de/mayhaus"
+    },
+    {
+      "key": "osm-way-175084527",
+      "name": "Hausbar",
+      "reason": "Sehr kleine Fläche und aktueller öffentlicher Barbetrieb nicht ausreichend aus offizieller Betreiberquelle belegt.",
+      "source_url": "http://hausbar-ffm.de/"
+    }
+  ]
+}
