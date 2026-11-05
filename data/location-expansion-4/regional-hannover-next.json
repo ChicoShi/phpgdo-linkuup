@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "checked_at": "2026-10-17",
+  "status": "online_reviewed_local_import_only",
+  "entries": [
+    {
+      "key": "osm-way-5121415",
+      "name": "Museum Wilhelm Busch – Georgenpalais",
+      "city": "Hannover",
+      "street": "Georgengarten 1",
+      "zip": "30167",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+      "website": "https://www.karikatur-museum.de/besuch/",
+      "lat": 52.3842416801,
+      "lng": 9.7077527733,
+      "view_km": 32,
+      "chat_radius_km": 0.0042,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7072179,
+              52.3844029
+            ],
+            [
+              9.7072088,
+              52.3843835
+            ],
+            [
+              9.7071666,
+              52.3842936
+            ],
+            [
+              9.7076629,
+              52.3842068
+            ],
+            [
+              9.7076859,
+              52.384179
+            ],
+            [
+              9.7077509,
+              52.3841677
+            ],
+            [
+              9.7077986,
+              52.384183
+            ],
+            [
+              9.7081124,
+              52.3841281
+            ],
+            [
+              9.7082924,
+              52.3840966
+            ],
+            [
+              9.7083052,
+              52.3841239
+            ],
+            [
+              9.7083309,
+              52.3841786
+            ],
+            [
+              9.7083437,
+              52.3842059
+            ],
+            [
+              9.7072179,
+              52.3844029
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 7.24,
+      "area_m2": 1025.04,
+      "source_version": "43",
+      "source_timestamp": "2026-08-28T22:37:39Z",
+      "additional_sources": [
+        "https://www.karikatur-museum.de/programm/ausstellungen/",
+        "https://api.openstreetmap.org/api/0.6/way/5121415/relations"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.karikatur-museum.de/programm/ausstellungen/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt Wallmodenpalais im Georgengarten 1 und Di–So 11–17 Uhr; aktuelle Ausstellung ACH WAS vom 02.07.2026 bis 14.03.2027."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.karikatur-museum.de/besuch/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originales Georgenpalais, hist_name=Wallmodenpalais, passende Adresse; Betreiber benennt ausdrücklich dieses Palais als Museumsgebäude. Kein Parkpolygon. Elternrelationen abgefragt: keine Multipolygon-Relation und somit kein bekannter ausgelassener Innenring."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/5121415/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-41586149",
+      "name": "LUH – Laboratorium für Nano- und Quantenengineering",
+      "city": "Hannover",
+      "street": "Schneiderberg 39",
+      "zip": "30167",
+      "category": 17,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+      "website": "https://www.lnqe.uni-hannover.de/leibniz-forschungszentrum/kontakt",
+      "lat": 52.3879061389,
+      "lng": 9.7148583939,
+      "view_km": 32,
+      "chat_radius_km": 0.0164,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7150439,
+              52.3876851
+            ],
+            [
+              9.714954,
+              52.3877025
+            ],
+            [
+              9.7148145,
+              52.3877296
+            ],
+            [
+              9.7145418,
+              52.3877825
+            ],
+            [
+              9.7144977,
+              52.3877911
+            ],
+            [
+              9.7145097,
+              52.3878141
+            ],
+            [
+              9.7146457,
+              52.388075
+            ],
+            [
+              9.7146722,
+              52.3881259
+            ],
+            [
+              9.7150742,
+              52.3880479
+            ],
+            [
+              9.7152184,
+              52.3880199
+            ],
+            [
+              9.7150439,
+              52.3876851
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 19.47,
+      "area_m2": 1523.05,
+      "source_version": "15",
+      "source_timestamp": "2024-10-15T11:07:58Z",
+      "additional_sources": [
+        "https://www.lnqe.uni-hannover.de/",
+        "https://api.openstreetmap.org/api/0.6/way/41586149/relations"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.lnqe.uni-hannover.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuelle Kontaktseite vom 30.06.2026 nennt Forschungsbau Schneiderberg 39, Gebäude 3430; Hauptseite dokumentiert Forschungsbetrieb und Meldungen Oktober 2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.lnqe.uni-hannover.de/leibniz-forschungszentrum/kontakt",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Direkt benanntes LNQE building=university mit Betreiber Leibniz Universität und passender Adresse; nur eigenständiger Forschungsbau, kein Campus. Laborzugang eingeschränkt. Elternrelationen abgefragt: keine Multipolygon-Relation und somit kein bekannter ausgelassener Innenring."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/41586149/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    },
+    {
+      "key": "osm-way-192185631",
+      "name": "LUH – KletterCAMPUS und CAMPUSFit",
+      "city": "Hannover",
+      "street": "Am Moritzwinkel 6",
+      "zip": "30167",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+      "website": "https://www.hochschulsport-hannover.de/klettercampus",
+      "lat": 52.379315208,
+      "lng": 9.7129936675,
+      "view_km": 32,
+      "chat_radius_km": 0.0144,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7130065,
+              52.379621
+            ],
+            [
+              9.7130892,
+              52.379589
+            ],
+            [
+              9.7131149,
+              52.3795794
+            ],
+            [
+              9.7132106,
+              52.3795418
+            ],
+            [
+              9.7134402,
+              52.3794538
+            ],
+            [
+              9.7133551,
+              52.3793711
+            ],
+            [
+              9.7133149,
+              52.3793329
+            ],
+            [
+              9.7132359,
+              52.3792565
+            ],
+            [
+              9.7131933,
+              52.3792142
+            ],
+            [
+              9.7131885,
+              52.37921
+            ],
+            [
+              9.7131184,
+              52.3791745
+            ],
+            [
+              9.713107,
+              52.3791633
+            ],
+            [
+              9.7130933,
+              52.3791504
+            ],
+            [
+              9.7131167,
+              52.3791414
+            ],
+            [
+              9.7130357,
+              52.379063
+            ],
+            [
+              9.7130013,
+              52.3790298
+            ],
+            [
+              9.7127356,
+              52.3791321
+            ],
+            [
+              9.7126671,
+              52.3791585
+            ],
+            [
+              9.7126626,
+              52.3791602
+            ],
+            [
+              9.7125672,
+              52.3791966
+            ],
+            [
+              9.7125951,
+              52.3792237
+            ],
+            [
+              9.7126167,
+              52.3792446
+            ],
+            [
+              9.7126216,
+              52.3792493
+            ],
+            [
+              9.7126362,
+              52.3792634
+            ],
+            [
+              9.7126483,
+              52.379275
+            ],
+            [
+              9.7126588,
+              52.3792852
+            ],
+            [
+              9.7126641,
+              52.3792903
+            ],
+            [
+              9.7126827,
+              52.3793083
+            ],
+            [
+              9.7126846,
+              52.3793101
+            ],
+            [
+              9.7127035,
+              52.3793284
+            ],
+            [
+              9.712716,
+              52.3793405
+            ],
+            [
+              9.7127415,
+              52.3793652
+            ],
+            [
+              9.7127761,
+              52.3793984
+            ],
+            [
+              9.7128013,
+              52.3794227
+            ],
+            [
+              9.7128125,
+              52.3794338
+            ],
+            [
+              9.7128264,
+              52.3794469
+            ],
+            [
+              9.7128349,
+              52.379455
+            ],
+            [
+              9.7128609,
+              52.3794805
+            ],
+            [
+              9.7128947,
+              52.3795132
+            ],
+            [
+              9.7129205,
+              52.3795381
+            ],
+            [
+              9.7129457,
+              52.3795625
+            ],
+            [
+              9.7129801,
+              52.3795954
+            ],
+            [
+              9.7130065,
+              52.379621
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 17.45,
+      "area_m2": 1935.26,
+      "source_version": "8",
+      "source_timestamp": "2026-06-01T07:41:45Z",
+      "additional_sources": [
+        "https://www.hochschulsport-hannover.de/klettercampus/dein-weg-in-die-kletterhalle",
+        "https://api.openstreetmap.org/api/0.6/way/192185631/relations",
+        "https://www.hochschulsport-hannover.de/campusfit",
+        "https://www.hochschulsport-hannover.de/der-hochschulsport/kontakt-und-anfahrt"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.hochschulsport-hannover.de/klettercampus/dein-weg-in-die-kletterhalle",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt aktuelle Wochenöffnungszeiten für KletterCAMPUS und CAMPUSFit, jeweils Am Moritzwinkel 6, Gebäude 1806. CAMPUSFit-Seite zuletzt geändert 30.07.2026. Beide Angebote gehören zum Zentrum für Hochschulsport."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.hochschulsport-hannover.de/klettercampus",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originales sports_centre-Gebäude ref=1806: Betreiber ordnet sowohl KletterCAMPUS als auch CAMPUSFit ausdrücklich Gebäude 1806 zu. Raum umfasst beide Angebote desselben Hochschulsportbetreibers. Nicht Gesamtcampus oder Gebäude 1801; keine getrennte Kletterhallen-Innengeometrie behauptet. Keine Multipolygon-Elternrelation."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/192185631/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen.",
+        "Gemeinsames Sportgebäude: CAMPUSFit und KletterCAMPUS haben unterschiedliche Teilnahmeberechtigungen. Kein separat begrenzter Kletterhallenraum."
+      ]
+    },
+    {
+      "key": "osm-way-384995338",
+      "name": "Apollo Kino Hannover",
+      "city": "Hannover",
+      "street": "Limmerstraße 50",
+      "zip": "30451",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+      "website": "https://www.apollokino.de/?mp=Anfahrt",
+      "lat": 52.3740767292,
+      "lng": 9.7069632892,
+      "view_km": 32,
+      "chat_radius_km": 0.004,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7068987,
+              52.3741711
+            ],
+            [
+              9.7070288,
+              52.3741266
+            ],
+            [
+              9.7071023,
+              52.3741015
+            ],
+            [
+              9.7070837,
+              52.3740811
+            ],
+            [
+              9.7070721,
+              52.3740686
+            ],
+            [
+              9.7071269,
+              52.3740498
+            ],
+            [
+              9.7070686,
+              52.3739863
+            ],
+            [
+              9.7070564,
+              52.373973
+            ],
+            [
+              9.7068937,
+              52.3740282
+            ],
+            [
+              9.7067978,
+              52.3740611
+            ],
+            [
+              9.7068987,
+              52.3741711
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 7.02,
+      "area_m2": 264.46,
+      "source_version": "12",
+      "source_timestamp": "2025-10-20T19:25:49Z",
+      "additional_sources": [
+        "https://www.apollokino.de/?datum=17.10.2026&v=",
+        "https://api.openstreetmap.org/api/0.6/way/384995338/relations"
+      ],
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.apollokino.de/?datum=17.10.2026&v=",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Adresse und Tagesprogramm 17.10.2026 mit Vorstellungen 15:45, 18:00, 20:15 und 22:30 Uhr; tatsächlich abgerufen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.apollokino.de/?mp=Anfahrt",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberseite bestätigt angegebene Standortadresse; Gebäudezuordnung gesondert mit Original-OSM-Geometrie geprüft."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt mit vierstufiger metrischer Rasterverfeinerung ermittelt; im Originalring enthalten. Kein behaupteter Eingang. Unabhängige PHP-Prüfung mit GDT_Polygon::containsPoint bestanden."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler separat als Apollo amenity=cinema kartierter Gebäudering, addr:unit=Hinterhaus; kein Wohngebäude an Straßenfront, kein gesamter Hofblock. Elternrelationen abgefragt: keine Multipolygon-Relation und somit kein bekannter ausgelassener Innenring."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/384995338/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius aus Randabstand minus 3 m abgerundet. 128 Umfangspunkte bei Radius plus 3 m innerhalb geprüft. Originalpolygon mit 3/5 m ist wirksame Zugangsgrenze.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Für diesen neuen Raum ausdrücklich3m Beitritts- und5m Verlasstoleranz; keine globalen64/640m. Geometrie online geprüft, keine garantierte Smartphone-GPS-Genauigkeit."
+        }
+      },
+      "duplicate_review": {
+        "existing_db_count": 556,
+        "matching_source_name_address_or_point_within35m": [],
+        "access": "local SELECT only"
+      },
+      "limitations": [
+        "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+        "Innenpin ist kein Eingang; Zutritt richtet sich nach Betreiberregeln und Öffnungszeiten.",
+        "GPS kann Stockwerke nicht unterscheiden; Smartphone-Praxistest offen."
+      ]
+    }
+  ]
+}

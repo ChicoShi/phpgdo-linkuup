@@ -1,0 +1,549 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "checked_at": "2026-10-17",
+  "entries": [
+    {
+      "key": "osm-way-107106923",
+      "name": "Fliegerhalle",
+      "city": "Braunschweig",
+      "street": "Westbahnhof 3",
+      "zip": "38118",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+      "website": "https://www.fliegerhalle-bs.de/",
+      "lat": 52.251412548,
+      "lng": 10.502904034,
+      "view_km": 32,
+      "chat_radius_km": 0.0081,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5028789,
+              52.2515634
+            ],
+            [
+              10.5026391,
+              52.2513565
+            ],
+            [
+              10.5025645,
+              52.2512922
+            ],
+            [
+              10.5028304,
+              52.2511766
+            ],
+            [
+              10.5031449,
+              52.2514478
+            ],
+            [
+              10.5028789,
+              52.2515634
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 11.11,
+      "source_version": "10",
+      "source_timestamp": "2026-02-14T18:58:50Z",
+      "source_tags": {
+        "access": "yes",
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "3",
+        "addr:postcode": "38118",
+        "addr:street": "Westbahnhof",
+        "building": "yes",
+        "climbing:boulder": "yes",
+        "climbing:multipitch": "no",
+        "climbing:sport": "yes",
+        "climbing:toprope": "yes",
+        "email": "info@fliegerhalle-bs.de",
+        "fee": "yes",
+        "indoor": "yes",
+        "leisure": "sports_centre",
+        "name": "Fliegerhalle",
+        "opening_hours": "Mo 15:00-23:00; Tu-Th 11:00-23:00; Fr 15:00-23:00; PH,Sa,Su 09:30-21:00",
+        "outdoor": "no",
+        "phone": "+49 531 22436229",
+        "sport": "climbing",
+        "website": "https://www.fliegerhalle-bs.de/",
+        "wikidata": "Q114133447",
+        "wikimedia_commons": "File:BS Fliegerhalle.JPG"
+      },
+      "scope_note": "Nur benanntes Hallengebäude; Außenkletterturm, Außengelände und Parkflächen nicht enthalten. OSM-Öffnungszeiten weichen von aktuellen Betreiberzeiten ab und werden nicht übernommen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.fliegerhalle-bs.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber zeigt aktuelle Kletter- und Boulderangebote, Kurse sowie Besuchszeiten Mo 15–23 Uhr, Di–Fr 9:30–23 Uhr, Sa/So/Feiertage 9:30–21 Uhr."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.fliegerhalle-bs.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Westbahnhof 3, 38118 Braunschweig. Benanntes OSM-Gebäude trägt dieselbe Anschrift."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler geschlossener OSM-Way, ausdrücklich benannt. Nur benanntes Hallengebäude; Außenkletterturm, Außengelände und Parkflächen nicht enthalten. OSM-Öffnungszeiten weichen von aktuellen Betreiberzeiten ab und werden nicht übernommen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/107106923/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 m abgerundet, kleiner als Randabstand minus 3 m. Chatgrenze ist das Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; keine Katasterpräzision, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-56060396",
+      "name": "Lokpark Braunschweig – Lokhalle",
+      "city": "Braunschweig",
+      "street": "Schwartzkopffstraße 3",
+      "zip": "38126",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+      "website": "https://www.lokpark.de/kontakt/",
+      "lat": 52.243944192,
+      "lng": 10.546089456,
+      "view_km": 32,
+      "chat_radius_km": 0.014,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5454828,
+              52.2442236
+            ],
+            [
+              10.5455794,
+              52.244257
+            ],
+            [
+              10.5459689,
+              52.2443917
+            ],
+            [
+              10.546042,
+              52.2443114
+            ],
+            [
+              10.5460876,
+              52.2442616
+            ],
+            [
+              10.5461383,
+              52.2442058
+            ],
+            [
+              10.5461768,
+              52.2441642
+            ],
+            [
+              10.5462217,
+              52.2441142
+            ],
+            [
+              10.5462743,
+              52.2440566
+            ],
+            [
+              10.5463248,
+              52.2440009
+            ],
+            [
+              10.5464307,
+              52.2438846
+            ],
+            [
+              10.5459911,
+              52.2437336
+            ],
+            [
+              10.5458867,
+              52.2438509
+            ],
+            [
+              10.5458336,
+              52.2439105
+            ],
+            [
+              10.5457817,
+              52.2439687
+            ],
+            [
+              10.5456197,
+              52.2441507
+            ],
+            [
+              10.545566,
+              52.2441323
+            ],
+            [
+              10.5454828,
+              52.2442236
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 17.09,
+      "source_version": "11",
+      "source_timestamp": "2026-05-08T21:59:47Z",
+      "source_tags": {
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "3",
+        "addr:postcode": "38126",
+        "addr:street": "Schwartzkopffstraße",
+        "building": "industrial",
+        "name": "Lokpark Braunschweig",
+        "railway": "engine_shed",
+        "url": "http://www.lokpark.de/",
+        "wikidata": "Q138568475"
+      },
+      "scope_note": "Nur benanntes Lokhallengebäude als Museums- und Veranstaltungshalle; nicht das gesamte 27.500-m²-Gelände oder Open-Air-Areal. Die Veranstaltungsteilfläche von 614 m² ist nicht mit dem gesamten Hallengebäude gleichzusetzen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.lokpark-braunschweig.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizieller Museumsbetreiber beschreibt laufenden Lokparkbetrieb und Termine am 01.11., 05.12. und 06.12.2026; Veranstaltungsbetreiber bietet die Lokhalle weiterhin zur Buchung an.",
+          "additional_source_url": "https://vbv-bs.de/lokpark/events-festivitaeten/lokhalle"
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.lokpark.de/kontakt/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Schwartzkopffstraße 3, 38126 Braunschweig. Benanntes OSM-Gebäude trägt dieselbe Anschrift."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler geschlossener OSM-Way, ausdrücklich benannt. Nur benanntes Lokhallengebäude als Museums- und Veranstaltungshalle; nicht das gesamte 27.500-m²-Gelände oder Open-Air-Areal. Die Veranstaltungsteilfläche von 614 m² ist nicht mit dem gesamten Hallengebäude gleichzusetzen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/56060396/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 m abgerundet, kleiner als Randabstand minus 3 m. Chatgrenze ist das Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; keine Katasterpräzision, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-461687831",
+      "name": "Wasserwelt Braunschweig",
+      "city": "Braunschweig",
+      "street": "Am Schützenplatz 1",
+      "zip": "38114",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+      "website": "https://www.bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-allgemein",
+      "lat": 52.286152116,
+      "lng": 10.51669075,
+      "view_km": 32,
+      "chat_radius_km": 0.0516,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5174968,
+              52.2867177
+            ],
+            [
+              10.5174969,
+              52.2864856
+            ],
+            [
+              10.5174919,
+              52.2860681
+            ],
+            [
+              10.517492,
+              52.2860027
+            ],
+            [
+              10.5174921,
+              52.2859683
+            ],
+            [
+              10.5174921,
+              52.2859335
+            ],
+            [
+              10.5174981,
+              52.2856054
+            ],
+            [
+              10.517464,
+              52.2856054
+            ],
+            [
+              10.5172401,
+              52.2856053
+            ],
+            [
+              10.5172368,
+              52.2852284
+            ],
+            [
+              10.5172248,
+              52.2852284
+            ],
+            [
+              10.5171883,
+              52.2852283
+            ],
+            [
+              10.5171519,
+              52.2852283
+            ],
+            [
+              10.5171154,
+              52.2852282
+            ],
+            [
+              10.517079,
+              52.2852282
+            ],
+            [
+              10.5170426,
+              52.2852281
+            ],
+            [
+              10.5170061,
+              52.2852281
+            ],
+            [
+              10.5169697,
+              52.2852281
+            ],
+            [
+              10.5169332,
+              52.285228
+            ],
+            [
+              10.5168968,
+              52.285228
+            ],
+            [
+              10.5168603,
+              52.2852279
+            ],
+            [
+              10.5168239,
+              52.2852279
+            ],
+            [
+              10.5167875,
+              52.2852278
+            ],
+            [
+              10.516751,
+              52.2852278
+            ],
+            [
+              10.5167146,
+              52.2852278
+            ],
+            [
+              10.5166781,
+              52.2852277
+            ],
+            [
+              10.5166417,
+              52.2852277
+            ],
+            [
+              10.5166052,
+              52.2852276
+            ],
+            [
+              10.5165688,
+              52.2852276
+            ],
+            [
+              10.5165323,
+              52.2852275
+            ],
+            [
+              10.5164959,
+              52.2852275
+            ],
+            [
+              10.5164595,
+              52.2852275
+            ],
+            [
+              10.516423,
+              52.2852274
+            ],
+            [
+              10.5163866,
+              52.2852274
+            ],
+            [
+              10.5163501,
+              52.2852273
+            ],
+            [
+              10.5163137,
+              52.2852273
+            ],
+            [
+              10.5162772,
+              52.2852272
+            ],
+            [
+              10.515897,
+              52.2852308
+            ],
+            [
+              10.5158896,
+              52.2858888
+            ],
+            [
+              10.5158834,
+              52.2864431
+            ],
+            [
+              10.5159615,
+              52.2864416
+            ],
+            [
+              10.5159606,
+              52.2865506
+            ],
+            [
+              10.5159603,
+              52.2865878
+            ],
+            [
+              10.5164516,
+              52.2866485
+            ],
+            [
+              10.5164544,
+              52.2866301
+            ],
+            [
+              10.5165346,
+              52.2866358
+            ],
+            [
+              10.5165303,
+              52.2866555
+            ],
+            [
+              10.5171358,
+              52.2867118
+            ],
+            [
+              10.5173714,
+              52.286719
+            ],
+            [
+              10.5174968,
+              52.2867177
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 54.62,
+      "source_version": "14",
+      "source_timestamp": "2026-09-28T06:54:08Z",
+      "source_tags": {
+        "check_date": "2026-04-01",
+        "check_date:opening_hours": "2026-04-01",
+        "landuse": "recreation_ground",
+        "leisure": "water_park",
+        "name": "Wasserwelt",
+        "note:opening_hours": "Badeschluss 30 Minuten vor Schließung.",
+        "opening_hours": "Mo-Sa 08:00-21:30; Su 08:00-20:30",
+        "sport": "swimming",
+        "website": "https://bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-allgemein",
+        "wikidata": "Q118206255"
+      },
+      "scope_note": "Benannter OSM-Wasserpark mit Bad-, Sauna- und zugehörigen Außenflächen. Dies ist ausdrücklich ein Freizeitgelände, kein reiner Gebäudeumriss. Separater Besucherparkplatz und Wohnmobilstellplätze werden nicht hinzugefügt. Horizontale Fläche unterscheidet keine Stockwerke und integrierten Nutzungen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-badewelt",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber veröffentlicht Badangebote und Öffnung am 17.10.2026 von 8 bis 21:30 Uhr sowie aktuelle Besucherinformationen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.bs-baeder.de/braunschweig-hallenbaeder/wasserwelt-allgemein",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bestätigt Am Schützenplatz 1, 38114 Braunschweig. OSM benennt denselben Wasserpark mit derselben Betreiberwebsite; zugehöriges Gebäude way208527082 trägt exakt diese Anschrift.",
+          "additional_source_url": "https://api.openstreetmap.org/api/0.6/way/208527082/full"
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Originaler geschlossener OSM-Way, ausdrücklich benannt. Benannter OSM-Wasserpark mit Bad-, Sauna- und zugehörigen Außenflächen. Dies ist ausdrücklich ein Freizeitgelände, kein reiner Gebäudeumriss. Separater Besucherparkplatz und Wohnmobilstellplätze werden nicht hinzugefügt. Horizontale Fläche unterscheidet keine Stockwerke und integrierten Nutzungen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/461687831/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 m abgerundet, kleiner als Randabstand minus 3 m. Chatgrenze ist das Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; keine Katasterpräzision, Smartphone-Praxistest offen."
+        }
+      }
+    }
+  ]
+}

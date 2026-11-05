@@ -1,0 +1,708 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "status": "online_reviewed_local_import_only",
+  "limitations": [
+    "Online-Quellenprüfung, keine Vor-Ort-Messung.",
+    "GPS unterscheidet übereinanderliegende Räume nicht zuverlässig.",
+    "Neue enge Toleranzen benötigen Smartphone-Praxistest."
+  ],
+  "entries": [
+    {
+      "key": "osm-way-111266902",
+      "name": "Kesselhaus",
+      "city": "Augsburg",
+      "street": "Riedingerstraße 26i",
+      "zip": "86153",
+      "category": 11,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/111266902/full",
+      "website": "https://kesselhaus.eu/?acm=_252",
+      "lat": 48.3857201885,
+      "lng": 10.8914114115,
+      "view_km": 32,
+      "chat_radius_km": 0.0115,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.891209,
+              48.3859377
+            ],
+            [
+              10.8913971,
+              48.3860023
+            ],
+            [
+              10.8914894,
+              48.3858839
+            ],
+            [
+              10.891535,
+              48.3858995
+            ],
+            [
+              10.8915863,
+              48.3858336
+            ],
+            [
+              10.891553,
+              48.3858221
+            ],
+            [
+              10.8916861,
+              48.3856515
+            ],
+            [
+              10.8913862,
+              48.3855484
+            ],
+            [
+              10.8913498,
+              48.3855952
+            ],
+            [
+              10.8912924,
+              48.3855755
+            ],
+            [
+              10.8911775,
+              48.385536
+            ],
+            [
+              10.8910242,
+              48.3857327
+            ],
+            [
+              10.891296,
+              48.3858262
+            ],
+            [
+              10.891209,
+              48.3859377
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 14.51,
+      "source_version": "8",
+      "source_timestamp": "2021-05-21T21:32:56Z",
+      "source_tags": {
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "26i",
+        "addr:postcode": "86153",
+        "addr:street": "Riedingerstraße",
+        "amenity": "nightclub",
+        "building": "yes",
+        "name": "Kesselhaus",
+        "ref": "F20",
+        "website": "https://www.kesselhaus.eu/",
+        "wheelchair": "no"
+      },
+      "scope_note": "Gebäudeumriss des ausdrücklich benannten Clubs. Zugehörige Terrasse und Parkflächen werden nicht zusätzlich aufgenommen; mehrere Räume gehören zum Kesselhaus.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://kesselhaus.eu/?acm=_252",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielles Betreiberprogramm nennt DRUNK IN LOVE am 17.10.2026 und weitere Oktobertermine; Riedingerstraße 26 i, 86153 Augsburg."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://kesselhaus.eu/?acm=_252",
+          "checked_at": "2026-10-17",
+          "evidence": "Name, Stadt, Straße und Hausnummer stimmen mit dem direkt benannten OSM-Flächenobjekt überein. Postleitzahl stimmt überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/111266902/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster der tatsächlichen Venue-Fläche. Kein behaupteter Eingang; Koordinatenfolge Lon/Lat berücksichtigt."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/111266902/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full: geschlossener einfacher Polygonring, ausdrücklich mit Venue-Namen und Nutzung versehen. Gebäudeumriss des ausdrücklich benannten Clubs. Zugehörige Terrasse und Parkflächen werden nicht zusätzlich aufgenommen; mehrere Räume gehören zum Kesselhaus."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/111266902/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als berechneter Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Chatgrenze ist das Quellpolygon, nicht ein vergrößernder Kreis.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Konservative lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz statt globaler Toleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; kein Kataster- oder Einlassnachweis, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-113047637",
+      "name": "City Billard",
+      "city": "Augsburg",
+      "street": "Jakoberwallstraße 47a",
+      "zip": "86150",
+      "category": 3,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/113047637/full",
+      "website": "https://sites.google.com/view/citybillard/startseite",
+      "lat": 48.36644637,
+      "lng": 10.906887643,
+      "view_km": 32,
+      "chat_radius_km": 0.0092,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.9071145,
+              48.366651
+            ],
+            [
+              10.9073056,
+              48.3664129
+            ],
+            [
+              10.9071593,
+              48.3663611
+            ],
+            [
+              10.9071236,
+              48.3664057
+            ],
+            [
+              10.9068027,
+              48.366292
+            ],
+            [
+              10.9066474,
+              48.3664855
+            ],
+            [
+              10.9071145,
+              48.366651
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 12.2,
+      "source_version": "6",
+      "source_timestamp": "2026-06-06T18:16:30Z",
+      "source_tags": {
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "47a",
+        "addr:postcode": "86153",
+        "addr:street": "Jakoberwallstraße",
+        "amenity": "bar",
+        "building": "yes",
+        "contact:instagram": "citybillard_augsburg",
+        "email": "citybillardaugsburg@gmail.com",
+        "fee": "yes",
+        "indoor_seating": "yes",
+        "name": "City Billard",
+        "opening_hours": "Mo-Th 16:00-24:00, Fr 16:00-02:00, Sa 15:00-02:00, Su 15:00-24:00",
+        "outdoor_seating": "no",
+        "sport": "billiards;darts;table_soccer",
+        "website": "https://sites.google.com/view/citybillard/startseite"
+      },
+      "scope_note": "Benannte Bar-/Billardfläche; OSM-Name, Straße, Hausnummer, Betreiberwebsite und Kontakt stimmen. OSM-PLZ 86153 weicht von Betreiber-PLZ 86150 ab; für Anschrift wird die Betreiberangabe verwendet.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://sites.google.com/view/citybillard/startseite",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt laufende Wochenöffnungszeiten, Billard/Dart/Kicker und Jakoberwallstraße 47a, 86150 Augsburg."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://sites.google.com/view/citybillard/startseite",
+          "checked_at": "2026-10-17",
+          "evidence": "Name, Stadt, Straße und Hausnummer stimmen mit dem direkt benannten OSM-Flächenobjekt überein. Postleitzahl laut Betreiber 86150, OSM 86153; Betreiberangabe übernommen, Zuordnung durch gleichen Namen, Hausnummer und verlinkte Betreiberwebsite belegt."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/113047637/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster der tatsächlichen Venue-Fläche. Kein behaupteter Eingang; Koordinatenfolge Lon/Lat berücksichtigt."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/113047637/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full: geschlossener einfacher Polygonring, ausdrücklich mit Venue-Namen und Nutzung versehen. Benannte Bar-/Billardfläche; OSM-Name, Straße, Hausnummer, Betreiberwebsite und Kontakt stimmen. OSM-PLZ 86153 weicht von Betreiber-PLZ 86150 ab; für Anschrift wird die Betreiberangabe verwendet."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/113047637/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als berechneter Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Chatgrenze ist das Quellpolygon, nicht ein vergrößernder Kreis.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Konservative lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz statt globaler Toleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; kein Kataster- oder Einlassnachweis, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-70534218",
+      "name": "DAV Kletterzentrum Augsburg",
+      "city": "Augsburg",
+      "street": "Ilsungstraße 15b",
+      "zip": "86161",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/70534218/full",
+      "website": "https://www.dav-kletterzentrum-augsburg.de/de/",
+      "lat": 48.34044446,
+      "lng": 10.91056779,
+      "view_km": 32,
+      "chat_radius_km": 0.0107,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.9111391,
+              48.3403298
+            ],
+            [
+              10.9110392,
+              48.3401765
+            ],
+            [
+              10.9109201,
+              48.3402108
+            ],
+            [
+              10.91102,
+              48.3403641
+            ],
+            [
+              10.9108111,
+              48.3403254
+            ],
+            [
+              10.910385,
+              48.340318
+            ],
+            [
+              10.9103733,
+              48.3405676
+            ],
+            [
+              10.9108084,
+              48.3405697
+            ],
+            [
+              10.9109303,
+              48.3404611
+            ],
+            [
+              10.910885,
+              48.3405872
+            ],
+            [
+              10.9108193,
+              48.3406233
+            ],
+            [
+              10.9112284,
+              48.3406869
+            ],
+            [
+              10.9111958,
+              48.3406355
+            ],
+            [
+              10.9112361,
+              48.3405013
+            ],
+            [
+              10.9112209,
+              48.3404989
+            ],
+            [
+              10.9112377,
+              48.3404628
+            ],
+            [
+              10.9111391,
+              48.3403298
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 13.72,
+      "source_version": "18",
+      "source_timestamp": "2026-09-25T09:14:18Z",
+      "source_tags": {
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "15b",
+        "addr:postcode": "86161",
+        "addr:street": "Ilsungstraße",
+        "alt_name": "DAV Kletterzentrum Augsburg Landesleistungszentrum Bayern",
+        "building": "sports_centre",
+        "climbing:autobelay:toprope": "yes",
+        "climbing:boulder": "yes",
+        "climbing:kids": "yes",
+        "climbing:speed": "yes",
+        "climbing:sport": "yes",
+        "climbing:toprope": "yes",
+        "contact:facebook": "https://www.facebook.com/DAVKletterzentrumAugsburg",
+        "contact:instagram": "https://www.instagram.com/dav_kletterzentrum_augsburg/",
+        "contact:website": "https://www.dav-kletterzentrum-augsburg.de",
+        "email": "info@dav-kletterzentrum-augsburg.de",
+        "fee": "yes",
+        "kids_area": "yes",
+        "leisure": "sports_centre",
+        "name": "DAV Kletterzentrum Augsburg",
+        "opening_hours": "Mo,Th-Fr 09:00-23:00; Tu 07:00-23:00; We 15:00-23:00; Sa-Su 09:00-22:00",
+        "operator": "Deutscher Alpenverein, Sektion Augsburg (DAV)",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:girocard": "yes",
+        "phone": "+49 821 9995810",
+        "ref:vatin": "DE815752530",
+        "service:climbing_belay_device:rental": "yes",
+        "service:climbing_harness:rental": "yes",
+        "service:climbing_rope:rental": "yes",
+        "service:climbing_shoes:rental": "yes",
+        "sport": "climbing",
+        "website": "https://www.dav-kletterzentrum-augsburg.de",
+        "wheelchair": "limited"
+      },
+      "scope_note": "Benannte Kletterhalle mit zugehörigem Bistro, Shop und Physiopraxis als Gesamtstandort. Außengelände außerhalb dieses Gebäudeumrisses nicht zusätzlich aufgenommen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.dav-kletterzentrum-augsburg.de/de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt Wochenöffnungszeiten, Ilsungstraße 15b, 86161 Augsburg und aktuelle Meldung zur Meisterschaft am 04./05.10.2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.dav-kletterzentrum-augsburg.de/de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Name, Stadt, Straße und Hausnummer stimmen mit dem direkt benannten OSM-Flächenobjekt überein. Postleitzahl stimmt überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/70534218/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster der tatsächlichen Venue-Fläche. Kein behaupteter Eingang; Koordinatenfolge Lon/Lat berücksichtigt."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/70534218/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full: geschlossener einfacher Polygonring, ausdrücklich mit Venue-Namen und Nutzung versehen. Benannte Kletterhalle mit zugehörigem Bistro, Shop und Physiopraxis als Gesamtstandort. Außengelände außerhalb dieses Gebäudeumrisses nicht zusätzlich aufgenommen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/70534218/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als berechneter Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Chatgrenze ist das Quellpolygon, nicht ein vergrößernder Kreis.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Konservative lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz statt globaler Toleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; kein Kataster- oder Einlassnachweis, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-59533536",
+      "name": "DJK-Göggingen Sportzentrum",
+      "city": "Augsburg",
+      "street": "Pfarrer-Bogner-Straße 22",
+      "zip": "86199",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/59533536/full",
+      "website": "https://djk-goeggingen.de/",
+      "lat": 48.349355827,
+      "lng": 10.867954523,
+      "view_km": 32,
+      "chat_radius_km": 0.0073,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8677916,
+              48.3494743
+            ],
+            [
+              10.8679573,
+              48.3494657
+            ],
+            [
+              10.8680825,
+              48.3494576
+            ],
+            [
+              10.8680755,
+              48.349404
+            ],
+            [
+              10.868363,
+              48.349387
+            ],
+            [
+              10.868341,
+              48.3492397
+            ],
+            [
+              10.8678028,
+              48.3492706
+            ],
+            [
+              10.867821,
+              48.3494101
+            ],
+            [
+              10.8677836,
+              48.3494123
+            ],
+            [
+              10.8677916,
+              48.3494743
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 10.36,
+      "source_version": "10",
+      "source_timestamp": "2026-06-19T15:21:18Z",
+      "source_tags": {
+        "addr:city": "Augsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "22",
+        "addr:postcode": "86199",
+        "addr:street": "Pfarrer-Bogner-Straße",
+        "building": "yes",
+        "club": "sport",
+        "leisure": "sports_centre",
+        "name": "DJK-Göggingen Sportzentrum",
+        "operator": "DJK Göggingen e.V.",
+        "sport": "aikido;jitsu;aqua_gymnastik;badminton;basketball;cricket;fitness;soccer;gymnastics;9pin;children's_ballet;bulgarian_folk_dance;line_dance;pilates;swimming;chess;dancing;table_tennis;volleyball;yoga;serbian_folklore;fullbody_workout",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.djk-goeggingen.de/",
+        "wheelchair": "limited"
+      },
+      "scope_note": "Benanntes Sportzentrum; unterschiedliche Sportangebote gehören zur Einrichtung. Verwaltungsadresse Zwölf-Apostel-Platz 3 ist ausdrücklich kein Teil dieser Location.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://djk-goeggingen.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt eigenes Sportzentrum Pfarrer-Bogner-Str. 22, 86199 Augsburg, aktuelle Kursangebote und Vereinsmeldungen 2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://djk-goeggingen.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Name, Stadt, Straße und Hausnummer stimmen mit dem direkt benannten OSM-Flächenobjekt überein. Postleitzahl stimmt überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/59533536/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster der tatsächlichen Venue-Fläche. Kein behaupteter Eingang; Koordinatenfolge Lon/Lat berücksichtigt."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/59533536/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full: geschlossener einfacher Polygonring, ausdrücklich mit Venue-Namen und Nutzung versehen. Benanntes Sportzentrum; unterschiedliche Sportangebote gehören zur Einrichtung. Verwaltungsadresse Zwölf-Apostel-Platz 3 ist ausdrücklich kein Teil dieser Location."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/59533536/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als berechneter Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Chatgrenze ist das Quellpolygon, nicht ein vergrößernder Kreis.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Konservative lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz statt globaler Toleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; kein Kataster- oder Einlassnachweis, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-70194625",
+      "name": "Hallenbad Göggingen",
+      "city": "Augsburg",
+      "street": "Anton-Bezler-Straße 2",
+      "zip": "86199",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/70194625/full",
+      "website": "https://www.augsburg.de/freizeit/baden/hallenbaeder/hallenbad-goeggingen",
+      "lat": 48.344435556,
+      "lng": 10.866562812,
+      "view_km": 32,
+      "chat_radius_km": 0.0153,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8662629,
+              48.3442702
+            ],
+            [
+              10.8662616,
+              48.3442834
+            ],
+            [
+              10.8660792,
+              48.3442751
+            ],
+            [
+              10.8660591,
+              48.3444698
+            ],
+            [
+              10.8662002,
+              48.3444763
+            ],
+            [
+              10.8661892,
+              48.3445838
+            ],
+            [
+              10.8669997,
+              48.34462
+            ],
+            [
+              10.8670095,
+              48.3445078
+            ],
+            [
+              10.8670701,
+              48.344511
+            ],
+            [
+              10.8670719,
+              48.3444752
+            ],
+            [
+              10.8670767,
+              48.3444287
+            ],
+            [
+              10.8670054,
+              48.3444254
+            ],
+            [
+              10.8670145,
+              48.3443365
+            ],
+            [
+              10.8668258,
+              48.3443279
+            ],
+            [
+              10.8668304,
+              48.3442828
+            ],
+            [
+              10.8666266,
+              48.3442735
+            ],
+            [
+              10.8664453,
+              48.3442653
+            ],
+            [
+              10.8664439,
+              48.3442785
+            ],
+            [
+              10.8662629,
+              48.3442702
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 18.32,
+      "source_version": "7",
+      "source_timestamp": "2026-06-19T15:21:18Z",
+      "source_tags": {
+        "addr:city": "Augsburg",
+        "addr:housenumber": "2",
+        "addr:postcode": "86199",
+        "addr:street": "Anton-Bezler-Straße",
+        "building": "yes",
+        "leisure": "sports_centre",
+        "name": "Hallenbad Göggingen",
+        "operator": "Stadt Augsburg",
+        "phone": "+49 821 3249864",
+        "roof:shape": "flat",
+        "source": "Stadtvermessungsamt Augsburg, mit Genehmigung",
+        "source:url": "http://wiki.openstreetmap.org/wiki/Augsburg/Datenspende_%C3%B6ffentliche_Geb%C3%A4ude_der_Stadt_mit_Publikumsverkehr",
+        "sport": "swimming",
+        "website": "https://www.augsburg.de/freizeit/baden/hallenbaeder/hallenbad-goeggingen"
+      },
+      "scope_note": "Benannter Hallenbadumriss; angebaute Anton-Bezler-Sporthalle ist gesondertes Angebot und wird nicht durch zusätzliche Umhüllung oder Parkflächen zugeschlagen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.augsburg.de/freizeit/baden/hallenbaeder/hallenbad-goeggingen",
+          "checked_at": "2026-10-17",
+          "evidence": "Städtischer Betreiber nennt Öffnung am 17.10.2026 08–19 Uhr und Anton-Bezler-Str. 2, 86199 Augsburg; Seite aktualisiert 23.09.2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.augsburg.de/freizeit/baden/hallenbaeder/hallenbad-goeggingen",
+          "checked_at": "2026-10-17",
+          "evidence": "Name, Stadt, Straße und Hausnummer stimmen mit dem direkt benannten OSM-Flächenobjekt überein. Postleitzahl stimmt überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/70194625/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster der tatsächlichen Venue-Fläche. Kein behaupteter Eingang; Koordinatenfolge Lon/Lat berücksichtigt."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/70194625/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full: geschlossener einfacher Polygonring, ausdrücklich mit Venue-Namen und Nutzung versehen. Benannter Hallenbadumriss; angebaute Anton-Bezler-Sporthalle ist gesondertes Angebot und wird nicht durch zusätzliche Umhüllung oder Parkflächen zugeschlagen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/70194625/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als berechneter Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Chatgrenze ist das Quellpolygon, nicht ein vergrößernder Kreis.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Konservative lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz statt globaler Toleranz. GPS-Ungenauigkeit und Nachbarnähe bleiben möglich; kein Kataster- oder Einlassnachweis, Smartphone-Praxistest offen."
+        }
+      }
+    }
+  ],
+  "review_scope": "Zweiter Augsburger Durchgang, nur fünf neu belegte benannte OSM-Ways. Kein Import in diesem Arbeitsgang."
+}

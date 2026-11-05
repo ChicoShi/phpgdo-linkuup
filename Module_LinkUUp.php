@@ -433,7 +433,10 @@ final class Module_LinkUUp extends GDO_Module
 		GDT_Redirect::to($this->cfgAppUrl());
 	}
 
-	public function cfgAppUrl() { return $this->getConfigVar('lup_app_url'); }
+	public function cfgAppUrl()
+    {
+        return defined('GDO_LUP_REVIEW_APP_URL') ? GDO_LUP_REVIEW_APP_URL : $this->getConfigVar('lup_app_url');
+    }
 
 	public function hookAlreadyActivated()
 	{

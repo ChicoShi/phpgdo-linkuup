@@ -1,0 +1,1001 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "checked_at": "2026-10-17",
+  "status": "online_reviewed_local_import_only",
+  "limitations": [
+    "OSM-Gebäudegeometrie mit Betreiberabgleich, keine amtliche Vermessung.",
+    "Horizontale Gebäudeumrisse trennen keine Stockwerke; Smartphone-Praxistest offen."
+  ],
+  "entries": [
+    {
+      "key": "osm-way-24694582",
+      "name": "Staatliches Naturhistorisches Museum Braunschweig",
+      "city": "Braunschweig",
+      "street": "Pockelsstraße 10",
+      "zip": "38106",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/24694582/full",
+      "website": "https://3landesmuseen-braunschweig.de/staatliches-naturhistorisches-museum",
+      "lat": 52.275248204,
+      "lng": 10.529326699,
+      "view_km": 32,
+      "chat_radius_km": 0.008,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5291632,
+              52.2753518
+            ],
+            [
+              10.5291602,
+              52.2753106
+            ],
+            [
+              10.529159,
+              52.2753017
+            ],
+            [
+              10.5291547,
+              52.2753015
+            ],
+            [
+              10.5291503,
+              52.2753013
+            ],
+            [
+              10.529149,
+              52.2752802
+            ],
+            [
+              10.529148,
+              52.2752619
+            ],
+            [
+              10.5291456,
+              52.2752426
+            ],
+            [
+              10.5291449,
+              52.2752248
+            ],
+            [
+              10.5291439,
+              52.2752026
+            ],
+            [
+              10.529151,
+              52.2752026
+            ],
+            [
+              10.5291481,
+              52.2751533
+            ],
+            [
+              10.5292809,
+              52.2751501
+            ],
+            [
+              10.52934,
+              52.2751489
+            ],
+            [
+              10.5294251,
+              52.2751466
+            ],
+            [
+              10.5295111,
+              52.2751445
+            ],
+            [
+              10.529641,
+              52.2751413
+            ],
+            [
+              10.5296541,
+              52.275141
+            ],
+            [
+              10.5297009,
+              52.2751399
+            ],
+            [
+              10.5297622,
+              52.2751384
+            ],
+            [
+              10.5297672,
+              52.2751382
+            ],
+            [
+              10.5297699,
+              52.2751864
+            ],
+            [
+              10.5297769,
+              52.275186
+            ],
+            [
+              10.5297853,
+              52.275282
+            ],
+            [
+              10.5297759,
+              52.2752833
+            ],
+            [
+              10.529782,
+              52.2753349
+            ],
+            [
+              10.5297808,
+              52.2753349
+            ],
+            [
+              10.5297141,
+              52.2753367
+            ],
+            [
+              10.5296546,
+              52.2753383
+            ],
+            [
+              10.5296431,
+              52.2753386
+            ],
+            [
+              10.5293505,
+              52.2753467
+            ],
+            [
+              10.5293488,
+              52.2753467
+            ],
+            [
+              10.5292925,
+              52.2753483
+            ],
+            [
+              10.5291632,
+              52.2753518
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": false,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 11.02,
+      "source_version": "50",
+      "source_timestamp": "2025-12-12T15:46:02Z",
+      "source_tags": {
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "10",
+        "addr:postcode": "38106",
+        "addr:street": "Pockelsstraße",
+        "building": "civic",
+        "building:levels": "4",
+        "building:levels:underground": "1",
+        "check_date:opening_hours": "2025-05-16",
+        "contact:instagram": "naturhistorischesmuseum_bs",
+        "email": "veranstaltung.snhm@3landesmuseen.de",
+        "fee": "yes",
+        "heritage": "4",
+        "heritage:operator": "nld",
+        "internet_access": "wlan",
+        "museum": "nature",
+        "name": "Staatliches Naturhistorisches Museum Braunschweig",
+        "opening_hours": "Tu,Th-Su 09:00-17:00, We 09:00-19:00",
+        "operator": "3Landesmuseen Braunschweig",
+        "phone": "+49 531 288920",
+        "roof:levels": "1",
+        "toilets:wheelchair": "yes",
+        "tourism": "museum",
+        "website": "https://3landesmuseen-braunschweig.de/staatliches-naturhistorisches-museum",
+        "wheelchair": "yes",
+        "wikidata": "Q116998",
+        "wikipedia": "de:Naturhistorisches Museum (Braunschweig)"
+      },
+      "scope_note": "Museum am Standort Pockelsstraße; keine Erweiterung auf Campus, Vorplatz oder paläon.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://3landesmuseen-braunschweig.de/staatliches-naturhistorisches-museum/besuch/besuchsinfos",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber nennt regulären Museumsbetrieb Dienstag bis Sonntag und aktuelle Ausstellungen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://3landesmuseen-braunschweig.de/staatliches-naturhistorisches-museum",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift: Pockelsstraße 10, 38106 Braunschweig. Name und Anschrift stimmen mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24694582/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster des Quellpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": false,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24694582/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full mit Venue-Namen und passender Nutzung; geschlossener Gebäudeumriss. Museum am Standort Pockelsstraße; keine Erweiterung auf Campus, Vorplatz oder paläon. Zurückgehalten: TU-Bauwissensquelle nennt gemischte Nutzung des Gebäudekomplexes; Museumsabgrenzung muss genauer geklärt werden.",
+          "additional_source_url": "https://bauwissen.tu-braunschweig.de/index.php/Haus_der_Wissenschaft"
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24694582/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Die Chatgrenze folgt dem Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. Kein Kataster- oder Einlassnachweis; GPS-Ungenauigkeit und Nähe zu Nachbarn bleiben möglich. Smartphone-Praxistest offen."
+        }
+      },
+      "hold_reason": "Gemeinsame Gebäudenutzung mit TU/Haus der Wissenschaft nach Hochschul-Bauwissensquelle möglich; ausschließlich dem Museum zugeordnete horizontale Teilfläche nicht unabhängig geklärt."
+    },
+    {
+      "key": "osm-way-26679355",
+      "name": "Städtisches Museum Braunschweig – Haus am Löwenwall",
+      "city": "Braunschweig",
+      "street": "Steintorwall 14",
+      "zip": "38100",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/26679355/full",
+      "website": "https://www.braunschweig.de/kultur/museen/staedtisches-museum/kontakt.php",
+      "lat": 52.261107309,
+      "lng": 10.531698928,
+      "view_km": 32,
+      "chat_radius_km": 0.0141,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5314868,
+              52.2617682
+            ],
+            [
+              10.531722,
+              52.261683
+            ],
+            [
+              10.5316208,
+              52.2615783
+            ],
+            [
+              10.5315971,
+              52.2615869
+            ],
+            [
+              10.5314896,
+              52.2614756
+            ],
+            [
+              10.5315377,
+              52.2614582
+            ],
+            [
+              10.5315905,
+              52.261439
+            ],
+            [
+              10.531644,
+              52.2614197
+            ],
+            [
+              10.531713,
+              52.2613947
+            ],
+            [
+              10.5317663,
+              52.2614498
+            ],
+            [
+              10.5321662,
+              52.261305
+            ],
+            [
+              10.5321167,
+              52.2612538
+            ],
+            [
+              10.532128,
+              52.2612497
+            ],
+            [
+              10.5320539,
+              52.261173
+            ],
+            [
+              10.5320462,
+              52.2611758
+            ],
+            [
+              10.5319434,
+              52.2610694
+            ],
+            [
+              10.5319599,
+              52.2610634
+            ],
+            [
+              10.5318811,
+              52.2609808
+            ],
+            [
+              10.5318115,
+              52.2609099
+            ],
+            [
+              10.5317019,
+              52.2609496
+            ],
+            [
+              10.5316842,
+              52.2609312
+            ],
+            [
+              10.5316434,
+              52.260946
+            ],
+            [
+              10.5315641,
+              52.2609747
+            ],
+            [
+              10.5314964,
+              52.2609992
+            ],
+            [
+              10.5314863,
+              52.2610029
+            ],
+            [
+              10.5314433,
+              52.2610185
+            ],
+            [
+              10.5314632,
+              52.2610391
+            ],
+            [
+              10.5313632,
+              52.2610753
+            ],
+            [
+              10.5315072,
+              52.2612243
+            ],
+            [
+              10.5315229,
+              52.2612186
+            ],
+            [
+              10.5316017,
+              52.2613002
+            ],
+            [
+              10.5316274,
+              52.2613268
+            ],
+            [
+              10.5316132,
+              52.2613318
+            ],
+            [
+              10.5316073,
+              52.2613432
+            ],
+            [
+              10.5316149,
+              52.261355
+            ],
+            [
+              10.5315941,
+              52.2613622
+            ],
+            [
+              10.5315392,
+              52.2613812
+            ],
+            [
+              10.5314828,
+              52.2614008
+            ],
+            [
+              10.5314364,
+              52.2614169
+            ],
+            [
+              10.5314077,
+              52.2613945
+            ],
+            [
+              10.5313779,
+              52.2613904
+            ],
+            [
+              10.5313531,
+              52.2613991
+            ],
+            [
+              10.5313385,
+              52.2614113
+            ],
+            [
+              10.5313457,
+              52.2614275
+            ],
+            [
+              10.5312676,
+              52.2614577
+            ],
+            [
+              10.5314225,
+              52.2616081
+            ],
+            [
+              10.5314067,
+              52.2616215
+            ],
+            [
+              10.5314382,
+              52.2616493
+            ],
+            [
+              10.5314523,
+              52.2616479
+            ],
+            [
+              10.5314751,
+              52.2616733
+            ],
+            [
+              10.5314158,
+              52.261693
+            ],
+            [
+              10.5314868,
+              52.2617682
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 17.18,
+      "source_version": "28",
+      "source_timestamp": "2026-09-08T16:24:38Z",
+      "source_tags": {
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "14",
+        "addr:postcode": "38100",
+        "addr:street": "Steintorwall",
+        "architect": "Max Osterloh",
+        "architect:wikidata": "Q1913173",
+        "building": "public",
+        "building:levels": "4",
+        "check_date:opening_hours": "2025-02-11",
+        "fee": "yes",
+        "heritage": "4",
+        "heritage:operator": "nld",
+        "image": "https://de.wikipedia.org/wiki/Datei:Braunschweig_Brunswick_Staedtisches_Museum_Rueckseite_(2006).JPG",
+        "name": "Städtisches Museum Braunschweig",
+        "opening_hours": "Tu-Su 11:00-17:00",
+        "roof:levels": "1",
+        "roof:shape": "mansard",
+        "start_date": "1907",
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "wikidata": "Q2360096",
+        "wikipedia": "de:Städtisches Museum (Braunschweig)"
+      },
+      "scope_note": "Ausschließlich Haus am Löwenwall; der zweite Museumsstandort im Altstadtrathaus ist nicht enthalten.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.braunschweig.de/kultur/museen/staedtisches-museum/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Museumsseite nennt laufende Ausstellung bis 15.11.2026 ausdrücklich im Haus am Löwenwall; Kontaktseite bestätigt Besuch Dienstag bis Sonntag."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.braunschweig.de/kultur/museen/staedtisches-museum/kontakt.php",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift: Steintorwall 14, 38100 Braunschweig. Name und Anschrift stimmen mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26679355/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster des Quellpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26679355/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full mit Venue-Namen und passender Nutzung; geschlossener Gebäudeumriss. Ausschließlich Haus am Löwenwall; der zweite Museumsstandort im Altstadtrathaus ist nicht enthalten."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26679355/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Die Chatgrenze folgt dem Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. Kein Kataster- oder Einlassnachweis; GPS-Ungenauigkeit und Nähe zu Nachbarn bleiben möglich. Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-173605166",
+      "name": "Planetarium Wolfsburg",
+      "city": "Wolfsburg",
+      "street": "Uhlandweg 2",
+      "zip": "38440",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/173605166/full",
+      "website": "https://planetarium-wolfsburg.de/",
+      "lat": 52.4170936445,
+      "lng": 10.781583266,
+      "view_km": 32,
+      "chat_radius_km": 0.0096,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7815095,
+              52.416989
+            ],
+            [
+              10.7813009,
+              52.4170253
+            ],
+            [
+              10.7813324,
+              52.4170795
+            ],
+            [
+              10.7813853,
+              52.4171236
+            ],
+            [
+              10.7813661,
+              52.4171375
+            ],
+            [
+              10.7814125,
+              52.4171667
+            ],
+            [
+              10.7814729,
+              52.4171911
+            ],
+            [
+              10.7815326,
+              52.417204
+            ],
+            [
+              10.7815234,
+              52.417229
+            ],
+            [
+              10.7815976,
+              52.417242
+            ],
+            [
+              10.7816778,
+              52.4172438
+            ],
+            [
+              10.7817458,
+              52.4172373
+            ],
+            [
+              10.7817613,
+              52.4172675
+            ],
+            [
+              10.7818426,
+              52.417255
+            ],
+            [
+              10.781922,
+              52.4172283
+            ],
+            [
+              10.7819813,
+              52.4171999
+            ],
+            [
+              10.7818121,
+              52.4170861
+            ],
+            [
+              10.7817567,
+              52.4170499
+            ],
+            [
+              10.7817873,
+              52.417029
+            ],
+            [
+              10.7818102,
+              52.4169932
+            ],
+            [
+              10.7818097,
+              52.4169612
+            ],
+            [
+              10.7817855,
+              52.4169255
+            ],
+            [
+              10.7817421,
+              52.4168998
+            ],
+            [
+              10.78167,
+              52.4168854
+            ],
+            [
+              10.7816001,
+              52.4168929
+            ],
+            [
+              10.7815411,
+              52.4169206
+            ],
+            [
+              10.7815125,
+              52.4169568
+            ],
+            [
+              10.7815095,
+              52.416989
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 12.68,
+      "source_version": "12",
+      "source_timestamp": "2026-07-25T22:55:27Z",
+      "source_tags": {
+        "addr:city": "Wolfsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "2",
+        "addr:postcode": "38440",
+        "addr:street": "Uhlandweg",
+        "amenity": "planetarium",
+        "building": "public",
+        "building:levels": "1",
+        "name": "Planetarium Wolfsburg",
+        "opening_hours": "\"nach Programmplan\"",
+        "operator": "Planetarium Wolfsburg gGmbH",
+        "phone": "+49 5361 890 255 10",
+        "tourism": "attraction",
+        "website": "https://www.planetarium-wolfsburg.de/",
+        "wheelchair": "yes",
+        "wikidata": "Q2098151",
+        "wikimedia_commons": "File:Planetarium_Wolfsburg.jpg"
+      },
+      "scope_note": "Benanntes Planetariumsgebäude; keine umliegenden Park- oder Congress-Park-Flächen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://planetarium-wolfsburg.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bietet laufendes Veranstaltungsprogramm und Ticketverkauf einschließlich Halloween an. Öffnung jeweils 30 Minuten vor öffentlichen Vorstellungen; Telefonzeiten sind keine Besuchszeiten."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://planetarium-wolfsburg.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift: Uhlandweg 2, 38440 Wolfsburg. Name und Anschrift stimmen mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/173605166/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster des Quellpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/173605166/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full mit Venue-Namen und passender Nutzung; geschlossener Gebäudeumriss. Benanntes Planetariumsgebäude; keine umliegenden Park- oder Congress-Park-Flächen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/173605166/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Die Chatgrenze folgt dem Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. Kein Kataster- oder Einlassnachweis; GPS-Ungenauigkeit und Nähe zu Nachbarn bleiben möglich. Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-84030995",
+      "name": "Greifhaus",
+      "city": "Braunschweig",
+      "street": "Hamburger Straße 268",
+      "zip": "38114",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/84030995/full",
+      "website": "https://www.greifhaus.de/",
+      "lat": 52.27941076,
+      "lng": 10.5213051655,
+      "view_km": 32,
+      "chat_radius_km": 0.0102,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.520629,
+              52.2792892
+            ],
+            [
+              10.5206933,
+              52.2793002
+            ],
+            [
+              10.5206364,
+              52.2794096
+            ],
+            [
+              10.5207835,
+              52.2794409
+            ],
+            [
+              10.520804,
+              52.2794446
+            ],
+            [
+              10.5209496,
+              52.2794708
+            ],
+            [
+              10.521317,
+              52.2795371
+            ],
+            [
+              10.5214888,
+              52.279568
+            ],
+            [
+              10.5215608,
+              52.279423
+            ],
+            [
+              10.5216019,
+              52.2793401
+            ],
+            [
+              10.5213372,
+              52.2792923
+            ],
+            [
+              10.5210622,
+              52.2792427
+            ],
+            [
+              10.5206866,
+              52.2791749
+            ],
+            [
+              10.520629,
+              52.2792892
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 13.26,
+      "source_version": "21",
+      "source_timestamp": "2026-02-14T19:11:38Z",
+      "source_tags": {
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "268",
+        "addr:postcode": "38114",
+        "addr:street": "Hamburger Straße",
+        "building": "yes",
+        "charge": "13 € Regulär",
+        "climbing:boulder": "yes",
+        "email": "info@greifhaus.de",
+        "fee": "yes",
+        "indoor": "yes",
+        "leisure": "sports_centre",
+        "name": "Greifhaus",
+        "opening_hours": "Mo-Fr 10:00-23:00; Sa,Su 10:00-21:00; PH 14:00-20:00",
+        "outdoor": "no",
+        "phone": "+49 531 88 93 52 88",
+        "sport": "climbing",
+        "website": "https://www.greifhaus.de/",
+        "wheelchair": "no"
+      },
+      "scope_note": "Benannte Boulderhalle im Schimmel-Hof; nicht das gesamte Gewerbeareal.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.greifhaus.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber veröffentlicht Nachricht vom 01.10.2026 über Unikurse ab 26.10.2026 sowie aktuelle Öffnungszeiten."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.greifhaus.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift: Hamburger Straße 268, 38114 Braunschweig. Name und Anschrift stimmen mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/84030995/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster des Quellpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/84030995/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full mit Venue-Namen und passender Nutzung; geschlossener Gebäudeumriss. Benannte Boulderhalle im Schimmel-Hof; nicht das gesamte Gewerbeareal."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/84030995/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Die Chatgrenze folgt dem Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. Kein Kataster- oder Einlassnachweis; GPS-Ungenauigkeit und Nähe zu Nachbarn bleiben möglich. Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-28622716",
+      "name": "Sportbad Heidberg",
+      "city": "Braunschweig",
+      "street": "Sachsendamm 10",
+      "zip": "38124",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/28622716/full",
+      "website": "https://www.bs-baeder.de/braunschweig-hallenbaeder/hallenbad-heidberg-informationen",
+      "lat": 52.231754068,
+      "lng": 10.536288595,
+      "view_km": 32,
+      "chat_radius_km": 0.0292,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5358454,
+              52.2321163
+            ],
+            [
+              10.5364531,
+              52.2320909
+            ],
+            [
+              10.5364486,
+              52.2320278
+            ],
+            [
+              10.5367497,
+              52.2320147
+            ],
+            [
+              10.5368269,
+              52.2316346
+            ],
+            [
+              10.5368096,
+              52.2314455
+            ],
+            [
+              10.5366129,
+              52.231453
+            ],
+            [
+              10.5357714,
+              52.2314805
+            ],
+            [
+              10.5357814,
+              52.231561
+            ],
+            [
+              10.5358454,
+              52.2321163
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 32.29,
+      "source_version": "17",
+      "source_timestamp": "2023-05-08T22:12:09Z",
+      "source_tags": {
+        "addr:city": "Braunschweig",
+        "addr:country": "DE",
+        "addr:housenumber": "10",
+        "addr:postcode": "38124",
+        "addr:street": "Sachsendamm",
+        "addr:suburb": "Heidberg",
+        "building": "yes",
+        "height": "15",
+        "leisure": "sports_centre",
+        "name": "Sportbad Heidberg",
+        "sport": "swimming",
+        "wheelchair": "yes",
+        "wikidata": "Q26309487"
+      },
+      "scope_note": "Benanntes Sportbadgebäude; keine Parkplätze oder zusätzlichen Außenflächen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.bs-baeder.de/braunschweig-hallenbaeder/hallenbad-heidberg-informationen",
+          "checked_at": "2026-10-17",
+          "evidence": "Städtischer Betreiber beschreibt laufenden Schwimm- und Kursbetrieb, Becken, Besuchszeiten und die Einschränkung donnerstags ab 12:30 Uhr."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.bs-baeder.de/braunschweig-hallenbaeder/hallenbad-heidberg-informationen",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Betreiberanschrift: Sachsendamm 10, 38124 Braunschweig. Name und Anschrift stimmen mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28622716/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im 201×201-Raster des Quellpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28622716/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes OSM-Way/full mit Venue-Namen und passender Nutzung; geschlossener Gebäudeumriss. Benanntes Sportbadgebäude; keine Parkplätze oder zusätzlichen Außenflächen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/28622716/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet. Die Chatgrenze folgt dem Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Lokale Konfiguration: Quellpolygon plus 3 m Beitritts- und 5 m Verlasstoleranz. Kein Kataster- oder Einlassnachweis; GPS-Ungenauigkeit und Nähe zu Nachbarn bleiben möglich. Smartphone-Praxistest offen."
+        }
+      }
+    }
+  ]
+}

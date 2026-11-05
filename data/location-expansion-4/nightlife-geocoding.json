@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-17",
+  "provider": "Nominatim / OpenStreetMap",
+  "attribution": "© OpenStreetMap contributors, ODbL",
+  "query_count": 24,
+  "status": "MATCH_REVIEW_REQUIRED",
+  "limitations": [
+    "Ungeprüfte Suchtreffer: weder genauer Venue-Pin noch Betrieb bestätigt.",
+    "Namens-/Adressgleichheit und Geometrie müssen vor Verwendung geprüft werden.",
+    "Keine Radien berechnet; kein Import."
+  ],
+  "results": [
+    {
+      "city": "Berlin",
+      "venue_name": "Green Door Bar",
+      "source_url": "https://www.greendoor.de/de/kontakt/",
+      "query": "Green Door Bar, Winterfeldtstraße 50, 10781 Berlin, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Green+Door+Bar%2C+Winterfeldtstra%C3%9Fe+50%2C+10781+Berlin%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Berlin",
+      "venue_name": "EINSTEIN Unter den Linden",
+      "source_url": "https://www.einstein-udl.com/",
+      "query": "EINSTEIN Unter den Linden, Unter den Linden 42, 10117 Berlin, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=EINSTEIN+Unter+den+Linden%2C+Unter+den+Linden+42%2C+10117+Berlin%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 1412218896,
+          "osm_url": "https://www.openstreetmap.org/node/1412218896",
+          "latitude": 52.517102,
+          "longitude": 13.3859461,
+          "name": "Cafe Einstein",
+          "display_name": "Cafe Einstein, 42, Unter den Linden, Dorotheenstadt, Mitte, Berlin, 10117, Deutschland",
+          "category": "amenity",
+          "type": "cafe",
+          "address": {
+            "amenity": "Cafe Einstein",
+            "house_number": "42",
+            "road": "Unter den Linden",
+            "quarter": "Dorotheenstadt",
+            "suburb": "Mitte",
+            "borough": "Mitte",
+            "city": "Berlin",
+            "ISO3166-2-lvl4": "DE-BE",
+            "postcode": "10117",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              13.3859461,
+              52.517102
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Berlin",
+      "venue_name": "Tresor Berlin",
+      "source_url": "https://tresorberlin.com/info/location/",
+      "query": "Tresor Berlin, Köpenicker Straße 70, 10179 Berlin, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Tresor+Berlin%2C+K%C3%B6penicker+Stra%C3%9Fe+70%2C+10179+Berlin%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 4870128450,
+          "osm_url": "https://www.openstreetmap.org/node/4870128450",
+          "latitude": 52.5106807,
+          "longitude": 13.419484,
+          "name": "Tresor Berlin",
+          "display_name": "Tresor Berlin, 70, Köpenicker Straße, Heine-Viertel, Luisenstadt, Mitte, Berlin, 10179, Deutschland",
+          "category": "amenity",
+          "type": "nightclub",
+          "address": {
+            "amenity": "Tresor Berlin",
+            "house_number": "70",
+            "road": "Köpenicker Straße",
+            "neighbourhood": "Heine-Viertel",
+            "quarter": "Luisenstadt",
+            "suburb": "Mitte",
+            "borough": "Mitte",
+            "city": "Berlin",
+            "ISO3166-2-lvl4": "DE-BE",
+            "postcode": "10179",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              13.419484,
+              52.5106807
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Hamburg",
+      "venue_name": "Le Lion – Bar de Paris",
+      "source_url": "https://www.lelion.net/",
+      "query": "Le Lion – Bar de Paris, Rathausstraße 3, 20095 Hamburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Le+Lion+%E2%80%93+Bar+de+Paris%2C+Rathausstra%C3%9Fe+3%2C+20095+Hamburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Hamburg",
+      "venue_name": "Café Paris",
+      "source_url": "https://cafeparis.net/kontakt/",
+      "query": "Café Paris, Rathausstraße 4, 20095 Hamburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Caf%C3%A9+Paris%2C+Rathausstra%C3%9Fe+4%2C+20095+Hamburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 1909894526,
+          "osm_url": "https://www.openstreetmap.org/node/1909894526",
+          "latitude": 53.5498937,
+          "longitude": 9.994348,
+          "name": "Cafe Paris",
+          "display_name": "Cafe Paris, 4, Rathausstraße, Altstadt, Hamburg-Mitte, Hamburg, 20095, Deutschland",
+          "category": "amenity",
+          "type": "cafe",
+          "address": {
+            "amenity": "Cafe Paris",
+            "house_number": "4",
+            "road": "Rathausstraße",
+            "suburb": "Altstadt",
+            "borough": "Hamburg-Mitte",
+            "city": "Hamburg",
+            "ISO3166-2-lvl4": "DE-HH",
+            "postcode": "20095",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              9.994348,
+              53.5498937
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Hamburg",
+      "venue_name": "Uebel & Gefährlich",
+      "source_url": "https://www.uebelundgefaehrlich.com/impressum/",
+      "query": "Uebel & Gefährlich, Feldstraße 66, 20359 Hamburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Uebel+%26+Gef%C3%A4hrlich%2C+Feldstra%C3%9Fe+66%2C+20359+Hamburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Frankfurt am Main",
+      "venue_name": "Café Karin",
+      "source_url": "https://www.cafekarin.de/",
+      "query": "Café Karin, Großer Hirschgraben 28, 60311 Frankfurt am Main, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Caf%C3%A9+Karin%2C+Gro%C3%9Fer+Hirschgraben+28%2C+60311+Frankfurt+am+Main%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 1506768349,
+          "osm_url": "https://www.openstreetmap.org/node/1506768349",
+          "latitude": 50.111441,
+          "longitude": 8.6780491,
+          "name": "Cafe Karin",
+          "display_name": "Cafe Karin, 28, Großer Hirschgraben, Altstadt, Innenstadt 1, Frankfurt am Main, Hessen, 60311, Deutschland",
+          "category": "amenity",
+          "type": "cafe",
+          "address": {
+            "amenity": "Cafe Karin",
+            "house_number": "28",
+            "road": "Großer Hirschgraben",
+            "suburb": "Altstadt",
+            "city_district": "Innenstadt 1",
+            "city": "Frankfurt am Main",
+            "state": "Hessen",
+            "ISO3166-2-lvl4": "DE-HE",
+            "postcode": "60311",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              8.6780491,
+              50.111441
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Frankfurt am Main",
+      "venue_name": "naïv Bar & Restaurant",
+      "source_url": "https://www.naiv.world/bar-restaurant/",
+      "query": "naïv Bar & Restaurant, Fahrgasse 4, 60311 Frankfurt am Main, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=na%C3%AFv+Bar+%26+Restaurant%2C+Fahrgasse+4%2C+60311+Frankfurt+am+Main%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Frankfurt am Main",
+      "venue_name": "Gibson Club",
+      "source_url": "https://gibson-club.de/",
+      "query": "Gibson Club, Zeil 85–93, 60313 Frankfurt am Main, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Gibson+Club%2C+Zeil+85%E2%80%9393%2C+60313+Frankfurt+am+Main%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Kiel",
+      "venue_name": "Café LUNA",
+      "source_url": "https://www.lunacafe.de/",
+      "query": "Café LUNA, Schönberger Straße 6, 24148 Kiel, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Caf%C3%A9+LUNA%2C+Sch%C3%B6nberger+Stra%C3%9Fe+6%2C+24148+Kiel%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 387442692,
+          "osm_url": "https://www.openstreetmap.org/node/387442692",
+          "latitude": 54.3266227,
+          "longitude": 10.1863051,
+          "name": "Café Luna",
+          "display_name": "Café Luna, 6, Schönberger Straße, Wellingdorf, Kiel, Altenholz, Schleswig-Holstein, 24148, Deutschland",
+          "category": "amenity",
+          "type": "cafe",
+          "address": {
+            "amenity": "Café Luna",
+            "house_number": "6",
+            "road": "Schönberger Straße",
+            "suburb": "Wellingdorf",
+            "city": "Kiel",
+            "municipality": "Altenholz",
+            "state": "Schleswig-Holstein",
+            "ISO3166-2-lvl4": "DE-SH",
+            "postcode": "24148",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              10.1863051,
+              54.3266227
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Kiel",
+      "venue_name": "Blauer Engel",
+      "source_url": "https://www.blauerengel-kiel.de/",
+      "query": "Blauer Engel, Kaistraße 47, 24114 Kiel, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Blauer+Engel%2C+Kaistra%C3%9Fe+47%2C+24114+Kiel%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 983499363,
+          "osm_url": "https://www.openstreetmap.org/node/983499363",
+          "latitude": 54.315511,
+          "longitude": 10.1344687,
+          "name": "Blauer Engel",
+          "display_name": "Blauer Engel, 47, Kaistraße, Vorstadt, Kiel, Altenholz, Schleswig-Holstein, 24114, Deutschland",
+          "category": "amenity",
+          "type": "cafe",
+          "address": {
+            "amenity": "Blauer Engel",
+            "house_number": "47",
+            "road": "Kaistraße",
+            "suburb": "Vorstadt",
+            "city": "Kiel",
+            "municipality": "Altenholz",
+            "state": "Schleswig-Holstein",
+            "ISO3166-2-lvl4": "DE-SH",
+            "postcode": "24114",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              10.1344687,
+              54.315511
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Kiel",
+      "venue_name": "LUNA Club",
+      "source_url": "https://lunaclub.com/impressum",
+      "query": "LUNA Club, Bergstraße 17a, 24103 Kiel, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=LUNA+Club%2C+Bergstra%C3%9Fe+17a%2C+24103+Kiel%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "München",
+      "venue_name": "Schumann’s Tagesbar",
+      "source_url": "https://www.schumanns.de/de/schumanns-tagesbar.html",
+      "query": "Schumann’s Tagesbar, Maffeistraße 6, 80333 München, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Schumann%E2%80%99s+Tagesbar%2C+Maffeistra%C3%9Fe+6%2C+80333+M%C3%BCnchen%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "München",
+      "venue_name": "Schumann’s Bar am Hofgarten",
+      "source_url": "https://schumanns.de/de/schumanns-bar.html",
+      "query": "Schumann’s Bar am Hofgarten, Odeonsplatz 6–7, 80539 München, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Schumann%E2%80%99s+Bar+am+Hofgarten%2C+Odeonsplatz+6%E2%80%937%2C+80539+M%C3%BCnchen%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "München",
+      "venue_name": "P1 Club",
+      "source_url": "https://www.p1-club.de/",
+      "query": "P1 Club, Prinzregentenstraße 1, 80538 München, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=P1+Club%2C+Prinzregentenstra%C3%9Fe+1%2C+80538+M%C3%BCnchen%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Nürnberg",
+      "venue_name": "Café Bar Wanderer",
+      "source_url": "https://www.cafe-wanderer.de/",
+      "query": "Café Bar Wanderer, Beim Tiergärtnertor 6, 90403 Nürnberg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Caf%C3%A9+Bar+Wanderer%2C+Beim+Tierg%C3%A4rtnertor+6%2C+90403+N%C3%BCrnberg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Nürnberg",
+      "venue_name": "Gelbes Haus",
+      "source_url": "https://www.gelbes-haus.de/anfahrtsbeschreibung/",
+      "query": "Gelbes Haus, Johannisstraße 40, 90419 Nürnberg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Gelbes+Haus%2C+Johannisstra%C3%9Fe+40%2C+90419+N%C3%BCrnberg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 540425328,
+          "osm_url": "https://www.openstreetmap.org/node/540425328",
+          "latitude": 49.4587963,
+          "longitude": 11.0645641,
+          "name": "Gelbes Haus",
+          "display_name": "Gelbes Haus, 40, Johannisstraße, St. Johannis, Altstadt und engere Innenstadt, Nürnberg, Bayern, 90419, Deutschland",
+          "category": "amenity",
+          "type": "bar",
+          "address": {
+            "amenity": "Gelbes Haus",
+            "house_number": "40",
+            "road": "Johannisstraße",
+            "neighbourhood": "St. Johannis",
+            "suburb": "Altstadt und engere Innenstadt",
+            "city": "Nürnberg",
+            "state": "Bayern",
+            "ISO3166-2-lvl4": "DE-BY",
+            "postcode": "90419",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              11.0645641,
+              49.4587963
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Nürnberg",
+      "venue_name": "Club Stereo",
+      "source_url": "https://tourismus.nuernberg.de/geniessen/restaurants/bars-clubs/location/club-stereo/",
+      "query": "Club Stereo, Klaragasse 8, 90402 Nürnberg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Club+Stereo%2C+Klaragasse+8%2C+90402+N%C3%BCrnberg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 934859617,
+          "osm_url": "https://www.openstreetmap.org/node/934859617",
+          "latitude": 49.4488496,
+          "longitude": 11.0787175,
+          "name": "Club Stereo",
+          "display_name": "Club Stereo, 8, Klaragasse, Altstadt, St. Lorenz, Altstadt und engere Innenstadt, Nürnberg, Bayern, 90402, Deutschland",
+          "category": "amenity",
+          "type": "nightclub",
+          "address": {
+            "amenity": "Club Stereo",
+            "house_number": "8",
+            "road": "Klaragasse",
+            "suburb": "Altstadt, St. Lorenz",
+            "city": "Nürnberg",
+            "state": "Bayern",
+            "ISO3166-2-lvl4": "DE-BY",
+            "postcode": "90402",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              11.0787175,
+              49.4488496
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Augsburg",
+      "venue_name": "Café Dichtl",
+      "source_url": "https://dichtl.de/",
+      "query": "Café Dichtl, Schrannenstraße 2, 86150 Augsburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Caf%C3%A9+Dichtl%2C+Schrannenstra%C3%9Fe+2%2C+86150+Augsburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 824667026,
+          "osm_url": "https://www.openstreetmap.org/node/824667026",
+          "latitude": 48.3660605,
+          "longitude": 10.8909505,
+          "name": "Cafe Dichtl",
+          "display_name": "Cafe Dichtl, 2, Schrannenstraße, Bahnhofsviertel, Bahnhofs- und Bismarckviertel, Innenstadt, Augsburg, Bayern, 86150, Deutschland",
+          "category": "amenity",
+          "type": "cafe",
+          "address": {
+            "amenity": "Cafe Dichtl",
+            "house_number": "2",
+            "road": "Schrannenstraße",
+            "neighbourhood": "Bahnhofsviertel",
+            "suburb": "Innenstadt",
+            "city": "Augsburg",
+            "state": "Bayern",
+            "ISO3166-2-lvl4": "DE-BY",
+            "postcode": "86150",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              10.8909505,
+              48.3660605
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Augsburg",
+      "venue_name": "Peaches",
+      "source_url": "https://www.peaches-augsburg.de/",
+      "query": "Peaches, Maximilianstraße 73, 86150 Augsburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Peaches%2C+Maximilianstra%C3%9Fe+73%2C+86150+Augsburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 713156028,
+          "osm_url": "https://www.openstreetmap.org/node/713156028",
+          "latitude": 48.3644455,
+          "longitude": 10.9000002,
+          "name": "Peaches",
+          "display_name": "Peaches, 73, Maximilianstraße, Innenstadt, St. Ulrich-Dom, Innenstadt, Augsburg, Bayern, 86150, Deutschland",
+          "category": "amenity",
+          "type": "bar",
+          "address": {
+            "amenity": "Peaches",
+            "house_number": "73",
+            "road": "Maximilianstraße",
+            "neighbourhood": "Innenstadt, St. Ulrich-Dom",
+            "suburb": "Innenstadt",
+            "city": "Augsburg",
+            "state": "Bayern",
+            "ISO3166-2-lvl4": "DE-BY",
+            "postcode": "86150",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              10.9000002,
+              48.3644455
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Augsburg",
+      "venue_name": "Barfly Club",
+      "source_url": "https://www.barfly-club.de/",
+      "query": "Barfly Club, Maximilianstraße 56, 86150 Augsburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Barfly+Club%2C+Maximilianstra%C3%9Fe+56%2C+86150+Augsburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Regensburg",
+      "venue_name": "Café Prinzess",
+      "source_url": "https://www.cafe-prinzess.de/contact.php",
+      "query": "Café Prinzess, Rathausplatz 2, 93047 Regensburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Caf%C3%A9+Prinzess%2C+Rathausplatz+2%2C+93047+Regensburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [
+        {
+          "osm_type": "node",
+          "osm_id": 410417809,
+          "osm_url": "https://www.openstreetmap.org/node/410417809",
+          "latitude": 49.0201033,
+          "longitude": 12.0948965,
+          "name": "Café Prinzess",
+          "display_name": "Café Prinzess, 2, Rathausplatz, Altstadt, Regensburg, Bayern, 93047, Deutschland",
+          "category": "amenity",
+          "type": "cafe",
+          "address": {
+            "amenity": "Café Prinzess",
+            "house_number": "2",
+            "road": "Rathausplatz",
+            "suburb": "Altstadt",
+            "city": "Regensburg",
+            "state": "Bayern",
+            "ISO3166-2-lvl4": "DE-BY",
+            "postcode": "93047",
+            "country": "Deutschland",
+            "country_code": "de"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              12.0948965,
+              49.0201033
+            ]
+          },
+          "status": "MATCH_REVIEW_REQUIRED"
+        }
+      ],
+      "result_status": "candidates_returned"
+    },
+    {
+      "city": "Regensburg",
+      "venue_name": "Hemingway’s",
+      "source_url": "https://hemingways.de/",
+      "query": "Hemingway’s, Obere Bachgasse 3–5, 93047 Regensburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Hemingway%E2%80%99s%2C+Obere+Bachgasse+3%E2%80%935%2C+93047+Regensburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    },
+    {
+      "city": "Regensburg",
+      "venue_name": "Alte Mälzerei – Club",
+      "source_url": "https://www.alte-maelzerei.de/de/service.php",
+      "query": "Alte Mälzerei – Club, Galgenbergstraße 20, 93053 Regensburg, Deutschland",
+      "query_url": "https://nominatim.openstreetmap.org/search?q=Alte+M%C3%A4lzerei+%E2%80%93+Club%2C+Galgenbergstra%C3%9Fe+20%2C+93053+Regensburg%2C+Deutschland&format=jsonv2&addressdetails=1&polygon_geojson=1&limit=3&countrycodes=de",
+      "checked_at": "2026-10-17",
+      "status": "MATCH_REVIEW_REQUIRED",
+      "matches": [],
+      "result_status": "no_match"
+    }
+  ]
+}

@@ -32,6 +32,7 @@ use GDO\Net\GDT_Url;
 use GDO\OpenTimes\GDT_OpenHour;
 use GDO\OpenTimes\GDT_OpenHours;
 use GDO\UI\GDT_Color;
+use GDO\UI\GDT_Length;
 use GDO\User\GDO_User;
 use GDO\User\GDT_User;
 use GDO\Votes\GDT_VoteCount;
@@ -212,6 +213,8 @@ final class LUP_Room extends GDO
 			GDT_Polygon::make('room_polygon'),
 			GDT_Float::make('room_view')->min(0.010)->max(42000.0)->step(0.001)->tooltip('tt_radius_in_km'),  // Visibility radius
 			GDT_Float::make('room_radius')->min(0.001)->max(42000.0)->step(0.001)->tooltip('tt_radius_in_km'), // Chat radius
+			GDT_Length::make('room_join_tolerance')->min(0)->max(10)->initial(null), // km; NULL retains global policy
+			GDT_Length::make('room_leave_tolerance')->min(0)->max(10)->initial(null), // km; NULL retains global policy
 			GDT_Url::make('room_www')->allowAll()->reachable(),
 			GDT_Phone::make('room_phone'),
 			GDT_OpenHour::make('room_open')->hoursColumn('room_hours'),
@@ -261,19 +264,51 @@ final class LUP_Room extends GDO
 	 */
 	public function isInChatRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng,
-			Module_LinkUUp::instance()->cfgRoomTolerance() + $this->toleranceBoost($user));
+		return $this->hasValidTolerancePair() && $this->isInChatRangeWithTolerance($lat, $lng, $this->getJoinTolerance() + $this->toleranceBoost($user));
 	}
 
 	/** Is a position still close enough that an active chat membership is retained? */
 	public function isInChatLeaveRange($lat, $lng, ?GDO_User $user = null): bool
 	{
-		return $this->isInChatRangeWithTolerance($lat, $lng,
-			Module_LinkUUp::instance()->cfgRoomLeaveTolerance() + $this->toleranceBoost($user));
+		return $this->hasValidTolerancePair() && $this->isInChatRangeWithTolerance($lat, $lng, $this->getLeaveTolerance() + $this->toleranceBoost($user));
+	}
+
+	public function hasIndividualTolerances(): bool
+	{
+		return $this->gdoVar('room_join_tolerance') !== null || $this->gdoVar('room_leave_tolerance') !== null;
+	}
+
+	/** Invalid manual/legacy data must never silently widen access. */
+	public function hasValidTolerancePair(): bool
+	{
+		$join = $this->gdoVar('room_join_tolerance');
+		$leave = $this->gdoVar('room_leave_tolerance');
+		if ($join === null && $leave === null) { return true; }
+		return is_numeric($join) && is_numeric($leave) &&
+			is_finite((float)$join) && is_finite((float)$leave) &&
+			(float)$join >= 0 && (float)$leave >= (float)$join && (float)$leave <= 10;
+	}
+
+	public function getJoinTolerance(): float
+	{
+		$value = $this->gdoVar('room_join_tolerance');
+		return $value === null ? Module_LinkUUp::instance()->cfgRoomTolerance() : (float)$value;
+	}
+
+	public function getLeaveTolerance(): float
+	{
+		$value = $this->gdoVar('room_leave_tolerance');
+		return $value === null ? Module_LinkUUp::instance()->cfgRoomLeaveTolerance() : (float)$value;
 	}
 
 	private function toleranceBoost(?GDO_User $user): float
 	{
+		// Explicit venue boundaries are binding for every account, including boosts.
+		// Preserve the existing boost policy only for legacy/global-tolerance rooms.
+		if ($this->hasIndividualTolerances())
+		{
+			return 0.0;
+		}
 		return $user ? (float)Module_LinkUUp::instance()->userSettingValue($user, 'tolerance_boost') : 0.0;
 	}
 

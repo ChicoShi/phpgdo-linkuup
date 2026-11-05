@@ -1,0 +1,582 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors (ODbL-1.0)",
+  "checked_at": "2026-10-17",
+  "entries": [
+    {
+      "key": "osm-way-25809295",
+      "name": "Alvar-Aalto-Kulturhaus",
+      "city": "Wolfsburg",
+      "street": "Porschestraße 51",
+      "zip": "38440",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/25809295/full",
+      "website": "https://www.wolfsburg.de/kultur/m2k/kreativwerkstaetten",
+      "lat": 52.4197418883,
+      "lng": 10.7860063017,
+      "view_km": 32,
+      "chat_radius_km": 0.0203,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7862185,
+              52.4195598
+            ],
+            [
+              10.7860267,
+              52.419297
+            ],
+            [
+              10.7859124,
+              52.419327
+            ],
+            [
+              10.7859617,
+              52.4193925
+            ],
+            [
+              10.7858393,
+              52.419424
+            ],
+            [
+              10.7856604,
+              52.4194704
+            ],
+            [
+              10.7854808,
+              52.4195202
+            ],
+            [
+              10.7858012,
+              52.4199876
+            ],
+            [
+              10.7858833,
+              52.4200543
+            ],
+            [
+              10.7859206,
+              52.4200549
+            ],
+            [
+              10.7859306,
+              52.4200712
+            ],
+            [
+              10.7859938,
+              52.420089
+            ],
+            [
+              10.7860394,
+              52.4200776
+            ],
+            [
+              10.786086,
+              52.4201076
+            ],
+            [
+              10.7861746,
+              52.4201081
+            ],
+            [
+              10.7862146,
+              52.420075
+            ],
+            [
+              10.7862335,
+              52.4200913
+            ],
+            [
+              10.7863077,
+              52.4200933
+            ],
+            [
+              10.7863965,
+              52.4200502
+            ],
+            [
+              10.7864071,
+              52.4200255
+            ],
+            [
+              10.786277,
+              52.4199544
+            ],
+            [
+              10.7862924,
+              52.4199441
+            ],
+            [
+              10.7863503,
+              52.4199455
+            ],
+            [
+              10.7863523,
+              52.4198897
+            ],
+            [
+              10.7864603,
+              52.419852
+            ],
+            [
+              10.7863783,
+              52.4197322
+            ],
+            [
+              10.7862434,
+              52.4195533
+            ],
+            [
+              10.7862185,
+              52.4195598
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 23.396,
+      "source_version": "17",
+      "source_timestamp": "2024-12-05T23:26:32Z",
+      "source_sha256": "d114cdab811d818c4a1158e3dbf19f90b2325734acc735725e73d2a9fc793c31",
+      "source_tags": {
+        "addr:city": "Wolfsburg",
+        "addr:country": "DE",
+        "addr:housenumber": "51",
+        "addr:postcode": "38440",
+        "addr:street": "Porschestraße",
+        "architect": "Alvar Aalto",
+        "architect:wikidata": "Q82840",
+        "building": "public",
+        "building:architecture": "modern",
+        "building:levels": "2",
+        "heritage": "4",
+        "heritage:operator": "nld",
+        "heritage:ref": "34291409",
+        "heritage:website": "https://denkmalatlas.niedersachsen.de/viewer/metadata/34291409/1/-/",
+        "name": "Alvar-Aalto-Kulturhaus",
+        "operator": "Stadt Wolfsburg",
+        "operator:type": "public",
+        "start_date": "1962",
+        "wikidata": "Q319194",
+        "wikimedia_commons": "Category:Alvar-Aalto-Kulturhaus",
+        "wikipedia": "de:Alvar-Aalto-Kulturhaus"
+      },
+      "scope_note": "Gesamtes ausdrücklich benanntes Kulturhaus einschließlich Bibliothek und weiterer kultureller/kommunaler Nutzungen. Kein separater Raum für einzelne Etagen oder Bibliotheksabteilungen; keine benachbarten Rathausgebäude.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.wolfsburg.de/kultur/m2k/kreativwerkstaetten",
+          "checked_at": "2026-10-17",
+          "evidence": "Städtische Quellen beschreiben aktuell betriebene Bibliothek und Kreativwerkstätten im Kulturhaus; Kreativwerkstattseite enthält Veranstaltung 2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.wolfsburg.de/stadtbibliothek",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Besucheranschrift ist Quelle der gespeicherten Adresse. Gesamtes ausdrücklich benanntes Kulturhaus einschließlich Bibliothek und weiterer kultureller/kommunaler Nutzungen. Kein separater Raum für einzelne Etagen oder Bibliotheksabteilungen; keine benachbarten Rathausgebäude."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/25809295/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im dreistufigen Raster der Originalfläche; kein behaupteter Besuchereingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/25809295/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Unveränderter geschlossener OSM-Gebäudering, keine freie Umhüllung oder vergrößerter Kreis. Gesamtes ausdrücklich benanntes Kulturhaus einschließlich Bibliothek und weiterer kultureller/kommunaler Nutzungen. Kein separater Raum für einzelne Etagen oder Bibliotheksabteilungen; keine benachbarten Rathausgebäude."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/25809295/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 Meter abgerundet und mindestens 3 Meter kleiner als berechneter Randabstand; wirksame Chatgrenze ist das Quellenpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Quellpolygon plus 3 Meter Beitritts- und 5 Meter Verlasstoleranz; begrenzte Randüberlappung möglich. Keine Garantie für Smartphone-GPS und kein Kataster- oder Zutrittsnachweis; Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-126413725",
+      "name": "HAB Zeughaus – Bibliothek",
+      "city": "Wolfenbüttel",
+      "street": "Schloßplatz 12",
+      "zip": "38304",
+      "category": 16,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/126413725/full",
+      "website": "https://www.hab.de/",
+      "lat": 52.1632983055,
+      "lng": 10.5315320256,
+      "view_km": 32,
+      "chat_radius_km": 0.0072,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.5310946,
+              52.1634028
+            ],
+            [
+              10.5310903,
+              52.1633329
+            ],
+            [
+              10.5310861,
+              52.1633305
+            ],
+            [
+              10.5310831,
+              52.1632907
+            ],
+            [
+              10.5310869,
+              52.1632879
+            ],
+            [
+              10.5310806,
+              52.1632197
+            ],
+            [
+              10.5320415,
+              52.1631917
+            ],
+            [
+              10.5320535,
+              52.1633741
+            ],
+            [
+              10.5311232,
+              52.1634026
+            ],
+            [
+              10.5310946,
+              52.1634028
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 10.203,
+      "source_version": "15",
+      "source_timestamp": "2026-02-26T15:18:25Z",
+      "source_sha256": "984e5a063dfaff37f6589e908de0b9149bd97edb7bcde6bba65e945399a29dd6",
+      "source_tags": {
+        "addr:city": "Wolfenbüttel",
+        "addr:country": "DE",
+        "addr:housenumber": "12",
+        "addr:postcode": "38304",
+        "addr:street": "Schloßplatz",
+        "addr:suburb": "Dammfestung",
+        "architect": "Paul Francke, Jacob Meyerheine",
+        "architect:wikidata": "Q122489;Q1677586",
+        "building": "yes",
+        "building:architecture": "renaissance",
+        "building:colour": "pink",
+        "building:levels": "2",
+        "building:material": "stone",
+        "heritage": "4",
+        "heritage:operator": "nld",
+        "heritage:website": "https://denkmalatlas.niedersachsen.de/viewer/metadata/33869558/1/-/",
+        "historic": "yes",
+        "internet_access": "yes",
+        "loc_name": "Armamentarium",
+        "name": "Zeughaus",
+        "operator": "Herzog August Bibliothek Wolfenbüttel",
+        "operator:type": "government",
+        "owner": "Land Niedersachsen",
+        "ownership": "state",
+        "ref:isil": "DE-23",
+        "ref:nld": "33869558",
+        "roof:colour": "grey",
+        "roof:levels": "3",
+        "roof:orientation": "along",
+        "roof:shape": "gabled",
+        "start_date": "1619",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "limited",
+        "wheelchair:description": "Rampe mit 9% Steigung am Hintereingang (nur mit Hilfe befahrbar). Es gibt einen Parkplatz (Kopfsteinpflaster) für Menschen mit Behinderung direkt am Hintereingang. Die Klingel ist vom Rollstuhl aus erreichbar.",
+        "wikidata": "Q108254090",
+        "wikimedia_commons": "File:Wolfenbuettel Herzog August Bibliothek Zeughaus 05.jpg",
+        "wikipedia": "de:Zeughaus (Wolfenbüttel)",
+        "year_of_construction": "1613 - 1619"
+      },
+      "scope_note": "Nur das separat benannte Zeughaus mit Präsenzbibliothek, Ausleihe und Lesesaal. Bibliotheca Augusta, Lessinghaus und weitere HAB-Gebäude liegen außerhalb.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.hab.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuelle HAB-Startseite kündigt Zeughausführung am 03.11.2026 und geänderte Öffnung am 18.11.2026 an; Öffnungszeiten bestätigen regulären Bibliotheksbetrieb 9–18 Uhr."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.hab.de/event/fuehrung-durch-das-zeughaus-41/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Besucheranschrift ist Quelle der gespeicherten Adresse. Nur das separat benannte Zeughaus mit Präsenzbibliothek, Ausleihe und Lesesaal. Bibliotheca Augusta, Lessinghaus und weitere HAB-Gebäude liegen außerhalb."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/126413725/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im dreistufigen Raster der Originalfläche; kein behaupteter Besuchereingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/126413725/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Unveränderter geschlossener OSM-Gebäudering, keine freie Umhüllung oder vergrößerter Kreis. Nur das separat benannte Zeughaus mit Präsenzbibliothek, Ausleihe und Lesesaal. Bibliotheca Augusta, Lessinghaus und weitere HAB-Gebäude liegen außerhalb."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/126413725/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 Meter abgerundet und mindestens 3 Meter kleiner als berechneter Randabstand; wirksame Chatgrenze ist das Quellenpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Quellpolygon plus 3 Meter Beitritts- und 5 Meter Verlasstoleranz; begrenzte Randüberlappung möglich. Keine Garantie für Smartphone-GPS und kein Kataster- oder Zutrittsnachweis; Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-141726461",
+      "name": "Kniestedter Kirche – Veranstaltungssaal",
+      "city": "Salzgitter",
+      "street": "Braunschweiger Straße 133",
+      "zip": "38259",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/141726461/full",
+      "website": "https://www.salzgitter.de/kultur/veranstaltungsorte/kniestedter-kirche.php",
+      "lat": 52.0523736716,
+      "lng": 10.3758070055,
+      "view_km": 32,
+      "chat_radius_km": 0.0024,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3758952,
+              52.0524439
+            ],
+            [
+              10.3759466,
+              52.0523512
+            ],
+            [
+              10.3756964,
+              52.0522988
+            ],
+            [
+              10.3756451,
+              52.0523914
+            ],
+            [
+              10.3758952,
+              52.0524439
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 5.448,
+      "source_version": "1",
+      "source_timestamp": "2011-12-18T06:49:38Z",
+      "source_sha256": "5ba972652350dd747cfa5e4f0567d5096058dd2fdb080efa868acb9dba75ffbb",
+      "source_tags": {
+        "building": "yes"
+      },
+      "scope_note": "Originaler kleiner Gebäudering mit dem benannten Theater-POI 442331730 im Inneren. Nur dieser Veranstaltungssaal; angrenzende Gebäudeteile, Parkplatz und Herrenhaus nicht hinzugenommen.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.salzgitter.de/kultur/veranstaltungsorte/kniestedter-kirche.php",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Stadtseite nennt Veranstaltungshaus, Besucheranschrift und Lesung am 17.10.2026; Konzertbetrieb zusätzlich für 16.10.2026 dokumentiert."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.salzgitter.de/kultur/veranstaltungsorte/kniestedter-kirche.php",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Besucheranschrift ist Quelle der gespeicherten Adresse. Originaler kleiner Gebäudering mit dem benannten Theater-POI 442331730 im Inneren. Nur dieser Veranstaltungssaal; angrenzende Gebäudeteile, Parkplatz und Herrenhaus nicht hinzugenommen."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/141726461/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im dreistufigen Raster der Originalfläche; kein behaupteter Besuchereingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/141726461/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Unveränderter geschlossener OSM-Gebäudering, keine freie Umhüllung oder vergrößerter Kreis. Originaler kleiner Gebäudering mit dem benannten Theater-POI 442331730 im Inneren. Nur dieser Veranstaltungssaal; angrenzende Gebäudeteile, Parkplatz und Herrenhaus nicht hinzugenommen."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/141726461/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 Meter abgerundet und mindestens 3 Meter kleiner als berechneter Randabstand; wirksame Chatgrenze ist das Quellenpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Quellpolygon plus 3 Meter Beitritts- und 5 Meter Verlasstoleranz; begrenzte Randüberlappung möglich. Keine Garantie für Smartphone-GPS und kein Kataster- oder Zutrittsnachweis; Praxistest offen."
+        }
+      },
+      "identity_point": {
+        "source_url": "https://api.openstreetmap.org/api/0.6/node/442331730",
+        "lat": 52.0523392,
+        "lng": 10.3757646,
+        "tags": {
+          "amenity": "theatre",
+          "loc_name": "KniKi",
+          "name": "Kniestedter Kirche",
+          "website": "https://kniki.de/",
+          "wikidata": "Q1777127",
+          "wikipedia": "de:Kniestedter Kirche"
+        }
+      }
+    },
+    {
+      "key": "osm-way-141726462",
+      "name": "VHS Salzgitter-Bad – Kniestedter Herrenhaus",
+      "city": "Salzgitter",
+      "street": "Braunschweiger Straße 137a",
+      "zip": "38259",
+      "category": 16,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/141726462/full",
+      "website": "https://vhs.salzgitter.de/",
+      "lat": 52.0521754,
+      "lng": 10.37694525,
+      "view_km": 32,
+      "chat_radius_km": 0.0049,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3771955,
+              52.0523201
+            ],
+            [
+              10.3772879,
+              52.0521899
+            ],
+            [
+              10.376695,
+              52.0520307
+            ],
+            [
+              10.3766026,
+              52.0521609
+            ],
+            [
+              10.3771955,
+              52.0523201
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 7.907,
+      "source_version": "5",
+      "source_timestamp": "2023-02-08T07:59:38Z",
+      "source_sha256": "bd0ba685bd2577802c62d482bc92d55c4dbc5ea7d8d84ac2f53896735646f8ac",
+      "source_tags": {
+        "addr:housenumber": "137",
+        "addr:postcode": "38259",
+        "addr:street": "Braunschweiger Straße",
+        "amenity": "college",
+        "building": "yes",
+        "college": "adult_education",
+        "name": "Volkshochschule Salzgitter Bad"
+      },
+      "scope_note": "Eigenes als Volkshochschule Salzgitter-Bad benanntes Gebäude; nicht das benachbarte SOS-Mütterzentrum. OSM-Hausnummer 137 wird durch amtliche aktuelle Besucheranschrift 137a präzisiert; Gebäudeidentität zusätzlich über offiziellen Unterrichtsstättennamen belegt.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://vhs.salzgitter.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Städtische VHS nennt das aktive Büro Salzgitter-Bad und aktuelle Kurse im Oktober 2026. Offizielles Programm 2026 identifiziert Kniestedter Herrenhaus als Unterrichtsstätte."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://vhs.salzgitter.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Besucheranschrift ist Quelle der gespeicherten Adresse. Eigenes als Volkshochschule Salzgitter-Bad benanntes Gebäude; nicht das benachbarte SOS-Mütterzentrum. OSM-Hausnummer 137 wird durch amtliche aktuelle Besucheranschrift 137a präzisiert; Gebäudeidentität zusätzlich über offiziellen Unterrichtsstättennamen belegt."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/141726462/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit maximalem gefundenem Randabstand im dreistufigen Raster der Originalfläche; kein behaupteter Besuchereingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/141726462/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Unveränderter geschlossener OSM-Gebäudering, keine freie Umhüllung oder vergrößerter Kreis. Eigenes als Volkshochschule Salzgitter-Bad benanntes Gebäude; nicht das benachbarte SOS-Mütterzentrum. OSM-Hausnummer 137 wird durch amtliche aktuelle Besucheranschrift 137a präzisiert; Gebäudeidentität zusätzlich über offiziellen Unterrichtsstättennamen belegt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/141726462/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius auf 0,1 Meter abgerundet und mindestens 3 Meter kleiner als berechneter Randabstand; wirksame Chatgrenze ist das Quellenpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Quellpolygon plus 3 Meter Beitritts- und 5 Meter Verlasstoleranz; begrenzte Randüberlappung möglich. Keine Garantie für Smartphone-GPS und kein Kataster- oder Zutrittsnachweis; Praxistest offen."
+        }
+      },
+      "additional_sources": [
+        "https://app-14.salzgitter.de/kuferweb/fileadmin/download/VHS_Programm_SZ_012026-web-klein.pdf"
+      ]
+    }
+  ],
+  "held_candidates": [
+    {
+      "name": "Kunstmuseum Wolfsburg",
+      "reason": "Original-Multipolygon enthält Innenhof; aktueller einfacher Polygonpfad darf das Loch nicht verschlucken."
+    },
+    {
+      "name": "Bibliotheca Augusta",
+      "reason": "Museum derzeit geschlossen; Originalfläche zusätzlich mit Innenhöfen."
+    },
+    {
+      "name": "Kreismuseum Peine",
+      "reason": "Museum-POI liegt im großen Kreishaus-Gebäudering; Gebäudeteil nicht hinreichend getrennt."
+    },
+    {
+      "name": "Schloss Salder",
+      "reason": "OSM-Gebäudeadresse Hinter dem Knick 33 und Museumsbesucheradresse Museumstraße 34 nicht ausreichend separat aufgelöst."
+    },
+    {
+      "name": "Planetarium Wolfsburg",
+      "reason": "Wird vom parallelen Braunschweig-Batch übernommen; nicht doppelt angelegt."
+    }
+  ],
+  "duplicate_review": {
+    "checked_at": "2026-10-17",
+    "existing_rows": 543,
+    "method": "Readonly gesamte lup_room mit Adressen: Quellen-ID, normalisierte Namen/Adressen, Namensähnlichkeit im 150 m-Umkreis und Bestands-Pins innerhalb aller neuen Polygone. Keine Kollision.",
+    "collisions": []
+  }
+}

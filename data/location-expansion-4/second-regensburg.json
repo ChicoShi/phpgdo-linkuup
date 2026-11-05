@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-17",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "scope": "Regensburg, benannte Gebäude; keine DB-Übernahme durch Recherche",
+  "entries": [
+    {
+      "key": "osm-way-558371648",
+      "name": "Museum der Bayerischen Geschichte",
+      "city": "Regensburg",
+      "street": "Donaumarkt 1",
+      "zip": "93047",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/558371648/full",
+      "website": "https://www.hdbg.de/ihr-besuch/oeffnungszeiten-und-anfahrt.html",
+      "lat": 49.0201109347,
+      "lng": 12.102352168,
+      "view_km": 32,
+      "chat_radius_km": 0.0203,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.101783,
+              49.0203848
+            ],
+            [
+              12.1017124,
+              49.0201368
+            ],
+            [
+              12.1017601,
+              49.0200626
+            ],
+            [
+              12.1019332,
+              49.0200496
+            ],
+            [
+              12.1019565,
+              49.0200443
+            ],
+            [
+              12.1020149,
+              49.0200312
+            ],
+            [
+              12.1019554,
+              49.0198778
+            ],
+            [
+              12.1022123,
+              49.0197545
+            ],
+            [
+              12.1022518,
+              49.0198492
+            ],
+            [
+              12.1022803,
+              49.0199063
+            ],
+            [
+              12.102408,
+              49.0198935
+            ],
+            [
+              12.1026587,
+              49.0198823
+            ],
+            [
+              12.1027654,
+              49.0198768
+            ],
+            [
+              12.1028298,
+              49.0200149
+            ],
+            [
+              12.1028714,
+              49.0202121
+            ],
+            [
+              12.1024543,
+              49.0203121
+            ],
+            [
+              12.1021778,
+              49.020342
+            ],
+            [
+              12.101783,
+              49.0203848
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 23.308,
+      "source_version": "16",
+      "source_timestamp": "2026-05-19T17:34:15Z",
+      "source_sha256": "6e4f65dab4af0a3e33bb273ccebb44c0431d6efef4807998e0ff31887940a7aa",
+      "source_name": "Museum der Bayerischen Geschichte",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.hdbg.de/ausstellungen/brennpunkt-bayern/ihr-besuch.html",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Besuchsseite nennt laufende Ausstellung vom 08.07.2026 bis 07.08.2027 sowie Öffnung Dienstag bis Sonntag."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.hdbg.de/ihr-besuch/oeffnungszeiten-und-anfahrt.html",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Standortanschrift stimmt in Straße, Hausnummer und Stadt mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/558371648/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt durch dreistufige Gitteroptimierung ermittelt und gegen den Originalring geprüft; kein behaupteter Besuchereingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/558371648/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Unveränderter geschlossener benannter Gebäudeumriss aus OSM way/full. Eigenständiger als Museum benannter civic-Gebäudeumriss; Museumskomplex einschließlich interner Angebote, nicht umliegender Donaumarkt."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/558371648/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius bleibt rechnerisch mindestens drei Meter innerhalb des Gebäudeumrisses; der wirksame Zugang verwendet das Polygon und separate Toleranzen.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Beitritt drei Meter und Verbleib fünf Meter außerhalb des unveränderten Gebäudeumrisses; geringe Überlappung am Rand möglich. Keine Garantie für Smartphone-GPS; Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-89375225",
+      "name": "Funsporthalle Regensburg",
+      "city": "Regensburg",
+      "street": "Lilienthalstraße 4",
+      "zip": "93049",
+      "category": 13,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/89375225/full",
+      "website": "https://www.funsporthalle-regensburg.de/",
+      "lat": 49.01163845,
+      "lng": 12.060282286,
+      "view_km": 32,
+      "chat_radius_km": 0.0154,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0598246,
+              49.0114823
+            ],
+            [
+              12.0598402,
+              49.0118129
+            ],
+            [
+              12.0607984,
+              49.0117934
+            ],
+            [
+              12.0607955,
+              49.0117315
+            ],
+            [
+              12.0607581,
+              49.0117322
+            ],
+            [
+              12.0607478,
+              49.0115118
+            ],
+            [
+              12.0607276,
+              49.0115122
+            ],
+            [
+              12.0607253,
+              49.011464
+            ],
+            [
+              12.0598246,
+              49.0114823
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 18.409,
+      "source_version": "12",
+      "source_timestamp": "2019-07-28T12:19:00Z",
+      "source_sha256": "2241562f55f0049c6504497849c8531dbdeb66fb211679948b98b1f0fefbe35c",
+      "source_name": "Funsporthalle Regensburg",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.parkour-regensburg.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiberverein Parkour Regensburg kündigt am 14.09.2026 Herbstferienprogramm an und bietet regulären Trainingsbetrieb; Hallenseite nennt drei Vereine an derselben Adresse."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.funsporthalle-regensburg.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Standortanschrift stimmt in Straße, Hausnummer und Stadt mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/89375225/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt durch dreistufige Gitteroptimierung ermittelt und gegen den Originalring geprüft; kein behaupteter Besuchereingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/89375225/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Unveränderter geschlossener benannter Gebäudeumriss aus OSM way/full. Gesamte gemeinsame Funsporthalle, ausdrücklich kein einzelner Vereinsraum; Hallenseite beschreibt drei Vereine unter einem Dach."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/89375225/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius bleibt rechnerisch mindestens drei Meter innerhalb des Gebäudeumrisses; der wirksame Zugang verwendet das Polygon und separate Toleranzen.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Beitritt drei Meter und Verbleib fünf Meter außerhalb des unveränderten Gebäudeumrisses; geringe Überlappung am Rand möglich. Keine Garantie für Smartphone-GPS; Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-95793933",
+      "name": "HfKM Regensburg – Hauptgebäude",
+      "city": "Regensburg",
+      "street": "Andreasstraße 9",
+      "zip": "93059",
+      "category": 17,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/95793933/full",
+      "website": "https://www.hfkm-regensburg.de/",
+      "lat": 49.0247134799,
+      "lng": 12.098637886,
+      "view_km": 32,
+      "chat_radius_km": 0.0045,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.0994299,
+              49.0251186
+            ],
+            [
+              12.0994319,
+              49.0251014
+            ],
+            [
+              12.0994747,
+              49.0251021
+            ],
+            [
+              12.0994744,
+              49.0250789
+            ],
+            [
+              12.0994347,
+              49.0250787
+            ],
+            [
+              12.0994438,
+              49.0250047
+            ],
+            [
+              12.0993078,
+              49.0249958
+            ],
+            [
+              12.0990966,
+              49.0249842
+            ],
+            [
+              12.0986814,
+              49.0249615
+            ],
+            [
+              12.0987042,
+              49.0247658
+            ],
+            [
+              12.0988621,
+              49.0247735
+            ],
+            [
+              12.0988649,
+              49.0247516
+            ],
+            [
+              12.0988699,
+              49.0247121
+            ],
+            [
+              12.0988492,
+              49.0247111
+            ],
+            [
+              12.0988561,
+              49.0246565
+            ],
+            [
+              12.098542,
+              49.0246403
+            ],
+            [
+              12.0985403,
+              49.0246552
+            ],
+            [
+              12.098504,
+              49.0249705
+            ],
+            [
+              12.0984931,
+              49.0250648
+            ],
+            [
+              12.0994299,
+              49.0251186
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 7.572,
+      "source_version": "10",
+      "source_timestamp": "2026-02-07T19:57:09Z",
+      "source_sha256": "32e91857572f8ae89b1ae2001b83f6d9a6ad136c78f259f664fba52add3d986a",
+      "source_name": "Hochschule für katholische Kirchenmusik und Musikpädagogik Regensburg",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.hfkm-regensburg.de/aktuelles/termin/studieren-probieren-2026/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Hochschule kündigt Studientag am 04.11.2026 mit Anmeldung bis 26.10.2026 an; Anschrift Andreasstraße 9 auf derselben Quelle."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.hfkm-regensburg.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Standortanschrift stimmt in Straße, Hausnummer und Stadt mit dem benannten OSM-Gebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/95793933/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenpunkt durch dreistufige Gitteroptimierung ermittelt und gegen den Originalring geprüft; kein behaupteter Besuchereingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/95793933/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Unveränderter geschlossener benannter Gebäudeumriss aus OSM way/full. Nur direkt als Hochschule benanntes building=university, keine Campusumhüllung und kein benachbartes Wohnheim."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/95793933/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius bleibt rechnerisch mindestens drei Meter innerhalb des Gebäudeumrisses; der wirksame Zugang verwendet das Polygon und separate Toleranzen.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Beitritt drei Meter und Verbleib fünf Meter außerhalb des unveränderten Gebäudeumrisses; geringe Überlappung am Rand möglich. Keine Garantie für Smartphone-GPS; Praxistest offen."
+        }
+      }
+    }
+  ],
+  "held_candidates": [
+    {
+      "key": "osm-way-100317431",
+      "name": "Naturkundemuseum Ostbayern",
+      "reason": "Offiziell aktuell geschlossen; Betreiberhinweis hat Vorrang vor OSM-Öffnungszeiten.",
+      "source_url": "https://www.nmo-regensburg.de/museum/besucherinfo/"
+    },
+    {
+      "key": "osm-way-99719903",
+      "name": "Halle 37",
+      "reason": "Offizielle Stadtquelle nennt Dieselstraße 7, OSM-Fläche Dieselstraße 10; räumliche Zuordnung nicht ausreichend geklärt.",
+      "source_url": "https://www.regensburg.de/fm/121/broschuere-sport-in-regensburg.pdf"
+    },
+    {
+      "key": "osm-way-113120320",
+      "name": "Regina Filmtheater",
+      "reason": "Offizielle Betreiberseite im Browserwerkzeug nicht abrufbar; aktueller Betrieb hier nicht unabhängig beim Betreiber bestätigt.",
+      "source_url": "https://www.reginakino.de/"
+    }
+  ]
+}

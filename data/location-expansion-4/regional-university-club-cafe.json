@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "entries": [
+    {
+      "key": "osm-way-36147411",
+      "name": "Ostfalia Wolfsburg – Gebäude C",
+      "city": "Wolfsburg",
+      "street": "Robert-Koch-Platz 8a",
+      "zip": "38440",
+      "category": 17,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/36147411/full",
+      "website": "https://www.ostfalia.de/hochschule/campus-einrichtungen/standorte/wolfsburg/open-campus-wolfsburg",
+      "lat": 52.42581133,
+      "lng": 10.788071601,
+      "view_km": 32,
+      "chat_radius_km": 0.007483,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7880393,
+              52.425977
+            ],
+            [
+              10.7880404,
+              52.4259092
+            ],
+            [
+              10.788324,
+              52.4259028
+            ],
+            [
+              10.788112,
+              52.4256473
+            ],
+            [
+              10.7879977,
+              52.4256809
+            ],
+            [
+              10.7879659,
+              52.4256903
+            ],
+            [
+              10.7878881,
+              52.4257132
+            ],
+            [
+              10.787905,
+              52.4258194
+            ],
+            [
+              10.7874924,
+              52.4258282
+            ],
+            [
+              10.7874927,
+              52.4258525
+            ],
+            [
+              10.7873034,
+              52.4258559
+            ],
+            [
+              10.7873015,
+              52.425892
+            ],
+            [
+              10.7871267,
+              52.4258955
+            ],
+            [
+              10.7871221,
+              52.4259963
+            ],
+            [
+              10.7880393,
+              52.425977
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "source_version": "10",
+      "source_timestamp": "2023-12-19T12:37:11Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://www.ostfalia.de/hochschule/campus-einrichtungen/standorte/wolfsburg/open-campus-wolfsburg",
+          "evidence": "Aktuelle Hochschulseite belegt Campusbetrieb 2026; offizieller indexierter Gebäude-C-Plan nennt Robert-Koch-Platz 8a. PDF-Direktabruf derzeit404; OSM benennt das Universitätsgebäude C."
+        },
+        "address": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://www.ostfalia.de/cms/de/f/.galleries/documente_fahrzeugtechnik_fakultaet/Gebaeude-C_web.pdf",
+          "evidence": "Aktuelle Hochschulseite belegt Campusbetrieb 2026; offizieller indexierter Gebäude-C-Plan nennt Robert-Koch-Platz 8a. PDF-Direktabruf derzeit404; OSM benennt das Universitätsgebäude C."
+        },
+        "pin": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/36147411/full",
+          "evidence": "Innenpunkt rechnerisch im originalen Polygon; Randabstand 10.69m; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/36147411/full",
+          "evidence": "Originaler geschlossener OSM-Umriss unverändert übernommen. Nur benanntes Gebäude beziehungsweise Musikzentrum-Komplex, keine pauschale Nachbarschaft."
+        },
+        "radius": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/36147411/full",
+          "evidence": "Kleiner innenliegender Ersatzradius; tatsächliche Zutrittsprüfung erfolgt entlang des belegten Polygons.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "3m Eintritt/5m Austritt um Originalgebäude. Schmaler Übergangsbereich statt pauschaler64m; Außenwege können randnah betroffen sein, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-211250525",
+      "name": "Hafenbutze",
+      "city": "Wolfsburg",
+      "street": "Hafenstraße 4B",
+      "zip": "38442",
+      "category": 11,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/211250525/full",
+      "website": "https://www.hafenbutze-wolfsburg.de/",
+      "lat": 52.424756,
+      "lng": 10.7211761,
+      "view_km": 32,
+      "chat_radius_km": 0.00337,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7211001,
+              52.4248006
+            ],
+            [
+              10.7211106,
+              52.4247056
+            ],
+            [
+              10.7212521,
+              52.4247115
+            ],
+            [
+              10.7212416,
+              52.4248064
+            ],
+            [
+              10.7211001,
+              52.4248006
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "source_version": "6",
+      "source_timestamp": "2025-03-20T12:08:43Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://www.hafenbutze-wolfsburg.de/",
+          "evidence": "Betreiber beschreibt Restaurant, Bar und Club in eigenem kleinen Haus, nennt Hafenstraße 4B sowie aktuelle Öffnung Donnerstag bis Samstag."
+        },
+        "address": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://www.hafenbutze-wolfsburg.de/",
+          "evidence": "Betreiber beschreibt Restaurant, Bar und Club in eigenem kleinen Haus, nennt Hafenstraße 4B sowie aktuelle Öffnung Donnerstag bis Samstag."
+        },
+        "pin": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/211250525/full",
+          "evidence": "Innenpunkt rechnerisch im originalen Polygon; Randabstand 4.81m; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/211250525/full",
+          "evidence": "Originaler geschlossener OSM-Umriss unverändert übernommen. Nur benanntes Gebäude beziehungsweise Musikzentrum-Komplex, keine pauschale Nachbarschaft."
+        },
+        "radius": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/211250525/full",
+          "evidence": "Kleiner innenliegender Ersatzradius; tatsächliche Zutrittsprüfung erfolgt entlang des belegten Polygons.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "3m Eintritt/5m Austritt um Originalgebäude. Schmaler Übergangsbereich statt pauschaler64m; Außenwege können randnah betroffen sein, Smartphone-Praxistest offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-747076975",
+      "name": "MusikZentrum Hannover",
+      "city": "Hannover",
+      "street": "Emil-Meyer-Straße 26-28",
+      "zip": "30165",
+      "category": 11,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/747076975/full",
+      "website": "https://musikzentrum-hannover.de/",
+      "lat": 52.392852638,
+      "lng": 9.72529732,
+      "view_km": 32,
+      "chat_radius_km": 0.015331,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              9.7250401,
+              52.3930012
+            ],
+            [
+              9.724873,
+              52.3927289
+            ],
+            [
+              9.7252353,
+              52.3926556
+            ],
+            [
+              9.7252125,
+              52.3926122
+            ],
+            [
+              9.725639,
+              52.3925311
+            ],
+            [
+              9.725757,
+              52.3927567
+            ],
+            [
+              9.7256058,
+              52.3927869
+            ],
+            [
+              9.7257037,
+              52.3929716
+            ],
+            [
+              9.725473,
+              52.3930176
+            ],
+            [
+              9.7255211,
+              52.3931114
+            ],
+            [
+              9.7251273,
+              52.3931873
+            ],
+            [
+              9.7250401,
+              52.3930012
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "source_version": "5",
+      "source_timestamp": "2026-08-16T19:17:05Z",
+      "review": {
+        "operation": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://musikzentrum-hannover.de/",
+          "evidence": "Laufender Veranstaltungsbetrieb auf Betreiberwebsite; Kontaktadresse Emil-Meyer-Straße 26-28. Stadt Hannover führt Musikzentrum unter Clubs und Bars. Zusammengehöriger Musikzentrum-Komplex."
+        },
+        "address": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://musikzentrum-hannover.de/kontakt/",
+          "evidence": "Laufender Veranstaltungsbetrieb auf Betreiberwebsite; Kontaktadresse Emil-Meyer-Straße 26-28. Stadt Hannover führt Musikzentrum unter Clubs und Bars. Zusammengehöriger Musikzentrum-Komplex."
+        },
+        "pin": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/747076975/full",
+          "evidence": "Innenpunkt rechnerisch im originalen Polygon; Randabstand 21.90m; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/747076975/full",
+          "evidence": "Originaler geschlossener OSM-Umriss unverändert übernommen. Nur benanntes Gebäude beziehungsweise Musikzentrum-Komplex, keine pauschale Nachbarschaft."
+        },
+        "radius": {
+          "verified": true,
+          "checked_at": "2026-10-17",
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/747076975/full",
+          "evidence": "Kleiner innenliegender Ersatzradius; tatsächliche Zutrittsprüfung erfolgt entlang des belegten Polygons.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "3m Eintritt/5m Austritt um Originalgebäude. Schmaler Übergangsbereich statt pauschaler64m; Außenwege können randnah betroffen sein, Smartphone-Praxistest offen."
+        }
+      }
+    }
+  ],
+  "held": [
+    {
+      "name": "Kioskcafé Waldsonne",
+      "reason": "Nur Kioskgebäude kartiert, kein Innen-Sitzbereich. Gastbereich im Freien nicht verlässlich begrenzt; deshalb nicht importiert."
+    }
+  ]
+}

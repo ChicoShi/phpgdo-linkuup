@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "attribution": "© OpenStreetMap contributors, ODbL-1.0",
+  "checked_at": "2026-10-17",
+  "entries": [
+    {
+      "key": "osm-way-286028279",
+      "name": "AutoMuseum Volkswagen",
+      "city": "Wolfsburg",
+      "street": "Dieselstraße 35",
+      "zip": "38446",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+      "website": "https://www.automuseum-volkswagen.de/",
+      "lat": 52.42777846,
+      "lng": 10.8083824934,
+      "view_km": 32,
+      "chat_radius_km": 0.0303,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.8077468,
+              52.4280712
+            ],
+            [
+              10.8087283,
+              52.4280821
+            ],
+            [
+              10.8087243,
+              52.4282162
+            ],
+            [
+              10.8093595,
+              52.4282233
+            ],
+            [
+              10.8093771,
+              52.4276367
+            ],
+            [
+              10.8094149,
+              52.4276371
+            ],
+            [
+              10.8094167,
+              52.4275764
+            ],
+            [
+              10.8093796,
+              52.427576
+            ],
+            [
+              10.80938,
+              52.4275596
+            ],
+            [
+              10.8093817,
+              52.4274895
+            ],
+            [
+              10.808053,
+              52.4274751
+            ],
+            [
+              10.8080523,
+              52.4274479
+            ],
+            [
+              10.8078664,
+              52.4274459
+            ],
+            [
+              10.8078674,
+              52.4274167
+            ],
+            [
+              10.8077171,
+              52.4274145
+            ],
+            [
+              10.8077171,
+              52.4274453
+            ],
+            [
+              10.8077664,
+              52.4274463
+            ],
+            [
+              10.8077468,
+              52.4280712
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 33.367,
+      "source_version": "6",
+      "source_timestamp": "2026-02-22T12:29:20Z",
+      "source_sha256": "dea1f811c6e9596de7f6b8fbb77f1d3e9274f7df3180e9c23be036e71cbfe933",
+      "source_tags": {
+        "addr:housenumber": "35",
+        "addr:street": "Dieselstraße",
+        "building": "yes",
+        "contact:website": "http://www.volkswagen-automuseum.de/",
+        "name": "AutoMuseum Volkswagen",
+        "opening_hours": "Th-Su 10:00-18:00",
+        "tourism": "museum",
+        "wikidata": "Q784789"
+      },
+      "scope_note": "Nur das benannte Museumsgebäude; keine Parkplätze oder Nachbarbetriebe.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.automuseum-volkswagen.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber bietet Tickets und Sonderausstellung Audi in Le Mans vom 12.02.2026 bis 10.01.2027; Besuch Dienstag bis Sonntag 10–17 Uhr."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://www.automuseum-volkswagen.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Museumsseite nennt Dieselstraße 35, 38446 Wolfsburg; Straße und Hausnummer stimmen mit dem benannten OSM-Museumsgebäude überein."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit größtem gefundenem Randabstand aus drei verfeinerten 21×21-Rastern des Originalpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes, geschlossenes OSM-Gebäude mit passendem Namen und Nutzung; Way/relations liefert keine übergeordnete Relation. Nur das benannte Museumsgebäude; keine Parkplätze oder Nachbarbetriebe."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/286028279/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet; die Chatgrenze folgt dem unveränderten Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Bewusste kleine Randzugabe: Quellpolygon plus 3 m zum Beitritt und 5 m zum Verlassen. Keine Garantie für Smartphone-GPS oder exakte Katastergrenzen; Praxistest bleibt offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-26189623",
+      "name": "CongressPark Wolfsburg",
+      "city": "Wolfsburg",
+      "street": "Heinrich-Heine-Straße",
+      "zip": "38440",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+      "website": "https://congresspark-wolfsburg.de/",
+      "lat": 52.4172481689,
+      "lng": 10.7795997896,
+      "view_km": 32,
+      "chat_radius_km": 0.0274,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7786328,
+              52.4172228
+            ],
+            [
+              10.7792474,
+              52.4170795
+            ],
+            [
+              10.7791969,
+              52.4169985
+            ],
+            [
+              10.7795932,
+              52.4169057
+            ],
+            [
+              10.7796256,
+              52.4169567
+            ],
+            [
+              10.7796938,
+              52.41694
+            ],
+            [
+              10.7799162,
+              52.4168881
+            ],
+            [
+              10.77997,
+              52.4169743
+            ],
+            [
+              10.780299,
+              52.4168976
+            ],
+            [
+              10.7804482,
+              52.4171367
+            ],
+            [
+              10.7800469,
+              52.4172303
+            ],
+            [
+              10.780121,
+              52.4173491
+            ],
+            [
+              10.7802711,
+              52.4173141
+            ],
+            [
+              10.7804782,
+              52.417646
+            ],
+            [
+              10.780191,
+              52.417713
+            ],
+            [
+              10.7801513,
+              52.4176493
+            ],
+            [
+              10.7800639,
+              52.4176697
+            ],
+            [
+              10.7799551,
+              52.4174954
+            ],
+            [
+              10.7798488,
+              52.4175201
+            ],
+            [
+              10.7794393,
+              52.4176157
+            ],
+            [
+              10.7793521,
+              52.4174759
+            ],
+            [
+              10.778862,
+              52.4175903
+            ],
+            [
+              10.7786328,
+              52.4172228
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 30.413,
+      "source_version": "14",
+      "source_timestamp": "2025-09-05T07:26:39Z",
+      "source_sha256": "2038bfa7f7a9bef587130e0b6cf5c9f9d4e630d21953ff33dc82104887bafca1",
+      "source_tags": {
+        "building": "public",
+        "loc_name": "Kongresszentrum",
+        "name": "CongressPark Wolfsburg",
+        "website": "https://www.congresspark-wolfsburg.de/",
+        "wikidata": "Q15108889",
+        "wikimedia_commons": "File:CongressPark.jpg"
+      },
+      "scope_note": "Gesamtes benanntes CongressPark-Gebäude mit Sälen und Foyers; nicht Planetarium, Scharoun-Theater oder Außenpark.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://congresspark-wolfsburg.de/",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber veröffentlicht aktuelle Veranstaltungen, darunter Hakuna Matata am 18.10.2026 und True Collins am 24.10.2026."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://congresspark-wolfsburg.de/kontakt/anreise/",
+          "checked_at": "2026-10-17",
+          "evidence": "Offizielle Anreiseseite nennt CongressPark Wolfsburg GmbH, Heinrich-Heine-Straße, 38440 Wolfsburg ausdrücklich ohne Hausnummer. Klieverhagen 50 ist nur zusätzliche Navigationshilfe, nicht die übernommene Postanschrift."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit größtem gefundenem Randabstand aus drei verfeinerten 21×21-Rastern des Originalpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes, geschlossenes OSM-Gebäude mit passendem Namen und Nutzung; Way/relations liefert keine übergeordnete Relation. Gesamtes benanntes CongressPark-Gebäude mit Sälen und Foyers; nicht Planetarium, Scharoun-Theater oder Außenpark."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/26189623/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet; die Chatgrenze folgt dem unveränderten Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Bewusste kleine Randzugabe: Quellpolygon plus 3 m zum Beitritt und 5 m zum Verlassen. Keine Garantie für Smartphone-GPS oder exakte Katastergrenzen; Praxistest bleibt offen."
+        }
+      }
+    },
+    {
+      "key": "osm-way-24974773",
+      "name": "ZeitHaus Autostadt",
+      "city": "Wolfsburg",
+      "street": "Stadtbrücke",
+      "zip": "38440",
+      "category": 12,
+      "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+      "website": "https://www.autostadt.de/w/zeithaus",
+      "lat": 52.4317871492,
+      "lng": 10.7908777199,
+      "view_km": 32,
+      "chat_radius_km": 0.0133,
+      "join_tolerance_km": 0.003,
+      "leave_tolerance_km": 0.005,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.7911154,
+              52.4318123
+            ],
+            [
+              10.7912251,
+              52.431811
+            ],
+            [
+              10.7912091,
+              52.4317313
+            ],
+            [
+              10.7911938,
+              52.431668
+            ],
+            [
+              10.791028,
+              52.431651
+            ],
+            [
+              10.7909008,
+              52.4316411
+            ],
+            [
+              10.7906028,
+              52.4316336
+            ],
+            [
+              10.7904321,
+              52.4316381
+            ],
+            [
+              10.7902965,
+              52.4316538
+            ],
+            [
+              10.7902461,
+              52.4317119
+            ],
+            [
+              10.7904543,
+              52.4317571
+            ],
+            [
+              10.7904398,
+              52.4318159
+            ],
+            [
+              10.7902545,
+              52.4318026
+            ],
+            [
+              10.7902457,
+              52.4318364
+            ],
+            [
+              10.7903673,
+              52.4318469
+            ],
+            [
+              10.7903587,
+              52.4318875
+            ],
+            [
+              10.7913104,
+              52.4319752
+            ],
+            [
+              10.791327,
+              52.4318993
+            ],
+            [
+              10.7911032,
+              52.431879
+            ],
+            [
+              10.7911091,
+              52.4318467
+            ],
+            [
+              10.7911154,
+              52.4318123
+            ]
+          ]
+        ]
+      },
+      "polygon_origin": "source_geometry",
+      "import_ready": true,
+      "pin_method": "computed_interior_max_clearance_not_entrance",
+      "clearance_m": 16.309,
+      "source_version": "11",
+      "source_timestamp": "2024-06-28T16:52:38Z",
+      "source_sha256": "fc59903ebe4490a17c79d0add5248219bcbf600cebf0513e6a2f7229d48ee4b9",
+      "source_tags": {
+        "addr:city": "Wolfsburg",
+        "addr:postcode": "38440",
+        "addr:street": "Stadtbrücke",
+        "air_conditioning": "yes",
+        "building": "yes",
+        "building:levels": "6",
+        "fee": "yes",
+        "layer": "2",
+        "museum": "transport",
+        "name": "ZeitHaus",
+        "opening_hours": "10:00-18:00",
+        "roof:shape": "flat",
+        "toilets": "yes",
+        "tourism": "museum",
+        "website": "https://www.autostadt.de/autostadt-erkunden/zeithaus",
+        "wheelchair": "yes",
+        "wikidata": "Q91450761"
+      },
+      "scope_note": "Nur das ZeitHaus-Museumsgebäude; nicht der gesamte Autostadt-Park und keine anderen Pavillons. Die Anschrift ist die offizielle Campusadresse.",
+      "review": {
+        "operation": {
+          "verified": true,
+          "source_url": "https://www.autostadt.de/w/zeithaus",
+          "checked_at": "2026-10-17",
+          "evidence": "Betreiber führt das ZeitHaus als Old- und Youngtimer-Museum mit täglichen Besuchszeiten 10–18 Uhr und Dauer- sowie Sonderausstellungen."
+        },
+        "address": {
+          "verified": true,
+          "source_url": "https://medienportal.autostadt.de/web/guest/service-kontakt/kontakt",
+          "checked_at": "2026-10-17",
+          "evidence": "Autostadt nennt als offizielle Postanschrift Stadtbrücke, 38440 Wolfsburg ohne Hausnummer. Diese Campusadresse entspricht Straße und Postleitzahl am ausdrücklich ZeitHaus benannten OSM-Gebäude."
+        },
+        "pin": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Rechnerischer Innenpunkt mit größtem gefundenem Randabstand aus drei verfeinerten 21×21-Rastern des Originalpolygons; kein behaupteter Eingang."
+        },
+        "boundary": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Aktuell abgerufenes, geschlossenes OSM-Gebäude mit passendem Namen und Nutzung; Way/relations liefert keine übergeordnete Relation. Nur das ZeitHaus-Museumsgebäude; nicht der gesamte Autostadt-Park und keine anderen Pavillons. Die Anschrift ist die offizielle Campusadresse."
+        },
+        "radius": {
+          "verified": true,
+          "source_url": "https://api.openstreetmap.org/api/0.6/way/24974773/full",
+          "checked_at": "2026-10-17",
+          "evidence": "Innenradius kleiner als Randabstand minus 3 Meter, auf 0,1 Meter abgerundet; die Chatgrenze folgt dem unveränderten Quellpolygon.",
+          "join_tolerance_m": 3,
+          "leave_tolerance_m": 5,
+          "effective_tolerance_evidence": "Bewusste kleine Randzugabe: Quellpolygon plus 3 m zum Beitritt und 5 m zum Verlassen. Keine Garantie für Smartphone-GPS oder exakte Katastergrenzen; Praxistest bleibt offen."
+        }
+      }
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Hallenbad – Kultur am Schachtweg",
+      "reason": "OSM-Relation 2049433 enthält inner 151584445 und outer 25090086. Kein Import, solange Innenlöcher im Importformat nicht unterstützt werden."
+    },
+    {
+      "name": "phaeno",
+      "reason": "Bereits vorhandener Raum; nicht erneut aufnehmen."
+    }
+  ]
+}

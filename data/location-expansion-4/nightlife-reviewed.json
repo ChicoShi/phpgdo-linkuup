@@ -1,0 +1,2379 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-17",
+  "status": "REVIEW_COMPLETED_NO_ACTIVE_RELEASE",
+  "attribution": "© OpenStreetMap contributors, ODbL",
+  "map_api_documentation": "https://wiki.openstreetmap.org/wiki/API_v0.6#Retrieving_map_data_by_bounding_box:_GET_/api/0.6/map",
+  "limitations": [
+    "Quellenlage bestätigt keine exakten Venue-Flächen.",
+    "Gebäudeumrisse und POI-Koordinaten bleiben getrennte Nachweise.",
+    "Alle Einträge deaktiviert vorgemerkt, keine Radien berechnet, keine DB-Änderung."
+  ],
+  "records": [
+    {
+      "city": "Berlin",
+      "name": "Green Door Bar",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.greendoor.de/de/kontakt/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt täglichen Barbetrieb ab 19 Uhr.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.greendoor.de/de/kontakt/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Winterfeldtstraße 50",
+          "postal_code": "10781",
+          "city": "Berlin",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Berlin",
+      "name": "EINSTEIN Unter den Linden",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.einstein-udl.com/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt aktuelle Wochenöffnungszeiten und Speisekarten; Presselinks März 2026.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.einstein-udl.com/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Unter den Linden 42",
+          "postal_code": "10117",
+          "city": "Berlin",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 1412218896,
+            "osm_url": "https://www.openstreetmap.org/node/1412218896",
+            "latitude": 52.517102,
+            "longitude": 13.3859461,
+            "name": "Cafe Einstein",
+            "display_name": "Cafe Einstein, 42, Unter den Linden, Dorotheenstadt, Mitte, Berlin, 10117, Deutschland",
+            "category": "amenity",
+            "type": "cafe",
+            "address": {
+              "amenity": "Cafe Einstein",
+              "house_number": "42",
+              "road": "Unter den Linden",
+              "quarter": "Dorotheenstadt",
+              "suburb": "Mitte",
+              "borough": "Mitte",
+              "city": "Berlin",
+              "ISO3166-2-lvl4": "DE-BE",
+              "postcode": "10117",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                13.3859461,
+                52.517102
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/1412218896",
+          "version": "15",
+          "timestamp": "2025-07-02T08:01:00Z",
+          "latitude": 52.517102,
+          "longitude": 13.3859461,
+          "tags": {
+            "addr:city": "Berlin",
+            "addr:country": "DE",
+            "addr:housename": "Haus Pietzsch",
+            "addr:housenumber": "42",
+            "addr:postcode": "10117",
+            "addr:street": "Unter den Linden",
+            "addr:suburb": "Mitte",
+            "amenity": "cafe",
+            "contact:website": "http://www.einstein-udl.com",
+            "cuisine": "international",
+            "image": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/aa/39/14/aussenbereich.jpg",
+            "indoor_seating": "yes",
+            "name": "Cafe Einstein",
+            "official_name": "Einstein Unter den Linden",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "NewsCafé Gaststätten GmbH",
+            "outdoor_seating": "yes",
+            "smoking": "no",
+            "toilets:wheelchair": "yes",
+            "wheelchair": "yes",
+            "wikidata": "Q1025595",
+            "wikipedia": "de:Café Einstein Unter den Linden"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 26443910,
+            "osm_url": "https://www.openstreetmap.org/way/26443910",
+            "version": "10",
+            "timestamp": "2025-01-02T12:53:57Z",
+            "tags": {
+              "addr:city": "Berlin",
+              "addr:country": "DE",
+              "addr:housenumber": "42",
+              "addr:postcode": "10117",
+              "addr:street": "Unter den Linden",
+              "addr:suburb": "Mitte",
+              "building": "commercial",
+              "building:levels": "5",
+              "wikidata": "Q131620393"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    13.3858817,
+                    52.5170908
+                  ],
+                  [
+                    13.3858176,
+                    52.5174798
+                  ],
+                  [
+                    13.3858024,
+                    52.5175646
+                  ],
+                  [
+                    13.3859748,
+                    52.517576
+                  ],
+                  [
+                    13.3859873,
+                    52.5175066
+                  ],
+                  [
+                    13.3860428,
+                    52.5175094
+                  ],
+                  [
+                    13.3861113,
+                    52.5171047
+                  ],
+                  [
+                    13.3860719,
+                    52.5171022
+                  ],
+                  [
+                    13.3858817,
+                    52.5170908
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=13.3853461,52.5167020,13.3865461,52.5175020",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "Enthaltendes Gebäude hat fünf Geschosse; Caféfläche ist keine belegte Gesamtgebäudefläche."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Berlin",
+      "name": "Tresor Berlin",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://tresorberlin.com/club/events/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber führt Clubprogramm und Besucherinformationen.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://tresorberlin.com/info/location/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Köpenicker Straße 70",
+          "postal_code": "10179",
+          "city": "Berlin",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 4870128450,
+            "osm_url": "https://www.openstreetmap.org/node/4870128450",
+            "latitude": 52.5106807,
+            "longitude": 13.419484,
+            "name": "Tresor Berlin",
+            "display_name": "Tresor Berlin, 70, Köpenicker Straße, Heine-Viertel, Luisenstadt, Mitte, Berlin, 10179, Deutschland",
+            "category": "amenity",
+            "type": "nightclub",
+            "address": {
+              "amenity": "Tresor Berlin",
+              "house_number": "70",
+              "road": "Köpenicker Straße",
+              "neighbourhood": "Heine-Viertel",
+              "quarter": "Luisenstadt",
+              "suburb": "Mitte",
+              "borough": "Mitte",
+              "city": "Berlin",
+              "ISO3166-2-lvl4": "DE-BE",
+              "postcode": "10179",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                13.419484,
+                52.5106807
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/4870128450",
+          "version": "19",
+          "timestamp": "2025-07-08T22:32:39Z",
+          "latitude": 52.5106807,
+          "longitude": 13.419484,
+          "tags": {
+            "addr:city": "Berlin",
+            "addr:country": "DE",
+            "addr:housenumber": "70",
+            "addr:postcode": "10179",
+            "addr:street": "Köpenicker Straße",
+            "addr:suburb": "Mitte",
+            "amenity": "nightclub",
+            "contact:facebook": "http://www.facebook.com/tresorberlin",
+            "contact:instagram": "https://www.instagram.com/tresorberlin",
+            "contact:phone": "+49 30 6953770",
+            "contact:ra": "https://ra.co/clubs/5494",
+            "contact:website": "https://tresorberlin.com",
+            "live_music": "yes",
+            "name": "Tresor Berlin",
+            "operator": "Tresor Berlin GmbH",
+            "smoking": "no",
+            "start_date": "2007",
+            "toilets:wheelchair": "yes",
+            "wheelchair": "yes",
+            "wikidata": "Q678186",
+            "wikipedia": "de:Tresor (Club)"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 32565606,
+            "osm_url": "https://www.openstreetmap.org/way/32565606",
+            "version": "25",
+            "timestamp": "2024-02-14T19:54:54Z",
+            "tags": {
+              "addr:city": "Berlin",
+              "addr:country": "DE",
+              "addr:housenumber": "70",
+              "addr:postcode": "10179",
+              "addr:street": "Köpenicker Straße",
+              "addr:suburb": "Mitte",
+              "amenity": "events_centre",
+              "building": "industrial",
+              "building:colour": "silver",
+              "building:levels": "5",
+              "contact:phone": "+49 30 23005100",
+              "contact:website": "http://www.kraftwerkberlin.de/",
+              "est_height": "20",
+              "image": "https://www.textilwirtschaft.de/news/media/19/Kraftwerk-Berlin-185911.jpeg;https://www.deutscher-zukunftspreis.de/sites/default/files/styles/image/public/2022-10/dzp_kraftwerkberlin_copyright_kraftwerk_berlin.jpg",
+              "name": "Kraftwerk Berlin",
+              "operator": "Schaltraum Berlin GmbH",
+              "roof:colour": "grey",
+              "roof:shape": "flat",
+              "short_name": "Kraftwerk",
+              "wheelchair": "limited",
+              "wikidata": "Q1258760",
+              "wikipedia": "de:Kraftwerk Berlin"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    13.4193243,
+                    52.5112593
+                  ],
+                  [
+                    13.4190183,
+                    52.5107773
+                  ],
+                  [
+                    13.419003,
+                    52.5107531
+                  ],
+                  [
+                    13.4194578,
+                    52.5106461
+                  ],
+                  [
+                    13.4195921,
+                    52.5106146
+                  ],
+                  [
+                    13.4197433,
+                    52.5105786
+                  ],
+                  [
+                    13.4202169,
+                    52.5104661
+                  ],
+                  [
+                    13.4203491,
+                    52.5104365
+                  ],
+                  [
+                    13.4205624,
+                    52.5107725
+                  ],
+                  [
+                    13.4206672,
+                    52.5109374
+                  ],
+                  [
+                    13.4206705,
+                    52.5109426
+                  ],
+                  [
+                    13.4204019,
+                    52.5110058
+                  ],
+                  [
+                    13.4195879,
+                    52.5111973
+                  ],
+                  [
+                    13.4193243,
+                    52.5112593
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=13.4188840,52.5102807,13.4200840,52.5110807",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "Enthaltendes Polygon ist Kraftwerk Berlin, ein mehrgeschossiges Veranstaltungsgebäude; nicht gleichbedeutend mit ausschließlich Tresor genutzter Fläche."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Hamburg",
+      "name": "Le Lion – Bar de Paris",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.lelion.net/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Baröffnungszeiten Montag bis Samstag.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.lelion.net/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Rathausstraße 3",
+          "postal_code": "20095",
+          "city": "Hamburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Hamburg",
+      "name": "Café Paris",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://cafeparis.net/kontakt/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Wochenöffnungszeiten und Feiertagsregelungen bis Jahreswechsel 2026/2027.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://cafeparis.net/kontakt/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Rathausstraße 4",
+          "postal_code": "20095",
+          "city": "Hamburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "CONFLICT_REQUIRES_INDEPENDENT_PIN_REVIEW",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 1909894526,
+            "osm_url": "https://www.openstreetmap.org/node/1909894526",
+            "latitude": 53.5498937,
+            "longitude": 9.994348,
+            "name": "Cafe Paris",
+            "display_name": "Cafe Paris, 4, Rathausstraße, Altstadt, Hamburg-Mitte, Hamburg, 20095, Deutschland",
+            "category": "amenity",
+            "type": "cafe",
+            "address": {
+              "amenity": "Cafe Paris",
+              "house_number": "4",
+              "road": "Rathausstraße",
+              "suburb": "Altstadt",
+              "borough": "Hamburg-Mitte",
+              "city": "Hamburg",
+              "ISO3166-2-lvl4": "DE-HH",
+              "postcode": "20095",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                9.994348,
+                53.5498937
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [
+          "https://maps.app.goo.gl/bLmvt8Wot1Q4ecff6"
+        ],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/1909894526",
+          "version": "12",
+          "timestamp": "2026-03-01T14:56:56Z",
+          "latitude": 53.5498937,
+          "longitude": 9.994348,
+          "tags": {
+            "addr:city": "Hamburg",
+            "addr:country": "DE",
+            "addr:housenumber": "4",
+            "addr:postcode": "20095",
+            "addr:street": "Rathausstraße",
+            "amenity": "cafe",
+            "check_date": "2025-04-13",
+            "contact:phone": "+49 40 32527777",
+            "contact:website": "https://www.cafeparis.net/",
+            "cuisine": "french",
+            "indoor_seating": "yes",
+            "name": "Cafe Paris",
+            "opening_hours": "Mo-Sa 09:00-00:00; Su; PH 09:30-23:30",
+            "operator": "Wendt Restaurantbetriebe GmbH",
+            "outdoor_seating": "yes",
+            "wheelchair": "limited"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 39965147,
+            "osm_url": "https://www.openstreetmap.org/way/39965147",
+            "version": "12",
+            "timestamp": "2019-12-11T14:28:33Z",
+            "tags": {
+              "building": "yes",
+              "power": "substation",
+              "source": "http://www.pressebox.de/pressemitteilung/stromnetz-hamburg-gmbh/Baustart-im-Umspannwerk-Rathaus/boxid/783525"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    9.9944585,
+                    53.5495386
+                  ],
+                  [
+                    9.9942681,
+                    53.5495427
+                  ],
+                  [
+                    9.9940962,
+                    53.5495464
+                  ],
+                  [
+                    9.9941094,
+                    53.5497304
+                  ],
+                  [
+                    9.9941919,
+                    53.5497294
+                  ],
+                  [
+                    9.9941983,
+                    53.5499284
+                  ],
+                  [
+                    9.9943521,
+                    53.5499266
+                  ],
+                  [
+                    9.9944296,
+                    53.5499257
+                  ],
+                  [
+                    9.994426,
+                    53.5498147
+                  ],
+                  [
+                    9.9944234,
+                    53.5497323
+                  ],
+                  [
+                    9.9944692,
+                    53.5497318
+                  ],
+                  [
+                    9.9944677,
+                    53.5496832
+                  ],
+                  [
+                    9.9944585,
+                    53.5495386
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=9.9937480,53.5494937,9.9949480,53.5502937",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "OSM-Punkt liegt in way/39965147 mit power=substation. Widerspruch zwischen Café-POI und Gebäudezuordnung; Pin/Fläche erneut unabhängig prüfen."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert.",
+        "OSM-Punkt liegt in way/39965147 mit power=substation. Widerspruch zwischen Café-POI und Gebäudezuordnung; Pin/Fläche erneut unabhängig prüfen."
+      ]
+    },
+    {
+      "city": "Hamburg",
+      "name": "Uebel & Gefährlich",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.uebelundgefaehrlich.com/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber kündigt Clubveranstaltung am 17.10.2026 und weitere Termine an; 4. Stock im Bunker.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.uebelundgefaehrlich.com/impressum/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Feldstraße 66",
+          "postal_code": "20359",
+          "city": "Hamburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Frankfurt am Main",
+      "name": "Café Karin",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.cafekarin.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt aktuelle Wochenöffnungszeiten und Frühstücksangebot.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.cafekarin.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Großer Hirschgraben 28",
+          "postal_code": "60311",
+          "city": "Frankfurt am Main",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 1506768349,
+            "osm_url": "https://www.openstreetmap.org/node/1506768349",
+            "latitude": 50.111441,
+            "longitude": 8.6780491,
+            "name": "Cafe Karin",
+            "display_name": "Cafe Karin, 28, Großer Hirschgraben, Altstadt, Innenstadt 1, Frankfurt am Main, Hessen, 60311, Deutschland",
+            "category": "amenity",
+            "type": "cafe",
+            "address": {
+              "amenity": "Cafe Karin",
+              "house_number": "28",
+              "road": "Großer Hirschgraben",
+              "suburb": "Altstadt",
+              "city_district": "Innenstadt 1",
+              "city": "Frankfurt am Main",
+              "state": "Hessen",
+              "ISO3166-2-lvl4": "DE-HE",
+              "postcode": "60311",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                8.6780491,
+                50.111441
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/1506768349",
+          "version": "9",
+          "timestamp": "2024-12-13T20:20:57Z",
+          "latitude": 50.111441,
+          "longitude": 8.6780491,
+          "tags": {
+            "addr:city": "Frankfurt am Main",
+            "addr:housenumber": "28",
+            "addr:postcode": "60311",
+            "addr:street": "Großer Hirschgraben",
+            "amenity": "cafe",
+            "diet:vegetarian": "yes",
+            "email": "info@cafekarin.de",
+            "level": "0",
+            "name": "Cafe Karin",
+            "opening_hours": "Mo-Sa 09:00-23:00; Su 10:00-19:00; PH 10:00-19:00",
+            "outdoor_seating": "yes",
+            "phone": "+49 69 295217",
+            "smoking": "no",
+            "toilets:wheelchair": "no",
+            "website": "https://www.cafekarin.de/",
+            "wheelchair": "limited"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 174512162,
+            "osm_url": "https://www.openstreetmap.org/way/174512162",
+            "version": "8",
+            "timestamp": "2026-02-09T15:36:53Z",
+            "tags": {
+              "addr:city": "Frankfurt am Main",
+              "addr:country": "DE",
+              "addr:housenumber": "28",
+              "addr:postcode": "60311",
+              "addr:street": "Großer Hirschgraben",
+              "building": "retail",
+              "building:levels": "4",
+              "roof:levels": "1"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    8.6778749,
+                    50.1113503
+                  ],
+                  [
+                    8.677887,
+                    50.1114093
+                  ],
+                  [
+                    8.6778801,
+                    50.11141
+                  ],
+                  [
+                    8.67789,
+                    50.11145
+                  ],
+                  [
+                    8.6778994,
+                    50.1114953
+                  ],
+                  [
+                    8.678107,
+                    50.1114756
+                  ],
+                  [
+                    8.6780886,
+                    50.1114115
+                  ],
+                  [
+                    8.6780794,
+                    50.1113699
+                  ],
+                  [
+                    8.6779986,
+                    50.1113675
+                  ],
+                  [
+                    8.6779922,
+                    50.1113505
+                  ],
+                  [
+                    8.6779215,
+                    50.1113449
+                  ],
+                  [
+                    8.6778749,
+                    50.1113503
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=8.6774491,50.1110410,8.6786491,50.1118410",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "Enthaltendes Gebäude hat vier Geschosse; keine belegte exklusive Cafénutzung des Grundrisses."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Frankfurt am Main",
+      "name": "naïv Bar & Restaurant",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.naiv.world/bar-restaurant/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Wochenöffnungszeiten und abweichende Öffnung am 08.10.2026; Bottle Shop/Event Location Fahrgasse 8 ist anderer Standort.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.naiv.world/bar-restaurant/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Fahrgasse 4",
+          "postal_code": "60311",
+          "city": "Frankfurt am Main",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Frankfurt am Main",
+      "name": "Gibson Club",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://gibson-club.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Oktober-2026-Veranstaltungen und wöchentliche Cluböffnungszeiten; Beach Club ist anderer saisonaler Standort.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://gibson-club.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Zeil 85–93",
+          "postal_code": "60313",
+          "city": "Frankfurt am Main",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Kiel",
+      "name": "Café LUNA",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.lunacafe.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Cafébetrieb Dienstag bis Sonntag, Frühstück und Torten.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.lunacafe.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Schönberger Straße 6",
+          "postal_code": "24148",
+          "city": "Kiel",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 387442692,
+            "osm_url": "https://www.openstreetmap.org/node/387442692",
+            "latitude": 54.3266227,
+            "longitude": 10.1863051,
+            "name": "Café Luna",
+            "display_name": "Café Luna, 6, Schönberger Straße, Wellingdorf, Kiel, Altenholz, Schleswig-Holstein, 24148, Deutschland",
+            "category": "amenity",
+            "type": "cafe",
+            "address": {
+              "amenity": "Café Luna",
+              "house_number": "6",
+              "road": "Schönberger Straße",
+              "suburb": "Wellingdorf",
+              "city": "Kiel",
+              "municipality": "Altenholz",
+              "state": "Schleswig-Holstein",
+              "ISO3166-2-lvl4": "DE-SH",
+              "postcode": "24148",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                10.1863051,
+                54.3266227
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "address_note": "Nominatim nennt zusätzlich municipality Altenholz; nicht als Venue-Anschrift übernommen. Betreiber und OSM road/house_number/postcode/city verweisen auf Kiel.",
+        "operator_map_links": [
+          "https://www.google.com/maps?q=Sch%C3%B6nberger%20Stra%C3%9Fe%206%2C%2024148%20Kiel&output=embed"
+        ],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/387442692",
+          "version": "13",
+          "timestamp": "2026-09-21T08:43:05Z",
+          "latitude": 54.3266227,
+          "longitude": 10.1863051,
+          "tags": {
+            "amenity": "cafe",
+            "diet:vegan": "no",
+            "diet:vegetarian": "yes",
+            "indoor_seating": "yes",
+            "level": "0",
+            "name": "Café Luna",
+            "opening_hours": "Tu-Su 09:00-18:00",
+            "outdoor_seating": "yes",
+            "payment:cash": "yes",
+            "payment:credit_cards": "no",
+            "payment:girocard": "no",
+            "toilets": "yes",
+            "toilets:wheelchair": "no",
+            "wheelchair": "limited"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 364648809,
+            "osm_url": "https://www.openstreetmap.org/way/364648809",
+            "version": "2",
+            "timestamp": "2023-06-27T17:03:49Z",
+            "tags": {
+              "addr:city": "Kiel",
+              "addr:country": "DE",
+              "addr:housenumber": "6",
+              "addr:postcode": "24148",
+              "addr:street": "Schönberger Straße",
+              "building": "retail"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    10.186261,
+                    54.3267085
+                  ],
+                  [
+                    10.1863557,
+                    54.3267175
+                  ],
+                  [
+                    10.1863717,
+                    54.3266604
+                  ],
+                  [
+                    10.1863849,
+                    54.3266133
+                  ],
+                  [
+                    10.1862903,
+                    54.3266043
+                  ],
+                  [
+                    10.186261,
+                    54.3267085
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=10.1857051,54.3262227,10.1869051,54.3270227",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "OSM-Gebäude trägt dieselbe Anschrift und building=retail. Betreiber nennt Terrasse; deren genaue Flächengrenze ist nicht belegt."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Kiel",
+      "name": "Blauer Engel",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.blauerengel-kiel.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt tägliche Öffnungszeiten, Music-Café/Bar und Tanzveranstaltungen.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.blauerengel-kiel.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Kaistraße 47",
+          "postal_code": "24114",
+          "city": "Kiel",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 983499363,
+            "osm_url": "https://www.openstreetmap.org/node/983499363",
+            "latitude": 54.315511,
+            "longitude": 10.1344687,
+            "name": "Blauer Engel",
+            "display_name": "Blauer Engel, 47, Kaistraße, Vorstadt, Kiel, Altenholz, Schleswig-Holstein, 24114, Deutschland",
+            "category": "amenity",
+            "type": "cafe",
+            "address": {
+              "amenity": "Blauer Engel",
+              "house_number": "47",
+              "road": "Kaistraße",
+              "suburb": "Vorstadt",
+              "city": "Kiel",
+              "municipality": "Altenholz",
+              "state": "Schleswig-Holstein",
+              "ISO3166-2-lvl4": "DE-SH",
+              "postcode": "24114",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                10.1344687,
+                54.315511
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "address_note": "Nominatim nennt zusätzlich municipality Altenholz; nicht als Venue-Anschrift übernommen. Betreiber und OSM road/house_number/postcode/city verweisen auf Kiel.",
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/983499363",
+          "version": "14",
+          "timestamp": "2025-05-11T12:39:24Z",
+          "latitude": 54.315511,
+          "longitude": 10.1344687,
+          "tags": {
+            "addr:city": "Kiel",
+            "addr:country": "DE",
+            "addr:housenumber": "47",
+            "addr:postcode": "24114",
+            "addr:street": "Kaistraße",
+            "air_conditioning": "yes",
+            "amenity": "cafe",
+            "email": "info@blauerengel-kiel.de",
+            "indoor_seating": "yes",
+            "name": "Blauer Engel",
+            "opening_hours": "Mo-Th 10:00-24:00, Fr,Sa 10:00-01:00, Su 10:00-24:00",
+            "outdoor_seating": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "+49 431 8001919",
+            "smoking": "outside",
+            "toilets:wheelchair": "yes",
+            "website": "https://www.blauerengel-kiel.de/",
+            "wheelchair": "yes"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 18922640,
+            "osm_url": "https://www.openstreetmap.org/way/18922640",
+            "version": "12",
+            "timestamp": "2022-10-28T16:56:53Z",
+            "tags": {
+              "addr:city": "Kiel",
+              "addr:country": "DE",
+              "addr:housenumber": "47",
+              "addr:postcode": "24114",
+              "addr:street": "Kaistraße",
+              "building": "retail",
+              "building:levels": "1",
+              "height": "4",
+              "roof:shape": "flat"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    10.1344123,
+                    54.315697
+                  ],
+                  [
+                    10.1343037,
+                    54.3155217
+                  ],
+                  [
+                    10.1346124,
+                    54.3154566
+                  ],
+                  [
+                    10.1347211,
+                    54.3156321
+                  ],
+                  [
+                    10.1346215,
+                    54.3156531
+                  ],
+                  [
+                    10.1346303,
+                    54.3156673
+                  ],
+                  [
+                    10.1345302,
+                    54.3156883
+                  ],
+                  [
+                    10.1345213,
+                    54.315674
+                  ],
+                  [
+                    10.1344123,
+                    54.315697
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=10.1338687,54.3151110,10.1350687,54.3159110",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "OSM-Gebäude ist eingeschossiges retail und trägt dieselbe Anschrift. Die Betreiberseite nennt Außen-/Kai-Nutzung; tatsächliche Außenflächen fehlen."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Kiel",
+      "name": "LUNA Club",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://lunaclub.com/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiberprogramm nennt Clubveranstaltung 17.10.2026.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://lunaclub.com/impressum",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Bergstraße 17a",
+          "postal_code": "24103",
+          "city": "Kiel",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "München",
+      "name": "Schumann’s Tagesbar",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.schumanns.de/de/schumanns-tagesbar.html",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber beschreibt Café-Bar und nennt Wochenöffnungszeiten Montag bis Samstag.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.schumanns.de/de/schumanns-tagesbar.html",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Maffeistraße 6",
+          "postal_code": "80333",
+          "city": "München",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "München",
+      "name": "Schumann’s Bar am Hofgarten",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://schumanns.de/de/schumanns-bar.html",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Wochenöffnungszeiten, Küche und Barbetrieb.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://schumanns.de/de/schumanns-bar.html",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Odeonsplatz 6–7",
+          "postal_code": "80539",
+          "city": "München",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "München",
+      "name": "P1 Club",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.p1-club.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiberprogramm nennt Clubtermin 17.10.2026 und weitere Oktoberveranstaltungen.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.p1-club.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Prinzregentenstraße 1",
+          "postal_code": "80538",
+          "city": "München",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Nürnberg",
+      "name": "Café Bar Wanderer",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.cafe-wanderer.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber beschreibt Café/Bieramt und wiederkehrendes Frühstück; keine datierte Tagesbestätigung.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.cafe-wanderer.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Beim Tiergärtnertor 6",
+          "postal_code": "90403",
+          "city": "Nürnberg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Nürnberg",
+      "name": "Gelbes Haus",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.gelbes-haus.de/anfahrtsbeschreibung/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Cocktailbar und Wochenöffnungszeiten; Büro Klingenhofstraße 51 ist ausdrücklich anderer Standort.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.gelbes-haus.de/anfahrtsbeschreibung/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Johannisstraße 40",
+          "postal_code": "90419",
+          "city": "Nürnberg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 540425328,
+            "osm_url": "https://www.openstreetmap.org/node/540425328",
+            "latitude": 49.4587963,
+            "longitude": 11.0645641,
+            "name": "Gelbes Haus",
+            "display_name": "Gelbes Haus, 40, Johannisstraße, St. Johannis, Altstadt und engere Innenstadt, Nürnberg, Bayern, 90419, Deutschland",
+            "category": "amenity",
+            "type": "bar",
+            "address": {
+              "amenity": "Gelbes Haus",
+              "house_number": "40",
+              "road": "Johannisstraße",
+              "neighbourhood": "St. Johannis",
+              "suburb": "Altstadt und engere Innenstadt",
+              "city": "Nürnberg",
+              "state": "Bayern",
+              "ISO3166-2-lvl4": "DE-BY",
+              "postcode": "90419",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                11.0645641,
+                49.4587963
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/540425328",
+          "version": "16",
+          "timestamp": "2026-07-21T14:58:08Z",
+          "latitude": 49.4587963,
+          "longitude": 11.0645641,
+          "tags": {
+            "addr:city": "Nürnberg",
+            "addr:country": "DE",
+            "addr:housenumber": "40",
+            "addr:postcode": "90419",
+            "addr:street": "Johannisstraße",
+            "amenity": "bar",
+            "brewery": "Grüner",
+            "check_date": "2025-05-04",
+            "check_date:opening_hours": "2026-07-21",
+            "cocktails": "yes",
+            "disused:amenity": "restaurant",
+            "name": "Gelbes Haus",
+            "old_name": "Chesmu",
+            "opening_hours": "We,Th 19:00-24:00; Fr,Sa 19:00-01:00",
+            "outdoor_seating": "yes",
+            "smoking": "outside",
+            "website": "https://www.gelbes-haus.de/",
+            "wheelchair": "no"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 240049002,
+            "osm_url": "https://www.openstreetmap.org/way/240049002",
+            "version": "7",
+            "timestamp": "2022-09-01T20:44:34Z",
+            "tags": {
+              "addr:city": "Nürnberg",
+              "addr:country": "DE",
+              "addr:housenumber": "40",
+              "addr:postcode": "90419",
+              "addr:street": "Johannisstraße",
+              "building": "apartments",
+              "building:levels": "3",
+              "roof:levels": "1"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    11.064472,
+                    49.4588829
+                  ],
+                  [
+                    11.0645528,
+                    49.4588635
+                  ],
+                  [
+                    11.0645754,
+                    49.4589036
+                  ],
+                  [
+                    11.0646771,
+                    49.4588793
+                  ],
+                  [
+                    11.0646416,
+                    49.4588163
+                  ],
+                  [
+                    11.0646568,
+                    49.4588126
+                  ],
+                  [
+                    11.0646184,
+                    49.4587444
+                  ],
+                  [
+                    11.0644497,
+                    49.4587848
+                  ],
+                  [
+                    11.0644413,
+                    49.4587868
+                  ],
+                  [
+                    11.0644312,
+                    49.4587892
+                  ],
+                  [
+                    11.064472,
+                    49.4588829
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=11.0639641,49.4583963,11.0651641,49.4591963",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "Enthaltendes Gebäude ist als apartments mit drei Geschossen kartiert; Barteilfläche nicht belegt."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Nürnberg",
+      "name": "Club Stereo",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://club-stereo.net/konzert/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Adresse vom offiziellen Stadt-Tourismus; Betreiberprogramm nennt Some Sprouts am 17.10.2026 im Club Stereo.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://tourismus.nuernberg.de/geniessen/restaurants/bars-clubs/location/club-stereo/",
+        "source_type": "official_city_tourism",
+        "address": {
+          "street": "Klaragasse 8",
+          "postal_code": "90402",
+          "city": "Nürnberg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 934859617,
+            "osm_url": "https://www.openstreetmap.org/node/934859617",
+            "latitude": 49.4488496,
+            "longitude": 11.0787175,
+            "name": "Club Stereo",
+            "display_name": "Club Stereo, 8, Klaragasse, Altstadt, St. Lorenz, Altstadt und engere Innenstadt, Nürnberg, Bayern, 90402, Deutschland",
+            "category": "amenity",
+            "type": "nightclub",
+            "address": {
+              "amenity": "Club Stereo",
+              "house_number": "8",
+              "road": "Klaragasse",
+              "suburb": "Altstadt, St. Lorenz",
+              "city": "Nürnberg",
+              "state": "Bayern",
+              "ISO3166-2-lvl4": "DE-BY",
+              "postcode": "90402",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                11.0787175,
+                49.4488496
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/934859617",
+          "version": "11",
+          "timestamp": "2026-01-23T10:05:22Z",
+          "latitude": 49.4488496,
+          "longitude": 11.0787175,
+          "tags": {
+            "addr:city": "Nürnberg",
+            "addr:country": "DE",
+            "addr:housenumber": "8",
+            "addr:postcode": "90402",
+            "addr:street": "Klaragasse",
+            "amenity": "nightclub",
+            "email": "info@club-stereo.net",
+            "name": "Club Stereo",
+            "opening_hours": "Th 23:00-05:00; Fr-Sa 22:00-05:00",
+            "smoking": "outside",
+            "website": "https://www.club-stereo.net/",
+            "wheelchair": "no"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 358829967,
+            "osm_url": "https://www.openstreetmap.org/way/358829967",
+            "version": "2",
+            "timestamp": "2015-11-17T20:40:03Z",
+            "tags": {
+              "building": "yes"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    11.0785306,
+                    49.4488197
+                  ],
+                  [
+                    11.0787356,
+                    49.4488455
+                  ],
+                  [
+                    11.0787103,
+                    49.4489521
+                  ],
+                  [
+                    11.0786807,
+                    49.4489508
+                  ],
+                  [
+                    11.0786601,
+                    49.4489494
+                  ],
+                  [
+                    11.0786688,
+                    49.4489097
+                  ],
+                  [
+                    11.0785156,
+                    49.4488923
+                  ],
+                  [
+                    11.0785306,
+                    49.4488197
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=11.0781175,49.4484496,11.0793175,49.4492496",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "Betreiber-FAQ bezeichnet Kellerclub und Treppen; zweidimensionaler Gebäudeumriss allein grenzt den Club nicht ab.",
+        "additional_operator_source": "https://club-stereo.net/faq/"
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Augsburg",
+      "name": "Café Dichtl",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://dichtl.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt aktuelle Wochenöffnungszeiten; Ecke Bahnhofstraße, getrennt vom Kaffeehaus Maximilianstraße 18.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://dichtl.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Schrannenstraße 2",
+          "postal_code": "86150",
+          "city": "Augsburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 824667026,
+            "osm_url": "https://www.openstreetmap.org/node/824667026",
+            "latitude": 48.3660605,
+            "longitude": 10.8909505,
+            "name": "Cafe Dichtl",
+            "display_name": "Cafe Dichtl, 2, Schrannenstraße, Bahnhofsviertel, Bahnhofs- und Bismarckviertel, Innenstadt, Augsburg, Bayern, 86150, Deutschland",
+            "category": "amenity",
+            "type": "cafe",
+            "address": {
+              "amenity": "Cafe Dichtl",
+              "house_number": "2",
+              "road": "Schrannenstraße",
+              "neighbourhood": "Bahnhofsviertel",
+              "suburb": "Innenstadt",
+              "city": "Augsburg",
+              "state": "Bayern",
+              "ISO3166-2-lvl4": "DE-BY",
+              "postcode": "86150",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                10.8909505,
+                48.3660605
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [
+          "https://maps.app.goo.gl/v9SLSzheWN153uNu9",
+          "https://maps.app.goo.gl/f7ssPyYBRHXfPz8u8",
+          "https://maps.google.com/maps?q=Kaffeehaus%20Dichtl%2C%20Maximilianstrasse%2C%20Augsburg&t=m&z=15&output=embed&iwloc=near",
+          "https://maps.google.com/maps?q=Cafe%20Dichtl%2C%20bahnhofstrasse%2C%20Augsburg&t=m&z=15&output=embed&iwloc=near"
+        ],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/824667026",
+          "version": "13",
+          "timestamp": "2025-07-24T16:54:53Z",
+          "latitude": 48.3660605,
+          "longitude": 10.8909505,
+          "tags": {
+            "addr:city": "Augsburg",
+            "addr:country": "DE",
+            "addr:housenumber": "2",
+            "addr:postcode": "86150",
+            "addr:street": "Schrannenstraße",
+            "amenity": "cafe",
+            "check_date": "2025-07-24",
+            "check_date:opening_hours": "2025-07-24",
+            "indoor_seating": "yes",
+            "name": "Cafe Dichtl",
+            "opening_hours": "Mo-Fr 08:30-18:00; Sa 08:30-18:00; Su 09:30-18:00",
+            "outdoor_seating": "no",
+            "phone": "+49 821 525030",
+            "website": "https://www.dichtl.de/",
+            "wheelchair": "limited"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 91155827,
+            "osm_url": "https://www.openstreetmap.org/way/91155827",
+            "version": "4",
+            "timestamp": "2024-02-06T12:50:17Z",
+            "tags": {
+              "addr:city": "Augsburg",
+              "addr:country": "DE",
+              "addr:housenumber": "2",
+              "addr:postcode": "86150",
+              "addr:street": "Schrannenstraße",
+              "building": "retail"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    10.8907829,
+                    48.3660779
+                  ],
+                  [
+                    10.8908257,
+                    48.3660835
+                  ],
+                  [
+                    10.8909756,
+                    48.3661031
+                  ],
+                  [
+                    10.8909934,
+                    48.3661032
+                  ],
+                  [
+                    10.8910096,
+                    48.3660981
+                  ],
+                  [
+                    10.8910204,
+                    48.3660903
+                  ],
+                  [
+                    10.8910248,
+                    48.3660804
+                  ],
+                  [
+                    10.8910129,
+                    48.3659435
+                  ],
+                  [
+                    10.890843,
+                    48.365949
+                  ],
+                  [
+                    10.8908127,
+                    48.3659639
+                  ],
+                  [
+                    10.8907829,
+                    48.3660779
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=10.8903505,48.3656605,10.8915505,48.3664605",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "OSM-Gebäude trägt dieselbe Anschrift und building=retail; vollständige exklusive Cafénutzung des Gebäudegrundrisses nicht belegt."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Augsburg",
+      "name": "Peaches",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.peaches-augsburg.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Cocktailbar, Partykeller und Wochenöffnungszeiten.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.peaches-augsburg.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Maximilianstraße 73",
+          "postal_code": "86150",
+          "city": "Augsburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 713156028,
+            "osm_url": "https://www.openstreetmap.org/node/713156028",
+            "latitude": 48.3644455,
+            "longitude": 10.9000002,
+            "name": "Peaches",
+            "display_name": "Peaches, 73, Maximilianstraße, Innenstadt, St. Ulrich-Dom, Innenstadt, Augsburg, Bayern, 86150, Deutschland",
+            "category": "amenity",
+            "type": "bar",
+            "address": {
+              "amenity": "Peaches",
+              "house_number": "73",
+              "road": "Maximilianstraße",
+              "neighbourhood": "Innenstadt, St. Ulrich-Dom",
+              "suburb": "Innenstadt",
+              "city": "Augsburg",
+              "state": "Bayern",
+              "ISO3166-2-lvl4": "DE-BY",
+              "postcode": "86150",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                10.9000002,
+                48.3644455
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/713156028",
+          "version": "15",
+          "timestamp": "2026-01-10T14:39:04Z",
+          "latitude": 48.3644455,
+          "longitude": 10.9000002,
+          "tags": {
+            "addr:city": "Augsburg",
+            "addr:country": "DE",
+            "addr:housenumber": "73",
+            "addr:postcode": "86150",
+            "addr:street": "Maximilianstraße",
+            "amenity": "bar",
+            "check_date:opening_hours": "2026-01-10",
+            "name": "Peaches",
+            "opening_hours": "19:00+ open, PH 19:00+ open",
+            "phone": "+49821 31 22 58",
+            "website": "https://www.peaches-augsburg.de/",
+            "wheelchair": "no"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 87922370,
+            "osm_url": "https://www.openstreetmap.org/way/87922370",
+            "version": "4",
+            "timestamp": "2023-05-09T18:42:36Z",
+            "tags": {
+              "addr:city": "Augsburg",
+              "addr:country": "DE",
+              "addr:housenumber": "73",
+              "addr:postcode": "86150",
+              "addr:street": "Maximilianstraße",
+              "building": "yes",
+              "building:levels": "3",
+              "height": "13",
+              "roof:height": "5",
+              "roof:levels": "2",
+              "roof:orientation": "across",
+              "roof:shape": "gabled"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    10.9000144,
+                    48.364359
+                  ],
+                  [
+                    10.8999669,
+                    48.3644966
+                  ],
+                  [
+                    10.9001611,
+                    48.3645162
+                  ],
+                  [
+                    10.9002123,
+                    48.3643884
+                  ],
+                  [
+                    10.9000144,
+                    48.364359
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=10.8994002,48.3640455,10.9006002,48.3648455",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "Betreiber unterscheidet obere Bar und Partykeller; OSM-Gebäude hat drei Geschosse. Nutzungsgrenzen nicht belegt."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert."
+      ]
+    },
+    {
+      "city": "Augsburg",
+      "name": "Barfly Club",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.barfly-club.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Clubbetrieb Freitag/Samstag und kommende Halloween-Veranstaltung.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.barfly-club.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Maximilianstraße 56",
+          "postal_code": "86150",
+          "city": "Augsburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Regensburg",
+      "name": "Café Prinzess",
+      "category": "cafe",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://www.cafe-prinzess.de/start.html",
+        "assessment": "current_operation_not_sufficiently_dated",
+        "evidence": "Aktive Betreiber-Kontaktseite belegt Caféanschrift; kein datierter aktueller Betriebstermin belegt.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.cafe-prinzess.de/contact.php",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Rathausplatz 2",
+          "postal_code": "93047",
+          "city": "Regensburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "OSM_NAME_ADDRESS_MATCH_NOT_EXACT_PIN_VERIFIED",
+        "matches": [
+          {
+            "osm_type": "node",
+            "osm_id": 410417809,
+            "osm_url": "https://www.openstreetmap.org/node/410417809",
+            "latitude": 49.0201033,
+            "longitude": 12.0948965,
+            "name": "Café Prinzess",
+            "display_name": "Café Prinzess, 2, Rathausplatz, Altstadt, Regensburg, Bayern, 93047, Deutschland",
+            "category": "amenity",
+            "type": "cafe",
+            "address": {
+              "amenity": "Café Prinzess",
+              "house_number": "2",
+              "road": "Rathausplatz",
+              "suburb": "Altstadt",
+              "city": "Regensburg",
+              "state": "Bayern",
+              "ISO3166-2-lvl4": "DE-BY",
+              "postcode": "93047",
+              "country": "Deutschland",
+              "country_code": "de"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                12.0948965,
+                49.0201033
+              ]
+            },
+            "status": "MATCH_REVIEW_REQUIRED"
+          }
+        ],
+        "operator_map_links": [],
+        "operator_map_note": "Verweise aus Betreiber-HTML; Adress-/Suchlinks sind kein eigenständiger präziser Pinbeleg.",
+        "current_osm_node": {
+          "osm_url": "https://www.openstreetmap.org/node/410417809",
+          "version": "14",
+          "timestamp": "2026-09-21T15:09:17Z",
+          "latitude": 49.0201033,
+          "longitude": 12.0948965,
+          "tags": {
+            "addr:city": "Regensburg",
+            "addr:country": "DE",
+            "addr:housenumber": "2",
+            "addr:postcode": "93047",
+            "addr:street": "Rathausplatz",
+            "amenity": "cafe",
+            "check_date:opening_hours": "2026-09-21",
+            "contact:phone": "+49 941 595310",
+            "contact:website": "http://www.cafe-prinzess.de/",
+            "indoor_seating": "yes",
+            "name": "Café Prinzess",
+            "opening_hours": "Mo-Sa 10:00-18:00; Su 12:00-18:00",
+            "outdoor_seating": "yes",
+            "wheelchair": "no",
+            "wikidata": "Q1025655",
+            "wikipedia": "de:Café Prinzess"
+          }
+        }
+      },
+      "footprint_evidence": {
+        "status": "OSM_CONTAINING_POLYGONS_OBTAINED_NOT_VENUE_VERIFIED",
+        "candidates": [
+          {
+            "osm_type": "way",
+            "osm_id": 111082743,
+            "osm_url": "https://www.openstreetmap.org/way/111082743",
+            "version": "7",
+            "timestamp": "2025-04-30T23:09:47Z",
+            "tags": {
+              "addr:city": "Regensburg",
+              "addr:country": "DE",
+              "addr:housenumber": "2",
+              "addr:postcode": "93047",
+              "addr:street": "Rathausplatz",
+              "building": "apartments",
+              "building:levels": "4",
+              "building:material": "plaster",
+              "roof:levels": "1",
+              "roof:material": "roof_tiles",
+              "roof:shape": "gabled"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    12.0947724,
+                    49.0200848
+                  ],
+                  [
+                    12.0947845,
+                    49.0199995
+                  ],
+                  [
+                    12.0948478,
+                    49.0199988
+                  ],
+                  [
+                    12.0948673,
+                    49.0199994
+                  ],
+                  [
+                    12.0948681,
+                    49.0200491
+                  ],
+                  [
+                    12.0949385,
+                    49.0200495
+                  ],
+                  [
+                    12.0949387,
+                    49.0201117
+                  ],
+                  [
+                    12.0947715,
+                    49.0200978
+                  ],
+                  [
+                    12.0947724,
+                    49.0200848
+                  ]
+                ]
+              ]
+            },
+            "relation_to_pin": "contains_osm_poi",
+            "venue_footprint_verified": false,
+            "assessment": "OSM-Fläche enthält POI. Nutzungsgleichheit, Geschosse und Teilflächen nicht bestätigt."
+          }
+        ],
+        "map_query_url": "https://api.openstreetmap.org/api/0.6/map?bbox=12.0942965,49.0197033,12.0954965,49.0205033",
+        "method_note": "Kleiner OSM-API-Kartenausschnitt; geschlossene Gebäude-/Amenity-Ways auf Punkt-in-Polygon geprüft. Multipolygon-Relationen nicht rekonstruiert. Suchfenster ist kein Radius und wird nicht als Fläche verwendet.",
+        "manual_review_note": "Enthaltendes Gebäude ist als apartments mit vier Geschossen kartiert; Caféteilfläche und aktueller Betrieb nicht abschließend belegt."
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "OSM-POI passt zu Name und belegter Anschrift, exakter Eingang/Pin nicht unabhängig verifiziert.",
+        "Kein ausreichend datierter aktueller Betriebsnachweis."
+      ]
+    },
+    {
+      "city": "Regensburg",
+      "name": "Hemingway’s",
+      "category": "bar",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://hemingways.de/",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiber nennt Café/Bar/Restaurant und Wochenöffnungszeiten.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://hemingways.de/",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Obere Bachgasse 3–5",
+          "postal_code": "93047",
+          "city": "Regensburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    },
+    {
+      "city": "Regensburg",
+      "name": "Alte Mälzerei – Club",
+      "category": "club",
+      "checked_at": "2026-10-17",
+      "eligible": false,
+      "enabled": false,
+      "review_status": "STAGED_DISABLED",
+      "operation_evidence": {
+        "source_url": "https://alte-maelzerei.de/de/prog.php?kat=1",
+        "assessment": "operator_website_indicates_operation",
+        "evidence": "Betreiberprogramm nennt Clubveranstaltungen 23./24.10.2026; mehrere Spielstätten im Gebäude.",
+        "onsite_confirmed": false
+      },
+      "address_evidence": {
+        "source_url": "https://www.alte-maelzerei.de/de/service.php",
+        "source_type": "official_operator",
+        "address": {
+          "street": "Galgenbergstraße 20",
+          "postal_code": "93053",
+          "city": "Regensburg",
+          "country": "DE"
+        }
+      },
+      "pin_evidence": {
+        "status": "not_found",
+        "matches": []
+      },
+      "footprint_evidence": {
+        "status": "NOT_VERIFIED",
+        "candidates": []
+      },
+      "radius_m": null,
+      "blocking_reasons": [
+        "Tatsächliche Venue-Fläche und geeigneter Geofence nicht bestätigt.",
+        "Kein Pin-Kandidat aus der vollständigen Namens-/Adresssuche."
+      ]
+    }
+  ]
+}

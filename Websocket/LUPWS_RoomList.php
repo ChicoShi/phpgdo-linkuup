@@ -24,8 +24,8 @@ class LUPWS_RoomList extends LUPWS_Command
 	{
 		$lat = $msg->readFloat();
 		$lng = $msg->readFloat();
-		$page = $msg->read32u();
-        $perPage = $msg->read32u();
+        $page = max(1, $msg->read32u());
+        $perPage = max(1, min(100, $msg->read32u()));
 
 		if (!Position::isValidLat($lat))
 		{
@@ -38,6 +38,8 @@ class LUPWS_RoomList extends LUPWS_Command
 		}
 
 		$from = ($page-1) * $perPage;
+		// (0,0) is discovery-only; chat entry still validates real GPS.
+		if ($lat === 0.0 && $lng === 0.0) { $lat = $lng = null; }
 		$query = LUP_Room::queryRooms(
 			$lat,
 			$lng,

@@ -1,0 +1,2420 @@
+{
+  "city": "Frankfurt am Main",
+  "city_boundary_source": "https://www.openstreetmap.org/relation/62400",
+  "fetched_at": "2026-10-17T06:25:58.954361+00:00",
+  "osm_base": "2026-07-28T02:16:18Z",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL-1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "status": "discovery_only_not_importable",
+  "available": {
+    "cafe": 519,
+    "bar": 398,
+    "club": 31,
+    "university": 43,
+    "leisure": 441
+  },
+  "entries": [
+    {
+      "source_key": "osm-node-3118018338",
+      "name": "19zehn",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3118018338",
+      "website": "https://www.instagram.com/19zehn",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "1-7",
+        "postcode": "60329",
+        "street": "Düsseldorfer Straße"
+      },
+      "source_point": {
+        "lat": 50.1086536,
+        "lng": 8.661838,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-13865557178",
+      "name": "Amala Café & Bar",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/13865557178",
+      "website": "https://www.amalacafebar-frankfurtammain.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "41-45",
+        "postcode": "60329",
+        "street": "Mainzer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1108424,
+        "lng": 8.6646412,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1844118769",
+      "name": "Amélie's Wohnzimmer",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1844118769",
+      "website": "https://www.amelies-wohnzimmer.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "20",
+        "postcode": "60594",
+        "street": "Affentorplatz"
+      },
+      "source_point": {
+        "lat": 50.1037895,
+        "lng": 8.6892507,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2468030465",
+      "name": "BERGstation",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/2468030465",
+      "website": "https://www.bergstation-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "17",
+        "postcode": "60389",
+        "street": "Propst-Goebels-Weg"
+      },
+      "source_point": {
+        "lat": 50.1426442,
+        "lng": 8.7164091,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-11659957728",
+      "name": "Berger’s Baklava",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/11659957728",
+      "website": "http://www.bergersbaklava.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "49",
+        "postcode": "60316",
+        "street": "Berger Straße"
+      },
+      "source_point": {
+        "lat": 50.1206635,
+        "lng": 8.6962651,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-359365674",
+      "name": "Beyo's Café & Snacks",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/359365674",
+      "website": "https://beyoscafe.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "21",
+        "postcode": "60487",
+        "street": "Königsberger Straße"
+      },
+      "source_point": {
+        "lat": 50.1281575,
+        "lng": 8.6271422,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4036640659",
+      "name": "Bizziice Nordend",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/4036640659",
+      "website": "https://bizzi-ice.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "42",
+        "postcode": "60318",
+        "street": "Koselstraße"
+      },
+      "source_point": {
+        "lat": 50.1232288,
+        "lng": 8.6879821,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1777965860",
+      "name": "Blackberries",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1777965860",
+      "website": "https://www.instagram.com/blackberries_frankfurt/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "7",
+        "postcode": "60327",
+        "street": "Schleusenstraße"
+      },
+      "source_point": {
+        "lat": 50.1020353,
+        "lng": 8.6629376,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3880770957",
+      "name": "Broetchenmacher",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3880770957",
+      "website": "http://www.broetchenmacher-ffm.de/",
+      "address": {
+        "housenumber": "5",
+        "street": "Kirchnerstraße"
+      },
+      "source_point": {
+        "lat": 50.111417,
+        "lng": 8.674786,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3861270451",
+      "name": "Brühmarkt",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/3861270451",
+      "website": "http://www.kaffeewerk-espressionist.de/leipziger-strasse-frankfurt/",
+      "address": {
+        "housenumber": "1",
+        "postcode": "60487",
+        "street": "Leipziger Straße"
+      },
+      "source_point": {
+        "lat": 50.120282,
+        "lng": 8.6495634,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12198588401",
+      "name": "Brühmarkt",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/12198588401",
+      "website": "https://www.kaffeewerk-espressionist.de/gutleutstrasse-frankfurt/",
+      "address": {
+        "housenumber": "5",
+        "street": "Gutleutstraße"
+      },
+      "source_point": {
+        "lat": 50.1078366,
+        "lng": 8.6722952,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-11998366098",
+      "name": "Bunca Roaster",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/11998366098",
+      "website": "https://bunca.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "52",
+        "postcode": "60316",
+        "street": "Berger Straße"
+      },
+      "source_point": {
+        "lat": 50.1204718,
+        "lng": 8.6964261,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-292406544",
+      "name": "Bäckerei und Konditorei Huck",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/292406544",
+      "website": "https://www.baeckerei-huck.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "269",
+        "postcode": "60320",
+        "street": "Eckenheimer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.135963,
+        "lng": 8.6839153,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-411717978",
+      "name": "Cafe Extrablatt",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/411717978",
+      "website": "https://cafe-extrablatt.de/standorte/details/cafe-extrablatt-frankfurt-bockenheim",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "141",
+        "postcode": "60325",
+        "street": "Bockenheimer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1198957,
+        "lng": 8.6504733,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-929816395",
+      "name": "Cafe Extrablatt",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/929816395",
+      "website": "https://cafe-extrablatt.de/standorte/details/cafe-extrablatt-frankfurt-eschenheimer-tor",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "45",
+        "postcode": "60313",
+        "street": "Große Eschenheimer Straße"
+      },
+      "source_point": {
+        "lat": 50.1166691,
+        "lng": 8.6794144,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-6268174045",
+      "name": "Cafe Fahrtor",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/6268174045",
+      "website": "https://cafe-im-historischen-museum.de/cafe-fahrtor/",
+      "address": {
+        "housenumber": "2",
+        "street": "Fahrtor"
+      },
+      "source_point": {
+        "lat": 50.1093163,
+        "lng": 8.6822186,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-7147436207",
+      "name": "Cafe Faleyda",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/7147436207",
+      "website": "https://www.faleyda.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "4",
+        "postcode": "60316",
+        "street": "Merianplatz"
+      },
+      "source_point": {
+        "lat": 50.1207301,
+        "lng": 8.6956507,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1506768349",
+      "name": "Cafe Karin",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1506768349",
+      "website": "https://www.cafekarin.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "28",
+        "postcode": "60311",
+        "street": "Großer Hirschgraben"
+      },
+      "source_point": {
+        "lat": 50.111441,
+        "lng": 8.6780491,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1191578912",
+      "name": "Cafe Kitzel",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1191578912",
+      "website": "https://www.cafekitzel.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "205",
+        "postcode": "65936",
+        "street": "Kurmainzer Straße"
+      },
+      "source_point": {
+        "lat": 50.1173621,
+        "lng": 8.5625222,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2824787959",
+      "name": "Cafe Kling",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/2824787959",
+      "website": "https://www.cafekling.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "126",
+        "postcode": "60599",
+        "street": "Offenbacher Landstraße"
+      },
+      "source_point": {
+        "lat": 50.0997746,
+        "lng": 8.703241,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-292370280",
+      "name": "Cafe Libretto",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/292370280",
+      "website": "https://www.cafe-libretto.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "4",
+        "postcode": "60311",
+        "street": "Hasengasse"
+      },
+      "source_point": {
+        "lat": 50.1132982,
+        "lng": 8.6843893,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-282988956",
+      "name": "Cafe Liebfrauenberg",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/282988956",
+      "website": "http://www.cafe-liebfrauenberg-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "24",
+        "postcode": "60313",
+        "street": "Liebfrauenberg"
+      },
+      "source_point": {
+        "lat": 50.1127398,
+        "lng": 8.6820278,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-11727041966",
+      "name": "Cafe Melange am Dom",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/11727041966",
+      "website": "https://frankfurter-verband.de/begegnungs-und-servicezentren",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "15b",
+        "street": "Braubachstraße"
+      },
+      "source_point": {
+        "lat": 50.1110884,
+        "lng": 8.6842204,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-9599131756",
+      "name": "Cafe Tasse",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/9599131756",
+      "website": "http://www.cafetasse-ffm.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "10",
+        "postcode": "60594",
+        "street": "Wallstraße"
+      },
+      "source_point": {
+        "lat": 50.1050512,
+        "lng": 8.6888882,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1960863361",
+      "name": "Cafe Weidenweber",
+      "city": "Frankfurt am Main",
+      "category_group": "cafe",
+      "source_url": "https://www.openstreetmap.org/node/1960863361",
+      "website": "https://www.weidenweber.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "10",
+        "postcode": "60313",
+        "street": "Große Friedberger Straße"
+      },
+      "source_point": {
+        "lat": 50.1150568,
+        "lng": 8.6865269,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-265561607",
+      "name": "12 Apostel",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/265561607",
+      "website": "https://12aposteln-frankfurt.de/",
+      "address": {
+        "housenumber": "1",
+        "street": "Rosenbergerstraße"
+      },
+      "source_point": {
+        "lat": 50.1173865,
+        "lng": 8.6863497,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-917930424",
+      "name": "4 Corners",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/917930424",
+      "website": "http://www.fourcornerspub.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "10",
+        "postcode": "60313",
+        "street": "Zeil"
+      },
+      "source_point": {
+        "lat": 50.1150394,
+        "lng": 8.6927748,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2717946015",
+      "name": "Alte Liebe",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/2717946015",
+      "website": "https://www.alteliebe-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "23",
+        "postcode": "60594",
+        "street": "Darmstädter Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1019825,
+        "lng": 8.6911927,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-6268173856",
+      "name": "Atmo",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/6268173856",
+      "website": "https://www.instagram.com/atmo_ffm/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "12",
+        "postcode": "60311",
+        "street": "Markt"
+      },
+      "source_point": {
+        "lat": 50.1108284,
+        "lng": 8.6841899,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4004775093",
+      "name": "Barhundert",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/4004775093",
+      "website": "https://www.barhundert.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "34",
+        "postcode": "60313",
+        "street": "Stiftstraße"
+      },
+      "source_point": {
+        "lat": 50.1166145,
+        "lng": 8.6805673,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1130954517",
+      "name": "Bernemer Fass",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1130954517",
+      "website": "https://www.bernemer-fass.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "23",
+        "postcode": "60385",
+        "street": "Ringelstraße"
+      },
+      "source_point": {
+        "lat": 50.124107,
+        "lng": 8.709363,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-269595656",
+      "name": "Bootshaus YACHTKLUB",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/269595656",
+      "website": "http://www.yachtklub.org",
+      "address": {
+        "city": "Frankfurt am Main",
+        "postcode": "60594",
+        "street": "Deutschherrnufer"
+      },
+      "source_point": {
+        "lat": 50.1075606,
+        "lng": 8.6890021,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3770449161",
+      "name": "Bristol Bar",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/3770449161",
+      "website": "http://www.bristol-bar.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "15",
+        "postcode": "60327",
+        "street": "Ludwigstraße"
+      },
+      "source_point": {
+        "lat": 50.1078169,
+        "lng": 8.6585477,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1598422041",
+      "name": "Bull and Bear",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1598422041",
+      "website": "https://bullandbear.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "11",
+        "postcode": "60313",
+        "street": "Schillerstraße"
+      },
+      "source_point": {
+        "lat": 50.1150426,
+        "lng": 8.6783778,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-9706585643",
+      "name": "Café Platane",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/9706585643",
+      "website": "https://cafe-platane.business.site/",
+      "address": {
+        "housenumber": "407B",
+        "street": "Homburger Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1662874,
+        "lng": 8.6793837,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-924249530",
+      "name": "Central Park Corner",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/924249530",
+      "website": "https://www.centralparkcorner.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "52",
+        "postcode": "60313",
+        "street": "Große Bockenheimer Straße"
+      },
+      "source_point": {
+        "lat": 50.114909,
+        "lng": 8.6736328,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2724277149",
+      "name": "Chaplin Bar & Lounge",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/2724277149",
+      "website": "https://www.chaplinbar-frankfurt.com",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "247",
+        "postcode": "60385",
+        "street": "Berger Straße"
+      },
+      "source_point": {
+        "lat": 50.1283455,
+        "lng": 8.7105758,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-631931158",
+      "name": "Chinaski Club",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/631931158",
+      "website": "https://chinaskiclub.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "3",
+        "postcode": "60325",
+        "street": "Bockenheimer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1152741,
+        "lng": 8.6702344,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2683677764",
+      "name": "Daheim bei den drei Steubern",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/2683677764",
+      "website": "https://www.drei-steubern.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "28",
+        "postcode": "60594",
+        "street": "Dreieichstraße"
+      },
+      "source_point": {
+        "lat": 50.1051686,
+        "lng": 8.6918876,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1432001286",
+      "name": "Diamond Lounge",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1432001286",
+      "website": "https://diamond-lounge-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "412",
+        "postcode": "60326",
+        "street": "Mainzer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.101182,
+        "lng": 8.62251,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1581300018",
+      "name": "Die Weinbar",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1581300018",
+      "website": "http://www.die-weinbar-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "51",
+        "postcode": "60318",
+        "street": "Jahnstraße"
+      },
+      "source_point": {
+        "lat": 50.1202068,
+        "lng": 8.6803005,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1347678361",
+      "name": "Dreikönigskeller",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1347678361",
+      "website": "https://www.dreikoenigskeller.eu/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "71",
+        "postcode": "60594",
+        "street": "Färberstraße"
+      },
+      "source_point": {
+        "lat": 50.1070314,
+        "lng": 8.6840648,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1426828318",
+      "name": "Déjà Vu - Shisha Lounge",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/1426828318",
+      "website": "http://dejavu-lounge.de",
+      "address": {
+        "housenumber": "10",
+        "postcode": "60311",
+        "street": "Mainkai"
+      },
+      "source_point": {
+        "lat": 50.1096129,
+        "lng": 8.686193,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2531071495",
+      "name": "Feinstaub",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/2531071495",
+      "website": "https://feinstaub.rocks/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "131",
+        "postcode": "60318",
+        "street": "Friedberger Landstraße"
+      },
+      "source_point": {
+        "lat": 50.128024,
+        "lng": 8.6919569,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-315864572",
+      "name": "Gaststätte Moseleck",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/315864572",
+      "website": "http://www.moseleck-ffm.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "21",
+        "postcode": "60329",
+        "street": "Moselstraße"
+      },
+      "source_point": {
+        "lat": 50.1071398,
+        "lng": 8.6675903,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2826635940",
+      "name": "Gleis 9 3/4",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/2826635940",
+      "website": "http://www.gleis9-dreiviertel.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "239",
+        "postcode": "65934",
+        "street": "Denisweg",
+        "suburb": "Nied"
+      },
+      "source_point": {
+        "lat": 50.1050114,
+        "lng": 8.5864798,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12066743024",
+      "name": "Gregor's Boutique Vinothek",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/12066743024",
+      "website": "https://gregors-wein.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "47",
+        "postcode": "60325",
+        "street": "Bockenheimer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1171988,
+        "lng": 8.6648271,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-767452686",
+      "name": "Gute Stute",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/767452686",
+      "website": "https://gute-stute.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "42",
+        "postcode": "60327",
+        "street": "Kölner Straße"
+      },
+      "source_point": {
+        "lat": 50.1075547,
+        "lng": 8.6483741,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-175084527",
+      "name": "Hausbar",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/way/175084527",
+      "website": "http://hausbar-ffm.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "1a",
+        "postcode": "60313",
+        "street": "Zeil"
+      },
+      "source_point": {
+        "lat": 50.1153128,
+        "lng": 8.6945963,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-5071289401",
+      "name": "Hunky Dory Bar",
+      "city": "Frankfurt am Main",
+      "category_group": "bar",
+      "source_url": "https://www.openstreetmap.org/node/5071289401",
+      "website": "https://www.hunkydorybar.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "10",
+        "postcode": "60329",
+        "street": "Baseler Straße"
+      },
+      "source_point": {
+        "lat": 50.1038745,
+        "lng": 8.6655671,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2621372244",
+      "name": "Batschkapp Frankfurter Kulturzentrum e.V.",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/2621372244",
+      "website": "https://batschkapp.net/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "5",
+        "postcode": "60388",
+        "street": "Gwinnerstraße"
+      },
+      "source_point": {
+        "lat": 50.1350602,
+        "lng": 8.7388046,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1776709600",
+      "name": "Das Bett",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/1776709600",
+      "website": "https://bett-club.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "12",
+        "postcode": "60326",
+        "street": "Schmidtstraße"
+      },
+      "source_point": {
+        "lat": 50.1036882,
+        "lng": 8.618509,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-10100697417",
+      "name": "Elferclub",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/10100697417",
+      "website": "https://elferclub.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "14-20",
+        "postcode": "60594",
+        "street": "Kleine Rittergasse"
+      },
+      "source_point": {
+        "lat": 50.1056737,
+        "lng": 8.6901823,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-13671960201",
+      "name": "Flinch Club",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/13671960201",
+      "website": "https://flinsch-club.de/",
+      "address": {
+        "housenumber": "2-4",
+        "postcode": "60388",
+        "street": "Flinschstraße"
+      },
+      "source_point": {
+        "lat": 50.1334403,
+        "lng": 8.7376137,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4233671530",
+      "name": "Gibson",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/4233671530",
+      "website": "https://www.gibson-club.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "85-93",
+        "postcode": "60313",
+        "street": "Zeil"
+      },
+      "source_point": {
+        "lat": 50.1141532,
+        "lng": 8.6822058,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-921136740",
+      "name": "Jazzkeller",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/921136740",
+      "website": "https://jazzkeller.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "18a",
+        "postcode": "60313",
+        "street": "Kleine Bockenheimer Straße"
+      },
+      "source_point": {
+        "lat": 50.1143654,
+        "lng": 8.6737357,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4045825089",
+      "name": "Nachtleben (Club)",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/4045825089",
+      "website": "https://batschkapp.tickets.de/de/customer/blogs/index/2-Nachtleben_Partys",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "45",
+        "postcode": "60313",
+        "street": "Kurt-Schumacher-Straße"
+      },
+      "source_point": {
+        "lat": 50.1140812,
+        "lng": 8.6875129,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3051044140",
+      "name": "PRACHT",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/3051044140",
+      "website": "https://pracht.club",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "54",
+        "postcode": "60329",
+        "street": "Niddastraße"
+      },
+      "source_point": {
+        "lat": 50.1095172,
+        "lng": 8.6635337,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-5437228111",
+      "name": "Pik Dame",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/5437228111",
+      "website": "https://www.pikdamefrankfurt.com/pik",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "31",
+        "postcode": "60329",
+        "street": "Elbestraße"
+      },
+      "source_point": {
+        "lat": 50.1089325,
+        "lng": 8.6672558,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4856249092",
+      "name": "Ponyhof",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/4856249092",
+      "website": "https://ponyhof-club.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "16",
+        "postcode": "60594",
+        "street": "Klappergasse"
+      },
+      "source_point": {
+        "lat": 50.105273,
+        "lng": 8.6910927,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-918407798",
+      "name": "Silbergold",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/918407798",
+      "website": "https://www.silbergold-club.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "22",
+        "postcode": "60313",
+        "street": "Heiligkreuzgasse"
+      },
+      "source_point": {
+        "lat": 50.1154718,
+        "lng": 8.6912459,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1384063934",
+      "name": "Tanzhaus West",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/1384063934",
+      "website": "http://tanzhaus-west.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "294",
+        "postcode": "60327",
+        "street": "Gutleutstraße"
+      },
+      "source_point": {
+        "lat": 50.0980299,
+        "lng": 8.6464044,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3945866846",
+      "name": "The Cave",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/3945866846",
+      "website": "http://the-cave.rocks",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "11",
+        "postcode": "60313",
+        "street": "Brönnerstraße"
+      },
+      "source_point": {
+        "lat": 50.1157457,
+        "lng": 8.6831255,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-9445008684",
+      "name": "Zoom",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/9445008684",
+      "website": "https://www.zoomfrankfurt.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "21",
+        "postcode": "60386",
+        "street": "Carl-Benz-Straße"
+      },
+      "source_point": {
+        "lat": 50.1217355,
+        "lng": 8.7506613,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2150096913",
+      "name": "AdLib",
+      "city": "Frankfurt am Main",
+      "category_group": "club",
+      "source_url": "https://www.openstreetmap.org/node/2150096913",
+      "website": "https://www.adlib-ffm.de/",
+      "address": {},
+      "source_point": {
+        "lat": 50.1135091,
+        "lng": 8.7200129,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-604859632",
+      "name": "Fernuniversität in Hagen - Regionalzentrum Frankfurt am Main",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/604859632",
+      "website": "https://www.fernuni-hagen.de/frankfurt",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "16",
+        "postcode": "60594",
+        "street": "Walther-von-Cronberg-Platz"
+      },
+      "source_point": {
+        "lat": 50.1051539,
+        "lng": 8.6953988,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-370617727",
+      "name": "Frankfurt School of Finance & Management",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/370617727",
+      "website": "https://www.frankfurt-school.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "32-34",
+        "postcode": "60322",
+        "street": "Adickesallee"
+      },
+      "source_point": {
+        "lat": 50.132898,
+        "lng": 8.6802157,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-4824694",
+      "name": "Frankfurt University of Applied Sciences",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/4824694",
+      "website": "https://www.frankfurt-university.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "1",
+        "postcode": "60318",
+        "street": "Nibelungenplatz"
+      },
+      "source_point": {
+        "lat": 50.1305883,
+        "lng": 8.692494,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-1285913759",
+      "name": "Frankfurt University of Applied Sciences / Hungener Straße 6",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/1285913759",
+      "website": "https://www.frankfurt-university.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "6",
+        "postcode": "60389",
+        "street": "Hungener Straße"
+      },
+      "source_point": {
+        "lat": 50.1332136,
+        "lng": 8.6974683,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-203136766",
+      "name": "Frankfurter Schule für Bekleidung und Mode (Außenstelle)",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/203136766",
+      "website": "http://www.modeschule.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "55",
+        "postcode": "65929",
+        "street": "Peter-Bied-Straße"
+      },
+      "source_point": {
+        "lat": 50.1038791,
+        "lng": 8.5352577,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-6200972105",
+      "name": "Gleichstellungsbüro der Goethe-Universität",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/6200972105",
+      "website": "https://www.gleichstellung.uni-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "122-123",
+        "postcode": "60322",
+        "street": "Eschersheimer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1267579,
+        "lng": 8.6733032,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-1087642390",
+      "name": "Hochschule für Musik und Darstellende Kunst",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/1087642390",
+      "website": "https://www.hfmdk-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "29-39",
+        "postcode": "60322",
+        "street": "Eschersheimer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1200876,
+        "lng": 8.6760295,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-4396207359",
+      "name": "Joint Robotics Lab / Bembelbots",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/4396207359",
+      "website": "http://bembelbots.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "8",
+        "postcode": "60325",
+        "street": "Robert-Mayer-Straße"
+      },
+      "source_point": {
+        "lat": 50.1170071,
+        "lng": 8.6502752,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-773858779",
+      "name": "Volkshochschule",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/way/773858779",
+      "website": "https://vhs.frankfurt.de/de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "7",
+        "postcode": "60439",
+        "street": "Tituscorso"
+      },
+      "source_point": {
+        "lat": 50.1575168,
+        "lng": 8.6348216,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-11577715243",
+      "name": "hebis Hessisches Bibliotheksinformationssystem",
+      "city": "Frankfurt am Main",
+      "category_group": "university",
+      "source_url": "https://www.openstreetmap.org/node/11577715243",
+      "website": "https://www.hebis.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "155-157",
+        "postcode": "60323",
+        "street": "Eschersheimer Landstraße"
+      },
+      "source_point": {
+        "lat": 50.130134,
+        "lng": 8.6719127,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-12245796003",
+      "name": "Archäologisches Museum",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/12245796003",
+      "website": "https://www.archaeologisches-museum.frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "1",
+        "postcode": "60311",
+        "street": "Karmelitergasse"
+      },
+      "source_point": {
+        "lat": 50.1090671,
+        "lng": 8.6781731,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-843464889",
+      "name": "Art Foyer, DZ BANK [Kunstsammlung]",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/843464889",
+      "website": "https://kunststiftungdzbank.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "postcode": "60325",
+        "street": "Friedrich-Ebert-Anlage"
+      },
+      "source_point": {
+        "lat": 50.1102249,
+        "lng": 8.6595096,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-13672608801",
+      "name": "Art of Boxing",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/13672608801",
+      "website": "https://artofboxing.de/",
+      "address": {
+        "housenumber": "20",
+        "postcode": "60433",
+        "street": "August-Schanz-Straße"
+      },
+      "source_point": {
+        "lat": 50.1629229,
+        "lng": 8.6884634,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-10584621183",
+      "name": "Astor Film Lounge",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/10584621183",
+      "website": "https://frankfurt.premiumkino.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "106",
+        "postcode": "60313",
+        "street": "Zeil"
+      },
+      "source_point": {
+        "lat": 50.1147361,
+        "lng": 8.6817929,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-2671107504",
+      "name": "Bibelhaus Erlebnis Museum",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/2671107504",
+      "website": "https://www.bibelhaus-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "19",
+        "postcode": "60594",
+        "street": "Metzlerstraße"
+      },
+      "source_point": {
+        "lat": 50.1053632,
+        "lng": 8.6816492,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-6113413213",
+      "name": "Bildungsstätte Anne Frank",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/6113413213",
+      "website": "https://bs-anne-frank.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "150",
+        "postcode": "60320",
+        "street": "Hansaallee"
+      },
+      "source_point": {
+        "lat": 50.136445,
+        "lng": 8.6687167,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-28299711",
+      "name": "Boulderwelt Frankfurt",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/28299711",
+      "website": "https://boulderwelt-frankfurt.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "50",
+        "postcode": "60433",
+        "street": "August-Schanz-Straße"
+      },
+      "source_point": {
+        "lat": 50.1641452,
+        "lng": 8.6847962,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3481216519",
+      "name": "CINÉMA Kino",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/3481216519",
+      "website": "https://www.arthouse-kinos.de/die-kinos/cinema/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "7",
+        "postcode": "60311",
+        "street": "Roßmarkt"
+      },
+      "source_point": {
+        "lat": 50.1126386,
+        "lng": 8.6784894,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1851762708",
+      "name": "Caricatura",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/1851762708",
+      "website": "https://www.caricatura-museum.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "17",
+        "postcode": "60311",
+        "street": "Weckmarkt"
+      },
+      "source_point": {
+        "lat": 50.1101269,
+        "lng": 8.6852614,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-56419112",
+      "name": "Cinestar Metropolis",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/56419112",
+      "website": "https://www.cinestar.de/kino-frankfurt-main-metropolis/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "40",
+        "postcode": "60318",
+        "street": "Eschenheimer Anlage"
+      },
+      "source_point": {
+        "lat": 50.1183153,
+        "lng": 8.6792933,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-13686823901",
+      "name": "City of Wow",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/13686823901",
+      "website": "https://cityofwow.com/",
+      "address": {
+        "housenumber": "324",
+        "street": "Gutleutstraße"
+      },
+      "source_point": {
+        "lat": 50.0966353,
+        "lng": 8.6419567,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-203468116",
+      "name": "DAV Kletterzentrum Frankfurt Main",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/203468116",
+      "website": "https://www.kletterzentrum-frankfurtmain.de/start/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housename": "DAV Kletterhalle",
+        "housenumber": "283",
+        "postcode": "60433",
+        "street": "Homburger Landstraße"
+      },
+      "source_point": {
+        "lat": 50.1599005,
+        "lng": 8.6861819,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-11206320821",
+      "name": "Deutsche Börse Visitors Center",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/11206320821",
+      "website": "https://www.boerse-frankfurt.de/besuch",
+      "address": {
+        "housenumber": "4",
+        "street": "Börsenplatz"
+      },
+      "source_point": {
+        "lat": 50.11512,
+        "lng": 8.6779373,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-385171326",
+      "name": "Deutsches Architekturmuseum",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/385171326",
+      "website": "https://dam-online.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "43",
+        "postcode": "60596",
+        "street": "Schaumainkai"
+      },
+      "source_point": {
+        "lat": 50.104975,
+        "lng": 8.6773143,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-385171325",
+      "name": "Deutsches Filmmuseum",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/385171325",
+      "website": "https://deutsches-filminstitut.de/filmmuseum/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "41",
+        "postcode": "60596",
+        "street": "Schaumainkai"
+      },
+      "source_point": {
+        "lat": 50.1050639,
+        "lng": 8.6776864,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-3891320264",
+      "name": "Deutsches Museum für Kochkunst und Tafelkultur",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/3891320264",
+      "website": "https://www.tafelkultur.com/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "4",
+        "postcode": "60313",
+        "street": "Holzgraben"
+      },
+      "source_point": {
+        "lat": 50.1141417,
+        "lng": 8.68301,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-7448608926",
+      "name": "Dommuseum",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/7448608926",
+      "website": "https://dommuseum-frankfurt.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "1",
+        "postcode": "60311",
+        "street": "Domplatz"
+      },
+      "source_point": {
+        "lat": 50.1108412,
+        "lng": 8.6850443,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-114980175",
+      "name": "Dynochrom",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/114980175",
+      "website": "https://www.dynochrom.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "45",
+        "postcode": "60388",
+        "street": "Flinschstraße"
+      },
+      "source_point": {
+        "lat": 50.1367878,
+        "lng": 8.7327149,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-620133302",
+      "name": "Eco-Kart",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/620133302",
+      "website": "https://www.eco-kart.de",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "31a",
+        "postcode": "60433",
+        "street": "August-Schanz-Straße"
+      },
+      "source_point": {
+        "lat": 50.1625647,
+        "lng": 8.6859065,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-1591630307",
+      "name": "Ehemaliges Polizeigefängnis Klapperfeld",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/1591630307",
+      "website": "https://www.klapperfeld.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "5",
+        "postcode": "60313",
+        "street": "Klapperfeldstraße"
+      },
+      "source_point": {
+        "lat": 50.1154292,
+        "lng": 8.68971,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-5673390196",
+      "name": "Eintracht Frankfurt Museum",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/5673390196",
+      "website": "https://www.eintracht-frankfurt-museum.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "362",
+        "postcode": "60528",
+        "street": "Mörfelder Landstraße"
+      },
+      "source_point": {
+        "lat": 50.0689465,
+        "lng": 8.6467482,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-305152195",
+      "name": "Eisenbahner-Sportverein Blau-Gold e.V.",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/305152195",
+      "website": "https://esv-frankfurt.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "5",
+        "postcode": "60528",
+        "street": "Am Oberforsthaus"
+      },
+      "source_point": {
+        "lat": 50.0755936,
+        "lng": 8.6576403,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-node-264151436",
+      "name": "Eldorado",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/node/264151436",
+      "website": "https://www.arthouse-kinos.de/die-kinos/eldorado",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "29",
+        "postcode": "60313",
+        "street": "Schäfergasse"
+      },
+      "source_point": {
+        "lat": 50.1169637,
+        "lng": 8.6853038,
+        "method": "osm_node"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-102008879",
+      "name": "Ernst-May-Haus",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/102008879",
+      "website": "https://ernst-may-gesellschaft.de/mayhaus.html",
+      "address": {
+        "city": "Frankfurt am Main",
+        "country": "DE",
+        "housenumber": "136",
+        "postcode": "60439",
+        "street": "Im Burgfeld"
+      },
+      "source_point": {
+        "lat": 50.1515767,
+        "lng": 8.6309751,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    },
+    {
+      "source_key": "osm-way-53178879",
+      "name": "Feldbahnmuseum Frankfurt",
+      "city": "Frankfurt am Main",
+      "category_group": "leisure",
+      "source_url": "https://www.openstreetmap.org/way/53178879",
+      "website": "https://www.feldbahn-ffm.de/",
+      "address": {
+        "city": "Frankfurt am Main",
+        "housenumber": "15f",
+        "postcode": "60486",
+        "street": "Am Römerhof"
+      },
+      "source_point": {
+        "lat": 50.1069085,
+        "lng": 8.6119406,
+        "method": "bbox_center_not_verified_pin"
+      },
+      "status": "candidate_not_importable",
+      "operation_verified": false,
+      "pin_verified": false,
+      "chat_boundary": null,
+      "chat_radius_km": null
+    }
+  ]
+}
