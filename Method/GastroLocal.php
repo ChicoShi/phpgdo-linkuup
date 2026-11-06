@@ -1,0 +1,80 @@
+<?php
+declare(strict_types=1);
+namespace GDO\LinkUUp\Method;
+use GDO\Core\GDT;
+use GDO\Core\GDT_JSON;
+use GDO\Core\GDT_Object;
+use GDO\Core\MethodAjax;
+use GDO\LinkUUp\LUP_Room;
+use GDO\LinkUUp\Commerce\Ordering;
+use GDO\LinkUUp\Commerce\TestWallet;
+use GDO\Session\GDO_Session;
+use GDO\User\GDO_User;
+
+/** Authenticated localhost pilot. No payment provider and no production deployment. */
+final class GastroLocal extends MethodAjax
+{
+    public function gdoParameters(): array { return [GDT_Object::make('room')->table(LUP_Room::table())->notNull()]; }
+    public function hasPermission(GDO_User $user, string &$error, array &$args): bool
+    {
+        $allowed=in_array($_SERVER['REMOTE_ADDR']??'', ['127.0.0.1','::1'],true)
+            && ($_SERVER['HTTP_HOST']??'')==='app.localhost'
+            && in_array($_SERVER['HTTP_ORIGIN']??'', ['', 'http://app.localhost'],true) && $user->isMember()
+            && GDO_Session::instance() && $this->gdoParameterValue('room');
+        if (!$allowed) $error='err_not_allowed';
+        return (bool)$allowed;
+    }
+    public function execute(): GDT
+    {
+        header('Cache-Control: no-store');
+        try {
+            $user=GDO_User::current();$room=LUP_Room::table()->getById($this->gdoParameterValue('room')->getID());
+            if (!$room || !$user->isMember()) throw new \RuntimeException('Anmeldung erforderlich');
+            $uid=(string)$user->getID();$rid=(string)$room->getID();
+            if (!ctype_digit($rid)) throw new \RuntimeException('Ungültige Location');
+            $owner=(string)$room->getOwnerID();$manage=$room->isOwner($user);
+            $token=GDO_Session::get('gastro_local_csrf');
+            if (!is_string($token) || strlen($token)!==64) { $token=bin2hex(random_bytes(32));GDO_Session::set('gastro_local_csrf',$token); }
+            $method=$_SERVER['REQUEST_METHOD']??'GET';$r=[];
+            if($method==='POST') {
+                if(($_SERVER['HTTP_ORIGIN']??'')!=='http://app.localhost' || (int)($_SERVER['CONTENT_LENGTH']??0)>200000) throw new \RuntimeException('Ungültige Anfrage');
+                $body=file_get_contents('php://input',false,null,0,200001);
+                if($body===false || strlen($body)>200000)throw new \RuntimeException('Anfrage zu groß');
+                $r=json_decode($body,true,32,JSON_THROW_ON_ERROR);
+                if(!is_array($r))throw new \RuntimeException('Ungültige Anfrage');
+            } elseif($method!=='GET')throw new \RuntimeException('Methode nicht erlaubt');
+            $action=$r['action']??'state';
+            $inactive=$room->isDisabled() || $room->gdoValue('room_deleted')!==null;
+            if($inactive && ($action==='place' || ($action==='publication' && ($r['enabled']??false))))throw new \RuntimeException('Location ist nicht verfügbar');
+            if($action!=='state' && ($method!=='POST'||!hash_equals($token,(string)($_SERVER['HTTP_X_GASTRO_CSRF']??''))))throw new \RuntimeException('Sitzung abgelaufen. Bitte neu öffnen.');
+            if(in_array($action,['save-menu','save-tables','publication','transition'],true)&&!$manage)throw new \RuntimeException('Keine Berechtigung für diese Location');
+            $dir='/var/lib/linkuup-gastro-local';
+            if(!is_dir($dir)&&!mkdir($dir,0700,true))throw new \RuntimeException('Lokaler Speicher nicht verfügbar');
+            $path=$dir.'/pilot-v2.json';$h=fopen($dir.'/pilot-v2.lock','c+');if(!$h||!flock($h,LOCK_EX))throw new \RuntimeException('Speicher gesperrt');
+            chmod($dir.'/pilot-v2.lock',0600);
+            try {
+                $raw=is_file($path)?file_get_contents($path):'';
+                $store=$raw?json_decode($raw,true,32,JSON_THROW_ON_ERROR):['rooms'=>[],'ledger'=>[]];
+                $store['rooms'][$rid] ??= ['venue'=>['id'=>$rid,'name'=>$room->getName(),'owner'=>$owner],'revision'=>1,'menu'=>[],'orders'=>[],'tableCount'=>20,'menuReady'=>false,'tablesReady'=>false,'orderingEnabled'=>false];
+                $s=&$store['rooms'][$rid];
+                // Authority is always resolved from GDO, never from browser or old persisted owner.
+                $s['venue']=['id'=>$rid,'name'=>$room->getName(),'owner'=>$owner];
+                if(in_array($action,['save-menu','save-tables','publication'],true)&&($r['revision']??null)!==$s['revision'])throw new \RuntimeException('Stand geändert. Bitte aktualisieren.');
+                $result=[];
+                switch($action) {
+                    case 'state':$result=$s;$result['wallet']=TestWallet::summary($store['ledger'],$uid);$result['orders']=array_values(array_filter($s['orders'],fn($o)=>$o['venue']===$rid&&($manage||$o['guest']===$uid)));unset($result['venue']['owner']);$result['canManage']=$manage;$result['csrf']=$token;$result['localPilot']=true;if($inactive)$result['orderingEnabled']=false;if(!$manage&&!$result['orderingEnabled'])$result['menu']=[];break;
+                    case 'save-menu':$s['menu']=Ordering::menu($r['rows']??[]);$s['menuReady']=true;if(!array_filter($s['menu'],fn($i)=>$i['available']))$s['orderingEnabled']=false;$s['revision']++;break;
+                    case 'save-tables':if(!is_int($r['count']??null))throw new \RuntimeException('Ganzzahl erforderlich');Ordering::tables($s,$uid,$r['count']);$s['revision']++;break;
+                    case 'publication':if(!is_bool($r['enabled']??null))throw new \RuntimeException('Freigabe fehlt');Ordering::publication($s,$uid,$r['enabled']);$s['revision']++;break;
+                    case 'topup-test':if(!is_int($r['cents']??null))throw new \RuntimeException('Betrag erforderlich');$result=TestWallet::topup($store['ledger'],$uid,$r['cents'],(string)($r['key']??''));break;
+                    case 'place':$before=count($s['orders']);$result=Ordering::place($s,$uid,$r);$new=count($s['orders'])>$before;if($new||($result['walletFunded']??false)){TestWallet::reserve($store['ledger'],$uid,$rid.':'.$result['id'],$result['totalCents']);if($new){$s['orders'][$before]['walletFunded']=true;$result['walletFunded']=true;}}break;
+                    case 'transition':$result=Ordering::transition($s,$uid,(string)($r['id']??''),(string)($r['target']??''));$settlement=['delivered'=>'captured','cancelled'=>'released','refunded'=>'refunded'][$result['status']]??null;if($settlement)TestWallet::settle($store['ledger'],$result['guest'],$rid.':'.$result['id'],$settlement);break;
+                    case 'message':Ordering::message($s,$uid,(string)($r['id']??''),(string)($r['text']??''));break;
+                    default:throw new \RuntimeException('Aktion nicht verfügbar');
+                }
+                if($action!=='state') { $json=json_encode($store,JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE);$tmp=tempnam($dir,'write-');try{chmod($tmp,0600);if(file_put_contents($tmp,$json)!==strlen($json)||!rename($tmp,$path))throw new \RuntimeException('Speichern fehlgeschlagen');}finally{if(is_file($tmp))unlink($tmp);} }
+            } finally {flock($h,LOCK_UN);fclose($h);}
+            return GDT_JSON::make()->value($result);
+        } catch(\Throwable $e) {http_response_code(400);return GDT_JSON::make()->value(['error'=>$e instanceof \RuntimeException||$e instanceof \InvalidArgumentException?$e->getMessage():'Anfrage konnte nicht verarbeitet werden']);}
+    }
+}
