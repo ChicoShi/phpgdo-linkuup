@@ -88,3 +88,16 @@ Weiterhin konkrete PR-/Produktgrenzen:
   Quelle: https://docs.stripe.com/connect/marketplace
 - Rechteprüfung bei jeder Anfrage, standardmäßig verweigern und Ressourcenbezug prüfen:
   https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+
+## Explizite Pilotfreigabe (default-off)
+Die GDO-Route ist ohne die serverseitige boolesche Konstante
+`GDO_LINKUUP_GASTRO_LOCAL_PILOT === true` gesperrt, auch bei direktem execute-Aufruf.
+Testaufladungen benötigen zusätzlich `GDO_LINKUUP_GASTRO_TEST_TOPUP === true`.
+Beide Freigaben sind standardmäßig aus; weder HTTP-Header noch UI-Parameter
+aktivieren sie. Keine Aktivierung durch diesen PR oder den Installer.
+Nur in einer **separaten, isolierten Testinstallation** konfigurieren. Niemals im
+öffentlich erreichbaren Backend einschalten. Dessen Proxy muss die Pilotroute
+zusätzlich am Eingang sperren; Host/Origin/Loopback sind keine Authentifizierung
+des Netzwerkursprungs. Eine reale Proxy-Konfiguration wurde hier nicht freigegeben.
+Die früheren HTTP-Rollentests liefen vor diesem zusätzlichen Gate; sie belegen
+keinen aktuellen aktivierten Gesamtablauf. DB-/Session-Rennen bleiben offen.

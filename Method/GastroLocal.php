@@ -17,6 +17,15 @@ use GDO\User\GDO_User;
 /** Authenticated localhost pilot. No payment provider and no production deployment. */
 final class GastroLocal extends MethodAjax
 {
+    private static function pilotEnabled(bool $topup=false): bool
+    {
+        // Only trusted server configuration can opt into this isolated pilot.
+        // Never infer permission from Host/Origin or other client headers.
+        return defined('GDO_LINKUUP_GASTRO_LOCAL_PILOT')
+            && constant('GDO_LINKUUP_GASTRO_LOCAL_PILOT') === true
+            && (!$topup || (defined('GDO_LINKUUP_GASTRO_TEST_TOPUP')
+                && constant('GDO_LINKUUP_GASTRO_TEST_TOPUP') === true));
+    }
     private static function localAppRequest(): bool
     {
         $host=$_SERVER['HTTP_HOST']??'';
@@ -31,7 +40,7 @@ final class GastroLocal extends MethodAjax
     public function gdoParameters(): array { return [GDT_Object::make('room')->table(LUP_Room::table())->notNull()]; }
     public function hasPermission(GDO_User $user, string &$error, array &$args): bool
     {
-        $allowed=in_array($_SERVER['REMOTE_ADDR']??'', ['127.0.0.1','::1'],true)
+        $allowed=self::pilotEnabled() && in_array($_SERVER['REMOTE_ADDR']??'', ['127.0.0.1','::1'],true)
             && self::localAppRequest()
             && in_array($_SERVER['HTTP_ORIGIN']??'', ['', 'http://app.localhost'],true) && $user->isMember() && $user->gdoVar('user_deleted')===null
             && GDO_Session::instance() && $this->gdoParameterValue('room');
@@ -42,6 +51,7 @@ final class GastroLocal extends MethodAjax
     {
         header('Cache-Control: no-store');
         try {
+            if (!self::pilotEnabled()) throw new \RuntimeException('Lokaler Gastro-Pilot ist deaktiviert',403);
             $user=GDO_User::current();$room=LUP_Room::table()->getById($this->gdoParameterValue('room')->getID());
             if (!$room || !$user->isMember() || $user->gdoVar('user_deleted')!==null) throw new \RuntimeException('Anmeldung erforderlich');
             $uid=(string)$user->getID();$rid=(string)$room->getID();
@@ -58,6 +68,7 @@ final class GastroLocal extends MethodAjax
                 if(!is_array($r))throw new \RuntimeException('Ungültige Anfrage');
             } elseif($method!=='GET')throw new \RuntimeException('Methode nicht erlaubt');
             $action=$r['action']??'state';
+            if ($action==='topup-test' && !self::pilotEnabled(true)) throw new \RuntimeException('Testaufladung ist deaktiviert',403);
             $inactive=$room->isDisabled() || $room->gdoValue('room_deleted')!==null;
             if (!is_string($action)) throw new \RuntimeException('Ungültige Aktion');
             Access::check($user->isMember() && $user->gdoVar('user_deleted')===null, $manage, $inactive, $action, $method, $_SERVER['HTTP_ORIGIN']??'', $token, (string)($_SERVER['HTTP_X_GASTRO_CSRF']??''));
