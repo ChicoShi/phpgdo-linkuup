@@ -168,3 +168,19 @@ Für jeden Abschluss festhalten: Core-/Modul-Commit, isolierte Konfiguration,
 Testaufruf, beobachtetes Ergebnis und verbliebene Einschränkung. Keine Passwörter,
 Cookies oder Sessiontokens als Beleg ablegen. Keine Passwortframes an ungeprüfte
 WebSocket-Laufzeiten senden. Pilot-Abnahme ist keine Echtgeld-/Providerfreigabe.
+
+### Reproduzierter Session-Baselinefehler (07.11.2026)
+`GASTRO_QA_SOCKET=/tmp/simion-gastro-db-<test>/db.sock GASTRO_QA_CORE=/pfad/zum/phpgdo php tests/session-lifecycle-baseline.php`
+prüft echte GDO_Session-/GDO-set/save/commit-Methoden mit zwei PHP-Prozessen.
+Der DBMS-Link wird ausschließlich auf die isolierte Socket-Datenbank gesetzt;
+keine protected/config.php, echten Konten oder vorhandenen Tabellen werden benutzt.
+Ein zufälliges QA-Schema bleibt zur Nachprüfung erhalten.
+
+Beobachtet im lokalen Core: Ein sauberes geladenes Objekt schreibt nach Logout
+nichts zurück. Mit vor Logout geändertem sess_data stellt das spätere commit die
+Daten wieder her; sess_user bleibt NULL. Das Skript charakterisiert bewusst den
+fehlerhaften Ausgangszustand (`security_pass: false`), ist KEIN grüner Sicherheits-
+oder Freigabetest und muss nach einem Fix in einen Regressionstest umgebaut werden.
+Echte GDO-Objekte/Save-Hooks werden verwendet; HTTP-Logout-Methode, Benutzer-/Logout-
+Hooks, WebSockets, vollständige Installation und Cache-/Produktionskonfiguration
+sind nicht abgedeckt. Kein nachgewiesener Login-Bypass. Core-Korrektur bleibt offen.
