@@ -9,7 +9,8 @@ use GDO\Core\MethodAjax;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\Commerce\Ordering;
 use GDO\LinkUUp\Commerce\Access;
-use GDO\LinkUUp\Commerce\PilotStore;
+use GDO\LinkUUp\Commerce\TransactionStore;
+use GDO\DB\Database;
 use GDO\LinkUUp\Commerce\TestWallet;
 use GDO\Session\GDO_Session;
 use GDO\User\GDO_User;
@@ -56,9 +57,6 @@ final class GastroLocal extends MethodAjax
             if (!$room || !$user->isMember() || $user->gdoVar('user_deleted')!==null) throw new \RuntimeException('Anmeldung erforderlich');
             $uid=(string)$user->getID();$rid=(string)$room->getID();
             if (!ctype_digit($rid)) throw new \RuntimeException('Ungültige Location');
-            $owner=(string)$room->getOwnerID();$manage=$room->isOwner($user);
-            $token=GDO_Session::get('gastro_local_csrf');
-            if (!is_string($token) || strlen($token)!==64) { $token=bin2hex(random_bytes(32));GDO_Session::set('gastro_local_csrf',$token); if(!GDO_Session::commit())throw new \RuntimeException('Sitzung nicht speicherbar',403); }
             $method=$_SERVER['REQUEST_METHOD']??'GET';$r=[];
             if($method==='POST') {
                 if(($_SERVER['HTTP_ORIGIN']??'')!=='http://app.localhost' || (int)($_SERVER['CONTENT_LENGTH']??0)>200000) throw new \RuntimeException('Ungültige Anfrage');
@@ -69,15 +67,19 @@ final class GastroLocal extends MethodAjax
             } elseif($method!=='GET')throw new \RuntimeException('Methode nicht erlaubt');
             $action=$r['action']??'state';
             if ($action==='topup-test' && !self::pilotEnabled(true)) throw new \RuntimeException('Testaufladung ist deaktiviert',403);
-            $inactive=$room->isDisabled() || $room->gdoValue('room_deleted')!==null;
             if (!is_string($action)) throw new \RuntimeException('Ungültige Aktion');
-            Access::check($user->isMember() && $user->gdoVar('user_deleted')===null, $manage, $inactive, $action, $method, $_SERVER['HTTP_ORIGIN']??'', $token, (string)($_SERVER['HTTP_X_GASTRO_CSRF']??''));
-            $result=PilotStore::run('/var/lib/linkuup-gastro-local', $action!=='state', function(array &$store) use($rid,$room,$owner,$action,$r,$uid,$manage,$token,$inactive): array {
-                // Re-read authority after acquiring the pilot lock: cached session objects
-                // must not authorize a deleted account or a transferred location.
-                $freshUser=GDO_User::table()->select()->where('user_id='.GDO_User::quoteS($uid))->uncached()->first()->exec()->fetchObject();
-                $room=LUP_Room::table()->select()->where('room_id='.LUP_Room::quoteS($rid))->uncached()->first()->exec()->fetchObject();
-                if (!$freshUser || !$room) throw new \RuntimeException('Zugriff nicht verfügbar',403);
+            $session=GDO_Session::instance();
+            if (!$session) throw new \RuntimeException('Sitzung erforderlich',403);
+            if (GDO_DB_READONLY) throw new \RuntimeException('Speicher ist schreibgeschützt',503);
+            $db=Database::instance();$db->queryRead('SELECT 1');
+            if (!($db->link instanceof \mysqli)) throw new \RuntimeException('MariaDB-Pilot erforderlich',503);
+            $tables=['session'=>GDO_Session::table()->gdoTableName(),'user'=>GDO_User::table()->gdoTableName(),'room'=>LUP_Room::table()->gdoTableName(),'store'=>'lup_gastro_store'];
+            $identity=['session'=>$session->getID(),'token'=>$session->getToken(),'user'=>$uid,'room'=>$rid,'csrf'=>(string)($_SERVER['HTTP_X_GASTRO_CSRF']??''),'maxAge'=>GDO_SESS_TIME,'requireCsrf'=>$action!=='state','allowCsrfInit'=>$action==='state'];
+            $result=TransactionStore::run($db->link,$tables,$identity,$action!=='state',function(array &$store,array $authority) use($rid,$action,$r,$uid): array {
+                // These rows stay locked through the order/ledger commit.
+                $freshUser=GDO_User::blank($authority['user']);
+                $room=LUP_Room::blank($authority['room']);
+                $token=$authority['csrf'];
                 $manage=$room->isOwner($freshUser);$owner=(string)$room->getOwnerID();
                 $inactive=$room->isDisabled() || $room->gdoValue('room_deleted')!==null;
                 Access::check($freshUser->isMember() && $freshUser->gdoVar('user_deleted')===null, $manage, $inactive, $action, $_SERVER['REQUEST_METHOD']??'GET', $_SERVER['HTTP_ORIGIN']??'', $token, (string)($_SERVER['HTTP_X_GASTRO_CSRF']??''));
@@ -101,6 +103,6 @@ final class GastroLocal extends MethodAjax
                 return $result;
             });
             return GDT_JSON::make()->value($result);
-        } catch(\Throwable $e) {Application::setResponseCode(in_array($e->getCode(),[403,405,409],true)?$e->getCode():400);return GDT_JSON::make()->value(['error'=>$e instanceof \RuntimeException||$e instanceof \InvalidArgumentException?$e->getMessage():'Anfrage konnte nicht verarbeitet werden']);}
+        } catch(\Throwable $e) {Application::setResponseCode(in_array($e->getCode(),[403,405,409,503],true)?$e->getCode():400);return GDT_JSON::make()->value(['error'=>$e instanceof \RuntimeException||$e instanceof \InvalidArgumentException?$e->getMessage():'Anfrage konnte nicht verarbeitet werden']);}
     }
 }

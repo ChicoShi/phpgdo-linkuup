@@ -1,6 +1,6 @@
 # Gastro: lokaler Pilot mit Euro-Testguthaben
 
-Stand 06.11.2026, Feature-Branch `simion/gastro-local-20261106`. Kein Live-Release.
+Stand 07.11.2026, Feature-Branch `simion/gastro-local-20261106`. Kein Live-Release.
 
 ## Jetzt implementiert
 
@@ -10,9 +10,23 @@ Stand 06.11.2026, Feature-Branch `simion/gastro-local-20261106`. Kein Live-Relea
 
 `TestWallet.php`: getrenntes Euro-Testkonto je GDO-Nutzer, Cent-genaue Testaufladungen, Reservieren, Abbuchen, Freigeben und Erstatten; Journal und idempotente Wiederholungen. 20,00 EUR Testaufladung entsprechen 20,00 EUR Testguthaben. Bestands-Coins werden nicht gelesen oder verändert. Beim Aufladen höchstens1.000 EUR pro Vorgang und10.000 EUR verfügbares+reserviertes Testguthaben; keine Behauptung gesetzlicher Grenzwerte.
 
-Lokaler Speicher `/var/lib/linkuup-gastro-local/pilot-v2.json`, www-data0700-Verzeichnis,0600-Dateien. Globaler flock und atomarer Rename speichern alle Location-Bestellungen gemeinsam mit dem Ledger. Fehler speichern keine Teilbuchung. Neue Aufträge markieren walletFunded; alte idempotente Aufträge ohne dieses Merkmal werden nicht nachträglich belastet. Vor Einführung war das Verzeichnis leer; alte Einzeldateien werden NICHT automatisch migriert. JSON bleibt ein lokaler Pilot, keine produktive Finanzdatenbank.
+`TransactionStore.php` verwendet für den GDO-Adapter eine gemeinsame MariaDB/InnoDB-Transaktion:
+Session → Benutzer → Location → Pilot-Ledger werden in fester Reihenfolge gesperrt.
+Sessionzuordnung, Token, Ablaufzeit, CSRF, Benutzerstatus und aktueller Owner werden
+vor der Buchung aus den gesperrten Zeilen geprüft. Bestellung und Testledger landen
+im selben Commit; Fehler rollen zurück. CSRF-Erzeugung erfolgt unter Sessionlock.
+`schema.sql` bereitet ausdrücklich die isolierte Pilottabelle vor, ohne alte
+JSON-Bestände zu importieren. Der Store ist ein gemeinsamer, größenbegrenzter JSON-
+Datensatz in InnoDB: geeignet für begrenzte Pilotprüfungen, keine Skalierungs- oder
+Produktionszusage. Historischer `PilotStore.php` bleibt nur für den getrennten QA-Server.
 
-UI: dezenter Karte-Zugang im vorhandenen Location-Werkzeugbereich; schließbares Overlay, Karte/Warenkorb/Tisch/Testguthaben/Bestellstatus. Fehlendes Testguthaben führt zur Aufladung und zurück zum Warenkorb. Status wird beim Öffnen/Bestelltab aktualisiert, kein Echtzeit-Push. Ursprüngliche Location-CSS unverändert.
+**Aktivierungsvoraussetzung:** Alle vier beteiligten Tabellen müssen InnoDB sein.
+Die untersuchte lokale GDO-Session-Tabelle ist MyISAM; der Adapter verweigert dort
+Transaktionen. Keine bestehende Tabelle wurde konvertiert. Core-Sessionmigration,
+Session-Commit-/WebSocket-Verhalten und ein durchgehender GDO-HTTP-Test sind separat
+zu prüfen. Kein Fallback auf ungeschützten Dateispeicher.
+
+UI: dezenter Karte-Zugang im vorhandenen Location-Werkzeugbereich; schließbares Overlay, Karte/Warenkorb/Tisch/Testguthaben/Bestellstatus. Fehlendes Testguthaben führt zur Aufladung und zurück zum Warenkorb. Sichtbare Bestellansichten aktualisieren sich alle fünf Sekunden, mit Fehler-/Abrufanzeige und Dialogschutz; kein Echtzeit-Push. Ursprüngliche Location-CSS unverändert.
 
 ## Prüfweg
 
@@ -23,7 +37,7 @@ Dieser Server ist ausschließlich CLI/Loopback, nicht als öffentliche API verwe
 
 ## Vor Live noch offen
 
-Echte Rollen-/Session-/CSRF-End-to-End-Tests, GDO-Datenbanktabellen/Migration/Transaktionen statt Pilot-JSON, Betreiberberechtigung und Paketverkauf, de/en für gesamte eingebettete Oberfläche (derzeit deutsch), Echtzeitstatus, Anwesenheits-/Tischbestätigung, Steuern/Belege/Kasse und Zahlungsanbieter. CSV-Import gehört nur zur früheren isolierten Vorschau, ist im echten lokalen Adapter nicht angeboten. Keine freie PDF-/Foto-Kartenverarbeitung.
+Echte Rollen-/Session-/CSRF-End-to-End-Tests, Core-Sessionmigration auf InnoDB, Prüfung des integrierten Transaktionsadapters, Betreiberberechtigung und Paketverkauf, de/en für gesamte eingebettete Oberfläche (derzeit deutsch), Echtzeitstatus, Anwesenheits-/Tischbestätigung, Steuern/Belege/Kasse und Zahlungsanbieter. CSV-Import gehört nur zur früheren isolierten Vorschau, ist im echten lokalen Adapter nicht angeboten. Keine freie PDF-/Foto-Kartenverarbeitung.
 
 PayPal ist kein bloßer Austausch des Testauflade-Buttons: Aufladung erst nach verifiziertem, dedupliziertem Provider-Ereignis; Lieferung und erfolgreicher Capture als getrennte Zustände, Fehler/Retry/Reconciliation, Händlerzuordnung und Auszahlungen. Testaufladung darf in einer öffentlichen API niemals aktiv sein. Keine Produktionsfreigabe durch diese Tests.
 
@@ -48,8 +62,8 @@ Vergleich nur anhand offizieller Dokumentation, keine fremden Konten getestet:
 | Kontosperre | Nur Member ohne user_deleted; keine eigene user_enabled-Spalte im untersuchten GDO_User | Tatsächliche Logout-/Sperr- und Sessionwiderrufswege durchgehend testen, MFA/erneute Anmeldung für sensible Änderungen |
 | Inaktive Location | Neue Konfiguration, Bestellung und Testaufladung gesperrt; bestehende Aufträge weiter abwickelbar | Verhalten der künftigen administrativen Sperrgründe festlegen |
 | Nachvollziehbarkeit | Neue Bestellungen/Statuswechsel mit Akteur und UTC-Zeit; gleiche Wiederholung erzeugt keinen zweiten Eintrag | Kein revisionssicheres Auditarchiv; alte Historie wird nicht erfunden |
-| Atomare Buchung | PilotStore speichert Auftragszustand, Historie und Testledger unter einem Lock; Fehler verwerfen die ganze Änderung | Produktive DB-Transaktionen, Restore-/Crashprüfung und Providerintegration |
-| Wiederholung/Konkurrenz | Acht parallele Bestell-Retries und Lieferungen sowie Lieferung/Storno-Rennen getestet | Echte HTTP-/Sessionkonkurrenz und spätere DB-Tests |
+| Atomare Buchung | Gemeinsame InnoDB-Transaktion im neuen Adapter; 33 isolierte DB-Prüfungen | Core-Sessionmigration, echter GDO-/Proxy-E2E, Restore-/Crashprüfung und Providerintegration |
+| Wiederholung/Konkurrenz | Domain-/Dateitests plus acht parallele DB-Aufladeretries; DB-Rennen gegen Logout/Benutzer-/Location-Deaktivierung | Echte HTTP-/WebSocket-Konkurrrenz im vollständigen Stack |
 
 Prüfungen: `php tests/access-policy.php`, `php tests/ordering-domain.php`,
 `php tests/test-wallet.php`, `php tests/pilot-concurrency.php`.
@@ -58,7 +72,7 @@ Gekauftes Betreiberpaket darf allein keine fremde Location übernehmen oder dere
 Keine gemeinsam geteilten Betreiberpasswörter vorsehen; Delegation braucht eigene Identitäten und Rechte.
 
 
-## Echter localhost-HTTP-Test (Auftrag5823)
+## Historischer localhost-HTTP-Test vor DB-Umstellung (Auftrag5823)
 
 Vier getrennte GDO-Formanmeldungen und zwei markierte QA-Locations:41 Checks bestanden
 für Locationrechte, fremde Bestellungen/Guthaben, CSRF/Origin, gefälschte Rollenfelder,
@@ -101,3 +115,33 @@ zusätzlich am Eingang sperren; Host/Origin/Loopback sind keine Authentifizierun
 des Netzwerkursprungs. Eine reale Proxy-Konfiguration wurde hier nicht freigegeben.
 Die früheren HTTP-Rollentests liefen vor diesem zusätzlichen Gate; sie belegen
 keinen aktuellen aktivierten Gesamtablauf. DB-/Session-Rennen bleiben offen.
+
+## Reproduzierbare isolierte DB-Prüfung (07.11.2026)
+`GASTRO_QA_SOCKET=/tmp/simion-gastro-db-<test>/db.sock php tests/transaction-store.php`
+setzt eine separate MariaDB mit Unix-Socket-Authentifizierung für den aufrufenden
+OS-Nutzer und ohne Netzwerklistener voraus. Das Skript legt ausschließlich ein
+neues zufälliges QA-Schema an, verwendet keine echten Konten und behält es für
+Nachprüfung. 33 Prüfungen: Rollback, doppelte und acht parallele Aufladung,
+Sessiontoken/CSRF/Ablauf, Logout und Sperrung, MyISAM-/Nested-Transaction-Ablehnung,
+reale konkurrierende Sperren und CSRF-Erzeugung. Kein GDO-/App-E2E-Nachweis.
+Schemaeinrichtung nicht auf Produktion ausführen; keine Zugangsdaten im Repository.
+
+## Sicherheitsmatrix für spätere echte Zahlungen – noch nicht implementiert
+Vorhandene Coins bleiben unverändert, Testledger ist kein echtes Guthaben.
+Providergeführte Händlerkonten sind ein Vorschlag; Verwahrung, Aufladungen und
+Auszahlung sowie regulatorische Zuständigkeit müssen vor Umsetzung entschieden sein.
+
+| Quelle / belegtes Prinzip | Prüfkriterium für LinkUUp |
+| --- | --- |
+| [PayPal Idempotency](https://developer.paypal.com/api/rest/reference/idempotency/) | Stabile IDs pro Operation; Retry nach Timeout darf nicht doppelt buchen; API-spezifische Gültigkeit beachten |
+| [PayPal Webhooks](https://developer.paypal.com/api/rest/webhooks/) | Signatur prüfen; Event-ID und Capture-ID deduplizieren; Betrag/Währung/Nutzer/Händler abgleichen; Browser-Erfolg ist kein Capture |
+| [OWASP Transaktionsautorisierung](https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html) | Betrag und Empfänger serverseitig binden; nach Änderung neu bestätigen; Berechtigung direkt bei Ausführung prüfen |
+| [NIST SP800-63B](https://pages.nist.gov/800-63-4/sp800-63b.html) | Phishingresistente Betreiberanmeldung und abgesicherte Wiederherstellung/Step-up vor sensiblen Änderungen planen |
+| [Binance, vorläufiger Bericht 03.11.2026](https://www.binance.com/en-NG/blog/community/3229153443759566763) | Getrennte Entwicklungs-/Zahlungsrechte, keine Zahlungsgeheimnisse auf Entwicklerrechnern, Lieferkette prüfen; Not-Aus muss auch bestehende Delegationen widerrufen |
+
+Binance nennt rund6,34Mrd **US-Dollar**, mehrere kompromittierte Systeme und eine
+noch laufende Untersuchung; daraus folgt keine nachgewiesene Überlegenheit unserer
+Architektur. Für LinkUUp abzuleiten: Wiederanlauf/Restore testen, Auszahlungen separat
+berechtigen und begrenzen, Änderungen an Zahlungsempfängern gesondert bestätigen,
+Providerbuchungen regelmäßig abgleichen, Refund/Dispute/verspätete Events testen.
+Dies ist ein Anforderungskatalog, keine implementierte Bank-/Payment-Sicherheit.
