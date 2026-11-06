@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace GDO\LinkUUp\Method;
 use GDO\Core\GDT;
+use GDO\Core\Application;
 use GDO\Core\GDT_JSON;
 use GDO\Core\GDT_Object;
 use GDO\Core\MethodAjax;
@@ -16,11 +17,22 @@ use GDO\User\GDO_User;
 /** Authenticated localhost pilot. No payment provider and no production deployment. */
 final class GastroLocal extends MethodAjax
 {
+    private static function localAppRequest(): bool
+    {
+        $host=$_SERVER['HTTP_HOST']??'';
+        if ($host==='app.localhost') return true;
+        // The local /backend proxy forwards Host: localhost. Require the actual
+        // app origin/referrer as well; never accept arbitrary forwarded headers.
+        if ($host!=='localhost') return false;
+        if (($_SERVER['HTTP_ORIGIN']??'')==='http://app.localhost') return true;
+        $ref=parse_url($_SERVER['HTTP_REFERER']??'');
+        return is_array($ref) && ($ref['scheme']??'')==='http' && ($ref['host']??'')==='app.localhost' && !isset($ref['port']);
+    }
     public function gdoParameters(): array { return [GDT_Object::make('room')->table(LUP_Room::table())->notNull()]; }
     public function hasPermission(GDO_User $user, string &$error, array &$args): bool
     {
         $allowed=in_array($_SERVER['REMOTE_ADDR']??'', ['127.0.0.1','::1'],true)
-            && ($_SERVER['HTTP_HOST']??'')==='app.localhost'
+            && self::localAppRequest()
             && in_array($_SERVER['HTTP_ORIGIN']??'', ['', 'http://app.localhost'],true) && $user->isMember() && $user->gdoVar('user_deleted')===null
             && GDO_Session::instance() && $this->gdoParameterValue('room');
         if (!$allowed) $error='err_not_allowed';
@@ -36,7 +48,7 @@ final class GastroLocal extends MethodAjax
             if (!ctype_digit($rid)) throw new \RuntimeException('Ungültige Location');
             $owner=(string)$room->getOwnerID();$manage=$room->isOwner($user);
             $token=GDO_Session::get('gastro_local_csrf');
-            if (!is_string($token) || strlen($token)!==64) { $token=bin2hex(random_bytes(32));GDO_Session::set('gastro_local_csrf',$token); }
+            if (!is_string($token) || strlen($token)!==64) { $token=bin2hex(random_bytes(32));GDO_Session::set('gastro_local_csrf',$token); if(!GDO_Session::commit())throw new \RuntimeException('Sitzung nicht speicherbar',403); }
             $method=$_SERVER['REQUEST_METHOD']??'GET';$r=[];
             if($method==='POST') {
                 if(($_SERVER['HTTP_ORIGIN']??'')!=='http://app.localhost' || (int)($_SERVER['CONTENT_LENGTH']??0)>200000) throw new \RuntimeException('Ungültige Anfrage');
@@ -50,6 +62,14 @@ final class GastroLocal extends MethodAjax
             if (!is_string($action)) throw new \RuntimeException('Ungültige Aktion');
             Access::check($user->isMember() && $user->gdoVar('user_deleted')===null, $manage, $inactive, $action, $method, $_SERVER['HTTP_ORIGIN']??'', $token, (string)($_SERVER['HTTP_X_GASTRO_CSRF']??''));
             $result=PilotStore::run('/var/lib/linkuup-gastro-local', $action!=='state', function(array &$store) use($rid,$room,$owner,$action,$r,$uid,$manage,$token,$inactive): array {
+                // Re-read authority after acquiring the pilot lock: cached session objects
+                // must not authorize a deleted account or a transferred location.
+                $freshUser=GDO_User::table()->select()->where('user_id='.GDO_User::quoteS($uid))->uncached()->first()->exec()->fetchObject();
+                $room=LUP_Room::table()->select()->where('room_id='.LUP_Room::quoteS($rid))->uncached()->first()->exec()->fetchObject();
+                if (!$freshUser || !$room) throw new \RuntimeException('Zugriff nicht verfügbar',403);
+                $manage=$room->isOwner($freshUser);$owner=(string)$room->getOwnerID();
+                $inactive=$room->isDisabled() || $room->gdoValue('room_deleted')!==null;
+                Access::check($freshUser->isMember() && $freshUser->gdoVar('user_deleted')===null, $manage, $inactive, $action, $_SERVER['REQUEST_METHOD']??'GET', $_SERVER['HTTP_ORIGIN']??'', $token, (string)($_SERVER['HTTP_X_GASTRO_CSRF']??''));
                 $store['rooms'][$rid] ??= ['venue'=>['id'=>$rid,'name'=>$room->getName(),'owner'=>$owner],'revision'=>1,'menu'=>[],'orders'=>[],'tableCount'=>20,'menuReady'=>false,'tablesReady'=>false,'orderingEnabled'=>false];
                 $s=&$store['rooms'][$rid];
                 // Authority is always resolved from GDO, never from browser or old persisted owner.
@@ -70,6 +90,6 @@ final class GastroLocal extends MethodAjax
                 return $result;
             });
             return GDT_JSON::make()->value($result);
-        } catch(\Throwable $e) {http_response_code(in_array($e->getCode(),[403,405,409],true)?$e->getCode():400);return GDT_JSON::make()->value(['error'=>$e instanceof \RuntimeException||$e instanceof \InvalidArgumentException?$e->getMessage():'Anfrage konnte nicht verarbeitet werden']);}
+        } catch(\Throwable $e) {Application::setResponseCode(in_array($e->getCode(),[403,405,409],true)?$e->getCode():400);return GDT_JSON::make()->value(['error'=>$e instanceof \RuntimeException||$e instanceof \InvalidArgumentException?$e->getMessage():'Anfrage konnte nicht verarbeitet werden']);}
     }
 }

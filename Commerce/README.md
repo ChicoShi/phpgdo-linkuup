@@ -56,3 +56,35 @@ Prüfungen: `php tests/access-policy.php`, `php tests/ordering-domain.php`,
 Diese Tests beweisen keine echte Anmeldung, Betreiberverifikation oder Echtgeldfähigkeit.
 Gekauftes Betreiberpaket darf allein keine fremde Location übernehmen oder deren Rechte gewähren.
 Keine gemeinsam geteilten Betreiberpasswörter vorsehen; Delegation braucht eigene Identitäten und Rechte.
+
+
+## Echter localhost-HTTP-Test (Auftrag5823)
+
+Vier getrennte GDO-Formanmeldungen und zwei markierte QA-Locations:41 Checks bestanden
+für Locationrechte, fremde Bestellungen/Guthaben, CSRF/Origin, gefälschte Rollenfelder,
+Retry, pausierte Location, bestehende Abwicklung, doppelte Lieferung und gelöschten
+Betreiber bei offener Sitzung. Kein QA-Rollenparameter ersetzt diese Anmeldungen.
+Die Testkonten werden anschließend deaktiviert; Testpasswörter/Cookies bleiben nur
+im Arbeitsspeicher des Testlaufs. Lokale Belege liegen bei Simion unter
+research/gastro-auth-5823. WebSocket-App-Login und mobile Gesamtbedienung sind damit
+noch nicht abschließend geprüft.
+
+Behobene Integrationsfehler: lokaler /backend-Proxy verwendet Host localhost;
+der Adapter akzeptiert diesen nur mit App-Origin oder passendem App-Referer
+(weiterhin Loopback erforderlich). CSRF-Token wird ausdrücklich in der Sitzung
+persistiert. Fehler werden über GDO Application gesetzt; das Framework normalisiert
+manche Ablehnungen auf409. Der private Pilotordner muss dem tatsächlichen lokalen
+VHost-Benutzer gehören (Modus0700), nicht pauschal www-data.
+Benutzerstatus und Owner werden nach Erwerb des Pilotlocks uncached ausDB gelesen.
+
+Weiterhin konkrete PR-/Produktgrenzen:
+- room_minion_bot_control ist im lokalen Room-Modell, aber nicht im lokalen Schema.
+  Keine automatische Migration/Fremdänderung durchgeführt; zuständigen Maintainer abstimmen.
+- DB-Kontosperre/Room-Deaktivierung und JSON-Commit teilen keine DB-Transaktion.
+  Ein Race zwischen frischer Prüfung und Commit bleibt möglich; produktiv nicht freigeben.
+- Betreiberverifikation, MFA, Mitarbeiterrollen, vollständige de/en und Provider fehlen.
+- Ein Provider muss Händler-Onboarding und Zahlungszustände serverseitig bestätigen;
+  ein erfolgreicher Browser-Redirect darf keine Gutschrift auslösen.
+  Quelle: https://docs.stripe.com/connect/marketplace
+- Rechteprüfung bei jeder Anfrage, standardmäßig verweigern und Ressourcenbezug prüfen:
+  https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
