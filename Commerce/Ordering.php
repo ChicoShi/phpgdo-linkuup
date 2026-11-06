@@ -57,7 +57,7 @@ final class Ordering
         }
         if ($total>100000) throw new \InvalidArgumentException('Maximal 1.000 Euro pro Testbestellung');
         if (($request['expectedTotal']??null)!==$total) throw new \RuntimeException('Preise haben sich geändert. Warenkorb neu prüfen.');
-        $order=['id'=>bin2hex(random_bytes(6)),'key'=>$key,'fingerprint'=>$fingerprint,'guest'=>$guest,'venue'=>$state['venue']['id'],'table'=>$table,'items'=>$items,'totalCents'=>$total,'status'=>'new','payment'=>'simulated_reserved','created'=>gmdate('c'),'messages'=>[]];
+        $order=['id'=>bin2hex(random_bytes(6)),'key'=>$key,'fingerprint'=>$fingerprint,'guest'=>$guest,'venue'=>$state['venue']['id'],'table'=>$table,'items'=>$items,'totalCents'=>$total,'status'=>'new','payment'=>'simulated_reserved','created'=>gmdate('c'),'messages'=>[],'history'=>[['from'=>null,'to'=>'new','actor'=>$guest,'at'=>gmdate('c')]]];
         $state['orders'][]=$order; return $order;
     }
 
@@ -93,6 +93,7 @@ final class Ordering
             if ($order['status']===$target) return $order;
             $allowed=['new'=>['accepted','cancelled'],'accepted'=>['preparing','cancelled'],'preparing'=>['delivered','cancelled'],'delivered'=>['refunded']];
             if (!in_array($target,$allowed[$order['status']]??[],true)) throw new \RuntimeException('Unzulässiger Statuswechsel');
+            $order['history'][]=['from'=>$order['status'],'to'=>$target,'actor'=>$user,'at'=>gmdate('c')];
             $order['status']=$target;
             if ($target==='delivered') $order['payment']='simulated_captured';
             if ($target==='cancelled') $order['payment']='simulated_released';

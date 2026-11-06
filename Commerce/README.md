@@ -33,3 +33,26 @@ Die Benennung als Coin oder Guthaben und ein1:1-Kurs entscheiden nicht über die
 - Bundesbank, E-Geld: https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/ueberwachung/e-geld-603588 (Seiteninhalt gelesen).
 - §2 ZAG: https://www.gesetze-im-internet.de/zag_2018/__2.html (Seiteninhalt gelesen). Begrenztes Netz/Warenspektrum sind Voraussetzungen, kein automatisch passendes Label; Absatz2 regelt die Anzeige oberhalb1Mio EUR in zwölf Monaten. Die technische Dienstleisterausnahme setzt u.a. voraus, nicht in Besitz der Gelder zu gelangen.
 Keine Feststellung einer Ausnahme oder Rechtsfreigabe für LinkUUp. Erneut prüfen, sobald Händlervertrag, Gelderverwahrung und Provider feststehen.
+
+
+## Betreiberabsicherung – Soll/Ist vom 06.11.2026 (Auftrag5818)
+
+Vergleich nur anhand offizieller Dokumentation, keine fremden Konten getestet:
+- Square beschränkt Teamrechte auf zugewiesene Locations: https://api.squareup.com/help/ca/en/article/5822-employee-permissions
+- Stripe beschreibt wiederholungssichere Mutationen: https://docs.stripe.com/api/idempotent_requests
+- Stripe empfiehlt separate Teamzugänge und Zwei-Faktor-Authentifizierung: https://support.stripe.com/questions/two-step-authentication-requirement
+
+| Anforderung | Lokaler Stand | Offen vor produktiver Nutzung |
+| --- | --- | --- |
+| Locationgebundene Rechte | Aktueller GDO-Owner, keine Rechte aus Browserparametern; Access prüft jede Aktion | Echte Sessionmatrix, bestätigter Betreiber-Onboardingprozess und spätere Mitarbeiterrechte |
+| Kontosperre | Nur Member ohne user_deleted; keine eigene user_enabled-Spalte im untersuchten GDO_User | Tatsächliche Logout-/Sperr- und Sessionwiderrufswege durchgehend testen, MFA/erneute Anmeldung für sensible Änderungen |
+| Inaktive Location | Neue Konfiguration, Bestellung und Testaufladung gesperrt; bestehende Aufträge weiter abwickelbar | Verhalten der künftigen administrativen Sperrgründe festlegen |
+| Nachvollziehbarkeit | Neue Bestellungen/Statuswechsel mit Akteur und UTC-Zeit; gleiche Wiederholung erzeugt keinen zweiten Eintrag | Kein revisionssicheres Auditarchiv; alte Historie wird nicht erfunden |
+| Atomare Buchung | PilotStore speichert Auftragszustand, Historie und Testledger unter einem Lock; Fehler verwerfen die ganze Änderung | Produktive DB-Transaktionen, Restore-/Crashprüfung und Providerintegration |
+| Wiederholung/Konkurrenz | Acht parallele Bestell-Retries und Lieferungen sowie Lieferung/Storno-Rennen getestet | Echte HTTP-/Sessionkonkurrenz und spätere DB-Tests |
+
+Prüfungen: `php tests/access-policy.php`, `php tests/ordering-domain.php`,
+`php tests/test-wallet.php`, `php tests/pilot-concurrency.php`.
+Diese Tests beweisen keine echte Anmeldung, Betreiberverifikation oder Echtgeldfähigkeit.
+Gekauftes Betreiberpaket darf allein keine fremde Location übernehmen oder deren Rechte gewähren.
+Keine gemeinsam geteilten Betreiberpasswörter vorsehen; Delegation braucht eigene Identitäten und Rechte.

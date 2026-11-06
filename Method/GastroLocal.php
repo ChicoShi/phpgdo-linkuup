@@ -7,6 +7,8 @@ use GDO\Core\GDT_Object;
 use GDO\Core\MethodAjax;
 use GDO\LinkUUp\LUP_Room;
 use GDO\LinkUUp\Commerce\Ordering;
+use GDO\LinkUUp\Commerce\Access;
+use GDO\LinkUUp\Commerce\PilotStore;
 use GDO\LinkUUp\Commerce\TestWallet;
 use GDO\Session\GDO_Session;
 use GDO\User\GDO_User;
@@ -19,7 +21,7 @@ final class GastroLocal extends MethodAjax
     {
         $allowed=in_array($_SERVER['REMOTE_ADDR']??'', ['127.0.0.1','::1'],true)
             && ($_SERVER['HTTP_HOST']??'')==='app.localhost'
-            && in_array($_SERVER['HTTP_ORIGIN']??'', ['', 'http://app.localhost'],true) && $user->isMember()
+            && in_array($_SERVER['HTTP_ORIGIN']??'', ['', 'http://app.localhost'],true) && $user->isMember() && $user->gdoVar('user_deleted')===null
             && GDO_Session::instance() && $this->gdoParameterValue('room');
         if (!$allowed) $error='err_not_allowed';
         return (bool)$allowed;
@@ -29,7 +31,7 @@ final class GastroLocal extends MethodAjax
         header('Cache-Control: no-store');
         try {
             $user=GDO_User::current();$room=LUP_Room::table()->getById($this->gdoParameterValue('room')->getID());
-            if (!$room || !$user->isMember()) throw new \RuntimeException('Anmeldung erforderlich');
+            if (!$room || !$user->isMember() || $user->gdoVar('user_deleted')!==null) throw new \RuntimeException('Anmeldung erforderlich');
             $uid=(string)$user->getID();$rid=(string)$room->getID();
             if (!ctype_digit($rid)) throw new \RuntimeException('Ungültige Location');
             $owner=(string)$room->getOwnerID();$manage=$room->isOwner($user);
@@ -45,16 +47,9 @@ final class GastroLocal extends MethodAjax
             } elseif($method!=='GET')throw new \RuntimeException('Methode nicht erlaubt');
             $action=$r['action']??'state';
             $inactive=$room->isDisabled() || $room->gdoValue('room_deleted')!==null;
-            if($inactive && ($action==='place' || ($action==='publication' && ($r['enabled']??false))))throw new \RuntimeException('Location ist nicht verfügbar');
-            if($action!=='state' && ($method!=='POST'||!hash_equals($token,(string)($_SERVER['HTTP_X_GASTRO_CSRF']??''))))throw new \RuntimeException('Sitzung abgelaufen. Bitte neu öffnen.');
-            if(in_array($action,['save-menu','save-tables','publication','transition'],true)&&!$manage)throw new \RuntimeException('Keine Berechtigung für diese Location');
-            $dir='/var/lib/linkuup-gastro-local';
-            if(!is_dir($dir)&&!mkdir($dir,0700,true))throw new \RuntimeException('Lokaler Speicher nicht verfügbar');
-            $path=$dir.'/pilot-v2.json';$h=fopen($dir.'/pilot-v2.lock','c+');if(!$h||!flock($h,LOCK_EX))throw new \RuntimeException('Speicher gesperrt');
-            chmod($dir.'/pilot-v2.lock',0600);
-            try {
-                $raw=is_file($path)?file_get_contents($path):'';
-                $store=$raw?json_decode($raw,true,32,JSON_THROW_ON_ERROR):['rooms'=>[],'ledger'=>[]];
+            if (!is_string($action)) throw new \RuntimeException('Ungültige Aktion');
+            Access::check($user->isMember() && $user->gdoVar('user_deleted')===null, $manage, $inactive, $action, $method, $_SERVER['HTTP_ORIGIN']??'', $token, (string)($_SERVER['HTTP_X_GASTRO_CSRF']??''));
+            $result=PilotStore::run('/var/lib/linkuup-gastro-local', $action!=='state', function(array &$store) use($rid,$room,$owner,$action,$r,$uid,$manage,$token,$inactive): array {
                 $store['rooms'][$rid] ??= ['venue'=>['id'=>$rid,'name'=>$room->getName(),'owner'=>$owner],'revision'=>1,'menu'=>[],'orders'=>[],'tableCount'=>20,'menuReady'=>false,'tablesReady'=>false,'orderingEnabled'=>false];
                 $s=&$store['rooms'][$rid];
                 // Authority is always resolved from GDO, never from browser or old persisted owner.
@@ -72,9 +67,9 @@ final class GastroLocal extends MethodAjax
                     case 'message':Ordering::message($s,$uid,(string)($r['id']??''),(string)($r['text']??''));break;
                     default:throw new \RuntimeException('Aktion nicht verfügbar');
                 }
-                if($action!=='state') { $json=json_encode($store,JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE);$tmp=tempnam($dir,'write-');try{chmod($tmp,0600);if(file_put_contents($tmp,$json)!==strlen($json)||!rename($tmp,$path))throw new \RuntimeException('Speichern fehlgeschlagen');}finally{if(is_file($tmp))unlink($tmp);} }
-            } finally {flock($h,LOCK_UN);fclose($h);}
+                return $result;
+            });
             return GDT_JSON::make()->value($result);
-        } catch(\Throwable $e) {http_response_code(400);return GDT_JSON::make()->value(['error'=>$e instanceof \RuntimeException||$e instanceof \InvalidArgumentException?$e->getMessage():'Anfrage konnte nicht verarbeitet werden']);}
+        } catch(\Throwable $e) {http_response_code(in_array($e->getCode(),[403,405,409],true)?$e->getCode():400);return GDT_JSON::make()->value(['error'=>$e instanceof \RuntimeException||$e instanceof \InvalidArgumentException?$e->getMessage():'Anfrage konnte nicht verarbeitet werden']);}
     }
 }

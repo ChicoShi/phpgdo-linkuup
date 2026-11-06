@@ -45,3 +45,13 @@ $r['key']='published-order-123';$r['table']='1';$o=O::place($s,'guest',$r);O::pu
 check(O::place($s,'guest',$r)['id']===$o['id'],'retry of existing order while paused');
 O::transition($s,'owner',$o['id'],'accepted');check(end($s['orders'])['status']==='accepted','existing order handled while paused');
 echo "$n assertions passed\n";
+
+$h=['orderingEnabled'=>true,'tableCount'=>20,'venue'=>['owner'=>'owner','id'=>'audit'],'menu'=>O::menu([$row]),'orders'=>[]];
+$r['key']='history-order-123';$r['table']='1';$r['expectedTotal']=1300;
+$a=O::place($h,'guest',$r);
+check(count($a['history'])===1 && $a['history'][0]['actor']==='guest','initial actor');
+foreach(['accepted','preparing','delivered'] as $t)O::transition($h,'owner',$a['id'],$t);
+$before=$h;O::transition($h,'owner',$a['id'],'delivered');check($h===$before,'retry no extra history');
+rejects(function()use(&$h,$a){O::transition($h,'owner',$a['id'],'cancelled');});check($h===$before,'failed transition unchanged');
+check(count($h['orders'][0]['history'])===4 && $h['orders'][0]['history'][3]['actor']==='owner','history attributed');
+echo "Total including history: $n assertions passed\n";
