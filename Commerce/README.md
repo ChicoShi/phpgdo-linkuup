@@ -94,8 +94,10 @@ Benutzerstatus und Owner werden nach Erwerb des Pilotlocks uncached ausDB gelese
 Weiterhin konkrete PR-/Produktgrenzen:
 - room_minion_bot_control ist im lokalen Room-Modell, aber nicht im lokalen Schema.
   Keine automatische Migration/Fremdänderung durchgeführt; zuständigen Maintainer abstimmen.
-- DB-Kontosperre/Room-Deaktivierung und JSON-Commit teilen keine DB-Transaktion.
-  Ein Race zwischen frischer Prüfung und Commit bleibt möglich; produktiv nicht freigeben.
+- Historischer JSON-Pilot: DB-Kontosperre/Room-Deaktivierung und Dateicommit
+  teilen keine DB-Transaktion. Der aktuelle GDO-Adapter verwendet TransactionStore
+  mit gemeinsamen InnoDB-Sperren; der separate JSON-Vorschauweg beweist dies nicht.
+  GDO-Session-Lebenszyklus und vollständige Integration bleiben ungeprüft.
 - Betreiberverifikation, MFA, Mitarbeiterrollen, vollständige de/en und Provider fehlen.
 - Ein Provider muss Händler-Onboarding und Zahlungszustände serverseitig bestätigen;
   ein erfolgreicher Browser-Redirect darf keine Gutschrift auslösen.
@@ -145,3 +147,24 @@ Architektur. Für LinkUUp abzuleiten: Wiederanlauf/Restore testen, Auszahlungen 
 berechtigen und begrenzen, Änderungen an Zahlungsempfängern gesondert bestätigen,
 Providerbuchungen regelmäßig abgleichen, Refund/Dispute/verspätete Events testen.
 Dies ist ein Anforderungskatalog, keine implementierte Bank-/Payment-Sicherheit.
+
+## Gemeinsame Abnahme vor Übergabe an Gizmore
+
+Beide PRs bleiben Draft, bis die folgenden offenen Punkte mit tatsächlichen
+Ergebnissen dokumentiert sind. Die 33 isolierten SQL-Prüfungen ersetzen keinen
+dieser vollständigen GDO-Abläufe. Zuständigkeit: Simion Gastro/App, Mira Core/WS.
+
+| Prüfung | Erwartung | Stand |
+| --- | --- | --- |
+| Geladene Session mit geändertem sess_data, paralleler Logout, späteres GDO_Session::commit | sess_user bleibt abgemeldet; alte sess_data/CSRF werden nicht wiederhergestellt | Offen, Mira |
+| Zwei WebSockets desselben Nutzers, getrennte Sessions; eine widerrufen | Widerruf wirkt auf richtige Verbindung; kein Überschreiben der Sessionzuordnung | Offen, Mira |
+| Gastro-Buchung gegen Logout/Sperrung im echten Request-Lebenszyklus | Eindeutige Reihenfolge, kein nach Widerruf autorisierter Folgeauftrag, kein doppelter Ledgerposten | Offen, gemeinsam |
+| Isolierte Schemaeinrichtung einschließlich Session-Engine und Room-Modell | Installations-/Upgradeweg und Wiederherstellung geprüft; keine stillen Produktionsänderungen | Offen |
+| Aktuelle GDO-Routen mit Gast, fremdem Gast, Owner und fremdem Owner | Fremde Location/Order/Wallet und ungültiges CSRF abgewiesen; zulässige Abläufe erfolgreich | Nach neuem Speicher/Gates erneut offen |
+| Öffentlicher Proxy mit manipulierbaren Host-/Origin-Headern | Pilotroute extern gesperrt, auch mit gültiger Session/CSRF; Standardkonfiguration aus | Offen |
+| App: Tisch → Karte → Warenkorb → Bestellung → Betreiberstatus → Gaststatus | Durchgehend tatsächliche Rollen/DB, Status automatisch sichtbar, Fehler/Retry ohne Doppelbuchung | Offen |
+
+Für jeden Abschluss festhalten: Core-/Modul-Commit, isolierte Konfiguration,
+Testaufruf, beobachtetes Ergebnis und verbliebene Einschränkung. Keine Passwörter,
+Cookies oder Sessiontokens als Beleg ablegen. Keine Passwortframes an ungeprüfte
+WebSocket-Laufzeiten senden. Pilot-Abnahme ist keine Echtgeld-/Providerfreigabe.
