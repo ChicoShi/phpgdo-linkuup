@@ -8,6 +8,7 @@ foreach(['GDO_DOMAIN'=>'isolated.invalid','GDO_GDT_DEBUG'=>0,'GDO_DB_READONLY'=>
 $core=getenv('GASTRO_QA_CORE')?:'';
 if(!is_file($core.'/GDO7.php'))throw new RuntimeException('Explicit GASTRO_QA_CORE required');
 require $core.'/GDO7.php';
+\GDO\Core\Application::$INSTANCE=\GDO\Core\Application::make()->cli(true);
 use GDO\DB\Database;
 use GDO\DBMS\Module_DBMS;
 use GDO\Session\GDO_Session;
