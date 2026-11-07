@@ -5,6 +5,8 @@ namespace GDO\LinkUUp\Commerce;
 /** MariaDB/InnoDB pilot store. Never migrates tables or imports old JSON on request. */
 final class TransactionStore
 {
+    private const CSRF_TTL = 3600;
+    private const CSRF_MAX_ENTRIES = 512;
     public static function run(\mysqli $db, array $tables, array $identity, bool $write, callable $operation): array
     {
         $begun=false;
@@ -36,17 +38,27 @@ final class TransactionStore
             // Never write sess_data: GDO may hold a dirty, older Session object.
             // Bind the independent CSRF token to the verified session/user/token.
             $csrfKey=hash('sha256',json_encode([(string)$identity['session'],(string)$identity['user'],(string)$identity['token']],JSON_THROW_ON_ERROR));
-            $csrfCreated=false;
+            $csrfChanged=false;$now=time();
             $store['csrf']??=[];
             if (!is_array($store['csrf'])) throw new \RuntimeException('Ungültiger Speicher',503);
-            $csrf=$store['csrf'][$csrfKey]??null;
-            if (!is_string($csrf) || !preg_match('/^[a-f0-9]{64}$/D',$csrf)) {
+            // Fixed lifetime (not extended by polling); remove expired/legacy data.
+            foreach ($store['csrf'] as $key=>$entry) {
+                if (!is_array($entry) || !is_int($entry['expires']??null)
+                    || $entry['expires']<=$now || $entry['expires']>$now+self::CSRF_TTL
+                    || !is_string($entry['token']??null) || !preg_match('/^[a-f0-9]{64}$/D',$entry['token'])) {
+                    unset($store['csrf'][$key]);$csrfChanged=true;
+                }
+            }
+            $csrf=$store['csrf'][$csrfKey]['token']??null;
+            if ($csrf===null) {
                 if (empty($identity['allowCsrfInit'])) throw new \RuntimeException('Sitzung neu öffnen',403);
-                $csrf=bin2hex(random_bytes(32));$store['csrf'][$csrfKey]=$csrf;$csrfCreated=true;
+                if (count($store['csrf'])>=self::CSRF_MAX_ENTRIES) throw new \RuntimeException('Pilot-Sitzungskapazität erreicht; später erneut versuchen',503);
+                $maxAge=(int)($identity['maxAge']??0);$ttl=$maxAge>0?min(self::CSRF_TTL,$maxAge):self::CSRF_TTL;
+                $csrf=bin2hex(random_bytes(32));$store['csrf'][$csrfKey]=['token'=>$csrf,'expires'=>$now+$ttl];$csrfChanged=true;
             }
             if (!empty($identity['requireCsrf']) && !hash_equals($csrf,(string)($identity['csrf']??''))) throw new \RuntimeException('Sitzung geändert',403);
             $result=$operation($store,['user'=>$user,'room'=>$room,'csrf'=>$csrf]);
-            if ($write || $csrfCreated) {
+            if ($write || $csrfChanged) {
                 $json=json_encode($store,JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE);
                 if (strlen($json)>16000000) throw new \RuntimeException('Pilot-Speichergrenze erreicht',503);
                 $stmt=$db->prepare('UPDATE `'.$tables['store'].'` SET store_data=? WHERE store_id=1');

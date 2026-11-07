@@ -94,4 +94,28 @@ $rotated['allowCsrfInit']=true;$rotated['requireCsrf']=false;
 $new=TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
 check($new['csrf']!==$id['csrf']);
 denied(fn()=>TransactionStore::run($c,$tables,$id,true,$op),403);
+// Expiry and capacity use deterministic fixture edits, no wall-clock sleeps.
+$persist=static function(array $s) use($c):void {$j=json_encode($s,JSON_THROW_ON_ERROR);$q=$c->prepare('UPDATE store SET store_data=? WHERE store_id=1');$q->bind_param('s',$j);$q->execute();};
+$key=hash('sha256',json_encode([$rotated['session'],$rotated['user'],$rotated['token']],JSON_THROW_ON_ERROR));
+$state=$read();$expires=$state['csrf'][$key]['expires'];
+TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>[]);
+check($read()['csrf'][$key]['expires']===$expires);
+$state=$read();$state['csrf'][$key]['expires']=time()-1;$persist($state);
+$expired=$rotated;$expired['allowCsrfInit']=false;$expired['requireCsrf']=true;$expired['csrf']=$new['csrf'];
+denied(fn()=>TransactionStore::run($c,$tables,$expired,false,static fn(array &$s,array $a):array=>[]),403);
+$renewed=TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
+check($renewed['csrf']!==$new['csrf']);
+$state=$read();$state['csrf']=[];
+for($i=0;$i<512;$i++)$state['csrf'][hash('sha256','fixture-'.$i)]=['token'=>str_repeat('a',64),'expires'=>time()+1800];
+$persist($state);
+denied(fn()=>TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>[]),503);
+check(count($read()['csrf'])===512);
+$state=$read();foreach($state['csrf'] as &$entry)$entry['expires']=time()-1;unset($entry);$persist($state);
+$clean=TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
+check(count($read()['csrf'])===1);
+check(strlen($clean['csrf'])===64);
+// Legacy string entries are invalidated on a successful state request.
+$state=$read();$state['csrf'][$key]='legacy-token';$persist($state);
+$legacy=TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
+check(is_array($read()['csrf'][$key])&&$legacy['csrf']!==$clean['csrf']);
 echo json_encode(['checks'=>$checks,'schema'=>$schema,'note'=>'isolated DB retained for race tests; no existing tables changed']),"\n";
