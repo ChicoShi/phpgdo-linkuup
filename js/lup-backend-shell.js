@@ -101,7 +101,7 @@
         if (bar) {
             const wrapper = bar.closest('.card');
             const tools = make('details','lup-settings-tools');
-            tools.open = true;
+            tools.open = false;
             tools.append(make('summary','',de?'Weitere Kontoaktionen':'More account actions'),bar);
             content.append(tools);
             if (wrapper && !wrapper.textContent.trim() && !wrapper.querySelector('input,select,textarea,img,form')) wrapper.remove();
@@ -116,7 +116,7 @@
         layout.append(nav,panels);
         content.prepend(head,mobile,layout);
         content.classList.add('lup-account-settings');
-        choose(previous?.querySelector('.accordion-collapse')?.id || location.hash.slice(1));
+        choose(blocks.find(el=>el.querySelector('.gdt-error,.is-invalid'))?.querySelector('.accordion-collapse')?.id || location.hash.slice(1) || previous?.querySelector('.accordion-collapse')?.id);
         // Fix missing/technical labels locally, without changing API fields or ACL values.
         const fieldLabels = de ? {lup_profile_outside_visible:'Profil auch außerhalb einer Location zeigen',lup_state:'Bundesland / Region',lup_city:'Wohnort',age_visible:'Wer darf dein Alter sehen?',activity_accuracy:'Genauigkeit der Aktivitätsanzeige',gallery_acl:'Wer darf deine Galerie sehen?'} : {lup_profile_outside_visible:'Show profile outside a location',lup_state:'State / region',lup_city:'City'};
         Object.entries(fieldLabels).forEach(([id,text])=>{

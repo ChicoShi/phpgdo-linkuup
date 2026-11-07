@@ -202,31 +202,31 @@ html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings { max-wi
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings::before { content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 82% 18%,#59c6db16,transparent 55%),radial-gradient(ellipse at 3% 65%,#397bd517,transparent 50%); }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings [hidden] { display:none; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-heading { margin:0 0 30px; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-eyebrow { display:block;margin-bottom:10px;font:500 11px/1.5 Roboto,"Segoe UI",sans-serif;letter-spacing:.14em;color:#91c8dd; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-eyebrow { display:block;margin-bottom:10px;font:500 11px/1.5 Roboto,"Segoe UI",sans-serif;letter-spacing:.14em;color:#91a9bf; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-heading h1 { margin:0 0 10px;font:500 clamp(30px,4vw,42px)/1.15 Ubuntu,"Segoe UI",sans-serif;letter-spacing:-.04em; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-heading p { margin:0;font-size:15px;color:var(--shell-muted); }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-layout { display:grid;grid-template-columns:228px minmax(0,1fr);gap:28px;align-items:start; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-nav { position:sticky;top:20px;display:flex;flex-direction:column;gap:5px;padding:10px;border:1px solid #dbf4ff22;border-radius:24px;background:linear-gradient(150deg,#c5eeff12,#15344938);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 #effaff24,0 12px 40px #030d1914; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-nav { position:sticky;top:20px;display:flex;flex-direction:column;gap:5px;padding:10px;border:1px solid #36516b;border-radius:18px;background:#16283d;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab { display:flex;justify-content:flex-start;gap:12px;width:100%;min-height:48px;padding:12px;border:1px solid transparent;border-radius:15px;background:transparent;box-shadow:none;color:var(--shell-muted);font-size:13px;text-align:left; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab i { flex:0 0 20px;text-align:center;font-size:16px;color:#96bbce; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab[aria-pressed=true] { border-color:#d7f4ff3d;background:linear-gradient(145deg,#c5efff26,#6cc9f510);color:#eefaff;box-shadow:inset 0 1px 0 #effaff38,0 6px 18px #03122124; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab[aria-pressed=true] i { color:#bcefff;text-shadow:0 0 16px #84d5ff40; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab i { flex:0 0 20px;text-align:center;font-size:16px;color:#afc4d8; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab[aria-pressed=true] { border-color:#36516b;background:#16283d;color:#eefaff;box-shadow:none; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab[aria-pressed=true] i { color:#e5f1fa;text-shadow:0 0 16px #84d5ff40; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tab:focus-visible { outline:2px solid #bce8fa;outline-offset:3px; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-picker { display:none; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-panels { min-width:0; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-section { margin:0;padding:0;border:0;background:none; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-section .accordion-item { border:0;background:transparent;overflow:visible; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-section .accordion-body { padding:0;border:0; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-section .gdt-form:is(#form,.gdt-form) { width:100%;max-width:none;margin:0;padding:30px;border:1px solid #c5efff30;border-radius:28px;background:linear-gradient(125deg,#d0f2ff0b,transparent 46%),linear-gradient(170deg,#18384c85,#101b2db8);box-shadow:inset 0 1px 0 #effaff36,inset 0 -1px 0 #8acfe00d,0 18px 52px #030a151f; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-section .gdt-form:is(#form,.gdt-form) { width:100%;max-width:none;margin:0;padding:30px;border:1px solid #36516b;border-radius:20px;background:#16283d;box-shadow:none; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .card-header { display:grid;grid-template-columns:48px minmax(0,1fr);column-gap:16px;row-gap:6px;align-items:center;padding:0 0 28px; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .card-title { margin:0;font-size:25px;letter-spacing:-.025em; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .lup-settings-description { grid-column:2;margin:0;color:var(--shell-muted);font-size:13px;line-height:1.6; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-mark { display:grid;place-items:center;grid-row:1 / span 2;width:48px;height:48px;border:1px solid #c5efff35;border-radius:16px;background:linear-gradient(145deg,#daf5ff22,#b6e9ff05);color:#c4efff;font-size:20px;box-shadow:inset 0 1px 0 #ffffff2b; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-mark { display:grid;place-items:center;grid-row:1 / span 2;width:48px;height:48px;border:1px solid #36516b;border-radius:16px;background:#16283d;color:#afc4d8;font-size:20px;box-shadow:none; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form-fields { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;row-gap:24px;align-items:end; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form-fields > * { margin:0;min-width:0; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form-fields .lup-field-wide { grid-column:1 / -1; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) label { margin:0 0 9px;color:#c1d6e2;font:400 13px/1.5 Roboto,"Segoe UI",sans-serif; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]):not([type=button]),select,textarea):not(:where(.CodeMirror *)) { color-scheme:dark;min-width:0;min-height:50px;border-color:#c5e9ff29;border-radius:14px;background:#071b2e70;box-shadow:inset 0 1px 3px #020b151c;font-size:16px; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=submit]):not([type=button]),select,textarea):not(:where(.CodeMirror *)) { color-scheme:dark;min-width:0;min-height:50px;border-color:#36516b;border-radius:14px;background:#101b2d;box-shadow:none;font-size:16px; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) :is(input,select,textarea):focus-visible { outline:2px solid #bce8fa;outline-offset:3px;border-color:#bce8fa88; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) input[type=date] { min-height:56px;letter-spacing:.02em; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings input::-webkit-calendar-picker-indicator { cursor:pointer;opacity:.9;padding:4px; }
@@ -234,7 +234,7 @@ html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-for
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-field-readonly { opacity:.65; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .gdt-form-actions { margin-top:28px;padding-top:22px;border-top:1px solid #c5e9ff1a; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .gdt-form-actions .gdt-submit { flex:0 1 280px; }
-html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .gdt-submit input { min-height:48px;border-radius:14px;background:linear-gradient(140deg,#d1f0fd,#a8dbed);box-shadow:inset 0 1px 0 #ffffff80,0 6px 22px #71ccef12;color:#102b3d; }
+html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .gdt-submit input { min-height:48px;border-radius:14px;background:#23405e;border-color:#426386;box-shadow:none;color:#e5f1fa; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tools { margin:26px 0 0 256px;border-top:1px solid #c5e9ff1a;padding-top:18px; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tools summary { display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;min-height:44px;color:var(--shell-muted);font-size:13px;padding:10px 0; }
 html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tools .lup-section-nav { margin-top:12px; }
@@ -242,14 +242,14 @@ html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-set
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-layout { grid-template-columns:minmax(0,1fr);gap:0; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-nav { display:none; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-picker { display:flex;flex-direction:column;gap:8px;margin:0 0 20px;color:var(--shell-muted);font-size:12px; }
- html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-picker select { width:100%;min-width:0;min-height:50px;padding:12px 16px;border:1px solid #c5efff38;border-radius:16px;background:#193a4b85;color:var(--shell-text);color-scheme:dark;font:500 16px/1.5 Roboto,"Segoe UI",sans-serif;box-shadow:inset 0 1px 0 #effaff29; }
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-picker select { width:100%;min-width:0;min-height:50px;padding:12px 16px;border:1px solid #36516b;border-radius:16px;background:#16283d;color:var(--shell-text);color-scheme:dark;font:500 16px/1.5 Roboto,"Segoe UI",sans-serif;box-shadow:none; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-tools { margin-left:0; }
 }
 @media(max-width:600px) {
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings { padding:26px 16px 48px; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-heading { margin-bottom:22px; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-heading p { font-size:13px; }
- html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-section .gdt-form:is(#form,.gdt-form) { padding:22px 18px;border-radius:24px; }
+ html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-section .gdt-form:is(#form,.gdt-form) { padding:22px 18px;border-radius:18px; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .card-header { grid-template-columns:40px minmax(0,1fr);gap:8px 12px;padding-bottom:24px; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .lup-settings-mark { width:40px;height:40px;border-radius:14px;font-size:18px; }
  html.lup-backend-ui body.lup-backend #content-wrap.lup-account-settings .gdt-form:is(#form,.gdt-form) .card-title { font-size:22px; }
@@ -720,3 +720,5 @@ html.lup-backend-ui body.lup-backend #content-wrap .operator-application-entry .
 html.lup-backend-ui body.lup-backend #content-wrap .operator-application-entry .gdt-form .card-header{display:none}
 html.lup-backend-ui body.lup-backend #content-wrap .operator-application-entry .gdt-form :is(.card-body,.card-footer,.gdt-card-middle){padding:0}
 html.lup-backend-ui body.lup-backend #content-wrap .operator-application-entry .gdt-form-fields > *{margin-bottom:18px}
+
+html.lup-backend-ui #content-wrap.lup-account-settings,html.lup-backend-ui #content-wrap.lup-account-settings * {box-sizing:border-box;}
