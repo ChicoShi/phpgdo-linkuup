@@ -14,7 +14,12 @@ Stand 07.11.2026, Feature-Branch `simion/gastro-local-20261106`. Kein Live-Relea
 Session → Benutzer → Location → Pilot-Ledger werden in fester Reihenfolge gesperrt.
 Sessionzuordnung, Token, Ablaufzeit, CSRF, Benutzerstatus und aktueller Owner werden
 vor der Buchung aus den gesperrten Zeilen geprüft. Bestellung und Testledger landen
-im selben Commit; Fehler rollen zurück. CSRF-Erzeugung erfolgt unter Sessionlock.
+im selben Commit; Fehler rollen zurück. CSRF-Erzeugung erfolgt unter Session- und Storelock im eigenen Pilotstore.
+Der Adapter liest die GDO-Session nur; er verändert sess_data nicht. Der CSRF-Eintrag
+ist an einen Hash aus Session-ID, Benutzer-ID und geprüftem Sessiontoken gebunden.
+Alte Token werden nicht aus sess_data übernommen; nach Upgrade Ansicht neu laden.
+Die derzeitige Pilot-Map hat noch keine automatische Bereinigung; die gemeinsame
+16-MB-Grenze verweigert weitere Speicherung statt Daten still zu verwerfen.
 `schema.sql` bereitet ausdrücklich die isolierte Pilottabelle vor, ohne alte
 JSON-Bestände zu importieren. Der Store ist ein gemeinsamer, größenbegrenzter JSON-
 Datensatz in InnoDB: geeignet für begrenzte Pilotprüfungen, keine Skalierungs- oder
@@ -62,7 +67,7 @@ Vergleich nur anhand offizieller Dokumentation, keine fremden Konten getestet:
 | Kontosperre | Nur Member ohne user_deleted; keine eigene user_enabled-Spalte im untersuchten GDO_User | Tatsächliche Logout-/Sperr- und Sessionwiderrufswege durchgehend testen, MFA/erneute Anmeldung für sensible Änderungen |
 | Inaktive Location | Neue Konfiguration, Bestellung und Testaufladung gesperrt; bestehende Aufträge weiter abwickelbar | Verhalten der künftigen administrativen Sperrgründe festlegen |
 | Nachvollziehbarkeit | Neue Bestellungen/Statuswechsel mit Akteur und UTC-Zeit; gleiche Wiederholung erzeugt keinen zweiten Eintrag | Kein revisionssicheres Auditarchiv; alte Historie wird nicht erfunden |
-| Atomare Buchung | Gemeinsame InnoDB-Transaktion im neuen Adapter; 33 isolierte DB-Prüfungen | Core-Sessionmigration, echter GDO-/Proxy-E2E, Restore-/Crashprüfung und Providerintegration |
+| Atomare Buchung | Gemeinsame InnoDB-Transaktion im neuen Adapter; 39 isolierte DB-Prüfungen | Core-Sessionmigration, echter GDO-/Proxy-E2E, Restore-/Crashprüfung und Providerintegration |
 | Wiederholung/Konkurrenz | Domain-/Dateitests plus acht parallele DB-Aufladeretries; DB-Rennen gegen Logout/Benutzer-/Location-Deaktivierung | Echte HTTP-/WebSocket-Konkurrrenz im vollständigen Stack |
 
 Prüfungen: `php tests/access-policy.php`, `php tests/ordering-domain.php`,
@@ -85,8 +90,8 @@ noch nicht abschließend geprüft.
 
 Behobene Integrationsfehler: lokaler /backend-Proxy verwendet Host localhost;
 der Adapter akzeptiert diesen nur mit App-Origin oder passendem App-Referer
-(weiterhin Loopback erforderlich). CSRF-Token wird ausdrücklich in der Sitzung
-persistiert. Fehler werden über GDO Application gesetzt; das Framework normalisiert
+(weiterhin Loopback erforderlich). Historisch wurde das CSRF-Token in der Sitzung persistiert; der neue
+Transaktionsadapter hält es ausschließlich im eigenen Pilotstore. Fehler werden über GDO Application gesetzt; das Framework normalisiert
 manche Ablehnungen auf409. Der private Pilotordner muss dem tatsächlichen lokalen
 VHost-Benutzer gehören (Modus0700), nicht pauschal www-data.
 Benutzerstatus und Owner werden nach Erwerb des Pilotlocks uncached ausDB gelesen.
@@ -123,7 +128,7 @@ keinen aktuellen aktivierten Gesamtablauf. DB-/Session-Rennen bleiben offen.
 setzt eine separate MariaDB mit Unix-Socket-Authentifizierung für den aufrufenden
 OS-Nutzer und ohne Netzwerklistener voraus. Das Skript legt ausschließlich ein
 neues zufälliges QA-Schema an, verwendet keine echten Konten und behält es für
-Nachprüfung. 33 Prüfungen: Rollback, doppelte und acht parallele Aufladung,
+Nachprüfung. 39 Prüfungen: Rollback, doppelte und acht parallele Aufladung,
 Sessiontoken/CSRF/Ablauf, Logout und Sperrung, MyISAM-/Nested-Transaction-Ablehnung,
 reale konkurrierende Sperren und CSRF-Erzeugung. Kein GDO-/App-E2E-Nachweis.
 Schemaeinrichtung nicht auf Produktion ausführen; keine Zugangsdaten im Repository.
@@ -151,7 +156,7 @@ Dies ist ein Anforderungskatalog, keine implementierte Bank-/Payment-Sicherheit.
 ## Gemeinsame Abnahme vor Übergabe an Gizmore
 
 Beide PRs bleiben Draft, bis die folgenden offenen Punkte mit tatsächlichen
-Ergebnissen dokumentiert sind. Die 33 isolierten SQL-Prüfungen ersetzen keinen
+Ergebnissen dokumentiert sind. Die 39 isolierten SQL-Prüfungen ersetzen keinen
 dieser vollständigen GDO-Abläufe. Zuständigkeit: Simion Gastro/App, Mira Core/WS.
 
 | Prüfung | Erwartung | Stand |
@@ -184,3 +189,11 @@ oder Freigabetest und muss nach einem Fix in einen Regressionstest umgebaut werd
 Echte GDO-Objekte/Save-Hooks werden verwendet; HTTP-Logout-Methode, Benutzer-/Logout-
 Hooks, WebSockets, vollständige Installation und Cache-/Produktionskonfiguration
 sind nicht abgedeckt. Kein nachgewiesener Login-Bypass. Core-Korrektur bleibt offen.
+
+### Gastro-CSRF gegen verspäteten GDO-Commit abgesichert
+`GASTRO_QA_SOCKET=/tmp/simion-gastro-db-<test>/db.sock GASTRO_QA_CORE=/pfad/phpgdo php tests/session-gastro-csrf.php`
+prüft mit echtem GDO-Sessionobjekt und separatem Logout-Prozess: TransactionStore
+schreibt keine sess_data, sein CSRF bleibt nach dirty GDO commit gültig, und nach
+Logout wird dieselbe Identität abgewiesen. Der DB-Test prüft zusätzlich Rotation
+des Sessiontokens und Ablehnung alter CSRF-/Sessiontokens. Kein HTTP-/WS-Gesamttest;
+der allgemeine Core-Baselinefehler wird damit ausdrücklich NICHT behoben.
