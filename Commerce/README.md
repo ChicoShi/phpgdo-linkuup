@@ -18,8 +18,13 @@ im selben Commit; Fehler rollen zurück. CSRF-Erzeugung erfolgt unter Session- u
 Der Adapter liest die GDO-Session nur; er verändert sess_data nicht. Der CSRF-Eintrag
 ist an einen Hash aus Session-ID, Benutzer-ID und geprüftem Sessiontoken gebunden.
 Alte Token werden nicht aus sess_data übernommen; nach Upgrade Ansicht neu laden.
-Die derzeitige Pilot-Map hat noch keine automatische Bereinigung; die gemeinsame
-16-MB-Grenze verweigert weitere Speicherung statt Daten still zu verwerfen.
+CSRF-Einträge laufen nach höchstens einer Stunde ab (bei kürzerer
+Sessionlebensdauer entsprechend früher). Polling verlängert sie nicht. Erfolgreiche
+Zugriffe bereinigen abgelaufene/ungültige Einträge atomar; ohne Zugriffe läuft kein
+Hintergrundjob. Maximal512 aktive Einträge: weitere Initialisierung wird mit503
+abgewiesen, bestehende Einträge werden nicht verdrängt. Nach Ablauf liefert eine
+Mutation403; die Ansicht muss mit state neu geladen werden. Die gemeinsame
+16-MB-Pilotgrenze bleibt bestehen.
 `schema.sql` bereitet ausdrücklich die isolierte Pilottabelle vor, ohne alte
 JSON-Bestände zu importieren. Der Store ist ein gemeinsamer, größenbegrenzter JSON-
 Datensatz in InnoDB: geeignet für begrenzte Pilotprüfungen, keine Skalierungs- oder
@@ -67,7 +72,7 @@ Vergleich nur anhand offizieller Dokumentation, keine fremden Konten getestet:
 | Kontosperre | Nur Member ohne user_deleted; keine eigene user_enabled-Spalte im untersuchten GDO_User | Tatsächliche Logout-/Sperr- und Sessionwiderrufswege durchgehend testen, MFA/erneute Anmeldung für sensible Änderungen |
 | Inaktive Location | Neue Konfiguration, Bestellung und Testaufladung gesperrt; bestehende Aufträge weiter abwickelbar | Verhalten der künftigen administrativen Sperrgründe festlegen |
 | Nachvollziehbarkeit | Neue Bestellungen/Statuswechsel mit Akteur und UTC-Zeit; gleiche Wiederholung erzeugt keinen zweiten Eintrag | Kein revisionssicheres Auditarchiv; alte Historie wird nicht erfunden |
-| Atomare Buchung | Gemeinsame InnoDB-Transaktion im neuen Adapter; 39 isolierte DB-Prüfungen | Core-Sessionmigration, echter GDO-/Proxy-E2E, Restore-/Crashprüfung und Providerintegration |
+| Atomare Buchung | Gemeinsame InnoDB-Transaktion im neuen Adapter; 47 isolierte DB-Prüfungen | Core-Sessionmigration, echter GDO-/Proxy-E2E, Restore-/Crashprüfung und Providerintegration |
 | Wiederholung/Konkurrenz | Domain-/Dateitests plus acht parallele DB-Aufladeretries; DB-Rennen gegen Logout/Benutzer-/Location-Deaktivierung | Echte HTTP-/WebSocket-Konkurrrenz im vollständigen Stack |
 
 Prüfungen: `php tests/access-policy.php`, `php tests/ordering-domain.php`,
@@ -128,7 +133,7 @@ keinen aktuellen aktivierten Gesamtablauf. DB-/Session-Rennen bleiben offen.
 setzt eine separate MariaDB mit Unix-Socket-Authentifizierung für den aufrufenden
 OS-Nutzer und ohne Netzwerklistener voraus. Das Skript legt ausschließlich ein
 neues zufälliges QA-Schema an, verwendet keine echten Konten und behält es für
-Nachprüfung. 39 Prüfungen: Rollback, doppelte und acht parallele Aufladung,
+Nachprüfung. 47 Prüfungen: Rollback, doppelte und acht parallele Aufladung,
 Sessiontoken/CSRF/Ablauf, Logout und Sperrung, MyISAM-/Nested-Transaction-Ablehnung,
 reale konkurrierende Sperren und CSRF-Erzeugung. Kein GDO-/App-E2E-Nachweis.
 Schemaeinrichtung nicht auf Produktion ausführen; keine Zugangsdaten im Repository.
@@ -156,7 +161,7 @@ Dies ist ein Anforderungskatalog, keine implementierte Bank-/Payment-Sicherheit.
 ## Gemeinsame Abnahme vor Übergabe an Gizmore
 
 Beide PRs bleiben Draft, bis die folgenden offenen Punkte mit tatsächlichen
-Ergebnissen dokumentiert sind. Die 39 isolierten SQL-Prüfungen ersetzen keinen
+Ergebnissen dokumentiert sind. Die 47 isolierten SQL-Prüfungen ersetzen keinen
 dieser vollständigen GDO-Abläufe. Zuständigkeit: Simion Gastro/App, Mira Core/WS.
 
 | Prüfung | Erwartung | Stand |
@@ -197,3 +202,13 @@ schreibt keine sess_data, sein CSRF bleibt nach dirty GDO commit gültig, und na
 Logout wird dieselbe Identität abgewiesen. Der DB-Test prüft zusätzlich Rotation
 des Sessiontokens und Ablehnung alter CSRF-/Sessiontokens. Kein HTTP-/WS-Gesamttest;
 der allgemeine Core-Baselinefehler wird damit ausdrücklich NICHT behoben.
+
+### Offener Authentifizierungswechsel
+Wenn Logout und Login desselben Nutzers Session-ID und Sessiontoken unverändert
+lassen, kann Gastro anhand dieses identischen Tupels den Anmeldewechsel nicht
+erkennen. Die TTL begrenzt die Lebensdauer, behebt aber NICHT diese Bindungslücke.
+Im gelesenen Login::Form::loginSuccess wird sess_user gespeichert und ein
+UserAuthenticated-Hook ausgelöst; eine Tokenrotation ist dort nicht sichtbar.
+Andere Hooks und der vollständige Login-Ablauf sind noch nicht geprüft.
+Core muss eine geprüfte Rotation oder Auth-Generation bereitstellen; dies bleibt
+vor gemeinsamer Freigabe offen. Kein eigener konkurrierender Core-Hook im Gastro-PR.
