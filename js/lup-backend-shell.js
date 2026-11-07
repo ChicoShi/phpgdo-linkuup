@@ -232,6 +232,23 @@
         const back=content.querySelector('.lup-app-return');if(back)back.textContent=de?'← Zurück zu LinkUUp':'← Back to LinkUUp';
         if(back)back.after(hero,uses,order,help);else content.prepend(hero,uses,order,help);
     };
+    const enhanceOperatorPreview = content => {
+        const dialog=content.querySelector('.operator-preview-dialog');
+        if (!dialog || typeof dialog.showModal !== 'function') return;
+        let opener;
+        content.querySelectorAll('[data-operator-preview]').forEach(link=>link.addEventListener('click',event=>{
+            event.preventDefault();opener=link;
+            dialog.querySelector('h2').textContent=link.querySelector('strong').textContent;
+            const img=dialog.querySelector('img');
+            img.alt=link.querySelector('strong').textContent+' – Beispieldaten';
+            img.src=window.matchMedia('(max-width:680px)').matches ? link.href.replace('-preview.png','-mobile-preview.png') : link.href;
+            dialog.showModal();document.body.classList.add('operator-preview-open');
+            dialog.querySelector('[data-preview-close]').focus();
+        }));
+        dialog.querySelector('[data-preview-close]').addEventListener('click',()=>dialog.close());
+        dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
+        dialog.addEventListener('close',()=>{document.body.classList.remove('operator-preview-open');opener?.focus({preventScroll:true});});
+    };
     const enhanceOrders = (content, de) => {
         const addresses=/\/address[.;]ownaddresses[.;]/i.test(location.pathname);
         if (!addresses && !/\/payment[.;](?:yourorders|orders)[.;]/i.test(location.pathname)) return;
@@ -557,6 +574,7 @@
             enhanceAccountSettings(content, de);
             enhanceEditors(content);
             enhanceCredits(content, de);
+            enhanceOperatorPreview(content);
             if (/\/news[.;]/i.test(location.pathname)) {
                 content.classList.add('lup-news-page');
                 if (/newsletterabbo[.;]/i.test(location.pathname)) content.classList.add('lup-news-subscribe');
@@ -632,5 +650,6 @@
             if (identity?.firstChild?.nodeType === Node.TEXT_NODE) identity.firstChild.textContent = de ? 'E-Mail oder Nutzername ' : 'Email or username ';
         }
     };
-    document.getElementById('content-wrap') ? ready() : document.addEventListener('DOMContentLoaded', ready, {once:true});
+    const initialize = () => { try { ready(); } finally { document.documentElement.classList.remove('lup-view-pending'); } };
+    document.getElementById('content-wrap') ? initialize() : document.addEventListener('DOMContentLoaded', initialize, {once:true});
 })();

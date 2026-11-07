@@ -6,28 +6,34 @@ $status=['pending'=>'In Prüfung','approved'=>'Freigeschaltet','rejected'=>'Abge
 <section class="gdo-operator-applications <?= $review?'':'operator-application-entry' ?>">
 <?php if(!$review && !$rows): ?>
 <header class="operator-invitation">
- <span class="operator-kicker">FÜR GASTGEBER UND BETREIBER</span>
- <h1>Dein Ort.<br>Digital genauso einladend.</h1>
- <p>Zeig Gästen, was deine Location besonders macht – mit deiner eigenen Karte und einem gemeinsamen Überblick über die Bestellungen.</p>
- <a class="operator-start" href="#operator-application-form">Meine Location anmelden <span aria-hidden="true">→</span></a>
- <small>Zuerst prüfen wir deine Angaben. Angebot und Vertrag klären wir persönlich vor der Freischaltung.</small>
+ <span class="operator-kicker">LINKUUP FÜR DEINEN BETRIEB</span>
+ <h1>Deine Karte.<br>Deine Gäste. Ein Ort.</h1>
+ <p>Mach deine Speisen und Getränke direkt in deiner Location sichtbar. Verwalte Karte, Tische und Bestellungen in einem gemeinsamen Bereich.</p>
+ <a class="operator-start" href="#operator-application-form">Location anmelden <span aria-hidden="true">→</span></a>
 </header>
 <section class="operator-benefits" aria-label="Deine Möglichkeiten">
- <article><span aria-hidden="true">01</span><h2>Deine Karte, aktuell.</h2><p>Speisen, Getränke und Preise selbst pflegen. Gäste sehen die veröffentlichte Karte direkt bei deiner Location.</p></article>
- <article><span aria-hidden="true">02</span><h2>Jeder Tisch im Blick.</h2><p>Bestellungen mit Artikeln, Beträgen und Tischnummern bündeln – vom Eingang bis zur Ausgabe.</p></article>
- <article><span aria-hidden="true">03</span><h2>Du gibst den Start frei.</h2><p>Erst Karte und Tische einrichten, dann Bestellungen freigeben. Neue Bestellungen lassen sich bei Bedarf pausieren.</p></article>
+ <article><h2>Einfach aktuell halten</h2><p>Artikel, Preise und Verfügbarkeit selbst bearbeiten.</p></article>
+ <article><h2>Bestellungen zuordnen</h2><p>Artikel und Status übersichtlich je Tisch sehen.</p></article>
+ <article><h2>Service selbst steuern</h2><p>Bestellungen gezielt freigeben oder pausieren.</p></article>
 </section>
 <section class="operator-showcase" aria-labelledby="operator-showcase-title">
- <span class="operator-kicker">EIN BLICK IN DEN BETREIBERBEREICH</span><h2 id="operator-showcase-title">So kann dein Alltag aussehen.</h2>
- <p>Aufnahmen unserer aktuellen Vorschau mit erfundenen Beispieldaten. Zahlungen sind darin simuliert; eine echte Zahlungsanbindung ist noch nicht freigegeben.</p>
- <figure><img src="/GDO/LinkUUp/img/operator/guest-preview.png" alt="Beispiel einer digitalen Karte mit Getränken, Preisen, Suche und Warenkorb" width="1120" height="1100" loading="lazy"><figcaption><strong>Für deine Gäste</strong><span>Karte ansehen, Auswahl treffen. Bestellen wird nach Standortprüfung vor Ort und deiner Freigabe möglich.</span></figcaption></figure>
- <figure><img src="/GDO/LinkUUp/img/operator/operator-preview.png" alt="Beispiel der Betreiberübersicht mit neuen Bestellungen an Tisch 4 und einer Bestellung in Arbeit an Tisch 7" width="1120" height="1100" loading="lazy"><figcaption><strong>Für dein Team</strong><span>Neue, laufende und abgeschlossene Bestellungen an einem Ort.</span></figcaption></figure>
+ <header><h2 id="operator-showcase-title">Schau es dir an.</h2><p>Zwei Perspektiven auf deinen Betrieb.</p></header>
+ <div class="operator-preview-choices">
+  <a class="operator-preview-choice" href="/GDO/LinkUUp/img/operator/guest-preview.png" data-operator-preview="guest" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 4h7l2 2 2-2h7v15h-7l-2 2-2-2H3Z M12 6v15 M6 8h3 M15 8h3 M6 12h3 M15 12h3"/></svg><span><strong>Die Karte für deine Gäste</strong><small>Auswahl, Preise und Warenkorb</small></span><span aria-hidden="true">↗</span></a>
+  <a class="operator-preview-choice" href="/GDO/LinkUUp/img/operator/operator-preview.png" data-operator-preview="operator" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 4h18v16H3Z M3 9h18 M9 9v11 M15 9v11"/></svg><span><strong>Deine Bestellübersicht</strong><small>Neue Aufträge und laufender Service</small></span><span aria-hidden="true">↗</span></a>
+ </div>
+ <p class="operator-preview-note">Beispielansichten des Piloten. Zahlungen sind simuliert; die echte Zahlungsanbindung ist noch nicht freigegeben.</p>
 </section>
-<section class="operator-next"><h2>Vom Antrag zu deinem Betrieb.</h2><ol><li><strong>Location vorstellen</strong><span>Einrichtung und Kontaktperson angeben.</span></li><li><strong>Gemeinsam klären</strong><span>Wir prüfen die Zuständigkeit und besprechen Angebot und Vertrag.</span></li><li><strong>Einrichten und starten</strong><span>Nach Freischaltung Karte und Tische vorbereiten.</span></li></ol></section>
+<section class="operator-next"><h2>So geht es weiter.</h2><p>Du stellst deine Location vor. Wir prüfen deine Zuständigkeit und besprechen Angebot und Vertrag mit dir. Erst danach schalten wir deinen Betreiberzugang frei.</p></section>
+<dialog class="operator-preview-dialog" aria-labelledby="operator-preview-title">
+ <header><div><small>BEISPIELANSICHT · KEINE ECHTEN ZAHLUNGEN</small><h2 id="operator-preview-title">Vorschau</h2></div><button type="button" data-preview-close aria-label="Vorschau schließen">×</button></header>
+ <div class="operator-preview-scroll"><img alt="" width="1120" height="1100"></div>
+ <p>Erfundene Location und Beispieldaten aus der aktuellen Produktvorschau.</p>
+</dialog>
 <?php endif; ?>
 <h2 id="operator-application-form"><?= $review?'Betriebsanträge':($rows?'Mein Betrieb':'Erzähl uns von deiner Location') ?></h2>
 <?php if($review): ?><p>Nur nach geprüfter Zuständigkeit und abgeschlossener Vertragsklärung freischalten. Die Bestätigung dokumentiert die manuelle Prüfung; sie ist kein juristischer Nachweis. Neue Einrichtungen müssen zuerst durch das Team regulär angelegt und zugeordnet werden; danach ist ein Antrag für diese eigene Location nötig.</p><?php endif; ?>
-<?php if(!$review): ?><p class="operator-entry-intro">Location anmelden, Prüfung abwarten, danach Karte und Bestellungen verwalten. Deinen Antragsstatus findest du auf dieser Seite.</p><?php elseif(!$rows): ?><p>Noch keine Anträge.</p><?php endif; ?>
+<?php if(!$review): ?><p class="operator-entry-intro"><?= $rows?'Hier findest du den aktuellen Stand deiner Anträge.':'Nenne uns deine Einrichtung und eine Kontaktperson. Wir melden uns zur weiteren Abstimmung.' ?></p><?php elseif(!$rows): ?><p>Noch keine Anträge.</p><?php endif; ?>
 <?php foreach($rows as $row): ?>
 <article><h3><?= $escape($row['oa_business']) ?></h3>
 <p>Antrag #<?= $escape($row['oa_id']) ?> · <?= $escape($status[$row['oa_status']]??'Unbekannt') ?> · <?= $escape($row['oa_created']) ?></p>
