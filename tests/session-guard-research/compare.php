@@ -50,6 +50,10 @@ foreach([false,true] as $dirty){
  try {if(!GDO_Session::commit())throw new RuntimeException('Commit failed');}
  catch(RuntimeException $e){if($e->getCode()!==409)throw $e;$conflict=true;}
  if($conflict!==($dirty && (bool)$candidate))throw new RuntimeException('Unexpected conflict behavior');
+ if($conflict){
+  if(GDO_Session::$INSTANCE!==null||$s->gdoVar('sess_user')!==null||$s->gdoVar('sess_data')!==null||$s->gdoVar('sess_token')!==null)throw new RuntimeException('Stale identity retained');
+  try{$s->save();throw new LogicException('Invalid object reused');}catch(RuntimeException $e){if($e->getCode()!==409)throw $e;}
+ }
  $r=$c->query('SELECT sess_user,sess_data FROM gdo_session WHERE sess_id=1')->fetch_assoc();
  $restored=$r['sess_data']!==null;
  if($r['sess_user']!==null || $restored!==($dirty && !$candidate))throw new RuntimeException('Unexpected baseline behavior');

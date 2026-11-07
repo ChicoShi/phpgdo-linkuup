@@ -28,3 +28,26 @@ WebSocket-Verbindung/Widerruf, Engine-Migration und weitere DBMS sind offen.
 Der Kandidat verwendet absichtlich strenge InnoDB-/Snapshot-Voraussetzungen und
 würde bestehende MyISAM-Installationen blockieren. Er ist ein Prüfbeitrag, keine
 behauptete fertige Core-Lösung. `production_security_pass` bleibt false.
+
+## Zusätzliche Konfliktprüfung
+Der Kandidat verwirft nach einem Fehler innerhalb seiner Transaktion die lokale
+Identität/Sessiondaten/Token des betroffenen Objekts, löst die INSTANCE-Referenz
+und sperrt dieses Objekt gegen erneutes save. Der Harness prüft dies beim
+Logout-Konflikt. Ein weiterverwendetes Objekt muss409 liefern; ausdrücklich neu
+laden bleibt der einzige getestete Wiederholungsweg. Verteilte Caches, globale
+GDO_User-Referenzen und bereits laufende Hooks sind damit NICHT abgesichert.
+
+## Offene Request-Finalisierung – nicht durch catch allein erledigt
+Im gelesenen index.php liegt GDO_Session::commit nach render und außerhalb des
+vorherigen try/catch; sein boolesches Ergebnis wird nicht ausgewertet. Ein bloßes
+Abfangen des Konflikts und return false könnte also die zuvor gerenderte
+Erfolgsantwort weiterhin ausliefern. Erforderlich ist eine geprüfte gemeinsame
+Core-Änderung: keine Erfolgsausgabe bei fehlgeschlagenem Sessioncommit, definierter
+409-Konflikt bzw.503 bei unklarem DB-Ergebnis, keine sensitiven Exceptiontexte und
+kein automatischer Retry schon ausgeführter Fachaktionen.
+
+Im gelesenen GWS_Server erfolgt executeMessage vor Sessioncommit; deshalb genügt
+auch dort eine neue Exceptionbehandlung nicht als Nachweis, dass noch keine
+Erfolgsantwort gesendet wurde. Nachrichtenfolge und Verbindungssperre müssen mit
+realem Protokoll geprüft werden. Keine Passwortframes an ungeprüfte Laufzeiten.
+Diese Punkte sind dokumentierte Integrationsblocker, keine fertigen HTTP-/WS-Fixes.
