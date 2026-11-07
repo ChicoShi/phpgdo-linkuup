@@ -228,3 +228,13 @@ html.lup-backend-ui body.lup-backend #sidebar-wrapper a[href*="friends."] .gdo-i
 html.lup-backend-ui .lup-app-return { display:inline-flex; align-items:center; gap:8px; min-height:44px; max-width:100%; margin:0 0 12px; padding:8px 14px; border:1px solid var(--shell-line); border-radius:12px; color:var(--shell-text); background:#bce8fa0d; text-decoration:none; font-weight:600; }
 html.lup-backend-ui .lup-app-return:hover { background:#bce8fa1a; }
 html.lup-backend-ui .lup-app-return:focus-visible { outline:2px solid var(--shell-accent); outline-offset:3px; }
+
+/* Backend content is a vertical flow; the return link must not share a row with forms. */
+html.lup-backend-ui body.lup-backend:not(.lup-arrival-active) #page-content-wrapper > main#content-wrap { display:block !important; }
+html.lup-backend-ui .lup-app-return { position:static; float:none; width:fit-content; white-space:nowrap; border:0; border-radius:0; padding:8px 0; background:transparent; font-weight:500; }
+html.lup-backend-ui .lup-app-return:hover { background:transparent; text-decoration:underline; }
+@media(max-width:600px) {
+ html.lup-backend-ui body.lup-backend #content-wrap .gdo-operator-applications { padding:16px; border-radius:16px; }
+ html.lup-backend-ui body.lup-backend #content-wrap .gdo-operator-applications .gdt-form:is(#form,.gdt-form) { padding:0; border:0; }
+ html.lup-backend-ui body.lup-backend #content-wrap .gdo-operator-applications :is(.card-header,.card-body,.gdt-card-middle,.card-footer) { padding:12px 0; }
+}
