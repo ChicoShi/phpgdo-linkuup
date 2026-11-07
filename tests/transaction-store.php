@@ -21,6 +21,11 @@ $c->query("INSERT INTO store VALUES(1,'{\"rooms\":{},\"ledger\":{}}')");
 $id=['session'=>'1','user'=>'1','room'=>'1','token'=>$token,'csrf'=>$csrf,'requireCsrf'=>true,'maxAge'=>86400];$checks=0;
 function check(bool $v):void{global $checks;if(!$v)throw new RuntimeException('Assertion failed');$checks++;}
 function denied(callable $f,int $code):void{try{$f();throw new LogicException('Unexpected success');}catch(RuntimeException $e){check($e->getCode()===$code);}}
+$init=$id;$init['allowCsrfInit']=true;$init['requireCsrf']=false;
+$initialized=TransactionStore::run($c,$tables,$init,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
+$id['csrf']=$initialized['csrf'];
+check(strlen($id['csrf'])===64);
+check($c->query('SELECT sess_data FROM sessions WHERE sess_id=1')->fetch_row()[0]===$serialized);
 $read=fn()=>json_decode($c->query('SELECT store_data FROM store')->fetch_row()[0],true);
 $op=static function(array &$s,array $a):array{return TestWallet::topup($s['ledger'],'1',2000,'qa-topup');};
 TransactionStore::run($c,$tables,$id,true,$op);
@@ -74,10 +79,19 @@ foreach(['logout','deactivate','room'] as $mode){
  }
 }
 check(TestWallet::summary($read()['ledger'],'1')['availableCents']===2400);
-// CSRF initialization is persisted under the session lock, without GDO cached writes.
+// A stale GDO sess_data write must not replace or invalidate the independent CSRF.
 $c->query('UPDATE sessions SET sess_data=NULL WHERE sess_id=1');
 $init=$id;$init['allowCsrfInit']=true;$init['requireCsrf']=false;
 $result=TransactionStore::run($c,$tables,$init,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
-check(strlen($result['csrf'])===64);
+check($result['csrf']===$id['csrf']);
+check($c->query('SELECT sess_data FROM sessions WHERE sess_id=1')->fetch_row()[0]===null);
+$old=$id;$old['csrf']=$csrf;denied(fn()=>TransactionStore::run($c,$tables,$old,true,$op),403);
+// Rotating the real session token cannot reuse an old CSRF token.
+$newToken=bin2hex(random_bytes(16));$q=$c->prepare('UPDATE sessions SET sess_token=? WHERE sess_id=1');$q->bind_param('s',$newToken);$q->execute();
+$rotated=$id;$rotated['token']=$newToken;
+denied(fn()=>TransactionStore::run($c,$tables,$rotated,true,$op),403);
+$rotated['allowCsrfInit']=true;$rotated['requireCsrf']=false;
+$new=TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
+check($new['csrf']!==$id['csrf']);
 denied(fn()=>TransactionStore::run($c,$tables,$id,true,$op),403);
 echo json_encode(['checks'=>$checks,'schema'=>$schema,'note'=>'isolated DB retained for race tests; no existing tables changed']),"\n";

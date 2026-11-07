@@ -29,22 +29,24 @@ final class TransactionStore
             $user=self::row($db,$tables['user'],'user_id',(string)$identity['user']);
             $room=self::row($db,$tables['room'],'room_id',(string)$identity['room']);
             if (!$user || $user['user_type']!=='member' || $user['user_deleted']!==null || !$room) throw new \RuntimeException('Zugriff nicht verfügbar',403);
-            $data=$session['sess_data']===null?[]:@unserialize($session['sess_data'],['allowed_classes'=>false]);
-            if (!is_array($data)) throw new \RuntimeException('Sitzung ungültig',403);
-            if (!is_string($data['gastro_local_csrf']??null) || strlen($data['gastro_local_csrf'])!==64) {
-                if (empty($identity['allowCsrfInit'])) throw new \RuntimeException('Sitzung neu öffnen',403);
-                $data['gastro_local_csrf']=bin2hex(random_bytes(32));
-                $serialized=serialize($data);$sid=(string)$identity['session'];
-                $stmt=$db->prepare('UPDATE `'.$tables['session'].'` SET sess_data=? WHERE sess_id=?');
-                $stmt->bind_param('ss',$serialized,$sid);$stmt->execute();$stmt->close();
-            }
-            if (!empty($identity['requireCsrf']) && !hash_equals($data['gastro_local_csrf'],(string)($identity['csrf']??''))) throw new \RuntimeException('Sitzung geändert',403);
             $record=self::row($db,$tables['store'],'store_id','1');
             if (!$record) throw new \RuntimeException('Gastro-Speicher ist nicht initialisiert',503);
             $store=json_decode($record['store_data'],true,64,JSON_THROW_ON_ERROR);
             if (!is_array($store['rooms']??null)||!is_array($store['ledger']??null)) throw new \RuntimeException('Ungültiger Speicher');
-            $result=$operation($store,['user'=>$user,'room'=>$room,'csrf'=>$data['gastro_local_csrf']]);
-            if ($write) {
+            // Never write sess_data: GDO may hold a dirty, older Session object.
+            // Bind the independent CSRF token to the verified session/user/token.
+            $csrfKey=hash('sha256',json_encode([(string)$identity['session'],(string)$identity['user'],(string)$identity['token']],JSON_THROW_ON_ERROR));
+            $csrfCreated=false;
+            $store['csrf']??=[];
+            if (!is_array($store['csrf'])) throw new \RuntimeException('Ungültiger Speicher',503);
+            $csrf=$store['csrf'][$csrfKey]??null;
+            if (!is_string($csrf) || !preg_match('/^[a-f0-9]{64}$/D',$csrf)) {
+                if (empty($identity['allowCsrfInit'])) throw new \RuntimeException('Sitzung neu öffnen',403);
+                $csrf=bin2hex(random_bytes(32));$store['csrf'][$csrfKey]=$csrf;$csrfCreated=true;
+            }
+            if (!empty($identity['requireCsrf']) && !hash_equals($csrf,(string)($identity['csrf']??''))) throw new \RuntimeException('Sitzung geändert',403);
+            $result=$operation($store,['user'=>$user,'room'=>$room,'csrf'=>$csrf]);
+            if ($write || $csrfCreated) {
                 $json=json_encode($store,JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE);
                 if (strlen($json)>16000000) throw new \RuntimeException('Pilot-Speichergrenze erreicht',503);
                 $stmt=$db->prepare('UPDATE `'.$tables['store'].'` SET store_data=? WHERE store_id=1');
