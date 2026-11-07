@@ -28,6 +28,7 @@ final class TransactionStore
                 $last=strtotime(($session['sess_time']??'').' UTC');
                 if ($last===false || $last<time()-(int)$identity['maxAge']) throw new \RuntimeException('Sitzung abgelaufen',403);
             }
+            if (!is_string($session['sess_auth']??null) || !preg_match('/^[a-f0-9]{32}$/D',$session['sess_auth'])) throw new \RuntimeException('Session-Authentifizierungsschema fehlt',503);
             $user=self::row($db,$tables['user'],'user_id',(string)$identity['user']);
             $room=self::row($db,$tables['room'],'room_id',(string)$identity['room']);
             if (!$user || $user['user_type']!=='member' || $user['user_deleted']!==null || !$room) throw new \RuntimeException('Zugriff nicht verfügbar',403);
@@ -37,7 +38,7 @@ final class TransactionStore
             if (!is_array($store['rooms']??null)||!is_array($store['ledger']??null)) throw new \RuntimeException('Ungültiger Speicher');
             // Never write sess_data: GDO may hold a dirty, older Session object.
             // Bind the independent CSRF token to the verified session/user/token.
-            $csrfKey=hash('sha256',json_encode([(string)$identity['session'],(string)$identity['user'],(string)$identity['token']],JSON_THROW_ON_ERROR));
+            $csrfKey=hash('sha256',json_encode([(string)$identity['session'],(string)$identity['user'],(string)$identity['token'],$session['sess_auth']],JSON_THROW_ON_ERROR));
             $csrfChanged=false;$now=time();
             $store['csrf']??=[];
             if (!is_array($store['csrf'])) throw new \RuntimeException('Ungültiger Speicher',503);

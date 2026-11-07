@@ -9,14 +9,14 @@ $c=new mysqli('localhost',getenv('USER'),'','',0,getenv('GASTRO_QA_SOCKET'));
 $schema='simion_gastro_qa_'.bin2hex(random_bytes(6));
 $c->query('CREATE DATABASE `'.$schema.'`');$c->select_db($schema);
 $tables=['session'=>'sessions','user'=>'users','room'=>'rooms','store'=>'store'];
-$c->query('CREATE TABLE sessions(sess_id INT PRIMARY KEY,sess_user INT NULL,sess_token VARCHAR(64),sess_data TEXT,sess_time DATETIME) ENGINE=InnoDB');
+$c->query('CREATE TABLE sessions(sess_id INT PRIMARY KEY,sess_user INT NULL,sess_token VARCHAR(64),sess_data TEXT,sess_time DATETIME,sess_auth CHAR(32) NOT NULL) ENGINE=InnoDB');
 $c->query('CREATE TABLE users(user_id INT PRIMARY KEY,user_type VARCHAR(16),user_deleted DATETIME NULL) ENGINE=InnoDB');
 $c->query('CREATE TABLE rooms(room_id INT PRIMARY KEY,room_owner INT,room_enabled BOOL,room_deleted DATETIME NULL,room_name VARCHAR(80)) ENGINE=InnoDB');
 $c->query('CREATE TABLE store(store_id INT PRIMARY KEY,store_data MEDIUMTEXT NOT NULL) ENGINE=InnoDB');
 $c->query("INSERT INTO users VALUES (1,'member',NULL),(2,'member',NULL)");
 $c->query("INSERT INTO rooms VALUES(1,2,1,NULL,'QA only')");
 $token=bin2hex(random_bytes(16));$csrf=bin2hex(random_bytes(32));$serialized=serialize(['gastro_local_csrf'=>$csrf]);
-$stmt=$c->prepare('INSERT INTO sessions VALUES (1,1,?,?,UTC_TIMESTAMP())');$stmt->bind_param('ss',$token,$serialized);$stmt->execute();
+$stmt=$c->prepare("INSERT INTO sessions VALUES (1,1,?,?,UTC_TIMESTAMP(),'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')");$stmt->bind_param('ss',$token,$serialized);$stmt->execute();
 $c->query("INSERT INTO store VALUES(1,'{\"rooms\":{},\"ledger\":{}}')");
 $id=['session'=>'1','user'=>'1','room'=>'1','token'=>$token,'csrf'=>$csrf,'requireCsrf'=>true,'maxAge'=>86400];$checks=0;
 function check(bool $v):void{global $checks;if(!$v)throw new RuntimeException('Assertion failed');$checks++;}
@@ -94,9 +94,13 @@ $rotated['allowCsrfInit']=true;$rotated['requireCsrf']=false;
 $new=TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>['csrf'=>$a['csrf']]);
 check($new['csrf']!==$id['csrf']);
 denied(fn()=>TransactionStore::run($c,$tables,$id,true,$op),403);
+// Missing auth generation must not silently fall back to pre-login CSRF binding.
+$c->query("UPDATE sessions SET sess_auth='' WHERE sess_id=1");
+denied(fn()=>TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>[]),503);
+$c->query("UPDATE sessions SET sess_auth='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' WHERE sess_id=1");
 // Expiry and capacity use deterministic fixture edits, no wall-clock sleeps.
 $persist=static function(array $s) use($c):void {$j=json_encode($s,JSON_THROW_ON_ERROR);$q=$c->prepare('UPDATE store SET store_data=? WHERE store_id=1');$q->bind_param('s',$j);$q->execute();};
-$key=hash('sha256',json_encode([$rotated['session'],$rotated['user'],$rotated['token']],JSON_THROW_ON_ERROR));
+$key=hash('sha256',json_encode([$rotated['session'],$rotated['user'],$rotated['token'],'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],JSON_THROW_ON_ERROR));
 $state=$read();$expires=$state['csrf'][$key]['expires'];
 TransactionStore::run($c,$tables,$rotated,false,static fn(array &$s,array $a):array=>[]);
 check($read()['csrf'][$key]['expires']===$expires);

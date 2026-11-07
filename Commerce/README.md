@@ -16,7 +16,8 @@ Sessionzuordnung, Token, Ablaufzeit, CSRF, Benutzerstatus und aktueller Owner we
 vor der Buchung aus den gesperrten Zeilen geprüft. Bestellung und Testledger landen
 im selben Commit; Fehler rollen zurück. CSRF-Erzeugung erfolgt unter Session- und Storelock im eigenen Pilotstore.
 Der Adapter liest die GDO-Session nur; er verändert sess_data nicht. Der CSRF-Eintrag
-ist an einen Hash aus Session-ID, Benutzer-ID und geprüftem Sessiontoken gebunden.
+ist an einen Hash aus Session-ID, Benutzer-ID, geprüftem Sessiontoken und aktueller
+sess_auth-Generation gebunden. Fehlt das neue Sessionfeld, wird503 geliefert.
 Alte Token werden nicht aus sess_data übernommen; nach Upgrade Ansicht neu laden.
 CSRF-Einträge laufen nach höchstens einer Stunde ab (bei kürzerer
 Sessionlebensdauer entsprechend früher). Polling verlängert sie nicht. Erfolgreiche
@@ -72,7 +73,7 @@ Vergleich nur anhand offizieller Dokumentation, keine fremden Konten getestet:
 | Kontosperre | Nur Member ohne user_deleted; keine eigene user_enabled-Spalte im untersuchten GDO_User | Tatsächliche Logout-/Sperr- und Sessionwiderrufswege durchgehend testen, MFA/erneute Anmeldung für sensible Änderungen |
 | Inaktive Location | Neue Konfiguration, Bestellung und Testaufladung gesperrt; bestehende Aufträge weiter abwickelbar | Verhalten der künftigen administrativen Sperrgründe festlegen |
 | Nachvollziehbarkeit | Neue Bestellungen/Statuswechsel mit Akteur und UTC-Zeit; gleiche Wiederholung erzeugt keinen zweiten Eintrag | Kein revisionssicheres Auditarchiv; alte Historie wird nicht erfunden |
-| Atomare Buchung | Gemeinsame InnoDB-Transaktion im neuen Adapter; 47 isolierte DB-Prüfungen | Core-Sessionmigration, echter GDO-/Proxy-E2E, Restore-/Crashprüfung und Providerintegration |
+| Atomare Buchung | Gemeinsame InnoDB-Transaktion im neuen Adapter; 48 isolierte DB-Prüfungen | Core-Sessionmigration, echter GDO-/Proxy-E2E, Restore-/Crashprüfung und Providerintegration |
 | Wiederholung/Konkurrenz | Domain-/Dateitests plus acht parallele DB-Aufladeretries; DB-Rennen gegen Logout/Benutzer-/Location-Deaktivierung | Echte HTTP-/WebSocket-Konkurrrenz im vollständigen Stack |
 
 Prüfungen: `php tests/access-policy.php`, `php tests/ordering-domain.php`,
@@ -133,7 +134,7 @@ keinen aktuellen aktivierten Gesamtablauf. DB-/Session-Rennen bleiben offen.
 setzt eine separate MariaDB mit Unix-Socket-Authentifizierung für den aufrufenden
 OS-Nutzer und ohne Netzwerklistener voraus. Das Skript legt ausschließlich ein
 neues zufälliges QA-Schema an, verwendet keine echten Konten und behält es für
-Nachprüfung. 47 Prüfungen: Rollback, doppelte und acht parallele Aufladung,
+Nachprüfung. 48 Prüfungen: Rollback, doppelte und acht parallele Aufladung,
 Sessiontoken/CSRF/Ablauf, Logout und Sperrung, MyISAM-/Nested-Transaction-Ablehnung,
 reale konkurrierende Sperren und CSRF-Erzeugung. Kein GDO-/App-E2E-Nachweis.
 Schemaeinrichtung nicht auf Produktion ausführen; keine Zugangsdaten im Repository.
@@ -161,7 +162,7 @@ Dies ist ein Anforderungskatalog, keine implementierte Bank-/Payment-Sicherheit.
 ## Gemeinsame Abnahme vor Übergabe an Gizmore
 
 Beide PRs bleiben Draft, bis die folgenden offenen Punkte mit tatsächlichen
-Ergebnissen dokumentiert sind. Die 47 isolierten SQL-Prüfungen ersetzen keinen
+Ergebnissen dokumentiert sind. Die 48 isolierten SQL-Prüfungen ersetzen keinen
 dieser vollständigen GDO-Abläufe. Zuständigkeit: Simion Gastro/App, Mira Core/WS.
 
 | Prüfung | Erwartung | Stand |
@@ -212,3 +213,18 @@ UserAuthenticated-Hook ausgelöst; eine Tokenrotation ist dort nicht sichtbar.
 Andere Hooks und der vollständige Login-Ablauf sind noch nicht geprüft.
 Core muss eine geprüfte Rotation oder Auth-Generation bereitstellen; dies bleibt
 vor gemeinsamer Freigabe offen. Kein eigener konkurrierender Core-Hook im Gastro-PR.
+
+## Neuer lokaler Integrationsvertrag (noch nicht als Komplettstand veröffentlicht)
+Der aktuelle Arbeitsstand verlangt eine32stellige sess_auth-Generation. Die
+getrennten lokalen Session-/Login-Branches erneuern sie auch bei Wiederanmeldung
+desselben Nutzers und leeren sess_data. Der aktualisierte echte GDO-Test belegt,
+dass altes Gastro-CSRF dann abgewiesen und bei state neu erzeugt wird.48 isolierte
+DB-Prüfungen bestehen einschließlich fehlender Generation (503).
+
+Die vorher dokumentierte Wiederanmeldungs-Lücke ist damit im isolierten
+Sessionmethoden-Test abgedeckt, aber NICHT im vollständigen HTTP-/WS-Login mit
+allen Hooks. Die neuen Core-/Session-/Login-/WS-Branches sind noch nicht gemeinsam
+bereitgestellt oder auf ein bestehendes Schema migriert. Der Modulstand bleibt
+in Standardkonfiguration aus; kein alleiniger Backend-Pull als funktionierende
+Gesamtintegration bezeichnen. Cookie-Sessionfixation, vollständiger Browserablauf,
+Proxy-E2E und Restore-/Upgradeprüfung bleiben offen.

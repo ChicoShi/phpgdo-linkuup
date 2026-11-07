@@ -1,0 +1,2 @@
+
+[2026-11-07T01:35:10.438114+01:00] Auftrag6003 – lokale Integration, nicht freigegeben. Geprüft:48DB,15WS-Binding/Puffer,9Sessionguard-Zusatzfälle, echter GDO-CSRF/Authwechsel und WS-Dispatch mit synthetischem Transport; Syntax/Diff bestanden. Dateien: geänderter Modulcode und Tests im zugehörigen Commit. Kein Push/Deploy. Offen: kompletter Browser-/Loginflow, Cookie-Rotation, Schemaübernahme/Restore, Broadcast-Grenzen. Nächster Schritt Simion-Terminal – isolierter kompletter App-Aufbau.
