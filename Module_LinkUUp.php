@@ -330,6 +330,7 @@ final class Module_LinkUUp extends GDO_Module
 				'unitPrice' => (float)$credits->cfgConversionRateToCurrency(),
 				'currency' => \GDO\Payment\GDT_Money::$CURRENCY,
 				'minCredits' => (int)$credits->cfgMinPurchaseCredits(),
+				'balance' => (int)GDO_User::current()->getCredits(),
 			], JSON_THROW_ON_ERROR), ENT_QUOTES, 'UTF-8') . '">');
 		}
 		# Redirect to login if not authenticated

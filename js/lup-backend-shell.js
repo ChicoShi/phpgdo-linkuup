@@ -167,16 +167,16 @@
         const number=new Intl.NumberFormat(de?'de-DE':'en-GB');
         const hero=make('header','lup-credits-hero');
         const intro=make('div','lup-credits-intro');
-        intro.append(make('span','lup-credits-eyebrow','LINKUUP CREDITS'),make('h1','',de?'Mach mehr aus deinem Ort.':'Make more of your place.'),make('p','',de?'Dein Guthaben für eigene Treffpunkte, mehr Sichtbarkeit und Nachrichten, die weiterreichen.':'Your balance for your own meeting places, more visibility and messages that reach further.'));
+        intro.append(make('span','lup-credits-eyebrow','LINKUUP CREDITS'),make('h1','',de?'Mehr Nähe. Mehr Möglichkeiten.':'Closer places. More possibilities.'),make('p','',de?'Setze deine Credits dort ein, wo du mehr erreichen möchtest: für zusätzliche Entfernung, Shouts und die Sichtbarkeit deiner Location.':'Use your credits for extra distance, shouts and visibility for your venue.'));
         const wallet=make('div','lup-credits-wallet');
         const icon=make('i','fas fa-coins');icon.setAttribute('aria-hidden','true');wallet.append(icon);
         const link=[...document.querySelectorAll('#navbarSupportedContent a')].find(a=>/paymentcredits[.;]ordercredits/i.test(a.pathname));
-        const balance=link?.textContent.match(/\(([^)]+)\)/)?.[1];
+        const balance=Number.isFinite(pricing.balance)?number.format(pricing.balance):link?.textContent.match(/\(([^)]+)\)/)?.[1];
         wallet.append(make('span','',de?'Dein Guthaben':'Your balance'),make('strong','',balance===undefined?'Credits':balance),make('small','',balance===undefined?'LinkUUp':de?'Credits auf deinem Konto':'Credits in your account'));
         hero.append(intro,wallet);
         const order=make('section','lup-credits-order');
         const selection=make('div','lup-credits-selection');
-        selection.append(make('h2','',de?'Wie viel hast du vor?':'What do you have in mind?'),make('p','',de?'Wähle eine Menge oder trage deinen eigenen Betrag an Credits ein.':'Choose an amount or enter your own number of credits.'));
+        selection.append(make('h2','',de?'Deine nächste Aufladung':'Your next top-up'),make('p','',de?'Wähle eine Menge oder trage deinen eigenen Betrag an Credits ein.':'Choose an amount or enter your own number of credits.'));
         const packs=make('div','lup-credits-packs');packs.setAttribute('aria-label',de?'Credits-Menge auswählen':'Choose a credit amount');
         const titles=de?['Zum Start','Mehr Spielraum','Große Pläne']:['Get started','More possibilities','Bigger plans'];
         const buttons=[1,2,4].map((factor,index)=>{
@@ -208,15 +208,13 @@
         const uses=make('section','lup-credits-uses');uses.append(make('h2','',de?'Deine Credits. Dein nächster Schritt.':'Your credits. Your next step.'));
         const grid=make('div','lup-credit-uses-grid');
         const features=de?[
-            ['map-marker-alt','Eigene Treffpunkte','Locations anlegen und ihre Sichtbarkeit erweitern.',''],
-            ['bullhorn','Ein Impuls an viele Orte','Mit einem Shout besetzte Locations erreichen.',''],
-            ['street-view','Nachrichten im Umkreis','Menschen gezielt rund um deinen Standort ansprechen.','Geplant'],
-            ['glass-cheers','Direkt an der Bar','Mit Credits bei Partner-Locations bezahlen.','Geplant']
+            ['street-view','Mehr Entfernung','Über „Entfernung kaufen“ erweiterst du deine persönliche Chat-Reichweite. Den Umfang wählst du dort aus.',''],
+            ['bullhorn','Ein Shout. Mehr Menschen.','Erreiche besetzte Locations mit einer Nachricht. Der Credit-Verbrauch richtet sich nach dem gewählten Radius.',''],
+            ['map-marker-alt','Deine Location sichtbarer','Als berechtigter Betreiber kannst du den Sichtbarkeitsradius deiner Location erweitern. Credits ersetzen keine Betreiberfreigabe.','']
         ]:[
-            ['map-marker-alt','Your own meeting places','Create locations and extend their visibility.',''],
-            ['bullhorn','Reach more places','Send a shout to occupied locations.',''],
-            ['street-view','Messages nearby','Reach people around your location.','Planned'],
-            ['glass-cheers','At the bar','Pay with credits at partner locations.','Planned']
+            ['street-view','More distance','Use “Buy distance” to extend your personal chat range. Choose the range in that feature.',''],
+            ['bullhorn','One shout. More people.','Send a message to occupied locations. Credits used depend on the selected radius.',''],
+            ['map-marker-alt','Let your venue be seen','Authorized operators can extend their venue’s visibility radius. Credits do not grant operator access.','']
         ];
         features.forEach(([symbol,title,text,status])=>{
             const card=make('article','lup-credit-use'+(status?' lup-credit-planned':''));
@@ -224,8 +222,15 @@
             if(status)card.append(make('span','lup-credit-status',status));
             card.append(make('h3','',title),make('p','',text));grid.append(card);
         });
-        uses.append(grid,make('p','lup-credit-roadmap-note',de?'Geplante Funktionen sind noch nicht nutzbar. Ihre Verfügbarkeit ist nicht Bestandteil dieses Credit-Kaufs.':'Planned features are not available yet. Their availability is not included in this credit purchase.'));
-        content.classList.add('lup-credits-page');content.prepend(hero,order,uses);
+        uses.append(grid);
+        const help=make('section','lup-credits-help');
+        help.append(make('h2','',de?'Gut zu wissen':'Good to know'));
+        [[de?'Sind Credits Euro?':'Are credits euros?',de?'Nein. Credits sind App-Guthaben. Der Kaufpreis wird dir in der Auswahl angezeigt; eine Gleichsetzung von einem Credit mit einem Euro gilt hier nicht.':'No. Credits are app balance. The purchase price is shown in your selection; one credit is not equivalent to one euro.'],
+         [de?'Kann ich damit Essen und Getränke bezahlen?':'Can I pay for food and drinks?',de?'Diese Credits sind derzeit nicht für Barzahlungen freigegeben. Der Gastro-Pilot ist davon getrennt.':'These credits are not currently enabled for bar payments. The gastro pilot is separate.'],
+         [de?'Was passiert nach der Auswahl?':'What happens after selection?',de?'Du gehst zur Bestellübersicht. Prüfe dort Menge, Gesamtpreis und die angebotene Zahlungsart, bevor du eine Bestellung bestätigst.':'Continue to the order overview. Check the amount, total price and available payment method before confirming an order.']].forEach(([q,a])=>{const item=make('details');item.append(make('summary','',q),make('p','',a));help.append(item);});
+        content.classList.add('lup-credits-page');document.body.classList.add('lup-credits-focused');
+        const back=content.querySelector('.lup-app-return');if(back)back.textContent=de?'← Zurück zu LinkUUp':'← Back to LinkUUp';
+        if(back)back.after(hero,uses,order,help);else content.prepend(hero,uses,order,help);
     };
     const enhanceOrders = (content, de) => {
         const addresses=/\/address[.;]ownaddresses[.;]/i.test(location.pathname);
