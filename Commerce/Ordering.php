@@ -71,6 +71,8 @@ final class Ordering
         self::operator($state, $user);
         if ($enabled && (!(($state['menuReady'] ?? false) && ($state['tablesReady'] ?? false)) || ($state['tableCount'] ?? 0) < 1 || !array_filter($state['menu'], fn($i) => $i['available']))) throw new \RuntimeException('Erst Karte und Tische einrichten');
         $state['orderingEnabled'] = $enabled;
+        // Publishing the menu and temporarily pausing new orders are separate.
+        if ($enabled) $state['menuPublished'] = true;
     }
 
     public static function tables(array &$state, string $user, int $count): void

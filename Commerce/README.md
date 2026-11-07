@@ -50,7 +50,7 @@ Dieser Server ist ausschließlich CLI/Loopback, nicht als öffentliche API verwe
 
 ## Vor Live noch offen
 
-Echte Rollen-/Session-/CSRF-End-to-End-Tests, Core-Sessionmigration auf InnoDB, Prüfung des integrierten Transaktionsadapters, Betreiberberechtigung und Paketverkauf, de/en für gesamte eingebettete Oberfläche (derzeit deutsch), Echtzeitstatus, Anwesenheits-/Tischbestätigung, Steuern/Belege/Kasse und Zahlungsanbieter. CSV-Import gehört nur zur früheren isolierten Vorschau, ist im echten lokalen Adapter nicht angeboten. Keine freie PDF-/Foto-Kartenverarbeitung.
+Echte Rollen-/Session-/CSRF-End-to-End-Tests, Core-Sessionmigration auf InnoDB, Prüfung des integrierten Transaktionsadapters, Betreiberberechtigung und Paketverkauf, de/en für gesamte eingebettete Oberfläche (derzeit deutsch), Echtzeitstatus, Anwesenheits-/Tischbestätigung, Steuern/Belege/Kasse und Zahlungsanbieter. CSV-Import ist im lokalen Adapter als begrenzte UTF-8-Vorschau mit anschließender ausdrücklicher Übernahme angeboten. Keine freie PDF-/Foto-Kartenverarbeitung.
 
 PayPal ist kein bloßer Austausch des Testauflade-Buttons: Aufladung erst nach verifiziertem, dedupliziertem Provider-Ereignis; Lieferung und erfolgreicher Capture als getrennte Zustände, Fehler/Retry/Reconciliation, Händlerzuordnung und Auszahlungen. Testaufladung darf in einer öffentlichen API niemals aktiv sein. Keine Produktionsfreigabe durch diese Tests.
 
@@ -161,9 +161,11 @@ berechtigen und begrenzen, Änderungen an Zahlungsempfängern gesondert bestäti
 Providerbuchungen regelmäßig abgleichen, Refund/Dispute/verspätete Events testen.
 Dies ist ein Anforderungskatalog, keine implementierte Bank-/Payment-Sicherheit.
 
-## Gemeinsame Abnahme vor Übergabe an Gizmore
+## Historischer Zwischenstand vor Session-Integration (nicht aktueller Freigabestatus)
 
-Beide PRs bleiben Draft, bis die folgenden offenen Punkte mit tatsächlichen
+Der folgende damalige Arbeitsstand bleibt zur Nachvollziehbarkeit erhalten. Aktueller lokaler Prüfstand: INTEGRATION-REVIEW.md und OPERATOR-APPLICATIONS.md.
+
+Beide PRs blieben Draft, bis die folgenden offenen Punkte mit tatsächlichen
 Ergebnissen dokumentiert sind. Die 48 isolierten SQL-Prüfungen ersetzen keinen
 dieser vollständigen GDO-Abläufe. Zuständigkeit: Simion Gastro/App, Mira Core/WS.
 

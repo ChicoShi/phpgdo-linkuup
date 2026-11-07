@@ -20,7 +20,7 @@ final class TransactionStore
             // Do not implicitly commit a transaction owned by another GDO caller.
             if ((int)$db->query('SELECT @@in_transaction')->fetch_row()[0]!==0) throw new \RuntimeException('Verschachtelte Transaktion nicht erlaubt',503);
             $db->begin_transaction();$begun=true;
-            // Fixed lock order: session -> user -> room -> shared pilot ledger.
+            // Fixed lock order: session -> users (requester + owner, numeric order) -> room -> shared pilot ledger -> approval.
             $session=self::row($db,$tables['session'],'sess_id',(string)$identity['session']);
             if (!$session || empty($identity['token']) || (string)$session['sess_user']!==(string)$identity['user']
                 || !hash_equals((string)$session['sess_token'],(string)$identity['token'])) throw new \RuntimeException('Sitzung abgelaufen',403);
@@ -29,8 +29,26 @@ final class TransactionStore
                 if ($last===false || $last<time()-(int)$identity['maxAge']) throw new \RuntimeException('Sitzung abgelaufen',403);
             }
             if (!is_string($session['sess_auth']??null) || !preg_match('/^[a-f0-9]{32}$/D',$session['sess_auth'])) throw new \RuntimeException('Session-Authentifizierungsschema fehlt',503);
-            $user=self::row($db,$tables['user'],'user_id',(string)$identity['user']);
+            // This hint is not authority. Ownership is revalidated under the room lock.
+            // Lock the owner before the room: approvalFor() also checks that user,
+            // otherwise a guest can hold room/store while waiting for an owner
+            // who already holds their user row and is waiting for the same room.
+            $hint=self::row($db,$tables['room'],'room_id',(string)$identity['room'],false);
+            if (!$hint) throw new \RuntimeException('Zugriff nicht verfügbar',403);
+            $ownerHint=isset($hint['room_owner'])?(string)$hint['room_owner']:null;
+            $userIds=[(string)$identity['user']];
+            if ($ownerHint!==null) {
+                if (!ctype_digit($ownerHint)) throw new \RuntimeException('Ungültige Locationzuordnung',503);
+                $userIds[]=$ownerHint;
+            }
+            $userIds=array_values(array_unique($userIds));
+            usort($userIds,static fn(string $a,string $b):int=>strlen($a)<=>strlen($b) ?: strcmp($a,$b));
+            $lockedUsers=[];
+            foreach($userIds as $userId)$lockedUsers[$userId]=self::row($db,$tables['user'],'user_id',$userId);
+            $user=$lockedUsers[(string)$identity['user']];
             $room=self::row($db,$tables['room'],'room_id',(string)$identity['room']);
+            if ($room && (isset($room['room_owner'])?(string)$room['room_owner']:null)!==$ownerHint)
+                throw new \RuntimeException('Locationzuordnung geändert. Bitte erneut öffnen.',409);
             if (!$user || $user['user_type']!=='member' || $user['user_deleted']!==null || !$room) throw new \RuntimeException('Zugriff nicht verfügbar',403);
             $record=self::row($db,$tables['store'],'store_id','1');
             if (!$record) throw new \RuntimeException('Gastro-Speicher ist nicht initialisiert',503);
@@ -58,7 +76,7 @@ final class TransactionStore
                 $csrf=bin2hex(random_bytes(32));$store['csrf'][$csrfKey]=['token'=>$csrf,'expires'=>$now+$ttl];$csrfChanged=true;
             }
             if (!empty($identity['requireCsrf']) && !hash_equals($csrf,(string)($identity['csrf']??''))) throw new \RuntimeException('Sitzung geändert',403);
-            $result=$operation($store,['user'=>$user,'room'=>$room,'csrf'=>$csrf]);
+            $result=$operation($store,['user'=>$user,'room'=>$room,'csrf'=>$csrf,'binding'=>$csrfKey]);
             if ($write || $csrfChanged) {
                 $json=json_encode($store,JSON_THROW_ON_ERROR|JSON_UNESCAPED_UNICODE);
                 if (strlen($json)>16000000) throw new \RuntimeException('Pilot-Speichergrenze erreicht',503);
@@ -72,9 +90,9 @@ final class TransactionStore
             throw new \RuntimeException('Datenbankvorgang fehlgeschlagen; Stand vor erneutem Versuch prüfen',503);
         } finally {if ($begun)$db->rollback();}
     }
-    private static function row(\mysqli $db,string $table,string $key,string $id): ?array
+    private static function row(\mysqli $db,string $table,string $key,string $id,bool $lock=true): ?array
     {
-        $stmt=$db->prepare('SELECT * FROM `'.$table.'` WHERE `'.$key.'`=? FOR UPDATE');
+        $stmt=$db->prepare('SELECT * FROM `'.$table.'` WHERE `'.$key.'`=?'.($lock?' FOR UPDATE':''));
         $stmt->bind_param('s',$id);$stmt->execute();$row=$stmt->get_result()->fetch_assoc();$stmt->close();return $row;
     }
 }
