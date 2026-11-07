@@ -2,6 +2,7 @@
 namespace GDO\LinkUUp;
 
 use GDO\Core\GDT_Enum;
+use GDO\Util\Strings;
 
 /** A person's optional religion or worldview. */
 final class GDT_Religion extends GDT_Enum
@@ -35,7 +36,7 @@ final class GDT_Religion extends GDT_Enum
 	{
 		$values = self::VALUES;
 		usort($values, static function(string $a, string $b): int {
-			return strnatcasecmp(t('enum_' . $a), t('enum_' . $b));
+			return Strings::compare(t('enum_' . $a), t('enum_' . $b));
 		});
 		return $values;
 	}

@@ -116,7 +116,7 @@ final class Module_LinkUUp extends GDO_Module
 			GDT_Checkbox::make('lup_only_one_chat')->initial('0'), # Auto part all channels before join another room?
 			GDT_UInt::make('lup_max_locations')->initial('10')->min(1)->max(1000), # Maximum locations sent to the app per catalogue request
 			GDT_UInt::make('lup_msg_bufsize')->initial('3')->max(100), # Volatile messages replayed when joining a room
-			GDT_Secret::make('lup_connector_secret')->initial(require __DIR__ . '/secret_gdo.php'), # Authenticates the PyGDO LUP connector callback
+			GDT_Secret::make('lup_connector_secret')->initial(is_file(__DIR__ . '/secret_gdo.php') ? require __DIR__ . '/secret_gdo.php' : ''), # Authenticates the PyGDO LUP connector callback
 			GDT_UInt::make('lup_dog_backlog')->initial('20')->max(100), # Volatile room lines sent to Mira after a quiet period
 			GDT_Url::make('lup_dog_backlog_url')->initial('')->allowAll(false), # PyGDO queue endpoint for quiet room transcripts
 			GDT_Checkbox::make('lup_ticket_engine')->initial('0'), # Need to purchase tickets for a room first?
@@ -141,7 +141,11 @@ final class Module_LinkUUp extends GDO_Module
 
 	public function cfgMaxLocations(): int { return (int)$this->getConfigValue('lup_max_locations'); }
 	public function cfgConnectorSecret(): string { return $this->getConfigVar('lup_connector_secret'); }
-	public function isSecretCorrect(string $secret): bool { return hash_equals($this->cfgConnectorSecret(), $secret); }
+	public function isSecretCorrect(string $secret): bool
+	{
+		$expected = $this->cfgConnectorSecret();
+		return $expected !== '' && $secret !== '' && hash_equals($expected, $secret);
+	}
 	public function cfgDogBacklog(): int { return (int)$this->getConfigValue('lup_dog_backlog'); }
 	public function cfgDogBacklogURL(): string { return $this->getConfigVar('lup_dog_backlog_url'); }
 	public function cfgToleranceCreditsPerKM(): int { return (int)$this->getConfigValue('lup_tolerance_credits_per_km'); }
@@ -326,6 +330,7 @@ final class Module_LinkUUp extends GDO_Module
 				'unitPrice' => (float)$credits->cfgConversionRateToCurrency(),
 				'currency' => \GDO\Payment\GDT_Money::$CURRENCY,
 				'minCredits' => (int)$credits->cfgMinPurchaseCredits(),
+				'balance' => (int)GDO_User::current()->getCredits(),
 			], JSON_THROW_ON_ERROR), ENT_QUOTES, 'UTF-8') . '">');
 		}
 		# Redirect to login if not authenticated

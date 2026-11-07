@@ -101,7 +101,7 @@
         if (bar) {
             const wrapper = bar.closest('.card');
             const tools = make('details','lup-settings-tools');
-            tools.open = true;
+            tools.open = false;
             tools.append(make('summary','',de?'Weitere Kontoaktionen':'More account actions'),bar);
             content.append(tools);
             if (wrapper && !wrapper.textContent.trim() && !wrapper.querySelector('input,select,textarea,img,form')) wrapper.remove();
@@ -116,7 +116,7 @@
         layout.append(nav,panels);
         content.prepend(head,mobile,layout);
         content.classList.add('lup-account-settings');
-        choose(previous?.querySelector('.accordion-collapse')?.id || location.hash.slice(1));
+        choose(blocks.find(el=>el.querySelector('.gdt-error,.is-invalid'))?.querySelector('.accordion-collapse')?.id || location.hash.slice(1) || previous?.querySelector('.accordion-collapse')?.id);
         // Fix missing/technical labels locally, without changing API fields or ACL values.
         const fieldLabels = de ? {lup_profile_outside_visible:'Profil auch außerhalb einer Location zeigen',lup_state:'Bundesland / Region',lup_city:'Wohnort',age_visible:'Wer darf dein Alter sehen?',activity_accuracy:'Genauigkeit der Aktivitätsanzeige',gallery_acl:'Wer darf deine Galerie sehen?'} : {lup_profile_outside_visible:'Show profile outside a location',lup_state:'State / region',lup_city:'City'};
         Object.entries(fieldLabels).forEach(([id,text])=>{
@@ -167,16 +167,16 @@
         const number=new Intl.NumberFormat(de?'de-DE':'en-GB');
         const hero=make('header','lup-credits-hero');
         const intro=make('div','lup-credits-intro');
-        intro.append(make('span','lup-credits-eyebrow','LINKUUP CREDITS'),make('h1','',de?'Mach mehr aus deinem Ort.':'Make more of your place.'),make('p','',de?'Dein Guthaben für eigene Treffpunkte, mehr Sichtbarkeit und Nachrichten, die weiterreichen.':'Your balance for your own meeting places, more visibility and messages that reach further.'));
+        intro.append(make('span','lup-credits-eyebrow','LINKUUP CREDITS'),make('h1','',de?'Mehr Nähe. Mehr Möglichkeiten.':'Closer places. More possibilities.'),make('p','',de?'Setze deine Credits dort ein, wo du mehr erreichen möchtest: für zusätzliche Entfernung, Shouts und die Sichtbarkeit deiner Location.':'Use your credits for extra distance, shouts and visibility for your venue.'));
         const wallet=make('div','lup-credits-wallet');
         const icon=make('i','fas fa-coins');icon.setAttribute('aria-hidden','true');wallet.append(icon);
         const link=[...document.querySelectorAll('#navbarSupportedContent a')].find(a=>/paymentcredits[.;]ordercredits/i.test(a.pathname));
-        const balance=link?.textContent.match(/\(([^)]+)\)/)?.[1];
+        const balance=Number.isFinite(pricing.balance)?number.format(pricing.balance):link?.textContent.match(/\(([^)]+)\)/)?.[1];
         wallet.append(make('span','',de?'Dein Guthaben':'Your balance'),make('strong','',balance===undefined?'Credits':balance),make('small','',balance===undefined?'LinkUUp':de?'Credits auf deinem Konto':'Credits in your account'));
         hero.append(intro,wallet);
         const order=make('section','lup-credits-order');
         const selection=make('div','lup-credits-selection');
-        selection.append(make('h2','',de?'Wie viel hast du vor?':'What do you have in mind?'),make('p','',de?'Wähle eine Menge oder trage deinen eigenen Betrag an Credits ein.':'Choose an amount or enter your own number of credits.'));
+        selection.append(make('h2','',de?'Deine nächste Aufladung':'Your next top-up'),make('p','',de?'Wähle eine Menge oder trage deinen eigenen Betrag an Credits ein.':'Choose an amount or enter your own number of credits.'));
         const packs=make('div','lup-credits-packs');packs.setAttribute('aria-label',de?'Credits-Menge auswählen':'Choose a credit amount');
         const titles=de?['Zum Start','Mehr Spielraum','Große Pläne']:['Get started','More possibilities','Bigger plans'];
         const buttons=[1,2,4].map((factor,index)=>{
@@ -208,15 +208,13 @@
         const uses=make('section','lup-credits-uses');uses.append(make('h2','',de?'Deine Credits. Dein nächster Schritt.':'Your credits. Your next step.'));
         const grid=make('div','lup-credit-uses-grid');
         const features=de?[
-            ['map-marker-alt','Eigene Treffpunkte','Locations anlegen und ihre Sichtbarkeit erweitern.',''],
-            ['bullhorn','Ein Impuls an viele Orte','Mit einem Shout besetzte Locations erreichen.',''],
-            ['street-view','Nachrichten im Umkreis','Menschen gezielt rund um deinen Standort ansprechen.','Geplant'],
-            ['glass-cheers','Direkt an der Bar','Mit Credits bei Partner-Locations bezahlen.','Geplant']
+            ['street-view','Mehr Entfernung','Über „Entfernung kaufen“ erweiterst du deine persönliche Chat-Reichweite. Den Umfang wählst du dort aus.',''],
+            ['bullhorn','Ein Shout. Mehr Menschen.','Erreiche besetzte Locations mit einer Nachricht. Der Credit-Verbrauch richtet sich nach dem gewählten Radius.',''],
+            ['map-marker-alt','Deine Location sichtbarer','Als berechtigter Betreiber kannst du den Sichtbarkeitsradius deiner Location erweitern. Credits ersetzen keine Betreiberfreigabe.','']
         ]:[
-            ['map-marker-alt','Your own meeting places','Create locations and extend their visibility.',''],
-            ['bullhorn','Reach more places','Send a shout to occupied locations.',''],
-            ['street-view','Messages nearby','Reach people around your location.','Planned'],
-            ['glass-cheers','At the bar','Pay with credits at partner locations.','Planned']
+            ['street-view','More distance','Use “Buy distance” to extend your personal chat range. Choose the range in that feature.',''],
+            ['bullhorn','One shout. More people.','Send a message to occupied locations. Credits used depend on the selected radius.',''],
+            ['map-marker-alt','Let your venue be seen','Authorized operators can extend their venue’s visibility radius. Credits do not grant operator access.','']
         ];
         features.forEach(([symbol,title,text,status])=>{
             const card=make('article','lup-credit-use'+(status?' lup-credit-planned':''));
@@ -224,8 +222,32 @@
             if(status)card.append(make('span','lup-credit-status',status));
             card.append(make('h3','',title),make('p','',text));grid.append(card);
         });
-        uses.append(grid,make('p','lup-credit-roadmap-note',de?'Geplante Funktionen sind noch nicht nutzbar. Ihre Verfügbarkeit ist nicht Bestandteil dieses Credit-Kaufs.':'Planned features are not available yet. Their availability is not included in this credit purchase.'));
-        content.classList.add('lup-credits-page');content.prepend(hero,order,uses);
+        uses.append(grid);
+        const help=make('section','lup-credits-help');
+        help.append(make('h2','',de?'Gut zu wissen':'Good to know'));
+        [[de?'Sind Credits Euro?':'Are credits euros?',de?'Nein. Credits sind App-Guthaben. Der Kaufpreis wird dir in der Auswahl angezeigt; eine Gleichsetzung von einem Credit mit einem Euro gilt hier nicht.':'No. Credits are app balance. The purchase price is shown in your selection; one credit is not equivalent to one euro.'],
+         [de?'Kann ich damit Essen und Getränke bezahlen?':'Can I pay for food and drinks?',de?'Diese Credits sind derzeit nicht für Barzahlungen freigegeben. Der Gastro-Pilot ist davon getrennt.':'These credits are not currently enabled for bar payments. The gastro pilot is separate.'],
+         [de?'Was passiert nach der Auswahl?':'What happens after selection?',de?'Du gehst zur Bestellübersicht. Prüfe dort Menge, Gesamtpreis und die angebotene Zahlungsart, bevor du eine Bestellung bestätigst.':'Continue to the order overview. Check the amount, total price and available payment method before confirming an order.']].forEach(([q,a])=>{const item=make('details');item.append(make('summary','',q),make('p','',a));help.append(item);});
+        content.classList.add('lup-credits-page');document.body.classList.add('lup-credits-focused');
+        const back=content.querySelector('.lup-app-return');if(back)back.textContent=de?'← Zurück zu LinkUUp':'← Back to LinkUUp';
+        if(back)back.after(hero,uses,order,help);else content.prepend(hero,uses,order,help);
+    };
+    const enhanceOperatorPreview = content => {
+        const dialog=content.querySelector('.operator-preview-dialog');
+        if (!dialog || typeof dialog.showModal !== 'function') return;
+        let opener;
+        content.querySelectorAll('[data-operator-preview]').forEach(link=>link.addEventListener('click',event=>{
+            event.preventDefault();opener=link;
+            dialog.querySelector('h2').textContent=link.querySelector('strong').textContent;
+            const img=dialog.querySelector('img');
+            img.alt=link.querySelector('strong').textContent+' – Beispieldaten';
+            img.src=window.matchMedia('(max-width:680px)').matches ? link.href.replace('-preview.png','-mobile-preview.png') : link.href;
+            dialog.showModal();document.body.classList.add('operator-preview-open');
+            dialog.querySelector('[data-preview-close]').focus();
+        }));
+        dialog.querySelector('[data-preview-close]').addEventListener('click',()=>dialog.close());
+        dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
+        dialog.addEventListener('close',()=>{document.body.classList.remove('operator-preview-open');opener?.focus({preventScroll:true});});
     };
     const enhanceOrders = (content, de) => {
         const addresses=/\/address[.;]ownaddresses[.;]/i.test(location.pathname);
@@ -427,6 +449,19 @@
             });
             if(manage.children.length){const title=document.createElement('div');title.className='lup-drawer-section';title.textContent=de?'Verwalten':'Manage';nav.after(title,manage);}
         }
+        // Use the app's static line icons; retain the original anchors and permissions.
+        const drawerIcons = {"discover": "<svg class=\"lup-nav-line-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z M16 8l-3 5-5 3 3-5Z\"/></svg>", "friends": "<svg class=\"lup-nav-line-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M17 4a4 4 0 0 1 0 8 M22 21v-2a4 4 0 0 0-3-4\"/></svg>", "settings": "<svg class=\"lup-nav-line-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M12 2v3 M12 19v3 M2 12h3 M19 12h3 M5 5l2 2 M17 17l2 2 M5 19l2-2 M17 7l2-2\"/></svg>", "account": "<svg class=\"lup-nav-line-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 21v-2a8 8 0 0 1 16 0v2 M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8\"/></svg>", "credits": "<svg class=\"lup-nav-line-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3 6h17v14H3Z M3 6V4h14 M15 11h6v5h-6Z\"/></svg>", "gastro": "<svg class=\"lup-nav-line-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 3h7v18H4Z M14 3h6v18h-6 M6 7h3 M6 11h3 M16 7h2 M16 11h2\"/></svg>", "private-messages": "<svg class=\"lup-nav-line-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 4h16v12H9l-5 4Z\"/></svg>"};
+        const extraPaths = {gallery:'M3 3h18v18H3Z M3 16l5-5 4 4 3-3 6 6 M8 7h.01', news:'M4 3h16v18H4Z M8 7h8 M8 11h8 M8 15h5', logout:'M9 4H4v16h5 M10 12h11 M17 8l4 4-4 4'};
+        Object.entries(extraPaths).forEach(([key,path])=>{drawerIcons[key]='<svg class="lup-nav-line-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="'+path+'"/></svg>';});
+        drawer.querySelectorAll('#leftnav a,.lup-drawer-manage a').forEach(link => {
+            const route = new URL(link.href).pathname.toLowerCase();
+            const key = /logout/.test(route) ? 'logout' : /gallery/.test(route) ? 'gallery' : /news/.test(route) ? 'news' : /paymentcredits/.test(route) ? 'credits' : /friends/.test(route) ? 'friends' : /account/.test(route) ? 'settings' : /operator|gastro|roomadmin/.test(route) ? 'gastro' : /profile|login|register/.test(route) ? 'account' : /message|chat/.test(route) ? 'private-messages' : 'discover';
+            const holder = document.createElement('span');
+            holder.className = 'gdo-icon';
+            holder.innerHTML = drawerIcons[key];
+            const oldIcon = link.querySelector('.gdo-icon,i');
+            if (oldIcon) oldIcon.replaceWith(holder); else link.prepend(holder);
+        });
         drawer.querySelectorAll('li').forEach(item => {
             if (!item.querySelector('a,button,input,select') && !item.textContent.trim()) item.hidden = true;
         });
@@ -539,6 +574,7 @@
             enhanceAccountSettings(content, de);
             enhanceEditors(content);
             enhanceCredits(content, de);
+            enhanceOperatorPreview(content);
             if (/\/news[.;]/i.test(location.pathname)) {
                 content.classList.add('lup-news-page');
                 if (/newsletterabbo[.;]/i.test(location.pathname)) content.classList.add('lup-news-subscribe');
@@ -614,5 +650,6 @@
             if (identity?.firstChild?.nodeType === Node.TEXT_NODE) identity.firstChild.textContent = de ? 'E-Mail oder Nutzername ' : 'Email or username ';
         }
     };
-    document.getElementById('content-wrap') ? ready() : document.addEventListener('DOMContentLoaded', ready, {once:true});
+    const initialize = () => { try { ready(); } finally { document.documentElement.classList.remove('lup-view-pending'); } };
+    document.getElementById('content-wrap') ? initialize() : document.addEventListener('DOMContentLoaded', initialize, {once:true});
 })();
