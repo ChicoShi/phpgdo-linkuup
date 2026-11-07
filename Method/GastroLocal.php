@@ -30,6 +30,14 @@ final class GastroLocal extends MethodAjax
     private static function localAppRequest(): bool
     {
         $host=$_SERVER['HTTP_HOST']??'';
+        $expected=Access::origin();
+        if ($expected!=='http://app.localhost') {
+            if ($host!==substr($expected,7)) return false;
+            if (isset($_SERVER['HTTP_ORIGIN'])) return $_SERVER['HTTP_ORIGIN']===$expected;
+            $ref=parse_url($_SERVER['HTTP_REFERER']??'');
+            $origin=is_array($ref)&&isset($ref['scheme'],$ref['host'])?$ref['scheme'].'://'.$ref['host'].(isset($ref['port'])?':'.$ref['port']:''):'';
+            return $origin===$expected;
+        }
         if ($host==='app.localhost') return true;
         // The local /backend proxy forwards Host: localhost. Require the actual
         // app origin/referrer as well; never accept arbitrary forwarded headers.
@@ -43,7 +51,7 @@ final class GastroLocal extends MethodAjax
     {
         $allowed=self::pilotEnabled() && in_array($_SERVER['REMOTE_ADDR']??'', ['127.0.0.1','::1'],true)
             && self::localAppRequest()
-            && in_array($_SERVER['HTTP_ORIGIN']??'', ['', 'http://app.localhost'],true) && $user->isMember() && $user->gdoVar('user_deleted')===null
+            && in_array($_SERVER['HTTP_ORIGIN']??'', ['', Access::origin()],true) && $user->isMember() && $user->gdoVar('user_deleted')===null
             && GDO_Session::instance() && $this->gdoParameterValue('room');
         if (!$allowed) $error='err_not_allowed';
         return (bool)$allowed;
@@ -59,7 +67,7 @@ final class GastroLocal extends MethodAjax
             if (!ctype_digit($rid)) throw new \RuntimeException('Ungültige Location');
             $method=$_SERVER['REQUEST_METHOD']??'GET';$r=[];
             if($method==='POST') {
-                if(($_SERVER['HTTP_ORIGIN']??'')!=='http://app.localhost' || (int)($_SERVER['CONTENT_LENGTH']??0)>200000) throw new \RuntimeException('Ungültige Anfrage');
+                if(($_SERVER['HTTP_ORIGIN']??'')!==Access::origin() || (int)($_SERVER['CONTENT_LENGTH']??0)>200000) throw new \RuntimeException('Ungültige Anfrage');
                 $body=file_get_contents('php://input',false,null,0,200001);
                 if($body===false || strlen($body)>200000)throw new \RuntimeException('Anfrage zu groß');
                 $r=json_decode($body,true,32,JSON_THROW_ON_ERROR);

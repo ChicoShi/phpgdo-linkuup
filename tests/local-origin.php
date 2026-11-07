@@ -1,6 +1,7 @@
 <?php
 namespace GDO\Core { abstract class MethodAjax {} }
 namespace {
+require __DIR__.'/../Commerce/Access.php';
 require __DIR__.'/../Method/GastroLocal.php';
 $m=new ReflectionMethod(\GDO\LinkUUp\Method\GastroLocal::class,'localAppRequest');
 $cases=[

@@ -1,3 +1,5 @@
+> Aktueller Integrations- und Prüfstand: [INTEGRATION-REVIEW.md](INTEGRATION-REVIEW.md). Ältere Prüfnotizen unten bleiben historisch; sie sind keine aktuelle Freigabe.
+
 # Gastro: lokaler Pilot mit Euro-Testguthaben
 
 Stand 07.11.2026, Feature-Branch `simion/gastro-local-20261106`. Kein Live-Release.

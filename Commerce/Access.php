@@ -5,13 +5,20 @@ namespace GDO\LinkUUp\Commerce;
 /** Request policy. Identity and ownership must come from the server session/DB. */
 final class Access
 {
+    public static function origin(): string
+    {
+        $origin=defined('GDO_LINKUUP_GASTRO_ORIGIN')?constant('GDO_LINKUUP_GASTRO_ORIGIN'):'http://app.localhost';
+        if (!is_string($origin) || !preg_match('~^http://(?:app\.localhost|localhost|127\.0\.0\.1)(?::([1-9][0-9]{0,4}))?$~D',$origin,$m)
+            || (isset($m[1]) && (int)$m[1]>65535)) throw new \RuntimeException('Ungültige lokale Pilot-Adresse',503);
+        return $origin;
+    }
     public static function check(bool $activeMember, bool $owner, bool $inactiveRoom, string $action, string $method, string $origin, string $token, string $supplied): void
     {
         if (!$activeMember) throw new \RuntimeException('Anmeldung erforderlich', 403);
         $actions = ['state','save-menu','save-tables','publication','transition','topup-test','place','message'];
         if (!in_array($action, $actions, true)) throw new \RuntimeException('Aktion nicht verfügbar', 400);
         if (!in_array($method, ['GET','POST'], true)) throw new \RuntimeException('Methode nicht erlaubt', 405);
-        if ($action !== 'state' && ($method !== 'POST' || $origin !== 'http://app.localhost' || strlen($token) !== 64 || !hash_equals($token, $supplied))) {
+        if ($action !== 'state' && ($method !== 'POST' || $origin !== self::origin() || strlen($token) !== 64 || !hash_equals($token, $supplied))) {
             throw new \RuntimeException('Sitzung abgelaufen. Bitte neu öffnen.', 403);
         }
         if (in_array($action, ['save-menu','save-tables','publication','transition'], true) && !$owner) {
