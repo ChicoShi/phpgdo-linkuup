@@ -238,3 +238,28 @@ html.lup-backend-ui .lup-app-return:hover { background:transparent; text-decorat
  html.lup-backend-ui body.lup-backend #content-wrap .gdo-operator-applications .gdt-form:is(#form,.gdt-form) { padding:0; border:0; }
  html.lup-backend-ui body.lup-backend #content-wrap .gdo-operator-applications :is(.card-header,.card-body,.gdt-card-middle,.card-footer) { padding:12px 0; }
 }
+
+/* Same calm navy surfaces and line icons as the app navigator. */
+html.lup-backend-ui body.lup-backend #wrapper #sidebar-wrapper {
+ background:#101b2d; border-right:1px solid #263e55; box-shadow:16px 0 48px #03102450;
+}
+html.lup-backend-ui .lup-drawer-head {padding:0 22px;}
+html.lup-backend-ui .lup-drawer-head b span {color:#afc4d8;}
+html.lup-backend-ui .lup-drawer-head small,
+html.lup-backend-ui .lup-drawer-section,
+html.lup-backend-ui .lup-drawer-user span {color:#91a9bf;}
+html.lup-backend-ui .lup-drawer-section {letter-spacing:.08em;}
+html.lup-backend-ui .lup-drawer-user {background:#16283d;border:1px solid #263e55;border-radius:16px;box-shadow:none;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) li {margin:2px 0;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a {
+ gap:16px;border-radius:12px;border-color:transparent;color:#dfedf6;font-size:14px;line-height:1.45;
+}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a:is(:hover,:focus-visible,[aria-current=page]) {background:#1b3045;border-color:transparent;box-shadow:none;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a:focus-visible {outline:2px solid #afc4d8;outline-offset:-2px;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a .gdo-icon {
+ width:22px;height:22px;flex:0 0 22px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:#afc4d8;
+}
+html.lup-backend-ui #sidebar-wrapper .lup-nav-line-icon {display:block;width:22px;height:22px;}
+html.lup-backend-ui body.lup-backend #sidebar-wrapper :is(#leftnav,.lup-drawer-manage) a:is(:hover,:focus-visible) .gdo-icon {color:#e5f1fa;}
+html.lup-backend-ui .lup-drawer-languages {border-color:#263e55;}
+html.lup-backend-ui .lup-drawer-languages a {background:#16283d;}
