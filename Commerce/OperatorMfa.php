@@ -31,10 +31,16 @@ final class OperatorMfa
         $secret=sodium_crypto_secretbox_open(substr($raw,24),substr($raw,0,24),self::key());
         if($secret===false)throw new \RuntimeException('Betreiberschutz nicht verfügbar',503);return $secret;
     }
+    public static function configured(): bool
+    {
+        if (!extension_loaded('sodium')) return false;
+        try { self::key(); return true; } catch (\RuntimeException $e) { return false; }
+    }
     public static function status(array $store,string $uid,string $binding,int $now): array
     {
         $a=$store['operatorMfa'][$uid]??[];
-        return ['enabled'=>!empty($a['secret']),'verified'=>($a['grants'][$binding]??0)>$now];
+        $ready=self::configured();
+        return ['ready'=>$ready,'enabled'=>!empty($a['secret']),'verified'=>$ready && ($a['grants'][$binding]??0)>$now];
     }
     public static function handle(array &$store,string $uid,string $binding,string $action,array $request,bool $passwordOK,int $now): array
     {

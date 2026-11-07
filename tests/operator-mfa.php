@@ -41,3 +41,10 @@ check(isset(M::handle($s,'u','A','mfa-confirm',['code'=>M::code($pendingSecret,i
 check(M::status($s,'u','B',$now+60)['verified'],'second recovery keeps its grant');
 putenv('LINKUUP_MFA_KEY');try{M::handle($s,'u','a','mfa-verify',[],false,$now);check(false,'missing key');}catch(RuntimeException $e){check($e->getCode()===503,'missing key fails closed');}
 echo json_encode(['passed'=>$n,'scope'=>'TOTP vectors, isolated enrollment/recovery/rate-limit/session rules; not HTTP integration']),PHP_EOL;
+
+putenv('LINKUUP_MFA_KEY');
+check(!M::configured(),'missing deployment key is not ready');
+check(!M::status(['operatorMfa'=>['u'=>['grants'=>['a'=>$now+900]]]],'u','a',$now)['verified'],'missing key invalidates apparent session grant');
+putenv('LINKUUP_MFA_KEY=invalid');
+check(!M::configured(),'malformed deployment key is not ready');
+echo "Deployment readiness: 3 additional assertions passed\n";
