@@ -14,11 +14,11 @@ final class OperatorApply extends MethodForm
     {
         $uid=GDO_User::current()->getID();$choices=[];
         if(ctype_digit((string)$uid))foreach(LUP_Room::table()->allWhere('room_owner='.$uid.' AND room_deleted IS NULL') as $room)$choices[$room->getID()]=$room->gdoVar('room_name');
-        $form->addField(GDT_Paragraph::make()->textRaw('Für Gastronomie, Kultur, Bildung und weitere Einrichtungen. Das Team prüft Ihren Antrag und klärt den Vertrag persönlich. Der Antrag allein schaltet keine Betreiberrechte frei.'));
-        $form->addField(GDT_Select::make('room')->choices($choices)->emptyLabelRaw('Neue Einrichtung – noch keine Location zugeordnet')->labelRaw('Eigene Location (optional)'));
+        $form->addField(GDT_Paragraph::make()->textRaw('Wir prüfen deine Angaben und besprechen das Betreiberangebot mit dir. Erst danach wird dein Zugang freigeschaltet.'));
+        $form->addField(GDT_Select::make('room')->choices($choices)->emptyLabelRaw('Neue Location anmelden')->labelRaw('Vorhandene eigene Location'));
         foreach(['business'=>['Name der Einrichtung',160],'kind'=>['Art der Einrichtung',100],'address'=>['Vollständige Geschäftsanschrift',300],'contact'=>['Verantwortliche Kontaktperson',160],'email'=>['Geschäftliche E-Mail',254],'phone'=>['Telefon (optional)',80]] as $key=>[$label,$max])$form->addField(GDT_String::make($key)->labelRaw($label)->max($max)->notNull($key!=='phone'));
         $form->addField(GDT_Text::make('details')->labelRaw('Ihre Rolle im Betrieb und gewünschte Nutzung')->max(2000)->notNull());
-        $form->addField(GDT_AntiCSRF::make());$form->actions()->addField(GDT_Submit::make()->labelRaw('Prüfung beantragen'));
+        $form->addField(GDT_AntiCSRF::make());$form->actions()->addField(GDT_Submit::make()->labelRaw('Antrag zur Prüfung senden'));
     }
     public function formValidated(GDT_Form $form): GDT
     {
